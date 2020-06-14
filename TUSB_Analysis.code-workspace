@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"markdown-pdf.type":[
+			"pdf",
+			"html"
+		],
+		"markdown-pdf.convertOnSave":true
+	}
+}
