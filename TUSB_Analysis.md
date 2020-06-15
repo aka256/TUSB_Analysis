@@ -1,5 +1,72 @@
 # TUSBAnalysis
 
+- [TUSBAnalysis](#tusbanalysis)
+  - [はじめに](#はじめに)
+  - [メインクロック開始時リセットするもの](#メインクロック開始時リセットするもの)
+    - [コマンド群](#コマンド群)
+    - [詳細](#詳細)
+  - [初回ログイン時処理](#初回ログイン時処理)
+    - [コマンド群](#コマンド群-1)
+    - [詳細](#詳細-1)
+  - [ログイン時処理](#ログイン時処理)
+    - [コマンド群](#コマンド群-2)
+    - [詳細](#詳細-2)
+  - [ジョブチェンジ先判定](#ジョブチェンジ先判定)
+    - [コマンド群](#コマンド群-3)
+    - [詳細](#詳細-3)
+  - [ジョブセーブ](#ジョブセーブ)
+    - [コマンド群](#コマンド群-4)
+    - [詳細](#詳細-4)
+  - [ジョブロード](#ジョブロード)
+    - [コマンド群](#コマンド群-5)
+    - [詳細](#詳細-5)
+  - [ステータス表示](#ステータス表示)
+    - [コマンド群](#コマンド群-6)
+  - [攻略率表示](#攻略率表示)
+    - [コマンド群](#コマンド群-7)
+  - [ワープ処理ジョブ島・通常世界](#ワープ処理ジョブ島通常世界)
+    - [コマンド群](#コマンド群-8)
+    - [詳細](#詳細-6)
+  - [KeepInventory確認](#keepinventory確認)
+    - [コマンド群](#コマンド群-9)
+    - [詳細](#詳細-7)
+  - [満腹度修正](#満腹度修正)
+    - [コマンド群](#コマンド群-10)
+    - [詳細](#詳細-8)
+  - [経験値取得処理](#経験値取得処理)
+    - [コマンド群](#コマンド群-11)
+    - [詳細](#詳細-9)
+  - [レベルアップ処理](#レベルアップ処理)
+    - [コマンド群](#コマンド群-12)
+    - [詳細](#詳細-10)
+  - [最大HP調整処理](#最大hp調整処理)
+    - [コマンド群](#コマンド群-13)
+    - [詳細](#詳細-11)
+  - [難易度調整](#難易度調整)
+    - [コマンド群](#コマンド群-14)
+    - [詳細](#詳細-12)
+  - [島攻略処理](#島攻略処理)
+    - [コマンド群](#コマンド群-15)
+    - [詳細](#詳細-13)
+  - [習得スキル取得](#習得スキル取得)
+    - [コマンド群](#コマンド群-16)
+    - [詳細](#詳細-14)
+  - [時計島](#時計島)
+    - [コマンド群](#コマンド群-17)
+    - [詳細](#詳細-15)
+    - [時計島のアラーム](#時計島のアラーム)
+
+- [Entity](TUSB_Analysis_Entity.html)
+- [その他](TUSB_Analysis_Data.html)
+
+---
+
+## はじめに
+
+これはThe Unusual Skyblock v12.0.9 の主にX回路区域内にあるコマンド群について簡単にまとめたものです。なので、実際にX回路区域を飛び回りながらこれを読むことをおススメします。また、何か間違い等がありましたらtwitterにてご連絡をお願いします(<https://twitter.com/Re16d5>)。
+
+---
+
 ## メインクロック開始時リセットするもの
 
 - 位置(-1920,4,-192)
@@ -205,7 +272,7 @@
 
 ### 詳細
 
-1. `Job`が1以上であるプレイヤーからジョブ変更申請書や各職業の変更許可書を削除し、職業変更許可書の場合はプレイヤーの[LoadJob]を各職業ごとに設定
+1. `Job`が1以上であるプレイヤーからジョブ変更申請書や各職業の変更許可書を削除し、職業変更許可書の場合はプレイヤーの`LoadJob`を各職業ごとに設定
 2. プレイヤーの`ItemCount`を-1に設定
 3. プレイヤーから釣りチケ3分を削除し、`ItemCount`が1以上であるプレイヤーに不幸Lv.20を180秒間とテキストを表示
 
@@ -236,7 +303,7 @@
 
 ### 詳細
 
-1. [SaveJob]がそれぞれの職業のものと等しいプレイヤーの`(Job)Level`に`Level`を、`(Job)ToLevel`に`ExpToLevel`をそれぞれ代入
+1. `SaveJob`がそれぞれの職業のものと等しいプレイヤーの`(Job)Level`に`Level`を、`(Job)ToLevel`に`ExpToLevel`をそれぞれ代入
 2. `SaveJob`が0以上のプレイヤーの`SaveJob`を0に設定
 
 ---
@@ -291,14 +358,14 @@
 
 ### 詳細
 
-1. 各職業に対応する[LoadJob]の値であるプレイヤーの`Level`に`(Job)Level`を、`ExpToLevel`に`(Job)ToLevel`をそれぞれ代入し、職業にごとの音やパーティクルを表示
-2. [LoadJob]が0以上であるプレイヤーを一人選択し、その`NextExp`に`Level`を代入
-3. [LoadJob]が0以上であるプレイヤーの`NextExp`に`#ExpMul`の`Const`=7との積を代入、`CoolTickSpan`を-100に設定
-4. [LoadJob]が0以上であるプレイヤーを一人選択し、`CoolTickSpan`に`Level`を足し合わせ、`CoolTickCounter`に`CoolTickSpan`を代入
-5. [LoadJob]が0以上であるプレイヤーの`MPMaxFlag`を0に設定
-6. [LoadJob]が0以上であるプレイヤーを一人選択し、`Job`に[LoadJob]を代入
-7. [LoadJob]が0以上であるプレイヤーの`ModeSkillA`,`ModeSkillB`,`InstantSkillA`,`InstantSkillB`,`CurrentMode`,`CurrentModeCost`をそれぞれ0に設定
-8. [LoadJob]が0以上であるプレイヤーの`LoadJob`を0に設定
+1. 各職業に対応する`LoadJob`の値であるプレイヤーの`Level`に`(Job)Level`を、`ExpToLevel`に`(Job)ToLevel`をそれぞれ代入し、職業にごとの音やパーティクルを表示
+2. `LoadJob`が0以上であるプレイヤーを一人選択し、その`NextExp`に`Level`を代入
+3. `LoadJob`が0以上であるプレイヤーの`NextExp`に`#ExpMul`の`Const`=7との積を代入、`CoolTickSpan`を-100に設定
+4. `LoadJob`が0以上であるプレイヤーを一人選択し、`CoolTickSpan`に`Level`を足し合わせ、`CoolTickCounter`に`CoolTickSpan`を代入
+5. `LoadJob`が0以上であるプレイヤーの`MPMaxFlag`を0に設定
+6. `LoadJob`が0以上であるプレイヤーを一人選択し、`Job`に`LoadJob`を代入
+7. `LoadJob`が0以上であるプレイヤーの`ModeSkillA`,`ModeSkillB`,`InstantSkillA`,`InstantSkillB`,`CurrentMode`,`CurrentModeCost`をそれぞれ0に設定
+8. `LoadJob`が0以上であるプレイヤーの`LoadJob`を0に設定
 
 ---
 
@@ -1143,46 +1210,5 @@
 
 - 音を鳴らし、時間を23400に設定する
 
----
-
-## Entity
-
-### CommonGM
-
-[CommonGM]:#commongm
-
-```minecraftcommand
-ArmorStand ~ ~ ~ {NoGravity:1b,HurtByTimestamp:0,Attributes:[0:{Base:20.0d,Name:"generic.maxHealth"},1:{Base:0.0d,Name:"generic.knockbackResistance"},2:{Base:0.699999988079071d,Name:"generic.movementSpeed"},3:{Base:0.0d,Name:"generic.armor"},4:{Base:0.0d,Name:"generic.armorToughness"}],Invulnerable:1b,FallFlying:0b,ShowArms:0b,PortalCooldown:0,AbsorptionAmount:0.0f,FallDistance:0.0f,DisabledSlots:31,DeathTime:0s,Pose:{},Invisible:1b,Tags:[0:"TypeChecked",1:"SystemEntity"],Motion:[0:0.0d,1:0.0d,2:0.0d],Small:1b,UUIDLeast:1L,Health:20.0f,Air:300s,OnGround:0b,Dimension:0,Marker:1b,Rotation:[0:0.0f,1:0.0f],HandItems:[0:{},1:{}],UUIDMost:1L,CustomName:"CommonGM",Pos:[0:-1919.5d,1:6.5d,2:-191.5d],Fire:0s,ArmorItems:[0:{},1:{},2:{},3:{}],NoBasePlate:1b,HurtTime:0s,CustomNameVisible:1b}
-```
-
-|No.|Tag Name|
-|:-:|:------:|
-|1|TypeChecked|
-|2|SystemEntity|
-
-### コーラスマイト
-
-```minecraftcommand
-Endermite ~ ~ ~ {CustomName:"コーラスマイト",Health:200f,Lifetime:1900,Attributes:[{Name:"generic.maxHealth",Base:200d},{Name:"generic.movementSpeed",Base:0.3d},{Name:"generic.attackDamage",Base:1d},{Name:"generic.knockbackResistance",Base:0.3d},{Name:"generic.followRange",Base:32d}],HandItems:[{tag:{ench:[{id:19s,lvl:20s}]},id:"minecraft:iron_sword",Count:0b,Damage:0s},{}]}
-```
-
-## Team
-
-- (空白):最初にログインしたときのチーム
-- FriendlyTeam:通常プレイ時のチーム
-
-## Score
-
-### LoadJob/SaveJob
-
-[LoadJob]:#loadjobsavejob
-[SaveJob]:#loadjobsavejob
-
-|値|職業|
-|:-:|:-:|
-|1|剣士|
-|2|忍者|
-|3|狩人|
-|4|白魔導士|
-|5|黒魔導士|
-|6|召喚士|
+[CommonGM]:TUSB_Analysis_Entity.html
+[エンダーマイト]:TUSB_Analysis_Entity.html
