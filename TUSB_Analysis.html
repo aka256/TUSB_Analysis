@@ -366,6 +366,172 @@ code {
     });
   </script>
 <h1 id="tusbanalysis">TUSBAnalysis</h1>
+<h2 id="%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</h2>
+<p>これはThe Unusual Skyblock v12.0.9 の主にX回路区域内にあるコマンド群について、個人的なメモとして簡単にまとめたものです。なので一応明言しておきますが<strong>非公式なドキュメント</strong>となっていますので、このドキュメントに関して間違えても<strong>TUSBサークルの皆様に連絡をすることがないよう</strong>お願いします。</p>
+<p>実際に読む際これだけでは分かりにくいと思うので、X回路区域を飛び回りながら読むことをおススメします。</p>
+<p>また、何か間違い等がありましたらtwitterにて連絡をいただけると嬉しいです。(<a href="https://twitter.com/Re16d5">https://twitter.com/Re16d5</a>)</p>
+<p>(最終更新日:2020/6/15)</p>
+<hr>
+<ul>
+<li>
+<p><a href="#tusbanalysis">TUSBAnalysis</a></p>
+<ul>
+<li><a href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</a></li>
+<li><a href="#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF%E9%96%8B%E5%A7%8B%E6%99%82%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%99%E3%82%8B%E3%82%82%E3%81%AE">メインクロック開始時リセットするもの</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E5%88%9D%E5%9B%9E%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E6%99%82%E5%87%A6%E7%90%86">初回ログイン時処理</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-1">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-1">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E6%99%82%E5%87%A6%E7%90%86">ログイン時処理</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-2">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-2">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%83%81%E3%82%A7%E3%83%B3%E3%82%B8%E5%85%88%E5%88%A4%E5%AE%9A">ジョブチェンジ先判定</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-3">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-3">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%82%BB%E3%83%BC%E3%83%96">ジョブセーブ</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-4">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-4">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%83%AD%E3%83%BC%E3%83%89">ジョブロード</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-5">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-5">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E8%A1%A8%E7%A4%BA">ステータス表示</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-6">コマンド群</a></li>
+</ul>
+</li>
+<li><a href="#%E6%94%BB%E7%95%A5%E7%8E%87%E8%A1%A8%E7%A4%BA">攻略率表示</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-7">コマンド群</a></li>
+</ul>
+</li>
+<li><a href="#%E3%83%AF%E3%83%BC%E3%83%97%E5%87%A6%E7%90%86%E3%82%B8%E3%83%A7%E3%83%96%E5%B3%B6%E9%80%9A%E5%B8%B8%E4%B8%96%E7%95%8C">ワープ処理ジョブ島・通常世界</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-8">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-6">詳細</a></li>
+</ul>
+</li>
+<li><a href="#keepinventory%E7%A2%BA%E8%AA%8D">KeepInventory確認</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-9">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-7">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E6%BA%80%E8%85%B9%E5%BA%A6%E4%BF%AE%E6%AD%A3">満腹度修正</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-10">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-8">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E7%B5%8C%E9%A8%93%E5%80%A4%E5%8F%96%E5%BE%97%E5%87%A6%E7%90%86">経験値取得処理</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-11">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-9">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E3%83%AC%E3%83%99%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97%E5%87%A6%E7%90%86">レベルアップ処理</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-12">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-10">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%80%E5%A4%A7hp%E8%AA%BF%E6%95%B4%E5%87%A6%E7%90%86">最大HP調整処理</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-13">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-11">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E9%9B%A3%E6%98%93%E5%BA%A6%E8%AA%BF%E6%95%B4">難易度調整</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-14">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-12">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86">島攻略処理</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-15">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-13">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BF%92%E5%BE%97%E3%82%B9%E3%82%AD%E3%83%AB%E5%8F%96%E5%BE%97">習得スキル取得</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-16">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-14">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E6%99%82%E8%A8%88%E5%B3%B6">時計島</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-17">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-15">詳細</a></li>
+<li><a href="#%E6%99%82%E8%A8%88%E5%B3%B6%E3%81%AE%E3%82%A2%E3%83%A9%E3%83%BC%E3%83%A0">時計島のアラーム</a></li>
+</ul>
+</li>
+<li><a href="#%E3%83%9E%E3%82%AF%E3%83%A9%E3%82%A6%E3%82%A7%E3%83%AB%E5%86%85%E9%83%A8">マクラウェル内部</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-18">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-16">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%B9%E3%82%B3%E3%82%A2%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E8%A8%AD%E5%AE%9A">スコアボードの設定</a></li>
+<li><a href="#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFoff">メインクロックOFF</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-19">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-17">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFon">メインクロックON</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-20">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-18">詳細</a></li>
+<li><a href="#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</a></li>
+</ul>
+</li>
+<li><a href="#systemkeeper%E5%87%A6%E7%90%86">SystemKeeper処理</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-21">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-19">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E3%81%8B%E3%81%BE%E3%81%A9%E5%86%8D%E8%A8%AD%E5%AE%9A">かまど再設定</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">コマンド</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-20">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E6%AF%8Etick%E5%BF%85%E3%81%9A%E6%9C%80%E5%88%9D%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最初に実行したいコマンド群</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-22">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-21">詳細</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="TUSB_Analysis_Entity.html">Entity</a></p>
+</li>
+<li>
+<p><a href="TUSB_Analysis_Data.html">その他</a></p>
+</li>
+</ul>
+<hr>
 <h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF%E9%96%8B%E5%A7%8B%E6%99%82%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%99%E3%82%8B%E3%82%82%E3%81%AE">メインクロック開始時リセットするもの</h2>
 <ul>
 <li>位置(-1920,4,-192)</li>
@@ -602,8 +768,8 @@ code {
 <h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
 <ol>
 <li><code>MPConsumption</code>が0以上のプレイヤーの<code>MPConsumption</code>を0とし、<code>ActivatedSkill</code>が0以上のプレイヤーの<code>ActivatedSkill</code>を0とする。そして<code>Sneaking</code>を削除</li>
-<li>チームに属していないプレイヤー(team=)を一人選択し、<a href="#commongm">CommonGM</a>から(~,8,-192)にある<a href="#%E5%88%9D%E5%9B%9E%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E6%99%82%E5%87%A6%E7%90%86"><strong>初回ログイン時処理</strong></a>を実行</li>
-<li><code>LeaveGame</code>が1以上のプレイヤーを一人選択し、<a href="#commongm">CommonGM</a>から(~,9,-192)にある<a href="#%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E6%99%82%E5%87%A6%E7%90%86"><strong>ログイン時処理</strong></a>を実行</li>
+<li>チームに属していないプレイヤー(team=)を一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,8,-192)にある<a href="#%E5%88%9D%E5%9B%9E%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E6%99%82%E5%87%A6%E7%90%86"><strong>初回ログイン時処理</strong></a>を実行</li>
+<li><code>LeaveGame</code>が1以上のプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-192)にある<a href="#%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E6%99%82%E5%87%A6%E7%90%86"><strong>ログイン時処理</strong></a>を実行</li>
 <li><code>PickerPaper</code>が1以上のプレイヤーの<code>TradedVillager</code>と<code>PickerPaper</code>の値を入れ替える</li>
 <li><code>TradedVillager</code>が1以上のプレイヤーの<code>TradedVillager</code>を0にし、(-1920,10,-192)にある<a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%83%81%E3%82%A7%E3%83%B3%E3%82%B8%E5%85%88%E5%88%A4%E5%AE%9A"><strong>ジョブチェンジ先判定</strong></a>を実行</li>
 <li><code>ShowStatus</code>を持っているプレイヤーを一人選択し、<code>SaveJob</code>に<code>Job</code>を代入する</li>
@@ -614,14 +780,14 @@ code {
 <li><code>ShowConquest</code>のプレイヤーを一人選択し、(-1920,18,-192)にある<a href="#%E6%94%BB%E7%95%A5%E7%8E%87%E8%A1%A8%E7%A4%BA"><strong>攻略率表示?</strong></a>を実行</li>
 <li>(-1755,98,-153)からdx=32,dy=9,dz=32(ブラジル行きの穴)にいるプレイヤーに<code>WarpByJob</code>を付与し、(-1920,15,-192)にある<a href="#%E3%83%AF%E3%83%BC%E3%83%97%E5%87%A6%E7%90%86%E3%82%B8%E3%83%A7%E3%83%96%E5%B3%B6%E3%83%BB%E9%80%9A%E5%B8%B8%E4%B8%96%E7%95%8C"><strong>ワープ処理_ジョブ島/通常世界</strong></a>を実行</li>
 <li><code>HP</code>が0以下,<code>Hunger</code>が-1以下であるプレイヤーを一人選択し、<code>Hunger</code>に<code>Food</code>を代入し、(-1920,16,-192)にある<a href="#keepinventory%E7%A2%BA%E8%AA%8D"><strong>KeepInventory確認</strong></a>を実行</li>
-<li><code>HP</code>が1以上,<code>Hunger</code>が0以上であるプレイヤーを一人選択し、<a href="#commongm">CommonGM</a>から(~,17,-192)にある<a href="#%E6%BA%80%E8%85%B9%E5%BA%A6%E4%BF%AE%E6%AD%A3"><strong>満腹度修正</strong></a>を実行</li>
+<li><code>HP</code>が1以上,<code>Hunger</code>が0以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-192)にある<a href="#%E6%BA%80%E8%85%B9%E5%BA%A6%E4%BF%AE%E6%AD%A3"><strong>満腹度修正</strong></a>を実行</li>
 <li><code>HP</code>が1以上かつインベントリにネザースターのあるプレイヤーの<code>GotExpFlag</code>を-1にし、(-1920,8,-191)にある<a href="#%E7%B5%8C%E9%A8%93%E5%80%A4%E5%8F%96%E5%BE%97%E5%87%A6%E7%90%86"><strong>経験値取得処理</strong></a>を実行</li>
-<li><code>ExpToLevel</code>が0以下であるプレイヤーを一人選択し、<a href="#commongm">CommonGM</a>から(~,9,-191)にある<a href="#%E3%83%AC%E3%83%99%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97%E5%87%A6%E7%90%86"><strong>レベルアップ処理</strong></a>を実行</li>
-<li><code>RefreshHPMax</code>が1以上であるプレイヤーを一人選択し、<a href="#commongm">CommonGM</a>から(~,16,-191)にある<a href="#%E6%9C%80%E5%A4%A7hp%E8%AA%BF%E6%95%B4%E5%87%A6%E7%90%86"><strong>最大HP調整処理</strong></a>を実行</li>
+<li><code>ExpToLevel</code>が0以下であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-191)にある<a href="#%E3%83%AC%E3%83%99%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97%E5%87%A6%E7%90%86"><strong>レベルアップ処理</strong></a>を実行</li>
+<li><code>RefreshHPMax</code>が1以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,16,-191)にある<a href="#%E6%9C%80%E5%A4%A7hp%E8%AA%BF%E6%95%B4%E5%87%A6%E7%90%86"><strong>最大HP調整処理</strong></a>を実行</li>
 <li><code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下,<code>ManaRefresh</code>が0以上であるプレイヤーを一人選択し、<code>MP</code>に<code>MPIncrement</code>を足し合わせる</li>
 <li><code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code>MP</code>に<code>MPIncrement</code>を足し合わせ、<code>MP</code>から<code>MPMax</code>を引く。そして、<code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下,<code>MP</code>が0以上であるプレイヤーを一人選択し、<code>MP</code>に<code>MPMax</code>を代入し、<code>score_CoolTickCounter_min=1</code>,<code>score_MPMaxFlag=0</code>,<code>score_MP_min=0</code>であるプレイヤーの<code>MPMaxFlag</code>を1にする</li>
 <li><code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code>MP</code>に<code>MPMax</code>を足し合わせ、<code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code>CoolTickCounter</code>に<code>CoolTickSpan</code>を代入する</li>
-<li><code>UseEnderEye</code>が1以上であるプレイヤーを一人選択し、<a href="#commongm">CommonGM</a>から(~,17,-191)と(~,18,-191)にある<a href="#%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86"><strong>島攻略処理</strong></a>と<a href="#%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86"><strong>島攻略処理_その2?</strong></a>をそれぞれ実行</li>
+<li><code>UseEnderEye</code>が1以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-191)と(~,18,-191)にある<a href="#%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86"><strong>島攻略処理</strong></a>と<a href="#%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86"><strong>島攻略処理_その2?</strong></a>をそれぞれ実行</li>
 <li><code>UseChorus</code>が1以上であるプレイヤーに<code>Pray</code>を追加。(-2827,57,-410)から(dx=9,dy=123,dz=9)(タワーバンク内)にいてかつ<code>Use_Chorus</code>が1以上であるプレイヤーを(-2811,75,-396,-53,0)(タワーバンク入口)に移動させる</li>
 <li><code>UseChorus</code>が1以上であるプレイヤーのところに<a href="#%E3%82%B3%E3%83%BC%E3%83%A9%E3%82%B9%E3%83%9E%E3%82%A4%E3%83%88">コーラスマイト</a>を出現させ、<code>UseChorus</code>が1以上であるプレイヤーの<code>UseChorus</code>を0にする</li>
 <li><code>Deaths</code>が1以上,<code>HP</code>が1以上であるプレイヤーのエフェクトをすべて消去する</li>
@@ -1013,7 +1179,7 @@ code {
 </table>
 <h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
 <ol>
-<li><code>Job</code>が1以上であるプレイヤーからジョブ変更申請書や各職業の変更許可書を削除し、職業変更許可書の場合はプレイヤーの<a href="#loadjobsavejob">LoadJob</a>を各職業ごとに設定</li>
+<li><code>Job</code>が1以上であるプレイヤーからジョブ変更申請書や各職業の変更許可書を削除し、職業変更許可書の場合はプレイヤーの<code>LoadJob</code>を各職業ごとに設定</li>
 <li>プレイヤーの<code>ItemCount</code>を-1に設定</li>
 <li>プレイヤーから釣りチケ3分を削除し、<code>ItemCount</code>が1以上であるプレイヤーに不幸Lv.20を180秒間とテキストを表示</li>
 </ol>
@@ -1088,7 +1254,7 @@ code {
 </table>
 <h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
 <ol>
-<li><a href="#loadjobsavejob">SaveJob</a>がそれぞれの職業のものと等しいプレイヤーの<code>(Job)Level</code>に<code>Level</code>を、<code>(Job)ToLevel</code>に<code>ExpToLevel</code>をそれぞれ代入</li>
+<li><code>SaveJob</code>がそれぞれの職業のものと等しいプレイヤーの<code>(Job)Level</code>に<code>Level</code>を、<code>(Job)ToLevel</code>に<code>ExpToLevel</code>をそれぞれ代入</li>
 <li><code>SaveJob</code>が0以上のプレイヤーの<code>SaveJob</code>を0に設定</li>
 </ol>
 <hr>
@@ -1301,14 +1467,14 @@ code {
 </table>
 <h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
 <ol>
-<li>各職業に対応する<a href="#loadjobsavejob">LoadJob</a>の値であるプレイヤーの<code>Level</code>に<code>(Job)Level</code>を、<code>ExpToLevel</code>に<code>(Job)ToLevel</code>をそれぞれ代入し、職業にごとの音やパーティクルを表示</li>
-<li><a href="#loadjobsavejob">LoadJob</a>が0以上であるプレイヤーを一人選択し、その<code>NextExp</code>に<code>Level</code>を代入</li>
-<li><a href="#loadjobsavejob">LoadJob</a>が0以上であるプレイヤーの<code>NextExp</code>に<code>#ExpMul</code>の<code>Const</code>=7との積を代入、<code>CoolTickSpan</code>を-100に設定</li>
-<li><a href="#loadjobsavejob">LoadJob</a>が0以上であるプレイヤーを一人選択し、<code>CoolTickSpan</code>に<code>Level</code>を足し合わせ、<code>CoolTickCounter</code>に<code>CoolTickSpan</code>を代入</li>
-<li><a href="#loadjobsavejob">LoadJob</a>が0以上であるプレイヤーの<code>MPMaxFlag</code>を0に設定</li>
-<li><a href="#loadjobsavejob">LoadJob</a>が0以上であるプレイヤーを一人選択し、<code>Job</code>に<a href="#loadjobsavejob">LoadJob</a>を代入</li>
-<li><a href="#loadjobsavejob">LoadJob</a>が0以上であるプレイヤーの<code>ModeSkillA</code>,<code>ModeSkillB</code>,<code>InstantSkillA</code>,<code>InstantSkillB</code>,<code>CurrentMode</code>,<code>CurrentModeCost</code>をそれぞれ0に設定</li>
-<li><a href="#loadjobsavejob">LoadJob</a>が0以上であるプレイヤーの<code>LoadJob</code>を0に設定</li>
+<li>各職業に対応する<code>LoadJob</code>の値であるプレイヤーの<code>Level</code>に<code>(Job)Level</code>を、<code>ExpToLevel</code>に<code>(Job)ToLevel</code>をそれぞれ代入し、職業にごとの音やパーティクルを表示</li>
+<li><code>LoadJob</code>が0以上であるプレイヤーを一人選択し、その<code>NextExp</code>に<code>Level</code>を代入</li>
+<li><code>LoadJob</code>が0以上であるプレイヤーの<code>NextExp</code>に<code>#ExpMul</code>の<code>Const</code>=7との積を代入、<code>CoolTickSpan</code>を-100に設定</li>
+<li><code>LoadJob</code>が0以上であるプレイヤーを一人選択し、<code>CoolTickSpan</code>に<code>Level</code>を足し合わせ、<code>CoolTickCounter</code>に<code>CoolTickSpan</code>を代入</li>
+<li><code>LoadJob</code>が0以上であるプレイヤーの<code>MPMaxFlag</code>を0に設定</li>
+<li><code>LoadJob</code>が0以上であるプレイヤーを一人選択し、<code>Job</code>に<code>LoadJob</code>を代入</li>
+<li><code>LoadJob</code>が0以上であるプレイヤーの<code>ModeSkillA</code>,<code>ModeSkillB</code>,<code>InstantSkillA</code>,<code>InstantSkillB</code>,<code>CurrentMode</code>,<code>CurrentModeCost</code>をそれぞれ0に設定</li>
+<li><code>LoadJob</code>が0以上であるプレイヤーの<code>LoadJob</code>を0に設定</li>
 </ol>
 <hr>
 <h2 id="%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E8%A1%A8%E7%A4%BA">ステータス表示</h2>
@@ -2786,7 +2952,7 @@ code {
 </li>
 <li><code>ForceNight</code>の<code>Settings</code>が0以下の時、以下の事柄を実行
 <ul>
-<li><a href="#commongm">CommonGM</a>が(-1920,4,-96)にある<a href="#%E6%99%82%E8%A8%88%E5%B3%B6"><strong>時計島</strong></a>を実行</li>
+<li><a href="TUSB_Analysis_Entity.html">CommonGM</a>が(-1920,4,-96)にある<a href="#%E6%99%82%E8%A8%88%E5%B3%B6"><strong>時計島</strong></a>を実行</li>
 </ul>
 </li>
 <li><code>ForceNight</code>の<code>Settings</code>が1以上であり、(3,77,87)にある南向きでエンダーアイがはめられたエンドポータルフレームが存在する時、以下の事柄を実行
@@ -4355,69 +4521,678 @@ code {
 <li>音を鳴らし、時間を23400に設定する</li>
 </ul>
 <hr>
-<h2 id="entity">Entity</h2>
-<h3 id="commongm">CommonGM</h3>
-<pre class="hljs"><code><div>ArmorStand ~ ~ ~ {NoGravity:1b,HurtByTimestamp:0,Attributes:[0:{Base:20.0d,Name:&quot;generic.maxHealth&quot;},1:{Base:0.0d,Name:&quot;generic.knockbackResistance&quot;},2:{Base:0.699999988079071d,Name:&quot;generic.movementSpeed&quot;},3:{Base:0.0d,Name:&quot;generic.armor&quot;},4:{Base:0.0d,Name:&quot;generic.armorToughness&quot;}],Invulnerable:1b,FallFlying:0b,ShowArms:0b,PortalCooldown:0,AbsorptionAmount:0.0f,FallDistance:0.0f,DisabledSlots:31,DeathTime:0s,Pose:{},Invisible:1b,Tags:[0:&quot;TypeChecked&quot;,1:&quot;SystemEntity&quot;],Motion:[0:0.0d,1:0.0d,2:0.0d],Small:1b,UUIDLeast:1L,Health:20.0f,Air:300s,OnGround:0b,Dimension:0,Marker:1b,Rotation:[0:0.0f,1:0.0f],HandItems:[0:{},1:{}],UUIDMost:1L,CustomName:&quot;CommonGM&quot;,Pos:[0:-1919.5d,1:6.5d,2:-191.5d],Fire:0s,ArmorItems:[0:{},1:{},2:{},3:{}],NoBasePlate:1b,HurtTime:0s,CustomNameVisible:1b}
-</div></code></pre>
+<h2 id="%E3%83%9E%E3%82%AF%E3%83%A9%E3%82%A6%E3%82%A7%E3%83%AB%E5%86%85%E9%83%A8">マクラウェル内部</h2>
+<ul>
+<li>位置(-1896,117,-136)</li>
+</ul>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
+<p>コマンドトロッコ</p>
+<ul>
+<li>/execute @p[r=30,m=!creative] ~ ~ ~ /clone -1870 4 -194 -1870 4 -158 -1870 4 -194 filtered force minecraft:command_block</li>
+</ul>
 <table>
 <thead>
 <tr>
 <th style="text-align:center">No.</th>
-<th style="text-align:center">Tag Name</th>
+<th style="text-align:left">コマンド</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center">1</td>
-<td style="text-align:center">TypeChecked</td>
+<td style="text-align:left">/blockdata -1884 11 -200 {auto:true}</td>
 </tr>
 <tr>
 <td style="text-align:center">2</td>
-<td style="text-align:center">SystemEntity</td>
-</tr>
-</tbody>
-</table>
-<h3 id="%E3%82%B3%E3%83%BC%E3%83%A9%E3%82%B9%E3%83%9E%E3%82%A4%E3%83%88">コーラスマイト</h3>
-<pre class="hljs"><code><div>Endermite ~ ~ ~ {CustomName:&quot;コーラスマイト&quot;,Health:200f,Lifetime:1900,Attributes:[{Name:&quot;generic.maxHealth&quot;,Base:200d},{Name:&quot;generic.movementSpeed&quot;,Base:0.3d},{Name:&quot;generic.attackDamage&quot;,Base:1d},{Name:&quot;generic.knockbackResistance&quot;,Base:0.3d},{Name:&quot;generic.followRange&quot;,Base:32d}],HandItems:[{tag:{ench:[{id:19s,lvl:20s}]},id:&quot;minecraft:iron_sword&quot;,Count:0b,Damage:0s},{}]}
-</div></code></pre>
-<h2 id="team">Team</h2>
-<ul>
-<li>(空白):最初にログインしたときのチーム</li>
-<li>FriendlyTeam:通常プレイ時のチーム</li>
-</ul>
-<h2 id="score">Score</h2>
-<h3 id="loadjobsavejob">LoadJob/SaveJob</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">値</th>
-<th style="text-align:center">職業</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">剣士</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">忍者</td>
+<td style="text-align:left">/blockdata -1901 4 -192 {auto:true}</td>
 </tr>
 <tr>
 <td style="text-align:center">3</td>
-<td style="text-align:center">狩人</td>
+<td style="text-align:left">/clone -1870 4 -195 -1870 4 -195 -1870 4 -195 filtered force minecraft:command_block</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<p>コマンドトロッコ</p>
+<ul>
+<li>周囲30m以内にcreativeでないプレイヤーがいる時、<a href="#%E3%82%B9%E3%82%B3%E3%82%A2%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E8%A8%AD%E5%AE%9A">スコアボードの設定</a>などを実行</li>
+</ul>
+<ol>
+<li>(-1884,11,-200)にあるコマンドブロックに{auto:true}を付与</li>
+<li>(-1901,4,-192)にある<a href="#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF%E9%96%8B%E5%A7%8B%E6%99%82%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%99%E3%82%8B%E3%82%82%E3%81%AE">メインクロック開始時にリセットするもの</a>のNo.20のコマンドブロックに{auto:true}を付与</li>
+<li>(-1870,4,-195)にある<a href="#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFoff">メインクロックOFF</a>を実行</li>
+</ol>
+<hr>
+<h2 id="%E3%82%B9%E3%82%B3%E3%82%A2%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E8%A8%AD%E5%AE%9A">スコアボードの設定</h2>
+<p>そのうち</p>
+<hr>
+<h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFoff">メインクロックOFF</h2>
+<ul>
+<li>位置(-1870,4,-195)</li>
+<li>(-1870,7,-195)にあるスイッチ(赤い羊毛についているやつ)によって手動にて操作可能</li>
+</ul>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/blockdata -1920 4 -200 {auto:false}</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/blockdata -1920 4 -111 {auto:false}</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/kill 0-0-2-0-2</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<ol>
+<li>(-1920,4,-200)にある<a href="#%E6%AF%8Etick%E5%BF%85%E3%81%9A%E6%9C%80%E5%88%9D%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最初に実行したいコマンド群</a>を停止</li>
+<li>(-1920,4,-111)にある<a href="#%E6%AF%8Etick%E5%BF%85%E3%81%9A%E6%9C%80%E5%BE%8C%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最後にに実行したいコマンド群その2</a>を停止</li>
+<li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>君をキル</li>
+</ol>
+<hr>
+<h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFon">メインクロックON</h2>
+<ul>
+<li>位置(-1870,4,-194)</li>
+<li>(-1870,7,-194)にあるスイッチ(青い羊毛についているやつ)によって手動にて操作可能</li>
+</ul>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">(空白)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/clone -1924 4 -200 -1924 4 -111 -1920 4 -200 filtered force minecraft:command_block 5</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/summon ArmorStand -1870 10 -197 {Invulnerable:true,Tags:[SystemEntity,TypeChecked],Rotation:[90f,0f],CustomNameVisible:true,CustomName:&quot;SystemKeeper&quot;,UUIDMost:2l,UUIDLeast:2l}</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<ol>
+<li><a href="#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</a>を実行</li>
+<li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>君を(-1870,10,-197)に召喚し、メインクロックを作動させる</li>
+</ol>
+<h3 id="%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</h3>
+<p>実行されるコマンド群 (x=-1920,y=4)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">z座標</th>
+<th style="text-align:left">コマンド群名称、先頭処理名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-200</td>
+<td style="text-align:left"><a href="#%E6%AF%8Etick%E6%9C%80%E5%88%9D%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最初に実行したいコマンド群</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-192</td>
+<td style="text-align:left"><a href="#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF%E9%96%8B%E5%A7%8B%E6%99%82%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%99%E3%82%8B%E3%82%82%E3%81%AE">メインクロック開始時にリセットするもの</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-189</td>
+<td style="text-align:left"><a href="#%E3%83%99%E3%83%83%E3%83%89%E5%87%A6%E7%90%86">ベッド処理</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-184</td>
+<td style="text-align:left"><a href="#%E9%BB%99%E6%83%B3%E7%B5%82%E4%BA%86%E5%87%A6%E7%90%86mokuso">黙想終了処理Mokuso</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-181</td>
+<td style="text-align:left"><a href="#%E4%B8%8E%E3%83%80%E3%83%A1%E3%83%BC%E3%82%B8damegedealt">与ダメージDamegeDealt</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-180</td>
+<td style="text-align:left"><a href="#%E3%82%B9%E3%83%8B%E3%83%BC%E3%82%AFsneaktime">スニークSneakTime</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-178</td>
+<td style="text-align:left"><a href="#%E5%A0%B1%E9%85%AC%E7%94%A8%E6%BC%94%E5%87%BA">報酬用演出</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-177</td>
+<td style="text-align:left"><a href="#%E7%AF%84%E5%9B%B2%E5%8C%96%E5%8F%AF%E8%83%BD%E3%82%B9%E3%82%AD%E3%83%AB%E5%88%A4%E5%AE%9A">範囲化可能スキル判定</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-175</td>
+<td style="text-align:left"><a href="#%E5%89%A3%E5%A3%AB%E5%8D%B3%E6%99%82%E5%88%86%E5%B2%90">剣士即時分岐</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-167</td>
+<td style="text-align:left"><a href="#%E7%8B%A9%E4%BA%BA%E5%8D%B3%E6%99%82%E5%88%86%E5%B2%90">狩人即時分岐</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-157</td>
+<td style="text-align:left"><a href="#%E9%BB%92%E9%AD%94%E5%B0%8E%E5%A3%AB%E5%8D%B3%E6%99%82%E5%88%86%E5%B2%90">黒魔導士即時分岐</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-144</td>
+<td style="text-align:left"><a href="#%E4%B9%B1%E6%95%B0%E5%8F%96%E5%BE%97">乱数取得</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-143</td>
+<td style="text-align:left"><a href="#%E5%BF%8D%E8%80%85%E3%82%B9%E3%82%AD%E3%83%AB">忍者スキル?</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-138</td>
+<td style="text-align:left"><a href="#%E7%99%BD%E9%AD%94%E5%B0%8E%E5%A3%AB%E3%82%B9%E3%82%AD%E3%83%AB">白魔導士スキル?</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-135</td>
+<td style="text-align:left"><a href="#%E5%8D%B0%E5%88%A4%E5%87%A6%E7%90%86">印判処理?</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-113</td>
+<td style="text-align:left"><a href="#%E3%82%B9%E3%82%AD%E3%83%AB%E5%90%8D%E8%A1%A8%E7%A4%BA%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97">スキル名表示呼び出し</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-111</td>
+<td style="text-align:left"><a href="#%E6%AF%8Etick%E5%BF%85%E3%81%9A%E6%9C%80%E5%BE%8C%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最後に実行したいコマンド群</a></td>
+</tr>
+</tbody>
+</table>
+<p>(これらすべてを&quot;毎tick実行したいコマンド群&quot;って呼ぶのかな?)</p>
+<hr>
+<h2 id="systemkeeper%E5%87%A6%E7%90%86">SystemKeeper処理</h2>
+<ul>
+<li>位置(-1870,7,-197)</li>
+<li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>がこの上にいる限り実行される</li>
+</ul>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/fill ~ ~1 ~ ~ ~1 ~ minecraft:stone_pressure_plate 0 replace minecraft:stone_pressure_plate</td>
+<td style="text-align:left">リピート</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/tp @e[dy=2] ~ ~2 ~</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/me は秩序を取り戻した。</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:center">4</td>
-<td style="text-align:center">白魔導士</td>
+<td style="text-align:left">/clone -1924 4 -200 -1924 4 -111 -1920 4 -200 filtered force minecraft:command_block 5</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:center">5</td>
-<td style="text-align:center">黒魔導士</td>
+<td style="text-align:left">/clone -1870 4 -193 -1870 4 -193 -1870 4 -193 filtered force minecraft:command_block 1 ###かまど再設定</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<ol>
+<li>(-1870,8,-197)の<a href="TUSB_Analysis_Entity.html">SystemKeeper</a>の足元に石の感圧版を設置</li>
+<li>[SystemKeerer]を2m上に移動</li>
+<li>秩序が戻った旨の通知を出す</li>
+<li><a href="#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</a>を実行</li>
+<li>(-1870,5,-203)にある<a href="#%E3%81%8B%E3%81%BE%E3%81%A9%E5%86%8D%E8%A8%AD%E5%AE%9A">かまど再設定</a>を実行</li>
+</ol>
+<hr>
+<h2 id="%E3%81%8B%E3%81%BE%E3%81%A9%E5%86%8D%E8%A8%AD%E5%AE%9A">かまど再設定</h2>
+<ul>
+<li>位置(-1870,5,-203)</li>
+<li>スポーンチャンクを常に読み込むための装置 (のはず)</li>
+</ul>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">コマンド</h3>
+<ul>
+<li>/blockdata ~-2 ~ ~ {Items:[{id:&quot;minecraft:cactus&quot;,Count:127b,Slot:0b},{id:&quot;minecraft:coal&quot;,Count:127b,Slot:1b}]}</li>
+</ul>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<ol>
+<li>(-1872,5,-203)のかまどにサボテンと石炭を入れる</li>
+<li>サボテンが燃えたらネザーポータルに送り込むと同時に再びコマンドを実行</li>
+<li>これを繰り返す</li>
+</ol>
+<hr>
+<h2 id="%E6%AF%8Etick%E5%BF%85%E3%81%9A%E6%9C%80%E5%88%9D%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最初に実行したいコマンド群</h2>
+<ul>
+<li>位置(-1920,4,-200)</li>
+</ul>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">コメント</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/clone ~-4 ~ ~ ~-4 ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###セルフクロック</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/scoreboard players tag @e[tag=FloatingRequired] add Garbage {OnGround:true}</td>
+<td style="text-align:left">接地削除処理 FloatingRequired</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/scoreboard players tag @e[tag=CooldownRequired] add Garbage {PortalCooldown:0}</td>
+<td style="text-align:left">時間削除処理 CooldownRequired PortalCooldown=0 なら削除</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">/scoreboard players tag @e[tag=Slimy] add Garbage {AbsorptionAmount:0f}</td>
+<td style="text-align:left">自然スライム系削除</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">/entitydata @e[tag=Garbage] {Size:0}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
 </tr>
 <tr>
 <td style="text-align:center">6</td>
-<td style="text-align:center">召喚士</td>
+<td style="text-align:left">/entitydata @e[type=LavaSlime,tag=Garbage,name=!<em>] {Size:1,CustomName:</em>,CustomNameVisible:false}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">/entitydata @e[tag=Garbage] {Health:0f,DeathTime:19s,Silent:true}</td>
+<td style="text-align:left">不要エンティティ削除 タグGarbage</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">/kill @e[tag=Garbage]</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">/scoreboard players set @a[score_USBDimension_min=0] AreaChangeFlag -100 {Dimension:-1}</td>
+<td style="text-align:left">エリア変更処理 範囲とUSBDimension 変更は必ず0tickで 表示はAreaTitleFlag</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">/scoreboard players set @a[score_USBDimension=99] AreaChangeFlag 110 {Dimension:1}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">/scoreboard players set @a[rm=0,score_USBDimension=-1] AreaChangeFlag 0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:left">/scoreboard players set @a[rm=0,score_USBDimension_min=100] AreaChangeFlag 0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left">/scoreboard players set @a[x=-192,y=-200,z=-288,dx=511,dy=600,dz=511,score_USBDimension_min=1,SKYLANDS] AreaChangeFlag 0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:left">/scoreboard players set @a[x=752,y=-200,z=-320,dx=1439,dy=600,dz=703,score_USBDimension=0,UNDERWORLD] AreaChangeFlag 1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:left">/scoreboard players set @a[x=752,y=-200,z=-320,dx=1439,dy=600,dz=703,score_USBDimension_min=2,UNDERWORLD] AreaChangeFlag 1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:left">/scoreboard players set @a[x=-3072,y=-200,z=-656,dx=1727,dy=600,dz=1103,score_USBDimension=9,CLOUDIA] AreaChangeFlag 10</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:left">/scoreboard players set @a[x=-3072,y=-200,z=-656,dx=1727,dy=600,dz=1103,score_USBDimension_min=11,CLOUDIA] AreaChangeFlag 10</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:left">/scoreboard players set @a[x=-288,y=-200,z=-2672,dx=639,dy=600,dz=1311,score_USBDimension=10,TABLE_MOUNTAIN] AreaChangeFlag 11</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:left">/scoreboard players set @a[x=-288,y=-200,z=-2672,dx=639,dy=600,dz=1311,score_USBDimension_min=12,TABLE_MOUNTAIN] AreaChangeFlag 11</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:left">/scoreboard players set @a[x=-240,y=-200,z=448,dx=559,dy=600,dz=575,score_USBDimension=11,GULLIVERS_LAND] AreaChangeFlag 12</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:left">/scoreboard players set @a[x=-240,y=-200,z=448,dx=559,dy=600,dz=575,score_USBDimension_min=13,GULLIVERS_LAND] AreaChangeFlag 12</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:left">/scoreboard players set @a[x=752,y=-200,z=1024,dx=2063,dy=600,dz=2095,score_USBDimension=12,ICE_SHEET_FLOAT] AreaChangeFlag 13</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:left">/scoreboard players set @a[x=752,y=-200,z=1024,dx=2063,dy=600,dz=2095,score_USBDimension_min=14,ICE_SHEET_FLOAT] AreaChangeFlag 13</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:left">/execute @a[score_USBDimension=-1,c=1] ~ ~ ~ /scoreboard players set @a[x=-640,y=-200,z=-832,dx=1207,dy=600,dz=991,score_USBDimension_min=-99,NETHER] AreaChangeFlag -100 {Dimension:-1}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:left">/execute @a[score_USBDimension=-1,c=1] ~ ~ ~ /scoreboard players set @a[x=-624,y=-200,z=672,dx=1375,dy=600,dz=943,score_USBDimension=-91,NETHER_TRIAL] AreaChangeFlag -90 {Dimension:-1}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td style="text-align:left">/execute @a[score_USBDimension=-1,c=1] ~ ~ ~ /scoreboard players set @a[x=-624,y=-200,z=672,dx=1375,dy=600,dz=943,score_USBDimension_min=-89,NETHER_TRIAL] AreaChangeFlag -90 {Dimension:-1}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:left">/execute @a[score_USBDimension=-1,c=1] ~ ~ ~ /scoreboard players set @a[x=-624,y=-200,z=672,dx=1375,dy=600,dz=943,score_USBDimension_min=-89,NETHER_TRIAL] AreaChangeFlag -90 {Dimension:-1}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">28</td>
+<td style="text-align:left">/execute @a[score_AreaChangeFlag_min=-100] ~ ~ ~ /scoreboard players operation @a[c=1] USBDimension = @a[c=1] AreaChangeFlag</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td style="text-align:left">/execute @a[score_AreaChangeFlag_min=-100] ~ ~ ~ /scoreboard players operation @a[c=1] AreaTitleFlag &gt;&lt; @a[c=1] AreaChangeFlag</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td style="text-align:left">/clone -1920 8 ~ -1920 9 ~ -1920 8 ~ filtered force minecraft:command_block 5 ###エリアタイトル表示</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td style="text-align:left">/tellraw @a[m=adventure,tag=!Adv,team=!] {&quot;text&quot;:&quot;ブロックの設置・破壊制限が解除された。&quot;,&quot;color&quot;:&quot;dark_aqua&quot;}</td>
+<td style="text-align:left">ゲームモード変更 タグ有無 Adv</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td style="text-align:left">/gamemode survival @a[m=adventure,tag=!Adv,team=!]</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td style="text-align:left">/tellraw @a[m=survival,tag=Adv] {&quot;text&quot;:&quot;ブロックの設置・破壊が制限された。&quot;,&quot;color&quot;:&quot;red&quot;}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">34</td>
+<td style="text-align:left">/gamemode adventure @a[m=survival,tag=Adv]</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">35</td>
+<td style="text-align:left">/scoreboard players test #SkillTargetCount Global 1 *</td>
+<td style="text-align:left">SkillTarger位置復元</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">36</td>
+<td style="text-align:left">/tp @e[tag=SkillTarget] ~ ~-0.4 ~</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">37</td>
+<td style="text-align:left">/scoreboard players tag @e[tag=SkillTarget] remove SkillTarget</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">38</td>
+<td style="text-align:left">/blockdata ~ ~-1 ~ {Items:[{id:minecraft:porkchop,Count:1b,Slot:0b,Damage:0s}],CookTimeTotal:20s}</td>
+<td style="text-align:left">1秒クロック</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">39</td>
+<td style="text-align:left">/clone -1920 11 ~ -1920 12 ~ -1920 11 ~ filtered force minecraft:command_block 5 ###１秒毎処理</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">40</td>
+<td style="text-align:left">/gamerule mobGriefing</td>
+<td style="text-align:left">mobGriefing修正</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">41</td>
+<td style="text-align:left">/scoreboard players test MobGriefing Settings * 0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">42</td>
+<td style="text-align:left">/gamerule mobGriefing true</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">43</td>
+<td style="text-align:left">/difficulty hard</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">44</td>
+<td style="text-align:left">/scoreboard players tag @e[type=FallingSand] add Garbage {FallDistance:0f}</td>
+<td style="text-align:left">砂バグ対策</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">45</td>
+<td style="text-align:left">/scoreboard players tag @e[type=FallingSand,tag=Garbage] remove Garbage {Time:0}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">46</td>
+<td style="text-align:left">/testforblock -1875 5 -198 minecraft:stone_pressure_plate 0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">47</td>
+<td style="text-align:left">/summon ArmorStand -1875 5 -198 {Health:0f,DeathTime:19s}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">48</td>
+<td style="text-align:left">/tellraw AiAkaishi {&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;CoolTickCounter&quot;}}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<ol>
+<li><a href="#%E6%AF%8Etick%E5%BF%85%E3%81%9A%E6%9C%80%E5%88%9D%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最初に実行したいコマンド群</a>を実行 (ここで自身を呼び出すことでクロックを行っている)</li>
+<li><code>FloationRequired</code>を持ち、{OnGround:true}であるエンティティと<code>CooldownRequired</code>を持ち、{PortalCooldown:0}であるエンティティに<code>Garbage</code>を付与</li>
+<li><code>Slimy</code>を持ち、{AbsorptionAmount:0f}であるエンティティが存在したら<code>Garbage</code>を付与し、以下の事柄を実行
+<ol>
+<li><code>Garbage</code>を持つエンティティに{Size:0}を付与</li>
+<li><code>Garbage</code>を持ち、nameが無いマグマキューブに{Size:1,CustomName:,CustomNameVisible:false}を付与</li>
+</ol>
+</li>
+<li><code>Garbage</code>を持つエンティティに{Health:0f,DeathTime:19s,Silent:true}を付与し、killする</li>
+<li><code>USBDimension</code>が0以上であり、ネザーにいる(<code>Dimension</code>:-1)プレイヤーの<code>AreaChangeFlag</code>を-100に設定</li>
+<li><code>USBDimension</code>が99以下であり、エンドにいる(<code>Dimension</code>:1)プレイヤーの<code>AreaChangeFlag</code>を110に設定</li>
+<li><code>USBDimension</code>が-1以下であり、0m以上外側にいる(Overworldにいることの検知?)プレイヤーの<code>AreaChangeFlag</code>を0に設定</li>
+<li><code>USBDimension</code>が100以上であり、0m以上外側にいる(Overworldにいることの検知?)プレイヤーの<code>AreaChangeFlag</code>を0に設定</li>
+<li>以下の表のようにプレイヤーのいる場所に対する<code>AreaChangeFlag</code>を変更</li>
+<li><code>AreaChangeFlag</code>が-100以上であるプレイヤーいる場合、一人選択し<code>USBDimension</code>に<code>AreaChangeFlag</code>を代入して、以下の事柄を実行
+<ol>
+<li><code>AreaTileFlag</code>と<code>AreaChangeFlag</code>との値を入れ替える</li>
+<li><a href="#%E3%82%A8%E3%83%AA%E3%82%A2%E4%BE%B5%E5%85%A5%E8%A8%98%E9%8C%B2">エリア侵入記録</a>と<a href="#%E3%82%A8%E3%83%AA%E3%82%A2%E5%87%A6%E7%90%86">エリア処理</a>を実行</li>
+</ol>
+</li>
+<li>adventureであり、<code>Adv</code>がなく、何かしらのteamに所属しているプレイヤーがいる場合、アドベンチャーモード解除の旨のメッセージを出し、survivalに変更</li>
+<li>survivalであり、<code>Adv</code>があるプレイヤーがいる場合、アドベンチャーモードに変更された旨のメッセージを出し、adventureに変更</li>
+<li><code>#SkillTargetCount</code>の<code>Global</code>が1以上である時、以下の事柄を実行
+<ol>
+<li><code>SkillTarget</code>を持つエンティティを0.4m下に移動</li>
+<li><code>SkillTarget</code>を持つエンティティから<code>SkillTarget</code>を消去</li>
+</ol>
+</li>
+<li>(-1883,3,-200)にあるかまどに1秒で燃焼する豚肉を入れることができたら(要は1秒たったら)、(-1920,11,-200)にある<a href="#%E6%99%82%E9%96%93%E7%B5%8C%E9%81%8E">時間経過</a>と(-1920,12,-200)にある<a href="#aec%E7%B6%AD%E6%8C%81">AEC維持</a>を実行</li>
+<li><code>mobGriefing</code>について表示? (よくわからない)</li>
+<li><code>mobGriefing</code>が0以下(false)の時、<code>mobGriefing</code>=trueとし、難易度を<code>hard</code>に変更</li>
+<li><code>FallingSand</code>を持ち、{FallDistance:0f}であるエンティティに<code>Garbage</code>を付与し、{Time:0}であるエンティティから<code>Garbage</code>を削除</li>
+<li>(-1875,5,-198)に石の感圧板があるとき、以下の事柄を実行 (恐らくデバッグ用なので無視して構わない)
+<ul>
+<li>1tickで死亡するアーマースタンドを(-1875,5,-198)に召喚し、AiAkaishiに<code>CoolTickCounter</code>を持つエンティティの名前を送信する</li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">AreaName</th>
+<th style="text-align:left">プレイヤーの位置</th>
+<th style="text-align:left">USBDimension</th>
+<th style="text-align:left">AreaChangeFlag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">SKYLANDS</td>
+<td style="text-align:left">x=-192,y=-200,z=-288,dx=511,dy=600,dz=511</td>
+<td style="text-align:left">1~</td>
+<td style="text-align:left">0</td>
+</tr>
+<tr>
+<td style="text-align:left">UNDERWORLD</td>
+<td style="text-align:left">x=752,y=-200,z=-320,dx=1439,dy=600,dz=703</td>
+<td style="text-align:left">~0 or 2~</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">CLOUDIA</td>
+<td style="text-align:left">x=-3072,y=-200,z=-656,dx=1727,dy=600,dz=1103</td>
+<td style="text-align:left">~9 or 11~</td>
+<td style="text-align:left">10</td>
+</tr>
+<tr>
+<td style="text-align:left">TABLE_MOUNTAIN</td>
+<td style="text-align:left">x=-288,y=-200,z=-2672,dx=639,dy=600,dz=1311</td>
+<td style="text-align:left">~10 or 12~</td>
+<td style="text-align:left">11</td>
+</tr>
+<tr>
+<td style="text-align:left">GULLIVERS_LAND</td>
+<td style="text-align:left">x=-240,y=-200,z=448,dx=559,dy=600,dz=575</td>
+<td style="text-align:left">~11 or 13~</td>
+<td style="text-align:left">12</td>
+</tr>
+<tr>
+<td style="text-align:left">ICE_SHEET_FLOAT</td>
+<td style="text-align:left">x=752,y=-200,z=1024,dx=2063,dy=600,dz=2095</td>
+<td style="text-align:left">~12 or 14~</td>
+<td style="text-align:left">13</td>
+</tr>
+<tr>
+<td style="text-align:left">NETHER</td>
+<td style="text-align:left">x=-640,y=-200,z=-832,dx=1207,dy=600,dz=991 かつ ネザーにいる</td>
+<td style="text-align:left">-99~</td>
+<td style="text-align:left">-100</td>
+</tr>
+<tr>
+<td style="text-align:left">NETHER_TRIAL</td>
+<td style="text-align:left">x=-624,y=-200,z=672,dx=1375,dy=600,dz=943 かつ ネザーにいる</td>
+<td style="text-align:left">~-91 or -89~</td>
+<td style="text-align:left">-90</td>
 </tr>
 </tbody>
 </table>

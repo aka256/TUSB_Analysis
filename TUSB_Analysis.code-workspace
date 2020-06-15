@@ -9,6 +9,11 @@
 			"pdf",
 			"html"
 		],
-		"markdown-pdf.convertOnSave":true
+		"markdown-pdf.convertOnSave":true,
+		/*
+		"markdown-pdf.styles": [
+			"style.scc"
+		]
+		*/
 	}
 }

@@ -1,5 +1,98 @@
 # TUSBAnalysis
 
+## はじめに
+
+これはThe Unusual Skyblock v12.0.9 の主にX回路区域内にあるコマンド群について、個人的なメモとして簡単にまとめたものです。なので一応明言しておきますが**非公式なドキュメント**となっていますので、このドキュメントに関して間違えても**TUSBサークルの皆様に連絡をすることがないよう**お願いします。
+
+実際に読む際これだけでは分かりにくいと思うので、X回路区域を飛び回りながら読むことをおススメします。
+
+また、何か間違い等がありましたらtwitterにて連絡をいただけると嬉しいです。(<https://twitter.com/Re16d5>)
+
+(最終更新日:2020/6/15)
+
+---
+
+- [TUSBAnalysis](#tusbanalysis)
+  - [はじめに](#はじめに)
+  - [メインクロック開始時リセットするもの](#メインクロック開始時リセットするもの)
+    - [コマンド群](#コマンド群)
+    - [詳細](#詳細)
+  - [初回ログイン時処理](#初回ログイン時処理)
+    - [コマンド群](#コマンド群-1)
+    - [詳細](#詳細-1)
+  - [ログイン時処理](#ログイン時処理)
+    - [コマンド群](#コマンド群-2)
+    - [詳細](#詳細-2)
+  - [ジョブチェンジ先判定](#ジョブチェンジ先判定)
+    - [コマンド群](#コマンド群-3)
+    - [詳細](#詳細-3)
+  - [ジョブセーブ](#ジョブセーブ)
+    - [コマンド群](#コマンド群-4)
+    - [詳細](#詳細-4)
+  - [ジョブロード](#ジョブロード)
+    - [コマンド群](#コマンド群-5)
+    - [詳細](#詳細-5)
+  - [ステータス表示](#ステータス表示)
+    - [コマンド群](#コマンド群-6)
+  - [攻略率表示](#攻略率表示)
+    - [コマンド群](#コマンド群-7)
+  - [ワープ処理ジョブ島・通常世界](#ワープ処理ジョブ島通常世界)
+    - [コマンド群](#コマンド群-8)
+    - [詳細](#詳細-6)
+  - [KeepInventory確認](#keepinventory確認)
+    - [コマンド群](#コマンド群-9)
+    - [詳細](#詳細-7)
+  - [満腹度修正](#満腹度修正)
+    - [コマンド群](#コマンド群-10)
+    - [詳細](#詳細-8)
+  - [経験値取得処理](#経験値取得処理)
+    - [コマンド群](#コマンド群-11)
+    - [詳細](#詳細-9)
+  - [レベルアップ処理](#レベルアップ処理)
+    - [コマンド群](#コマンド群-12)
+    - [詳細](#詳細-10)
+  - [最大HP調整処理](#最大hp調整処理)
+    - [コマンド群](#コマンド群-13)
+    - [詳細](#詳細-11)
+  - [難易度調整](#難易度調整)
+    - [コマンド群](#コマンド群-14)
+    - [詳細](#詳細-12)
+  - [島攻略処理](#島攻略処理)
+    - [コマンド群](#コマンド群-15)
+    - [詳細](#詳細-13)
+  - [習得スキル取得](#習得スキル取得)
+    - [コマンド群](#コマンド群-16)
+    - [詳細](#詳細-14)
+  - [時計島](#時計島)
+    - [コマンド群](#コマンド群-17)
+    - [詳細](#詳細-15)
+    - [時計島のアラーム](#時計島のアラーム)
+  - [マクラウェル内部](#マクラウェル内部)
+    - [コマンド群](#コマンド群-18)
+    - [詳細](#詳細-16)
+  - [スコアボードの設定](#スコアボードの設定)
+  - [メインクロックOFF](#メインクロックoff)
+    - [コマンド群](#コマンド群-19)
+    - [詳細](#詳細-17)
+  - [メインクロックON](#メインクロックon)
+    - [コマンド群](#コマンド群-20)
+    - [詳細](#詳細-18)
+    - [毎tick実行したいコマンド群](#毎tick実行したいコマンド群)
+  - [SystemKeeper処理](#systemkeeper処理)
+    - [コマンド群](#コマンド群-21)
+    - [詳細](#詳細-19)
+  - [かまど再設定](#かまど再設定)
+    - [コマンド](#コマンド)
+    - [詳細](#詳細-20)
+  - [毎tick必ず最初に実行したいコマンド群](#毎tick必ず最初に実行したいコマンド群)
+    - [コマンド群](#コマンド群-22)
+    - [詳細](#詳細-21)
+
+- [Entity](TUSB_Analysis_Entity.html)
+- [その他](TUSB_Analysis_Data.html)
+
+---
+
 ## メインクロック開始時リセットするもの
 
 - 位置(-1920,4,-192)
@@ -205,7 +298,7 @@
 
 ### 詳細
 
-1. `Job`が1以上であるプレイヤーからジョブ変更申請書や各職業の変更許可書を削除し、職業変更許可書の場合はプレイヤーの[LoadJob]を各職業ごとに設定
+1. `Job`が1以上であるプレイヤーからジョブ変更申請書や各職業の変更許可書を削除し、職業変更許可書の場合はプレイヤーの`LoadJob`を各職業ごとに設定
 2. プレイヤーの`ItemCount`を-1に設定
 3. プレイヤーから釣りチケ3分を削除し、`ItemCount`が1以上であるプレイヤーに不幸Lv.20を180秒間とテキストを表示
 
@@ -236,7 +329,7 @@
 
 ### 詳細
 
-1. [SaveJob]がそれぞれの職業のものと等しいプレイヤーの`(Job)Level`に`Level`を、`(Job)ToLevel`に`ExpToLevel`をそれぞれ代入
+1. `SaveJob`がそれぞれの職業のものと等しいプレイヤーの`(Job)Level`に`Level`を、`(Job)ToLevel`に`ExpToLevel`をそれぞれ代入
 2. `SaveJob`が0以上のプレイヤーの`SaveJob`を0に設定
 
 ---
@@ -291,14 +384,14 @@
 
 ### 詳細
 
-1. 各職業に対応する[LoadJob]の値であるプレイヤーの`Level`に`(Job)Level`を、`ExpToLevel`に`(Job)ToLevel`をそれぞれ代入し、職業にごとの音やパーティクルを表示
-2. [LoadJob]が0以上であるプレイヤーを一人選択し、その`NextExp`に`Level`を代入
-3. [LoadJob]が0以上であるプレイヤーの`NextExp`に`#ExpMul`の`Const`=7との積を代入、`CoolTickSpan`を-100に設定
-4. [LoadJob]が0以上であるプレイヤーを一人選択し、`CoolTickSpan`に`Level`を足し合わせ、`CoolTickCounter`に`CoolTickSpan`を代入
-5. [LoadJob]が0以上であるプレイヤーの`MPMaxFlag`を0に設定
-6. [LoadJob]が0以上であるプレイヤーを一人選択し、`Job`に[LoadJob]を代入
-7. [LoadJob]が0以上であるプレイヤーの`ModeSkillA`,`ModeSkillB`,`InstantSkillA`,`InstantSkillB`,`CurrentMode`,`CurrentModeCost`をそれぞれ0に設定
-8. [LoadJob]が0以上であるプレイヤーの`LoadJob`を0に設定
+1. 各職業に対応する`LoadJob`の値であるプレイヤーの`Level`に`(Job)Level`を、`ExpToLevel`に`(Job)ToLevel`をそれぞれ代入し、職業にごとの音やパーティクルを表示
+2. `LoadJob`が0以上であるプレイヤーを一人選択し、その`NextExp`に`Level`を代入
+3. `LoadJob`が0以上であるプレイヤーの`NextExp`に`#ExpMul`の`Const`=7との積を代入、`CoolTickSpan`を-100に設定
+4. `LoadJob`が0以上であるプレイヤーを一人選択し、`CoolTickSpan`に`Level`を足し合わせ、`CoolTickCounter`に`CoolTickSpan`を代入
+5. `LoadJob`が0以上であるプレイヤーの`MPMaxFlag`を0に設定
+6. `LoadJob`が0以上であるプレイヤーを一人選択し、`Job`に`LoadJob`を代入
+7. `LoadJob`が0以上であるプレイヤーの`ModeSkillA`,`ModeSkillB`,`InstantSkillA`,`InstantSkillB`,`CurrentMode`,`CurrentModeCost`をそれぞれ0に設定
+8. `LoadJob`が0以上であるプレイヤーの`LoadJob`を0に設定
 
 ---
 
@@ -1145,44 +1238,244 @@
 
 ---
 
-## Entity
+## マクラウェル内部
 
-### CommonGM
+- 位置(-1896,117,-136)
 
-[CommonGM]:#commongm
+### コマンド群
 
-```minecraftcommand
-ArmorStand ~ ~ ~ {NoGravity:1b,HurtByTimestamp:0,Attributes:[0:{Base:20.0d,Name:"generic.maxHealth"},1:{Base:0.0d,Name:"generic.knockbackResistance"},2:{Base:0.699999988079071d,Name:"generic.movementSpeed"},3:{Base:0.0d,Name:"generic.armor"},4:{Base:0.0d,Name:"generic.armorToughness"}],Invulnerable:1b,FallFlying:0b,ShowArms:0b,PortalCooldown:0,AbsorptionAmount:0.0f,FallDistance:0.0f,DisabledSlots:31,DeathTime:0s,Pose:{},Invisible:1b,Tags:[0:"TypeChecked",1:"SystemEntity"],Motion:[0:0.0d,1:0.0d,2:0.0d],Small:1b,UUIDLeast:1L,Health:20.0f,Air:300s,OnGround:0b,Dimension:0,Marker:1b,Rotation:[0:0.0f,1:0.0f],HandItems:[0:{},1:{}],UUIDMost:1L,CustomName:"CommonGM",Pos:[0:-1919.5d,1:6.5d,2:-191.5d],Fire:0s,ArmorItems:[0:{},1:{},2:{},3:{}],NoBasePlate:1b,HurtTime:0s,CustomNameVisible:1b}
-```
+コマンドトロッコ
 
-|No.|Tag Name|
-|:-:|:------:|
-|1|TypeChecked|
-|2|SystemEntity|
+- /execute @p[r=30,m=!creative] ~ ~ ~ /clone -1870 4 -194 -1870 4 -158 -1870 4 -194 filtered force minecraft:command_block
 
-### コーラスマイト
+|No.|コマンド|
+|:-:|:-|
+|1|/blockdata -1884 11 -200 {auto:true}|
+|2|/blockdata -1901 4 -192 {auto:true}|
+|3|/clone -1870 4 -195 -1870 4 -195 -1870 4 -195 filtered force minecraft:command_block|
 
-```minecraftcommand
-Endermite ~ ~ ~ {CustomName:"コーラスマイト",Health:200f,Lifetime:1900,Attributes:[{Name:"generic.maxHealth",Base:200d},{Name:"generic.movementSpeed",Base:0.3d},{Name:"generic.attackDamage",Base:1d},{Name:"generic.knockbackResistance",Base:0.3d},{Name:"generic.followRange",Base:32d}],HandItems:[{tag:{ench:[{id:19s,lvl:20s}]},id:"minecraft:iron_sword",Count:0b,Damage:0s},{}]}
-```
+### 詳細
 
-## Team
+コマンドトロッコ
 
-- (空白):最初にログインしたときのチーム
-- FriendlyTeam:通常プレイ時のチーム
+- 周囲30m以内にcreativeでないプレイヤーがいる時、[スコアボードの設定](#スコアボードの設定)などを実行
 
-## Score
+1. (-1884,11,-200)にあるコマンドブロックに{auto:true}を付与
+2. (-1901,4,-192)にある[メインクロック開始時にリセットするもの](#メインクロック開始時リセットするもの)のNo.20のコマンドブロックに{auto:true}を付与
+3. (-1870,4,-195)にある[メインクロックOFF](#メインクロックoff)を実行
 
-### LoadJob/SaveJob
+---
 
-[LoadJob]:#loadjobsavejob
-[SaveJob]:#loadjobsavejob
+## スコアボードの設定
 
-|値|職業|
-|:-:|:-:|
-|1|剣士|
-|2|忍者|
-|3|狩人|
-|4|白魔導士|
-|5|黒魔導士|
-|6|召喚士|
+そのうち
+
+---
+
+## メインクロックOFF
+
+- 位置(-1870,4,-195)
+- (-1870,7,-195)にあるスイッチ(赤い羊毛についているやつ)によって手動にて操作可能
+
+### コマンド群
+
+|No.|コマンド|状態|
+|:-:|:-|:-|
+|1|/blockdata -1920 4 -200 {auto:false}|
+|2|/blockdata -1920 4 -111 {auto:false}|条件付き|
+|3|/kill 0-0-2-0-2|条件付き|
+
+### 詳細
+
+1. (-1920,4,-200)にある[毎tick必ず最初に実行したいコマンド群](#毎tick必ず最初に実行したいコマンド群)を停止
+2. (-1920,4,-111)にある[毎tick必ず最後にに実行したいコマンド群その2](#毎tick必ず最後に実行したいコマンド群)を停止
+3. [SystemKeeper]君をキル
+
+---
+
+## メインクロックON
+
+- 位置(-1870,4,-194)
+- (-1870,7,-194)にあるスイッチ(青い羊毛についているやつ)によって手動にて操作可能
+
+### コマンド群
+
+|No.|コマンド|状態|
+|:-:|:-|:-|
+|1|(空白)|
+|2|/clone -1924 4 -200 -1924 4 -111 -1920 4 -200 filtered force minecraft:command_block 5|
+|3|/summon ArmorStand -1870 10 -197 {Invulnerable:true,Tags:[SystemEntity,TypeChecked],Rotation:[90f,0f],CustomNameVisible:true,CustomName:"SystemKeeper",UUIDMost:2l,UUIDLeast:2l}|条件付き|
+
+### 詳細
+
+1. [毎tick実行したいコマンド群](#毎tick実行したいコマンド群)を実行
+2. [SystemKeeper]君を(-1870,10,-197)に召喚し、メインクロックを作動させる
+
+### 毎tick実行したいコマンド群
+
+実行されるコマンド群 (x=-1920,y=4)
+|z座標|コマンド群名称、先頭処理名|
+|:-:|:-|
+|-200|[毎tick必ず最初に実行したいコマンド群](#毎tick最初に実行したいコマンド群)|
+|-192|[メインクロック開始時にリセットするもの](#メインクロック開始時リセットするもの)|
+|-189|[ベッド処理](#ベッド処理)|
+|-184|[黙想終了処理Mokuso](#黙想終了処理mokuso)|
+|-181|[与ダメージDamegeDealt](#与ダメージdamegedealt)|
+|-180|[スニークSneakTime](#スニークsneaktime)|
+|-178|[報酬用演出](#報酬用演出)|
+|-177|[範囲化可能スキル判定](#範囲化可能スキル判定)|
+|-175|[剣士即時分岐](#剣士即時分岐)|
+|-167|[狩人即時分岐](#狩人即時分岐)|
+|-157|[黒魔導士即時分岐](#黒魔導士即時分岐)|
+|-144|[乱数取得](#乱数取得)|
+|-143|[忍者スキル?](#忍者スキル)|
+|-138|[白魔導士スキル?](#白魔導士スキル)|
+|-135|[印判処理?](#印判処理)|
+|-113|[スキル名表示呼び出し](#スキル名表示呼び出し)|
+|-111|[毎tick必ず最後に実行したいコマンド群](#毎tick必ず最後に実行したいコマンド群)|
+
+(これらすべてを"毎tick実行したいコマンド群"って呼ぶのかな?)
+
+---
+
+## SystemKeeper処理
+
+- 位置(-1870,7,-197)
+- [SystemKeeper]がこの上にいる限り実行される
+
+### コマンド群
+
+|No.|コマンド|状態|
+|:-:|:-|:-|
+|1|/fill ~ ~1 ~ ~ ~1 ~ minecraft:stone_pressure_plate 0 replace minecraft:stone_pressure_plate|リピート|
+|2|/tp @e[dy=2] ~ ~2 ~|
+|3|/me は秩序を取り戻した。|
+|4|/clone -1924 4 -200 -1924 4 -111 -1920 4 -200 filtered force minecraft:command_block 5|
+|5|/clone -1870 4 -193 -1870 4 -193 -1870 4 -193 filtered force minecraft:command_block 1 ###かまど再設定|
+
+### 詳細
+
+1. (-1870,8,-197)の[SystemKeeper]の足元に石の感圧版を設置
+2. [SystemKeerer]を2m上に移動
+3. 秩序が戻った旨の通知を出す
+4. [毎tick実行したいコマンド群](#毎tick実行したいコマンド群)を実行
+5. (-1870,5,-203)にある[かまど再設定](#かまど再設定)を実行
+
+---
+
+## かまど再設定
+
+- 位置(-1870,5,-203)
+- スポーンチャンクを常に読み込むための装置 (のはず)
+
+### コマンド
+
+- /blockdata ~-2 ~ ~ {Items:[{id:"minecraft:cactus",Count:127b,Slot:0b},{id:"minecraft:coal",Count:127b,Slot:1b}]}
+
+### 詳細
+
+1. (-1872,5,-203)のかまどにサボテンと石炭を入れる
+2. サボテンが燃えたらネザーポータルに送り込むと同時に再びコマンドを実行
+3. これを繰り返す
+
+---
+
+## 毎tick必ず最初に実行したいコマンド群
+
+- 位置(-1920,4,-200)
+
+### コマンド群
+
+|No.|コマンド|コメント|状態|
+|:-:|:-|:-|:-|
+|1|/clone ~-4 ~ ~ ~-4 ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###セルフクロック|
+|2|/scoreboard players tag @e[tag=FloatingRequired] add Garbage {OnGround:true}|接地削除処理 FloatingRequired|
+|3|/scoreboard players tag @e[tag=CooldownRequired] add Garbage {PortalCooldown:0}|時間削除処理 CooldownRequired PortalCooldown=0 なら削除|
+|4|/scoreboard players tag @e[tag=Slimy] add Garbage {AbsorptionAmount:0f}|自然スライム系削除|
+|5|/entitydata @e[tag=Garbage] {Size:0}||条件付き|
+|6|/entitydata @e[type=LavaSlime,tag=Garbage,name=!_] {Size:1,CustomName:_,CustomNameVisible:false}||条件付き|
+|7|/entitydata @e[tag=Garbage] {Health:0f,DeathTime:19s,Silent:true}|不要エンティティ削除 タグGarbage|
+|8|/kill @e[tag=Garbage]||条件付き|
+|9|/scoreboard players set @a[score_USBDimension_min=0] AreaChangeFlag -100 {Dimension:-1}|エリア変更処理 範囲とUSBDimension 変更は必ず0tickで 表示はAreaTitleFlag|
+|10|/scoreboard players set @a[score_USBDimension=99] AreaChangeFlag 110 {Dimension:1}|
+|11|/scoreboard players set @a[rm=0,score_USBDimension=-1] AreaChangeFlag 0|
+|12|/scoreboard players set @a[rm=0,score_USBDimension_min=100] AreaChangeFlag 0|
+|13|/scoreboard players set @a[x=-192,y=-200,z=-288,dx=511,dy=600,dz=511,score_USBDimension_min=1,SKYLANDS] AreaChangeFlag 0|
+|14|/scoreboard players set @a[x=752,y=-200,z=-320,dx=1439,dy=600,dz=703,score_USBDimension=0,UNDERWORLD] AreaChangeFlag 1|
+|15|/scoreboard players set @a[x=752,y=-200,z=-320,dx=1439,dy=600,dz=703,score_USBDimension_min=2,UNDERWORLD] AreaChangeFlag 1|
+|16|/scoreboard players set @a[x=-3072,y=-200,z=-656,dx=1727,dy=600,dz=1103,score_USBDimension=9,CLOUDIA] AreaChangeFlag 10|
+|17|/scoreboard players set @a[x=-3072,y=-200,z=-656,dx=1727,dy=600,dz=1103,score_USBDimension_min=11,CLOUDIA] AreaChangeFlag 10|
+|18|/scoreboard players set @a[x=-288,y=-200,z=-2672,dx=639,dy=600,dz=1311,score_USBDimension=10,TABLE_MOUNTAIN] AreaChangeFlag 11|
+|19|/scoreboard players set @a[x=-288,y=-200,z=-2672,dx=639,dy=600,dz=1311,score_USBDimension_min=12,TABLE_MOUNTAIN] AreaChangeFlag 11|
+|20|/scoreboard players set @a[x=-240,y=-200,z=448,dx=559,dy=600,dz=575,score_USBDimension=11,GULLIVERS_LAND] AreaChangeFlag 12|
+|21|/scoreboard players set @a[x=-240,y=-200,z=448,dx=559,dy=600,dz=575,score_USBDimension_min=13,GULLIVERS_LAND] AreaChangeFlag 12|
+|22|/scoreboard players set @a[x=752,y=-200,z=1024,dx=2063,dy=600,dz=2095,score_USBDimension=12,ICE_SHEET_FLOAT] AreaChangeFlag 13|
+|23|/scoreboard players set @a[x=752,y=-200,z=1024,dx=2063,dy=600,dz=2095,score_USBDimension_min=14,ICE_SHEET_FLOAT] AreaChangeFlag 13|
+|24|/execute @a[score_USBDimension=-1,c=1] ~ ~ ~ /scoreboard players set @a[x=-640,y=-200,z=-832,dx=1207,dy=600,dz=991,score_USBDimension_min=-99,NETHER] AreaChangeFlag -100 {Dimension:-1}|
+|25|/execute @a[score_USBDimension=-1,c=1] ~ ~ ~ /scoreboard players set @a[x=-624,y=-200,z=672,dx=1375,dy=600,dz=943,score_USBDimension=-91,NETHER_TRIAL] AreaChangeFlag -90 {Dimension:-1}|
+|26|/execute @a[score_USBDimension=-1,c=1] ~ ~ ~ /scoreboard players set @a[x=-624,y=-200,z=672,dx=1375,dy=600,dz=943,score_USBDimension_min=-89,NETHER_TRIAL] AreaChangeFlag -90 {Dimension:-1}|
+|27|/execute @a[score_USBDimension=-1,c=1] ~ ~ ~ /scoreboard players set @a[x=-624,y=-200,z=672,dx=1375,dy=600,dz=943,score_USBDimension_min=-89,NETHER_TRIAL] AreaChangeFlag -90 {Dimension:-1}|
+|28|/execute @a[score_AreaChangeFlag_min=-100] ~ ~ ~ /scoreboard players operation @a[c=1] USBDimension = @a[c=1] AreaChangeFlag|
+|29|/execute @a[score_AreaChangeFlag_min=-100] ~ ~ ~ /scoreboard players operation @a[c=1] AreaTitleFlag >< @a[c=1] AreaChangeFlag||条件付き|
+|30|/clone -1920 8 ~ -1920 9 ~ -1920 8 ~ filtered force minecraft:command_block 5 ###エリアタイトル表示||条件付き|
+|31|/tellraw @a[m=adventure,tag=!Adv,team=!] {"text":"ブロックの設置・破壊制限が解除された。","color":"dark_aqua"}|ゲームモード変更 タグ有無 Adv|
+|32|/gamemode survival @a[m=adventure,tag=!Adv,team=!]||条件付き|
+|33|/tellraw @a[m=survival,tag=Adv] {"text":"ブロックの設置・破壊が制限された。","color":"red"}|
+|34|/gamemode adventure @a[m=survival,tag=Adv]||条件付き|
+|35|/scoreboard players test #SkillTargetCount Global 1 *|SkillTarger位置復元|
+|36|/tp @e[tag=SkillTarget] ~ ~-0.4 ~||条件付き|
+|37|/scoreboard players tag @e[tag=SkillTarget] remove SkillTarget||条件付き|
+|38|/blockdata ~ ~-1 ~ {Items:[{id:minecraft:porkchop,Count:1b,Slot:0b,Damage:0s}],CookTimeTotal:20s}|1秒クロック|
+|39|/clone -1920 11 ~ -1920 12 ~ -1920 11 ~ filtered force minecraft:command_block 5 ###１秒毎処理||条件付き|
+|40|/gamerule mobGriefing|mobGriefing修正|
+|41|/scoreboard players test MobGriefing Settings * 0|
+|42|/gamerule mobGriefing true||条件付き|
+|43|/difficulty hard||条件付き|
+|44|/scoreboard players tag @e[type=FallingSand] add Garbage {FallDistance:0f}|砂バグ対策|
+|45|/scoreboard players tag @e[type=FallingSand,tag=Garbage] remove Garbage {Time:0}||条件付き|
+|46|/testforblock -1875 5 -198 minecraft:stone_pressure_plate 0|
+|47|/summon ArmorStand -1875 5 -198 {Health:0f,DeathTime:19s}||条件付き|
+|48|/tellraw AiAkaishi {"score":{"name":"*","objective":"CoolTickCounter"}}||条件付き|
+
+### 詳細
+
+1. [毎tick必ず最初に実行したいコマンド群](#毎tick必ず最初に実行したいコマンド群)を実行 (ここで自身を呼び出すことでクロックを行っている)
+2. `FloationRequired`を持ち、{OnGround:true}であるエンティティと`CooldownRequired`を持ち、{PortalCooldown:0}であるエンティティに`Garbage`を付与
+3. `Slimy`を持ち、{AbsorptionAmount:0f}であるエンティティが存在したら`Garbage`を付与し、以下の事柄を実行
+   1. `Garbage`を持つエンティティに{Size:0}を付与
+   2. `Garbage`を持ち、nameが無いマグマキューブに{Size:1,CustomName:,CustomNameVisible:false}を付与
+4. `Garbage`を持つエンティティに{Health:0f,DeathTime:19s,Silent:true}を付与し、killする
+5. `USBDimension`が0以上であり、ネザーにいる(`Dimension`:-1)プレイヤーの`AreaChangeFlag`を-100に設定
+6. `USBDimension`が99以下であり、エンドにいる(`Dimension`:1)プレイヤーの`AreaChangeFlag`を110に設定
+7. `USBDimension`が-1以下であり、0m以上外側にいる(Overworldにいることの検知?)プレイヤーの`AreaChangeFlag`を0に設定
+8. `USBDimension`が100以上であり、0m以上外側にいる(Overworldにいることの検知?)プレイヤーの`AreaChangeFlag`を0に設定
+9. 以下の表のようにプレイヤーのいる場所に対する`AreaChangeFlag`を変更
+10. `AreaChangeFlag`が-100以上であるプレイヤーいる場合、一人選択し`USBDimension`に`AreaChangeFlag`を代入して、以下の事柄を実行
+    1. `AreaTileFlag`と`AreaChangeFlag`との値を入れ替える
+    2. [エリア侵入記録](#エリア侵入記録)と[エリア処理](#エリア処理)を実行
+11. adventureであり、`Adv`がなく、何かしらのteamに所属しているプレイヤーがいる場合、アドベンチャーモード解除の旨のメッセージを出し、survivalに変更
+12. survivalであり、`Adv`があるプレイヤーがいる場合、アドベンチャーモードに変更された旨のメッセージを出し、adventureに変更
+13. `#SkillTargetCount`の`Global`が1以上である時、以下の事柄を実行
+    1. `SkillTarget`を持つエンティティを0.4m下に移動
+    2. `SkillTarget`を持つエンティティから`SkillTarget`を消去
+14. (-1883,3,-200)にあるかまどに1秒で燃焼する豚肉を入れることができたら(要は1秒たったら)、(-1920,11,-200)にある[時間経過](#時間経過)と(-1920,12,-200)にある[AEC維持](#aec維持)を実行
+15. `mobGriefing`について表示? (よくわからない)
+16. `mobGriefing`が0以下(false)の時、`mobGriefing`=trueとし、難易度を`hard`に変更
+17. `FallingSand`を持ち、{FallDistance:0f}であるエンティティに`Garbage`を付与し、{Time:0}であるエンティティから`Garbage`を削除
+18. (-1875,5,-198)に石の感圧板があるとき、以下の事柄を実行 (恐らくデバッグ用なので無視して構わない)
+    - 1tickで死亡するアーマースタンドを(-1875,5,-198)に召喚し、AiAkaishiに`CoolTickCounter`を持つエンティティの名前を送信する
+
+|AreaName|プレイヤーの位置|USBDimension|AreaChangeFlag|
+|:-|:-|:-|:-|
+|SKYLANDS|x=-192,y=-200,z=-288,dx=511,dy=600,dz=511|1~|0|
+|UNDERWORLD|x=752,y=-200,z=-320,dx=1439,dy=600,dz=703|~0 or 2~|1|
+|CLOUDIA|x=-3072,y=-200,z=-656,dx=1727,dy=600,dz=1103|~9 or 11~|10|
+|TABLE_MOUNTAIN|x=-288,y=-200,z=-2672,dx=639,dy=600,dz=1311|~10 or 12~|11|
+|GULLIVERS_LAND|x=-240,y=-200,z=448,dx=559,dy=600,dz=575|~11 or 13~|12|
+|ICE_SHEET_FLOAT|x=752,y=-200,z=1024,dx=2063,dy=600,dz=2095|~12 or 14~|13|
+|NETHER|x=-640,y=-200,z=-832,dx=1207,dy=600,dz=991 かつ ネザーにいる|-99~|-100|
+|NETHER_TRIAL|x=-624,y=-200,z=672,dx=1375,dy=600,dz=943 かつ ネザーにいる|~-91 or -89~|-90|
+
+[CommonGM]:TUSB_Analysis_Entity.html
+[エンダーマイト]:TUSB_Analysis_Entity.html
+[SystemKeeper]:TUSB_Analysis_Entity.html
