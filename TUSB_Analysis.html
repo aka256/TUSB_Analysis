@@ -478,6 +478,39 @@ code {
 <li><a href="#%E6%99%82%E8%A8%88%E5%B3%B6%E3%81%AE%E3%82%A2%E3%83%A9%E3%83%BC%E3%83%A0">時計島のアラーム</a></li>
 </ul>
 </li>
+<li><a href="#%E3%83%9E%E3%82%AF%E3%83%A9%E3%82%A6%E3%82%A7%E3%83%AB%E5%86%85%E9%83%A8">マクラウェル内部</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-18">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-16">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%B9%E3%82%B3%E3%82%A2%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E8%A8%AD%E5%AE%9A">スコアボードの設定</a></li>
+<li><a href="#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFoff">メインクロックOFF</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-19">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-17">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFon">メインクロックON</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-20">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-18">詳細</a></li>
+<li><a href="#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</a></li>
+</ul>
+</li>
+<li><a href="#systemkeeper%E5%87%A6%E7%90%86">SystemKeeper処理</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-21">コマンド群</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-19">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E3%81%8B%E3%81%BE%E3%81%A9%E5%86%8D%E8%A8%AD%E5%AE%9A">かまど再設定</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">コマンド</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0-20">詳細</a></li>
+</ul>
+</li>
+<li><a href="#%E6%AF%8Etick%E5%BF%85%E3%81%9A%E6%9C%80%E5%88%9D%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最初に実行したいコマンド群</a></li>
 </ul>
 </li>
 <li>
@@ -489,7 +522,7 @@ code {
 </ul>
 <hr>
 <h2 id="%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</h2>
-<p>これはThe Unusual Skyblock v12.0.9 の主にX回路区域内にあるコマンド群について簡単にまとめたものです。なので、実際にX回路区域を飛び回りながらこれを読むことをおススメします。また、何か間違い等がありましたらtwitterにてご連絡をお願いします(<a href="https://twitter.com/Re16d5">https://twitter.com/Re16d5</a>)。</p>
+<p>これはThe Unusual Skyblock v12.0.9 の主にX回路区域内にあるコマンド群について簡単にまとめたものです。なので、実際にX回路区域を飛び回りながらこれを読むことをおススメします。また、何か間違い等がありましたらtwitterにて連絡をいただけると嬉しいです(<a href="https://twitter.com/Re16d5">https://twitter.com/Re16d5</a>)。</p>
 <hr>
 <h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF%E9%96%8B%E5%A7%8B%E6%99%82%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%99%E3%82%8B%E3%82%82%E3%81%AE">メインクロック開始時リセットするもの</h2>
 <ul>
@@ -4479,6 +4512,277 @@ code {
 <ul>
 <li>音を鳴らし、時間を23400に設定する</li>
 </ul>
+<hr>
+<h2 id="%E3%83%9E%E3%82%AF%E3%83%A9%E3%82%A6%E3%82%A7%E3%83%AB%E5%86%85%E9%83%A8">マクラウェル内部</h2>
+<ul>
+<li>位置(-1896,117,-136)</li>
+</ul>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
+<p>コマンドトロッコ</p>
+<ul>
+<li>/execute @p[r=30,m=!creative] ~ ~ ~ /clone -1870 4 -194 -1870 4 -158 -1870 4 -194 filtered force minecraft:command_block</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/blockdata -1884 11 -200 {auto:true}</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/blockdata -1901 4 -192 {auto:true}</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/clone -1870 4 -195 -1870 4 -195 -1870 4 -195 filtered force minecraft:command_block</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<p>コマンドトロッコ</p>
+<ul>
+<li>周囲30m以内にcreativeでないプレイヤーがいる時、<a href="#%E3%82%B9%E3%82%B3%E3%82%A2%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E8%A8%AD%E5%AE%9A">スコアボードの設定</a>などを実行</li>
+</ul>
+<ol>
+<li>(-1884,11,-200)にあるコマンドブロックに{auto:true}を付与</li>
+<li>(-1901,4,-192)にある<a href="#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF%E9%96%8B%E5%A7%8B%E6%99%82%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%99%E3%82%8B%E3%82%82%E3%81%AE">メインクロック開始時にリセットするもの</a>のNo.20のコマンドブロックに{auto:true}を付与</li>
+<li>(-1870,4,-195)にある<a href="#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFoff">メインクロックOFF</a>を実行</li>
+</ol>
+<hr>
+<h2 id="%E3%82%B9%E3%82%B3%E3%82%A2%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E8%A8%AD%E5%AE%9A">スコアボードの設定</h2>
+<p>そのうち</p>
+<hr>
+<h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFoff">メインクロックOFF</h2>
+<ul>
+<li>位置(-1870,4,-195)</li>
+<li>(-1870,7,-195)にあるスイッチ(赤い羊毛についているやつ)によって手動にて操作可能</li>
+</ul>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/blockdata -1920 4 -200 {auto:false}</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/blockdata -1920 4 -111 {auto:false}</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/kill 0-0-2-0-2</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<ol>
+<li>(-1920,4,-200)にある<a href="#%E6%AF%8Etick%E5%BF%85%E3%81%9A%E6%9C%80%E5%88%9D%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最初に実行したいコマンド群</a>を停止</li>
+<li>(-1920,4,-111)にある<a href="#%E6%AF%8Etick%E5%BF%85%E3%81%9A%E6%9C%80%E5%BE%8C%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最後にに実行したいコマンド群その2</a>を停止</li>
+<li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>君をキル</li>
+</ol>
+<hr>
+<h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFon">メインクロックON</h2>
+<ul>
+<li>位置(-1870,4,-194)</li>
+<li>(-1870,7,-194)にあるスイッチ(青い羊毛についているやつ)によって手動にて操作可能</li>
+</ul>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">(空白)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/clone -1924 4 -200 -1924 4 -111 -1920 4 -200 filtered force minecraft:command_block 5</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/summon ArmorStand -1870 10 -197 {Invulnerable:true,Tags:[SystemEntity,TypeChecked],Rotation:[90f,0f],CustomNameVisible:true,CustomName:&quot;SystemKeeper&quot;,UUIDMost:2l,UUIDLeast:2l}</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<ol>
+<li><a href="#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</a>を実行</li>
+<li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>君を(-1870,10,-197)に召喚し、メインクロックを作動させる</li>
+</ol>
+<h3 id="%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</h3>
+<p>実行されるコマンド群 (x=-1920,y=4)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">z座標</th>
+<th style="text-align:left">コマンド群名称、先頭処理名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-200</td>
+<td style="text-align:left"><a href="#%E6%AF%8Etick%E6%9C%80%E5%88%9D%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最初に実行したいコマンド群</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-192</td>
+<td style="text-align:left"><a href="#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF%E9%96%8B%E5%A7%8B%E6%99%82%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%99%E3%82%8B%E3%82%82%E3%81%AE">メインクロック開始時にリセットするもの</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-189</td>
+<td style="text-align:left"><a href="#%E3%83%99%E3%83%83%E3%83%89%E5%87%A6%E7%90%86">ベッド処理</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-184</td>
+<td style="text-align:left"><a href="#%E9%BB%99%E6%83%B3%E7%B5%82%E4%BA%86%E5%87%A6%E7%90%86mokuso">黙想終了処理Mokuso</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-181</td>
+<td style="text-align:left"><a href="#%E4%B8%8E%E3%83%80%E3%83%A1%E3%83%BC%E3%82%B8damegedealt">与ダメージDamegeDealt</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-180</td>
+<td style="text-align:left"><a href="#%E3%82%B9%E3%83%8B%E3%83%BC%E3%82%AFsneaktime">スニークSneakTime</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-178</td>
+<td style="text-align:left"><a href="#%E5%A0%B1%E9%85%AC%E7%94%A8%E6%BC%94%E5%87%BA">報酬用演出</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-177</td>
+<td style="text-align:left"><a href="#%E7%AF%84%E5%9B%B2%E5%8C%96%E5%8F%AF%E8%83%BD%E3%82%B9%E3%82%AD%E3%83%AB%E5%88%A4%E5%AE%9A">範囲化可能スキル判定</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-175</td>
+<td style="text-align:left"><a href="#%E5%89%A3%E5%A3%AB%E5%8D%B3%E6%99%82%E5%88%86%E5%B2%90">剣士即時分岐</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-167</td>
+<td style="text-align:left"><a href="#%E7%8B%A9%E4%BA%BA%E5%8D%B3%E6%99%82%E5%88%86%E5%B2%90">狩人即時分岐</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-157</td>
+<td style="text-align:left"><a href="#%E9%BB%92%E9%AD%94%E5%B0%8E%E5%A3%AB%E5%8D%B3%E6%99%82%E5%88%86%E5%B2%90">黒魔導士即時分岐</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-144</td>
+<td style="text-align:left"><a href="#%E4%B9%B1%E6%95%B0%E5%8F%96%E5%BE%97">乱数取得</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-143</td>
+<td style="text-align:left"><a href="#%E5%BF%8D%E8%80%85%E3%82%B9%E3%82%AD%E3%83%AB">忍者スキル?</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-138</td>
+<td style="text-align:left"><a href="#%E7%99%BD%E9%AD%94%E5%B0%8E%E5%A3%AB%E3%82%B9%E3%82%AD%E3%83%AB">白魔導士スキル?</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-135</td>
+<td style="text-align:left"><a href="#%E5%8D%B0%E5%88%A4%E5%87%A6%E7%90%86">印判処理?</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-113</td>
+<td style="text-align:left"><a href="#%E3%82%B9%E3%82%AD%E3%83%AB%E5%90%8D%E8%A1%A8%E7%A4%BA%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97">スキル名表示呼び出し</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-111</td>
+<td style="text-align:left"><a href="#%E6%AF%8Etick%E5%BF%85%E3%81%9A%E6%9C%80%E5%BE%8C%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最後に実行したいコマンド群</a></td>
+</tr>
+</tbody>
+</table>
+<p>(これらすべてを&quot;毎tick実行したいコマンド群&quot;って呼ぶのかな?)</p>
+<hr>
+<h2 id="systemkeeper%E5%87%A6%E7%90%86">SystemKeeper処理</h2>
+<ul>
+<li>位置(-1870,7,-197)</li>
+<li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>がこの上にいる限り実行される</li>
+</ul>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/fill ~ ~1 ~ ~ ~1 ~ minecraft:stone_pressure_plate 0 replace minecraft:stone_pressure_plate</td>
+<td style="text-align:left">リピート</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/tp @e[dy=2] ~ ~2 ~</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/me は秩序を取り戻した。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">/clone -1924 4 -200 -1924 4 -111 -1920 4 -200 filtered force minecraft:command_block 5</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">/clone -1870 4 -193 -1870 4 -193 -1870 4 -193 filtered force minecraft:command_block 1 ###かまど再設定</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<ol>
+<li>(-1870,8,-197)の<a href="TUSB_Analysis_Entity.html">SystemKeeper</a>の足元に石の感圧版を設置</li>
+<li>[SystemKeerer]を2m上に移動</li>
+<li>秩序が戻った旨の通知を出す</li>
+<li><a href="#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</a>を実行</li>
+<li>(-1870,5,-203)にある<a href="#%E3%81%8B%E3%81%BE%E3%81%A9%E5%86%8D%E8%A8%AD%E5%AE%9A">かまど再設定</a>を実行</li>
+</ol>
+<hr>
+<h2 id="%E3%81%8B%E3%81%BE%E3%81%A9%E5%86%8D%E8%A8%AD%E5%AE%9A">かまど再設定</h2>
+<ul>
+<li>位置(-1870,5,-203)</li>
+</ul>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">コマンド</h3>
+<ul>
+<li>/blockdata ~-2 ~ ~ {Items:[{id:&quot;minecraft:cactus&quot;,Count:127b,Slot:0b},{id:&quot;minecraft:coal&quot;,Count:127b,Slot:1b}]}</li>
+</ul>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<ol>
+<li>(-1872,5,-203)のかまどにサボテンと石炭を入れる</li>
+<li>サボテンが燃えたらネザーポータルに送り込むと同時に再びコマンドを実行</li>
+<li>これを繰り返す</li>
+</ol>
+<hr>
+<h2 id="%E6%AF%8Etick%E5%BF%85%E3%81%9A%E6%9C%80%E5%88%9D%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最初に実行したいコマンド群</h2>
 
 </body>
 </html>
