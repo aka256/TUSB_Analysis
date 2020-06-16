@@ -64,8 +64,8 @@
 [メインクロック開始時リセットするもの]:./TUSB_Analysis/command/rest.html
 [初回ログイン時処理]:/TUSB_Analysis/command/firstLoginProcessing.md
 [ログイン時処理]:./TUSB_Analysis/command/loginProcessing.md
-[ジョブチェンジ先判定]:/TUSB_Analysis/command/jobChangeJudgemnt.html
-[ジョブセーブ]:/TUSB_Analysis/command/jobSave.html
+[ジョブチェンジ先判定]:./command/jobChangeJudgemnt.html
+[ジョブセーブ]:./command/jobSave.md
 [ジョブロード]:/TUSB_Analysis/command/jobLoad.html
 [ステータス表示]:/TUSB_Analysis/command/statusDisplay.html
 [攻略率表示]:/TUSB_Analysis/command/conquerDisplay.html
