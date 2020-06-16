@@ -61,9 +61,9 @@
 
 [お試しセットの印玉]:/TUSB_Analysis/others/TUSB_Analysis_Item.html
 
-[メインクロック開始時リセットするもの]:/TUSB_Analysis/command/rest.html
-[初回ログイン時処理]:/TUSB_Analysis/command/firstLoginProcessing.html
-[ログイン時処理]:/TUSB_Analysis/command/loginProcessing.html
+[メインクロック開始時リセットするもの]:./TUSB_Analysis/command/rest.html
+[初回ログイン時処理]:/TUSB_Analysis/command/firstLoginProcessing.md
+[ログイン時処理]:./TUSB_Analysis/command/loginProcessing.md
 [ジョブチェンジ先判定]:/TUSB_Analysis/command/jobChangeJudgemnt.html
 [ジョブセーブ]:/TUSB_Analysis/command/jobSave.html
 [ジョブロード]:/TUSB_Analysis/command/jobLoad.html
