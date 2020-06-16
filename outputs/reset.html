@@ -601,26 +601,26 @@ code {
 <h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
 <ol>
 <li><code>MPConsumption</code>が0以上のプレイヤーの<code>MPConsumption</code>を0とし、<code>ActivatedSkill</code>が0以上のプレイヤーの<code>ActivatedSkill</code>を0とする。そして<code>Sneaking</code>を削除</li>
-<li>チームに属していないプレイヤー(team=)を一人選択し、<a href="/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,8,-192)にある<a href="/command/firstLoginProcessing.html">初回ログイン時処理</a>を実行</li>
-<li><code>LeaveGame</code>が1以上のプレイヤーを一人選択し、<a href="/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-192)にある<a href="/command/loginProcessing.html">ログイン時処理</a>を実行</li>
+<li>チームに属していないプレイヤー(team=)を一人選択し、<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,8,-192)にある<a href="/TUSB_Analysis/command/firstLoginProcessing.html">初回ログイン時処理</a>を実行</li>
+<li><code>LeaveGame</code>が1以上のプレイヤーを一人選択し、<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-192)にある<a href="/TUSB_Analysis/command/loginProcessing.html">ログイン時処理</a>を実行</li>
 <li><code>PickerPaper</code>が1以上のプレイヤーの<code>TradedVillager</code>と<code>PickerPaper</code>の値を入れ替える</li>
-<li><code>TradedVillager</code>が1以上のプレイヤーの<code>TradedVillager</code>を0にし、(-1920,10,-192)にある<a href="/command/jobChangeJudgemnt.html">ジョブチェンジ先判定</a>を実行</li>
+<li><code>TradedVillager</code>が1以上のプレイヤーの<code>TradedVillager</code>を0にし、(-1920,10,-192)にある<a href="/TUSB_Analysis/command/jobChangeJudgement.html">ジョブチェンジ先判定</a>を実行</li>
 <li><code>ShowStatus</code>を持っているプレイヤーを一人選択し、<code>SaveJob</code>に<code>Job</code>を代入する</li>
 <li><code>LoadJob</code>が0以上であるプレイヤーを一人選択し、<code>SaveJob</code>に<code>Job</code>を代入する</li>
-<li><code>SaveJob</code>が0以上であるプレイヤーを一人選択し、(-1920,11,-192)にある<a href="/command/jobSave.html">ジョブセーブ</a>を実行</li>
-<li><code>LoadJob</code>が0以上であるプレイヤーを一人選択し、(-1920,12,-192)にある<a href="/command/jobLoad.html">ジョブロード</a>を実行</li>
-<li><code>ShowStatus</code>のプレイヤーを一人選択し、(-1920,14,-192)にある<a href="/command/statusDisplay.html">ステータス表示</a>を実行</li>
-<li><code>ShowConquest</code>のプレイヤーを一人選択し、(-1920,18,-192)にある<a href="/command/conquerDisplay.html">攻略率表示</a>を実行</li>
+<li><code>SaveJob</code>が0以上であるプレイヤーを一人選択し、(-1920,11,-192)にある<a href="/TUSB_Analysis/command/jobSave.html">ジョブセーブ</a>を実行</li>
+<li><code>LoadJob</code>が0以上であるプレイヤーを一人選択し、(-1920,12,-192)にある<a href="/TUSB_Analysis/command/jobLoad.html">ジョブロード</a>を実行</li>
+<li><code>ShowStatus</code>のプレイヤーを一人選択し、(-1920,14,-192)にある<a href="/TUSB_Analysis/command/statusDisplay.html">ステータス表示</a>を実行</li>
+<li><code>ShowConquest</code>のプレイヤーを一人選択し、(-1920,18,-192)にある<a href="/TUSB_Analysis/command/conquerDisplay.html">攻略率表示</a>を実行</li>
 <li>(-1755,98,-153)からdx=32,dy=9,dz=32(ブラジル行きの穴)にいるプレイヤーに<code>WarpByJob</code>を付与し、(-1920,15,-192)にある[ワープ処理_ジョブ島/通常世界]を実行</li>
-<li><code>HP</code>が0以下,<code>Hunger</code>が-1以下であるプレイヤーを一人選択し、<code>Hunger</code>に<code>Food</code>を代入し、(-1920,16,-192)にある<a href="/command/keepInventoryCheck.html">KeepInventory確認</a>を実行</li>
-<li><code>HP</code>が1以上,<code>Hunger</code>が0以上であるプレイヤーを一人選択し、<a href="/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-192)にある<a href="/command/satietyFix.html">満腹度修正</a>を実行</li>
-<li><code>HP</code>が1以上かつインベントリにネザースターのあるプレイヤーの<code>GotExpFlag</code>を-1にし、(-1920,8,-191)にある<a href="/command/expProcessing.html">経験値取得処理</a>を実行</li>
-<li><code>ExpToLevel</code>が0以下であるプレイヤーを一人選択し、<a href="/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-191)にある<a href="/command/leveliupProcessing.html">レベルアップ処理</a>を実行</li>
-<li><code>RefreshHPMax</code>が1以上であるプレイヤーを一人選択し、<a href="/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,16,-191)にある<a href="/command/hpFix.html">最大HP調整処理</a>を実行</li>
+<li><code>HP</code>が0以下,<code>Hunger</code>が-1以下であるプレイヤーを一人選択し、<code>Hunger</code>に<code>Food</code>を代入し、(-1920,16,-192)にある<a href="/TUSB_Analysis/command/keepInventoryCheck.html">KeepInventory確認</a>を実行</li>
+<li><code>HP</code>が1以上,<code>Hunger</code>が0以上であるプレイヤーを一人選択し、<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-192)にある<a href="/TUSB_Analysis/command/satietyFix.html">満腹度修正</a>を実行</li>
+<li><code>HP</code>が1以上かつインベントリにネザースターのあるプレイヤーの<code>GotExpFlag</code>を-1にし、(-1920,8,-191)にある<a href="/TUSB_Analysis/command/expProcessing.html">経験値取得処理</a>を実行</li>
+<li><code>ExpToLevel</code>が0以下であるプレイヤーを一人選択し、<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-191)にある<a href="/TUSB_Analysis/command/levelupProcessing.html">レベルアップ処理</a>を実行</li>
+<li><code>RefreshHPMax</code>が1以上であるプレイヤーを一人選択し、<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,16,-191)にある<a href="/TUSB_Analysis/command/hpFix.html">最大HP調整処理</a>を実行</li>
 <li><code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下,<code>ManaRefresh</code>が0以上であるプレイヤーを一人選択し、<code>MP</code>に<code>MPIncrement</code>を足し合わせる</li>
 <li><code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code>MP</code>に<code>MPIncrement</code>を足し合わせ、<code>MP</code>から<code>MPMax</code>を引く。そして、<code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下,<code>MP</code>が0以上であるプレイヤーを一人選択し、<code>MP</code>に<code>MPMax</code>を代入し、<code>score_CoolTickCounter_min=1</code>,<code>score_MPMaxFlag=0</code>,<code>score_MP_min=0</code>であるプレイヤーの<code>MPMaxFlag</code>を1にする</li>
 <li><code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code>MP</code>に<code>MPMax</code>を足し合わせ、<code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code>CoolTickCounter</code>に<code>CoolTickSpan</code>を代入する</li>
-<li><code>UseEnderEye</code>が1以上であるプレイヤーを一人選択し、<a href="/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-191)と(~,18,-191)にある<a href="/command/conquerProcessing.html">島攻略処理</a>と[島攻略処理_その2?]をそれぞれ実行</li>
+<li><code>UseEnderEye</code>が1以上であるプレイヤーを一人選択し、<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-191)と(~,18,-191)にある<a href="/TUSB_Analysis/command/conquerProcessing.html">島攻略処理</a>と[島攻略処理_その2?]をそれぞれ実行</li>
 <li><code>UseChorus</code>が1以上であるプレイヤーに<code>Pray</code>を追加。(-2827,57,-410)から(dx=9,dy=123,dz=9)(タワーバンク内)にいてかつ<code>Use_Chorus</code>が1以上であるプレイヤーを(-2811,75,-396,-53,0)(タワーバンク入口)に移動させる</li>
 <li><code>UseChorus</code>が1以上であるプレイヤーのところに[コーラスマイト]を出現させ、<code>UseChorus</code>が1以上であるプレイヤーの<code>UseChorus</code>を0にする</li>
 <li><code>Deaths</code>が1以上,<code>HP</code>が1以上であるプレイヤーのエフェクトをすべて消去する</li>
