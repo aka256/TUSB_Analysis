@@ -15,5 +15,9 @@
 			"style.scc"
 		]
 		*/
+		"markdown-pdf.outputDirectory": "outputs",
+		"markdown-pdf.convertOnSaveExclude": [
+			"README.md"
+		]
 	}
 }
