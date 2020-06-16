@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>index.md</title>
+<title>expProcessing.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -365,46 +365,74 @@ code {
           : 'default'
     });
   </script>
-<h1 id="%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</h1>
-<p>これはThe Unusual Skyblock v12.0.9 の主にX回路区域内にあるコマンド群について、個人的なメモとして簡単にまとめたものです。なので一応明言しておきますが<strong>非公式なドキュメント</strong>となっていますので、このドキュメントに関して間違えても<strong>TUSBサークルの皆様に連絡をすることがないよう</strong>お願いします。</p>
-<p>実際に読む際これだけでは分かりにくいと思うので、X回路区域を飛び回りながら読むことをおススメします。</p>
-<p>また、何か間違い等がありましたらtwitterにて連絡をいただけると嬉しいです。(<a href="https://twitter.com/Re16d5">https://twitter.com/Re16d5</a>)</p>
-<p>(最終更新日:2020/6/15)</p>
-<hr>
-<h2 id="%E7%9B%AE%E6%AC%A1">目次</h2>
+<h1 id="%E7%B5%8C%E9%A8%93%E5%80%A4%E5%8F%96%E5%BE%97%E5%87%A6%E7%90%86">経験値取得処理</h1>
 <ul>
-<li>コマンド群解説
-<ul>
-<li>[メインクロック開始時リセットするもの]</li>
-<li><a href="/command/firstLoginProcessing.html">初回ログイン時処理</a></li>
-<li><a href="/command/loginProcessing.html">ログイン時処理</a></li>
-<li><a href="/command/jobChangeJudgemnt.html">ジョブチェンジ先判定</a></li>
-<li><a href="/command/jobSave.html">ジョブセーブ</a></li>
-<li><a href="/command/jobLoad.html">ジョブロード</a></li>
-<li><a href="/command/statusDisplay.html">ステータス表示</a></li>
-<li><a href="/command/conquerDisplay.html">攻略率表示</a></li>
-<li><a href="/command/warpProcessing.html">ワープ処理ジョブ島・通常世界</a></li>
-<li><a href="/command/keepInventoryCheck.html">KeepInventory確認</a></li>
-<li><a href="/command/satietyFix.html">満腹度修正</a></li>
-<li><a href="/command/expProcessing.html">経験値取得処理</a></li>
-<li><a href="/command/leveliupProcessing.html">レベルアップ処理</a></li>
-<li><a href="/command/hpFix.html">最大HP調整処理</a></li>
-<li><a href="/command/difficultyAdjustment.html">難易度調整</a></li>
-<li><a href="/command/conquerProcessing.html">島攻略処理</a></li>
-<li><a href="/command/jobChangeJudgement.html">習得スキル取得</a></li>
-<li><a href="/command/clockIslandProcessing.html">時計島</a></li>
-<li><a href="/command/insideMcLawell.html">マクラウェル内部</a></li>
-<li><a href="/command/setScoreboard.html">スコアボードの設定</a></li>
-<li>[メインクロック]</li>
-<li><a href="/command/systemKeeperProcessing.html">SystemKeeper処理</a></li>
-<li><a href="/command/furnaceProcessing.html">かまど再設定</a></li>
-<li><a href="/command/runFirst.html">毎tick必ず最初に実行したいコマンド群</a></li>
-<li><a href="/command/areaRecord.html">エリア侵入記録</a></li>
+<li>位置(-1920,8,-191)</li>
+<li>ネザースターの取得処理、スコアへの代入</li>
 </ul>
-</li>
-<li><a href="TUSB_Analysis_Entity.html">Entity</a></li>
-<li><a href="TUSB_Analysis_Data.html">その他</a></li>
-</ul>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/scoreboard players set @a[score_GotExpFlag_min=1] GotExpFlag 0</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/clear @a[score_GotExpFlag=-1] minecraft:nether_star</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/execute @a[score_GotExpFlag_min=1] ~ ~ ~ /scoreboard players operation @a[c=1] ExpMessageFlag = @a[r=50,score_HP_min=1,score_Level_min=1,c=1] Level</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">/execute @a[score_GotExpFlag_min=1,score_ExpMessageFlag_min=1] ~ ~ ~ /scoreboard players operation @a[r=50,score_HP_min=1,score_Level_min=1] ExpToLevel -= @a[c=1] GotExpFlag</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">/execute @a[score_GotExpFlag_min=1,score_ExpMessageFlag_min=1] ~ ~ ~ /tellraw @a {&quot;translate&quot;:&quot;%1$sは%2$sEXPの経験値を得た。&quot;,&quot;color&quot;:&quot;yellow&quot;,&quot;with&quot;:[{&quot;selector&quot;:&quot;@a[r=50,score_HP_min=1,score_Level_min=1]&quot;},{&quot;score&quot;:{&quot;name&quot;:&quot;@a[c=1]&quot;,&quot;objective&quot;:&quot;GotExpFlag&quot;},&quot;color&quot;:&quot;white&quot;,&quot;bold&quot;:&quot;true&quot;}]}</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">/scoreboard players reset @a[score_ExpMessageFlag_min=1] ExpMessageFlag</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">/execute @a[score_GotExpFlag_min=1] ~ ~ ~ /scoreboard players operation @a[c=1] ExpMessageFlag = @a[rm=50,score_HP_min=1,score_Level_min=1,c=1] Level</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">/execute @a[score_GotExpFlag_min=1,score_ExpMessageFlag_min=1] ~ ~ ~ /tellraw @a {&quot;translate&quot;:&quot;%1$sは離れ過ぎていたため、経験値を得られなかった。&quot;,&quot;color&quot;:&quot;red&quot;,&quot;with&quot;:[{&quot;selector&quot;:&quot;@a[rm=50,score_HP_min=1,score_Level_min=1]&quot;}]}</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">/execute @a[score_GotExpFlag_min=1] ~ ~ ~ /execute @a[r=50,score_HP_min=1,score_Level_min=1] ~ ~ ~ /playsound entity.player.levelup master @a[c=1] ~ ~ ~ 0.3 2</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">/scoreboard players reset @a[score_ExpMessageFlag_min=1] ExpMessageFlag</td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li><code>GotExpFlag</code>が1以上であるプレイヤーの<code>GotExpFlag</code>を0に設定</li>
+<li><code>GotExpFlag</code>が-1以下であるプレイヤーのインベントリ内のネザースターを消去し、<code>ExpMessageFlag</code>に半径50m以内、<code>HP</code>が1以上、<code>Level</code>が1以上であるプレイヤーの<code>Level</code>を代入</li>
+<li><code>GotExpFlag</code>が1以上、<code>ExpMessageFlag</code>が1以上であるプレイヤーから半径50m以内、<code>HP</code>が1以上、<code>Level</code>が1以上であるプレイヤーの<code>ExpToLevel</code>から<code>GotExpFlag</code>を引く</li>
+<li><code>GotExpFlag</code>が1以上、<code>ExpMessageFlag</code>が1以上であるプレイヤーに経験値取得時のメッセージを出す</li>
+<li><code>ExpMessageFlag</code>が1以上であるプレイヤーの<code>ExpMessageFlag</code>を0に設定</li>
+<li><code>GotExpFlag</code>が1以上であるプレイヤーの<code>ExpMessageFlag</code>から半径50m以上離れていて、<code>HP</code>が1以上、<code>Level</code>が1以上であるプレイヤーの<code>Level</code>を引く</li>
+<li><code>GotExpFlag</code>が1以上で<code>ExpMessageFlag</code>が1以上であるプレイヤーに経験値取得失敗時のメッセージを表示</li>
+<li><code>GotExpFlag</code>が1以上であるプレイヤーから半径50m以内、<code>HP</code>が1以上、<code>Level</code>が1以上であるプレイヤーいる座標で音を鳴らす</li>
+<li><code>ExpMessageFlag</code>が1以上であるプレイヤーの<code>ExpMessageFlag</code>を0に設定</li>
+</ol>
 
 </body>
 </html>

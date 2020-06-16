@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>index.md</title>
+<title>systemKeeperProcessing.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -365,46 +365,56 @@ code {
           : 'default'
     });
   </script>
-<h1 id="%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</h1>
-<p>これはThe Unusual Skyblock v12.0.9 の主にX回路区域内にあるコマンド群について、個人的なメモとして簡単にまとめたものです。なので一応明言しておきますが<strong>非公式なドキュメント</strong>となっていますので、このドキュメントに関して間違えても<strong>TUSBサークルの皆様に連絡をすることがないよう</strong>お願いします。</p>
-<p>実際に読む際これだけでは分かりにくいと思うので、X回路区域を飛び回りながら読むことをおススメします。</p>
-<p>また、何か間違い等がありましたらtwitterにて連絡をいただけると嬉しいです。(<a href="https://twitter.com/Re16d5">https://twitter.com/Re16d5</a>)</p>
-<p>(最終更新日:2020/6/15)</p>
-<hr>
-<h2 id="%E7%9B%AE%E6%AC%A1">目次</h2>
+<h1 id="systemkeeper%E5%87%A6%E7%90%86">SystemKeeper処理</h1>
 <ul>
-<li>コマンド群解説
-<ul>
-<li>[メインクロック開始時リセットするもの]</li>
-<li><a href="/command/firstLoginProcessing.html">初回ログイン時処理</a></li>
-<li><a href="/command/loginProcessing.html">ログイン時処理</a></li>
-<li><a href="/command/jobChangeJudgemnt.html">ジョブチェンジ先判定</a></li>
-<li><a href="/command/jobSave.html">ジョブセーブ</a></li>
-<li><a href="/command/jobLoad.html">ジョブロード</a></li>
-<li><a href="/command/statusDisplay.html">ステータス表示</a></li>
-<li><a href="/command/conquerDisplay.html">攻略率表示</a></li>
-<li><a href="/command/warpProcessing.html">ワープ処理ジョブ島・通常世界</a></li>
-<li><a href="/command/keepInventoryCheck.html">KeepInventory確認</a></li>
-<li><a href="/command/satietyFix.html">満腹度修正</a></li>
-<li><a href="/command/expProcessing.html">経験値取得処理</a></li>
-<li><a href="/command/leveliupProcessing.html">レベルアップ処理</a></li>
-<li><a href="/command/hpFix.html">最大HP調整処理</a></li>
-<li><a href="/command/difficultyAdjustment.html">難易度調整</a></li>
-<li><a href="/command/conquerProcessing.html">島攻略処理</a></li>
-<li><a href="/command/jobChangeJudgement.html">習得スキル取得</a></li>
-<li><a href="/command/clockIslandProcessing.html">時計島</a></li>
-<li><a href="/command/insideMcLawell.html">マクラウェル内部</a></li>
-<li><a href="/command/setScoreboard.html">スコアボードの設定</a></li>
-<li>[メインクロック]</li>
-<li><a href="/command/systemKeeperProcessing.html">SystemKeeper処理</a></li>
-<li><a href="/command/furnaceProcessing.html">かまど再設定</a></li>
-<li><a href="/command/runFirst.html">毎tick必ず最初に実行したいコマンド群</a></li>
-<li><a href="/command/areaRecord.html">エリア侵入記録</a></li>
+<li>位置(-1870,7,-197)</li>
+<li><a href="/entity/TUSB_Analysis_Entity.html">SystemKeeper</a>がこの上にいる限り実行される</li>
 </ul>
-</li>
-<li><a href="TUSB_Analysis_Entity.html">Entity</a></li>
-<li><a href="TUSB_Analysis_Data.html">その他</a></li>
-</ul>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/fill ~ ~1 ~ ~ ~1 ~ minecraft:stone_pressure_plate 0 replace minecraft:stone_pressure_plate</td>
+<td style="text-align:left">リピート</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/tp @e[dy=2] ~ ~2 ~</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/me は秩序を取り戻した。</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">/clone -1924 4 -200 -1924 4 -111 -1920 4 -200 filtered force minecraft:command_block 5</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">/clone -1870 4 -193 -1870 4 -193 -1870 4 -193 filtered force minecraft:command_block 1 ###かまど再設定</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li>(-1870,8,-197)の<a href="/entity/TUSB_Analysis_Entity.html">SystemKeeper</a>の足元に石の感圧版を設置</li>
+<li>[SystemKeerer]を2m上に移動</li>
+<li>秩序が戻った旨の通知を出す</li>
+<li><a href="/command/mainclockProcessing.md">毎tick実行したいコマンド群</a>を実行</li>
+<li>(-1870,5,-203)にある<a href="/command/furnaceProcessing.html">かまど再設定</a>を実行</li>
+</ol>
 
 </body>
 </html>

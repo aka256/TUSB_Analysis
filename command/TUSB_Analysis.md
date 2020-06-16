@@ -1,100 +1,4 @@
-# TUSBAnalysis
-
-## はじめに
-
-これはThe Unusual Skyblock v12.0.9 の主にX回路区域内にあるコマンド群について、個人的なメモとして簡単にまとめたものです。なので一応明言しておきますが**非公式なドキュメント**となっていますので、このドキュメントに関して間違えても**TUSBサークルの皆様に連絡をすることがないよう**お願いします。
-
-実際に読む際これだけでは分かりにくいと思うので、X回路区域を飛び回りながら読むことをおススメします。
-
-また、何か間違い等がありましたらtwitterにて連絡をいただけると嬉しいです。(<https://twitter.com/Re16d5>)
-
-(最終更新日:2020/6/15)
-
----
-
-- [TUSBAnalysis](#tusbanalysis)
-  - [はじめに](#はじめに)
-  - [メインクロック開始時リセットするもの](#メインクロック開始時リセットするもの)
-    - [コマンド群](#コマンド群)
-    - [詳細](#詳細)
-  - [初回ログイン時処理](#初回ログイン時処理)
-    - [コマンド群](#コマンド群-1)
-    - [詳細](#詳細-1)
-  - [ログイン時処理](#ログイン時処理)
-    - [コマンド群](#コマンド群-2)
-    - [詳細](#詳細-2)
-  - [ジョブチェンジ先判定](#ジョブチェンジ先判定)
-    - [コマンド群](#コマンド群-3)
-    - [詳細](#詳細-3)
-  - [ジョブセーブ](#ジョブセーブ)
-    - [コマンド群](#コマンド群-4)
-    - [詳細](#詳細-4)
-  - [ジョブロード](#ジョブロード)
-    - [コマンド群](#コマンド群-5)
-    - [詳細](#詳細-5)
-  - [ステータス表示](#ステータス表示)
-    - [コマンド群](#コマンド群-6)
-  - [攻略率表示](#攻略率表示)
-    - [コマンド群](#コマンド群-7)
-  - [ワープ処理ジョブ島・通常世界](#ワープ処理ジョブ島通常世界)
-    - [コマンド群](#コマンド群-8)
-    - [詳細](#詳細-6)
-  - [KeepInventory確認](#keepinventory確認)
-    - [コマンド群](#コマンド群-9)
-    - [詳細](#詳細-7)
-  - [満腹度修正](#満腹度修正)
-    - [コマンド群](#コマンド群-10)
-    - [詳細](#詳細-8)
-  - [経験値取得処理](#経験値取得処理)
-    - [コマンド群](#コマンド群-11)
-    - [詳細](#詳細-9)
-  - [レベルアップ処理](#レベルアップ処理)
-    - [コマンド群](#コマンド群-12)
-    - [詳細](#詳細-10)
-  - [最大HP調整処理](#最大hp調整処理)
-    - [コマンド群](#コマンド群-13)
-    - [詳細](#詳細-11)
-  - [難易度調整](#難易度調整)
-    - [コマンド群](#コマンド群-14)
-    - [詳細](#詳細-12)
-  - [島攻略処理](#島攻略処理)
-    - [コマンド群](#コマンド群-15)
-    - [詳細](#詳細-13)
-  - [習得スキル取得](#習得スキル取得)
-    - [コマンド群](#コマンド群-16)
-    - [詳細](#詳細-14)
-  - [時計島](#時計島)
-    - [コマンド群](#コマンド群-17)
-    - [詳細](#詳細-15)
-    - [時計島のアラーム](#時計島のアラーム)
-  - [マクラウェル内部](#マクラウェル内部)
-    - [コマンド群](#コマンド群-18)
-    - [詳細](#詳細-16)
-  - [スコアボードの設定](#スコアボードの設定)
-  - [メインクロックOFF](#メインクロックoff)
-    - [コマンド群](#コマンド群-19)
-    - [詳細](#詳細-17)
-  - [メインクロックON](#メインクロックon)
-    - [コマンド群](#コマンド群-20)
-    - [詳細](#詳細-18)
-    - [毎tick実行したいコマンド群](#毎tick実行したいコマンド群)
-  - [SystemKeeper処理](#systemkeeper処理)
-    - [コマンド群](#コマンド群-21)
-    - [詳細](#詳細-19)
-  - [かまど再設定](#かまど再設定)
-    - [コマンド](#コマンド)
-    - [詳細](#詳細-20)
-  - [毎tick必ず最初に実行したいコマンド群](#毎tick必ず最初に実行したいコマンド群)
-    - [コマンド群](#コマンド群-22)
-    - [詳細](#詳細-21)
-  - [エリア侵入記録](#エリア侵入記録)
-    - [コマンド群](#コマンド群-23)
-    - [詳細](#詳細-22)
-
-- [Entity](TUSB_Analysis_Entity.html)
-- [その他](TUSB_Analysis_Data.html)
-
----
+# コマンド群解説
 
 ## メインクロック開始時リセットするもの
 
@@ -1528,13 +1432,39 @@ No.11
 |12|[ガリバーランド]|
 |13|[トカルトコルデ]|
 
-[CommonGM]:TUSB_Analysis_Entity.html
-[エンダーマイト]:TUSB_Analysis_Entity.html
-[SystemKeeper]:TUSB_Analysis_Entity.html
-[地下世界]:TUSB_Analysis_Entity.html
-[クラウディア]:TUSB_Analysis_Entity.html
-[テーブルマウンテン]:TUSB_Analysis_Entity.html
-[ガリバーランド]:TUSB_Analysis_Entity.html
-[トカルトコルデ]:TUSB_Analysis_Entity.html
-[お試しセットの印玉]:TUSB_Analysis_Item.html
-[ViewPoint(仮)]:TUSB_Analysis_Entity.html
+[CommonGM]:/entity/TUSB_Analysis_Entity.html
+[エンダーマイト]:/entity/TUSB_Analysis_Entity.html
+[SystemKeeper]:/entity/TUSB_Analysis_Entity.html
+[地下世界]:/entity/TUSB_Analysis_Entity.html
+[クラウディア]:/entity/TUSB_Analysis_Entity.html
+[テーブルマウンテン]:/entity/TUSB_Analysis_Entity.html
+[ガリバーランド]:/entity/TUSB_Analysis_Entity.html
+[トカルトコルデ]:/entity/TUSB_Analysis_Entity.html
+[お試しセットの印玉]:/entity/TUSB_Analysis_Item.html
+[ViewPoint(仮)]:/entity/TUSB_Analysis_Entity.html
+
+[メインクロック開始時にリセットするもの]:/command/rest.html
+[初回ログイン時処理]:/command/firstLoginProcessing.html
+[ログイン時処理]:/command/loginProcessing.html
+[ジョブチェンジ先判定]:/command/jobChangeJudgemnt.html
+[ジョブセーブ]:/command/jobSave.html
+[ジョブロード]:/command/jobLoad.html
+[ステータス表示]:/command/statusDisplay.html
+[攻略率表示]:/command/conquerDisplay.html
+[ワープ処理ジョブ島・通常世界]:/command/warpProcessing.html
+[KeepInventory確認]:/command/keepInventoryCheck.html
+[満腹度修正]:/command/satietyFix.html
+[経験値取得処理]:/command/expProcessing.html
+[レベルアップ処理]:/command/leveliupProcessing.html
+[最大HP調整処理]:/command/hpFix.html
+[難易度調整]:/command/difficultyAdjustment.html
+[島攻略処理]:/command/conquerProcessing.html
+[習得スキル取得]:/command/jobChangeJudgement.html
+[時計島]:/command/clockIslandProcessing.html
+[マクラウェル内部]:/command/insideMcLawell.html
+[スコアボードの設定]:/command/setScoreboard.html
+[メインクロック処理]:/command/mainclockProcessing.html
+[SystemKeeper処理]:/command/systemKeeperProcessing.html
+[かまど再設定]:/command/furnaceProcessing.html
+[毎tick必ず最初に実行したいコマンド群]:/command/runFirst.html
+[エリア侵入記録]:/command/areaRecord.html

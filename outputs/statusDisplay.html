@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>index.md</title>
+<title>statusDisplay.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -365,46 +365,66 @@ code {
           : 'default'
     });
   </script>
-<h1 id="%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</h1>
-<p>これはThe Unusual Skyblock v12.0.9 の主にX回路区域内にあるコマンド群について、個人的なメモとして簡単にまとめたものです。なので一応明言しておきますが<strong>非公式なドキュメント</strong>となっていますので、このドキュメントに関して間違えても<strong>TUSBサークルの皆様に連絡をすることがないよう</strong>お願いします。</p>
-<p>実際に読む際これだけでは分かりにくいと思うので、X回路区域を飛び回りながら読むことをおススメします。</p>
-<p>また、何か間違い等がありましたらtwitterにて連絡をいただけると嬉しいです。(<a href="https://twitter.com/Re16d5">https://twitter.com/Re16d5</a>)</p>
-<p>(最終更新日:2020/6/15)</p>
-<hr>
-<h2 id="%E7%9B%AE%E6%AC%A1">目次</h2>
+<h1 id="%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E8%A1%A8%E7%A4%BA">ステータス表示</h1>
 <ul>
-<li>コマンド群解説
-<ul>
-<li>[メインクロック開始時リセットするもの]</li>
-<li><a href="/command/firstLoginProcessing.html">初回ログイン時処理</a></li>
-<li><a href="/command/loginProcessing.html">ログイン時処理</a></li>
-<li><a href="/command/jobChangeJudgemnt.html">ジョブチェンジ先判定</a></li>
-<li><a href="/command/jobSave.html">ジョブセーブ</a></li>
-<li><a href="/command/jobLoad.html">ジョブロード</a></li>
-<li><a href="/command/statusDisplay.html">ステータス表示</a></li>
-<li><a href="/command/conquerDisplay.html">攻略率表示</a></li>
-<li><a href="/command/warpProcessing.html">ワープ処理ジョブ島・通常世界</a></li>
-<li><a href="/command/keepInventoryCheck.html">KeepInventory確認</a></li>
-<li><a href="/command/satietyFix.html">満腹度修正</a></li>
-<li><a href="/command/expProcessing.html">経験値取得処理</a></li>
-<li><a href="/command/leveliupProcessing.html">レベルアップ処理</a></li>
-<li><a href="/command/hpFix.html">最大HP調整処理</a></li>
-<li><a href="/command/difficultyAdjustment.html">難易度調整</a></li>
-<li><a href="/command/conquerProcessing.html">島攻略処理</a></li>
-<li><a href="/command/jobChangeJudgement.html">習得スキル取得</a></li>
-<li><a href="/command/clockIslandProcessing.html">時計島</a></li>
-<li><a href="/command/insideMcLawell.html">マクラウェル内部</a></li>
-<li><a href="/command/setScoreboard.html">スコアボードの設定</a></li>
-<li>[メインクロック]</li>
-<li><a href="/command/systemKeeperProcessing.html">SystemKeeper処理</a></li>
-<li><a href="/command/furnaceProcessing.html">かまど再設定</a></li>
-<li><a href="/command/runFirst.html">毎tick必ず最初に実行したいコマンド群</a></li>
-<li><a href="/command/areaRecord.html">エリア侵入記録</a></li>
+<li>位置(-1920,14,-192)</li>
+<li>交易島の教会でのステータス表示?</li>
 </ul>
-</li>
-<li><a href="TUSB_Analysis_Entity.html">Entity</a></li>
-<li><a href="TUSB_Analysis_Data.html">その他</a></li>
-</ul>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/tellraw @a[tag=ShowStatus] {&quot;text&quot;:&quot;---- ステータス ----&quot;,&quot;color&quot;:&quot;white&quot;,&quot;bold&quot;:&quot;true&quot;}</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/tellraw @a[tag=ShowStatus,score_Job_min=1,score_Job=1] [{&quot;text&quot;:&quot;選択している職業: &quot;,&quot;color&quot;:&quot;white&quot;},{&quot;text&quot;:&quot;剣士&quot;,&quot;color&quot;:&quot;blue&quot;,&quot;bold&quot;:&quot;true&quot;}]</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/tellraw @a[tag=ShowStatus,score_Job_min=2,score_Job=2] [{&quot;text&quot;:&quot;選択している職業: &quot;,&quot;color&quot;:&quot;white&quot;},{&quot;text&quot;:&quot;忍者&quot;,&quot;color&quot;:&quot;dark_green&quot;,&quot;bold&quot;:&quot;true&quot;}]</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">/tellraw @a[tag=ShowStatus,score_Job_min=3,score_Job=3] [{&quot;text&quot;:&quot;選択している職業: &quot;,&quot;color&quot;:&quot;white&quot;},{&quot;text&quot;:&quot;狩人&quot;,&quot;color&quot;:&quot;red&quot;,&quot;bold&quot;:&quot;true&quot;}]</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">/tellraw @a[tag=ShowStatus,score_Job_min=4,score_Job=4] [{&quot;text&quot;:&quot;選択している職業: &quot;,&quot;color&quot;:&quot;white&quot;},{&quot;text&quot;:&quot;白魔導士&quot;,&quot;color&quot;:&quot;white&quot;,&quot;bold&quot;:&quot;true&quot;}]</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">/tellraw @a[tag=ShowStatus,score_Job_min=5,score_Job=5] [{&quot;text&quot;:&quot;選択している職業: &quot;,&quot;color&quot;:&quot;white&quot;},{&quot;text&quot;:&quot;黒魔導士&quot;,&quot;color&quot;:&quot;dark_purple&quot;,&quot;bold&quot;:&quot;true&quot;}]</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">/tellraw @a[tag=ShowStatus,score_Job_min=6,score_Job=6] [{&quot;text&quot;:&quot;選択している職業: &quot;,&quot;color&quot;:&quot;white&quot;},{&quot;text&quot;:&quot;召喚士&quot;,&quot;color&quot;:&quot;gold&quot;,&quot;bold&quot;:&quot;true&quot;}]</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">/tellraw @a[tag=ShowStatus,score_Job_min=6,score_Job=6] [{&quot;text&quot;:&quot;選択している職業: &quot;,&quot;color&quot;:&quot;white&quot;},{&quot;text&quot;:&quot;召喚士&quot;,&quot;color&quot;:&quot;gold&quot;,&quot;bold&quot;:&quot;true&quot;}]</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">/tellraw @a[tag=ShowStatus,score_Job_min=7] [{&quot;text&quot;:&quot;選択している職業: &quot;,&quot;color&quot;:&quot;white&quot;},{&quot;text&quot;:&quot;不明&quot;,&quot;color&quot;:&quot;dark_red&quot;,&quot;bold&quot;:&quot;true&quot;,&quot;underlined&quot;:&quot;true&quot;}]</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">/tellraw @a[tag=ShowStatus] [{&quot;translate&quot;:&quot;レベル: %1$s     次のレベルアップまで: %2$s EXP\n\n&quot;,&quot;color&quot;:&quot;white&quot;,&quot;with&quot;:[{&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;Level&quot;},&quot;color&quot;:&quot;aqua&quot;},{&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;ExpToLevel&quot;},&quot;color&quot;:&quot;aqua&quot;}]},{&quot;text&quot;:&quot;レベル/残り必要経験値\n&quot;,&quot;color&quot;:&quot;gray&quot;},{&quot;translate&quot;:&quot;剣士: %1$sLV/%2$sEXP        忍者: %3$sLV/%4$sEXP        狩人: %5$sLV/%6$sEXP\n&quot;,&quot;color&quot;:&quot;gray&quot;,&quot;with&quot;:[{&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;KnightLevel&quot;},&quot;color&quot;:&quot;aqua&quot;},{&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;KnightToLevel&quot;},&quot;color&quot;:&quot;aqua&quot;},{&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;NinjaLevel&quot;},&quot;color&quot;:&quot;aqua&quot;},{&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;NinjaToLevel&quot;},&quot;color&quot;:&quot;aqua&quot;},{&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;ArcherLevel&quot;},&quot;color&quot;:&quot;aqua&quot;},{&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;ArcherToLevel&quot;},&quot;color&quot;:&quot;aqua&quot;}]},{&quot;translate&quot;:&quot;白魔導士: %1$sLV/%2$sEXP    黒魔導士: %3$sLV/%4$sEXP    召喚士: %5$sLV/%6$sEXP&quot;,&quot;color&quot;:&quot;gray&quot;,&quot;with&quot;:[{&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;WhiteMageLevel&quot;},&quot;color&quot;:&quot;aqua&quot;},{&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;WhiteMageToLevel&quot;},&quot;color&quot;:&quot;aqua&quot;},{&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;BlackMageLevel&quot;},&quot;color&quot;:&quot;aqua&quot;},{&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;BlackMageToLevel&quot;},&quot;color&quot;:&quot;aqua&quot;},{&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;SummonerLevel&quot;},&quot;color&quot;:&quot;aqua&quot;},{&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;SummonerToLevel&quot;},&quot;color&quot;:&quot;aqua&quot;}]}]</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">/scoreboard players tag @a[tag=ShowStatus] remove ShowStatus</td>
+</tr>
+</tbody>
+</table>
 
 </body>
 </html>

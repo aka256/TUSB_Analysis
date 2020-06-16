@@ -365,179 +365,7 @@ code {
           : 'default'
     });
   </script>
-<h1 id="tusbanalysis">TUSBAnalysis</h1>
-<h2 id="%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</h2>
-<p>これはThe Unusual Skyblock v12.0.9 の主にX回路区域内にあるコマンド群について、個人的なメモとして簡単にまとめたものです。なので一応明言しておきますが<strong>非公式なドキュメント</strong>となっていますので、このドキュメントに関して間違えても<strong>TUSBサークルの皆様に連絡をすることがないよう</strong>お願いします。</p>
-<p>実際に読む際これだけでは分かりにくいと思うので、X回路区域を飛び回りながら読むことをおススメします。</p>
-<p>また、何か間違い等がありましたらtwitterにて連絡をいただけると嬉しいです。(<a href="https://twitter.com/Re16d5">https://twitter.com/Re16d5</a>)</p>
-<p>(最終更新日:2020/6/15)</p>
-<hr>
-<ul>
-<li>
-<p><a href="#tusbanalysis">TUSBAnalysis</a></p>
-<ul>
-<li><a href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</a></li>
-<li><a href="#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF%E9%96%8B%E5%A7%8B%E6%99%82%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%99%E3%82%8B%E3%82%82%E3%81%AE">メインクロック開始時リセットするもの</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E5%88%9D%E5%9B%9E%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E6%99%82%E5%87%A6%E7%90%86">初回ログイン時処理</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-1">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-1">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E6%99%82%E5%87%A6%E7%90%86">ログイン時処理</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-2">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-2">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%83%81%E3%82%A7%E3%83%B3%E3%82%B8%E5%85%88%E5%88%A4%E5%AE%9A">ジョブチェンジ先判定</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-3">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-3">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%82%BB%E3%83%BC%E3%83%96">ジョブセーブ</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-4">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-4">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%83%AD%E3%83%BC%E3%83%89">ジョブロード</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-5">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-5">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E8%A1%A8%E7%A4%BA">ステータス表示</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-6">コマンド群</a></li>
-</ul>
-</li>
-<li><a href="#%E6%94%BB%E7%95%A5%E7%8E%87%E8%A1%A8%E7%A4%BA">攻略率表示</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-7">コマンド群</a></li>
-</ul>
-</li>
-<li><a href="#%E3%83%AF%E3%83%BC%E3%83%97%E5%87%A6%E7%90%86%E3%82%B8%E3%83%A7%E3%83%96%E5%B3%B6%E9%80%9A%E5%B8%B8%E4%B8%96%E7%95%8C">ワープ処理ジョブ島・通常世界</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-8">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-6">詳細</a></li>
-</ul>
-</li>
-<li><a href="#keepinventory%E7%A2%BA%E8%AA%8D">KeepInventory確認</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-9">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-7">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E6%BA%80%E8%85%B9%E5%BA%A6%E4%BF%AE%E6%AD%A3">満腹度修正</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-10">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-8">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E7%B5%8C%E9%A8%93%E5%80%A4%E5%8F%96%E5%BE%97%E5%87%A6%E7%90%86">経験値取得処理</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-11">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-9">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E3%83%AC%E3%83%99%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97%E5%87%A6%E7%90%86">レベルアップ処理</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-12">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-10">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E6%9C%80%E5%A4%A7hp%E8%AA%BF%E6%95%B4%E5%87%A6%E7%90%86">最大HP調整処理</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-13">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-11">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E9%9B%A3%E6%98%93%E5%BA%A6%E8%AA%BF%E6%95%B4">難易度調整</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-14">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-12">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86">島攻略処理</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-15">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-13">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E7%BF%92%E5%BE%97%E3%82%B9%E3%82%AD%E3%83%AB%E5%8F%96%E5%BE%97">習得スキル取得</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-16">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-14">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E6%99%82%E8%A8%88%E5%B3%B6">時計島</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-17">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-15">詳細</a></li>
-<li><a href="#%E6%99%82%E8%A8%88%E5%B3%B6%E3%81%AE%E3%82%A2%E3%83%A9%E3%83%BC%E3%83%A0">時計島のアラーム</a></li>
-</ul>
-</li>
-<li><a href="#%E3%83%9E%E3%82%AF%E3%83%A9%E3%82%A6%E3%82%A7%E3%83%AB%E5%86%85%E9%83%A8">マクラウェル内部</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-18">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-16">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E3%82%B9%E3%82%B3%E3%82%A2%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E8%A8%AD%E5%AE%9A">スコアボードの設定</a></li>
-<li><a href="#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFoff">メインクロックOFF</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-19">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-17">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFon">メインクロックON</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-20">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-18">詳細</a></li>
-<li><a href="#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</a></li>
-</ul>
-</li>
-<li><a href="#systemkeeper%E5%87%A6%E7%90%86">SystemKeeper処理</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-21">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-19">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E3%81%8B%E3%81%BE%E3%81%A9%E5%86%8D%E8%A8%AD%E5%AE%9A">かまど再設定</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">コマンド</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-20">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E6%AF%8Etick%E5%BF%85%E3%81%9A%E6%9C%80%E5%88%9D%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最初に実行したいコマンド群</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-22">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-21">詳細</a></li>
-</ul>
-</li>
-<li><a href="#%E3%82%A8%E3%83%AA%E3%82%A2%E4%BE%B5%E5%85%A5%E8%A8%98%E9%8C%B2">エリア侵入記録</a>
-<ul>
-<li><a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-23">コマンド群</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0-22">詳細</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><a href="TUSB_Analysis_Entity.html">Entity</a></p>
-</li>
-<li>
-<p><a href="TUSB_Analysis_Data.html">その他</a></p>
-</li>
-</ul>
-<hr>
+<h1 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4%E8%A7%A3%E8%AA%AC">コマンド群解説</h1>
 <h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF%E9%96%8B%E5%A7%8B%E6%99%82%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%99%E3%82%8B%E3%82%82%E3%81%AE">メインクロック開始時リセットするもの</h2>
 <ul>
 <li>位置(-1920,4,-192)</li>
@@ -774,8 +602,8 @@ code {
 <h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
 <ol>
 <li><code>MPConsumption</code>が0以上のプレイヤーの<code>MPConsumption</code>を0とし、<code>ActivatedSkill</code>が0以上のプレイヤーの<code>ActivatedSkill</code>を0とする。そして<code>Sneaking</code>を削除</li>
-<li>チームに属していないプレイヤー(team=)を一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,8,-192)にある<a href="#%E5%88%9D%E5%9B%9E%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E6%99%82%E5%87%A6%E7%90%86"><strong>初回ログイン時処理</strong></a>を実行</li>
-<li><code>LeaveGame</code>が1以上のプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-192)にある<a href="#%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E6%99%82%E5%87%A6%E7%90%86"><strong>ログイン時処理</strong></a>を実行</li>
+<li>チームに属していないプレイヤー(team=)を一人選択し、<a href="/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,8,-192)にある<a href="#%E5%88%9D%E5%9B%9E%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E6%99%82%E5%87%A6%E7%90%86"><strong>初回ログイン時処理</strong></a>を実行</li>
+<li><code>LeaveGame</code>が1以上のプレイヤーを一人選択し、<a href="/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-192)にある<a href="#%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3%E6%99%82%E5%87%A6%E7%90%86"><strong>ログイン時処理</strong></a>を実行</li>
 <li><code>PickerPaper</code>が1以上のプレイヤーの<code>TradedVillager</code>と<code>PickerPaper</code>の値を入れ替える</li>
 <li><code>TradedVillager</code>が1以上のプレイヤーの<code>TradedVillager</code>を0にし、(-1920,10,-192)にある<a href="#%E3%82%B8%E3%83%A7%E3%83%96%E3%83%81%E3%82%A7%E3%83%B3%E3%82%B8%E5%85%88%E5%88%A4%E5%AE%9A"><strong>ジョブチェンジ先判定</strong></a>を実行</li>
 <li><code>ShowStatus</code>を持っているプレイヤーを一人選択し、<code>SaveJob</code>に<code>Job</code>を代入する</li>
@@ -786,14 +614,14 @@ code {
 <li><code>ShowConquest</code>のプレイヤーを一人選択し、(-1920,18,-192)にある<a href="#%E6%94%BB%E7%95%A5%E7%8E%87%E8%A1%A8%E7%A4%BA"><strong>攻略率表示?</strong></a>を実行</li>
 <li>(-1755,98,-153)からdx=32,dy=9,dz=32(ブラジル行きの穴)にいるプレイヤーに<code>WarpByJob</code>を付与し、(-1920,15,-192)にある<a href="#%E3%83%AF%E3%83%BC%E3%83%97%E5%87%A6%E7%90%86%E3%82%B8%E3%83%A7%E3%83%96%E5%B3%B6%E3%83%BB%E9%80%9A%E5%B8%B8%E4%B8%96%E7%95%8C"><strong>ワープ処理_ジョブ島/通常世界</strong></a>を実行</li>
 <li><code>HP</code>が0以下,<code>Hunger</code>が-1以下であるプレイヤーを一人選択し、<code>Hunger</code>に<code>Food</code>を代入し、(-1920,16,-192)にある<a href="#keepinventory%E7%A2%BA%E8%AA%8D"><strong>KeepInventory確認</strong></a>を実行</li>
-<li><code>HP</code>が1以上,<code>Hunger</code>が0以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-192)にある<a href="#%E6%BA%80%E8%85%B9%E5%BA%A6%E4%BF%AE%E6%AD%A3"><strong>満腹度修正</strong></a>を実行</li>
+<li><code>HP</code>が1以上,<code>Hunger</code>が0以上であるプレイヤーを一人選択し、<a href="/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-192)にある<a href="#%E6%BA%80%E8%85%B9%E5%BA%A6%E4%BF%AE%E6%AD%A3"><strong>満腹度修正</strong></a>を実行</li>
 <li><code>HP</code>が1以上かつインベントリにネザースターのあるプレイヤーの<code>GotExpFlag</code>を-1にし、(-1920,8,-191)にある<a href="#%E7%B5%8C%E9%A8%93%E5%80%A4%E5%8F%96%E5%BE%97%E5%87%A6%E7%90%86"><strong>経験値取得処理</strong></a>を実行</li>
-<li><code>ExpToLevel</code>が0以下であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-191)にある<a href="#%E3%83%AC%E3%83%99%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97%E5%87%A6%E7%90%86"><strong>レベルアップ処理</strong></a>を実行</li>
-<li><code>RefreshHPMax</code>が1以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,16,-191)にある<a href="#%E6%9C%80%E5%A4%A7hp%E8%AA%BF%E6%95%B4%E5%87%A6%E7%90%86"><strong>最大HP調整処理</strong></a>を実行</li>
+<li><code>ExpToLevel</code>が0以下であるプレイヤーを一人選択し、<a href="/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-191)にある<a href="#%E3%83%AC%E3%83%99%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97%E5%87%A6%E7%90%86"><strong>レベルアップ処理</strong></a>を実行</li>
+<li><code>RefreshHPMax</code>が1以上であるプレイヤーを一人選択し、<a href="/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,16,-191)にある<a href="#%E6%9C%80%E5%A4%A7hp%E8%AA%BF%E6%95%B4%E5%87%A6%E7%90%86"><strong>最大HP調整処理</strong></a>を実行</li>
 <li><code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下,<code>ManaRefresh</code>が0以上であるプレイヤーを一人選択し、<code>MP</code>に<code>MPIncrement</code>を足し合わせる</li>
 <li><code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code>MP</code>に<code>MPIncrement</code>を足し合わせ、<code>MP</code>から<code>MPMax</code>を引く。そして、<code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下,<code>MP</code>が0以上であるプレイヤーを一人選択し、<code>MP</code>に<code>MPMax</code>を代入し、<code>score_CoolTickCounter_min=1</code>,<code>score_MPMaxFlag=0</code>,<code>score_MP_min=0</code>であるプレイヤーの<code>MPMaxFlag</code>を1にする</li>
 <li><code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code>MP</code>に<code>MPMax</code>を足し合わせ、<code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code>CoolTickCounter</code>に<code>CoolTickSpan</code>を代入する</li>
-<li><code>UseEnderEye</code>が1以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-191)と(~,18,-191)にある<a href="#%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86"><strong>島攻略処理</strong></a>と<a href="#%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86"><strong>島攻略処理_その2?</strong></a>をそれぞれ実行</li>
+<li><code>UseEnderEye</code>が1以上であるプレイヤーを一人選択し、<a href="/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-191)と(~,18,-191)にある<a href="#%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86"><strong>島攻略処理</strong></a>と<a href="#%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86"><strong>島攻略処理_その2?</strong></a>をそれぞれ実行</li>
 <li><code>UseChorus</code>が1以上であるプレイヤーに<code>Pray</code>を追加。(-2827,57,-410)から(dx=9,dy=123,dz=9)(タワーバンク内)にいてかつ<code>Use_Chorus</code>が1以上であるプレイヤーを(-2811,75,-396,-53,0)(タワーバンク入口)に移動させる</li>
 <li><code>UseChorus</code>が1以上であるプレイヤーのところに<a href="#%E3%82%B3%E3%83%BC%E3%83%A9%E3%82%B9%E3%83%9E%E3%82%A4%E3%83%88">コーラスマイト</a>を出現させ、<code>UseChorus</code>が1以上であるプレイヤーの<code>UseChorus</code>を0にする</li>
 <li><code>Deaths</code>が1以上,<code>HP</code>が1以上であるプレイヤーのエフェクトをすべて消去する</li>
@@ -2958,7 +2786,7 @@ code {
 </li>
 <li><code>ForceNight</code>の<code>Settings</code>が0以下の時、以下の事柄を実行
 <ul>
-<li><a href="TUSB_Analysis_Entity.html">CommonGM</a>が(-1920,4,-96)にある<a href="#%E6%99%82%E8%A8%88%E5%B3%B6"><strong>時計島</strong></a>を実行</li>
+<li><a href="/entity/TUSB_Analysis_Entity.html">CommonGM</a>が(-1920,4,-96)にある<a href="#%E6%99%82%E8%A8%88%E5%B3%B6"><strong>時計島</strong></a>を実行</li>
 </ul>
 </li>
 <li><code>ForceNight</code>の<code>Settings</code>が1以上であり、(3,77,87)にある南向きでエンダーアイがはめられたエンドポータルフレームが存在する時、以下の事柄を実行
@@ -4608,7 +4436,7 @@ code {
 <ol>
 <li>(-1920,4,-200)にある<a href="#%E6%AF%8Etick%E5%BF%85%E3%81%9A%E6%9C%80%E5%88%9D%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最初に実行したいコマンド群</a>を停止</li>
 <li>(-1920,4,-111)にある<a href="#%E6%AF%8Etick%E5%BF%85%E3%81%9A%E6%9C%80%E5%BE%8C%E3%81%AB%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick必ず最後にに実行したいコマンド群その2</a>を停止</li>
-<li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>君をキル</li>
+<li><a href="/entity/TUSB_Analysis_Entity.html">SystemKeeper</a>君をキル</li>
 </ol>
 <hr>
 <h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFon">メインクロックON</h2>
@@ -4646,7 +4474,7 @@ code {
 <h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
 <ol>
 <li><a href="#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</a>を実行</li>
-<li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>君を(-1870,10,-197)に召喚し、メインクロックを作動させる</li>
+<li><a href="/entity/TUSB_Analysis_Entity.html">SystemKeeper</a>君を(-1870,10,-197)に召喚し、メインクロックを作動させる</li>
 </ol>
 <h3 id="%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</h3>
 <p>実行されるコマンド群 (x=-1920,y=4)</p>
@@ -4733,7 +4561,7 @@ code {
 <h2 id="systemkeeper%E5%87%A6%E7%90%86">SystemKeeper処理</h2>
 <ul>
 <li>位置(-1870,7,-197)</li>
-<li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>がこの上にいる限り実行される</li>
+<li><a href="/entity/TUSB_Analysis_Entity.html">SystemKeeper</a>がこの上にいる限り実行される</li>
 </ul>
 <h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
 <table>
@@ -4774,7 +4602,7 @@ code {
 </table>
 <h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
 <ol>
-<li>(-1870,8,-197)の<a href="TUSB_Analysis_Entity.html">SystemKeeper</a>の足元に石の感圧版を設置</li>
+<li>(-1870,8,-197)の<a href="/entity/TUSB_Analysis_Entity.html">SystemKeeper</a>の足元に石の感圧版を設置</li>
 <li>[SystemKeerer]を2m上に移動</li>
 <li>秩序が戻った旨の通知を出す</li>
 <li><a href="#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</a>を実行</li>
@@ -5310,11 +5138,11 @@ code {
 <h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
 <ol>
 <li><code>AreaTitleFlag</code>の値に対応した<code>Enter</code>の持っていないエリアエフェクトクラウドに<code>Enter</code>を付与(以下の表参照)</li>
-<li><code>AreaTitleFlag</code>が-100以上であるプレイヤー一人選択し、プレイヤーの1m上に4m以内にいる<code>ViewPoint</code>を持つエンティティ(<a href="TUSB_Analysis_Entity.html">ViewPoint(仮)</a>)を移動</li>
+<li><code>AreaTitleFlag</code>が-100以上であるプレイヤー一人選択し、プレイヤーの1m上に4m以内にいる<code>ViewPoint</code>を持つエンティティ(<a href="/entity/TUSB_Analysis_Entity.html">ViewPoint(仮)</a>)を移動</li>
 <li><code>AreaTitleFlag</code>が-100以上であるプレイヤーの<code>InstantChangeA</code>、<code>InstantChangeB</code>、<code>ModeChangeA</code>、<code>ModeChangeB</code>をそれぞれ0に設定</li>
-<li>(-2725,88,-382)から2m以内(スキル設定所入口)にいて<code>AreaTitleFlag</code>が10であり、<code>TrialSet</code>を持つプレイヤーが存在したら、<a href="TUSB_Analysis_Item.html">お試しセットの印玉</a>を与え以下の事柄を実行
+<li>(-2725,88,-382)から2m以内(スキル設定所入口)にいて<code>AreaTitleFlag</code>が10であり、<code>TrialSet</code>を持つプレイヤーが存在したら、<a href="/entity/TUSB_Analysis_Item.html">お試しセットの印玉</a>を与え以下の事柄を実行
 <ol>
-<li><a href="TUSB_Analysis_Item.html">お試しセットの印玉</a>を受け取ったというメッセージを表示</li>
+<li><a href="/entity/TUSB_Analysis_Item.html">お試しセットの印玉</a>を受け取ったというメッセージを表示</li>
 <li><code>TrialSet</code>を削除</li>
 </ol>
 </li>
@@ -5330,23 +5158,23 @@ code {
 <tbody>
 <tr>
 <td style="text-align:center">1</td>
-<td style="text-align:center"><a href="TUSB_Analysis_Entity.html">地下世界</a></td>
+<td style="text-align:center"><a href="/entity/TUSB_Analysis_Entity.html">地下世界</a></td>
 </tr>
 <tr>
 <td style="text-align:center">10</td>
-<td style="text-align:center"><a href="TUSB_Analysis_Entity.html">クラウディア</a></td>
+<td style="text-align:center"><a href="/entity/TUSB_Analysis_Entity.html">クラウディア</a></td>
 </tr>
 <tr>
 <td style="text-align:center">11</td>
-<td style="text-align:center"><a href="TUSB_Analysis_Entity.html">テーブルマウンテン</a></td>
+<td style="text-align:center"><a href="/entity/TUSB_Analysis_Entity.html">テーブルマウンテン</a></td>
 </tr>
 <tr>
 <td style="text-align:center">12</td>
-<td style="text-align:center"><a href="TUSB_Analysis_Entity.html">ガリバーランド</a></td>
+<td style="text-align:center"><a href="/entity/TUSB_Analysis_Entity.html">ガリバーランド</a></td>
 </tr>
 <tr>
 <td style="text-align:center">13</td>
-<td style="text-align:center"><a href="TUSB_Analysis_Entity.html">トカルトコルデ</a></td>
+<td style="text-align:center"><a href="/entity/TUSB_Analysis_Entity.html">トカルトコルデ</a></td>
 </tr>
 </tbody>
 </table>

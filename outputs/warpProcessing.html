@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>index.md</title>
+<title>warpProcessing.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -365,46 +365,71 @@ code {
           : 'default'
     });
   </script>
-<h1 id="%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</h1>
-<p>これはThe Unusual Skyblock v12.0.9 の主にX回路区域内にあるコマンド群について、個人的なメモとして簡単にまとめたものです。なので一応明言しておきますが<strong>非公式なドキュメント</strong>となっていますので、このドキュメントに関して間違えても<strong>TUSBサークルの皆様に連絡をすることがないよう</strong>お願いします。</p>
-<p>実際に読む際これだけでは分かりにくいと思うので、X回路区域を飛び回りながら読むことをおススメします。</p>
-<p>また、何か間違い等がありましたらtwitterにて連絡をいただけると嬉しいです。(<a href="https://twitter.com/Re16d5">https://twitter.com/Re16d5</a>)</p>
-<p>(最終更新日:2020/6/15)</p>
-<hr>
-<h2 id="%E7%9B%AE%E6%AC%A1">目次</h2>
+<h1 id="%E3%83%AF%E3%83%BC%E3%83%97%E5%87%A6%E7%90%86%E3%82%B8%E3%83%A7%E3%83%96%E5%B3%B6%E3%83%BB%E9%80%9A%E5%B8%B8%E4%B8%96%E7%95%8C">ワープ処理ジョブ島・通常世界</h1>
 <ul>
-<li>コマンド群解説
-<ul>
-<li>[メインクロック開始時リセットするもの]</li>
-<li><a href="/command/firstLoginProcessing.html">初回ログイン時処理</a></li>
-<li><a href="/command/loginProcessing.html">ログイン時処理</a></li>
-<li><a href="/command/jobChangeJudgemnt.html">ジョブチェンジ先判定</a></li>
-<li><a href="/command/jobSave.html">ジョブセーブ</a></li>
-<li><a href="/command/jobLoad.html">ジョブロード</a></li>
-<li><a href="/command/statusDisplay.html">ステータス表示</a></li>
-<li><a href="/command/conquerDisplay.html">攻略率表示</a></li>
-<li><a href="/command/warpProcessing.html">ワープ処理ジョブ島・通常世界</a></li>
-<li><a href="/command/keepInventoryCheck.html">KeepInventory確認</a></li>
-<li><a href="/command/satietyFix.html">満腹度修正</a></li>
-<li><a href="/command/expProcessing.html">経験値取得処理</a></li>
-<li><a href="/command/leveliupProcessing.html">レベルアップ処理</a></li>
-<li><a href="/command/hpFix.html">最大HP調整処理</a></li>
-<li><a href="/command/difficultyAdjustment.html">難易度調整</a></li>
-<li><a href="/command/conquerProcessing.html">島攻略処理</a></li>
-<li><a href="/command/jobChangeJudgement.html">習得スキル取得</a></li>
-<li><a href="/command/clockIslandProcessing.html">時計島</a></li>
-<li><a href="/command/insideMcLawell.html">マクラウェル内部</a></li>
-<li><a href="/command/setScoreboard.html">スコアボードの設定</a></li>
-<li>[メインクロック]</li>
-<li><a href="/command/systemKeeperProcessing.html">SystemKeeper処理</a></li>
-<li><a href="/command/furnaceProcessing.html">かまど再設定</a></li>
-<li><a href="/command/runFirst.html">毎tick必ず最初に実行したいコマンド群</a></li>
-<li><a href="/command/areaRecord.html">エリア侵入記録</a></li>
+<li>位置(-1920,15,-192)</li>
+<li>初回ログイン時から通常世界に行くまでのTP処理</li>
 </ul>
-</li>
-<li><a href="TUSB_Analysis_Entity.html">Entity</a></li>
-<li><a href="TUSB_Analysis_Data.html">その他</a></li>
-</ul>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">/scoreboard players add @a[tag=WarpByJob] TutorialRead 0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">/tellraw @a[tag=WarpByJob,score_TutorialRead=524286] {&quot;text&quot;:&quot;まだ読めていないチュートリアルがあるようだ。&quot;}</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">/tp @a[tag=WarpByJob,score_TutorialRead=524286] -1911.0 114.0 -136.0</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left">/scoreboard players tag @a[tag=WarpByJob,score_TutorialRead=524286] remove WarpByJob</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left">/give @a[tag=WarpByJob,score_Job=0] minecraft:paper 1 0 {display:{Lore:[&quot;§7就職に必要な申請書。&quot;,&quot;§7無職のプレイヤーには無料で交付される。&quot;,&quot;§7紛失した場合は、職業島の中央に飛び込もう。&quot;],Name:&quot;§r§lジョブ変更申請書&quot;},初回:true}</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left">/tp @a[tag=WarpByJob,score_Job=0] -1786 113 -137 -90 0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left">/tp @a[tag=WarpByJob,score_Job_min=1] 0 5 2 -90 -30</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left">/scoreboard players tag @a[tag=WarpByJob] remove WarpByJob</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li><code>WarpByJob</code>を持つプレイヤーの<code>TutorialRead</code>を0に設定</li>
+<li><code>WarpByJob</code>を持ち、<code>TutorialRead</code>が524286以下であるプレイヤーにチュートリアルが読めていない旨のメッセージを表示し、(-1911.0 114.0 -136.0)(初期リス地点)に移動させ、<code>WarpByJob</code>を削除</li>
+<li><code>WarpBuJob</code>を持ち、<code>Job</code>が0以下であるプレイヤーにジョブ変更申請書を与え、(-1786,113,-137,-90,0)(職業島入口)に移動</li>
+<li><code>WarpBuJob</code>を持ち、<code>Job</code>が1以上であるプレイヤーを(0,5,2,-90,-30)(通常世界)に移動</li>
+<li><code>WarpByJob</code>を持つプレイヤーから<code>WarpByJob</code>を削除</li>
+</ol>
 
 </body>
 </html>

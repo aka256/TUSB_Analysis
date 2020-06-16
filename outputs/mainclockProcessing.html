@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>index.md</title>
+<title>mainclockProcessing.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -365,46 +365,164 @@ code {
           : 'default'
     });
   </script>
-<h1 id="%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</h1>
-<p>これはThe Unusual Skyblock v12.0.9 の主にX回路区域内にあるコマンド群について、個人的なメモとして簡単にまとめたものです。なので一応明言しておきますが<strong>非公式なドキュメント</strong>となっていますので、このドキュメントに関して間違えても<strong>TUSBサークルの皆様に連絡をすることがないよう</strong>お願いします。</p>
-<p>実際に読む際これだけでは分かりにくいと思うので、X回路区域を飛び回りながら読むことをおススメします。</p>
-<p>また、何か間違い等がありましたらtwitterにて連絡をいただけると嬉しいです。(<a href="https://twitter.com/Re16d5">https://twitter.com/Re16d5</a>)</p>
-<p>(最終更新日:2020/6/15)</p>
+<h1 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF">メインクロック</h1>
+<h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFoff">メインクロックOFF</h2>
+<ul>
+<li>位置(-1870,4,-195)</li>
+<li>(-1870,7,-195)にあるスイッチ(赤い羊毛についているやつ)によって手動にて操作可能</li>
+</ul>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/blockdata -1920 4 -200 {auto:false}</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/blockdata -1920 4 -111 {auto:false}</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/kill 0-0-2-0-2</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<ol>
+<li>(-1920,4,-200)にある<a href="/command/runFirst.html">毎tick必ず最初に実行したいコマンド群</a>を停止</li>
+<li>(-1920,4,-111)にある[毎tick必ず最後にに実行したいコマンド群]を停止</li>
+<li><a href="/entity/TUSB_Analysis_Entity.html">SystemKeeper</a>君をキル</li>
+</ol>
 <hr>
-<h2 id="%E7%9B%AE%E6%AC%A1">目次</h2>
+<h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFon">メインクロックON</h2>
 <ul>
-<li>コマンド群解説
-<ul>
-<li>[メインクロック開始時リセットするもの]</li>
-<li><a href="/command/firstLoginProcessing.html">初回ログイン時処理</a></li>
-<li><a href="/command/loginProcessing.html">ログイン時処理</a></li>
-<li><a href="/command/jobChangeJudgemnt.html">ジョブチェンジ先判定</a></li>
-<li><a href="/command/jobSave.html">ジョブセーブ</a></li>
-<li><a href="/command/jobLoad.html">ジョブロード</a></li>
-<li><a href="/command/statusDisplay.html">ステータス表示</a></li>
-<li><a href="/command/conquerDisplay.html">攻略率表示</a></li>
-<li><a href="/command/warpProcessing.html">ワープ処理ジョブ島・通常世界</a></li>
-<li><a href="/command/keepInventoryCheck.html">KeepInventory確認</a></li>
-<li><a href="/command/satietyFix.html">満腹度修正</a></li>
-<li><a href="/command/expProcessing.html">経験値取得処理</a></li>
-<li><a href="/command/leveliupProcessing.html">レベルアップ処理</a></li>
-<li><a href="/command/hpFix.html">最大HP調整処理</a></li>
-<li><a href="/command/difficultyAdjustment.html">難易度調整</a></li>
-<li><a href="/command/conquerProcessing.html">島攻略処理</a></li>
-<li><a href="/command/jobChangeJudgement.html">習得スキル取得</a></li>
-<li><a href="/command/clockIslandProcessing.html">時計島</a></li>
-<li><a href="/command/insideMcLawell.html">マクラウェル内部</a></li>
-<li><a href="/command/setScoreboard.html">スコアボードの設定</a></li>
-<li>[メインクロック]</li>
-<li><a href="/command/systemKeeperProcessing.html">SystemKeeper処理</a></li>
-<li><a href="/command/furnaceProcessing.html">かまど再設定</a></li>
-<li><a href="/command/runFirst.html">毎tick必ず最初に実行したいコマンド群</a></li>
-<li><a href="/command/areaRecord.html">エリア侵入記録</a></li>
+<li>位置(-1870,4,-194)</li>
+<li>(-1870,7,-194)にあるスイッチ(青い羊毛についているやつ)によって手動にて操作可能</li>
 </ul>
-</li>
-<li><a href="TUSB_Analysis_Entity.html">Entity</a></li>
-<li><a href="TUSB_Analysis_Data.html">その他</a></li>
-</ul>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">(空白)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/clone -1924 4 -200 -1924 4 -111 -1920 4 -200 filtered force minecraft:command_block 5</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/summon ArmorStand -1870 10 -197 {Invulnerable:true,Tags:[SystemEntity,TypeChecked],Rotation:[90f,0f],CustomNameVisible:true,CustomName:&quot;SystemKeeper&quot;,UUIDMost:2l,UUIDLeast:2l}</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<ol>
+<li><a href="#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</a>を実行</li>
+<li><a href="/entity/TUSB_Analysis_Entity.html">SystemKeeper</a>君を(-1870,10,-197)に召喚し、メインクロックを作動させる</li>
+</ol>
+<h3 id="%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</h3>
+<p>実行されるコマンド群 (x=-1920,y=4)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">z座標</th>
+<th style="text-align:left">コマンド群名称、先頭処理名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-200</td>
+<td style="text-align:left"><a href="/command/runFirst.html">毎tick必ず最初に実行したいコマンド群</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-192</td>
+<td style="text-align:left"><a href="/command/rest.html">メインクロック開始時にリセットするもの</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-189</td>
+<td style="text-align:left">[ベッド処理]</td>
+</tr>
+<tr>
+<td style="text-align:center">-184</td>
+<td style="text-align:left">[黙想終了処理Mokuso]</td>
+</tr>
+<tr>
+<td style="text-align:center">-181</td>
+<td style="text-align:left">[与ダメージDamegeDealt]</td>
+</tr>
+<tr>
+<td style="text-align:center">-180</td>
+<td style="text-align:left">[スニークSneakTime]</td>
+</tr>
+<tr>
+<td style="text-align:center">-178</td>
+<td style="text-align:left">[報酬用演出]</td>
+</tr>
+<tr>
+<td style="text-align:center">-177</td>
+<td style="text-align:left">[範囲化可能スキル判定]</td>
+</tr>
+<tr>
+<td style="text-align:center">-175</td>
+<td style="text-align:left">[剣士即時分岐]</td>
+</tr>
+<tr>
+<td style="text-align:center">-167</td>
+<td style="text-align:left">[狩人即時分岐]</td>
+</tr>
+<tr>
+<td style="text-align:center">-157</td>
+<td style="text-align:left">[黒魔導士即時分岐]</td>
+</tr>
+<tr>
+<td style="text-align:center">-144</td>
+<td style="text-align:left">[乱数取得]</td>
+</tr>
+<tr>
+<td style="text-align:center">-143</td>
+<td style="text-align:left">[忍者スキル?]</td>
+</tr>
+<tr>
+<td style="text-align:center">-138</td>
+<td style="text-align:left">[白魔導士スキル?]</td>
+</tr>
+<tr>
+<td style="text-align:center">-135</td>
+<td style="text-align:left">[印判処理?]</td>
+</tr>
+<tr>
+<td style="text-align:center">-113</td>
+<td style="text-align:left">[スキル名表示呼び出し]</td>
+</tr>
+<tr>
+<td style="text-align:center">-111</td>
+<td style="text-align:left">[毎tick必ず最後に実行したいコマンド群]</td>
+</tr>
+</tbody>
+</table>
+<p>(これらすべてを&quot;毎tick実行したいコマンド群&quot;って呼ぶのかな?)</p>
 
 </body>
 </html>

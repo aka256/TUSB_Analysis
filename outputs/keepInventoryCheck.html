@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>index.md</title>
+<title>keepInventoryCheck.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -365,46 +365,101 @@ code {
           : 'default'
     });
   </script>
-<h1 id="%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB">はじめに</h1>
-<p>これはThe Unusual Skyblock v12.0.9 の主にX回路区域内にあるコマンド群について、個人的なメモとして簡単にまとめたものです。なので一応明言しておきますが<strong>非公式なドキュメント</strong>となっていますので、このドキュメントに関して間違えても<strong>TUSBサークルの皆様に連絡をすることがないよう</strong>お願いします。</p>
-<p>実際に読む際これだけでは分かりにくいと思うので、X回路区域を飛び回りながら読むことをおススメします。</p>
-<p>また、何か間違い等がありましたらtwitterにて連絡をいただけると嬉しいです。(<a href="https://twitter.com/Re16d5">https://twitter.com/Re16d5</a>)</p>
-<p>(最終更新日:2020/6/15)</p>
-<hr>
-<h2 id="%E7%9B%AE%E6%AC%A1">目次</h2>
+<h1 id="keepinventory%E7%A2%BA%E8%AA%8D">KeepInventory確認</h1>
 <ul>
-<li>コマンド群解説
-<ul>
-<li>[メインクロック開始時リセットするもの]</li>
-<li><a href="/command/firstLoginProcessing.html">初回ログイン時処理</a></li>
-<li><a href="/command/loginProcessing.html">ログイン時処理</a></li>
-<li><a href="/command/jobChangeJudgemnt.html">ジョブチェンジ先判定</a></li>
-<li><a href="/command/jobSave.html">ジョブセーブ</a></li>
-<li><a href="/command/jobLoad.html">ジョブロード</a></li>
-<li><a href="/command/statusDisplay.html">ステータス表示</a></li>
-<li><a href="/command/conquerDisplay.html">攻略率表示</a></li>
-<li><a href="/command/warpProcessing.html">ワープ処理ジョブ島・通常世界</a></li>
-<li><a href="/command/keepInventoryCheck.html">KeepInventory確認</a></li>
-<li><a href="/command/satietyFix.html">満腹度修正</a></li>
-<li><a href="/command/expProcessing.html">経験値取得処理</a></li>
-<li><a href="/command/leveliupProcessing.html">レベルアップ処理</a></li>
-<li><a href="/command/hpFix.html">最大HP調整処理</a></li>
-<li><a href="/command/difficultyAdjustment.html">難易度調整</a></li>
-<li><a href="/command/conquerProcessing.html">島攻略処理</a></li>
-<li><a href="/command/jobChangeJudgement.html">習得スキル取得</a></li>
-<li><a href="/command/clockIslandProcessing.html">時計島</a></li>
-<li><a href="/command/insideMcLawell.html">マクラウェル内部</a></li>
-<li><a href="/command/setScoreboard.html">スコアボードの設定</a></li>
-<li>[メインクロック]</li>
-<li><a href="/command/systemKeeperProcessing.html">SystemKeeper処理</a></li>
-<li><a href="/command/furnaceProcessing.html">かまど再設定</a></li>
-<li><a href="/command/runFirst.html">毎tick必ず最初に実行したいコマンド群</a></li>
-<li><a href="/command/areaRecord.html">エリア侵入記録</a></li>
+<li>位置(-1920,16,-192)</li>
 </ul>
-</li>
-<li><a href="TUSB_Analysis_Entity.html">Entity</a></li>
-<li><a href="TUSB_Analysis_Data.html">その他</a></li>
-</ul>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/scoreboard players test Sightseeing Settings * 0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/gamerule keepInventory false</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/clear @a[score_HP=0]</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">/scoreboard players tag @a[score_HP=0,score_USBDimension_min=-90,score_USBDimension=-90] add Raise</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">/scoreboard players set @a[score_HP=0,score_USBDimension_min=-90,score_USBDimension=-90] RaisedArea -90</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">/scoreboard players set @a[score_HP=0,score_USBDimension_min=-90,score_USBDimension=-90] Hunger 21</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">/gamemode spectator @a[score_HP=0,score_USBDimension_min=-90,score_USBDimension=-90]</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">/scoreboard players tag @a[score_HP=0,score_USBDimension_min=-90,score_USBDimension=-90] add TrialItemClear {Inventory:[{tag:{TrialItem:true}}]}</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">/clear @a[tag=TrialItemClear]</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">/scoreboard players tag @a[tag=TrialItemClear] remove TrialItemClear</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">/scoreboard players tag @a[score_HP=0,tag=Doom] remove Doom</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:left">/scoreboard players tag @a[tag=ReRaise,score_HP=0] add CastRaise</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left">/scoreboard players tag @a[tag=ReRaise,score_HP=0] remove ReRaise</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:left">/scoreboard players reset @a[score_Deaths_min=1,score_HP=0] Deaths</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li><code>Sightseeing</code>の<code>Settings</code>が0以下の時、<code>keepInventory</code>を<code>false</code>にし、<code>HP</code>が0以下のプレイヤーのインベントリ内アイテムを消去する</li>
+<li><code>HP</code>が0以下、<code>USBDimension</code>が-90であるプレイヤーに<code>Raise</code>を付与、<code>Raisearea</code>を-90に設定、<code>Hunger</code>を21に設定、スペクターモードに切り替える。</li>
+<li><code>HP</code>が0以下、<code>USBDimension</code>が-90であり、尚且つインベントリ内に<code>TrialItem:true</code>を持つプレイヤーに<code>TrialItemClear</code>を付与し、インベントリ内アイテムを消去、<code>TrialItemClear</code>を消去</li>
+<li><code>HP</code>が0以下、<code>Doom</code>を持つプレイヤーから<code>Doom</code>を消去</li>
+<li><code>HP</code>が0以下、<code>ReRaise</code>を持つプレイヤーに<code>CastRaise</code>を付与し、<code>ReRaise</code>を消去</li>
+<li><code>Deaths</code>が1以上、<code>HP</code>が0以下であるプレイヤーの<code>Deaths</code>を0に設定</li>
+</ol>
 
 </body>
 </html>
