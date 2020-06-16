@@ -366,49 +366,363 @@ code {
     });
   </script>
 <h1 id="entity">Entity</h1>
+<ul>
+<li><a href="#entity">Entity</a>
+<ul>
+<li><a href="#systementity">SystemEntity</a>
+<ul>
+<li><a href="#commongm">CommonGM</a>
+<ul>
+<li><a href="#summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">summonコマンド</a></li>
+</ul>
+</li>
+<li><a href="#systemkeeper">SystemKeeper</a>
+<ul>
+<li><a href="#summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89-1">summonコマンド</a></li>
+</ul>
+</li>
+<li><a href="#viewpoint%E4%BB%AE">ViewPoint(仮)</a>
+<ul>
+<li><a href="#summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89-2">summonコマンド</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9C%B0%E4%B8%8B%E4%B8%96%E7%95%8C">地下世界</a>
+<ul>
+<li><a href="#summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89-3">summonコマンド</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%87%E3%82%A3%E3%82%A2">クラウディア</a>
+<ul>
+<li><a href="#summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89-4">summonコマンド</a></li>
+</ul>
+</li>
+<li><a href="#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%86%E3%83%B3">テーブルマウンテン</a>
+<ul>
+<li><a href="#summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89-5">summonコマンド</a></li>
+</ul>
+</li>
+<li><a href="#%E3%82%AC%E3%83%AA%E3%83%90%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89">ガリバーランド</a>
+<ul>
+<li><a href="#summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89-6">summonコマンド</a></li>
+</ul>
+</li>
+<li><a href="#%E3%83%88%E3%82%AB%E3%83%AB%E3%83%88%E3%82%B3%E3%83%AB%E3%83%87">トカルトコルデ</a>
+<ul>
+<li><a href="#summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89-7">summonコマンド</a></li>
+</ul>
+</li>
+<li><a href="#%E3%81%AF%E3%81%A6%E3%81%AA">はてな</a>
+<ul>
+<li><a href="#summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89-8">summonコマンド</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E6%95%B5mob">敵MOB</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%BC%E3%83%A9%E3%82%B9%E3%83%9E%E3%82%A4%E3%83%88">コーラスマイト</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
 <h2 id="systementity">SystemEntity</h2>
+<ul>
+<li>コマンドの管理をする上で使用されているエンティティ</li>
+<li><code>SystemEntity</code>を持っていないエンティティもここでは含めている</li>
+</ul>
 <h3 id="commongm">CommonGM</h3>
-<pre class="hljs"><code><div>ArmorStand ~ ~ ~ {NoGravity:1b,HurtByTimestamp:0,Attributes:[0:{Base:20.0d,Name:&quot;generic.maxHealth&quot;},1:{Base:0.0d,Name:&quot;generic.knockbackResistance&quot;},2:{Base:0.699999988079071d,Name:&quot;generic.movementSpeed&quot;},3:{Base:0.0d,Name:&quot;generic.armor&quot;},4:{Base:0.0d,Name:&quot;generic.armorToughness&quot;}],Invulnerable:1b,FallFlying:0b,ShowArms:0b,PortalCooldown:0,AbsorptionAmount:0.0f,FallDistance:0.0f,DisabledSlots:31,DeathTime:0s,Pose:{},Invisible:1b,Tags:[0:&quot;TypeChecked&quot;,1:&quot;SystemEntity&quot;],Motion:[0:0.0d,1:0.0d,2:0.0d],Small:1b,UUIDLeast:1L,Health:20.0f,Air:300s,OnGround:0b,Dimension:0,Marker:1b,Rotation:[0:0.0f,1:0.0f],HandItems:[0:{},1:{}],UUIDMost:1L,CustomName:&quot;CommonGM&quot;,Pos:[0:-1919.5d,1:6.5d,2:-191.5d],Fire:0s,ArmorItems:[0:{},1:{},2:{},3:{}],NoBasePlate:1b,HurtTime:0s,CustomNameVisible:1b}
-</div></code></pre>
+<ul>
+<li>コマンド実行時の基準となっているアーマースタンド</li>
+</ul>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">No.</th>
-<th style="text-align:center">Tag Name</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">TypeChecked</td>
+<td>Name</td>
+<td>CommonGM</td>
 </tr>
 <tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">SystemEntity</td>
+<td>Type</td>
+<td>ArmorStand</td>
+</tr>
+<tr>
+<td>Tag</td>
+<td>SystemEntity</td>
+</tr>
+<tr>
+<td>UUID</td>
+<td>0-0-1-0-1</td>
 </tr>
 </tbody>
 </table>
+<h4 id="summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">summonコマンド</h4>
+<ul>
+<li>位置(-1921,6,-192)</li>
+</ul>
+<pre class="hljs"><code><div>/summon ArmorStand ~1 ~ ~ {CustomName:&quot;CommonGM&quot;, CustomNameVisible:true, Invulnerable:true, Small:true, Invisible:true, DisabledSlots:31, Marker:true, NoGravity:true, NoBasePlate:true, UUIDMost:1l, UUIDLeast:1l, Tags:[SystemEntity]}
+</div></code></pre>
+<hr>
 <h3 id="systemkeeper">SystemKeeper</h3>
-<pre class="hljs"><code><div>{HurtByTimestamp:0,Attributes:[0:{Base:20.0d,Name:&quot;generic.maxHealth&quot;},1:{Base:0.0d,Name:&quot;generic.knockbackResistance&quot;},2:{Base:0.699999988079071d,Name:&quot;generic.movementSpeed&quot;},3:{Base:0.0d,Name:&quot;generic.armor&quot;},4:{Base:0.0d,Name:&quot;generic.armorToughness&quot;}],Invulnerable:1b,FallFlying:0b,ShowArms:0b,PortalCooldown:0,AbsorptionAmount:0.0f,FallDistance:0.0f,DisabledSlots:0,DeathTime:0s,Pose:{},Invisible:0b,Tags:[0:&quot;TypeChecked&quot;,1:&quot;SystemEntity&quot;],Motion:[0:0.0d,1:-0.0784000015258789d,2:0.0d],Small:0b,UUIDLeast:2L,Health:20.0f,Air:300s,OnGround:0b,Dimension:0,Rotation:[0:90.0f,1:0.0f],HandItems:[0:{},1:{}],UUIDMost:2L,CustomName:&quot;SystemKeeper&quot;,Pos:[0:-1869.5d,1:9.89031839732439d,2:-196.5d],Fire:-1s,ArmorItems:[0:{},1:{},2:{},3:{}],NoBasePlate:0b,HurtTime:0s,CustomNameVisible:1b
-</div></code></pre>
+<ul>
+<li>メインクロックが不具合を起こした際に、復旧を図るアーマースタンド</li>
+<li>&quot;秩序を取り戻した&quot;というメッセージを出しているのはコイツ</li>
+</ul>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">No.</th>
-<th style="text-align:center">Tag Name</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">TypeChecked</td>
+<td>Name</td>
+<td>SystemKeeper</td>
 </tr>
 <tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">SystemEntity</td>
+<td>Type</td>
+<td>ArmorStnad</td>
+</tr>
+<tr>
+<td>Tag</td>
+<td>SystemEntity, TypeChecked</td>
+</tr>
+<tr>
+<td>UUID</td>
+<td>0-0-2-0-2</td>
 </tr>
 </tbody>
 </table>
+<h4 id="summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">summonコマンド</h4>
+<ul>
+<li>位置(-1870,6-194)</li>
+<li>メインクロックをONにした際、召喚される</li>
+</ul>
+<pre class="hljs"><code><div>/summon ArmorStand -1870 10 -197 {Invulnerable:true,Tags:[SystemEntity,TypeChecked],Rotation:[90f,0f],CustomNameVisible:true,CustomName:&quot;SystemKeeper&quot;,UUIDMost:2l,UUIDLeast:2l}
+</div></code></pre>
+<hr>
+<h3 id="viewpoint%E4%BB%AE">ViewPoint(仮)</h3>
+<ul>
+<li>CustomNameが&quot;&quot;となっているので仮としてViewPoint(仮)としておく</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>(None)</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>ArmorStand</td>
+</tr>
+<tr>
+<td>Tag</td>
+<td>ViewPoint, SystemEntity</td>
+</tr>
+</tbody>
+</table>
+<h4 id="summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">summonコマンド</h4>
+<ul>
+<li>位置(-1921,6,-190)</li>
+</ul>
+<pre class="hljs"><code><div>/summon ArmorStand ~1 ~ ~ {CustomName:&quot;&quot;, Invulnerable:true, Small:true, Invisible:true, DisabledSlots:31, Marker:true, NoGravity:true, NoBasePlate:true, Tags:[ViewPoint,SystemEntity]}
+</div></code></pre>
+<hr>
+<h3 id="%E5%9C%B0%E4%B8%8B%E4%B8%96%E7%95%8C">地下世界</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>地下世界</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>AreaEffectCloud</td>
+</tr>
+<tr>
+<td>Tag</td>
+<td>(None)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">summonコマンド</h4>
+<ul>
+<li>位置(-1921,6,-193)</li>
+</ul>
+<pre class="hljs"><code><div>/summon AreaEffectCloud ~1 ~ ~ {ReapplicantDelay:2147483647,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2147483647,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:take,CustomName:地下世界,CustomNameVisible:true}
+</div></code></pre>
+<hr>
+<h3 id="%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%87%E3%82%A3%E3%82%A2">クラウディア</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>クラウディア</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>AreaEffectCloud</td>
+</tr>
+<tr>
+<td>Tag</td>
+<td>(None)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">summonコマンド</h4>
+<ul>
+<li>位置(-1921,6,-194)</li>
+</ul>
+<pre class="hljs"><code><div>/summon AreaEffectCloud ~1 ~ ~ {ReapplicantDelay:2147483647,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2147483647,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:take,CustomName:クラウディア,CustomNameVisible:true}
+</div></code></pre>
+<hr>
+<h3 id="%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%86%E3%83%B3">テーブルマウンテン</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>クラウディア</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>AreaEffectCloud</td>
+</tr>
+<tr>
+<td>Tag</td>
+<td>(None)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">summonコマンド</h4>
+<ul>
+<li>位置(-1921,6,-195)</li>
+</ul>
+<pre class="hljs"><code><div>/summon AreaEffectCloud ~1 ~ ~ {ReapplicantDelay:2147483647,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2147483647,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:take,CustomName:テーブルマウンテン,CustomNameVisible:true}
+</div></code></pre>
+<hr>
+<h3 id="%E3%82%AC%E3%83%AA%E3%83%90%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89">ガリバーランド</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>クラウディア</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>AreaEffectCloud</td>
+</tr>
+<tr>
+<td>Tag</td>
+<td>(None)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">summonコマンド</h4>
+<ul>
+<li>位置(-1921,6,-196)</li>
+</ul>
+<pre class="hljs"><code><div>/summon AreaEffectCloud ~1 ~ ~ {ReapplicantDelay:2147483647,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2147483647,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:take,CustomName:ガリバーランド,CustomNameVisible:true}
+</div></code></pre>
+<hr>
+<h3 id="%E3%83%88%E3%82%AB%E3%83%AB%E3%83%88%E3%82%B3%E3%83%AB%E3%83%87">トカルトコルデ</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>クラウディア</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>AreaEffectCloud</td>
+</tr>
+<tr>
+<td>Tag</td>
+<td>(None)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">summonコマンド</h4>
+<ul>
+<li>位置(-1921,6,-197)</li>
+</ul>
+<pre class="hljs"><code><div>/summon AreaEffectCloud ~1 ~ ~ {ReapplicantDelay:2147483647,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2147483647,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:take,CustomName:トカルトコルデ,CustomNameVisible:true}
+</div></code></pre>
+<hr>
+<h3 id="%E3%81%AF%E3%81%A6%E3%81%AA">はてな</h3>
+<ul>
+<li>正しくは???という名前</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>???</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>AreaEffectCloud</td>
+</tr>
+<tr>
+<td>Tag</td>
+<td>Enter</td>
+</tr>
+</tbody>
+</table>
+<h4 id="summon%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">summonコマンド</h4>
+<ul>
+<li>位置(-1921,7,-195)</li>
+</ul>
+<pre class="hljs"><code><div>/summon AreaEffectCloud ~1 ~ ~ {ReapplicantDelay:2147483647,Radius:2f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2147483647,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:take,CustomName:???,CustomNameVisible:true,Tags:[Enter]}
+</div></code></pre>
 <h2 id="%E6%95%B5mob">敵MOB</h2>
 <h3 id="%E3%82%B3%E3%83%BC%E3%83%A9%E3%82%B9%E3%83%9E%E3%82%A4%E3%83%88">コーラスマイト</h3>
 <pre class="hljs"><code><div>Endermite ~ ~ ~ {CustomName:&quot;コーラスマイト&quot;,Health:200f,Lifetime:1900,Attributes:[{Name:&quot;generic.maxHealth&quot;,Base:200d},{Name:&quot;generic.movementSpeed&quot;,Base:0.3d},{Name:&quot;generic.attackDamage&quot;,Base:1d},{Name:&quot;generic.knockbackResistance&quot;,Base:0.3d},{Name:&quot;generic.followRange&quot;,Base:32d}],HandItems:[{tag:{ench:[{id:19s,lvl:20s}]},id:&quot;minecraft:iron_sword&quot;,Count:0b,Damage:0s},{}]}
