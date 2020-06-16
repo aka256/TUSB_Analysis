@@ -1442,8 +1442,16 @@ No.11
 [トカルトコルデ]:/entity/TUSB_Analysis_Entity.html
 [お試しセットの印玉]:/entity/TUSB_Analysis_Item.html
 [ViewPoint(仮)]:/entity/TUSB_Analysis_Entity.html
+[秒針]:/entity/TUSB_Analysis_Entity.html
+[分針]:/entity/TUSB_Analysis_Entity.html
+[時針]:/entity/TUSB_Analysis_Entity.html
 
-[メインクロック開始時にリセットするもの]:/command/rest.html
+[jobSave]:/others/TUSB_Analysis_Data.html
+[jobLoad]:/others/TUSB_Analysis_Data.html
+
+[お試しセットの印玉]:/others/TUSB_Analysis_Item.html
+
+[メインクロック開始時リセットするもの]:/command/rest.html
 [初回ログイン時処理]:/command/firstLoginProcessing.html
 [ログイン時処理]:/command/loginProcessing.html
 [ジョブチェンジ先判定]:/command/jobChangeJudgemnt.html
