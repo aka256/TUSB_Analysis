@@ -6,12 +6,15 @@ last_updated: 2020/6/17
 sidebar: mydoc_sidebar
 permalink: warpProcessing.html
 folder: command
+datatable3cnp: true
 ---
 
 - 位置(-1920,15,-192)
 - 初回ログイン時から通常世界に行くまでのTP処理
 
 ## コマンド群
+
+<div class="datatable3cnp-begin"></div>
 
 |No.|コマンド|状態|
 |:-|:-|:-|
@@ -23,6 +26,8 @@ folder: command
 |6|/tp @a[tag=WarpByJob,score_Job=0] -1786 113 -137 -90 0|
 |7|/tp @a[tag=WarpByJob,score_Job_min=1] 0 5 2 -90 -30|
 |8|/scoreboard players tag @a[tag=WarpByJob] remove WarpByJob|
+
+<div class="datatable3cnp-end"></div>
 
 ## 詳細
 

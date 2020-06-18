@@ -6,7 +6,7 @@ last_updated: 2020/6/17
 sidebar: mydoc_sidebar
 permalink: hpFix.html
 folder: command
-datatable: true
+datatable2c: true
 ---
 
 - 位置(-1920,16,-191)
@@ -14,7 +14,7 @@ datatable: true
 
 ## コマンド群
 
-<div class="datatable-begin"></div>
+<div class="datatable2c-begin"></div>
 
 |No.|コマンド|
 |:-:|:-|
@@ -41,7 +41,7 @@ datatable: true
 |21|/effect @a[score_RefreshHPMax_min=3] minecraft:instant_health 1 6 true|
 |22|/scoreboard players reset @a[score_RefreshHPMax_min=2] RefreshHPMax|
 
-<div class="datatable-end"></div>
+<div class="datatable2c-end"></div>
 
 ## 詳細
 

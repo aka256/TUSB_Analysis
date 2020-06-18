@@ -365,6 +365,8 @@ code {
           : 'default'
     });
   </script>
+<h2 id="about">About</h2>
+<p>TUSBにログインした際にジョブやHP、満腹度修正などを行う。</p>
 <ul>
 <li>位置(-1920,4,-192)</li>
 </ul>
@@ -612,7 +614,7 @@ code {
 <li><code>LoadJob</code>が0以上であるプレイヤーを一人選択し、(-1920,12,-192)にある<a href="jobLoad.html">ジョブロード</a>を実行</li>
 <li><code>ShowStatus</code>のプレイヤーを一人選択し、(-1920,14,-192)にある<a href="statusDisplay.html">ステータス表示</a>を実行</li>
 <li><code>ShowConquest</code>のプレイヤーを一人選択し、(-1920,18,-192)にある<a href="conquerDisplay.html">攻略率表示</a>を実行</li>
-<li>(-1755,98,-153)からdx=32,dy=9,dz=32(ブラジル行きの穴)にいるプレイヤーに<code>WarpByJob</code>を付与し、(-1920,15,-192)にある[ワープ処理_ジョブ島/通常世界]を実行</li>
+<li>(-1755,98,-153)からdx=32,dy=9,dz=32(ブラジル行きの穴)にいるプレイヤーに<code>WarpByJob</code>を付与し、(-1920,15,-192)にある<a href="warpProcessing.html">ワープ処理_ジョブ島/通常世界</a>を実行</li>
 <li><code>HP</code>が0以下,<code>Hunger</code>が-1以下であるプレイヤーを一人選択し、<code>Hunger</code>に<code>Food</code>を代入し、(-1920,16,-192)にある<a href="keepInventoryCheck.html">KeepInventory確認</a>を実行</li>
 <li><code>HP</code>が1以上,<code>Hunger</code>が0以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-192)にある<a href="satietyFix.html">満腹度修正</a>を実行</li>
 <li><code>HP</code>が1以上かつインベントリにネザースターのあるプレイヤーの<code>GotExpFlag</code>を-1にし、(-1920,8,-191)にある<a href="expProcessing.html">経験値取得処理</a>を実行</li>

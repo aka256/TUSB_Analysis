@@ -6,7 +6,43 @@ entries:
   version: 
   folders:
 
-  - title: コマンド解説
+  - title: X回路区域管理コマンド群
+    output: web, pdf
+    folderitems:
+      - title: マクラウェル内部
+        url: insideMcLawell.html      
+        output: web, pdf
+      - title: 初期化処理
+        url: initializeProcessing.html      
+        output: web, pdf
+      - title: メインクロック処理
+        url: mainclockProcessing.html      
+        output: web, pdf
+      - title: SystemKeeper処理
+        url: systemkeeperProcessing.html      
+        output: web, pdf
+      - title: かまど再設定
+        url: furnaceProcessing.html      
+        output: web, pdf
+  - title: 毎tick実行するコマンド群1
+    output: web, pdf
+    folderitems:
+      - title: 毎tick必ず最初に実行したいコマンド群
+        url: runFirst.html
+        output: web, pdf
+      - title: エリア侵入記録
+        url: areaRecord.html
+        output: web, pdf
+      - title: エリア処理
+        url: areaProcessing.html
+        output: web, pdf
+      - title: 時間経過
+        url: timeElapsed.html
+        output: web, pdf
+      - title: AEC維持
+        url: aecMaintenance.html
+        output: web, pdf
+  - title: 毎tick実行するコマンド群2
     output: web, pdf
     folderitems:
     - title: メインクロック開始時リセットするもの
@@ -18,6 +54,9 @@ entries:
     - title: ログイン時処理
       url: loginProcessing.html      
       output: web, pdf
+    - title: 難易度調整
+      url: difficultyAdjustment.html
+      output: web, pdf   
     - title: ジョブチェンジ先判定
       url: jobChangeJudgement.html      
       output: web, pdf
@@ -48,41 +87,17 @@ entries:
     - title: レベルアップ処理
       url: levelupProcessing.html      
       output: web, pdf
+    - title: 習得スキル取得
+      url: skillAcquisition.html      
+      output: web, pdf
     - title: 最大HP調整処理
       url: hpFix.html      
-      output: web, pdf
-    - title: 難易度調整
-      url: difficultyAdjustment.html      
       output: web, pdf
     - title: 島攻略処理
       url: conquerProcessing.html      
       output: web, pdf
-    - title: 習得スキル取得
-      url: skillAcquisition.html      
-      output: web, pdf
     - title: 時計島
       url: clockIslandProcessing.html      
-      output: web, pdf
-    - title: マクラウェル内部
-      url: insideMcLawell.html      
-      output: web, pdf
-    - title: スコアボードの設定
-      url: setScoreboard.html      
-      output: web, pdf
-    - title: メインクロック処理
-      url: mainclockProcessing.html      
-      output: web, pdf
-    - title: SystemKeeper処理
-      url: systemkeeperProcessing.html      
-      output: web, pdf
-    - title: かまど再設定
-      url: furnaceProcessing.html      
-      output: web, pdf
-    - title: 毎tick必ず最初に実行したいコマンド群
-      url: runFirst.html      
-      output: web, pdf
-    - title: エリア侵入記録
-      url: areaRecord.html      
       output: web, pdf
 
   - title: データ類

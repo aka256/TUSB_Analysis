@@ -14,7 +14,7 @@ datatable3cnp: true
 
 ## コマンド群
 
-<div clase="datatable3cnp-begin"></div>
+<div class="datatable3cnp-begin"></div>
 
 |No.|コマンド|状態|
 |:-:|:-|:-|
@@ -36,7 +36,7 @@ datatable3cnp: true
 |16|/execute 0-0-1-0-1 35 0 6 detect ~ ~ ~ minecraft:bedrock 0 /execute 0-0-1-0-1 35 0 6 detect ~24 ~ ~ minecraft:bedrock 0 /execute 0-0-1-0-1 35 0 6 detect ~ ~ ~24 minecraft:bedrock 0 /execute 0-0-1-0-1 35 0 6 detect ~24 ~ ~24 minecraft:bedrock 0 /execute 0-0-1-0-1 4000 255 4000 detect ~16 ~ ~ minecraft:air 0 /execute 0-0-1-0-1 4000 255 4000 detect ~ ~ ~16 minecraft:air 0 /execute 0-0-1-0-1 4000 255 4000 detect ~16 ~ ~16 minecraft:air 0 /execute 0-0-1-0-1 4001 1 4001 detect 4000 255 4000 minecraft:air 0 /clone ~ ~ ~ ~22 ~22 ~22 36 1 7|条件付き|
 |17|/summon Item -1920 7 ~ {Item:{id:stone,Count:1b},Age:5820s}|条件付き|
 
-<div clase="datatable3cnp-end"></div>
+<div class="datatable3cnp-end"></div>
 
 ### 詳細
 

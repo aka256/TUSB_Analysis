@@ -14,7 +14,7 @@ datatable3cnp: true
 
 ## コマンド群
 
-<div clase="datatable3cnp-begin"></div>
+<div class="datatable3cnp-begin"></div>
 
 |No.|コマンド|状態|
 |:-:|:-|:-|
@@ -32,7 +32,7 @@ datatable3cnp: true
 |12|/scoreboard players reset @a[score_LeaveGame_min=1] LeaveGame|
 |13|/clone -1920 17 -200 -1920 17 -200 -1920 17 -200 filtered force minecraft:command_block 5 ###難易度調整|
 
-<div clase="datatable3cnp-begin"></div>
+<div class="datatable3cnp-end"></div>
 
 ## 詳細
 

@@ -6,7 +6,7 @@ last_updated: 2020/6/17
 sidebar: mydoc_sidebar
 permalink: skillAcquisition.html
 folder: command
-datatable: true
+datatable2c: true
 ---
 
 - 位置(-1920,10,-191)から(-1920,15,-191)
@@ -15,7 +15,7 @@ datatable: true
 
 - 剣士(-1920,10,-191)
 
-<div class="datatable-begin"></div>
+<div class="datatable2c-begin"></div>
 
 |No.|コマンド|
 |:-:|:-|
@@ -47,11 +47,11 @@ datatable: true
 |26|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=49,score_Level=49,score_Job_min=1,score_Job=1] ShowSkill 1232|
 |27|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=50,score_Level=50,score_Job_min=1,score_Job=1] ShowSkill 1250|
 
-<div class="datatable-end"></div>
+<div class="datatable2c-end"></div>
 
 - 忍者(-1920,11,-191)
 
-<div class="datatable-begin"></div>
+<div class="datatable2c-begin"></div>
 
 |No.|コマンド|
 |:-:|:-|
@@ -83,11 +83,11 @@ datatable: true
 |26|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=49,score_Level=49,score_Job_min=2,score_Job=2] ShowSkill 2071|
 |27|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=50,score_Level=50,score_Job_min=2,score_Job=2] ShowSkill 2240
 
-<div class="datatable-end"></div>
+<div class="datatable2c-end"></div>
 
 - 狩人(-1920,12,-191)
 
-<div class="datatable-begin"></div>
+<div class="datatable2c-begin"></div>
 
 |No.|コマンド|
 |:-:|:-|
@@ -119,11 +119,11 @@ datatable: true
 |26|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=49,score_Level=49,score_Job_min=3,score_Job=3] ShowSkill 3251|
 |27|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=50,score_Level=50,score_Job_min=3,score_Job=3] ShowSkill 3260|
 
-<div class="datatable-end"></div>
+<div class="datatable2c-end"></div>
 
 - 白魔導士(-1920,13,-191)
 
-<div class="datatable-begin"></div>
+<div class="datatable2c-begin"></div>
 
 |No.|コマンド|
 |:-:|:-|
@@ -155,11 +155,11 @@ datatable: true
 |26|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=49,score_Level=49,score_Job_min=4,score_Job=4] ShowSkill 4204|
 |27|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=50,score_Level=50,score_Job_min=4,score_Job=4] ShowSkill 4230|
 
-<div class="datatable-end"></div>
+<div class="datatable2c-end"></div>
 
 - 黒魔導士(-1920,14,-191)
 
-<div class="datatable-begin"></div>
+<div class="datatable2c-begin"></div>
 
 |No.|コマンド|
 |:-:|:-|
@@ -191,11 +191,11 @@ datatable: true
 |26|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=49,score_Level=49,score_Job_min=5,score_Job=5] ShowSkill 5232|
 |27|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=50,score_Level=50,score_Job_min=5,score_Job=5] ShowSkill 5250|
 
-<div class="datatable-end"></div>
+<div class="datatable2c-end"></div>
 
 - 召喚士(-1920,15,-191)&その他
 
-<div class="datatable-begin"></div>
+<div class="datatable2c-begin"></div>
 
 |No.|コマンド|
 |:-:|:-|
@@ -229,7 +229,7 @@ datatable: true
 |28|/tellraw @a[tag=ShowNewSkill,score_ShowSkill_min=0] {"text":"新しいスキルを覚えた！"}|
 |29|/scoreboard players tag @a[tag=ShowNewSkill] remove ShowNewSkill|
 
-<div class="datatable-end"></div>
+<div class="datatable2c-end"></div>
 
 ## 詳細
 

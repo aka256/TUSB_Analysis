@@ -6,12 +6,15 @@ last_updated: 2020/6/17
 sidebar: mydoc_sidebar
 permalink: systemKeeperProcessing.html
 folder: command
+datatable3cnp: true
 ---
 
 - 位置(-1870,7,-197)
 - [SystemKeeper](TUSB_Analysis_Entity.html)がこの上にいる限り実行される
 
 ## コマンド群
+
+<div class="datatable3cnp-begin"></div>
 
 |No.|コマンド|状態|
 |:-:|:-|:-|
@@ -20,6 +23,8 @@ folder: command
 |3|/me は秩序を取り戻した。|
 |4|/clone -1924 4 -200 -1924 4 -111 -1920 4 -200 filtered force minecraft:command_block 5|
 |5|/clone -1870 4 -193 -1870 4 -193 -1870 4 -193 filtered force minecraft:command_block 1 ###かまど再設定|
+
+<div class="datatable3cnp-end"></div>
 
 ## 詳細
 

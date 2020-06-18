@@ -6,7 +6,7 @@ last_updated: 2020/6/17
 sidebar: mydoc_sidebar
 permalink: levelupProcessing.html
 folder: command
-datatable: true
+datatable2c: true
 ---
 
 - 位置(-1920,9,-191)
@@ -14,7 +14,7 @@ datatable: true
 
 ## コマンド群
 
-<div class="datatable-begin"></div>
+<div class="datatable2c-begin"></div>
 
 |No.|コマンド|
 |:-:|:-|
@@ -44,7 +44,7 @@ datatable: true
 |24|/scoreboard players operation @a[score_ExpToLevel=0] NextExp *= #ExpMul Const|
 |25|/execute @a[score_ExpToLevel=0] ~ ~ ~ /scoreboard players operation @a[c=1] ExpToLevel += @a[c=1] NextExp|
 
-<div class="datatable-end"></div>
+<div class="datatable2c-end"></div>
 
 ## 詳細
 

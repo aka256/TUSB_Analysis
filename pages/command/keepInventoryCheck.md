@@ -13,7 +13,7 @@ datatable3cnp: true
 
 ## コマンド群
 
-<div clase="datatable3cnp-begin"></div>
+<div class="datatable3cnp-begin"></div>
 
 |No.|コマンド|状態|
 |:-:|:-|:-|
@@ -32,7 +32,7 @@ datatable3cnp: true
 |13|/scoreboard players tag @a[tag=ReRaise,score_HP=0] remove ReRaise|条件付き|
 |14|/scoreboard players reset @a[score_Deaths_min=1,score_HP=0] Deaths|
 
-<div clase="datatable3cnp-end"></div>
+<div class="datatable3cnp-end"></div>
 
 ## 詳細
 

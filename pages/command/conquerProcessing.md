@@ -7,14 +7,13 @@ sidebar: mydoc_sidebar
 permalink: conquerProcessing.html
 folder: command
 datatable3c: true
-datatable3cnp: true
 ---
 
 - 位置(-1920,17,-191),(-1920,18,-191)
 
 ## コマンド群
 
-- (-1920,17,-191)にあるコマンド群 (島攻略処理という看板がついているもの)
+### (-1920,17,-191)にあるコマンド群 (島攻略処理という看板がついているもの)
 
 <div class="datatable3c-begin"></div>
 
@@ -63,9 +62,9 @@ datatable3cnp: true
 
 <div class="datatable3c-end"></div>
 
-- (-1920,18,-191)にあるコマンド群 (島攻略処理という看板がついているものの上のやつ)
+### (-1920,18,-191)にあるコマンド群 (島攻略処理という看板がついているものの上のやつ)
 
-<div clase="datatable3cnp-begin"></div>
+<div class="datatable3c-begin"></div>
 
 |No.|コマンド|状態|
 |:-:|:-|:-|
@@ -83,11 +82,11 @@ datatable3cnp: true
 |12|/scoreboard players remove #PastorMax Global 2|条件付き|
 |13|/scoreboard players set ForceNight Settings 0|条件付き|
 
-<div clase="datatable3cnp-end"></div>
+<div class="datatable3c-end"></div>
 
 ## 詳細
 
-- (-1920,17,-191)にあるコマンド群 (島攻略処理という看板がついているもの)
+### (-1920,17,-191)にあるコマンド群 (島攻略処理という看板がついているもの)
 
 1. `UseEnderEye`が1以上であるプレイヤーを一人選択し、`Conquer`を付与
 2. `Conquer`を持つプレイヤーの`UseEnderEye`を0に設定
@@ -105,7 +104,7 @@ datatable3cnp: true
 14. `#ConquerPctDec`の`Global`に`#ConquerPctInt`の`Global`を代入
 15. `#ConquerPctInt`の`Global`を10で割る
 16. `#ConquerPctDec`の`Global`を10との剰余を代入
-    - `#ConquerPctInt`'s `Global` = `ConquerCount`'s `Global` $\times$ 1000 / 50 / 10 = `ConquerCount`'s`Global` $\times$ 2
+    - `#ConquerPctInt`'s `Global` = `ConquerCount`'s `Global` \* 1000 / 50 / 10 = `ConquerCount`'s`Global` \* 2
     - `#ConquerPctDec`'s `Global` = `#ConquerPctInt`'s `Global` % 10
     - `#ConquerPctInt`の`Global`が攻略率の整数部、`#ConquerPctDec`の`Global`が攻略率の小数部
 17. `#ConquerCountResidue`の`Global`に`#ConquerCount`の`Global`を代入し、`#AddStuffSpan`の`Const`=4で割る
@@ -116,14 +115,14 @@ datatable3cnp: true
     2. `StartTime`から攻略時間を計算し、`ConqTimeSec`、`ConqTimeMin`、`ConqTimeHour`にそれぞれに対応する値を代入
     3. 攻略タイムの表示
 
-- (-1920,18,-191)にあるコマンド群 (島攻略処理という看板がついているものの上のやつ)
+### (-1920,18,-191)にあるコマンド群 (島攻略処理という看板がついているものの上のやつ)
 
 1. `#ConquerCountResidue`の`Global`が0の時、以下の事柄を実行
     - (-1899,3,-82)付近にいる製作者村人に{NoAI:false,Silent:false,Tags:[ShopStaff,TypeChecked]}を付与
 2. `Prayable`の`Settings`が0以下の時、以下の事柄を実行
     - (-70,15,32)(交易島)の東向きでエンダーアイがはめられているエンドポータルフレームが存在する時、`Prayable`の`Settings`を1に設定
 3. `ForceNight`の`Settings`が0以下の時、以下の事柄を実行
-    - [CommonGM]が(-1920,4,-96)にある[時計島]を実行
+    - [CommonGM](TUSB_Analysis_Entity.html)が(-1920,4,-96)にある[時計島](clockIslandProcessing.html)を実行
 4. `ForceNight`の`Settings`が1以上であり、(3,77,87)にある南向きでエンダーアイがはめられたエンドポータルフレームが存在する時、以下の事柄を実行
     1. 時間をdayに設定し、`doDaylightCycle`をtrueに変更
     2. `#PastorMax`の`Global`から2引く

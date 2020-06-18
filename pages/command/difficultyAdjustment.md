@@ -13,7 +13,7 @@ datatable3cnp: true
 
 ## コマンド群
 
-<div clase="datatable3cnp-begin"></div>
+<div class="datatable3cnp-begin"></div>
 
 |No.|コマンド|状態|
 |:-:|:-|:-|
@@ -37,7 +37,7 @@ datatable3cnp: true
 |18|/scoreboard players test Difficulty Settings 190 *|条件付き|
 |19|/blockdata -1886 14 -188 {Command:"/effect @e[tag=TypeCheck,team=,type=!Player] minecraft:speed 1000000 4 true"}|条件付き|
 
-<div clase="datatable3cnp-end"></div>
+<div class="datatable3cnp-end"></div>
 
 ## 詳細
 

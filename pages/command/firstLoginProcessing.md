@@ -6,7 +6,7 @@ last_updated: 2020/6/17
 sidebar: mydoc_sidebar
 permalink: firstLoginProcessing.html
 folder: command
-datatable: true
+datatable2c: true
 ---
 
 - 位置(-1920,8,-192)
@@ -14,7 +14,7 @@ datatable: true
 
 ## コマンド群
 
-<div class="datatable-begin"></div>
+<div class="datatable2c-begin"></div>
 
 |No.|コマンド|
 |:-:|:-|
@@ -50,7 +50,7 @@ datatable: true
 |30|/effect @a[team=,tag=!Resolved] minecraft:absorption 1 0 true|
 |31|/scoreboard teams join FriendlyTeam @a[team=]|
 
-<div class="datatable-end"></div>
+<div class="datatable2c-end"></div>
 
 ## 詳細
 

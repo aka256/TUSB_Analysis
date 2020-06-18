@@ -365,51 +365,15 @@ code {
           : 'default'
     });
   </script>
-<h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFoff">メインクロックOFF</h2>
-<ul>
-<li>位置(-1870,4,-195)</li>
-<li>(-1870,7,-195)にあるスイッチ(赤い羊毛についているやつ)によって手動にて操作可能</li>
-</ul>
-<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">No.</th>
-<th style="text-align:left">コマンド</th>
-<th style="text-align:left">状態</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:left">/blockdata -1920 4 -200 {auto:false}</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:left">/blockdata -1920 4 -111 {auto:false}</td>
-<td style="text-align:left">条件付き</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:left">/kill 0-0-2-0-2</td>
-<td style="text-align:left">条件付き</td>
-</tr>
-</tbody>
-</table>
-<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
-<ol>
-<li>(-1920,4,-200)にある<a href="runFirst.html">毎tick必ず最初に実行したいコマンド群</a>を停止</li>
-<li>(-1920,4,-111)にある[毎tick必ず最後にに実行したいコマンド群]を停止</li>
-<li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>君をキル</li>
-</ol>
-<hr>
 <h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFon">メインクロックON</h2>
+<h3 id="about">About</h3>
+<p>X回路区域内の</p>
 <ul>
 <li>位置(-1870,4,-194)</li>
 <li>(-1870,7,-194)にあるスイッチ(青い羊毛についているやつ)によって手動にて操作可能</li>
 </ul>
 <h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
+<div class="datatable3cnp-begin"></div>
 <table>
 <thead>
 <tr>
@@ -436,6 +400,7 @@ code {
 </tr>
 </tbody>
 </table>
+<div class="datatable3cnp-begin"></div>
 <h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
 <ol>
 <li><a href="#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</a>を実行</li>
@@ -457,7 +422,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">-192</td>
-<td style="text-align:left">[メインクロック開始時にリセットするもの]</td>
+<td style="text-align:left"><a href="reset.html">メインクロック開始時リセットするもの</a></td>
 </tr>
 <tr>
 <td style="text-align:center">-189</td>
@@ -522,6 +487,45 @@ code {
 </tbody>
 </table>
 <p>(これらすべてを&quot;毎tick実行したいコマンド群&quot;って呼ぶのかな?)</p>
+<hr>
+<h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFoff">メインクロックOFF</h2>
+<ul>
+<li>位置(-1870,4,-195)</li>
+<li>(-1870,7,-195)にあるスイッチ(赤い羊毛についているやつ)によって手動にて操作可能</li>
+</ul>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/blockdata -1920 4 -200 {auto:false}</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/blockdata -1920 4 -111 {auto:false}</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/kill 0-0-2-0-2</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<ol>
+<li>(-1920,4,-200)にある<a href="runFirst.html">毎tick必ず最初に実行したいコマンド群</a>を停止</li>
+<li>(-1920,4,-111)にある[毎tick必ず最後にに実行したいコマンド群]を停止</li>
+<li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>君をキル</li>
+</ol>
 
 </body>
 </html>
