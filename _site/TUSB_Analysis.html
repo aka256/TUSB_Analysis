@@ -1,204 +1,489 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
 
-<!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>TUSBAnalysis | TUSB_Analysis</title>
-<meta name="generator" content="Jekyll v3.8.7" />
-<meta property="og:title" content="TUSBAnalysis" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Intended as a documentation theme based on Jekyll for technical writers documenting software and other technical products, this theme has all the elements you would need to handle multiple products with both multi-level sidebar navigation, tags, and other documentation features." />
-<meta property="og:description" content="Intended as a documentation theme based on Jekyll for technical writers documenting software and other technical products, this theme has all the elements you would need to handle multiple products with both multi-level sidebar navigation, tags, and other documentation features." />
-<link rel="canonical" href="http://localhost:4000/TUSB_Analysis.html" />
-<meta property="og:url" content="http://localhost:4000/TUSB_Analysis.html" />
-<meta property="og:site_name" content="TUSB_Analysis" />
-<script type="application/ld+json">
-{"@type":"WebPage","headline":"TUSBAnalysis","url":"http://localhost:4000/TUSB_Analysis.html","description":"Intended as a documentation theme based on Jekyll for technical writers documenting software and other technical products, this theme has all the elements you would need to handle multiple products with both multi-level sidebar navigation, tags, and other documentation features.","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="コマンド,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<title>メインクロック開始時リセットするもの | TUSB_Analysis</title>
+<link rel="stylesheet" href=" css/syntax.css ">
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=">
-  </head>
-  <body>
-    <div class="container-lg px-3 my-5 markdown-body">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue2.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src=" js/jquery.navgoco.min.js "></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src=" js/toc.js "></script>
+<script src=" js/customscripts.js "></script>
+
+<link rel="shortcut icon" href=" images/favicon.ico ">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="TUSB_Analysis" href="http://localhost:4000 /feed.xml ">
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+    </script>
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+     
+    <style type="text/css">
+        table {
+            table-layout: fixed;
+        }
+        
+        table td {
+            word-wrap: break-word;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> TUSB_Analysis</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Sidebar</a></li>
+                <!-- entries without drop-downs appear here -->
+
+                    
+                <li><a href="https://twitter.com/Re16d5" target="_blank" rel="noopener">Twitter</a></li>
+                  
+                <li><a href="https://github.com/aka256/TUSB_Analysis/" target="_blank" rel="noopener">GitHub</a></li>
+                  
+                <li><a href="https://skyblock.jp/" target="_blank" rel="noopener">TUSB公式サイト</a></li>
+                  
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                 
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src=" js/jekyll-search.js " type="text/javascript"></script>
+                    <script type="text/javascript">
+                        SimpleJekyllSearch.init({
+                            searchInput: document.getElementById('search-input'),
+                            resultsContainer: document.getElementById('results-container'),
+                            dataSource: 'search.json',
+                            searchResultTemplate: '<li><a href="{url}" title="メインクロック開始時リセットするもの">{title}</a></li>',
+                            noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                        })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+    <!-- Page Content -->
+    <div class="container">
+        <div id="main">
+            <!-- Content Row -->
+            <div class="row">
+                 
+                <!-- Sidebar Column -->
+                <div class="col-md-3" id="tg-sb-sidebar">
+                    
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">TUSB_Analysis </li>
+  
+  
+  
+  <li>
+      <a title="X回路区域管理コマンド群" href="#">X回路区域管理コマンド群</a>
+      <ul>
+          
+          
+          
+          <li><a title="マクラウェル内部" href="insideMcLawell.html">マクラウェル内部</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="初期化処理" href="initializeProcessing.html">初期化処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="メインクロック処理" href="mainclockProcessing.html">メインクロック処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="SystemKeeper処理" href="systemkeeperProcessing.html">SystemKeeper処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="かまど再設定" href="furnaceProcessing.html">かまど再設定</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
       
-      <h1><a href="http://localhost:4000/">TUSB_Analysis</a></h1>
+  
+  <li>
+      <a title="毎tick実行するコマンド群1" href="#">毎tick実行するコマンド群1</a>
+      <ul>
+          
+          
+          
+          <li><a title="毎tick必ず最初に実行したいコマンド群" href="runFirst.html">毎tick必ず最初に実行したいコマンド群</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="エリア侵入記録" href="areaRecord.html">エリア侵入記録</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="エリア処理" href="areaProcessing.html">エリア処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="時間経過" href="timeElapsed.html">時間経過</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="AEC維持" href="aecMaintenance.html">AEC維持</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
       
-
-      <h1 id="tusbanalysis">TUSBAnalysis</h1>
-
-<h2 id="はじめに">はじめに</h2>
-
-<p>これはThe Unusual Skyblock v12.0.9 の主にX回路区域内にあるコマンド群について、個人的なメモとして簡単にまとめたものです。なので一応明言しておきますが<strong>非公式なドキュメント</strong>となっていますので、このドキュメントに関して間違えても<strong>TUSBサークルの皆様に連絡をすることがないよう</strong>お願いします。</p>
-
-<p>実際に読む際これだけでは分かりにくいと思うので、X回路区域を飛び回りながら読むことをおススメします。</p>
-
-<p>また、何か間違い等がありましたらtwitterにて連絡をいただけると嬉しいです。(<a href="https://twitter.com/Re16d5">https://twitter.com/Re16d5</a>)</p>
-
-<p>(最終更新日:2020/6/15)</p>
-
-<hr />
-
-<ul>
-  <li><a href="#tusbanalysis">TUSBAnalysis</a>
-    <ul>
-      <li><a href="#はじめに">はじめに</a></li>
-      <li><a href="#メインクロック開始時リセットするもの">メインクロック開始時リセットするもの</a>
-        <ul>
-          <li><a href="#コマンド群">コマンド群</a></li>
-          <li><a href="#詳細">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#初回ログイン時処理">初回ログイン時処理</a>
-        <ul>
-          <li><a href="#コマンド群-1">コマンド群</a></li>
-          <li><a href="#詳細-1">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#ログイン時処理">ログイン時処理</a>
-        <ul>
-          <li><a href="#コマンド群-2">コマンド群</a></li>
-          <li><a href="#詳細-2">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#ジョブチェンジ先判定">ジョブチェンジ先判定</a>
-        <ul>
-          <li><a href="#コマンド群-3">コマンド群</a></li>
-          <li><a href="#詳細-3">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#ジョブセーブ">ジョブセーブ</a>
-        <ul>
-          <li><a href="#コマンド群-4">コマンド群</a></li>
-          <li><a href="#詳細-4">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#ジョブロード">ジョブロード</a>
-        <ul>
-          <li><a href="#コマンド群-5">コマンド群</a></li>
-          <li><a href="#詳細-5">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#ステータス表示">ステータス表示</a>
-        <ul>
-          <li><a href="#コマンド群-6">コマンド群</a></li>
-        </ul>
-      </li>
-      <li><a href="#攻略率表示">攻略率表示</a>
-        <ul>
-          <li><a href="#コマンド群-7">コマンド群</a></li>
-        </ul>
-      </li>
-      <li><a href="#ワープ処理ジョブ島通常世界">ワープ処理ジョブ島・通常世界</a>
-        <ul>
-          <li><a href="#コマンド群-8">コマンド群</a></li>
-          <li><a href="#詳細-6">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#keepinventory確認">KeepInventory確認</a>
-        <ul>
-          <li><a href="#コマンド群-9">コマンド群</a></li>
-          <li><a href="#詳細-7">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#満腹度修正">満腹度修正</a>
-        <ul>
-          <li><a href="#コマンド群-10">コマンド群</a></li>
-          <li><a href="#詳細-8">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#経験値取得処理">経験値取得処理</a>
-        <ul>
-          <li><a href="#コマンド群-11">コマンド群</a></li>
-          <li><a href="#詳細-9">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#レベルアップ処理">レベルアップ処理</a>
-        <ul>
-          <li><a href="#コマンド群-12">コマンド群</a></li>
-          <li><a href="#詳細-10">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#最大hp調整処理">最大HP調整処理</a>
-        <ul>
-          <li><a href="#コマンド群-13">コマンド群</a></li>
-          <li><a href="#詳細-11">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#難易度調整">難易度調整</a>
-        <ul>
-          <li><a href="#コマンド群-14">コマンド群</a></li>
-          <li><a href="#詳細-12">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#島攻略処理">島攻略処理</a>
-        <ul>
-          <li><a href="#コマンド群-15">コマンド群</a></li>
-          <li><a href="#詳細-13">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#習得スキル取得">習得スキル取得</a>
-        <ul>
-          <li><a href="#コマンド群-16">コマンド群</a></li>
-          <li><a href="#詳細-14">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#時計島">時計島</a>
-        <ul>
-          <li><a href="#コマンド群-17">コマンド群</a></li>
-          <li><a href="#詳細-15">詳細</a></li>
-          <li><a href="#時計島のアラーム">時計島のアラーム</a></li>
-        </ul>
-      </li>
-      <li><a href="#マクラウェル内部">マクラウェル内部</a>
-        <ul>
-          <li><a href="#コマンド群-18">コマンド群</a></li>
-          <li><a href="#詳細-16">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#スコアボードの設定">スコアボードの設定</a></li>
-      <li><a href="#メインクロックoff">メインクロックOFF</a>
-        <ul>
-          <li><a href="#コマンド群-19">コマンド群</a></li>
-          <li><a href="#詳細-17">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#メインクロックon">メインクロックON</a>
-        <ul>
-          <li><a href="#コマンド群-20">コマンド群</a></li>
-          <li><a href="#詳細-18">詳細</a></li>
-          <li><a href="#毎tick実行したいコマンド群">毎tick実行したいコマンド群</a></li>
-        </ul>
-      </li>
-      <li><a href="#systemkeeper処理">SystemKeeper処理</a>
-        <ul>
-          <li><a href="#コマンド群-21">コマンド群</a></li>
-          <li><a href="#詳細-19">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#かまど再設定">かまど再設定</a>
-        <ul>
-          <li><a href="#コマンド">コマンド</a></li>
-          <li><a href="#詳細-20">詳細</a></li>
-        </ul>
-      </li>
-      <li><a href="#毎tick必ず最初に実行したいコマンド群">毎tick必ず最初に実行したいコマンド群</a>
-        <ul>
-          <li><a href="#コマンド群-22">コマンド群</a></li>
-          <li><a href="#詳細-21">詳細</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><a href="TUSB_Analysis_Entity.html">Entity</a></li>
-  <li><a href="TUSB_Analysis_Data.html">その他</a></li>
+  
+  <li>
+      <a title="毎tick実行するコマンド群2" href="#">毎tick実行するコマンド群2</a>
+      <ul>
+          
+          
+          
+          <li><a title="メインクロック開始時リセットするもの" href="reset.html">メインクロック開始時リセットするもの</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="初回ログイン時処理" href="firstLoginProcessing.html">初回ログイン時処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ログイン時処理" href="loginProcessing.html">ログイン時処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="難易度調整" href="difficultyAdjustment.html">難易度調整</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ジョブチェンジ先判定" href="jobChangeJudgement.html">ジョブチェンジ先判定</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ジョブセーブ" href="jobSave.html">ジョブセーブ</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ジョブロード" href="jobLoad.html">ジョブロード</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ステータス表示" href="statusDisplay.html">ステータス表示</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="攻略率表示" href="conquerDisplay.html">攻略率表示</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ワープ処理ジョブ島・通常世界" href="warpProcessing.html">ワープ処理ジョブ島・通常世界</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="KeepInventory確認" href="keepInventoryCheck.html">KeepInventory確認</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="満腹度修正" href="satietyFix.html">満腹度修正</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="経験値取得処理" href="expProcessing.html">経験値取得処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="レベルアップ処理" href="levelupProcessing.html">レベルアップ処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="習得スキル取得" href="skillAcquisition.html">習得スキル取得</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="最大HP調整処理" href="hpFix.html">最大HP調整処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="島攻略処理" href="conquerProcessing.html">島攻略処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="時計島" href="clockIslandProcessing.html">時計島</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="データ類" href="#">データ類</a>
+      <ul>
+          
+          
+          
+          <li><a title="エンティティ" href="TUSB_Analysis_Entity.html">エンティティ</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="アイテム" href="TUSB_Analysis_Item.html">アイテム</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="スコアボード、チーム" href="TUSB_Analysis_Data.html">スコアボード、チーム</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
 </ul>
 
-<hr />
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
 
-<h2 id="メインクロック開始時リセットするもの">メインクロック開始時リセットするもの</h2>
+                </div>
+                 
+
+                <!-- Content Column -->
+                <div class="col-md-9" id="tg-sb-content">
+                    <div class="post-header">
+   <h1 class="post-title-main">メインクロック開始時リセットするもの</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" rel="noopener" href="https://github.com/aka256/TUSB_Analysis/pages/command/TUSB_Analysis.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+   <h2 id="メインクロック開始時リセットするもの">メインクロック開始時リセットするもの</h2>
 
 <ul>
   <li>位置(-1920,4,-192)</li>
@@ -439,8 +724,8 @@
 
 <ol>
   <li><code class="language-plaintext highlighter-rouge">MPConsumption</code>が0以上のプレイヤーの<code class="language-plaintext highlighter-rouge">MPConsumption</code>を0とし、<code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が0以上のプレイヤーの<code class="language-plaintext highlighter-rouge">ActivatedSkill</code>を0とする。そして<code class="language-plaintext highlighter-rouge">Sneaking</code>を削除</li>
-  <li>チームに属していないプレイヤー(team=)を一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,8,-192)にある<a href="#初回ログイン時処理"><strong>初回ログイン時処理</strong></a>を実行</li>
-  <li><code class="language-plaintext highlighter-rouge">LeaveGame</code>が1以上のプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-192)にある<a href="#ログイン時処理"><strong>ログイン時処理</strong></a>を実行</li>
+  <li>チームに属していないプレイヤー(team=)を一人選択し、<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,8,-192)にある<a href="#初回ログイン時処理"><strong>初回ログイン時処理</strong></a>を実行</li>
+  <li><code class="language-plaintext highlighter-rouge">LeaveGame</code>が1以上のプレイヤーを一人選択し、<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-192)にある<a href="#ログイン時処理"><strong>ログイン時処理</strong></a>を実行</li>
   <li><code class="language-plaintext highlighter-rouge">PickerPaper</code>が1以上のプレイヤーの<code class="language-plaintext highlighter-rouge">TradedVillager</code>と<code class="language-plaintext highlighter-rouge">PickerPaper</code>の値を入れ替える</li>
   <li><code class="language-plaintext highlighter-rouge">TradedVillager</code>が1以上のプレイヤーの<code class="language-plaintext highlighter-rouge">TradedVillager</code>を0にし、(-1920,10,-192)にある<a href="#ジョブチェンジ先判定"><strong>ジョブチェンジ先判定</strong></a>を実行</li>
   <li><code class="language-plaintext highlighter-rouge">ShowStatus</code>を持っているプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">SaveJob</code>に<code class="language-plaintext highlighter-rouge">Job</code>を代入する</li>
@@ -451,14 +736,14 @@
   <li><code class="language-plaintext highlighter-rouge">ShowConquest</code>のプレイヤーを一人選択し、(-1920,18,-192)にある<a href="#攻略率表示"><strong>攻略率表示?</strong></a>を実行</li>
   <li>(-1755,98,-153)からdx=32,dy=9,dz=32(ブラジル行きの穴)にいるプレイヤーに<code class="language-plaintext highlighter-rouge">WarpByJob</code>を付与し、(-1920,15,-192)にある<a href="#ワープ処理ジョブ島・通常世界"><strong>ワープ処理_ジョブ島/通常世界</strong></a>を実行</li>
   <li><code class="language-plaintext highlighter-rouge">HP</code>が0以下,<code class="language-plaintext highlighter-rouge">Hunger</code>が-1以下であるプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">Hunger</code>に<code class="language-plaintext highlighter-rouge">Food</code>を代入し、(-1920,16,-192)にある<a href="#keepinventory確認"><strong>KeepInventory確認</strong></a>を実行</li>
-  <li><code class="language-plaintext highlighter-rouge">HP</code>が1以上,<code class="language-plaintext highlighter-rouge">Hunger</code>が0以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-192)にある<a href="#満腹度修正"><strong>満腹度修正</strong></a>を実行</li>
+  <li><code class="language-plaintext highlighter-rouge">HP</code>が1以上,<code class="language-plaintext highlighter-rouge">Hunger</code>が0以上であるプレイヤーを一人選択し、<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-192)にある<a href="#満腹度修正"><strong>満腹度修正</strong></a>を実行</li>
   <li><code class="language-plaintext highlighter-rouge">HP</code>が1以上かつインベントリにネザースターのあるプレイヤーの<code class="language-plaintext highlighter-rouge">GotExpFlag</code>を-1にし、(-1920,8,-191)にある<a href="#経験値取得処理"><strong>経験値取得処理</strong></a>を実行</li>
-  <li><code class="language-plaintext highlighter-rouge">ExpToLevel</code>が0以下であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-191)にある<a href="#レベルアップ処理"><strong>レベルアップ処理</strong></a>を実行</li>
-  <li><code class="language-plaintext highlighter-rouge">RefreshHPMax</code>が1以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,16,-191)にある<a href="#最大hp調整処理"><strong>最大HP調整処理</strong></a>を実行</li>
+  <li><code class="language-plaintext highlighter-rouge">ExpToLevel</code>が0以下であるプレイヤーを一人選択し、<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-191)にある<a href="#レベルアップ処理"><strong>レベルアップ処理</strong></a>を実行</li>
+  <li><code class="language-plaintext highlighter-rouge">RefreshHPMax</code>が1以上であるプレイヤーを一人選択し、<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,16,-191)にある<a href="#最大hp調整処理"><strong>最大HP調整処理</strong></a>を実行</li>
   <li><code class="language-plaintext highlighter-rouge">CoolTickCounter</code>が1以上,<code class="language-plaintext highlighter-rouge">MPMaxFlag</code>が0以下,<code class="language-plaintext highlighter-rouge">ManaRefresh</code>が0以上であるプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">MP</code>に<code class="language-plaintext highlighter-rouge">MPIncrement</code>を足し合わせる</li>
   <li><code class="language-plaintext highlighter-rouge">CoolTickCounter</code>が1以上,<code class="language-plaintext highlighter-rouge">MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">MP</code>に<code class="language-plaintext highlighter-rouge">MPIncrement</code>を足し合わせ、<code class="language-plaintext highlighter-rouge">MP</code>から<code class="language-plaintext highlighter-rouge">MPMax</code>を引く。そして、<code class="language-plaintext highlighter-rouge">CoolTickCounter</code>が1以上,<code class="language-plaintext highlighter-rouge">MPMaxFlag</code>が0以下,<code class="language-plaintext highlighter-rouge">MP</code>が0以上であるプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">MP</code>に<code class="language-plaintext highlighter-rouge">MPMax</code>を代入し、<code class="language-plaintext highlighter-rouge">score_CoolTickCounter_min=1</code>,<code class="language-plaintext highlighter-rouge">score_MPMaxFlag=0</code>,<code class="language-plaintext highlighter-rouge">score_MP_min=0</code>であるプレイヤーの<code class="language-plaintext highlighter-rouge">MPMaxFlag</code>を1にする</li>
   <li><code class="language-plaintext highlighter-rouge">CoolTickCounter</code>が1以上,<code class="language-plaintext highlighter-rouge">MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">MP</code>に<code class="language-plaintext highlighter-rouge">MPMax</code>を足し合わせ、<code class="language-plaintext highlighter-rouge">CoolTickCounter</code>が1以上,<code class="language-plaintext highlighter-rouge">MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">CoolTickCounter</code>に<code class="language-plaintext highlighter-rouge">CoolTickSpan</code>を代入する</li>
-  <li><code class="language-plaintext highlighter-rouge">UseEnderEye</code>が1以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-191)と(~,18,-191)にある<a href="#島攻略処理"><strong>島攻略処理</strong></a>と<a href="#島攻略処理"><strong>島攻略処理_その2?</strong></a>をそれぞれ実行</li>
+  <li><code class="language-plaintext highlighter-rouge">UseEnderEye</code>が1以上であるプレイヤーを一人選択し、<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-191)と(~,18,-191)にある<a href="#島攻略処理"><strong>島攻略処理</strong></a>と<a href="#島攻略処理"><strong>島攻略処理_その2?</strong></a>をそれぞれ実行</li>
   <li><code class="language-plaintext highlighter-rouge">UseChorus</code>が1以上であるプレイヤーに<code class="language-plaintext highlighter-rouge">Pray</code>を追加。(-2827,57,-410)から(dx=9,dy=123,dz=9)(タワーバンク内)にいてかつ<code class="language-plaintext highlighter-rouge">Use_Chorus</code>が1以上であるプレイヤーを(-2811,75,-396,-53,0)(タワーバンク入口)に移動させる</li>
   <li><code class="language-plaintext highlighter-rouge">UseChorus</code>が1以上であるプレイヤーのところに<a href="#コーラスマイト">コーラスマイト</a>を出現させ、<code class="language-plaintext highlighter-rouge">UseChorus</code>が1以上であるプレイヤーの<code class="language-plaintext highlighter-rouge">UseChorus</code>を0にする</li>
   <li><code class="language-plaintext highlighter-rouge">Deaths</code>が1以上,<code class="language-plaintext highlighter-rouge">HP</code>が1以上であるプレイヤーのエフェクトをすべて消去する</li>
@@ -2662,7 +2947,7 @@
   </li>
   <li><code class="language-plaintext highlighter-rouge">ForceNight</code>の<code class="language-plaintext highlighter-rouge">Settings</code>が0以下の時、以下の事柄を実行
     <ul>
-      <li><a href="TUSB_Analysis_Entity.html">CommonGM</a>が(-1920,4,-96)にある<a href="#時計島"><strong>時計島</strong></a>を実行</li>
+      <li><a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">CommonGM</a>が(-1920,4,-96)にある<a href="#時計島"><strong>時計島</strong></a>を実行</li>
     </ul>
   </li>
   <li><code class="language-plaintext highlighter-rouge">ForceNight</code>の<code class="language-plaintext highlighter-rouge">Settings</code>が1以上であり、(3,77,87)にある南向きでエンダーアイがはめられたエンドポータルフレームが存在する時、以下の事柄を実行
@@ -4219,21 +4504,21 @@
   <li>次のコマンド(<a href="#時計島">時計島</a>のNo.3のコマブロ)を実行</li>
   <li><code class="language-plaintext highlighter-rouge">#ConquerPctInt</code>の<code class="language-plaintext highlighter-rouge">Global</code>が11以上40以下の時以下の事柄を実行
     <ol>
-      <li>(-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを[秒針]のものに置き換える</li>
+      <li>(-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">秒針</a>のものに置き換える</li>
       <li>時計島の底面の4隅の岩盤が存在し、時計島のクローン元(4000,255,4000)のy=255に空気ブロックが存在するとき、(4001,47,4001)にある時計島第二形態を(36,1,7)にコピーする</li>
       <li>(-1920,7,-96)に石をドロップし、<a href="#時計島のアラーム"><strong>時計島のアラーム</strong></a>を実行</li>
     </ol>
   </li>
   <li><code class="language-plaintext highlighter-rouge">#ConquerPctInt</code>の<code class="language-plaintext highlighter-rouge">Global</code>が41以上70以下の時以下の事柄を実行
     <ol>
-      <li>(-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを[分針]のものに置き換える</li>
+      <li>(-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">分針</a>のものに置き換える</li>
       <li>時計島の底面の4隅の岩盤が存在し、時計島のクローン元(4000,255,4000)のy=255に空気ブロックが存在するとき、(4001,24,4001)にある時計島第三形態を(36,1,7)にコピーする</li>
       <li>(-1920,7,-96)に石をドロップし、<a href="#時計島のアラーム"><strong>時計島のアラーム</strong></a>を実行</li>
     </ol>
   </li>
   <li><code class="language-plaintext highlighter-rouge">#ConquerPctInt</code>の<code class="language-plaintext highlighter-rouge">Global</code>が71以上の時以下の事柄を実行
     <ol>
-      <li>(-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを[時針]のものに置き換える</li>
+      <li>(-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">時針</a>のものに置き換える</li>
       <li>時計島の底面の4隅の岩盤が存在し、時計島のクローン元(4000,255,4000)のy=255に空気ブロックが存在するとき、(4001,1,4001)にある時計島第三形態を(36,1,7)にコピーする</li>
       <li>(-1920,7,-96)に石をドロップし、<a href="#時計島のアラーム"><strong>時計島のアラーム</strong></a>を実行</li>
     </ol>
@@ -4374,7 +4659,7 @@
 <ol>
   <li>(-1920,4,-200)にある<a href="#毎tick必ず最初に実行したいコマンド群">毎tick必ず最初に実行したいコマンド群</a>を停止</li>
   <li>(-1920,4,-111)にある<a href="#毎tick必ず最後に実行したいコマンド群">毎tick必ず最後にに実行したいコマンド群その2</a>を停止</li>
-  <li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>君をキル</li>
+  <li><a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">SystemKeeper</a>君をキル</li>
 </ol>
 
 <hr />
@@ -4418,11 +4703,11 @@
 <h3 id="詳細-18">詳細</h3>
 
 <ol>
-  <li><a href="#毎tick実行したいコマンド群">毎tick実行したいコマンド群</a>を実行</li>
-  <li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>君を(-1870,10,-197)に召喚し、メインクロックを作動させる</li>
+  <li><a href="#毎tick実行するコマンド群">毎tick実行するコマンド群</a>を実行</li>
+  <li><a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">SystemKeeper</a>君を(-1870,10,-197)に召喚し、メインクロックを作動させる</li>
 </ol>
 
-<h3 id="毎tick実行したいコマンド群">毎tick実行したいコマンド群</h3>
+<h3 id="毎tick実行するコマンド群">毎tick実行するコマンド群</h3>
 
 <p>実行されるコマンド群 (x=-1920,y=4)<br />
 |z座標|コマンド群名称、先頭処理名|<br />
@@ -4445,7 +4730,7 @@
 |-113|<a href="#スキル名表示呼び出し">スキル名表示呼び出し</a>|<br />
 |-111|<a href="#毎tick必ず最後に実行したいコマンド群">毎tick必ず最後に実行したいコマンド群</a>|</p>
 
-<p>(これらすべてを”毎tick実行したいコマンド群”って呼ぶのかな?)</p>
+<p>(これらすべてを”毎tick実行するコマンド群”って呼ぶのかな?)</p>
 
 <hr />
 
@@ -4453,7 +4738,7 @@
 
 <ul>
   <li>位置(-1870,7,-197)</li>
-  <li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>がこの上にいる限り実行される</li>
+  <li><a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">SystemKeeper</a>がこの上にいる限り実行される</li>
 </ul>
 
 <h3 id="コマンド群-21">コマンド群</h3>
@@ -4498,10 +4783,10 @@
 <h3 id="詳細-19">詳細</h3>
 
 <ol>
-  <li>(-1870,8,-197)の<a href="TUSB_Analysis_Entity.html">SystemKeeper</a>の足元に石の感圧版を設置</li>
+  <li>(-1870,8,-197)の<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">SystemKeeper</a>の足元に石の感圧版を設置</li>
   <li>[SystemKeerer]を2m上に移動</li>
   <li>秩序が戻った旨の通知を出す</li>
-  <li><a href="#毎tick実行したいコマンド群">毎tick実行したいコマンド群</a>を実行</li>
+  <li><a href="#毎tick実行するコマンド群">毎tick実行するコマンド群</a>を実行</li>
   <li>(-1870,5,-203)にある<a href="#かまど再設定">かまど再設定</a>を実行</li>
 </ol>
 
@@ -4859,7 +5144,7 @@
   <li><code class="language-plaintext highlighter-rouge">AreaChangeFlag</code>が-100以上であるプレイヤーいる場合、一人選択し<code class="language-plaintext highlighter-rouge">USBDimension</code>に<code class="language-plaintext highlighter-rouge">AreaChangeFlag</code>を代入して、以下の事柄を実行
     <ol>
       <li><code class="language-plaintext highlighter-rouge">AreaTileFlag</code>と<code class="language-plaintext highlighter-rouge">AreaChangeFlag</code>との値を入れ替える</li>
-      <li><a href="#エリア侵入記録">エリア侵入記録</a>と<a href="#エリア処理">エリア処理</a>を実行</li>
+      <li>(-1920,9,-200)にある<a href="#エリア侵入記録">エリア侵入記録</a>と(-1920,8,-200)にある<a href="#エリア処理">エリア処理</a>を実行</li>
     </ol>
   </li>
   <li>adventureであり、<code class="language-plaintext highlighter-rouge">Adv</code>がなく、何かしらのteamに所属しているプレイヤーがいる場合、アドベンチャーモード解除の旨のメッセージを出し、survivalに変更</li>
@@ -4942,12 +5227,205 @@
   </tbody>
 </table>
 
+<hr />
+
+<h2 id="エリア侵入記録">エリア侵入記録</h2>
+
+<ul>
+  <li>位置(-1920,9,-200)</li>
+</ul>
+
+<h3 id="コマンド群-23">コマンド群</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th style="text-align: left">コマンド</th>
+      <th style="text-align: left">コメント</th>
+      <th style="text-align: left">状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">/execute @a[score_AreaTitleFlag_min=1,score_AreaTitleFlag=1,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-193,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter</td>
+      <td style="text-align: left">エリア侵入記録</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">/execute @a[score_AreaTitleFlag_min=10,score_AreaTitleFlag=10,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-194,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">/execute @a[score_AreaTitleFlag_min=11,score_AreaTitleFlag=11,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-195,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: left">/execute @a[score_AreaTitleFlag_min=12,score_AreaTitleFlag=12,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-196,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: left">/execute @a[score_AreaTitleFlag_min=13,score_AreaTitleFlag=13,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-197,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: left">/execute @a[score_AreaTitleFlag_min=-100] ~ ~1 ~ /tp @a[c=1] @e[r=4,tag=ViewPoint,c=1]</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td style="text-align: left">/scoreboard players reset @a[score_AreaTitleFlag_min=-100] InstantChangeA</td>
+      <td style="text-align: left">エリア移動時スキル設定無効化</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td style="text-align: left">/scoreboard players reset @a[score_AreaTitleFlag_min=-100] InstantChangeB</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td style="text-align: left">/scoreboard players reset @a[score_AreaTitleFlag_min=-100] ModeChangeA</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td style="text-align: left">/scoreboard players reset @a[score_AreaTitleFlag_min=-100] ModeChangeB</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td style="text-align: left">長いので下に移動</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td style="text-align: left">/tellraw @a[-2725,88,-382,r=2,score_AreaTitleFlag_min=10,score_AreaTitleFlag=10,tag=TrialSet] {“translate”:”* %1$s を受け取った。”,”with”:[{“text”:”お試しセットの印玉”,”color”:”aqua”}]}</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td style="text-align: left">/scoreboard players tag @a[-2725,88,-382,r=2,score_AreaTitleFlag_min=10,score_AreaTitleFlag=10,tag=TrialSet] remove TrialSet</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td style="text-align: left">/scoreboard players set @a[score_AreaTitleFlag_min=-100] AreaTitleFlag -999</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>No.11</p>
+
+<pre><code class="language-minecraftcommand">/give @a[-2725,88,-382,r=2,score_AreaTitleFlag_min=10,score_AreaTitleFlag=10,tag=TrialSet] minecraft:spawn_egg 1 0 {display:{Name:"§bお試しセットの印玉",Lore:["§rモードスキル用お試しセットが入っている。","§rなくなったら交易島のアルバイトから買おう。"]},ench:[],EntityTag:{id:Bat,DeathTime:19s,ActiveEffects:[{Id:7b,Duration:100,Amplifier:5b,ShowParticles:false},{Id:14b,Duration:100,Amplifier:0b,ShowParticles:false}],Tags:[RewardEgg,TypeChecked],DeathLootTable:"usb:signs/skillkit"},CanPlaceOn:["minecraft:stone","minecraft:grass","minecraft:dirt","minecraft:cobblestone","minecraft:planks","minecraft:sapling","minecraft:bedrock","minecraft:flowing_water","minecraft:water","minecraft:flowing_lava","minecraft:lava","minecraft:sand","minecraft:gravel","minecraft:gold_ore","minecraft:iron_ore","minecraft:coal_ore","minecraft:log","minecraft:leaves","minecraft:sponge","minecraft:glass","minecraft:lapis_ore","minecraft:lapis_block","minecraft:dispenser","minecraft:sandstone","minecraft:noteblock","minecraft:bed","minecraft:golden_rail","minecraft:detector_rail","minecraft:sticky_piston","minecraft:web","minecraft:tallgrass","minecraft:deadbush","minecraft:piston","minecraft:piston_head","minecraft:wool","minecraft:piston_extension","minecraft:yellow_flower","minecraft:red_flower","minecraft:brown_mushroom","minecraft:red_mushroom","minecraft:gold_block","minecraft:iron_block","minecraft:double_stone_slab","minecraft:stone_slab","minecraft:brick_block","minecraft:tnt","minecraft:bookshelf","minecraft:mossy_cobblestone","minecraft:obsidian","minecraft:torch","minecraft:fire","minecraft:mob_spawner","minecraft:oak_stairs","minecraft:chest","minecraft:redstone_wire","minecraft:diamond_ore","minecraft:diamond_block","minecraft:crafting_table","minecraft:wheat","minecraft:farmland","minecraft:furnace","minecraft:lit_furnace","minecraft:standing_sign","minecraft:wooden_door","minecraft:ladder","minecraft:rail","minecraft:stone_stairs","minecraft:wall_sign","minecraft:lever","minecraft:stone_pressure_plate","minecraft:iron_door","minecraft:wooden_pressure_plate","minecraft:redstone_ore","minecraft:lit_redstone_ore","minecraft:unlit_redstone_torch","minecraft:redstone_torch","minecraft:stone_button","minecraft:snow_layer","minecraft:ice","minecraft:snow","minecraft:cactus","minecraft:clay","minecraft:reeds","minecraft:jukebox","minecraft:fence","minecraft:pumpkin","minecraft:netherrack","minecraft:soul_sand","minecraft:glowstone","minecraft:portal","minecraft:lit_pumpkin","minecraft:cake","minecraft:unpowered_repeater","minecraft:powered_repeater","minecraft:stained_glass","minecraft:trapdoor","minecraft:monster_egg","minecraft:stonebrick","minecraft:brown_mushroom_block","minecraft:red_mushroom_block","minecraft:iron_bars","minecraft:glass_pane","minecraft:melon_block","minecraft:pumpkin_stem","minecraft:melon_stem","minecraft:vine","minecraft:fence_gate","minecraft:brick_stairs","minecraft:stone_brick_stairs","minecraft:mycelium","minecraft:waterlily","minecraft:nether_brick","minecraft:nether_brick_fence","minecraft:nether_brick_stairs","minecraft:nether_wart","minecraft:enchanting_table","minecraft:brewing_stand","minecraft:cauldron","minecraft:end_portal","minecraft:end_portal_frame","minecraft:end_stone","minecraft:dragon_egg","minecraft:redstone_lamp","minecraft:lit_redstone_lamp","minecraft:double_wooden_slab","minecraft:wooden_slab","minecraft:cocoa","minecraft:sandstone_stairs","minecraft:emerald_ore","minecraft:ender_chest","minecraft:tripwire_hook","minecraft:tripwire","minecraft:emerald_block","minecraft:spruce_stairs","minecraft:birch_stairs","minecraft:jungle_stairs","minecraft:command_block","minecraft:beacon","minecraft:cobblestone_wall","minecraft:flower_pot","minecraft:carrots","minecraft:potatoes","minecraft:wooden_button","minecraft:skull","minecraft:anvil","minecraft:trapped_chest","minecraft:light_weighted_pressure_plate","minecraft:heavy_weighted_pressure_plate","minecraft:unpowered_comparator","minecraft:powered_comparator","minecraft:daylight_detector","minecraft:redstone_block","minecraft:quartz_ore","minecraft:hopper","minecraft:quartz_block","minecraft:quartz_stairs","minecraft:activator_rail","minecraft:dropper","minecraft:stained_hardened_clay","minecraft:stained_glass_pane","minecraft:leaves2","minecraft:log2","minecraft:acacia_stairs","minecraft:dark_oak_stairs","minecraft:slime","minecraft:barrier","minecraft:iron_trapdoor","minecraft:prismarine","minecraft:sea_lantern","minecraft:hay_block","minecraft:carpet","minecraft:hardened_clay","minecraft:coal_block","minecraft:packed_ice","minecraft:double_plant","minecraft:standing_banner","minecraft:wall_banner","minecraft:daylight_detector_inverted","minecraft:red_sandstone","minecraft:red_sandstone_stairs","minecraft:double_stone_slab2","minecraft:stone_slab2","minecraft:spruce_fence_gate","minecraft:birch_fence_gate","minecraft:jungle_fence_gate","minecraft:dark_oak_fence_gate","minecraft:acacia_fence_gate","minecraft:spruce_fence","minecraft:birch_fence","minecraft:jungle_fence","minecraft:dark_oak_fence","minecraft:acacia_fence","minecraft:spruce_door","minecraft:birch_door","minecraft:jungle_door","minecraft:acacia_door","minecraft:dark_oak_door","minecraft:end_rod","minecraft:chorus_plant","minecraft:chorus_flower","minecraft:purpur_block","minecraft:purpur_pillar","minecraft:purpur_stairs","minecraft:purpur_double_slab","minecraft:purpur_slab","minecraft:end_bricks","minecraft:grass_path","minecraft:end_gateway","minecraft:structure_block"],HideFlags:16}
+</code></pre>
+
+<h3 id="詳細-22">詳細</h3>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">AreaTitleFlag</code>の値に対応した<code class="language-plaintext highlighter-rouge">Enter</code>の持っていないエリアエフェクトクラウドに<code class="language-plaintext highlighter-rouge">Enter</code>を付与(以下の表参照)</li>
+  <li><code class="language-plaintext highlighter-rouge">AreaTitleFlag</code>が-100以上であるプレイヤー一人選択し、プレイヤーの1m上に4m以内にいる<code class="language-plaintext highlighter-rouge">ViewPoint</code>を持つエンティティ(<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">ViewPoint(仮)</a>)を移動</li>
+  <li><code class="language-plaintext highlighter-rouge">AreaTitleFlag</code>が-100以上であるプレイヤーの<code class="language-plaintext highlighter-rouge">InstantChangeA</code>、<code class="language-plaintext highlighter-rouge">InstantChangeB</code>、<code class="language-plaintext highlighter-rouge">ModeChangeA</code>、<code class="language-plaintext highlighter-rouge">ModeChangeB</code>をそれぞれ0に設定</li>
+  <li>(-2725,88,-382)から2m以内(スキル設定所入口)にいて<code class="language-plaintext highlighter-rouge">AreaTitleFlag</code>が10であり、<code class="language-plaintext highlighter-rouge">TrialSet</code>を持つプレイヤーが存在したら、<a href="/TUSB_Analysis/others/TUSB_Analysis_Item.html">お試しセットの印玉</a>を与え以下の事柄を実行
+    <ol>
+      <li><a href="/TUSB_Analysis/others/TUSB_Analysis_Item.html">お試しセットの印玉</a>を受け取ったというメッセージを表示</li>
+      <li><code class="language-plaintext highlighter-rouge">TrialSet</code>を削除</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">AreaTitleFlag</code>が-100以上であるプレイヤーの<code class="language-plaintext highlighter-rouge">AreaTitleFlag</code>を-999に設定</li>
+</ol>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">AreaTitleFlag</th>
+      <th style="text-align: center">AreaEffectCloudName</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center"><a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">地下世界</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td style="text-align: center"><a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">クラウディア</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td style="text-align: center"><a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">テーブルマウンテン</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td style="text-align: center"><a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">ガリバーランド</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td style="text-align: center"><a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">トカルトコルデ</a></td>
+    </tr>
+  </tbody>
+</table>
 
 
-      
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
+        
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
-    <script>anchors.add();</script>
-    
-  </body>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+    <div class="row">
+        <div class="col-lg-12 footer">
+            <span>Page last updated:</span> 2020/6/17<br/> Site last generated: Jun 18, 2020 <br />
+        </div>
+    </div>
+</footer>
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#main -->
+    </div>
+
+</body>
+ <!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-169658702-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+ 
+
 </html>
