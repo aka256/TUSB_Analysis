@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>mainclockProcessing.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFon">メインクロックON</h2>
+<p><span class="label label-primary">位置 (-1870,4,-194)</span></p>
+<h3 id="about">About</h3>
+<p>X回路区域内のメインクロックを起動させるコマンド群であり、<a href="initializeProcessing.html">初期化処理</a>の一部でもある。</p>
+<p>{% include note.html content=&quot;(-1870,7,-194)にあるスイッチ(青い羊毛についているやつ)によって手動にて操作可能&quot; %}</p>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
+<div class="datatable3cnp-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">(空白)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/clone -1924 4 -200 -1924 4 -111 -1920 4 -200 filtered force minecraft:command_block 5</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/summon ArmorStand -1870 10 -197 {Invulnerable:true,Tags:[SystemEntity,TypeChecked],Rotation:[90f,0f],CustomNameVisible:true,CustomName:&quot;SystemKeeper&quot;,UUIDMost:2l,UUIDLeast:2l}</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+</tbody>
+</table>
+<div class="datatable3cnp-begin"></div>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<ol>
+<li><a href="#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行するコマンド群</a>を実行</li>
+<li><a href="TUSB_Analysis_Entity.html#systemkeeper">SystemKeeper</a>君を(-1870,10,-197)に召喚し、メインクロックを作動させる</li>
+</ol>
+<h3 id="%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行するコマンド群</h3>
+<p>実行されるコマンド群 (x=-1920,y=4)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">z座標</th>
+<th style="text-align:left">コマンド群名称、先頭処理名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-200</td>
+<td style="text-align:left"><a href="runFirst.html">毎tick必ず最初に実行したいコマンド群</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-192</td>
+<td style="text-align:left"><a href="reset.html">メインクロック開始時リセットするもの</a></td>
+</tr>
+<tr>
+<td style="text-align:center">-189</td>
+<td style="text-align:left">[ベッド処理]</td>
+</tr>
+<tr>
+<td style="text-align:center">-184</td>
+<td style="text-align:left">[黙想終了処理Mokuso]</td>
+</tr>
+<tr>
+<td style="text-align:center">-181</td>
+<td style="text-align:left">[与ダメージDamegeDealt]</td>
+</tr>
+<tr>
+<td style="text-align:center">-180</td>
+<td style="text-align:left">[スニークSneakTime]</td>
+</tr>
+<tr>
+<td style="text-align:center">-178</td>
+<td style="text-align:left">[報酬用演出]</td>
+</tr>
+<tr>
+<td style="text-align:center">-177</td>
+<td style="text-align:left">[範囲化可能スキル判定]</td>
+</tr>
+<tr>
+<td style="text-align:center">-175</td>
+<td style="text-align:left">[剣士即時分岐]</td>
+</tr>
+<tr>
+<td style="text-align:center">-167</td>
+<td style="text-align:left">[狩人即時分岐]</td>
+</tr>
+<tr>
+<td style="text-align:center">-157</td>
+<td style="text-align:left">[黒魔導士即時分岐]</td>
+</tr>
+<tr>
+<td style="text-align:center">-144</td>
+<td style="text-align:left">[乱数取得]</td>
+</tr>
+<tr>
+<td style="text-align:center">-143</td>
+<td style="text-align:left">[忍者スキル?]</td>
+</tr>
+<tr>
+<td style="text-align:center">-138</td>
+<td style="text-align:left">[白魔導士スキル?]</td>
+</tr>
+<tr>
+<td style="text-align:center">-135</td>
+<td style="text-align:left">[印判処理?]</td>
+</tr>
+<tr>
+<td style="text-align:center">-113</td>
+<td style="text-align:left">[スキル名表示呼び出し]</td>
+</tr>
+<tr>
+<td style="text-align:center">-111</td>
+<td style="text-align:left">[毎tick必ず最後に実行したいコマンド群]</td>
+</tr>
+</tbody>
+</table>
+<p>(これらすべてを&quot;毎tick実行するコマンド群&quot;って呼ぶのかな?)</p>
+<hr>
+<h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFoff">メインクロックOFF</h2>
+<p><span class="label label-primary">位置 (-1870,4,-195)</span></p>
+<h3 id="about">About</h3>
+<p>X回路区域内のメインクロックを停止指せるコマンド群であり、基本的には使われない。</p>
+<p>{% include note.html content=&quot;(-1870,7,-195)にあるスイッチ(赤い羊毛についているやつ)によって手動にて操作可能なので、気になったら押してみるといい。&quot; %}</p>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/blockdata -1920 4 -200 {auto:false}</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/blockdata -1920 4 -111 {auto:false}</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/kill 0-0-2-0-2</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
+<ol>
+<li>(-1920,4,-200)にある<a href="runFirst.html">毎tick必ず最初に実行したいコマンド群</a>を停止</li>
+<li>(-1920,4,-111)にある[毎tick必ず最後にに実行したいコマンド群]を停止</li>
+<li><a href="TUSB_Analysis_Entity.html#systemkeeper">SystemKeeper</a>君をキル</li>
+</ol>
+
+</body>
+</html>

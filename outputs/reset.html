@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>reset.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="about">About</h2>
+<p>TUSBにログインした際にジョブやHP、満腹度修正などを行う。</p>
+<ul>
+<li>位置(-1920,4,-192)</li>
+</ul>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<div class="datatable4c-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">コメント</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/scoreboard players reset @a[score_MPConsumption_min=0] MPConsumption</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/scoreboard players reset @a[score_ActivatedSkill_min=0] ActivatedSkill</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/scoreboard players tag @a[tag=Sneaking] remove Sneaking</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">/execute @a[team=,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 8 -192 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###初回ログイン時</td>
+<td style="text-align:left">初回ログイン時 最低限の初期設定 team=</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">/execute @a[score_LeaveGame_min=1,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 9 -192 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###ログイン時</td>
+<td style="text-align:left">ログイン時 LeaveGame ≧ 1</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">/execute @a[score_PickupPaper_min=1] ~ ~ ~ /scoreboard players operation @a[c=1] TradedVillager &gt;&lt; @a[c=1] PickupPaper</td>
+<td style="text-align:left">職業申請処理他 JobChangeタグ TradedVillager PickupPaper</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">scoreboard players reset @a[score_TradedVillager_min=1] TradedVillager</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">/clone -1920 10 ~ -1920 10 ~ -1920 10 ~ filtered force minecraft:command_block 5 ###ジョブチェンジ</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">/execute @a[tag=ShowStatus] ~ ~ ~ /scoreboard players operation @a[c=1] SaveJob = @a[c=1] Job</td>
+<td style="text-align:left">セーブ・ロード・表示 SaveJobスコア LoadJobスコア ShowStatusタグ</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">/execute @a[score_LoadJob_min=0] ~ ~ ~ /scoreboard players operation @a[c=1] SaveJob = @a[c=1] Job</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">/execute @a[score_SaveJob_min=0,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 11 -192 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###セーブ</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:left">/execute @a[score_LoadJob_min=0,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 12 -192 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###ロード</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left">/execute @a[tag=ShowStatus,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 14 -192 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###ステータス表示</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:left">/execute @a[tag=ShowConquest,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 18 -192 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###攻略率表示</td>
+<td style="text-align:left">エリア攻略表示 タグ ShowConquest</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:left">/scoreboard players tag @a[-1755,98,-153,dx=32,dy=9,dz=32] add WarpByJob</td>
+<td style="text-align:left">初期ゲートやブラジルからの職業有無によるTP処理 WarpByJobタグ</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:left">/clone -1920 15 ~ -1920 15 ~ -1920 15 ~ filtered force minecraft:command_block 5 ###ジョブ別ワープ処理</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:left">/execute @a[score_HP=0,score_Hunger=-1] ~ ~ ~ /scoreboard players operation @a[c=1] Hunger = @a[c=1] Food</td>
+<td style="text-align:left">リスポ満腹度維持処理</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:left">/clone -1920 16 ~ -1920 16 ~ -1920 16 ~ filtered force minecraft:command_block 5 ###keepInventoryチェック</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:left">/execute @a[score_HP_min=1,score_Hunger_min=0,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 17 -192 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###満腹度修正</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:left">/scoreboard players set @a[score_HP_min=1] GotExpFlag -1 {Inventory:[{id:&quot;minecraft:nether_star&quot;}]}</td>
+<td style="text-align:left">経験値取得処理</td>
+<td style="text-align:left">ガラスあり</td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:left">/clone -1920 8 ~1 -1920 8 ~1 -1920 8 ~1 filtered force minecraft:command_block 5 ###経験値取得</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:left">/execute @a[score_ExpToLevel=0,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 9 -191 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###レベルアップ</td>
+<td style="text-align:left">レベルアップ処理</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:left">/execute @a[score_RefreshHPMax_min=1,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 16 -191 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###最大HP設定</td>
+<td style="text-align:left">最大HP調整処理</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:left">/execute @a[score_CoolTickCounter_min=1,score_MPMaxFlag=0,score_ManaRefresh_min=0] ~ ~ ~ /scoreboard players operation @a[c=1] MP += @a[c=1] MPIncrement</td>
+<td style="text-align:left">マナリフレッシュ MP回復 ManaRefresh</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:left">/execute @a[score_CoolTickCounter_min=1,score_MPMaxFlag=0] ~ ~ ~ /scoreboard players operation @a[c=1] MP += @a[c=1] MPIncrement</td>
+<td style="text-align:left">MP自然回復 CoolTickCounter MP/MPMaxFlag</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td style="text-align:left">/execute @a[score_CoolTickCounter_min=1,score_MPMaxFlag=0] ~ ~ ~ /scoreboard players operation @a[c=1] MP -= @a[c=1] MPMax</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:left">/execute @a[score_CoolTickCounter_min=1,score_MPMaxFlag=0,score_MP_min=0] ~ ~ ~ /scoreboard players operation @a[c=1] MP = @a[c=1] MPMax</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">28</td>
+<td style="text-align:left">/scoreboard players set @a[score_CoolTickCounter_min=1,score_MPMaxFlag=0,score_MP_min=0] MPMaxFlag 1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td style="text-align:left">/execute @a[score_CoolTickCounter_min=1,score_MPMaxFlag=0] ~ ~ ~ /scoreboard players operation @a[c=1] MP += @a[c=1] MPMax</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td style="text-align:left">/execute @a[score_CoolTickCounter_min=1,score_MPMaxFlag=0] ~ ~ ~ /scoreboard players operation @a[c=1] CoolTickCounter = @a[c=1] CoolTickSpan</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td style="text-align:left">/execute @a[score_UseEnderEye_min=1,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 17 -191 /clone ~ ~ ~ ~ ~1 ~ ~ ~ ~ filtered force minecraft:command_block 5 ###島攻略</td>
+<td style="text-align:left">島攻略処理 村人追加スキップ防止のため一人ずつ処理 UseEnderEye ≧ 1</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td style="text-align:left">/scoreboard players tag @a[score_UseChorus_min=1] add Pray</td>
+<td style="text-align:left">コーラスフルーツ</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td style="text-align:left">/tp @a[-2827,57,-410,dx=9,dy=123,dz=9,score_UseChorus_min=1] -2811 75 -396 -53 0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">34</td>
+<td style="text-align:left">/execute @a[score_UseChorus_min=1] ~ ~ ~ /summon Endermite ~ ~ ~ {CustomName:&quot;コーラスマイト&quot;,Health:200f,Lifetime:1900,Attributes:[{Name:&quot;generic.maxHealth&quot;,Base:200d},{Name:&quot;generic.movementSpeed&quot;,Base:0.3d},{Name:&quot;generic.attackDamage&quot;,Base:1d},{Name:&quot;generic.knockbackResistance&quot;,Base:0.3d},{Name:&quot;generic.followRange&quot;,Base:32d}],HandItems:[{tag:{ench:[{id:19s,lvl:20s}]},id:&quot;minecraft:iron_sword&quot;,Count:0b,Damage:0s},{}]}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">35</td>
+<td style="text-align:left">/scoreboard players reset @a[score_UseChorus_min=1] UseChorus</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">36</td>
+<td style="text-align:left">/effect @a[score_Deaths_min=1,score_HP_min=1] clear</td>
+<td style="text-align:left">緩衝付き死亡修正</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<div class="datatable4c-end"></div>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li><code>MPConsumption</code>が0以上のプレイヤーの<code>MPConsumption</code>を0とし、<code>ActivatedSkill</code>が0以上のプレイヤーの<code>ActivatedSkill</code>を0とする。そして<code>Sneaking</code>を削除</li>
+<li>チームに属していないプレイヤー(team=)を一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,8,-192)にある<a href="firstLoginProcessing.html">初回ログイン時処理</a>を実行</li>
+<li><code>LeaveGame</code>が1以上のプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-192)にある<a href="loginProcessing.html">ログイン時処理</a>を実行</li>
+<li><code>PickerPaper</code>が1以上のプレイヤーの<code>TradedVillager</code>と<code>PickerPaper</code>の値を入れ替える</li>
+<li><code>TradedVillager</code>が1以上のプレイヤーの<code>TradedVillager</code>を0にし、(-1920,10,-192)にある<a href="jobChangeJudgement.html">ジョブチェンジ先判定</a>を実行</li>
+<li><code>ShowStatus</code>を持っているプレイヤーを一人選択し、<code>SaveJob</code>に<code>Job</code>を代入する</li>
+<li><code>LoadJob</code>が0以上であるプレイヤーを一人選択し、<code>SaveJob</code>に<code>Job</code>を代入する</li>
+<li><code>SaveJob</code>が0以上であるプレイヤーを一人選択し、(-1920,11,-192)にある<a href="jobSave.html">ジョブセーブ</a>を実行</li>
+<li><code>LoadJob</code>が0以上であるプレイヤーを一人選択し、(-1920,12,-192)にある<a href="jobLoad.html">ジョブロード</a>を実行</li>
+<li><code>ShowStatus</code>のプレイヤーを一人選択し、(-1920,14,-192)にある<a href="statusDisplay.html">ステータス表示</a>を実行</li>
+<li><code>ShowConquest</code>のプレイヤーを一人選択し、(-1920,18,-192)にある<a href="conquerDisplay.html">攻略率表示</a>を実行</li>
+<li>(-1755,98,-153)からdx=32,dy=9,dz=32(ブラジル行きの穴)にいるプレイヤーに<code>WarpByJob</code>を付与し、(-1920,15,-192)にある<a href="warpProcessing.html">ワープ処理_ジョブ島/通常世界</a>を実行</li>
+<li><code>HP</code>が0以下,<code>Hunger</code>が-1以下であるプレイヤーを一人選択し、<code>Hunger</code>に<code>Food</code>を代入し、(-1920,16,-192)にある<a href="keepInventoryCheck.html">KeepInventory確認</a>を実行</li>
+<li><code>HP</code>が1以上,<code>Hunger</code>が0以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-192)にある<a href="satietyFix.html">満腹度修正</a>を実行</li>
+<li><code>HP</code>が1以上かつインベントリにネザースターのあるプレイヤーの<code>GotExpFlag</code>を-1にし、(-1920,8,-191)にある<a href="expProcessing.html">経験値取得処理</a>を実行</li>
+<li><code>ExpToLevel</code>が0以下であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-191)にある<a href="levelupProcessing.html">レベルアップ処理</a>を実行</li>
+<li><code>RefreshHPMax</code>が1以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,16,-191)にある<a href="hpFix.html">最大HP調整処理</a>を実行</li>
+<li><code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下,<code>ManaRefresh</code>が0以上であるプレイヤーを一人選択し、<code>MP</code>に<code>MPIncrement</code>を足し合わせる</li>
+<li><code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code>MP</code>に<code>MPIncrement</code>を足し合わせ、<code>MP</code>から<code>MPMax</code>を引く。そして、<code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下,<code>MP</code>が0以上であるプレイヤーを一人選択し、<code>MP</code>に<code>MPMax</code>を代入し、<code>score_CoolTickCounter_min=1</code>,<code>score_MPMaxFlag=0</code>,<code>score_MP_min=0</code>であるプレイヤーの<code>MPMaxFlag</code>を1にする</li>
+<li><code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code>MP</code>に<code>MPMax</code>を足し合わせ、<code>CoolTickCounter</code>が1以上,<code>MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code>CoolTickCounter</code>に<code>CoolTickSpan</code>を代入する</li>
+<li><code>UseEnderEye</code>が1以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-191)と(~,18,-191)にある<a href="conquerProcessing.html">島攻略処理</a>と[島攻略処理_その2?]をそれぞれ実行</li>
+<li><code>UseChorus</code>が1以上であるプレイヤーに<code>Pray</code>を追加。(-2827,57,-410)から(dx=9,dy=123,dz=9)(タワーバンク内)にいてかつ<code>Use_Chorus</code>が1以上であるプレイヤーを(-2811,75,-396,-53,0)(タワーバンク入口)に移動させる</li>
+<li><code>UseChorus</code>が1以上であるプレイヤーのところに[コーラスマイト]を出現させ、<code>UseChorus</code>が1以上であるプレイヤーの<code>UseChorus</code>を0にする</li>
+<li><code>Deaths</code>が1以上,<code>HP</code>が1以上であるプレイヤーのエフェクトをすべて消去する</li>
+</ol>
+
+</body>
+</html>
