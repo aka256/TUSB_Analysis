@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="commandjobexp,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<title>ジョブセーブ | TUSB_Analysis</title>
+<link rel="stylesheet" href=" css/syntax.css ">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue2.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src=" js/jquery.navgoco.min.js "></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src=" js/toc.js "></script>
+<script src=" js/customscripts.js "></script>
+
+<link rel="shortcut icon" href=" images/favicon.ico ">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="TUSB_Analysis" href="http://localhost:4000 /feed.xml ">
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+    </script>
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+     
+    <style type="text/css">
+        table {
+            table-layout: fixed;
+        }
+        
+        table td {
+            word-wrap: break-word;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> TUSB_Analysis</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Sidebar</a></li>
+                <!-- entries without drop-downs appear here -->
+
+                    
+                <li><a href="https://twitter.com/Re16d5" target="_blank" rel="noopener">Twitter</a></li>
+                  
+                <li><a href="https://github.com/aka256/TUSB_Analysis/" target="_blank" rel="noopener">GitHub</a></li>
+                  
+                <li><a href="https://skyblock.jp/" target="_blank" rel="noopener">TUSB公式サイト</a></li>
+                  
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                 
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src=" js/jekyll-search.js " type="text/javascript"></script>
+                    <script type="text/javascript">
+                        SimpleJekyllSearch.init({
+                            searchInput: document.getElementById('search-input'),
+                            resultsContainer: document.getElementById('results-container'),
+                            dataSource: 'search.json',
+                            searchResultTemplate: '<li><a href="{url}" title="ジョブセーブ">{title}</a></li>',
+                            noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                        })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+    <!-- Page Content -->
+    <div class="container">
+        <div id="main">
+            <!-- Content Row -->
+            <div class="row">
+                 
+                <!-- Sidebar Column -->
+                <div class="col-md-3" id="tg-sb-sidebar">
+                    
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">TUSB_Analysis </li>
+  
+  
+  
+  <li>
+      <a title="X回路区域管理コマンド群" href="#">X回路区域管理コマンド群</a>
+      <ul>
+          
+          
+          
+          <li><a title="マクラウェル内部" href="insideMcLawell.html">マクラウェル内部</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="初期化処理" href="initializeProcessing.html">初期化処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="メインクロック処理" href="mainclockProcessing.html">メインクロック処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="SystemKeeper処理" href="systemkeeperProcessing.html">SystemKeeper処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="かまど再設定" href="furnaceProcessing.html">かまど再設定</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="毎tick実行するコマンド群1" href="#">毎tick実行するコマンド群1</a>
+      <ul>
+          
+          
+          
+          <li><a title="毎tick必ず最初に実行したいコマンド群" href="runFirst.html">毎tick必ず最初に実行したいコマンド群</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="エリア侵入記録" href="areaRecord.html">エリア侵入記録</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="エリア処理" href="areaProcessing.html">エリア処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="時間経過" href="timeElapsed.html">時間経過</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="AEC維持" href="aecMaintenance.html">AEC維持</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="毎tick実行するコマンド群2" href="#">毎tick実行するコマンド群2</a>
+      <ul>
+          
+          
+          
+          <li><a title="メインクロック開始時リセットするもの" href="reset.html">メインクロック開始時リセットするもの</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="初回ログイン時処理" href="firstLoginProcessing.html">初回ログイン時処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ログイン時処理" href="loginProcessing.html">ログイン時処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="難易度調整" href="difficultyAdjustment.html">難易度調整</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ジョブチェンジ先判定" href="jobChangeJudgement.html">ジョブチェンジ先判定</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ジョブセーブ" href="jobSave.html">ジョブセーブ</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ジョブロード" href="jobLoad.html">ジョブロード</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ステータス表示" href="statusDisplay.html">ステータス表示</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="攻略率表示" href="conquerDisplay.html">攻略率表示</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ワープ処理ジョブ島・通常世界" href="warpProcessing.html">ワープ処理ジョブ島・通常世界</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="KeepInventory確認" href="keepInventoryCheck.html">KeepInventory確認</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="満腹度修正" href="satietyFix.html">満腹度修正</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="経験値取得処理" href="expProcessing.html">経験値取得処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="レベルアップ処理" href="levelupProcessing.html">レベルアップ処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="習得スキル取得" href="skillAcquisition.html">習得スキル取得</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="最大HP調整処理" href="hpFix.html">最大HP調整処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="島攻略処理" href="conquerProcessing.html">島攻略処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="時計島" href="clockIslandProcessing.html">時計島</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="データ類" href="#">データ類</a>
+      <ul>
+          
+          
+          
+          <li><a title="エンティティ" href="TUSB_Analysis_Entity.html">エンティティ</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="アイテム" href="TUSB_Analysis_Item.html">アイテム</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="スコアボード、チーム" href="TUSB_Analysis_Data.html">スコアボード、チーム</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+                </div>
+                 
+
+                <!-- Content Column -->
+                <div class="col-md-9" id="tg-sb-content">
+                    <div class="post-header">
+   <h1 class="post-title-main">ジョブセーブ</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" rel="noopener" href="https://github.com/aka256/TUSB_Analysis/pages/command/jobSave.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+   <ul>
+  <li>位置(-1920,11,-192)</li>
+  <li><code class="language-plaintext highlighter-rouge">(Job)Level</code>や<code class="language-plaintext highlighter-rouge">(Job)ToLevel</code>の保存</li>
+</ul>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th style="text-align: left">コマンド</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">/execute @a[score_SaveJob_min=1,score_SaveJob=1] ~ ~ ~ /scoreboard players operation @a[c=1] KnightLevel = @a[c=1] Level</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">/execute @a[score_SaveJob_min=1,score_SaveJob=1] ~ ~ ~ /scoreboard players operation @a[c=1] KnightToLevel = @a[c=1] ExpToLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">/execute @a[score_SaveJob_min=2,score_SaveJob=2] ~ ~ ~ /scoreboard players operation @a[c=1] NinjaLevel = @a[c=1] Level</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: left">/execute @a[score_SaveJob_min=2,score_SaveJob=2] ~ ~ ~ /scoreboard players operation @a[c=1] NinjaToLevel = @a[c=1] ExpToLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: left">/execute @a[score_SaveJob_min=3,score_SaveJob=3] ~ ~ ~ /scoreboard players operation @a[c=1] ArcherLevel = @a[c=1] Level</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: left">/execute @a[score_SaveJob_min=3,score_SaveJob=3] ~ ~ ~ /scoreboard players operation @a[c=1] ArcherToLevel = @a[c=1] ExpToLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td style="text-align: left">/execute @a[score_SaveJob_min=4,score_SaveJob=4] ~ ~ ~ /scoreboard players operation @a[c=1] WhiteMageLevel = @a[c=1] Level</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td style="text-align: left">/execute @a[score_SaveJob_min=4,score_SaveJob=4] ~ ~ ~ /scoreboard players operation @a[c=1] WhiteMageToLevel = @a[c=1] ExpToLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td style="text-align: left">/execute @a[score_SaveJob_min=5,score_SaveJob=5] ~ ~ ~ /scoreboard players operation @a[c=1] BlackMageLevel = @a[c=1] Level</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td style="text-align: left">/execute @a[score_SaveJob_min=5,score_SaveJob=5] ~ ~ ~ /scoreboard players operation @a[c=1] BlackMageToLevel = @a[c=1] ExpToLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td style="text-align: left">/execute @a[score_SaveJob_min=6,score_SaveJob=6] ~ ~ ~ /scoreboard players operation @a[c=1] SummonerLevel = @a[c=1] Level</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td style="text-align: left">/execute @a[score_SaveJob_min=6,score_SaveJob=6] ~ ~ ~ /scoreboard players operation @a[c=1] SummonerToLevel = @a[c=1] ExpToLevel</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td style="text-align: left">/scoreboard players reset @a[score_SaveJob_min=0] SaveJob</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">SaveJob</code>がそれぞれの職業のものと等しいプレイヤーの<code class="language-plaintext highlighter-rouge">(Job)Level</code>に<code class="language-plaintext highlighter-rouge">Level</code>を、<code class="language-plaintext highlighter-rouge">(Job)ToLevel</code>に<code class="language-plaintext highlighter-rouge">ExpToLevel</code>をそれぞれ代入</li>
+  <li><code class="language-plaintext highlighter-rouge">SaveJob</code>が0以上のプレイヤーの<code class="language-plaintext highlighter-rouge">SaveJob</code>を0に設定</li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">SaveJob</code>は<a href="TUSB_Analysis_Data.html">ここ</a>を参照</p>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_command.html" class="btn btn-default navbar-btn cursorNorm" role="button">command</a>
+        
+        
+        
+        <a href="tag_job.html" class="btn btn-default navbar-btn cursorNorm" role="button">job</a>
+        
+        
+        
+        <a href="tag_exp.html" class="btn btn-default navbar-btn cursorNorm" role="button">exp</a>
+        
+        
+        
+    </div>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+    <div class="row">
+        <div class="col-lg-12 footer">
+            <span>Page last updated:</span> 2020/6/17<br/> Site last generated: Jun 18, 2020 <br />
+        </div>
+    </div>
+</footer>
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#main -->
+    </div>
+
+</body>
+ <!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-169658702-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+ 
+
+</html>

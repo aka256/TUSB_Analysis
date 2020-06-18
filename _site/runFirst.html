@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="commandentitydimension,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<title>毎tick必ず最初に実行したいコマンド群 | TUSB_Analysis</title>
+<link rel="stylesheet" href=" css/syntax.css ">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue2.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src=" js/jquery.navgoco.min.js "></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src=" js/toc.js "></script>
+<script src=" js/customscripts.js "></script>
+
+<link rel="shortcut icon" href=" images/favicon.ico ">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="TUSB_Analysis" href="http://localhost:4000 /feed.xml ">
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+    </script>
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+     
+    <!-- Include the standard DataTables bits -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <!-- First, this walks through the tables that occur between ...-begin
+         and ...-end and add the "datatable" class to them.
+         Then it invokes DataTable's standard initializer
+         Credit here: http://www.beardedhacker.com/blog/2015/08/28/add-class-attribute-to-markdown-table/
+      -->
+    <script>
+        $(document).ready(function() {
+            $('div.datatable4c-begin').nextUntil('div.datatable4c-end', 'table').addClass('display');
+            //$('div.datatable3-begin').nextUntil('div.datatable3-end', 'table').Class('display').style = "word-break:break-all";
+            $('table.display').DataTable({
+                paging: true,
+                stateSave: true,
+                searching: true,
+                autoWidth: false,
+                lengthChange: true,
+                columns: [{
+                    responsivePriority: 3,
+                    width: "5%"
+                }, {
+                    responsivePriority: 4,
+                    width: "65%"
+                }, {
+                    responsivePriority: 2,
+                    width: "15%"
+                }, {
+                    responsivePriority: 1,
+                    width: "15%"
+                }],
+            });
+        });
+    </script>
+    
+    <style type="text/css">
+        table {
+            table-layout: fixed;
+        }
+        
+        table td {
+            word-wrap: break-word;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> TUSB_Analysis</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Sidebar</a></li>
+                <!-- entries without drop-downs appear here -->
+
+                    
+                <li><a href="https://twitter.com/Re16d5" target="_blank" rel="noopener">Twitter</a></li>
+                  
+                <li><a href="https://github.com/aka256/TUSB_Analysis/" target="_blank" rel="noopener">GitHub</a></li>
+                  
+                <li><a href="https://skyblock.jp/" target="_blank" rel="noopener">TUSB公式サイト</a></li>
+                  
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                 
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src=" js/jekyll-search.js " type="text/javascript"></script>
+                    <script type="text/javascript">
+                        SimpleJekyllSearch.init({
+                            searchInput: document.getElementById('search-input'),
+                            resultsContainer: document.getElementById('results-container'),
+                            dataSource: 'search.json',
+                            searchResultTemplate: '<li><a href="{url}" title="毎tick必ず最初に実行したいコマンド群">{title}</a></li>',
+                            noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                        })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+    <!-- Page Content -->
+    <div class="container">
+        <div id="main">
+            <!-- Content Row -->
+            <div class="row">
+                 
+                <!-- Sidebar Column -->
+                <div class="col-md-3" id="tg-sb-sidebar">
+                    
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">TUSB_Analysis </li>
+  
+  
+  
+  <li>
+      <a title="X回路区域管理コマンド群" href="#">X回路区域管理コマンド群</a>
+      <ul>
+          
+          
+          
+          <li><a title="マクラウェル内部" href="insideMcLawell.html">マクラウェル内部</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="初期化処理" href="initializeProcessing.html">初期化処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="メインクロック処理" href="mainclockProcessing.html">メインクロック処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="SystemKeeper処理" href="systemkeeperProcessing.html">SystemKeeper処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="かまど再設定" href="furnaceProcessing.html">かまど再設定</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="毎tick実行するコマンド群1" href="#">毎tick実行するコマンド群1</a>
+      <ul>
+          
+          
+          
+          <li><a title="毎tick必ず最初に実行したいコマンド群" href="runFirst.html">毎tick必ず最初に実行したいコマンド群</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="エリア侵入記録" href="areaRecord.html">エリア侵入記録</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="エリア処理" href="areaProcessing.html">エリア処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="時間経過" href="timeElapsed.html">時間経過</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="AEC維持" href="aecMaintenance.html">AEC維持</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="毎tick実行するコマンド群2" href="#">毎tick実行するコマンド群2</a>
+      <ul>
+          
+          
+          
+          <li><a title="メインクロック開始時リセットするもの" href="reset.html">メインクロック開始時リセットするもの</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="初回ログイン時処理" href="firstLoginProcessing.html">初回ログイン時処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ログイン時処理" href="loginProcessing.html">ログイン時処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="難易度調整" href="difficultyAdjustment.html">難易度調整</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ジョブチェンジ先判定" href="jobChangeJudgement.html">ジョブチェンジ先判定</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ジョブセーブ" href="jobSave.html">ジョブセーブ</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ジョブロード" href="jobLoad.html">ジョブロード</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ステータス表示" href="statusDisplay.html">ステータス表示</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="攻略率表示" href="conquerDisplay.html">攻略率表示</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="ワープ処理ジョブ島・通常世界" href="warpProcessing.html">ワープ処理ジョブ島・通常世界</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="KeepInventory確認" href="keepInventoryCheck.html">KeepInventory確認</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="満腹度修正" href="satietyFix.html">満腹度修正</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="経験値取得処理" href="expProcessing.html">経験値取得処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="レベルアップ処理" href="levelupProcessing.html">レベルアップ処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="習得スキル取得" href="skillAcquisition.html">習得スキル取得</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="最大HP調整処理" href="hpFix.html">最大HP調整処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="島攻略処理" href="conquerProcessing.html">島攻略処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="時計島" href="clockIslandProcessing.html">時計島</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="データ類" href="#">データ類</a>
+      <ul>
+          
+          
+          
+          <li><a title="エンティティ" href="TUSB_Analysis_Entity.html">エンティティ</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="アイテム" href="TUSB_Analysis_Item.html">アイテム</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="スコアボード、チーム" href="TUSB_Analysis_Data.html">スコアボード、チーム</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+                </div>
+                 
+
+                <!-- Content Column -->
+                <div class="col-md-9" id="tg-sb-content">
+                    <div class="post-header">
+   <h1 class="post-title-main">毎tick必ず最初に実行したいコマンド群</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" rel="noopener" href="https://github.com/aka256/TUSB_Analysis/pages/command/runFirst.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+
+    
+
+   <ul>
+  <li>位置(-1920,4,-200)</li>
+</ul>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable4c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th style="text-align: left">コマンド</th>
+      <th style="text-align: left">コメント</th>
+      <th style="text-align: left">状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: left">/clone ~-4 ~ ~ ~-4 ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###セルフクロック</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: left">/scoreboard players tag @e[tag=FloatingRequired] add Garbage {OnGround:true}</td>
+      <td style="text-align: left">接地削除処理 FloatingRequired</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: left">/scoreboard players tag @e[tag=CooldownRequired] add Garbage {PortalCooldown:0}</td>
+      <td style="text-align: left">時間削除処理 CooldownRequired PortalCooldown=0 なら削除</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: left">/scoreboard players tag @e[tag=Slimy] add Garbage {AbsorptionAmount:0f}</td>
+      <td style="text-align: left">自然スライム系削除</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: left">/entitydata @e[tag=Garbage] {Size:0}</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: left">/entitydata @e[type=LavaSlime,tag=Garbage,name=!<em>] {Size:1,CustomName:</em>,CustomNameVisible:false}</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td style="text-align: left">/entitydata @e[tag=Garbage] {Health:0f,DeathTime:19s,Silent:true}</td>
+      <td style="text-align: left">不要エンティティ削除 タグGarbage</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td style="text-align: left">/kill @e[tag=Garbage]</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td style="text-align: left">/scoreboard players set @a[score_USBDimension_min=0] AreaChangeFlag -100 {Dimension:-1}</td>
+      <td style="text-align: left">エリア変更処理 範囲とUSBDimension 変更は必ず0tickで 表示はAreaTitleFlag</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td style="text-align: left">/scoreboard players set @a[score_USBDimension=99] AreaChangeFlag 110 {Dimension:1}</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td style="text-align: left">/scoreboard players set @a[rm=0,score_USBDimension=-1] AreaChangeFlag 0</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td style="text-align: left">/scoreboard players set @a[rm=0,score_USBDimension_min=100] AreaChangeFlag 0</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td style="text-align: left">/scoreboard players set @a[x=-192,y=-200,z=-288,dx=511,dy=600,dz=511,score_USBDimension_min=1,SKYLANDS] AreaChangeFlag 0</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td style="text-align: left">/scoreboard players set @a[x=752,y=-200,z=-320,dx=1439,dy=600,dz=703,score_USBDimension=0,UNDERWORLD] AreaChangeFlag 1</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td style="text-align: left">/scoreboard players set @a[x=752,y=-200,z=-320,dx=1439,dy=600,dz=703,score_USBDimension_min=2,UNDERWORLD] AreaChangeFlag 1</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td style="text-align: left">/scoreboard players set @a[x=-3072,y=-200,z=-656,dx=1727,dy=600,dz=1103,score_USBDimension=9,CLOUDIA] AreaChangeFlag 10</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td style="text-align: left">/scoreboard players set @a[x=-3072,y=-200,z=-656,dx=1727,dy=600,dz=1103,score_USBDimension_min=11,CLOUDIA] AreaChangeFlag 10</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td style="text-align: left">/scoreboard players set @a[x=-288,y=-200,z=-2672,dx=639,dy=600,dz=1311,score_USBDimension=10,TABLE_MOUNTAIN] AreaChangeFlag 11</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td style="text-align: left">/scoreboard players set @a[x=-288,y=-200,z=-2672,dx=639,dy=600,dz=1311,score_USBDimension_min=12,TABLE_MOUNTAIN] AreaChangeFlag 11</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td style="text-align: left">/scoreboard players set @a[x=-240,y=-200,z=448,dx=559,dy=600,dz=575,score_USBDimension=11,GULLIVERS_LAND] AreaChangeFlag 12</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td style="text-align: left">/scoreboard players set @a[x=-240,y=-200,z=448,dx=559,dy=600,dz=575,score_USBDimension_min=13,GULLIVERS_LAND] AreaChangeFlag 12</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td style="text-align: left">/scoreboard players set @a[x=752,y=-200,z=1024,dx=2063,dy=600,dz=2095,score_USBDimension=12,ICE_SHEET_FLOAT] AreaChangeFlag 13</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td style="text-align: left">/scoreboard players set @a[x=752,y=-200,z=1024,dx=2063,dy=600,dz=2095,score_USBDimension_min=14,ICE_SHEET_FLOAT] AreaChangeFlag 13</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td style="text-align: left">/execute @a[score_USBDimension=-1,c=1] ~ ~ ~ /scoreboard players set @a[x=-640,y=-200,z=-832,dx=1207,dy=600,dz=991,score_USBDimension_min=-99,NETHER] AreaChangeFlag -100 {Dimension:-1}</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td style="text-align: left">/execute @a[score_USBDimension=-1,c=1] ~ ~ ~ /scoreboard players set @a[x=-624,y=-200,z=672,dx=1375,dy=600,dz=943,score_USBDimension=-91,NETHER_TRIAL] AreaChangeFlag -90 {Dimension:-1}</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td style="text-align: left">/execute @a[score_USBDimension=-1,c=1] ~ ~ ~ /scoreboard players set @a[x=-624,y=-200,z=672,dx=1375,dy=600,dz=943,score_USBDimension_min=-89,NETHER_TRIAL] AreaChangeFlag -90 {Dimension:-1}</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">27</td>
+      <td style="text-align: left">/execute @a[score_USBDimension=-1,c=1] ~ ~ ~ /scoreboard players set @a[x=-624,y=-200,z=672,dx=1375,dy=600,dz=943,score_USBDimension_min=-89,NETHER_TRIAL] AreaChangeFlag -90 {Dimension:-1}</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">28</td>
+      <td style="text-align: left">/execute @a[score_AreaChangeFlag_min=-100] ~ ~ ~ /scoreboard players operation @a[c=1] USBDimension = @a[c=1] AreaChangeFlag</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">29</td>
+      <td style="text-align: left">/execute @a[score_AreaChangeFlag_min=-100] ~ ~ ~ /scoreboard players operation @a[c=1] AreaTitleFlag &gt;&lt; @a[c=1] AreaChangeFlag</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">30</td>
+      <td style="text-align: left">/clone -1920 8 ~ -1920 9 ~ -1920 8 ~ filtered force minecraft:command_block 5 ###エリアタイトル表示</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">31</td>
+      <td style="text-align: left">/tellraw @a[m=adventure,tag=!Adv,team=!] {“text”:”ブロックの設置・破壊制限が解除された。”,”color”:”dark_aqua”}</td>
+      <td style="text-align: left">ゲームモード変更 タグ有無 Adv</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">32</td>
+      <td style="text-align: left">/gamemode survival @a[m=adventure,tag=!Adv,team=!]</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">33</td>
+      <td style="text-align: left">/tellraw @a[m=survival,tag=Adv] {“text”:”ブロックの設置・破壊が制限された。”,”color”:”red”}</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">34</td>
+      <td style="text-align: left">/gamemode adventure @a[m=survival,tag=Adv]</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">35</td>
+      <td style="text-align: left">/scoreboard players test #SkillTargetCount Global 1 *</td>
+      <td style="text-align: left">SkillTarger位置復元</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">36</td>
+      <td style="text-align: left">/tp @e[tag=SkillTarget] ~ ~-0.4 ~</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">37</td>
+      <td style="text-align: left">/scoreboard players tag @e[tag=SkillTarget] remove SkillTarget</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">38</td>
+      <td style="text-align: left">/blockdata ~ ~-1 ~ {Items:[{id:minecraft:porkchop,Count:1b,Slot:0b,Damage:0s}],CookTimeTotal:20s}</td>
+      <td style="text-align: left">1秒クロック</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">39</td>
+      <td style="text-align: left">/clone -1920 11 ~ -1920 12 ~ -1920 11 ~ filtered force minecraft:command_block 5 ###１秒毎処理</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">40</td>
+      <td style="text-align: left">/gamerule mobGriefing</td>
+      <td style="text-align: left">mobGriefing修正</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">41</td>
+      <td style="text-align: left">/scoreboard players test MobGriefing Settings * 0</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">42</td>
+      <td style="text-align: left">/gamerule mobGriefing true</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">43</td>
+      <td style="text-align: left">/difficulty hard</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">44</td>
+      <td style="text-align: left">/scoreboard players tag @e[type=FallingSand] add Garbage {FallDistance:0f}</td>
+      <td style="text-align: left">砂バグ対策</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">45</td>
+      <td style="text-align: left">/scoreboard players tag @e[type=FallingSand,tag=Garbage] remove Garbage {Time:0}</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">46</td>
+      <td style="text-align: left">/testforblock -1875 5 -198 minecraft:stone_pressure_plate 0</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">47</td>
+      <td style="text-align: left">/summon ArmorStand -1875 5 -198 {Health:0f,DeathTime:19s}</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">48</td>
+      <td style="text-align: left">/tellraw AiAkaishi {“score”:{“name”:”*”,”objective”:”CoolTickCounter”}}</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable4c-end"></div>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><a href="expProcessing.html">毎tick必ず最初に実行したいコマンド群</a>を実行 (ここで自身を呼び出すことでクロックを行っている)</li>
+  <li><code class="language-plaintext highlighter-rouge">FloationRequired</code>を持ち、{OnGround:true}であるエンティティと<code class="language-plaintext highlighter-rouge">CooldownRequired</code>を持ち、{PortalCooldown:0}であるエンティティに<code class="language-plaintext highlighter-rouge">Garbage</code>を付与</li>
+  <li><code class="language-plaintext highlighter-rouge">Slimy</code>を持ち、{AbsorptionAmount:0f}であるエンティティが存在したら<code class="language-plaintext highlighter-rouge">Garbage</code>を付与し、以下の事柄を実行
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">Garbage</code>を持つエンティティに{Size:0}を付与</li>
+      <li><code class="language-plaintext highlighter-rouge">Garbage</code>を持ち、nameが無いマグマキューブに{Size:1,CustomName:,CustomNameVisible:false}を付与</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">Garbage</code>を持つエンティティに{Health:0f,DeathTime:19s,Silent:true}を付与し、killする</li>
+  <li><code class="language-plaintext highlighter-rouge">USBDimension</code>が0以上であり、ネザーにいる(<code class="language-plaintext highlighter-rouge">Dimension</code>:-1)プレイヤーの<code class="language-plaintext highlighter-rouge">AreaChangeFlag</code>を-100に設定</li>
+  <li><code class="language-plaintext highlighter-rouge">USBDimension</code>が99以下であり、エンドにいる(<code class="language-plaintext highlighter-rouge">Dimension</code>:1)プレイヤーの<code class="language-plaintext highlighter-rouge">AreaChangeFlag</code>を110に設定</li>
+  <li><code class="language-plaintext highlighter-rouge">USBDimension</code>が-1以下であり、0m以上外側にいる(Overworldにいることの検知?)プレイヤーの<code class="language-plaintext highlighter-rouge">AreaChangeFlag</code>を0に設定</li>
+  <li><code class="language-plaintext highlighter-rouge">USBDimension</code>が100以上であり、0m以上外側にいる(Overworldにいることの検知?)プレイヤーの<code class="language-plaintext highlighter-rouge">AreaChangeFlag</code>を0に設定</li>
+  <li>以下の表のようにプレイヤーのいる場所に対する<code class="language-plaintext highlighter-rouge">AreaChangeFlag</code>を変更</li>
+  <li><code class="language-plaintext highlighter-rouge">AreaChangeFlag</code>が-100以上であるプレイヤーいる場合、一人選択し<code class="language-plaintext highlighter-rouge">USBDimension</code>に<code class="language-plaintext highlighter-rouge">AreaChangeFlag</code>を代入して、以下の事柄を実行
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">AreaTileFlag</code>と<code class="language-plaintext highlighter-rouge">AreaChangeFlag</code>との値を入れ替える</li>
+      <li>(-1920,9,-200)にある[エリア侵入記録]と(-1920,8,-200)にある[エリア処理]を実行</li>
+    </ol>
+  </li>
+  <li>adventureであり、<code class="language-plaintext highlighter-rouge">Adv</code>がなく、何かしらのteamに所属しているプレイヤーがいる場合、アドベンチャーモード解除の旨のメッセージを出し、survivalに変更</li>
+  <li>survivalであり、<code class="language-plaintext highlighter-rouge">Adv</code>があるプレイヤーがいる場合、アドベンチャーモードに変更された旨のメッセージを出し、adventureに変更</li>
+  <li><code class="language-plaintext highlighter-rouge">#SkillTargetCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が1以上である時、以下の事柄を実行
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">SkillTarget</code>を持つエンティティを0.4m下に移動</li>
+      <li><code class="language-plaintext highlighter-rouge">SkillTarget</code>を持つエンティティから<code class="language-plaintext highlighter-rouge">SkillTarget</code>を消去</li>
+    </ol>
+  </li>
+  <li>(-1883,3,-200)にあるかまどに1秒で燃焼する豚肉を入れることができたら(要は1秒たったら)、(-1920,11,-200)にある<a href="timeElapsed.html">時間経過</a>と(-1920,12,-200)にある<a href="aecMaintenance.html">AEC維持</a>を実行</li>
+  <li><code class="language-plaintext highlighter-rouge">mobGriefing</code>について表示? (よくわからない)</li>
+  <li><code class="language-plaintext highlighter-rouge">mobGriefing</code>が0以下(false)の時、<code class="language-plaintext highlighter-rouge">mobGriefing</code>=trueとし、難易度を<code class="language-plaintext highlighter-rouge">hard</code>に変更</li>
+  <li><code class="language-plaintext highlighter-rouge">FallingSand</code>を持ち、{FallDistance:0f}であるエンティティに<code class="language-plaintext highlighter-rouge">Garbage</code>を付与し、{Time:0}であるエンティティから<code class="language-plaintext highlighter-rouge">Garbage</code>を削除</li>
+  <li>(-1875,5,-198)に石の感圧板があるとき、以下の事柄を実行 (恐らくデバッグ用なので無視して構わない)
+    <ul>
+      <li>1tickで死亡するアーマースタンドを(-1875,5,-198)に召喚し、AiAkaishiに<code class="language-plaintext highlighter-rouge">CoolTickCounter</code>を持つエンティティの名前を送信する</li>
+    </ul>
+  </li>
+</ol>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">AreaName</th>
+      <th style="text-align: left">プレイヤーの位置</th>
+      <th style="text-align: left">USBDimension</th>
+      <th style="text-align: left">AreaChangeFlag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SKYLANDS</td>
+      <td style="text-align: left">x=-192,y=-200,z=-288,dx=511,dy=600,dz=511</td>
+      <td style="text-align: left">1~</td>
+      <td style="text-align: left">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UNDERWORLD</td>
+      <td style="text-align: left">x=752,y=-200,z=-320,dx=1439,dy=600,dz=703</td>
+      <td style="text-align: left">~0 or 2~</td>
+      <td style="text-align: left">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CLOUDIA</td>
+      <td style="text-align: left">x=-3072,y=-200,z=-656,dx=1727,dy=600,dz=1103</td>
+      <td style="text-align: left">~9 or 11~</td>
+      <td style="text-align: left">10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TABLE_MOUNTAIN</td>
+      <td style="text-align: left">x=-288,y=-200,z=-2672,dx=639,dy=600,dz=1311</td>
+      <td style="text-align: left">~10 or 12~</td>
+      <td style="text-align: left">11</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GULLIVERS_LAND</td>
+      <td style="text-align: left">x=-240,y=-200,z=448,dx=559,dy=600,dz=575</td>
+      <td style="text-align: left">~11 or 13~</td>
+      <td style="text-align: left">12</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ICE_SHEET_FLOAT</td>
+      <td style="text-align: left">x=752,y=-200,z=1024,dx=2063,dy=600,dz=2095</td>
+      <td style="text-align: left">~12 or 14~</td>
+      <td style="text-align: left">13</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NETHER</td>
+      <td style="text-align: left">x=-640,y=-200,z=-832,dx=1207,dy=600,dz=991 かつ ネザーにいる</td>
+      <td style="text-align: left">-99~</td>
+      <td style="text-align: left">-100</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NETHER_TRIAL</td>
+      <td style="text-align: left">x=-624,y=-200,z=672,dx=1375,dy=600,dz=943 かつ ネザーにいる</td>
+      <td style="text-align: left">~-91 or -89~</td>
+      <td style="text-align: left">-90</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_command.html" class="btn btn-default navbar-btn cursorNorm" role="button">command</a>
+        
+        
+        
+        
+        
+        <a href="tag_dimension.html" class="btn btn-default navbar-btn cursorNorm" role="button">dimension</a>
+        
+        
+        
+    </div>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+    <div class="row">
+        <div class="col-lg-12 footer">
+            <span>Page last updated:</span> 2020/6/17<br/> Site last generated: Jun 18, 2020 <br />
+        </div>
+    </div>
+</footer>
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#main -->
+    </div>
+
+</body>
+ <!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-169658702-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+ 
+
+</html>

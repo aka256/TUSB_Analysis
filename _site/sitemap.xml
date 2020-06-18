@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+
+
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/TUSB_Analysis.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/TUSB_Analysis_Data.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/TUSB_Analysis_Entity.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/TUSB_Analysis_Item.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/areaRecord.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/clockIslandProcessing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/conquerDisplay.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/conquerProcessing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/difficultyAdjustment.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/expProcessing.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/firstLoginProcessing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/furnaceProcessing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/hpFix.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/initializeProcessing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/insideMcLawell.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/jobChangeJudgement.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/jobLoad.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/jobSave.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/keepInventoryCheck.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/levelupProcessing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/loginProcessing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/mainclockProcessing.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/reset.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/runFirst.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/satietyFix.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/skillAcquisition.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/statusDisplay.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/systemKeeperProcessing.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/timeElapsed.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/warpProcessing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/assets/css/style.css</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/command/aecMaintenance.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/command/areaProcessing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/command/tickProcessing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/pages/command/typeSetting.html</loc>
+  </url>
+  
+  
+</urlset>
