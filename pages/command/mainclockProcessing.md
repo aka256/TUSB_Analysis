@@ -11,12 +11,13 @@ datatable3cnp: true
 
 ## メインクロックON
 
+<span class="label label-primary">位置 (-1870,4,-194)</span>
+
 ### About
 
-X回路区域内の
+X回路区域内のメインクロックを起動させるコマンド群であり、[初期化処理](initializeProcessing.html)の一部でもある。
 
-- 位置(-1870,4,-194)
-- (-1870,7,-194)にあるスイッチ(青い羊毛についているやつ)によって手動にて操作可能
+{% include note.html content="(-1870,7,-194)にあるスイッチ(青い羊毛についているやつ)によって手動にて操作可能" %}
 
 ### コマンド群
 
@@ -32,17 +33,17 @@ X回路区域内の
 
 ### 詳細
 
-1. [毎tick実行したいコマンド群](#毎tick実行したいコマンド群)を実行
-2. [SystemKeeper]君を(-1870,10,-197)に召喚し、メインクロックを作動させる
+1. [毎tick実行するコマンド群](#毎tick実行するコマンド群)を実行
+2. [SystemKeeper](TUSB_Analysis_Entity.html#systemkeeper)君を(-1870,10,-197)に召喚し、メインクロックを作動させる
 
-### 毎tick実行したいコマンド群
+### 毎tick実行するコマンド群
 
 実行されるコマンド群 (x=-1920,y=4)
 
 |z座標|コマンド群名称、先頭処理名|
 |:-:|:-|
-|-200|[毎tick必ず最初に実行したいコマンド群]|
-|-192|[メインクロック開始時リセットするもの]|
+|-200|[毎tick必ず最初に実行したいコマンド群](runFirst.html)|
+|-192|[メインクロック開始時リセットするもの](reset.html)|
 |-189|[ベッド処理]|
 |-184|[黙想終了処理Mokuso]|
 |-181|[与ダメージDamegeDealt]|
@@ -59,14 +60,19 @@ X回路区域内の
 |-113|[スキル名表示呼び出し]|
 |-111|[毎tick必ず最後に実行したいコマンド群]|
 
-(これらすべてを"毎tick実行したいコマンド群"って呼ぶのかな?)
+(これらすべてを"毎tick実行するコマンド群"って呼ぶのかな?)
 
 ---
 
 ## メインクロックOFF
 
-- 位置(-1870,4,-195)
-- (-1870,7,-195)にあるスイッチ(赤い羊毛についているやつ)によって手動にて操作可能
+<span class="label label-primary">位置 (-1870,4,-195)</span>
+
+### About
+
+X回路区域内のメインクロックを停止指せるコマンド群であり、基本的には使われない。
+
+{% include note.html content="(-1870,7,-195)にあるスイッチ(赤い羊毛についているやつ)によって手動にて操作可能なので、気になったら押してみるといい。" %}
 
 ### コマンド群
 
@@ -78,35 +84,6 @@ X回路区域内の
 
 ### 詳細
 
-1. (-1920,4,-200)にある[毎tick必ず最初に実行したいコマンド群]を停止
+1. (-1920,4,-200)にある[毎tick必ず最初に実行したいコマンド群](runFirst.html)を停止
 2. (-1920,4,-111)にある[毎tick必ず最後にに実行したいコマンド群]を停止
-3. [SystemKeeper]君をキル
-
-
-[SystemKeeper]:TUSB_Analysis_Entity.html
-
-[メインクロック開始時リセットするもの]:reset.html
-[初回ログイン時処理]:firstLoginProcessing.html
-[ログイン時処理]:loginProcessing.html
-[ジョブチェンジ先判定]:jobChangeJudgement.html
-[ジョブセーブ]:jobSave.html
-[ジョブロード]:jobLoad.html
-[ステータス表示]:statusDisplay.html
-[攻略率表示]:conquerDisplay.html
-[ワープ処理ジョブ島・通常世界]:warpProcessing.html
-[KeepInventory確認]:keepInventoryCheck.html
-[満腹度修正]:satietyFix.html
-[経験値取得処理]:expProcessing.html
-[レベルアップ処理]:levelupProcessing.html
-[最大HP調整処理]:hpFix.html
-[難易度調整]:difficultyAdjustment.html
-[島攻略処理]:conquerProcessing.html
-[習得スキル取得]:skillAcquisition.html
-[時計島]:clockIslandProcessing.html
-[マクラウェル内部]:insideMcLawell.html
-[スコアボードの設定]:setScoreboard.html
-[メインクロック処理]:mainclockProcessing.html
-[SystemKeeper処理]:systemKeeperProcessing.html
-[かまど再設定]:furnaceProcessing.html
-[毎tick必ず最初に実行したいコマンド群]:runFirst.html
-[エリア侵入記録]:areaRecord.html
+3. [SystemKeeper](TUSB_Analysis_Entity.html#systemkeeper)君をキル

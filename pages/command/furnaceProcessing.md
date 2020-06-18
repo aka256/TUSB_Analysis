@@ -8,8 +8,15 @@ permalink: furnaceProcessing.html
 folder: command
 ---
 
-- 位置(-1870,5,-203)
-- スポーンチャンクを常に読み込むための装置 (のはず)
+<span class="label label-primary">位置 (-1870,5,-203)</span>
+
+## About
+
+かまど、ネザーポータル、レッドストーン回路などによって構成されていて、スポーンチャンクを常に読み込むための装置である。
+
+スポーンチャンクでアイテムを定期的にネザーポータルに投げ入れると、その周囲のチャンクが読み込まれ続けるという仕様を利用して、X回路区域を常に読み込み続けている。
+
+{% include tip.html content="スポーンチャンクについてもっと知りたい場合は[ここ](https://minecraft.gamepedia.com/Spawn_chunk})を読むとよい。" %}
 
 ## コマンド
 

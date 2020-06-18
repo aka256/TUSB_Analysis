@@ -9,19 +9,17 @@ folder: command
 datatable3cnp: true
 ---
 
+<span class="label label-primary">位置 (-1870,4-194)~(-1870,4,-158)</span>
+
 ## About
 
-X回路区域やスコアボードなど、様々な初期化処理を行う。
+(-1870,4-194)から(-1870,4,-158)の壁沿いに並んでいるコマンド群であり、X回路区域やスコアボードなど、様々な初期化処理を行う。
 
-{% include tip.html content="ここにあるコマンド群はその名の通り、初期化処理を行うので基本的に1度しか起動されない。" %}
-
-位置は(-1870,4-194)から(-1870,4,-158)の壁沿いに並んでいるコマンド群である。
+{% include note.html content="ここにあるコマンド群はその名の通り、初期化処理を行うので基本的に1度しか起動されない。" %}
 
 ## コマンド群
 
 ### メインクロックON
-
-- 位置は(-1870,4,-194)
 
 <div class="datatable3cnp-begin"></div>
 
@@ -34,8 +32,6 @@ X回路区域やスコアボードなど、様々な初期化処理を行う。
 <div class="datatable3cnp-end"></div>
 
 ### 初期化停止装置
-
-- 位置は(-1970,4,-195)
 
 |No.|コマンド|
 |:-:|:-|
@@ -498,8 +494,6 @@ X回路区域やスコアボードなど、様々な初期化処理を行う。
 
 ### ワールド初期設定
 
-- 位置は()
-
 |No.|コマンド|
 |:-:|:-|
 |1|/difficulty hard|
@@ -514,8 +508,8 @@ X回路区域やスコアボードなど、様々な初期化処理を行う。
 
 ### メインクロックON
 
-1. [毎tick実行されるコマンド群](tickProcessing.html)を実行
-2. [SystemKeeper](TUSB_Analysis_Entity.html)君を(-1870,10,-197)に召喚し、[メインクロック](mainclockProcessing.html)を作動させる
+1. [毎tick実行されるコマンド群](mainclockProcessing.html#毎tick実行されるコマンド群)を実行
+2. [SystemKeeper](TUSB_Analysis_Entity.html#SystemKeeper)君を(-1870,10,-197)に召喚し、[メインクロック](mainclockProcessing.html)を作動させる
 
 ### 初期化停止装置
 
@@ -527,7 +521,7 @@ X回路区域やスコアボードなど、様々な初期化処理を行う。
 
 - `Const` (定数)を作成し、以下のような値を代入していく
 
-- `#N`(N $\in\mathbb{Z}$)というフェイクプレイヤーの`Const`にはNが代入される
+- `#N`(Nは整数)というフェイクプレイヤーの`Const`にはNが代入される
 - その他の定数は以下のようになる
 
 |フェイクプレイヤー|値|コメント|
@@ -974,4 +968,4 @@ X回路区域やスコアボードなど、様々な初期化処理を行う。
 2. ワールドの境界線を(0,0)を中心とし、7000mを一辺の長さとした矩形として構成
 3. 時間を14000に設定
 4. 15秒間雨を降らせる
-5. (-1920,6,-197)付近にいる[地下世界、クラウディア、テーブルマウンテン、ガリバーランド、トカルトコルデ](TUSB_Analysis_Entity.html)から`Enter`を消去
+5. (-1920,6,-197)付近にいる[地下世界](TUSB_Analysis_Entity.html#地下世界)、[クラウディア](TUSB_Analysis_Entity.html#クラウディア)、[テーブルマウンテン](TUSB_Analysis_Entity.html#テーブルマウンテン)、[ガリバーランド](TUSB_Analysis_Entity.html#ガリバーランド)、[トカルトコルデ](TUSB_Analysis_Entity.html#トカルトコルデ)から`Enter`を消去

@@ -8,19 +8,21 @@ permalink: insideMcLawell.html
 folder: command
 ---
 
+<span class="label label-primary">位置 (-1896,117,-136)</span>
+
 ## About
 
 TUSBに初めてログインした時にトリガーとなる部分である。初期リスポーン地点にあるマクラウェル像の内部にあるコマンドブロック付きトロッコの横にあるラピスラズリブロックが、初期ファイルではこれがレッドストーンブロックになっておりコマンドブロック付きトロッコを起動させている。要は**X回路区域はこれによって起動されていることになる**。
 
 {% include note.html content="初期状態を確かめるにはクリエイティブでワールドに入る必要がある。これを実現させるためには**NBT Explorer**などの外部ツールによって、level.datを書き換える必要がある。" %}
 
-位置は(-1896,117,-136)付近
-
 ## コマンド群
 
 ### コマンドブロック付きトロッコ
 
-- /execute @p[r=30,m=!creative] ~ ~ ~ /clone -1870 4 -194 -1870 4 -158 -1870 4 -194 filtered force minecraft:command_block
+```minecraftcommand
+/execute @p[r=30,m=!creative] ~ ~ ~ /clone -1870 4 -194 -1870 4 -158 -1870 4 -194 filtered force minecraft:command_block
+```
 
 ### その他コマンド群
 
@@ -44,4 +46,4 @@ TUSBに初めてログインした時にトリガーとなる部分である。�
 
 1. (-1884,11,-200)にあるコマンドブロックに{auto:true}を付与
 2. (-1901,4,-192)にある[メインクロック開始時にリセットするもの](reset.html)のNo.20のコマンドブロックに{auto:true}を付与
-3. (-1870,4,-195)にある[メインクロックOFF](mainclockProcessing.html)を実行
+3. (-1870,4,-195)にある[メインクロックOFF](mainclockProcessing.html#メインクロックOFF)を実行

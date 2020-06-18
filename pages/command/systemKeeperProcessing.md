@@ -8,9 +8,13 @@ permalink: systemKeeperProcessing.html
 folder: command
 datatable3cnp: true
 ---
+<span class="label label-primary">位置 (-1870,7,-197)</span>
 
-- 位置(-1870,7,-197)
-- [SystemKeeper](TUSB_Analysis_Entity.html)がこの上にいる限り実行される
+## About
+
+[SystemKeeper](TUSB_Analysis_Entity.html)という名前のアーマースタンドと、その下にあるコマンド群によって構成され、X回路区域のセーフティーネットの役割を担っている。なので、通常では実行されることがないコマンド群である。
+
+{% include note.html content="[SystemKeeper](TUSB_Analysis_Entity.html)がこの上にいる限り実行される" %}
 
 ## コマンド群
 
@@ -28,8 +32,10 @@ datatable3cnp: true
 
 ## 詳細
 
+何かトラブルが発生し、[SystemKeeper](TUSB_Analysis_Entity.html)の移動がされず石の感圧版を押した際に以下の事柄が実行される。
+
 1. (-1870,8,-197)の[SystemKeeper](TUSB_Analysis_Entity.html)の足元に石の感圧版を設置
 2. [SystemKeerer](TUSB_Analysis_Entity.html)を2m上に移動
 3. 秩序が戻った旨の通知を出す
-4. [毎tick実行したいコマンド群](mainclockProcessing.md)を実行
+4. [毎tick実行するコマンド群](mainclockProcessing.html#毎tick実行するコマンド群)を実行
 5. (-1870,5,-203)にある[かまど再設定](furnaceProcessing.html)を実行

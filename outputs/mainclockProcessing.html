@@ -366,12 +366,10 @@ code {
     });
   </script>
 <h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFon">メインクロックON</h2>
+<p><span class="label label-primary">位置 (-1870,4,-194)</span></p>
 <h3 id="about">About</h3>
-<p>X回路区域内の</p>
-<ul>
-<li>位置(-1870,4,-194)</li>
-<li>(-1870,7,-194)にあるスイッチ(青い羊毛についているやつ)によって手動にて操作可能</li>
-</ul>
+<p>X回路区域内のメインクロックを起動させるコマンド群であり、<a href="initializeProcessing.html">初期化処理</a>の一部でもある。</p>
+<p>{% include note.html content=&quot;(-1870,7,-194)にあるスイッチ(青い羊毛についているやつ)によって手動にて操作可能&quot; %}</p>
 <h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
 <div class="datatable3cnp-begin"></div>
 <table>
@@ -403,10 +401,10 @@ code {
 <div class="datatable3cnp-begin"></div>
 <h3 id="%E8%A9%B3%E7%B4%B0">詳細</h3>
 <ol>
-<li><a href="#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</a>を実行</li>
-<li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>君を(-1870,10,-197)に召喚し、メインクロックを作動させる</li>
+<li><a href="#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行するコマンド群</a>を実行</li>
+<li><a href="TUSB_Analysis_Entity.html#systemkeeper">SystemKeeper</a>君を(-1870,10,-197)に召喚し、メインクロックを作動させる</li>
 </ol>
-<h3 id="%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行したいコマンド群</h3>
+<h3 id="%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行するコマンド群</h3>
 <p>実行されるコマンド群 (x=-1920,y=4)</p>
 <table>
 <thead>
@@ -486,13 +484,13 @@ code {
 </tr>
 </tbody>
 </table>
-<p>(これらすべてを&quot;毎tick実行したいコマンド群&quot;って呼ぶのかな?)</p>
+<p>(これらすべてを&quot;毎tick実行するコマンド群&quot;って呼ぶのかな?)</p>
 <hr>
 <h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFoff">メインクロックOFF</h2>
-<ul>
-<li>位置(-1870,4,-195)</li>
-<li>(-1870,7,-195)にあるスイッチ(赤い羊毛についているやつ)によって手動にて操作可能</li>
-</ul>
+<p><span class="label label-primary">位置 (-1870,4,-195)</span></p>
+<h3 id="about">About</h3>
+<p>X回路区域内のメインクロックを停止指せるコマンド群であり、基本的には使われない。</p>
+<p>{% include note.html content=&quot;(-1870,7,-195)にあるスイッチ(赤い羊毛についているやつ)によって手動にて操作可能なので、気になったら押してみるといい。&quot; %}</p>
 <h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h3>
 <table>
 <thead>
@@ -524,7 +522,7 @@ code {
 <ol>
 <li>(-1920,4,-200)にある<a href="runFirst.html">毎tick必ず最初に実行したいコマンド群</a>を停止</li>
 <li>(-1920,4,-111)にある[毎tick必ず最後にに実行したいコマンド群]を停止</li>
-<li><a href="TUSB_Analysis_Entity.html">SystemKeeper</a>君をキル</li>
+<li><a href="TUSB_Analysis_Entity.html#systemkeeper">SystemKeeper</a>君をキル</li>
 </ol>
 
 </body>
