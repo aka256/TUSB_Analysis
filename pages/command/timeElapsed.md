@@ -1,16 +1,19 @@
 ---
 title: 時間経過
-tags: [コマンド]
+tags: [command,skill]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/6/17
 sidebar: mydoc_sidebar
 permalink: timeElapsed.html
 folder: command
+datatable4c: true
 ---
 
 - 位置(-1920,11,-200)
 
 ## コマンド群
+
+<div class="datatable4c-begin"></div>
 
 |No.|コマンド|コメント|状態|
 |:-:|:-|:-|:-|
@@ -65,6 +68,8 @@ folder: command
 |49|/effect @a[tag=ReduceCurse] minecraft:weakness 15 3||条件付き|
 |50|/effect @a[tag=ReduceCurse] minecraft:hunger 15 3||条件付き|
 |51|/scoreboard players tag @a[tag=ReduceCurse] remove ReduceCurse||条件付き|
+
+<div class="datatable4c-end"></div>
 
 ## 詳細
 

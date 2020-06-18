@@ -1,17 +1,20 @@
 ---
 title: 時計島
-tags: [コマンド]
+tags: [command,entity]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/6/17
 sidebar: mydoc_sidebar
 permalink: clockIslandProcessing.html
 folder: command
+datatable3cnp: true
 ---
 
 - 位置(-1920,4,096)
 - 時計島の形態変化の管理、演出の実行
 
 ## コマンド群
+
+<div clase="datatable3cnp-begin"></div>
 
 |No.|コマンド|状態|
 |:-:|:-|:-|
@@ -33,22 +36,24 @@ folder: command
 |16|/execute 0-0-1-0-1 35 0 6 detect ~ ~ ~ minecraft:bedrock 0 /execute 0-0-1-0-1 35 0 6 detect ~24 ~ ~ minecraft:bedrock 0 /execute 0-0-1-0-1 35 0 6 detect ~ ~ ~24 minecraft:bedrock 0 /execute 0-0-1-0-1 35 0 6 detect ~24 ~ ~24 minecraft:bedrock 0 /execute 0-0-1-0-1 4000 255 4000 detect ~16 ~ ~ minecraft:air 0 /execute 0-0-1-0-1 4000 255 4000 detect ~ ~ ~16 minecraft:air 0 /execute 0-0-1-0-1 4000 255 4000 detect ~16 ~ ~16 minecraft:air 0 /execute 0-0-1-0-1 4001 1 4001 detect 4000 255 4000 minecraft:air 0 /clone ~ ~ ~ ~22 ~22 ~22 36 1 7|条件付き|
 |17|/summon Item -1920 7 ~ {Item:{id:stone,Count:1b},Age:5820s}|条件付き|
 
+<div clase="datatable3cnp-end"></div>
+
 ### 詳細
 
 1. 9つの矢を乗せたEXPオーブをその場に召喚 (なんで?)
 2. 次のコマンド([時計島](#時計島)のNo.3のコマブロ)を実行
 3. `#ConquerPctInt`の`Global`が11以上40以下の時以下の事柄を実行
-   1. (-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを[秒針]のものに置き換える
+   1. (-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを[秒針](TUSB_Analysis_Entity.html)のものに置き換える
    2. 時計島の底面の4隅の岩盤が存在し、時計島のクローン元(4000,255,4000)のy=255に空気ブロックが存在するとき、(4001,47,4001)にある時計島第二形態を(36,1,7)にコピーする
-   3. (-1920,7,-96)に石をドロップし、[**時計島のアラーム**](#時計島のアラーム)を実行
+   3. (-1920,7,-96)に石をドロップし、[時計島のアラーム](#時計島のアラーム)を実行
 4. `#ConquerPctInt`の`Global`が41以上70以下の時以下の事柄を実行
-   1. (-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを[分針]のものに置き換える
+   1. (-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを[分針](TUSB_Analysis_Entity.html)のものに置き換える
    2. 時計島の底面の4隅の岩盤が存在し、時計島のクローン元(4000,255,4000)のy=255に空気ブロックが存在するとき、(4001,24,4001)にある時計島第三形態を(36,1,7)にコピーする
-   3. (-1920,7,-96)に石をドロップし、[**時計島のアラーム**](#時計島のアラーム)を実行
+   3. (-1920,7,-96)に石をドロップし、[時計島のアラーム](#時計島のアラーム)を実行
 5. `#ConquerPctInt`の`Global`が71以上の時以下の事柄を実行
-   1. (-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを[時針]のものに置き換える
+   1. (-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを[時針](TUSB_Analysis_Entity.html)のものに置き換える
    2. 時計島の底面の4隅の岩盤が存在し、時計島のクローン元(4000,255,4000)のy=255に空気ブロックが存在するとき、(4001,1,4001)にある時計島第三形態を(36,1,7)にコピーする
-   3. (-1920,7,-96)に石をドロップし、[**時計島のアラーム**](#時計島のアラーム)を実行
+   3. (-1920,7,-96)に石をドロップし、[時計島のアラーム](#時計島のアラーム)を実行
 
 ## 時計島のアラーム
 
@@ -60,48 +65,3 @@ folder: command
 |2|/time set 23400|
 
 - 音を鳴らし、時間を23400に設定する
-
-[CommonGM]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[エンダーマイト]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[SystemKeeper]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[地下世界]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[クラウディア]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[テーブルマウンテン]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[ガリバーランド]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[トカルトコルデ]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[お試しセットの印玉]:/TUSB_Analysis/entity/TUSB_Analysis_Item.html
-[ViewPoint(仮)]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[秒針]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[分針]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[時針]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-
-[jobSave]:/TUSB_Analysis/others/TUSB_Analysis_Data.html
-[jobLoad]:/TUSB_Analysis/others/TUSB_Analysis_Data.html
-
-[お試しセットの印玉]:/TUSB_Analysis/others/TUSB_Analysis_Item.html
-
-[メインクロック開始時リセットするもの]:/TUSB_Analysis/command/reset.html
-[初回ログイン時処理]:/TUSB_Analysis/command/firstLoginProcessing.html
-[ログイン時処理]:/TUSB_Analysis/command/loginProcessing.html
-[ジョブチェンジ先判定]:/TUSB_Analysis/command/jobChangeJudgement.html
-[ジョブセーブ]:/TUSB_Analysis/command/jobSave.html
-[ジョブロード]:/TUSB_Analysis/command/jobLoad.html
-[ステータス表示]:/TUSB_Analysis/command/statusDisplay.html
-[攻略率表示]:/TUSB_Analysis/command/conquerDisplay.html
-[ワープ処理ジョブ島・通常世界]:/TUSB_Analysis/command/warpProcessing.html
-[KeepInventory確認]:/TUSB_Analysis/command/keepInventoryCheck.html
-[満腹度修正]:/TUSB_Analysis/command/satietyFix.html
-[経験値取得処理]:/TUSB_Analysis/command/expProcessing.html
-[レベルアップ処理]:/TUSB_Analysis/command/levelupProcessing.html
-[最大HP調整処理]:/TUSB_Analysis/command/hpFix.html
-[難易度調整]:/TUSB_Analysis/command/difficultyAdjustment.html
-[島攻略処理]:/TUSB_Analysis/command/conquerProcessing.html
-[習得スキル取得]:/TUSB_Analysis/command/skillAcquisition.html
-[時計島]:/TUSB_Analysis/command/clockIslandProcessing.html
-[マクラウェル内部]:/TUSB_Analysis/command/insideMcLawell.html
-[スコアボードの設定]:/TUSB_Analysis/command/setScoreboard.html
-[メインクロック処理]:/TUSB_Analysis/command/mainclockProcessing.html
-[SystemKeeper処理]:/TUSB_Analysis/command/systemKeeperProcessing.html
-[かまど再設定]:/TUSB_Analysis/command/furnaceProcessing.html
-[毎tick必ず最初に実行したいコマンド群]:/TUSB_Analysis/command/runFirst.html
-[エリア侵入記録]:/TUSB_Analysis/command/areaRecord.html

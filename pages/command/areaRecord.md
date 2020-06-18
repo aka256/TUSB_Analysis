@@ -1,33 +1,42 @@
 ---
 title: エリア侵入記録
-tags: [コマンド]
+tags: [command,item,display,dimension,skill]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/6/17
 sidebar: mydoc_sidebar
 permalink: areaRecord.html
 folder: command
+datatable4cnp: true
 ---
+
+## About
+
+Overworld内のディメンション移動の際の侵入記録を行う。また、その際にスキルの設定を変える、お試しセットの印玉を渡すなどの処理も行っている。
 
 - 位置(-1920,9,-200)
 
 ## コマンド群
 
+<div class="datatable4cnp-begin"></div>
+
 |No.|コマンド|コメント|状態|
 |:-:|:-|:-|:-|
-|1|/execute @a[score_AreaTitleFlag_min=1,score_AreaTitleFlag=1,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-193,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter|エリア侵入記録|
-|2|/execute @a[score_AreaTitleFlag_min=10,score_AreaTitleFlag=10,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-194,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter|
-|3|/execute @a[score_AreaTitleFlag_min=11,score_AreaTitleFlag=11,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-195,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter|
-|4|/execute @a[score_AreaTitleFlag_min=12,score_AreaTitleFlag=12,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-196,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter|
-|5|/execute @a[score_AreaTitleFlag_min=13,score_AreaTitleFlag=13,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-197,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter|
-|6|/execute @a[score_AreaTitleFlag_min=-100] ~ ~1 ~ /tp @a[c=1] @e[r=4,tag=ViewPoint,c=1]|
-|7|/scoreboard players reset @a[score_AreaTitleFlag_min=-100] InstantChangeA|エリア移動時スキル設定無効化|
-|8|/scoreboard players reset @a[score_AreaTitleFlag_min=-100] InstantChangeB|
-|9|/scoreboard players reset @a[score_AreaTitleFlag_min=-100] ModeChangeA|
-|10|/scoreboard players reset @a[score_AreaTitleFlag_min=-100] ModeChangeB|
-|11|長いので下に移動|
+|1|/execute @a[score_AreaTitleFlag_min=1,score_AreaTitleFlag=1,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-193,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter|エリア侵入記録||
+|2|/execute @a[score_AreaTitleFlag_min=10,score_AreaTitleFlag=10,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-194,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter|||
+|3|/execute @a[score_AreaTitleFlag_min=11,score_AreaTitleFlag=11,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-195,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter|||
+|4|/execute @a[score_AreaTitleFlag_min=12,score_AreaTitleFlag=12,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-196,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter|||
+|5|/execute @a[score_AreaTitleFlag_min=13,score_AreaTitleFlag=13,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-197,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter|||
+|6|/execute @a[score_AreaTitleFlag_min=-100] ~ ~1 ~ /tp @a[c=1] @e[r=4,tag=ViewPoint,c=1]|||
+|7|/scoreboard players reset @a[score_AreaTitleFlag_min=-100] InstantChangeA|エリア移動時スキル設定無効化||
+|8|/scoreboard players reset @a[score_AreaTitleFlag_min=-100] InstantChangeB|||
+|9|/scoreboard players reset @a[score_AreaTitleFlag_min=-100] ModeChangeA|||
+|10|/scoreboard players reset @a[score_AreaTitleFlag_min=-100] ModeChangeB|||
+|11|長いので下に移動|||
 |12|/tellraw @a[-2725,88,-382,r=2,score_AreaTitleFlag_min=10,score_AreaTitleFlag=10,tag=TrialSet] {"translate":"* %1\$s を受け取った。","with":[{"text":"お試しセットの印玉","color":"aqua"}]}||条件付き|
 |13|/scoreboard players tag @a[-2725,88,-382,r=2,score_AreaTitleFlag_min=10,score_AreaTitleFlag=10,tag=TrialSet] remove TrialSet||条件付き|
-|14|/scoreboard players set @a[score_AreaTitleFlag_min=-100] AreaTitleFlag -999|
+|14|/scoreboard players set @a[score_AreaTitleFlag_min=-100] AreaTitleFlag -999|||
+
+<div class="datatable4cnp-end"></div>
 
 No.11
 
@@ -38,62 +47,17 @@ No.11
 ## 詳細
 
 1. `AreaTitleFlag`の値に対応した`Enter`の持っていないエリアエフェクトクラウドに`Enter`を付与(以下の表参照)
-2. `AreaTitleFlag`が-100以上であるプレイヤー一人選択し、プレイヤーの1m上に4m以内にいる`ViewPoint`を持つエンティティ([ViewPoint(仮)])を移動
+2. `AreaTitleFlag`が-100以上であるプレイヤー一人選択し、プレイヤーの1m上に4m以内にいる`ViewPoint`を持つエンティティ([ViewPoint(仮)](TUSB_Analysis_Entity.html))を移動
 3. `AreaTitleFlag`が-100以上であるプレイヤーの`InstantChangeA`、`InstantChangeB`、`ModeChangeA`、`ModeChangeB`をそれぞれ0に設定
-4. (-2725,88,-382)から2m以内(スキル設定所入口)にいて`AreaTitleFlag`が10であり、`TrialSet`を持つプレイヤーが存在したら、[お試しセットの印玉]を与え以下の事柄を実行
+4. (-2725,88,-382)から2m以内(スキル設定所入口)にいて`AreaTitleFlag`が10であり、`TrialSet`を持つプレイヤーが存在したら、[お試しセットの印玉](TUSB_Analysis_Entity.html)を与え以下の事柄を実行
    1. [お試しセットの印玉]を受け取ったというメッセージを表示
    2. `TrialSet`を削除
 5. `AreaTitleFlag`が-100以上であるプレイヤーの`AreaTitleFlag`を-999に設定
 
 |AreaTitleFlag|AreaEffectCloudName|
 |:-:|:-:|
-|1|[地下世界]|
-|10|[クラウディア]|
-|11|[テーブルマウンテン]|
-|12|[ガリバーランド]|
-|13|[トカルトコルデ]|
-
-[CommonGM]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[エンダーマイト]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[SystemKeeper]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[地下世界]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[クラウディア]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[テーブルマウンテン]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[ガリバーランド]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[トカルトコルデ]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[お試しセットの印玉]:/TUSB_Analysis/entity/TUSB_Analysis_Item.html
-[ViewPoint(仮)]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[秒針]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[分針]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[時針]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-
-[jobSave]:/TUSB_Analysis/others/TUSB_Analysis_Data.html
-[jobLoad]:/TUSB_Analysis/others/TUSB_Analysis_Data.html
-
-[お試しセットの印玉]:/TUSB_Analysis/others/TUSB_Analysis_Item.html
-
-[メインクロック開始時リセットするもの]:/TUSB_Analysis/command/reset.html
-[初回ログイン時処理]:/TUSB_Analysis/command/firstLoginProcessing.html
-[ログイン時処理]:/TUSB_Analysis/command/loginProcessing.html
-[ジョブチェンジ先判定]:/TUSB_Analysis/command/jobChangeJudgement.html
-[ジョブセーブ]:/TUSB_Analysis/command/jobSave.html
-[ジョブロード]:/TUSB_Analysis/command/jobLoad.html
-[ステータス表示]:/TUSB_Analysis/command/statusDisplay.html
-[攻略率表示]:/TUSB_Analysis/command/conquerDisplay.html
-[ワープ処理ジョブ島・通常世界]:/TUSB_Analysis/command/warpProcessing.html
-[KeepInventory確認]:/TUSB_Analysis/command/keepInventoryCheck.html
-[満腹度修正]:/TUSB_Analysis/command/satietyFix.html
-[経験値取得処理]:/TUSB_Analysis/command/expProcessing.html
-[レベルアップ処理]:/TUSB_Analysis/command/levelupProcessing.html
-[最大HP調整処理]:/TUSB_Analysis/command/hpFix.html
-[難易度調整]:/TUSB_Analysis/command/difficultyAdjustment.html
-[島攻略処理]:/TUSB_Analysis/command/conquerProcessing.html
-[習得スキル取得]:/TUSB_Analysis/command/skillAcquisition.html
-[時計島]:/TUSB_Analysis/command/clockIslandProcessing.html
-[マクラウェル内部]:/TUSB_Analysis/command/insideMcLawell.html
-[スコアボードの設定]:/TUSB_Analysis/command/setScoreboard.html
-[メインクロック処理]:/TUSB_Analysis/command/mainclockProcessing.html
-[SystemKeeper処理]:/TUSB_Analysis/command/systemKeeperProcessing.html
-[かまど再設定]:/TUSB_Analysis/command/furnaceProcessing.html
-[毎tick必ず最初に実行したいコマンド群]:/TUSB_Analysis/command/runFirst.html
-[エリア侵入記録]:/TUSB_Analysis/command/areaRecord.html
+|1|[地下世界](TUSB_Analysis_Entity.html)|
+|10|[クラウディア](TUSB_Analysis_Entity.html)|
+|11|[テーブルマウンテン](TUSB_Analysis_Entity.html)|
+|12|[ガリバーランド](TUSB_Analysis_Entity.html)|
+|13|[トカルトコルデ](TUSB_Analysis_Entity.html)|

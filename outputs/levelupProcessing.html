@@ -370,6 +370,7 @@ code {
 <li>レベルアップ処理</li>
 </ul>
 <h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<div class="datatable-begin"></div>
 <table>
 <thead>
 <tr>
@@ -480,6 +481,7 @@ code {
 </tr>
 </tbody>
 </table>
+<div class="datatable-end"></div>
 <h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
 <ol>
 <li><code>ExpToLevel</code>が0以下で、<code>Level</code>が49以下であるプレイヤーの<code>Level</code>を1に設定</li>
@@ -489,7 +491,7 @@ code {
 <li><code>ExpTolevel</code>が0以下であるプレイヤーの<code>MPIncrement</code>に50で割った時の商を代入、<code>MPIncrement</code>に3を足す</li>
 <li><code>ExpTolevel</code>が0以下であるプレイヤーの座標で演出の実行</li>
 <li><code>ExpToLevel</code>が0以上、<code>Level</code>が1以上50以下、<code>NextExp</code>が349以下であるプレイヤーに<code>ShowNewSkill</code>を付与</li>
-<li>(-1920,10,-191)から(-1920,15,-191)にある[<strong>習得スキル取得</strong>]を実行</li>
+<li>(-1920,10,-191)から(-1920,15,-191)にある<a href="skillAcquisition.html">習得スキル取得</a>を実行</li>
 <li><code>#ReserveShowSkill</code>の<code>Global</code>を1に設定</li>
 <li><code>ExpToLevel</code>が0以下であるプレイヤーの<code>RefreshHPMax</code>を3に設定、<code>NextExp</code>に<code>Level</code>を代入、<code>NextExp</code>に7との積を代入、<code>ExpToLevel</code>に<code>NextExp</code>を足し合わせる</li>
 </ol>

@@ -1,11 +1,12 @@
 ---
 title: 習得スキル取得
-tags: [コマンド]
+tags: [command,skill,job,display]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/6/17
 sidebar: mydoc_sidebar
 permalink: skillAcquisition.html
 folder: command
+datatable: true
 ---
 
 - 位置(-1920,10,-191)から(-1920,15,-191)
@@ -13,6 +14,8 @@ folder: command
 ## コマンド群
 
 - 剣士(-1920,10,-191)
+
+<div class="datatable-begin"></div>
 
 |No.|コマンド|
 |:-:|:-|
@@ -44,7 +47,11 @@ folder: command
 |26|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=49,score_Level=49,score_Job_min=1,score_Job=1] ShowSkill 1232|
 |27|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=50,score_Level=50,score_Job_min=1,score_Job=1] ShowSkill 1250|
 
+<div class="datatable-end"></div>
+
 - 忍者(-1920,11,-191)
+
+<div class="datatable-begin"></div>
 
 |No.|コマンド|
 |:-:|:-|
@@ -76,7 +83,11 @@ folder: command
 |26|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=49,score_Level=49,score_Job_min=2,score_Job=2] ShowSkill 2071|
 |27|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=50,score_Level=50,score_Job_min=2,score_Job=2] ShowSkill 2240
 
+<div class="datatable-end"></div>
+
 - 狩人(-1920,12,-191)
+
+<div class="datatable-begin"></div>
 
 |No.|コマンド|
 |:-:|:-|
@@ -108,7 +119,11 @@ folder: command
 |26|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=49,score_Level=49,score_Job_min=3,score_Job=3] ShowSkill 3251|
 |27|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=50,score_Level=50,score_Job_min=3,score_Job=3] ShowSkill 3260|
 
+<div class="datatable-end"></div>
+
 - 白魔導士(-1920,13,-191)
+
+<div class="datatable-begin"></div>
 
 |No.|コマンド|
 |:-:|:-|
@@ -140,7 +155,11 @@ folder: command
 |26|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=49,score_Level=49,score_Job_min=4,score_Job=4] ShowSkill 4204|
 |27|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=50,score_Level=50,score_Job_min=4,score_Job=4] ShowSkill 4230|
 
+<div class="datatable-end"></div>
+
 - 黒魔導士(-1920,14,-191)
+
+<div class="datatable-begin"></div>
 
 |No.|コマンド|
 |:-:|:-|
@@ -172,7 +191,11 @@ folder: command
 |26|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=49,score_Level=49,score_Job_min=5,score_Job=5] ShowSkill 5232|
 |27|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=50,score_Level=50,score_Job_min=5,score_Job=5] ShowSkill 5250|
 
+<div class="datatable-end"></div>
+
 - 召喚士(-1920,15,-191)&その他
+
+<div class="datatable-begin"></div>
 
 |No.|コマンド|
 |:-:|:-|
@@ -205,6 +228,8 @@ folder: command
 |27|/scoreboard players set @a[tag=ShowNewSkill,score_Level_min=50,score_Level=50,score_Job_min=6,score_Job=6] ShowSkill 6300|
 |28|/tellraw @a[tag=ShowNewSkill,score_ShowSkill_min=0] {"text":"新しいスキルを覚えた！"}|
 |29|/scoreboard players tag @a[tag=ShowNewSkill] remove ShowNewSkill|
+
+<div class="datatable-end"></div>
 
 ## 詳細
 
@@ -295,48 +320,3 @@ folder: command
 |15|6230||33|6021||48|6222|
 |17|6030||35|6231||49|6080|
 |18|6240||37|6270||50|6300|
-
-[CommonGM]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[エンダーマイト]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[SystemKeeper]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[地下世界]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[クラウディア]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[テーブルマウンテン]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[ガリバーランド]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[トカルトコルデ]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[お試しセットの印玉]:/TUSB_Analysis/entity/TUSB_Analysis_Item.html
-[ViewPoint(仮)]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[秒針]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[分針]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[時針]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-
-[jobSave]:/TUSB_Analysis/others/TUSB_Analysis_Data.html
-[jobLoad]:/TUSB_Analysis/others/TUSB_Analysis_Data.html
-
-[お試しセットの印玉]:/TUSB_Analysis/others/TUSB_Analysis_Item.html
-
-[メインクロック開始時リセットするもの]:/TUSB_Analysis/command/reset.html
-[初回ログイン時処理]:/TUSB_Analysis/command/firstLoginProcessing.html
-[ログイン時処理]:/TUSB_Analysis/command/loginProcessing.html
-[ジョブチェンジ先判定]:/TUSB_Analysis/command/jobChangeJudgement.html
-[ジョブセーブ]:/TUSB_Analysis/command/jobSave.html
-[ジョブロード]:/TUSB_Analysis/command/jobLoad.html
-[ステータス表示]:/TUSB_Analysis/command/statusDisplay.html
-[攻略率表示]:/TUSB_Analysis/command/conquerDisplay.html
-[ワープ処理ジョブ島・通常世界]:/TUSB_Analysis/command/warpProcessing.html
-[KeepInventory確認]:/TUSB_Analysis/command/keepInventoryCheck.html
-[満腹度修正]:/TUSB_Analysis/command/satietyFix.html
-[経験値取得処理]:/TUSB_Analysis/command/expProcessing.html
-[レベルアップ処理]:/TUSB_Analysis/command/levelupProcessing.html
-[最大HP調整処理]:/TUSB_Analysis/command/hpFix.html
-[難易度調整]:/TUSB_Analysis/command/difficultyAdjustment.html
-[島攻略処理]:/TUSB_Analysis/command/conquerProcessing.html
-[習得スキル取得]:/TUSB_Analysis/command/skillAcquisition.html
-[時計島]:/TUSB_Analysis/command/clockIslandProcessing.html
-[マクラウェル内部]:/TUSB_Analysis/command/insideMcLawell.html
-[スコアボードの設定]:/TUSB_Analysis/command/setScoreboard.html
-[メインクロック処理]:/TUSB_Analysis/command/mainclockProcessing.html
-[SystemKeeper処理]:/TUSB_Analysis/command/systemKeeperProcessing.html
-[かまど再設定]:/TUSB_Analysis/command/furnaceProcessing.html
-[毎tick必ず最初に実行したいコマンド群]:/TUSB_Analysis/command/runFirst.html
-[エリア侵入記録]:/TUSB_Analysis/command/areaRecord.html

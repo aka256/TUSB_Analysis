@@ -1,11 +1,13 @@
 ---
 title: 島攻略処理
-tags: [コマンド]
+tags: [command,entity,display]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/6/17
 sidebar: mydoc_sidebar
 permalink: conquerProcessing.html
 folder: command
+datatable3c: true
+datatable3cnp: true
 ---
 
 - 位置(-1920,17,-191),(-1920,18,-191)
@@ -13,6 +15,8 @@ folder: command
 ## コマンド群
 
 - (-1920,17,-191)にあるコマンド群 (島攻略処理という看板がついているもの)
+
+<div class="datatable3c-begin"></div>
 
 |No.|コマンド|状態|
 |:-:|:-|:-|
@@ -57,7 +61,11 @@ folder: command
 |39|/scoreboard players operation #ConqTimeHour Global /= #60 Const|条件付き|
 |40|/tellraw @a {"translate":"攻略タイム : %1\$s","italic":true,"bold":true,"color":"white","with":[{"translate":"%1\$s時間%2\$s分%3\$s秒","italic":"false","with":[{"score":{"name":"#ConqTimeHour","objective":"Global"}},{"score":{"name":"#ConqTimeMin","objective":"Global"}},{"score":{"name":"#ConqTimeSec","objective":"Global"}}]}]}|条件付き|
 
+<div class="datatable3c-end"></div>
+
 - (-1920,18,-191)にあるコマンド群 (島攻略処理という看板がついているものの上のやつ)
+
+<div clase="datatable3cnp-begin"></div>
 
 |No.|コマンド|状態|
 |:-:|:-|:-|
@@ -75,6 +83,8 @@ folder: command
 |12|/scoreboard players remove #PastorMax Global 2|条件付き|
 |13|/scoreboard players set ForceNight Settings 0|条件付き|
 
+<div clase="datatable3cnp-end"></div>
+
 ## 詳細
 
 - (-1920,17,-191)にあるコマンド群 (島攻略処理という看板がついているもの)
@@ -90,12 +100,16 @@ folder: command
 9. `Conquer`を持ち、`USBDimension`が12であるプレイヤーがいるとき、`#ConqCntGLand`の`Global`を1に設定
 10. `Conquer`を持ち、`USBDimension`が13であるプレイヤーがいるとき、`#ConqCntIce`の`Global`を1に設定
 11. `Conquer`を持つプレイヤーから`Conquer`を消去
-12. `#ConquerCount`の`Global`を1に設定
-13. `#ConquerPctInt`の`Global`に`#ConquerCount`の`Global`を代入し、1000を掛け、`#ConquerMax`の`Const`=50で割る(`#ConquerPctInt`'s`Global`=1*1000/50)
-14. `#ConquerPctDec`の`Global`に`#ConquerPctInt`の`Const`を代入
+12. `#ConquerCount`の`Global`に1を足す
+13. `#ConquerPctInt`の`Global`に`#ConquerCount`の`Global`を代入し、1000を掛け、`#ConquerMax`の`Const` = 50で割る
+14. `#ConquerPctDec`の`Global`に`#ConquerPctInt`の`Global`を代入
 15. `#ConquerPctInt`の`Global`を10で割る
 16. `#ConquerPctDec`の`Global`を10との剰余を代入
+    - `#ConquerPctInt`'s `Global` = `ConquerCount`'s `Global` $\times$ 1000 / 50 / 10 = `ConquerCount`'s`Global` $\times$ 2
+    - `#ConquerPctDec`'s `Global` = `#ConquerPctInt`'s `Global` % 10
+    - `#ConquerPctInt`の`Global`が攻略率の整数部、`#ConquerPctDec`の`Global`が攻略率の小数部
 17. `#ConquerCountResidue`の`Global`に`#ConquerCount`の`Global`を代入し、`#AddStuffSpan`の`Const`=4で割る
+    - `#ConquerCountResidue`'s `Global` = `#ConquerCount`'s `Global` / 4
 18. すべてのプレイヤーの座標で演出を実行し、即時回復Lv.6を1秒間、満腹Lv.19を1秒間付与
 19. `Sightseeing`の`Setting`が0以下の時、以下の事柄を実行
     1. ワールドが作られてからの時間を表示
@@ -114,48 +128,3 @@ folder: command
     1. 時間をdayに設定し、`doDaylightCycle`をtrueに変更
     2. `#PastorMax`の`Global`から2引く
     3. `ForceNight`の`Settings`を0に設定
-
-[CommonGM]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[エンダーマイト]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[SystemKeeper]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[地下世界]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[クラウディア]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[テーブルマウンテン]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[ガリバーランド]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[トカルトコルデ]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[お試しセットの印玉]:/TUSB_Analysis/entity/TUSB_Analysis_Item.html
-[ViewPoint(仮)]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[秒針]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[分針]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[時針]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-
-[jobSave]:/TUSB_Analysis/others/TUSB_Analysis_Data.html
-[jobLoad]:/TUSB_Analysis/others/TUSB_Analysis_Data.html
-
-[お試しセットの印玉]:/TUSB_Analysis/others/TUSB_Analysis_Item.html
-
-[メインクロック開始時リセットするもの]:/TUSB_Analysis/command/reset.html
-[初回ログイン時処理]:/TUSB_Analysis/command/firstLoginProcessing.html
-[ログイン時処理]:/TUSB_Analysis/command/loginProcessing.html
-[ジョブチェンジ先判定]:/TUSB_Analysis/command/jobChangeJudgement.html
-[ジョブセーブ]:/TUSB_Analysis/command/jobSave.html
-[ジョブロード]:/TUSB_Analysis/command/jobLoad.html
-[ステータス表示]:/TUSB_Analysis/command/statusDisplay.html
-[攻略率表示]:/TUSB_Analysis/command/conquerDisplay.html
-[ワープ処理ジョブ島・通常世界]:/TUSB_Analysis/command/warpProcessing.html
-[KeepInventory確認]:/TUSB_Analysis/command/keepInventoryCheck.html
-[満腹度修正]:/TUSB_Analysis/command/satietyFix.html
-[経験値取得処理]:/TUSB_Analysis/command/expProcessing.html
-[レベルアップ処理]:/TUSB_Analysis/command/levelupProcessing.html
-[最大HP調整処理]:/TUSB_Analysis/command/hpFix.html
-[難易度調整]:/TUSB_Analysis/command/difficultyAdjustment.html
-[島攻略処理]:/TUSB_Analysis/command/conquerProcessing.html
-[習得スキル取得]:/TUSB_Analysis/command/skillAcquisition.html
-[時計島]:/TUSB_Analysis/command/clockIslandProcessing.html
-[マクラウェル内部]:/TUSB_Analysis/command/insideMcLawell.html
-[スコアボードの設定]:/TUSB_Analysis/command/setScoreboard.html
-[メインクロック処理]:/TUSB_Analysis/command/mainclockProcessing.html
-[SystemKeeper処理]:/TUSB_Analysis/command/systemKeeperProcessing.html
-[かまど再設定]:/TUSB_Analysis/command/furnaceProcessing.html
-[毎tick必ず最初に実行したいコマンド群]:/TUSB_Analysis/command/runFirst.html
-[エリア侵入記録]:/TUSB_Analysis/command/areaRecord.html

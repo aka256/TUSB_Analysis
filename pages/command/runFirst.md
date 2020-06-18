@@ -1,16 +1,19 @@
 ---
 title: 毎tick必ず最初に実行したいコマンド群
-tags: [コマンド]
+tags: [command,entity,dimension]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/6/17
 sidebar: mydoc_sidebar
 permalink: runFirst.html
 folder: command
+datatable4c: true
 ---
 
 - 位置(-1920,4,-200)
 
 ## コマンド群
+
+<div class="datatable4c-begin"></div>
 
 |No.|コマンド|コメント|状態|
 |:-:|:-|:-|:-|
@@ -63,9 +66,11 @@ folder: command
 |47|/summon ArmorStand -1875 5 -198 {Health:0f,DeathTime:19s}||条件付き|
 |48|/tellraw AiAkaishi {"score":{"name":"*","objective":"CoolTickCounter"}}||条件付き|
 
+<div class="datatable4c-end"></div>
+
 ## 詳細
 
-1. [毎tick必ず最初に実行したいコマンド群]を実行 (ここで自身を呼び出すことでクロックを行っている)
+1. [毎tick必ず最初に実行したいコマンド群](expProcessing.html)を実行 (ここで自身を呼び出すことでクロックを行っている)
 2. `FloationRequired`を持ち、{OnGround:true}であるエンティティと`CooldownRequired`を持ち、{PortalCooldown:0}であるエンティティに`Garbage`を付与
 3. `Slimy`を持ち、{AbsorptionAmount:0f}であるエンティティが存在したら`Garbage`を付与し、以下の事柄を実行
    1. `Garbage`を持つエンティティに{Size:0}を付与
@@ -84,7 +89,7 @@ folder: command
 13. `#SkillTargetCount`の`Global`が1以上である時、以下の事柄を実行
     1. `SkillTarget`を持つエンティティを0.4m下に移動
     2. `SkillTarget`を持つエンティティから`SkillTarget`を消去
-14. (-1883,3,-200)にあるかまどに1秒で燃焼する豚肉を入れることができたら(要は1秒たったら)、(-1920,11,-200)にある[時間経過]と(-1920,12,-200)にある[AEC維持]を実行
+14. (-1883,3,-200)にあるかまどに1秒で燃焼する豚肉を入れることができたら(要は1秒たったら)、(-1920,11,-200)にある[時間経過](timeElapsed.html)と(-1920,12,-200)にある[AEC維持](aecMaintenance.html)を実行
 15. `mobGriefing`について表示? (よくわからない)
 16. `mobGriefing`が0以下(false)の時、`mobGriefing`=trueとし、難易度を`hard`に変更
 17. `FallingSand`を持ち、{FallDistance:0f}であるエンティティに`Garbage`を付与し、{Time:0}であるエンティティから`Garbage`を削除
@@ -101,48 +106,3 @@ folder: command
 |ICE_SHEET_FLOAT|x=752,y=-200,z=1024,dx=2063,dy=600,dz=2095|~12 or 14~|13|
 |NETHER|x=-640,y=-200,z=-832,dx=1207,dy=600,dz=991 かつ ネザーにいる|-99~|-100|
 |NETHER_TRIAL|x=-624,y=-200,z=672,dx=1375,dy=600,dz=943 かつ ネザーにいる|~-91 or -89~|-90|
-
-[CommonGM]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[エンダーマイト]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[SystemKeeper]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[地下世界]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[クラウディア]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[テーブルマウンテン]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[ガリバーランド]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[トカルトコルデ]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[お試しセットの印玉]:/TUSB_Analysis/entity/TUSB_Analysis_Item.html
-[ViewPoint(仮)]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[秒針]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[分針]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-[時針]:/TUSB_Analysis/entity/TUSB_Analysis_Entity.html
-
-[jobSave]:/TUSB_Analysis/others/TUSB_Analysis_Data.html
-[jobLoad]:/TUSB_Analysis/others/TUSB_Analysis_Data.html
-
-[お試しセットの印玉]:/TUSB_Analysis/others/TUSB_Analysis_Item.html
-
-[メインクロック開始時リセットするもの]:/TUSB_Analysis/command/reset.html
-[初回ログイン時処理]:/TUSB_Analysis/command/firstLoginProcessing.html
-[ログイン時処理]:/TUSB_Analysis/command/loginProcessing.html
-[ジョブチェンジ先判定]:/TUSB_Analysis/command/jobChangeJudgement.html
-[ジョブセーブ]:/TUSB_Analysis/command/jobSave.html
-[ジョブロード]:/TUSB_Analysis/command/jobLoad.html
-[ステータス表示]:/TUSB_Analysis/command/statusDisplay.html
-[攻略率表示]:/TUSB_Analysis/command/conquerDisplay.html
-[ワープ処理ジョブ島・通常世界]:/TUSB_Analysis/command/warpProcessing.html
-[KeepInventory確認]:/TUSB_Analysis/command/keepInventoryCheck.html
-[満腹度修正]:/TUSB_Analysis/command/satietyFix.html
-[経験値取得処理]:/TUSB_Analysis/command/expProcessing.html
-[レベルアップ処理]:/TUSB_Analysis/command/levelupProcessing.html
-[最大HP調整処理]:/TUSB_Analysis/command/hpFix.html
-[難易度調整]:/TUSB_Analysis/command/difficultyAdjustment.html
-[島攻略処理]:/TUSB_Analysis/command/conquerProcessing.html
-[習得スキル取得]:/TUSB_Analysis/command/skillAcquisition.html
-[時計島]:/TUSB_Analysis/command/clockIslandProcessing.html
-[マクラウェル内部]:/TUSB_Analysis/command/insideMcLawell.html
-[スコアボードの設定]:/TUSB_Analysis/command/setScoreboard.html
-[メインクロック処理]:/TUSB_Analysis/command/mainclockProcessing.html
-[SystemKeeper処理]:/TUSB_Analysis/command/systemKeeperProcessing.html
-[かまど再設定]:/TUSB_Analysis/command/furnaceProcessing.html
-[毎tick必ず最初に実行したいコマンド群]:/TUSB_Analysis/command/runFirst.html
-[エリア侵入記録]:/TUSB_Analysis/command/areaRecord.html

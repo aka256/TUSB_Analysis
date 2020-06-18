@@ -365,10 +365,13 @@ code {
           : 'default'
     });
   </script>
+<h2 id="about">About</h2>
+<p>Overworld内のディメンション移動の際の侵入記録を行う。また、その際にスキルの設定を変える、お試しセットの印玉を渡すなどの処理も行っている。</p>
 <ul>
 <li>位置(-1920,9,-200)</li>
 </ul>
 <h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<div class="datatable4cnp-begin"></div>
 <table>
 <thead>
 <tr>
@@ -465,17 +468,18 @@ code {
 </tr>
 </tbody>
 </table>
+<div class="datatable4cnp-end"></div>
 <p>No.11</p>
 <pre class="hljs"><code><div>/give @a[-2725,88,-382,r=2,score_AreaTitleFlag_min=10,score_AreaTitleFlag=10,tag=TrialSet] minecraft:spawn_egg 1 0 {display:{Name:&quot;§bお試しセットの印玉&quot;,Lore:[&quot;§rモードスキル用お試しセットが入っている。&quot;,&quot;§rなくなったら交易島のアルバイトから買おう。&quot;]},ench:[],EntityTag:{id:Bat,DeathTime:19s,ActiveEffects:[{Id:7b,Duration:100,Amplifier:5b,ShowParticles:false},{Id:14b,Duration:100,Amplifier:0b,ShowParticles:false}],Tags:[RewardEgg,TypeChecked],DeathLootTable:&quot;usb:signs/skillkit&quot;},CanPlaceOn:[&quot;minecraft:stone&quot;,&quot;minecraft:grass&quot;,&quot;minecraft:dirt&quot;,&quot;minecraft:cobblestone&quot;,&quot;minecraft:planks&quot;,&quot;minecraft:sapling&quot;,&quot;minecraft:bedrock&quot;,&quot;minecraft:flowing_water&quot;,&quot;minecraft:water&quot;,&quot;minecraft:flowing_lava&quot;,&quot;minecraft:lava&quot;,&quot;minecraft:sand&quot;,&quot;minecraft:gravel&quot;,&quot;minecraft:gold_ore&quot;,&quot;minecraft:iron_ore&quot;,&quot;minecraft:coal_ore&quot;,&quot;minecraft:log&quot;,&quot;minecraft:leaves&quot;,&quot;minecraft:sponge&quot;,&quot;minecraft:glass&quot;,&quot;minecraft:lapis_ore&quot;,&quot;minecraft:lapis_block&quot;,&quot;minecraft:dispenser&quot;,&quot;minecraft:sandstone&quot;,&quot;minecraft:noteblock&quot;,&quot;minecraft:bed&quot;,&quot;minecraft:golden_rail&quot;,&quot;minecraft:detector_rail&quot;,&quot;minecraft:sticky_piston&quot;,&quot;minecraft:web&quot;,&quot;minecraft:tallgrass&quot;,&quot;minecraft:deadbush&quot;,&quot;minecraft:piston&quot;,&quot;minecraft:piston_head&quot;,&quot;minecraft:wool&quot;,&quot;minecraft:piston_extension&quot;,&quot;minecraft:yellow_flower&quot;,&quot;minecraft:red_flower&quot;,&quot;minecraft:brown_mushroom&quot;,&quot;minecraft:red_mushroom&quot;,&quot;minecraft:gold_block&quot;,&quot;minecraft:iron_block&quot;,&quot;minecraft:double_stone_slab&quot;,&quot;minecraft:stone_slab&quot;,&quot;minecraft:brick_block&quot;,&quot;minecraft:tnt&quot;,&quot;minecraft:bookshelf&quot;,&quot;minecraft:mossy_cobblestone&quot;,&quot;minecraft:obsidian&quot;,&quot;minecraft:torch&quot;,&quot;minecraft:fire&quot;,&quot;minecraft:mob_spawner&quot;,&quot;minecraft:oak_stairs&quot;,&quot;minecraft:chest&quot;,&quot;minecraft:redstone_wire&quot;,&quot;minecraft:diamond_ore&quot;,&quot;minecraft:diamond_block&quot;,&quot;minecraft:crafting_table&quot;,&quot;minecraft:wheat&quot;,&quot;minecraft:farmland&quot;,&quot;minecraft:furnace&quot;,&quot;minecraft:lit_furnace&quot;,&quot;minecraft:standing_sign&quot;,&quot;minecraft:wooden_door&quot;,&quot;minecraft:ladder&quot;,&quot;minecraft:rail&quot;,&quot;minecraft:stone_stairs&quot;,&quot;minecraft:wall_sign&quot;,&quot;minecraft:lever&quot;,&quot;minecraft:stone_pressure_plate&quot;,&quot;minecraft:iron_door&quot;,&quot;minecraft:wooden_pressure_plate&quot;,&quot;minecraft:redstone_ore&quot;,&quot;minecraft:lit_redstone_ore&quot;,&quot;minecraft:unlit_redstone_torch&quot;,&quot;minecraft:redstone_torch&quot;,&quot;minecraft:stone_button&quot;,&quot;minecraft:snow_layer&quot;,&quot;minecraft:ice&quot;,&quot;minecraft:snow&quot;,&quot;minecraft:cactus&quot;,&quot;minecraft:clay&quot;,&quot;minecraft:reeds&quot;,&quot;minecraft:jukebox&quot;,&quot;minecraft:fence&quot;,&quot;minecraft:pumpkin&quot;,&quot;minecraft:netherrack&quot;,&quot;minecraft:soul_sand&quot;,&quot;minecraft:glowstone&quot;,&quot;minecraft:portal&quot;,&quot;minecraft:lit_pumpkin&quot;,&quot;minecraft:cake&quot;,&quot;minecraft:unpowered_repeater&quot;,&quot;minecraft:powered_repeater&quot;,&quot;minecraft:stained_glass&quot;,&quot;minecraft:trapdoor&quot;,&quot;minecraft:monster_egg&quot;,&quot;minecraft:stonebrick&quot;,&quot;minecraft:brown_mushroom_block&quot;,&quot;minecraft:red_mushroom_block&quot;,&quot;minecraft:iron_bars&quot;,&quot;minecraft:glass_pane&quot;,&quot;minecraft:melon_block&quot;,&quot;minecraft:pumpkin_stem&quot;,&quot;minecraft:melon_stem&quot;,&quot;minecraft:vine&quot;,&quot;minecraft:fence_gate&quot;,&quot;minecraft:brick_stairs&quot;,&quot;minecraft:stone_brick_stairs&quot;,&quot;minecraft:mycelium&quot;,&quot;minecraft:waterlily&quot;,&quot;minecraft:nether_brick&quot;,&quot;minecraft:nether_brick_fence&quot;,&quot;minecraft:nether_brick_stairs&quot;,&quot;minecraft:nether_wart&quot;,&quot;minecraft:enchanting_table&quot;,&quot;minecraft:brewing_stand&quot;,&quot;minecraft:cauldron&quot;,&quot;minecraft:end_portal&quot;,&quot;minecraft:end_portal_frame&quot;,&quot;minecraft:end_stone&quot;,&quot;minecraft:dragon_egg&quot;,&quot;minecraft:redstone_lamp&quot;,&quot;minecraft:lit_redstone_lamp&quot;,&quot;minecraft:double_wooden_slab&quot;,&quot;minecraft:wooden_slab&quot;,&quot;minecraft:cocoa&quot;,&quot;minecraft:sandstone_stairs&quot;,&quot;minecraft:emerald_ore&quot;,&quot;minecraft:ender_chest&quot;,&quot;minecraft:tripwire_hook&quot;,&quot;minecraft:tripwire&quot;,&quot;minecraft:emerald_block&quot;,&quot;minecraft:spruce_stairs&quot;,&quot;minecraft:birch_stairs&quot;,&quot;minecraft:jungle_stairs&quot;,&quot;minecraft:command_block&quot;,&quot;minecraft:beacon&quot;,&quot;minecraft:cobblestone_wall&quot;,&quot;minecraft:flower_pot&quot;,&quot;minecraft:carrots&quot;,&quot;minecraft:potatoes&quot;,&quot;minecraft:wooden_button&quot;,&quot;minecraft:skull&quot;,&quot;minecraft:anvil&quot;,&quot;minecraft:trapped_chest&quot;,&quot;minecraft:light_weighted_pressure_plate&quot;,&quot;minecraft:heavy_weighted_pressure_plate&quot;,&quot;minecraft:unpowered_comparator&quot;,&quot;minecraft:powered_comparator&quot;,&quot;minecraft:daylight_detector&quot;,&quot;minecraft:redstone_block&quot;,&quot;minecraft:quartz_ore&quot;,&quot;minecraft:hopper&quot;,&quot;minecraft:quartz_block&quot;,&quot;minecraft:quartz_stairs&quot;,&quot;minecraft:activator_rail&quot;,&quot;minecraft:dropper&quot;,&quot;minecraft:stained_hardened_clay&quot;,&quot;minecraft:stained_glass_pane&quot;,&quot;minecraft:leaves2&quot;,&quot;minecraft:log2&quot;,&quot;minecraft:acacia_stairs&quot;,&quot;minecraft:dark_oak_stairs&quot;,&quot;minecraft:slime&quot;,&quot;minecraft:barrier&quot;,&quot;minecraft:iron_trapdoor&quot;,&quot;minecraft:prismarine&quot;,&quot;minecraft:sea_lantern&quot;,&quot;minecraft:hay_block&quot;,&quot;minecraft:carpet&quot;,&quot;minecraft:hardened_clay&quot;,&quot;minecraft:coal_block&quot;,&quot;minecraft:packed_ice&quot;,&quot;minecraft:double_plant&quot;,&quot;minecraft:standing_banner&quot;,&quot;minecraft:wall_banner&quot;,&quot;minecraft:daylight_detector_inverted&quot;,&quot;minecraft:red_sandstone&quot;,&quot;minecraft:red_sandstone_stairs&quot;,&quot;minecraft:double_stone_slab2&quot;,&quot;minecraft:stone_slab2&quot;,&quot;minecraft:spruce_fence_gate&quot;,&quot;minecraft:birch_fence_gate&quot;,&quot;minecraft:jungle_fence_gate&quot;,&quot;minecraft:dark_oak_fence_gate&quot;,&quot;minecraft:acacia_fence_gate&quot;,&quot;minecraft:spruce_fence&quot;,&quot;minecraft:birch_fence&quot;,&quot;minecraft:jungle_fence&quot;,&quot;minecraft:dark_oak_fence&quot;,&quot;minecraft:acacia_fence&quot;,&quot;minecraft:spruce_door&quot;,&quot;minecraft:birch_door&quot;,&quot;minecraft:jungle_door&quot;,&quot;minecraft:acacia_door&quot;,&quot;minecraft:dark_oak_door&quot;,&quot;minecraft:end_rod&quot;,&quot;minecraft:chorus_plant&quot;,&quot;minecraft:chorus_flower&quot;,&quot;minecraft:purpur_block&quot;,&quot;minecraft:purpur_pillar&quot;,&quot;minecraft:purpur_stairs&quot;,&quot;minecraft:purpur_double_slab&quot;,&quot;minecraft:purpur_slab&quot;,&quot;minecraft:end_bricks&quot;,&quot;minecraft:grass_path&quot;,&quot;minecraft:end_gateway&quot;,&quot;minecraft:structure_block&quot;],HideFlags:16}
 </div></code></pre>
 <h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
 <ol>
 <li><code>AreaTitleFlag</code>の値に対応した<code>Enter</code>の持っていないエリアエフェクトクラウドに<code>Enter</code>を付与(以下の表参照)</li>
-<li><code>AreaTitleFlag</code>が-100以上であるプレイヤー一人選択し、プレイヤーの1m上に4m以内にいる<code>ViewPoint</code>を持つエンティティ(<a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">ViewPoint(仮)</a>)を移動</li>
+<li><code>AreaTitleFlag</code>が-100以上であるプレイヤー一人選択し、プレイヤーの1m上に4m以内にいる<code>ViewPoint</code>を持つエンティティ(<a href="TUSB_Analysis_Entity.html">ViewPoint(仮)</a>)を移動</li>
 <li><code>AreaTitleFlag</code>が-100以上であるプレイヤーの<code>InstantChangeA</code>、<code>InstantChangeB</code>、<code>ModeChangeA</code>、<code>ModeChangeB</code>をそれぞれ0に設定</li>
-<li>(-2725,88,-382)から2m以内(スキル設定所入口)にいて<code>AreaTitleFlag</code>が10であり、<code>TrialSet</code>を持つプレイヤーが存在したら、<a href="/TUSB_Analysis/entity/TUSB_Analysis_Item.html">お試しセットの印玉</a>を与え以下の事柄を実行
+<li>(-2725,88,-382)から2m以内(スキル設定所入口)にいて<code>AreaTitleFlag</code>が10であり、<code>TrialSet</code>を持つプレイヤーが存在したら、<a href="TUSB_Analysis_Entity.html">お試しセットの印玉</a>を与え以下の事柄を実行
 <ol>
-<li><a href="/TUSB_Analysis/entity/TUSB_Analysis_Item.html">お試しセットの印玉</a>を受け取ったというメッセージを表示</li>
+<li>[お試しセットの印玉]を受け取ったというメッセージを表示</li>
 <li><code>TrialSet</code>を削除</li>
 </ol>
 </li>
@@ -491,23 +495,23 @@ code {
 <tbody>
 <tr>
 <td style="text-align:center">1</td>
-<td style="text-align:center"><a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">地下世界</a></td>
+<td style="text-align:center"><a href="TUSB_Analysis_Entity.html">地下世界</a></td>
 </tr>
 <tr>
 <td style="text-align:center">10</td>
-<td style="text-align:center"><a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">クラウディア</a></td>
+<td style="text-align:center"><a href="TUSB_Analysis_Entity.html">クラウディア</a></td>
 </tr>
 <tr>
 <td style="text-align:center">11</td>
-<td style="text-align:center"><a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">テーブルマウンテン</a></td>
+<td style="text-align:center"><a href="TUSB_Analysis_Entity.html">テーブルマウンテン</a></td>
 </tr>
 <tr>
 <td style="text-align:center">12</td>
-<td style="text-align:center"><a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">ガリバーランド</a></td>
+<td style="text-align:center"><a href="TUSB_Analysis_Entity.html">ガリバーランド</a></td>
 </tr>
 <tr>
 <td style="text-align:center">13</td>
-<td style="text-align:center"><a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">トカルトコルデ</a></td>
+<td style="text-align:center"><a href="TUSB_Analysis_Entity.html">トカルトコルデ</a></td>
 </tr>
 </tbody>
 </table>

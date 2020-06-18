@@ -372,6 +372,7 @@ code {
 <ul>
 <li>(-1920,17,-191)にあるコマンド群 (島攻略処理という看板がついているもの)</li>
 </ul>
+<div class="datatable3c-begin"></div>
 <table>
 <thead>
 <tr>
@@ -583,9 +584,11 @@ code {
 </tr>
 </tbody>
 </table>
+<div class="datatable3c-end"></div>
 <ul>
 <li>(-1920,18,-191)にあるコマンド群 (島攻略処理という看板がついているものの上のやつ)</li>
 </ul>
+<div clase="datatable3cnp-begin"></div>
 <table>
 <thead>
 <tr>
@@ -662,6 +665,7 @@ code {
 </tr>
 </tbody>
 </table>
+<div clase="datatable3cnp-end"></div>
 <h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
 <ul>
 <li>(-1920,17,-191)にあるコマンド群 (島攻略処理という看板がついているもの)</li>
@@ -678,12 +682,22 @@ code {
 <li><code>Conquer</code>を持ち、<code>USBDimension</code>が12であるプレイヤーがいるとき、<code>#ConqCntGLand</code>の<code>Global</code>を1に設定</li>
 <li><code>Conquer</code>を持ち、<code>USBDimension</code>が13であるプレイヤーがいるとき、<code>#ConqCntIce</code>の<code>Global</code>を1に設定</li>
 <li><code>Conquer</code>を持つプレイヤーから<code>Conquer</code>を消去</li>
-<li><code>#ConquerCount</code>の<code>Global</code>を1に設定</li>
-<li><code>#ConquerPctInt</code>の<code>Global</code>に<code>#ConquerCount</code>の<code>Global</code>を代入し、1000を掛け、<code>#ConquerMax</code>の<code>Const</code>=50で割る(<code>#ConquerPctInt</code>'s<code>Global</code>=1*1000/50)</li>
-<li><code>#ConquerPctDec</code>の<code>Global</code>に<code>#ConquerPctInt</code>の<code>Const</code>を代入</li>
+<li><code>#ConquerCount</code>の<code>Global</code>に1を足す</li>
+<li><code>#ConquerPctInt</code>の<code>Global</code>に<code>#ConquerCount</code>の<code>Global</code>を代入し、1000を掛け、<code>#ConquerMax</code>の<code>Const</code> = 50で割る</li>
+<li><code>#ConquerPctDec</code>の<code>Global</code>に<code>#ConquerPctInt</code>の<code>Global</code>を代入</li>
 <li><code>#ConquerPctInt</code>の<code>Global</code>を10で割る</li>
-<li><code>#ConquerPctDec</code>の<code>Global</code>を10との剰余を代入</li>
-<li><code>#ConquerCountResidue</code>の<code>Global</code>に<code>#ConquerCount</code>の<code>Global</code>を代入し、<code>#AddStuffSpan</code>の<code>Const</code>=4で割る</li>
+<li><code>#ConquerPctDec</code>の<code>Global</code>を10との剰余を代入
+<ul>
+<li><code>#ConquerPctInt</code>'s <code>Global</code> = <code>ConquerCount</code>'s <code>Global</code> $\times$ 1000 / 50 / 10 = <code>ConquerCount</code>'s<code>Global</code> $\times$ 2</li>
+<li><code>#ConquerPctDec</code>'s <code>Global</code> = <code>#ConquerPctInt</code>'s <code>Global</code> % 10</li>
+<li><code>#ConquerPctInt</code>の<code>Global</code>が攻略率の整数部、<code>#ConquerPctDec</code>の<code>Global</code>が攻略率の小数部</li>
+</ul>
+</li>
+<li><code>#ConquerCountResidue</code>の<code>Global</code>に<code>#ConquerCount</code>の<code>Global</code>を代入し、<code>#AddStuffSpan</code>の<code>Const</code>=4で割る
+<ul>
+<li><code>#ConquerCountResidue</code>'s <code>Global</code> = <code>#ConquerCount</code>'s <code>Global</code> / 4</li>
+</ul>
+</li>
 <li>すべてのプレイヤーの座標で演出を実行し、即時回復Lv.6を1秒間、満腹Lv.19を1秒間付与</li>
 <li><code>Sightseeing</code>の<code>Setting</code>が0以下の時、以下の事柄を実行
 <ol>
@@ -709,7 +723,7 @@ code {
 </li>
 <li><code>ForceNight</code>の<code>Settings</code>が0以下の時、以下の事柄を実行
 <ul>
-<li><a href="/TUSB_Analysis/entity/TUSB_Analysis_Entity.html">CommonGM</a>が(-1920,4,-96)にある<a href="/TUSB_Analysis/command/clockIslandProcessing.html">時計島</a>を実行</li>
+<li>[CommonGM]が(-1920,4,-96)にある[時計島]を実行</li>
 </ul>
 </li>
 <li><code>ForceNight</code>の<code>Settings</code>が1以上であり、(3,77,87)にある南向きでエンダーアイがはめられたエンドポータルフレームが存在する時、以下の事柄を実行

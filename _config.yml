@@ -55,7 +55,7 @@ markdown: kramdown
 kramdown:
  input: GFM
  auto_ids: true
- hard_wrap: false
+ hard_wrap: true
  syntax_highlighter: rouge
 
 # filter used to process markdown. note that kramdown differs from github-flavored markdown in some subtle ways
