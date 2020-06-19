@@ -1,16 +1,19 @@
 ---
 title: 満腹度修正
 tags: [command,display]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,満腹度
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: satietyFix.html
 folder: command
 datatable3c: true
 ---
 
-- 位置(-1920,17,-192)
-- リスポーン時での死亡前の空腹度の再現
+<span class="label label-primary">位置 (-1920,17,-192)</span>
+
+## About
+
+リスポーン時に死亡前の満腹度の再現を行う。また、満腹度が小さい場合は救済処理を行う。
 
 ## コマンド群
 

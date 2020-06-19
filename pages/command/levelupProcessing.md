@@ -1,16 +1,19 @@
 ---
 title: レベルアップ処理
 tags: [command,display,exp,job]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,レベルアップ
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: levelupProcessing.html
 folder: command
 datatable2c: true
 ---
 
-- 位置(-1920,9,-191)
-- レベルアップ処理
+<span class="label label-primary">位置 (-1920,9,-191)</span>
+
+## About
+
+レベルアップ時のスコアボードの書き換えや、新しいスキルの取得への分岐などを行う。
 
 ## コマンド群
 

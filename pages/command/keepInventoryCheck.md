@@ -1,15 +1,19 @@
 ---
 title: KeepInventory確認
 tags: [command,dimension]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,keepinventory,キープインベントリ,観光モード
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: keepInventoryCheck.html
 folder: command
 datatable3cnp: true
 ---
 
-- 位置(-1920,16,-192)
+<span class="label label-primary">位置 (-1920,16,-192)</span>
+
+## About
+
+観光モード関係の処理と思われるが、確証がまだ得られていない。
 
 ## コマンド群
 

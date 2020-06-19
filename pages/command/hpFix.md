@@ -1,16 +1,19 @@
 ---
 title: 最大HP調整処理
 tags: [command]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,HP
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: hpFix.html
 folder: command
 datatable2c: true
 ---
 
-- 位置(-1920,16,-191)
-- 基礎体力増加によるHP増加処理
+<span class="label label-primary">位置 (-1920,16,-191)</span>
+
+## About
+
+基礎体力増加によるHP増加処理を行う。
 
 ## コマンド群
 

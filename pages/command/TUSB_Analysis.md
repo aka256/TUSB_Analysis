@@ -1152,7 +1152,7 @@ folder: command
 
 ---
 
-## マクラウェル内部
+## マクラエル内部
 
 - 位置(-1896,117,-136)
 
@@ -1476,7 +1476,7 @@ No.11
 [島攻略処理]:/TUSB_Analysis/command/conquerProcessing.html
 [習得スキル取得]:/TUSB_Analysis/command/skillAcquisition.html
 [時計島]:/TUSB_Analysis/command/clockIslandProcessing.html
-[マクラウェル内部]:/TUSB_Analysis/command/insideMcLawell.html
+[マクラエル内部]:/TUSB_Analysis/command/insideMcLawell.html
 [スコアボードの設定]:/TUSB_Analysis/command/setScoreboard.html
 [メインクロック処理]:/TUSB_Analysis/command/mainclockProcessing.html
 [SystemKeeper処理]:/TUSB_Analysis/command/systemKeeperProcessing.html

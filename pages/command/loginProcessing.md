@@ -2,15 +2,18 @@
 title: ログイン時処理
 tags: [command,display]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: loginProcessing.html
 folder: command
 datatable3cnp: true
 ---
 
-- 位置(-1920,9,-192)
-- 通常ログイン時の処理
+<span class="label label-primary">位置 (-1920,9,-192)</span>
+
+## About
+
+通常ログイン時のMPや職業などの処理を行う。
 
 ## コマンド群
 
@@ -47,4 +50,4 @@ datatable3cnp: true
 9. `LeaveGame`が1以上,`Job`が1以上であるプレイヤーの`ShowSkillSlot`を4に設定
 10. `LeaveGame`が1以上であるプレイヤーに`Pray`を付与
 11. `LeaveGame`が1以上であるプレイヤーの`LeaveGame`を0に設定
-12. (-1920,17,-200)にある[難易度調整](difficultyAdjustment.html)を起動
+12. (-1920,17,-200)にある[難易度調整](difficultyAdjustment.html)を実行

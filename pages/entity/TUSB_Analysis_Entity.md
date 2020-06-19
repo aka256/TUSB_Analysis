@@ -1,8 +1,8 @@
 ---
 title: エンティティ
 tags: [entity]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,エンティティ
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: TUSB_Analysis_Entity.html
 folder: entity
@@ -183,6 +183,47 @@ folder: entity
 
 ```minecraftcommand
 /summon AreaEffectCloud ~1 ~ ~ {ReapplicantDelay:2147483647,Radius:2f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2147483647,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:take,CustomName:???,CustomNameVisible:true,Tags:[Enter]}
+```
+
+### NetherBossPoint
+
+- 煉獄の最下層部にいるボスの処理のための起点となっているエンティティ
+
+|||
+|-|-|
+|Name|NetherBossPoint|
+|Type|ArmorStand|
+|Tag|SystemEntity,TypeChecked|
+|UUID|0-0-1-0-4|
+
+```minecraftcommand
+{NoGravity:1b,HurtByTimestamp:0,Attributes:[0:{Base:20.0d,Name:"generic.maxHealth"},1:{Base:0.0d,Name:"generic.knockbackResistance"},2:{Base:0.699999988079071d,Name:"generic.movementSpeed"},3:{Base:0.0d,Name:"generic.armor"},4:{Base:0.0d,Name:"generic.armorToughness"}],Invulnerable:1b,FallFlying:0b,ShowArms:0b,PortalCooldown:0,AbsorptionAmount:0.0f,FallDistance:0.0f,DisabledSlots:31,DeathTime:0s,Pose:{},Invisible:1b,Tags:[0:"TypeChecked",1:"SystemEntity"],Motion:[0:0.0d,1:0.0d,2:0.0d],Small:1b,UUIDLeast:4L,Health:20.0f,Air:300s,OnGround:0b,Dimension:0,Marker:1b,Rotation:[0:0.0f,1:0.0f],HandItems:[0:{},1:{}],UUIDMost:1L,CustomName:"NetherBossPoint",Pos:[0:-1859.0d,1:31.0d,2:-124.0d],Fire:0s,ArmorItems:[0:{},1:{},2:{},3:{}],NoBasePlate:1b,HurtTime:0s}
+```
+
+### 雷
+
+|||
+|-|-|
+|Name|雷|
+|Type|ArmorStand|
+|Tag|SystemEntity,TypeChecked,FrontWaterBolt|
+|UUID|0-0-1-0-7|
+
+```minecraftcommand
+{NoGravity:1b,HurtByTimestamp:0,Attributes:[0:{Base:20.0d,Name:"generic.maxHealth"},1:{Base:0.0d,Name:"generic.knockbackResistance"},2:{Base:0.699999988079071d,Name:"generic.movementSpeed"},3:{Base:0.0d,Name:"generic.armor"},4:{Base:0.0d,Name:"generic.armorToughness"}],Invulnerable:1b,FallFlying:0b,ShowArms:0b,PortalCooldown:0,AbsorptionAmount:0.0f,FallDistance:0.0f,DisabledSlots:31,DeathTime:0s,Pose:{},Invisible:1b,Tags:[0:"TypeChecked",1:"SystemEntity",2:"FrontWaterBolt"],Motion:[0:0.0d,1:0.0d,2:0.0d],Small:1b,UUIDLeast:7L,Health:20.0f,Air:300s,OnGround:0b,Dimension:0,Marker:1b,Rotation:[0:0.0f,1:0.0f],HandItems:[0:{},1:{}],UUIDMost:1L,CustomName:"雷",Pos:[0:-1859.0d,1:31.0d,2:-124.0d],Fire:0s,ArmorItems:[0:{},1:{},2:{},3:{}],NoBasePlate:1b,HurtTime:0s}
+```
+
+### 雷
+
+|||
+|-|-|
+|Name|雷|
+|Type|ArmorStand|
+|Tag|SystemEntity,TypeChecked,FrontPoisonBolt|
+|UUID|0-0-1-0-8|
+
+```minecraftcommand
+{NoGravity:1b,HurtByTimestamp:0,Attributes:[0:{Base:20.0d,Name:"generic.maxHealth"},1:{Base:0.0d,Name:"generic.knockbackResistance"},2:{Base:0.699999988079071d,Name:"generic.movementSpeed"},3:{Base:0.0d,Name:"generic.armor"},4:{Base:0.0d,Name:"generic.armorToughness"}],Invulnerable:1b,FallFlying:0b,ShowArms:0b,PortalCooldown:0,AbsorptionAmount:0.0f,FallDistance:0.0f,DisabledSlots:31,DeathTime:0s,Pose:{},Invisible:1b,Tags:[0:"FrontPoisonBolt",1:"TypeChecked",2:"SystemEntity"],Motion:[0:0.0d,1:0.0d,2:0.0d],Small:1b,UUIDLeast:8L,Health:20.0f,Air:300s,OnGround:0b,Dimension:0,Marker:1b,Rotation:[0:0.0f,1:0.0f],HandItems:[0:{},1:{}],UUIDMost:1L,CustomName:"雷",Pos:[0:-1859.0d,1:31.0d,2:-124.0d],Fire:0s,ArmorItems:[0:{},1:{},2:{},3:{}],NoBasePlate:1b,HurtTime:0s}
 ```
 
 ## 敵MOB

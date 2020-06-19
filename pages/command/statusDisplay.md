@@ -1,16 +1,19 @@
 ---
 title: ステータス表示
 tags: [command,display,job]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,交易島,ステータス
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: statusDisplay.html
 folder: command
 datatable2cnp: true
 ---
 
-- 位置(-1920,14,-192)
-- 交易島の教会でのステータス表示?
+<span class="label label-primary">位置 (-1920,14,-192)</span>
+
+## About
+
+交易島の教会でのステータス表示の処理を行う。
 
 ## コマンド群
 

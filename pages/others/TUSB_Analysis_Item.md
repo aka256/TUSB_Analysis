@@ -1,7 +1,7 @@
 ---
 title: アイテム
 tags: [item]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,印玉
 last_updated: 2020/6/17
 sidebar: mydoc_sidebar
 permalink: TUSB_Analysis_Item.html

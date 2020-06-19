@@ -9,7 +9,7 @@ entries:
   - title: X回路区域管理コマンド群
     output: web, pdf
     folderitems:
-      - title: マクラウェル内部
+      - title: マクラエル内部
         url: insideMcLawell.html      
         output: web, pdf
       - title: 初期化処理

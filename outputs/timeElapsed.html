@@ -365,9 +365,9 @@ code {
           : 'default'
     });
   </script>
-<ul>
-<li>位置(-1920,11,-200)</li>
-</ul>
+<p><span class="label label-primary">位置 (-1920,11,-200)</span></p>
+<h2 id="about">About</h2>
+<p>スキルやイベント、トカルトコルデなどでの時間経過により変化するものの処理、分岐を行っている。</p>
 <h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
 <div class="datatable4c-begin"></div>
 <table>
@@ -701,6 +701,57 @@ code {
 <ol>
 <li><code>WindWall</code>が-1以上であるプレイヤーにウィンドウォールが切れたというメッセージを送る</li>
 <li><code>WindWall</code>が-1以上であるプレイヤーの<code>WindWall</code>を0に設定</li>
+</ol>
+</li>
+<li><code>WindWall</code>が0以上であるプレイヤーのいる座標で効果音を鳴らす。</li>
+<li><code>NinjaTime</code>が0以上であるプレイヤーが存在したら、<code>NinjaTime</code>から1を引いて以下の事柄を実行
+<ul>
+<li><code>NinjaTime</code>が-1以下であるとき<code>Tsuremai</code>と<code>Choyaku</code>、<code>NinjaTime</code>をそれぞれ0に設定</li>
+</ul>
+</li>
+<li><code>MagicShield</code>を持つプレイヤーに耐性Lv.4を15秒間付与</li>
+<li><code>Mokuso</code>を持つプレイヤーが存在したら、再生能力Lv.1を15秒間付与し、<code>Level</code>が43以上だったら再生能力Lv.2を15秒間付与</li>
+<li><code>Kazakiri</code>を持つプレイヤーが存在したら、<code>Kazakiri</code>から1を引き、(-1920,11,-198)にある<a href="kazakiriUpdata.html">風切更新</a>を実行</li>
+<li><code>RadarVision</code>が0以上であるプレイヤーが存在したら、<code>RadarVision</code>から1を引き、以下の事柄を実行
+<ol>
+<li><code>RadarVision</code>が-1以下であるプレイヤーに<code>RadarEnd</code>を付与し、15m下に移動、<code>RadarVision</code>を0に設定</li>
+<li>(-1920,12,-166)にある<a href="archer_RadarVisionFinProcessing.html">狩人レーダーヴィジョン終了処理</a>を実行</li>
+</ol>
+</li>
+<li><code>#SecCount</code>の<code>Global</code>に1を足す</li>
+<li><code>#SecCount</code>の<code>Global</code>が0であるとき、ワールドの境界線から0m近づいたとき警告を出す</li>
+<li><code>#SecCount</code>の<code>Global</code>が61以上であるとき、(-1920,14,-200)にある<a href="oneMinProcessing.html">約1分処理</a>を実行</li>
+<li><code>FlyingObject</code>を持ち、空気中で停止している飛翔物が存在したら、それに<code>TestingTick</code>を付与し以下の事柄を実行
+<ol>
+<li><code>TestingTick</code>を持つエンティティの<code>PortalCooldown</code>を1に設定</li>
+<li>(-1920,15,-200)にある<a href="tickStopDelete.html">Tick停止飛翔物削除</a>を実行</li>
+</ol>
+</li>
+<li><code>CanSpin</code>を持つエンティティを中心として一辺2mの範囲に蜘蛛の巣を設置</li>
+<li><code>Freeze</code>を持ち、<code>PortalCooldown</code>が0であるエンティティが存在したら、<code>Melt</code>を付与し以下の事柄を実行
+<ul>
+<li><code>Melt</code>を持つエンティティの<code>NoAI</code>をfalseにし、<code>Freeze</code>と<code>Melt</code>を削除</li>
+</ul>
+</li>
+<li><code>SkillMob</code>を持つエンティティが存在したら、<code>MobCastTime</code>に20を足し、以下の事柄を実行
+<ol>
+<li><code>SkillMob</code>を持ち、プレイヤーでないエンティティを一人ランダムに選び、<code>MobCastTime</code>が400以上であるとき<code>MobCastTime</code>に20との剰余を代入</li>
+<li>(-1920,14,-197)にある<a href="runMobSkill.html">敵スキル実行</a>を実行</li>
+</ol>
+</li>
+<li><code>CauseEvent</code>を持ち、<code>USBDimension</code>が0であるプレイヤーが存在する時、以下の事柄を実行
+<ul>
+<li><code>#SecCount</code>の<code>Global</code>が0以上であるとき、(-1920,11,-197)にある<a href="eventFulfill.html">イベント履行</a>を実行</li>
+</ul>
+</li>
+<li><a href="TUSB_Analysis_Entity.html#systemkeeper">SystemKeeper</a>を今の座標からy=10へ移動</li>
+<li><code>USBDimension</code>が13であり、<code>SaveTorch</code>を持ってなく、スペクターモードでないプレイヤーが存在したら、<code>RemoveTorch</code>を付与し(-1920,12,-197)にある<a href="iceProcessing.html">トカルト処理</a>を実行</li>
+<li><code>SaveTouch</code>を持つプレイヤーから<code>SaveTouch</code>を消去</li>
+<li>UUIDが0-0-1-0-3であるエンティティから5m以内で<code>VillagerMeal</code>を持つエンティティが存在したら、それの<code>Freshness</code>の符号を反転し、(-1920,13,-197)にある<a href="animalGuideEvent.html">動物誘導イベント</a>を実行</li>
+<li>採掘速度低下Lv.3を持つプレイヤーが存在したら、<code>ReduceCurse</code>を付与し、以下の事柄を実行
+<ol>
+<li><code>ReduceCurse</code>を持つプレイヤーに採掘速度低下Lv.3を15秒間、弱体化Lv.3を15秒間、空腹Lv.3を15秒間付与</li>
+<li><code>ReduceCurse</code>を持つプレイヤーから<code>ResuceCurce</code>を削除</li>
 </ol>
 </li>
 </ol>

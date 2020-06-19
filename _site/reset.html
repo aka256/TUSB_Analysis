@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content="commandentityjob,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<meta name="keywords" content="commandentityjob,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,メインクロック">
 <title>メインクロック開始時リセットするもの | TUSB_Analysis</title>
 <link rel="stylesheet" href=" css/syntax.css ">
 
@@ -214,7 +214,7 @@
           
           
           
-          <li><a title="マクラウェル内部" href="insideMcLawell.html">マクラウェル内部</a></li>
+          <li><a title="マクラエル内部" href="insideMcLawell.html">マクラエル内部</a></li>
           
           
           
@@ -518,13 +518,11 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <h2 id="about">About</h2>
+   <p><span class="label label-primary">位置 (-1920,4,-192)</span></p>
 
-<p>TUSBにログインした際にジョブやHP、満腹度修正などを行う。</p>
+<h2 id="about">About</h2>
 
-<ul>
-  <li>位置(-1920,4,-192)</li>
-</ul>
+<p>TUSBにログインした際にジョブやHP、満腹度修正など、様々な処理への分岐を行う。</p>
 
 <h2 id="コマンド群">コマンド群</h2>
 
@@ -765,8 +763,8 @@ $('#toc').on('click', 'a', function() {
 
 <ol>
   <li><code class="language-plaintext highlighter-rouge">MPConsumption</code>が0以上のプレイヤーの<code class="language-plaintext highlighter-rouge">MPConsumption</code>を0とし、<code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が0以上のプレイヤーの<code class="language-plaintext highlighter-rouge">ActivatedSkill</code>を0とする。そして<code class="language-plaintext highlighter-rouge">Sneaking</code>を削除</li>
-  <li>チームに属していないプレイヤー(team=)を一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,8,-192)にある<a href="firstLoginProcessing.html">初回ログイン時処理</a>を実行</li>
-  <li><code class="language-plaintext highlighter-rouge">LeaveGame</code>が1以上のプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-192)にある<a href="loginProcessing.html">ログイン時処理</a>を実行</li>
+  <li>チームに属していないプレイヤー(team=)を一人選択し、<a href="TUSB_Analysis_Entity.html#commongm">CommonGM</a>から(~,8,-192)にある<a href="firstLoginProcessing.html">初回ログイン時処理</a>を実行</li>
+  <li><code class="language-plaintext highlighter-rouge">LeaveGame</code>が1以上のプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html#commongm">CommonGM</a>から(~,9,-192)にある<a href="loginProcessing.html">ログイン時処理</a>を実行</li>
   <li><code class="language-plaintext highlighter-rouge">PickerPaper</code>が1以上のプレイヤーの<code class="language-plaintext highlighter-rouge">TradedVillager</code>と<code class="language-plaintext highlighter-rouge">PickerPaper</code>の値を入れ替える</li>
   <li><code class="language-plaintext highlighter-rouge">TradedVillager</code>が1以上のプレイヤーの<code class="language-plaintext highlighter-rouge">TradedVillager</code>を0にし、(-1920,10,-192)にある<a href="jobChangeJudgement.html">ジョブチェンジ先判定</a>を実行</li>
   <li><code class="language-plaintext highlighter-rouge">ShowStatus</code>を持っているプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">SaveJob</code>に<code class="language-plaintext highlighter-rouge">Job</code>を代入する</li>
@@ -776,20 +774,19 @@ $('#toc').on('click', 'a', function() {
   <li><code class="language-plaintext highlighter-rouge">ShowStatus</code>のプレイヤーを一人選択し、(-1920,14,-192)にある<a href="statusDisplay.html">ステータス表示</a>を実行</li>
   <li><code class="language-plaintext highlighter-rouge">ShowConquest</code>のプレイヤーを一人選択し、(-1920,18,-192)にある<a href="conquerDisplay.html">攻略率表示</a>を実行</li>
   <li>(-1755,98,-153)からdx=32,dy=9,dz=32(ブラジル行きの穴)にいるプレイヤーに<code class="language-plaintext highlighter-rouge">WarpByJob</code>を付与し、(-1920,15,-192)にある<a href="warpProcessing.html">ワープ処理_ジョブ島/通常世界</a>を実行</li>
-  <li><code class="language-plaintext highlighter-rouge">HP</code>が0以下,<code class="language-plaintext highlighter-rouge">Hunger</code>が-1以下であるプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">Hunger</code>に<code class="language-plaintext highlighter-rouge">Food</code>を代入し、(-1920,16,-192)にある<a href="keepInventoryCheck.html">KeepInventory確認</a>を実行</li>
-  <li><code class="language-plaintext highlighter-rouge">HP</code>が1以上,<code class="language-plaintext highlighter-rouge">Hunger</code>が0以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-192)にある<a href="satietyFix.html">満腹度修正</a>を実行</li>
+  <li><code class="language-plaintext highlighter-rouge">HP</code>が0以下,<code class="language-plaintext highlighter-rouge">Hunger</code>が-1以下であるプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">Hunger</code>に<code class="language-plaintext highlighter-rouge">Food</code>を代入し、(-1920,16,-192)にある<a href="keepinventoryCheck.html">KeepInventory確認</a>を実行</li>
+  <li><code class="language-plaintext highlighter-rouge">HP</code>が1以上,<code class="language-plaintext highlighter-rouge">Hunger</code>が0以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html#commongm">CommonGM</a>から(~,17,-192)にある<a href="satietyFix.html">満腹度修正</a>を実行</li>
   <li><code class="language-plaintext highlighter-rouge">HP</code>が1以上かつインベントリにネザースターのあるプレイヤーの<code class="language-plaintext highlighter-rouge">GotExpFlag</code>を-1にし、(-1920,8,-191)にある<a href="expProcessing.html">経験値取得処理</a>を実行</li>
-  <li><code class="language-plaintext highlighter-rouge">ExpToLevel</code>が0以下であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,9,-191)にある<a href="levelupProcessing.html">レベルアップ処理</a>を実行</li>
-  <li><code class="language-plaintext highlighter-rouge">RefreshHPMax</code>が1以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,16,-191)にある<a href="hpFix.html">最大HP調整処理</a>を実行</li>
+  <li><code class="language-plaintext highlighter-rouge">ExpToLevel</code>が0以下であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html#commongm">CommonGM</a>から(~,9,-191)にある<a href="levelupProcessing.html">レベルアップ処理</a>を実行</li>
+  <li><code class="language-plaintext highlighter-rouge">RefreshHPMax</code>が1以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html#commongm">CommonGM</a>から(~,16,-191)にある<a href="hpFix.html">最大HP調整処理</a>を実行</li>
   <li><code class="language-plaintext highlighter-rouge">CoolTickCounter</code>が1以上,<code class="language-plaintext highlighter-rouge">MPMaxFlag</code>が0以下,<code class="language-plaintext highlighter-rouge">ManaRefresh</code>が0以上であるプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">MP</code>に<code class="language-plaintext highlighter-rouge">MPIncrement</code>を足し合わせる</li>
   <li><code class="language-plaintext highlighter-rouge">CoolTickCounter</code>が1以上,<code class="language-plaintext highlighter-rouge">MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">MP</code>に<code class="language-plaintext highlighter-rouge">MPIncrement</code>を足し合わせ、<code class="language-plaintext highlighter-rouge">MP</code>から<code class="language-plaintext highlighter-rouge">MPMax</code>を引く。そして、<code class="language-plaintext highlighter-rouge">CoolTickCounter</code>が1以上,<code class="language-plaintext highlighter-rouge">MPMaxFlag</code>が0以下,<code class="language-plaintext highlighter-rouge">MP</code>が0以上であるプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">MP</code>に<code class="language-plaintext highlighter-rouge">MPMax</code>を代入し、<code class="language-plaintext highlighter-rouge">score_CoolTickCounter_min=1</code>,<code class="language-plaintext highlighter-rouge">score_MPMaxFlag=0</code>,<code class="language-plaintext highlighter-rouge">score_MP_min=0</code>であるプレイヤーの<code class="language-plaintext highlighter-rouge">MPMaxFlag</code>を1にする</li>
   <li><code class="language-plaintext highlighter-rouge">CoolTickCounter</code>が1以上,<code class="language-plaintext highlighter-rouge">MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">MP</code>に<code class="language-plaintext highlighter-rouge">MPMax</code>を足し合わせ、<code class="language-plaintext highlighter-rouge">CoolTickCounter</code>が1以上,<code class="language-plaintext highlighter-rouge">MPMaxFlag</code>が0以下であるプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">CoolTickCounter</code>に<code class="language-plaintext highlighter-rouge">CoolTickSpan</code>を代入する</li>
-  <li><code class="language-plaintext highlighter-rouge">UseEnderEye</code>が1以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html">CommonGM</a>から(~,17,-191)と(~,18,-191)にある<a href="conquerProcessing.html">島攻略処理</a>と[島攻略処理_その2?]をそれぞれ実行</li>
+  <li><code class="language-plaintext highlighter-rouge">UseEnderEye</code>が1以上であるプレイヤーを一人選択し、<a href="TUSB_Analysis_Entity.html#commongm">CommonGM</a>から(~,17,-191)と(~,18,-191)にある<a href="conquerProcessing.html">島攻略処理</a>を実行</li>
   <li><code class="language-plaintext highlighter-rouge">UseChorus</code>が1以上であるプレイヤーに<code class="language-plaintext highlighter-rouge">Pray</code>を追加。(-2827,57,-410)から(dx=9,dy=123,dz=9)(タワーバンク内)にいてかつ<code class="language-plaintext highlighter-rouge">Use_Chorus</code>が1以上であるプレイヤーを(-2811,75,-396,-53,0)(タワーバンク入口)に移動させる</li>
-  <li><code class="language-plaintext highlighter-rouge">UseChorus</code>が1以上であるプレイヤーのところに[コーラスマイト]を出現させ、<code class="language-plaintext highlighter-rouge">UseChorus</code>が1以上であるプレイヤーの<code class="language-plaintext highlighter-rouge">UseChorus</code>を0にする</li>
+  <li><code class="language-plaintext highlighter-rouge">UseChorus</code>が1以上であるプレイヤーのところに<a href="TUSB_Analysis_Entity.html#コーラスマイト">コーラスマイト</a>を出現させ、<code class="language-plaintext highlighter-rouge">UseChorus</code>が1以上であるプレイヤーの<code class="language-plaintext highlighter-rouge">UseChorus</code>を0にする</li>
   <li><code class="language-plaintext highlighter-rouge">Deaths</code>が1以上,<code class="language-plaintext highlighter-rouge">HP</code>が1以上であるプレイヤーのエフェクトをすべて消去する</li>
 </ol>
-
 
 
     <div class="tags">
@@ -820,7 +817,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 2020/6/17<br/> Site last generated: Jun 18, 2020 <br />
+            <span>Page last updated:</span> 2020/6/19<br/> Site last generated: Jun 19, 2020 <br />
         </div>
     </div>
 </footer>

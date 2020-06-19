@@ -179,7 +179,7 @@
           
           
           
-          <li><a title="マクラウェル内部" href="insideMcLawell.html">マクラウェル内部</a></li>
+          <li><a title="マクラエル内部" href="insideMcLawell.html">マクラエル内部</a></li>
           
           
           
@@ -518,6 +518,34 @@ $('#toc').on('click', 'a', function() {
         
      
         
+
+        <tr><td><a href="aecMaintenance.html">AEC維持</a></td>
+            <td><span class="label label-default">Page</span></td>
+          <td> 位置 (-1920,12,-200) About 煉獄のボスの実行や死の宣告、特殊スポナー処理、不正対策等が行われているコマンド群である。 コマンド群     No. コマンド コメント 状態     1 /execute @e[tag=MobCloud] ~ ~ ~ /execute @e[dx=0,tag=Enemy,c=1] ~ ~ ~ /entitydata @e[dy=10,tag=MobCloud] {Age:5} AEC維持MobCloud     2 /execute 0-0-1-0-4 ~... </td>
+        </tr>
+        
+     
+   
+    
+        
+     
+   
+    
+        
+     
+        
+     
+   
+    
+        
+     
+        
+     
+   
+    
+        
+     
+        
      
         
      
@@ -533,7 +561,7 @@ $('#toc').on('click', 'a', function() {
 
         <tr><td><a href="clockIslandProcessing.html">時計島</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td>  位置(-1920,4,096) 時計島の形態変化の管理、演出の実行  コマンド群     No. コマンド 状態     1 /summon XPOrb ~ ~ ~ {Passengers:[{id:Arrow,xTile:-58,yTile:23,zTile:22,life:1200s},{id:Arrow,xTile:35,yTile:0,zTile:6,life:1200s},{id:Arrow,xTile:59,yTile:0,zTile:6,life:1200s},{id:Arrow,xTile:35,yTile:0,zTile:30,life:1200s},{id:Arrow,xTile:59,yTile:0,zTile:30,life:1200s},{id:Arrow,xTile:4000,yTile:255,zTile:4000,life:1200s},{id:Arrow,xTile:4016,yTile:255,zTile:4000,life:1200s},{id:Arrow,xTile:4000,yTile:255,zTile:4016,life:1200s},{id:Arrow,xTile:4016,yTile:255,zTile:4016,life:1200s}],Age:6000s}     2 /clone ~1 ~ ~ ~1... </td>
+          <td> 位置 (-1920,4,-96) About 時計島の形態変化の管理、アラームなどの演出の実行を行う。 コマンド群     No. コマンド 状態     1 /summon XPOrb ~ ~ ~ {Passengers:[{id:Arrow,xTile:-58,yTile:23,zTile:22,life:1200s},{id:Arrow,xTile:35,yTile:0,zTile:6,life:1200s},{id:Arrow,xTile:59,yTile:0,zTile:6,life:1200s},{id:Arrow,xTile:35,yTile:0,zTile:30,life:1200s},{id:Arrow,xTile:59,yTile:0,zTile:30,life:1200s},{id:Arrow,xTile:4000,yTile:255,zTile:4000,life:1200s},{id:Arrow,xTile:4016,yTile:255,zTile:4000,life:1200s},{id:Arrow,xTile:4000,yTile:255,zTile:4016,life:1200s},{id:Arrow,xTile:4016,yTile:255,zTile:4016,life:1200s}],Age:6000s}     2 /clone ~1... </td>
         </tr>
         
      
@@ -551,7 +579,7 @@ $('#toc').on('click', 'a', function() {
 
         <tr><td><a href="conquerProcessing.html">島攻略処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td>  位置(-1920,17,-191),(-1920,18,-191)  コマンド群 (-1920,17,-191)にあるコマンド群 (島攻略処理という看板がついているもの)     No. コマンド 状態     1 /scoreboard players tag @a[score_UseEnderEye_min=1,c=1] add Conquer     2 /scoreboard players reset... </td>
+          <td> 位置 (-1920,17,-191),(-1920,18,-191) About 島攻略時の演出や、製作者村人の出現などの処理を行う。 コマンド群 (-1920,17,-191)にあるコマンド群 (島攻略処理という看板がついているもの)     No. コマンド 状態     1 /scoreboard players tag @a[score_UseEnderEye_min=1,c=1] add Conquer     2 &lt;td... </td>
         </tr>
         
      
@@ -565,6 +593,10 @@ $('#toc').on('click', 'a', function() {
     
         
      
+   
+    
+        
+     
         
      
         
@@ -577,6 +609,12 @@ $('#toc').on('click', 'a', function() {
      
         
      
+        
+     
+        
+     
+   
+    
         
      
    
@@ -611,9 +649,9 @@ $('#toc').on('click', 'a', function() {
      
         
 
-        <tr><td><a href="insideMcLawell.html">マクラウェル内部</a></td>
+        <tr><td><a href="insideMcLawell.html">マクラエル内部</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1896,117,-136) About TUSBに初めてログインした時にトリガーとなる部分である。初期リスポーン地点にあるマクラウェル像の内部にあるコマンドブロック付きトロッコの横にあるラピスラズリブロックが、初期ファイルではこれがレッドストーンブロックになっておりコマンドブロック付きトロッコを起動させている。要はX回路区域はこれによって起動されていることになる。  Note: 初期状態を確かめるにはクリエイティブでワールドに入る必要がある。これを実現させるためにはNBT Explorerなどの外部ツールによって、level.datを書き換える必要がある。 コマンド群 コマンドブロック付きトロッコ /execute @p[r=30,m=!creative] ~ ~ ~ /clone -1870 4 -194 -1870 4 -158 -1870 4 -194 filtered force minecraft:command_block  その他コマンド群    No. &lt;th style="text-align:... </td>
+          <td> 位置 (-1896,117,-136) About TUSBに初めてログインした時にトリガーとなる部分である。初期リスポーン地点にあるマクラエル像の内部にあるコマンドブロック付きトロッコの横にあるラピスラズリブロックが、初期ファイルではこれがレッドストーンブロックになっておりコマンドブロック付きトロッコを起動させている。要はX回路区域はこれによって起動されていることになる。  Note: 初期状態を確かめるにはクリエイティブでワールドに入る必要がある。これを実現させるためにはNBT Explorerなどの外部ツールによって、level.datを書き換える必要がある。 コマンド群 コマンドブロック付きトロッコ /execute @p[r=30,m=!creative] ~ ~ ~ /clone -1870 4 -194 -1870 4 -158 -1870 4 -194 filtered force minecraft:command_block  その他コマンド群    No. &lt;th style="text-align:... </td>
         </tr>
         
      
@@ -637,6 +675,12 @@ $('#toc').on('click', 'a', function() {
     
         
      
+        
+     
+        
+     
+   
+    
         
      
         
@@ -677,6 +721,14 @@ $('#toc').on('click', 'a', function() {
      
    
     
+        
+     
+   
+    
+        
+     
+   
+    
    
     
         
@@ -685,7 +737,7 @@ $('#toc').on('click', 'a', function() {
 
         <tr><td><a href="reset.html">メインクロック開始時リセットするもの</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> About TUSBにログインした際にジョブやHP、満腹度修正などを行う。  位置(-1920,4,-192)  コマンド群     No. コマンド コメント 状態     1 /scoreboard players reset @a[score_MPConsumption_min=0] MPConsumption       2... </td>
+          <td> 位置 (-1920,4,-192) About TUSBにログインした際にジョブやHP、満腹度修正など、様々な処理への分岐を行う。 コマンド群     No. コマンド コメント 状態     1 /scoreboard players reset @a[score_MPConsumption_min=0] MPConsumption       &lt;td style="text-align:... </td>
         </tr>
         
      
@@ -699,7 +751,7 @@ $('#toc').on('click', 'a', function() {
 
         <tr><td><a href="runFirst.html">毎tick必ず最初に実行したいコマンド群</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td>  位置(-1920,4,-200)  コマンド群     No. コマンド コメント 状態     1 /clone ~-4 ~ ~ ~-4 ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###セルフクロック   &lt;td... </td>
+          <td> 位置 (-1920,4,-200) About 毎tick実行するコマンド群の一部であり、方角の関係から必ず最初に実行されるコマンド群である。また、このコマンド群自身がセルフクロックを行っている。  Tip: x,y,z軸と平行な直線上にあるコマンドブロックを同時に実行すると、その直線と平行な軸の座標の要素の値が小さい所にあるコマンドブロックから実行される。(例えば、A(0,0,0)とB(5,0,0)にあるコマンドブロックを同時に実行すると、x_A &lt; x_BなのでA、Bの順で実行される。) コマンド群     No. コマンド コメント 状態     1 /clone ~-4 ~ ~ ~-4... </td>
         </tr>
         
      
@@ -709,8 +761,14 @@ $('#toc').on('click', 'a', function() {
     
         
      
+   
+    
         
      
+        
+     
+   
+    
    
     
    
@@ -769,32 +827,32 @@ $('#toc').on('click', 'a', function() {
     
         
      
-        
-     
-   
-    
-   
-    
-   
-    
-   
-    
    
     
         
      
         
      
+   
+    
+   
+    
+   
+    
+   
+    
+   
+    
         
      
    
     
-   
-    
-   
-    
-   
-    
+        
+     
+        
+     
+        
+     
    
     
    
@@ -821,7 +879,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-             Site last generated: Jun 18, 2020 <br />
+             Site last generated: Jun 19, 2020 <br />
         </div>
     </div>
 </footer>

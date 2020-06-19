@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content="commandentity,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<meta name="keywords" content="commandentity,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,時計島,アラーム">
 <title>時計島 | TUSB_Analysis</title>
 <link rel="stylesheet" href=" css/syntax.css ">
 
@@ -210,7 +210,7 @@
           
           
           
-          <li><a title="マクラウェル内部" href="insideMcLawell.html">マクラウェル内部</a></li>
+          <li><a title="マクラエル内部" href="insideMcLawell.html">マクラエル内部</a></li>
           
           
           
@@ -514,10 +514,11 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <ul>
-  <li>位置(-1920,4,096)</li>
-  <li>時計島の形態変化の管理、演出の実行</li>
-</ul>
+   <p><span class="label label-primary">位置 (-1920,4,-96)</span></p>
+
+<h2 id="about">About</h2>
+
+<p>時計島の形態変化の管理、アラームなどの演出の実行を行う。</p>
 
 <h2 id="コマンド群">コマンド群</h2>
 
@@ -629,21 +630,21 @@ $('#toc').on('click', 'a', function() {
   <li>次のコマンド(<a href="#時計島">時計島</a>のNo.3のコマブロ)を実行</li>
   <li><code class="language-plaintext highlighter-rouge">#ConquerPctInt</code>の<code class="language-plaintext highlighter-rouge">Global</code>が11以上40以下の時以下の事柄を実行
     <ol>
-      <li>(-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを<a href="TUSB_Analysis_Entity.html">秒針</a>のものに置き換える</li>
+      <li>(-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを<a href="TUSB_Analysis_Entity.html#秒針">秒針</a>のものに置き換える</li>
       <li>時計島の底面の4隅の岩盤が存在し、時計島のクローン元(4000,255,4000)のy=255に空気ブロックが存在するとき、(4001,47,4001)にある時計島第二形態を(36,1,7)にコピーする</li>
       <li>(-1920,7,-96)に石をドロップし、<a href="#時計島のアラーム">時計島のアラーム</a>を実行</li>
     </ol>
   </li>
   <li><code class="language-plaintext highlighter-rouge">#ConquerPctInt</code>の<code class="language-plaintext highlighter-rouge">Global</code>が41以上70以下の時以下の事柄を実行
     <ol>
-      <li>(-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを<a href="TUSB_Analysis_Entity.html">分針</a>のものに置き換える</li>
+      <li>(-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを<a href="TUSB_Analysis_Entity.html#分針">分針</a>のものに置き換える</li>
       <li>時計島の底面の4隅の岩盤が存在し、時計島のクローン元(4000,255,4000)のy=255に空気ブロックが存在するとき、(4001,24,4001)にある時計島第三形態を(36,1,7)にコピーする</li>
       <li>(-1920,7,-96)に石をドロップし、<a href="#時計島のアラーム">時計島のアラーム</a>を実行</li>
     </ol>
   </li>
   <li><code class="language-plaintext highlighter-rouge">#ConquerPctInt</code>の<code class="language-plaintext highlighter-rouge">Global</code>が71以上の時以下の事柄を実行
     <ol>
-      <li>(-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを<a href="TUSB_Analysis_Entity.html">時針</a>のものに置き換える</li>
+      <li>(-58,23,22)にあるスポーンブロックが0であるとき、このスポーンブロックを<a href="TUSB_Analysis_Entity.html#時針">時針</a>のものに置き換える</li>
       <li>時計島の底面の4隅の岩盤が存在し、時計島のクローン元(4000,255,4000)のy=255に空気ブロックが存在するとき、(4001,1,4001)にある時計島第三形態を(36,1,7)にコピーする</li>
       <li>(-1920,7,-96)に石をドロップし、<a href="#時計島のアラーム">時計島のアラーム</a>を実行</li>
     </ol>
@@ -707,7 +708,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 2020/6/17<br/> Site last generated: Jun 18, 2020 <br />
+            <span>Page last updated:</span> 2020/6/19<br/> Site last generated: Jun 19, 2020 <br />
         </div>
     </div>
 </footer>

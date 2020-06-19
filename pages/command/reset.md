@@ -1,19 +1,19 @@
 ---
 title: メインクロック開始時リセットするもの
 tags: [command,entity,job]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,メインクロック
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: reset.html
 folder: command
 datatable4c: true
 ---
 
+<span class="label label-primary">位置 (-1920,4,-192)</span>
+
 ## About
 
-TUSBにログインした際にジョブやHP、満腹度修正などを行う。
-
-- 位置(-1920,4,-192)
+TUSBにログインした際にジョブやHP、満腹度修正など、様々な処理への分岐を行う。
 
 ## コマンド群
 
@@ -63,71 +63,26 @@ TUSBにログインした際にジョブやHP、満腹度修正などを行う�
 ## 詳細
 
 1. `MPConsumption`が0以上のプレイヤーの`MPConsumption`を0とし、`ActivatedSkill`が0以上のプレイヤーの`ActivatedSkill`を0とする。そして`Sneaking`を削除
-2. チームに属していないプレイヤー(team=)を一人選択し、[CommonGM]から(~,8,-192)にある[初回ログイン時処理]を実行
-3. `LeaveGame`が1以上のプレイヤーを一人選択し、[CommonGM]から(~,9,-192)にある[ログイン時処理]を実行
+2. チームに属していないプレイヤー(team=)を一人選択し、[CommonGM](TUSB_Analysis_Entity.html#commongm)から(~,8,-192)にある[初回ログイン時処理](firstLoginProcessing.html)を実行
+3. `LeaveGame`が1以上のプレイヤーを一人選択し、[CommonGM](TUSB_Analysis_Entity.html#commongm)から(~,9,-192)にある[ログイン時処理](loginProcessing.html)を実行
 4. `PickerPaper`が1以上のプレイヤーの`TradedVillager`と`PickerPaper`の値を入れ替える
-5. `TradedVillager`が1以上のプレイヤーの`TradedVillager`を0にし、(-1920,10,-192)にある[ジョブチェンジ先判定]を実行
+5. `TradedVillager`が1以上のプレイヤーの`TradedVillager`を0にし、(-1920,10,-192)にある[ジョブチェンジ先判定](jobChangeJudgement.html)を実行
 6. `ShowStatus`を持っているプレイヤーを一人選択し、`SaveJob`に`Job`を代入する
 7. `LoadJob`が0以上であるプレイヤーを一人選択し、`SaveJob`に`Job`を代入する
-8. `SaveJob`が0以上であるプレイヤーを一人選択し、(-1920,11,-192)にある[ジョブセーブ]を実行
-9. `LoadJob`が0以上であるプレイヤーを一人選択し、(-1920,12,-192)にある[ジョブロード]を実行
-10. `ShowStatus`のプレイヤーを一人選択し、(-1920,14,-192)にある[ステータス表示]を実行
-11. `ShowConquest`のプレイヤーを一人選択し、(-1920,18,-192)にある[攻略率表示]を実行
+8. `SaveJob`が0以上であるプレイヤーを一人選択し、(-1920,11,-192)にある[ジョブセーブ](jobSave.html)を実行
+9. `LoadJob`が0以上であるプレイヤーを一人選択し、(-1920,12,-192)にある[ジョブロード](jobLoad.html)を実行
+10. `ShowStatus`のプレイヤーを一人選択し、(-1920,14,-192)にある[ステータス表示](statusDisplay.html)を実行
+11. `ShowConquest`のプレイヤーを一人選択し、(-1920,18,-192)にある[攻略率表示](conquerDisplay.html)を実行
 12. (-1755,98,-153)からdx=32,dy=9,dz=32(ブラジル行きの穴)にいるプレイヤーに`WarpByJob`を付与し、(-1920,15,-192)にある[ワープ処理_ジョブ島/通常世界](warpProcessing.html)を実行
-13. `HP`が0以下,`Hunger`が-1以下であるプレイヤーを一人選択し、`Hunger`に`Food`を代入し、(-1920,16,-192)にある[KeepInventory確認]を実行
-14. `HP`が1以上,`Hunger`が0以上であるプレイヤーを一人選択し、[CommonGM]から(~,17,-192)にある[満腹度修正]を実行
-15. `HP`が1以上かつインベントリにネザースターのあるプレイヤーの`GotExpFlag`を-1にし、(-1920,8,-191)にある[経験値取得処理]を実行
-16. `ExpToLevel`が0以下であるプレイヤーを一人選択し、[CommonGM]から(~,9,-191)にある[レベルアップ処理]を実行
-17. `RefreshHPMax`が1以上であるプレイヤーを一人選択し、[CommonGM]から(~,16,-191)にある[最大HP調整処理]を実行
+13. `HP`が0以下,`Hunger`が-1以下であるプレイヤーを一人選択し、`Hunger`に`Food`を代入し、(-1920,16,-192)にある[KeepInventory確認](keepinventoryCheck.html)を実行
+14. `HP`が1以上,`Hunger`が0以上であるプレイヤーを一人選択し、[CommonGM](TUSB_Analysis_Entity.html#commongm)から(~,17,-192)にある[満腹度修正](satietyFix.html)を実行
+15. `HP`が1以上かつインベントリにネザースターのあるプレイヤーの`GotExpFlag`を-1にし、(-1920,8,-191)にある[経験値取得処理](expProcessing.html)を実行
+16. `ExpToLevel`が0以下であるプレイヤーを一人選択し、[CommonGM](TUSB_Analysis_Entity.html#commongm)から(~,9,-191)にある[レベルアップ処理](levelupProcessing.html)を実行
+17. `RefreshHPMax`が1以上であるプレイヤーを一人選択し、[CommonGM](TUSB_Analysis_Entity.html#commongm)から(~,16,-191)にある[最大HP調整処理](hpFix.html)を実行
 18. `CoolTickCounter`が1以上,`MPMaxFlag`が0以下,`ManaRefresh`が0以上であるプレイヤーを一人選択し、`MP`に`MPIncrement`を足し合わせる
 19. `CoolTickCounter`が1以上,`MPMaxFlag`が0以下であるプレイヤーを一人選択し、`MP`に`MPIncrement`を足し合わせ、`MP`から`MPMax`を引く。そして、`CoolTickCounter`が1以上,`MPMaxFlag`が0以下,`MP`が0以上であるプレイヤーを一人選択し、`MP`に`MPMax`を代入し、`score_CoolTickCounter_min=1`,`score_MPMaxFlag=0`,`score_MP_min=0`であるプレイヤーの`MPMaxFlag`を1にする
 20. `CoolTickCounter`が1以上,`MPMaxFlag`が0以下であるプレイヤーを一人選択し、`MP`に`MPMax`を足し合わせ、`CoolTickCounter`が1以上,`MPMaxFlag`が0以下であるプレイヤーを一人選択し、`CoolTickCounter`に`CoolTickSpan`を代入する
-21. `UseEnderEye`が1以上であるプレイヤーを一人選択し、[CommonGM]から(~,17,-191)と(~,18,-191)にある[島攻略処理]と[島攻略処理_その2?]をそれぞれ実行
+21. `UseEnderEye`が1以上であるプレイヤーを一人選択し、[CommonGM](TUSB_Analysis_Entity.html#commongm)から(~,17,-191)と(~,18,-191)にある[島攻略処理](conquerProcessing.html)を実行
 22. `UseChorus`が1以上であるプレイヤーに`Pray`を追加。(-2827,57,-410)から(dx=9,dy=123,dz=9)(タワーバンク内)にいてかつ`Use_Chorus`が1以上であるプレイヤーを(-2811,75,-396,-53,0)(タワーバンク入口)に移動させる
-23. `UseChorus`が1以上であるプレイヤーのところに[コーラスマイト]を出現させ、`UseChorus`が1以上であるプレイヤーの`UseChorus`を0にする
+23. `UseChorus`が1以上であるプレイヤーのところに[コーラスマイト](TUSB_Analysis_Entity.html#コーラスマイト)を出現させ、`UseChorus`が1以上であるプレイヤーの`UseChorus`を0にする
 24. `Deaths`が1以上,`HP`が1以上であるプレイヤーのエフェクトをすべて消去する
-
-[CommonGM]:TUSB_Analysis_Entity.html
-[エンダーマイト]:TUSB_Analysis_Entity.html
-[SystemKeeper]:TUSB_Analysis_Entity.html
-[地下世界]:TUSB_Analysis_Entity.html
-[クラウディア]:TUSB_Analysis_Entity.html
-[テーブルマウンテン]:TUSB_Analysis_Entity.html
-[ガリバーランド]:TUSB_Analysis_Entity.html
-[トカルトコルデ]:TUSB_Analysis_Entity.html
-[お試しセットの印玉]:TUSB_Analysis_Item.html
-[ViewPoint(仮)]:TUSB_Analysis_Entity.html
-[秒針]:TUSB_Analysis_Entity.html
-[分針]:TUSB_Analysis_Entity.html
-[時針]:TUSB_Analysis_Entity.html
-
-[jobSave]:/TUSB_Analysis/others/TUSB_Analysis_Data.html
-[jobLoad]:/TUSB_Analysis/others/TUSB_Analysis_Data.html
-
-[お試しセットの印玉]:/TUSB_Analysis/others/TUSB_Analysis_Item.html
-
-[メインクロック開始時リセットするもの]:reset.html
-[初回ログイン時処理]:firstLoginProcessing.html
-[ログイン時処理]:loginProcessing.html
-[ジョブチェンジ先判定]:jobChangeJudgement.html
-[ジョブセーブ]:jobSave.html
-[ジョブロード]:jobLoad.html
-[ステータス表示]:statusDisplay.html
-[攻略率表示]:conquerDisplay.html
-[ワープ処理ジョブ島・通常世界]:warpProcessing.html
-[KeepInventory確認]:keepInventoryCheck.html
-[満腹度修正]:satietyFix.html
-[経験値取得処理]:expProcessing.html
-[レベルアップ処理]:levelupProcessing.html
-[最大HP調整処理]:hpFix.html
-[難易度調整]:difficultyAdjustment.html
-[島攻略処理]:conquerProcessing.html
-[習得スキル取得]:skillAcquisition.html
-[時計島]:clockIslandProcessing.html
-[マクラウェル内部]:insideMcLawell.html
-[スコアボードの設定]:setScoreboard.html
-[メインクロック処理]:mainclockProcessing.html
-[SystemKeeper処理]:systemKeeperProcessing.html
-[かまど再設定]:furnaceProcessing.html
-[毎tick必ず最初に実行したいコマンド群]:runFirst.html
-[エリア侵入記録]:areaRecord.html

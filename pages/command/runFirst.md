@@ -2,14 +2,20 @@
 title: 毎tick必ず最初に実行したいコマンド群
 tags: [command,entity,dimension]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: runFirst.html
 folder: command
 datatable4c: true
 ---
 
-- 位置(-1920,4,-200)
+<span class="label label-primary">位置 (-1920,4,-200)</span>
+
+## About
+
+毎tick実行するコマンド群の一部であり、方角の関係から必ず最初に実行されるコマンド群である。また、このコマンド群自身がセルフクロックを行っている。
+
+{% include tip.html content="x,y,z軸と平行な直線上にあるコマンドブロックを同時に実行すると、その直線と平行な軸の座標の要素の値が小さい所にあるコマンドブロックから実行される。(例えば、A(0,0,0)とB(5,0,0)にあるコマンドブロックを同時に実行すると、x_A < x_BなのでA、Bの順で実行される。)" %}
 
 ## コマンド群
 
@@ -70,7 +76,7 @@ datatable4c: true
 
 ## 詳細
 
-1. [毎tick必ず最初に実行したいコマンド群](expProcessing.html)を実行 (ここで自身を呼び出すことでクロックを行っている)
+1. [毎tick必ず最初に実行したいコマンド群](expProcessing.html)を実行 (ここで自身を呼び出すことでセルフクロックを行っている)
 2. `FloationRequired`を持ち、{OnGround:true}であるエンティティと`CooldownRequired`を持ち、{PortalCooldown:0}であるエンティティに`Garbage`を付与
 3. `Slimy`を持ち、{AbsorptionAmount:0f}であるエンティティが存在したら`Garbage`を付与し、以下の事柄を実行
    1. `Garbage`を持つエンティティに{Size:0}を付与

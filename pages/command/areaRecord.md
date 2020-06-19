@@ -1,19 +1,19 @@
 ---
 title: エリア侵入記録
 tags: [command,item,display,dimension,skill]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,お試しセットの印玉,地下世界,テーブルマウンテン,ガリバーランド,トカルトコルデ,ディメンション
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: areaRecord.html
 folder: command
 datatable4cnp: true
 ---
 
+<span class="label label-primary">位置 (-1920,9,-200)</span>
+
 ## About
 
-Overworld内のディメンション移動の際の侵入記録を行う。また、その際にスキルの設定を変える、お試しセットの印玉を渡すなどの処理も行っている。
-
-- 位置(-1920,9,-200)
+Overworld内のディメンション移動の際の侵入記録を行う。また、その際にスキルの設定を変える、[お試しセットの印玉](TUSB_Analysis_Item.html#お試しセットの印玉)を渡すなどの処理も行っている。
 
 ## コマンド群
 
@@ -47,17 +47,17 @@ No.11
 ## 詳細
 
 1. `AreaTitleFlag`の値に対応した`Enter`の持っていないエリアエフェクトクラウドに`Enter`を付与(以下の表参照)
-2. `AreaTitleFlag`が-100以上であるプレイヤー一人選択し、プレイヤーの1m上に4m以内にいる`ViewPoint`を持つエンティティ([ViewPoint(仮)](TUSB_Analysis_Entity.html))を移動
+2. `AreaTitleFlag`が-100以上であるプレイヤー一人選択し、プレイヤーの1m上に4m以内にいる`ViewPoint`を持つエンティティ([ViewPoint(仮)](TUSB_Analysis_Entity.html#viewpoint(仮)))を移動
 3. `AreaTitleFlag`が-100以上であるプレイヤーの`InstantChangeA`、`InstantChangeB`、`ModeChangeA`、`ModeChangeB`をそれぞれ0に設定
-4. (-2725,88,-382)から2m以内(スキル設定所入口)にいて`AreaTitleFlag`が10であり、`TrialSet`を持つプレイヤーが存在したら、[お試しセットの印玉](TUSB_Analysis_Entity.html)を与え以下の事柄を実行
-   1. [お試しセットの印玉]を受け取ったというメッセージを表示
+4. (-2725,88,-382)から2m以内(スキル設定所入口)にいて`AreaTitleFlag`が10であり、`TrialSet`を持つプレイヤーが存在したら、[お試しセットの印玉](TUSB_Analysis_Item.html#お試しセットの印玉)を与え以下の事柄を実行
+   1. [お試しセットの印玉](TUSB_Analysis_Item.html#お試しセットの印玉)を受け取ったというメッセージを表示
    2. `TrialSet`を削除
 5. `AreaTitleFlag`が-100以上であるプレイヤーの`AreaTitleFlag`を-999に設定
 
 |AreaTitleFlag|AreaEffectCloudName|
 |:-:|:-:|
-|1|[地下世界](TUSB_Analysis_Entity.html)|
-|10|[クラウディア](TUSB_Analysis_Entity.html)|
-|11|[テーブルマウンテン](TUSB_Analysis_Entity.html)|
-|12|[ガリバーランド](TUSB_Analysis_Entity.html)|
-|13|[トカルトコルデ](TUSB_Analysis_Entity.html)|
+|1|[地下世界](TUSB_Analysis_Entity.html#地下世界)|
+|10|[クラウディア](TUSB_Analysis_Entity.html#クラウディア)|
+|11|[テーブルマウンテン](TUSB_Analysis_Entity.html#テーブルマウンテン)|
+|12|[ガリバーランド](TUSB_Analysis_Entity.html#ガリバーランド)|
+|13|[トカルトコルデ](TUSB_Analysis_Entity.html#トカルトコルデ)|

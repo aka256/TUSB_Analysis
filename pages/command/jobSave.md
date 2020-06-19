@@ -1,15 +1,18 @@
 ---
 title: ジョブセーブ
 tags: [command,job,exp]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,ジョブ,職業
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: jobSave.html
 folder: command
 ---
 
-- 位置(-1920,11,-192)
-- `(Job)Level`や`(Job)ToLevel`の保存
+<span class="label label-primary">位置 (-1920,11,-192)</span>
+
+## About
+
+職業のレベルやレベルアップのために必要な経験値量の保存を行う。
 
 ## コマンド群
 

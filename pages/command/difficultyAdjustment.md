@@ -1,15 +1,19 @@
 ---
 title: 難易度調整
 tags: [command]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,バニラモブ
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: difficultyAdjustment.html
 folder: command
 datatable3cnp: true
 ---
 
-- 位置(-1920,17,-200)
+<span class="label label-primary">位置 (-1920,17,-200)</span>
+
+## About
+
+攻略率の値によって、通常沸きの敵Mobに特殊効果を付与している。
 
 ## コマンド群
 
@@ -49,7 +53,7 @@ datatable3cnp: true
 
 ### コマンド書き換え
 
-|Setting|(-1886,14,-188)への書き換え内容|(-1885,14,-188)への書き換え内容|
+|Difficulty|(-1886,14,-188)への書き換え内容|(-1885,14,-188)への書き換え内容|
 |:-:|:-|:-|
 |~30|スピードLv.0 1秒間|耐性Lv.0 1秒間|
 |30~|スピードLv.0 1000000秒間|耐性Lv.0 1000000秒間|

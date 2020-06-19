@@ -1,15 +1,19 @@
 ---
 title: 島攻略処理
 tags: [command,entity,display]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,島攻略,製作者村人
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: conquerProcessing.html
 folder: command
 datatable3c: true
 ---
 
-- 位置(-1920,17,-191),(-1920,18,-191)
+<span class="label label-primary">位置 (-1920,17,-191),(-1920,18,-191)</span>
+
+## About
+
+島攻略時の演出や、製作者村人の出現などの処理を行う。
 
 ## コマンド群
 
@@ -122,8 +126,8 @@ datatable3c: true
 2. `Prayable`の`Settings`が0以下の時、以下の事柄を実行
     - (-70,15,32)(交易島)の東向きでエンダーアイがはめられているエンドポータルフレームが存在する時、`Prayable`の`Settings`を1に設定
 3. `ForceNight`の`Settings`が0以下の時、以下の事柄を実行
-    - [CommonGM](TUSB_Analysis_Entity.html)が(-1920,4,-96)にある[時計島](clockIslandProcessing.html)を実行
-4. `ForceNight`の`Settings`が1以上であり、(3,77,87)にある南向きでエンダーアイがはめられたエンドポータルフレームが存在する時、以下の事柄を実行
+    - [CommonGM](TUSB_Analysis_Entity.html#commongm)が(-1920,4,-96)にある[時計島](clockIslandProcessing.html)を実行
+4. `ForceNight`の`Settings`が1以上であり、(3,77,87)にある南向きでエンダーアイがはめられたエンドポータルフレーム(月島のエンドポータルフレーム)が存在する時、以下の事柄を実行
     1. 時間をdayに設定し、`doDaylightCycle`をtrueに変更
     2. `#PastorMax`の`Global`から2引く
     3. `ForceNight`の`Settings`を0に設定

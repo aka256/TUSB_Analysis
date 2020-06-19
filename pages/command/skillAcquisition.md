@@ -1,15 +1,19 @@
 ---
 title: 習得スキル取得
 tags: [command,skill,job,display]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,職業,ジョブ,レベルアップ,スキル
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: skillAcquisition.html
 folder: command
 datatable2c: true
 ---
 
-- 位置(-1920,10,-191)から(-1920,15,-191)
+<span class="label label-primary">位置 (-1920,10,-191)~(-1920,15,-191)</span>
+
+## About
+
+レベルアップ時に新しいスキル取得したか判断する。
 
 ## コマンド群
 

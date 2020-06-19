@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content="commandskill,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<meta name="keywords" content="commandskill,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,トカルトコルデ,スキル,ガーディアン">
 <title>時間経過 | TUSB_Analysis</title>
 <link rel="stylesheet" href=" css/syntax.css ">
 
@@ -214,7 +214,7 @@
           
           
           
-          <li><a title="マクラウェル内部" href="insideMcLawell.html">マクラウェル内部</a></li>
+          <li><a title="マクラエル内部" href="insideMcLawell.html">マクラエル内部</a></li>
           
           
           
@@ -518,9 +518,11 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <ul>
-  <li>位置(-1920,11,-200)</li>
-</ul>
+   <p><span class="label label-primary">位置 (-1920,11,-200)</span></p>
+
+<h2 id="about">About</h2>
+
+<p>スキルやイベント、トカルトコルデなどでの時間経過により変化するものの処理、分岐を行っている。</p>
 
 <h2 id="コマンド群">コマンド群</h2>
 
@@ -862,6 +864,57 @@ $('#toc').on('click', 'a', function() {
       <li><code class="language-plaintext highlighter-rouge">WindWall</code>が-1以上であるプレイヤーの<code class="language-plaintext highlighter-rouge">WindWall</code>を0に設定</li>
     </ol>
   </li>
+  <li><code class="language-plaintext highlighter-rouge">WindWall</code>が0以上であるプレイヤーのいる座標で効果音を鳴らす。</li>
+  <li><code class="language-plaintext highlighter-rouge">NinjaTime</code>が0以上であるプレイヤーが存在したら、<code class="language-plaintext highlighter-rouge">NinjaTime</code>から1を引いて以下の事柄を実行
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">NinjaTime</code>が-1以下であるとき<code class="language-plaintext highlighter-rouge">Tsuremai</code>と<code class="language-plaintext highlighter-rouge">Choyaku</code>、<code class="language-plaintext highlighter-rouge">NinjaTime</code>をそれぞれ0に設定</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">MagicShield</code>を持つプレイヤーに耐性Lv.4を15秒間付与</li>
+  <li><code class="language-plaintext highlighter-rouge">Mokuso</code>を持つプレイヤーが存在したら、再生能力Lv.1を15秒間付与し、<code class="language-plaintext highlighter-rouge">Level</code>が43以上だったら再生能力Lv.2を15秒間付与</li>
+  <li><code class="language-plaintext highlighter-rouge">Kazakiri</code>を持つプレイヤーが存在したら、<code class="language-plaintext highlighter-rouge">Kazakiri</code>から1を引き、(-1920,11,-198)にある<a href="kazakiriUpdata.html">風切更新</a>を実行</li>
+  <li><code class="language-plaintext highlighter-rouge">RadarVision</code>が0以上であるプレイヤーが存在したら、<code class="language-plaintext highlighter-rouge">RadarVision</code>から1を引き、以下の事柄を実行
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">RadarVision</code>が-1以下であるプレイヤーに<code class="language-plaintext highlighter-rouge">RadarEnd</code>を付与し、15m下に移動、<code class="language-plaintext highlighter-rouge">RadarVision</code>を0に設定</li>
+      <li>(-1920,12,-166)にある<a href="archer_RadarVisionFinProcessing.html">狩人レーダーヴィジョン終了処理</a>を実行</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">#SecCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>に1を足す</li>
+  <li><code class="language-plaintext highlighter-rouge">#SecCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が0であるとき、ワールドの境界線から0m近づいたとき警告を出す</li>
+  <li><code class="language-plaintext highlighter-rouge">#SecCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が61以上であるとき、(-1920,14,-200)にある<a href="oneMinProcessing.html">約1分処理</a>を実行</li>
+  <li><code class="language-plaintext highlighter-rouge">FlyingObject</code>を持ち、空気中で停止している飛翔物が存在したら、それに<code class="language-plaintext highlighter-rouge">TestingTick</code>を付与し以下の事柄を実行
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">TestingTick</code>を持つエンティティの<code class="language-plaintext highlighter-rouge">PortalCooldown</code>を1に設定</li>
+      <li>(-1920,15,-200)にある<a href="tickStopDelete.html">Tick停止飛翔物削除</a>を実行</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">CanSpin</code>を持つエンティティを中心として一辺2mの範囲に蜘蛛の巣を設置</li>
+  <li><code class="language-plaintext highlighter-rouge">Freeze</code>を持ち、<code class="language-plaintext highlighter-rouge">PortalCooldown</code>が0であるエンティティが存在したら、<code class="language-plaintext highlighter-rouge">Melt</code>を付与し以下の事柄を実行
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Melt</code>を持つエンティティの<code class="language-plaintext highlighter-rouge">NoAI</code>をfalseにし、<code class="language-plaintext highlighter-rouge">Freeze</code>と<code class="language-plaintext highlighter-rouge">Melt</code>を削除</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">SkillMob</code>を持つエンティティが存在したら、<code class="language-plaintext highlighter-rouge">MobCastTime</code>に20を足し、以下の事柄を実行
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">SkillMob</code>を持ち、プレイヤーでないエンティティを一人ランダムに選び、<code class="language-plaintext highlighter-rouge">MobCastTime</code>が400以上であるとき<code class="language-plaintext highlighter-rouge">MobCastTime</code>に20との剰余を代入</li>
+      <li>(-1920,14,-197)にある<a href="runMobSkill.html">敵スキル実行</a>を実行</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">CauseEvent</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が0であるプレイヤーが存在する時、以下の事柄を実行
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">#SecCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が0以上であるとき、(-1920,11,-197)にある<a href="eventFulfill.html">イベント履行</a>を実行</li>
+    </ul>
+  </li>
+  <li><a href="TUSB_Analysis_Entity.html#systemkeeper">SystemKeeper</a>を今の座標からy=10へ移動</li>
+  <li><code class="language-plaintext highlighter-rouge">USBDimension</code>が13であり、<code class="language-plaintext highlighter-rouge">SaveTorch</code>を持ってなく、スペクターモードでないプレイヤーが存在したら、<code class="language-plaintext highlighter-rouge">RemoveTorch</code>を付与し(-1920,12,-197)にある<a href="iceProcessing.html">トカルト処理</a>を実行</li>
+  <li><code class="language-plaintext highlighter-rouge">SaveTouch</code>を持つプレイヤーから<code class="language-plaintext highlighter-rouge">SaveTouch</code>を消去</li>
+  <li>UUIDが0-0-1-0-3であるエンティティから5m以内で<code class="language-plaintext highlighter-rouge">VillagerMeal</code>を持つエンティティが存在したら、それの<code class="language-plaintext highlighter-rouge">Freshness</code>の符号を反転し、(-1920,13,-197)にある<a href="animalGuideEvent.html">動物誘導イベント</a>を実行</li>
+  <li>採掘速度低下Lv.3を持つプレイヤーが存在したら、<code class="language-plaintext highlighter-rouge">ReduceCurse</code>を付与し、以下の事柄を実行
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">ReduceCurse</code>を持つプレイヤーに採掘速度低下Lv.3を15秒間、弱体化Lv.3を15秒間、空腹Lv.3を15秒間付与</li>
+      <li><code class="language-plaintext highlighter-rouge">ReduceCurse</code>を持つプレイヤーから<code class="language-plaintext highlighter-rouge">ResuceCurce</code>を削除</li>
+    </ol>
+  </li>
 </ol>
 
 
@@ -891,7 +944,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 2020/6/17<br/> Site last generated: Jun 18, 2020 <br />
+            <span>Page last updated:</span> 2020/6/19<br/> Site last generated: Jun 19, 2020 <br />
         </div>
     </div>
 </footer>

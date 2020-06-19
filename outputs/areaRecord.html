@@ -365,11 +365,9 @@ code {
           : 'default'
     });
   </script>
+<p><span class="label label-primary">位置 (-1920,9,-200)</span></p>
 <h2 id="about">About</h2>
-<p>Overworld内のディメンション移動の際の侵入記録を行う。また、その際にスキルの設定を変える、お試しセットの印玉を渡すなどの処理も行っている。</p>
-<ul>
-<li>位置(-1920,9,-200)</li>
-</ul>
+<p>Overworld内のディメンション移動の際の侵入記録を行う。また、その際にスキルの設定を変える、<a href="TUSB_Analysis_Item.html#%E3%81%8A%E8%A9%A6%E3%81%97%E3%82%BB%E3%83%83%E3%83%88%E3%81%AE%E5%8D%B0%E7%8E%89">お試しセットの印玉</a>を渡すなどの処理も行っている。</p>
 <h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
 <div class="datatable4cnp-begin"></div>
 <table>
@@ -475,11 +473,11 @@ code {
 <h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
 <ol>
 <li><code>AreaTitleFlag</code>の値に対応した<code>Enter</code>の持っていないエリアエフェクトクラウドに<code>Enter</code>を付与(以下の表参照)</li>
-<li><code>AreaTitleFlag</code>が-100以上であるプレイヤー一人選択し、プレイヤーの1m上に4m以内にいる<code>ViewPoint</code>を持つエンティティ(<a href="TUSB_Analysis_Entity.html">ViewPoint(仮)</a>)を移動</li>
+<li><code>AreaTitleFlag</code>が-100以上であるプレイヤー一人選択し、プレイヤーの1m上に4m以内にいる<code>ViewPoint</code>を持つエンティティ(<a href="TUSB_Analysis_Entity.html#viewpoint(%E4%BB%AE)">ViewPoint(仮)</a>)を移動</li>
 <li><code>AreaTitleFlag</code>が-100以上であるプレイヤーの<code>InstantChangeA</code>、<code>InstantChangeB</code>、<code>ModeChangeA</code>、<code>ModeChangeB</code>をそれぞれ0に設定</li>
-<li>(-2725,88,-382)から2m以内(スキル設定所入口)にいて<code>AreaTitleFlag</code>が10であり、<code>TrialSet</code>を持つプレイヤーが存在したら、<a href="TUSB_Analysis_Entity.html">お試しセットの印玉</a>を与え以下の事柄を実行
+<li>(-2725,88,-382)から2m以内(スキル設定所入口)にいて<code>AreaTitleFlag</code>が10であり、<code>TrialSet</code>を持つプレイヤーが存在したら、<a href="TUSB_Analysis_Item.html#%E3%81%8A%E8%A9%A6%E3%81%97%E3%82%BB%E3%83%83%E3%83%88%E3%81%AE%E5%8D%B0%E7%8E%89">お試しセットの印玉</a>を与え以下の事柄を実行
 <ol>
-<li>[お試しセットの印玉]を受け取ったというメッセージを表示</li>
+<li><a href="TUSB_Analysis_Item.html#%E3%81%8A%E8%A9%A6%E3%81%97%E3%82%BB%E3%83%83%E3%83%88%E3%81%AE%E5%8D%B0%E7%8E%89">お試しセットの印玉</a>を受け取ったというメッセージを表示</li>
 <li><code>TrialSet</code>を削除</li>
 </ol>
 </li>
@@ -495,23 +493,23 @@ code {
 <tbody>
 <tr>
 <td style="text-align:center">1</td>
-<td style="text-align:center"><a href="TUSB_Analysis_Entity.html">地下世界</a></td>
+<td style="text-align:center"><a href="TUSB_Analysis_Entity.html#%E5%9C%B0%E4%B8%8B%E4%B8%96%E7%95%8C">地下世界</a></td>
 </tr>
 <tr>
 <td style="text-align:center">10</td>
-<td style="text-align:center"><a href="TUSB_Analysis_Entity.html">クラウディア</a></td>
+<td style="text-align:center"><a href="TUSB_Analysis_Entity.html#%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%87%E3%82%A3%E3%82%A2">クラウディア</a></td>
 </tr>
 <tr>
 <td style="text-align:center">11</td>
-<td style="text-align:center"><a href="TUSB_Analysis_Entity.html">テーブルマウンテン</a></td>
+<td style="text-align:center"><a href="TUSB_Analysis_Entity.html#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%86%E3%83%B3">テーブルマウンテン</a></td>
 </tr>
 <tr>
 <td style="text-align:center">12</td>
-<td style="text-align:center"><a href="TUSB_Analysis_Entity.html">ガリバーランド</a></td>
+<td style="text-align:center"><a href="TUSB_Analysis_Entity.html#%E3%82%AC%E3%83%AA%E3%83%90%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89">ガリバーランド</a></td>
 </tr>
 <tr>
 <td style="text-align:center">13</td>
-<td style="text-align:center"><a href="TUSB_Analysis_Entity.html">トカルトコルデ</a></td>
+<td style="text-align:center"><a href="TUSB_Analysis_Entity.html#%E3%83%88%E3%82%AB%E3%83%AB%E3%83%88%E3%82%B3%E3%83%AB%E3%83%87">トカルトコルデ</a></td>
 </tr>
 </tbody>
 </table>

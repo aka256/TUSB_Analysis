@@ -1,15 +1,18 @@
 ---
 title: 経験値取得処理
 tags: [command,exp,display]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,ネザースター,経験値,マルチ
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: expProcessing.html
 folder: command
 ---
 
-- 位置(-1920,8,-191)
-- ネザースターの取得処理、スコアへの代入
+<span class="label label-primary">位置 (-1920,8,-191)</span>
+
+## About
+
+ネザースターの取得時の処理や、マルチプレイ時の距離による経験値取得制限を行う。
 
 ## コマンド群
 

@@ -24,7 +24,7 @@ hide_sidebar: true
 
 - コマンド群解説
   - X回路区域管理コマンド群
-    - [マクラウェル内部](insideMcLawell.html)
+    - [マクラエル内部](insideMcLawell.html)
     - [初期化処理](initializeProcessing.html)
     - [メインクロック処理](mainclockProcessing.html)
     - [SystemKeeper処理](systemkeeperProcessing.html)

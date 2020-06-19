@@ -1,16 +1,19 @@
 ---
 title: ジョブチェンジ先判定
 tags: [command,job,item]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,職業変更許可書,釣りチケ,職業島,ブラジル
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: jobChangeJudgement.html
 folder: command
 datatable3c: true
 ---
 
-- 位置(-1920,10,-192)
-- 職業変更許可書や釣りチケなどの処理
+<span class="label label-primary">位置 (-1920,10,-192)</span>
+
+## About
+
+職業変更許可書や釣りチケなどの処理を行う。
 
 ## コマンド群
 

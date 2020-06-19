@@ -1,16 +1,19 @@
 ---
 title: ワープ処理ジョブ島・通常世界
 tags: [command,display,job]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,チュートリアル,ジョブ変更申請書,ブラジル
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: warpProcessing.html
 folder: command
 datatable3cnp: true
 ---
 
-- 位置(-1920,15,-192)
-- 初回ログイン時から通常世界に行くまでのTP処理
+<span class="label label-primary">位置 (-1920,15,-192)</span>
+
+## About
+
+初回ログイン時のチュートリアルの処理、初回に配られるジョブ変更申請用紙、ブラジル行きの穴の処理などを行う。
 
 ## コマンド群
 

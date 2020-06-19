@@ -365,9 +365,9 @@ code {
           : 'default'
     });
   </script>
-<ul>
-<li>位置(-1920,17,-191),(-1920,18,-191)</li>
-</ul>
+<p><span class="label label-primary">位置 (-1920,17,-191),(-1920,18,-191)</span></p>
+<h2 id="about">About</h2>
+<p>島攻略時の演出や、製作者村人の出現などの処理を行う。</p>
 <h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
 <h3 id="192017-191%E3%81%AB%E3%81%82%E3%82%8B%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86%E3%81%A8%E3%81%84%E3%81%86%E7%9C%8B%E6%9D%BF%E3%81%8C%E3%81%A4%E3%81%84%E3%81%A6%E3%81%84%E3%82%8B%E3%82%82%E3%81%AE">(-1920,17,-191)にあるコマンド群 (島攻略処理という看板がついているもの)</h3>
 <div class="datatable3c-begin"></div>
@@ -715,10 +715,10 @@ code {
 </li>
 <li><code>ForceNight</code>の<code>Settings</code>が0以下の時、以下の事柄を実行
 <ul>
-<li><a href="TUSB_Analysis_Entity.html">CommonGM</a>が(-1920,4,-96)にある<a href="clockIslandProcessing.html">時計島</a>を実行</li>
+<li><a href="TUSB_Analysis_Entity.html#commongm">CommonGM</a>が(-1920,4,-96)にある<a href="clockIslandProcessing.html">時計島</a>を実行</li>
 </ul>
 </li>
-<li><code>ForceNight</code>の<code>Settings</code>が1以上であり、(3,77,87)にある南向きでエンダーアイがはめられたエンドポータルフレームが存在する時、以下の事柄を実行
+<li><code>ForceNight</code>の<code>Settings</code>が1以上であり、(3,77,87)にある南向きでエンダーアイがはめられたエンドポータルフレーム(月島のエンドポータルフレーム)が存在する時、以下の事柄を実行
 <ol>
 <li>時間をdayに設定し、<code>doDaylightCycle</code>をtrueに変更</li>
 <li><code>#PastorMax</code>の<code>Global</code>から2引く</li>

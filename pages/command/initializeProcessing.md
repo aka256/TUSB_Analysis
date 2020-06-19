@@ -1,8 +1,8 @@
 ---
 title: 初期化処理
 tags: [command,scoreboard,entity]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/18
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,初期化処理
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: initializeProcessing.html
 folder: command
@@ -31,7 +31,7 @@ datatable3cnp: true
 
 <div class="datatable3cnp-end"></div>
 
-### 初期化停止装置
+### 初期化装置停止
 
 |No.|コマンド|
 |:-:|:-|
@@ -511,9 +511,9 @@ datatable3cnp: true
 1. [毎tick実行されるコマンド群](mainclockProcessing.html#毎tick実行されるコマンド群)を実行
 2. [SystemKeeper](TUSB_Analysis_Entity.html#SystemKeeper)君を(-1870,10,-197)に召喚し、[メインクロック](mainclockProcessing.html)を作動させる
 
-### 初期化停止装置
+### 初期化装置停止
 
-1. (-1896,117,-137)にあるレッドストーンブロックをラピスラズリブロックに置き換えて、[初期化装置](insideMacLawell.html)を停止
+1. (-1896,117,-137)にあるレッドストーンブロックをラピスラズリブロックに置き換えて、[初期化装置](insideMcLawell.html)を停止
 2. (-1883,3,-200)にある、1秒クロックのためのかまどの燃料がなくなるまでの時間を1000秒に設定
 3. (-1872,5,-203)にある[スポーンチャンク読み込みのためのかまど](furnaceProcessing.html)にサボテンと石炭を投入し、これを稼働させる
 

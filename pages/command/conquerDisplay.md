@@ -1,17 +1,19 @@
 ---
 title: 攻略率表示
 tags: [command,display]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,交易島,攻略率
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: conquerDisplay.html
 folder: command
 datatable3cnp: true
 ---
 
-- 看板がないため名前は仮のもの
-- 位置(-1920,18,-192)
-- 交易島の教会での攻略率表示?
+<span class="label label-primary">位置 (-1920,18,-192)</span>
+
+## About
+
+交易島の教会での攻略率表示の処理を行う。
 
 ## コマンド群
 

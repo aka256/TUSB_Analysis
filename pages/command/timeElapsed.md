@@ -1,15 +1,19 @@
 ---
 title: 時間経過
 tags: [command,skill]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,トカルトコルデ,スキル,ガーディアン
+last_updated: 2020/6/19
 sidebar: mydoc_sidebar
 permalink: timeElapsed.html
 folder: command
 datatable4c: true
 ---
 
-- 位置(-1920,11,-200)
+<span class="label label-primary">位置 (-1920,11,-200)</span>
+
+## About
+
+スキルやイベント、トカルトコルデなどでの時間経過により変化するものの処理、分岐を行っている。
 
 ## コマンド群
 
@@ -79,3 +83,33 @@ datatable4c: true
 2. `WindWall`が0以上であるプレイヤーが存在したら、`WindWall`から1を引き、以下の事柄を実行
    1. `WindWall`が-1以上であるプレイヤーにウィンドウォールが切れたというメッセージを送る
    2. `WindWall`が-1以上であるプレイヤーの`WindWall`を0に設定
+3. `WindWall`が0以上であるプレイヤーのいる座標で効果音を鳴らす。
+4. `NinjaTime`が0以上であるプレイヤーが存在したら、`NinjaTime`から1を引いて以下の事柄を実行
+   - `NinjaTime`が-1以下であるとき`Tsuremai`と`Choyaku`、`NinjaTime`をそれぞれ0に設定
+5. `MagicShield`を持つプレイヤーに耐性Lv.4を15秒間付与
+6. `Mokuso`を持つプレイヤーが存在したら、再生能力Lv.1を15秒間付与し、`Level`が43以上だったら再生能力Lv.2を15秒間付与
+7. `Kazakiri`を持つプレイヤーが存在したら、`Kazakiri`から1を引き、(-1920,11,-198)にある[風切更新](kazakiriUpdata.html)を実行
+8. `RadarVision`が0以上であるプレイヤーが存在したら、`RadarVision`から1を引き、以下の事柄を実行
+   1. `RadarVision`が-1以下であるプレイヤーに`RadarEnd`を付与し、15m下に移動、`RadarVision`を0に設定
+   2. (-1920,12,-166)にある[狩人レーダーヴィジョン終了処理](archer_RadarVisionFinProcessing.html)を実行
+9. `#SecCount`の`Global`に1を足す
+10. `#SecCount`の`Global`が0であるとき、ワールドの境界線から0m近づいたとき警告を出す
+11. `#SecCount`の`Global`が61以上であるとき、(-1920,14,-200)にある[約1分処理](oneMinProcessing.html)を実行
+12. `FlyingObject`を持ち、空気中で停止している飛翔物が存在したら、それに`TestingTick`を付与し以下の事柄を実行
+    1. `TestingTick`を持つエンティティの`PortalCooldown`を1に設定
+    2. (-1920,15,-200)にある[Tick停止飛翔物削除](tickStopDelete.html)を実行
+13. `CanSpin`を持つエンティティを中心として一辺2mの範囲に蜘蛛の巣を設置
+14. `Freeze`を持ち、`PortalCooldown`が0であるエンティティが存在したら、`Melt`を付与し以下の事柄を実行
+    - `Melt`を持つエンティティの`NoAI`をfalseにし、`Freeze`と`Melt`を削除
+15. `SkillMob`を持つエンティティが存在したら、`MobCastTime`に20を足し、以下の事柄を実行
+    1. `SkillMob`を持ち、プレイヤーでないエンティティを一人ランダムに選び、`MobCastTime`が400以上であるとき`MobCastTime`に20との剰余を代入
+    2. (-1920,14,-197)にある[敵スキル実行](runMobSkill.html)を実行
+16. `CauseEvent`を持ち、`USBDimension`が0であるプレイヤーが存在する時、以下の事柄を実行
+    - `#SecCount`の`Global`が0以上であるとき、(-1920,11,-197)にある[イベント履行](eventFulfill.html)を実行
+17. [SystemKeeper](TUSB_Analysis_Entity.html#systemkeeper)を今の座標からy=10へ移動
+18. `USBDimension`が13であり、`SaveTorch`を持ってなく、スペクターモードでないプレイヤーが存在したら、`RemoveTorch`を付与し(-1920,12,-197)にある[トカルト処理](iceProcessing.html)を実行
+19. `SaveTouch`を持つプレイヤーから`SaveTouch`を消去
+20. UUIDが0-0-1-0-3であるエンティティから5m以内で`VillagerMeal`を持つエンティティが存在したら、それの`Freshness`の符号を反転し、(-1920,13,-197)にある[動物誘導イベント](animalGuideEvent.html)を実行
+21. 採掘速度低下Lv.3を持つプレイヤーが存在したら、`ReduceCurse`を付与し、以下の事柄を実行
+    1. `ReduceCurse`を持つプレイヤーに採掘速度低下Lv.3を15秒間、弱体化Lv.3を15秒間、空腹Lv.3を15秒間付与
+    2. `ReduceCurse`を持つプレイヤーから`ResuceCurce`を削除

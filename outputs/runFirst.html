@@ -365,9 +365,10 @@ code {
           : 'default'
     });
   </script>
-<ul>
-<li>位置(-1920,4,-200)</li>
-</ul>
+<p><span class="label label-primary">位置 (-1920,4,-200)</span></p>
+<h2 id="about">About</h2>
+<p>毎tick実行するコマンド群の一部であり、方角の関係から必ず最初に実行されるコマンド群である。また、このコマンド群自身がセルフクロックを行っている。</p>
+<p>{% include tip.html content=&quot;x,y,z軸と平行な直線上にあるコマンドブロックを同時に実行すると、その直線と平行な軸の座標の要素の値が小さい所にあるコマンドブロックから実行される。(例えば、A(0,0,0)とB(5,0,0)にあるコマンドブロックを同時に実行すると、x_A &lt; x_BなのでA、Bの順で実行される。)&quot; %}</p>
 <h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
 <div class="datatable4c-begin"></div>
 <table>
@@ -673,7 +674,7 @@ code {
 <div class="datatable4c-end"></div>
 <h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
 <ol>
-<li><a href="expProcessing.html">毎tick必ず最初に実行したいコマンド群</a>を実行 (ここで自身を呼び出すことでクロックを行っている)</li>
+<li><a href="expProcessing.html">毎tick必ず最初に実行したいコマンド群</a>を実行 (ここで自身を呼び出すことでセルフクロックを行っている)</li>
 <li><code>FloationRequired</code>を持ち、{OnGround:true}であるエンティティと<code>CooldownRequired</code>を持ち、{PortalCooldown:0}であるエンティティに<code>Garbage</code>を付与</li>
 <li><code>Slimy</code>を持ち、{AbsorptionAmount:0f}であるエンティティが存在したら<code>Garbage</code>を付与し、以下の事柄を実行
 <ol>
