@@ -111,7 +111,7 @@ description: "Intended as a documentation theme based on Jekyll for technical wr
 # the description is used in the feed.xml file
 
 # needed for sitemap.xml file only
-# url: http://idratherbewriting.com
+url: https://aka256.github.io/TUSB_Analysis/
 # baseurl: /documentation-theme-jekyll
 
 
