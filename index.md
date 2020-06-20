@@ -1,8 +1,8 @@
 ---
 title: トップページ
 tags: [目次]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,minecraft,マインクラフト,配布ワールド
+last_updated: 2020/6/20
 sidebar: home_sidebar
 permalink: index.html
 hide_sidebar: true
@@ -34,6 +34,10 @@ hide_sidebar: true
     - [エリア侵入記録](areaRecord.html)
     - [エリア処理](areaProcessing.html)
     - [時間経過](timeElapsed.html)
+      - [風切更新](kazakiriUpdata.html)
+      - [約1分処理](oneMinProcessing.html)
+      - [Tick停止飛翔物削除](tickStopDelete.html)
+      - [敵スキル実行](runMobSkill.html)
     - [AEC維持](aecMaintenance.html)
   - 毎tick実行するコマンド群2
     - [メインクロック開始時リセットするもの](reset.html)

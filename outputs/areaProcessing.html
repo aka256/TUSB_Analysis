@@ -365,7 +365,331 @@ code {
           : 'default'
     });
   </script>
-<p>準備中です。</p>
+<p><span class="label label-primary">位置 (-1920,8,-200)</span></p>
+<h2 id="about">About</h2>
+<p>エリア侵入時の演出やテーブルマウンテン、ネザーアスレ侵入時のエンダーチェスト処理を行う。</p>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<div class="datatable4c-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+<th>コメント</th>
+<th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/scoreboard players set @a[score_AreaTitleFlag_min=-100,tag=IgnoreEnderChest] EnderChestOpened 0</td>
+<td>エリア処理 持ち込み判定 BringItemError アドべ処理 Adv</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/scoreboard players tag @a[score_AreaTitleFlag_min=-100,tag=IgnoreEnderChest] remove IgnoreEnderChest</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/scoreboard players tag @a[score_AreaTitleFlag_min=11,score_AreaTitleFlag=11] add BringItemError {Inventory:[{}]}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>/scoreboard players tag @a[score_AreaTitleFlag_min=11,score_AreaTitleFlag=11,score_EnderChestOpened_min=1] add BringItemError {EnderItems:[{}]}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>/tellraw @a[score_AreaTitleFlag_min=11,score_AreaTitleFlag=11,tag=BringItemError] {&quot;text&quot;:&quot;エンダーチェスト内を含む&quot;,&quot;color&quot;:&quot;red&quot;,&quot;bold&quot;:&quot;true&quot;}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>/tp @a[score_AreaTitleFlag_min=11,score_AreaTitleFlag=11,tag=BringItemError] -95.0 13.5 54.5 -180 0</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>/scoreboard players tag @a[score_AreaTitleFlag_min=-90,score_AreaTitleFlag=-90] add BringItemError {Inventory:[{}]}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td>/tp @a[score_AreaTitleFlag_min=-90,score_AreaTitleFlag=-90,tag=BringItemError] 1.0 22.5 27.5 180 -20</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td>/tellraw @a[tag=BringItemError] {&quot;text&quot;:&quot;アイテム持ち込み禁止エリアです！&quot;,&quot;color&quot;:&quot;red&quot;,&quot;bold&quot;:&quot;true&quot;}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td>/scoreboard players set @a[tag=BringItemError] AreaTitleFlag -999</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td>/scoreboard players tag @a[tag=BringItemError] remove BringItemError</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td>/scoreboard players tag @a[score_AreaTitleFlag_min=11,score_AreaTitleFlag=11] add IgnoreEnderChest</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td>/scoreboard players tag @a[score_AreaTitleFlag_min=-100] remove Adv</td>
+<td>Adv設定更新</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td>/scoreboard players tag @a[score_AreaTitleFlag_min=-90,score_AreaTitleFlag=-89] add Adv</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td>/scoreboard players tag @a[score_AreaTitleFlag_min=10] add Adv</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td>/title @a[score_AreaTitleFlag_min=-100] times 30 40 40</td>
+<td>エリアタイトル表示</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td>/execute @a[-53,23,34,rm=3,score_AreaTitleFlag_min=0,score_AreaTitleFlag=0,SKYLANDS] ~ ~ ~ /playsound entity.firework.launch master @a[c=1] ~ ~ ~ 4 0.5 0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td>/title @a[-53,23,34,rm=3,score_AreaTitleFlag_min=0,score_AreaTitleFlag=0,SKYLANDS] subtitle {&quot;text&quot;:&quot;= The Skylands =&quot;,&quot;italic&quot;:&quot;true&quot;,&quot;color&quot;:&quot;white&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td>/title @a[-53,23,34,rm=3,score_AreaTitleFlag_min=0,score_AreaTitleFlag=0,SKYLANDS] title {&quot;text&quot;:&quot;通常世界&quot;,&quot;color&quot;:&quot;gray&quot;,&quot;bold&quot;:&quot;true&quot;,&quot;underlined&quot;:&quot;true&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td>/execute @a[score_AreaTitleFlag_min=1,score_AreaTitleFlag=1,UNDERWORLD] ~ ~ ~ /playsound entity.wither.spawn master @a[c=1] ~ ~ ~ 0.6 0.7 0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td>/title @a[score_AreaTitleFlag_min=1,score_AreaTitleFlag=1,UNDERWORLD] subtitle {&quot;text&quot;:&quot;= The Underworld =&quot;,&quot;italic&quot;:&quot;true&quot;,&quot;color&quot;:&quot;dark_gray&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td>/title @a[score_AreaTitleFlag_min=1,score_AreaTitleFlag=1,UNDERWORLD] title {&quot;text&quot;:&quot;地下世界&quot;,&quot;color&quot;:&quot;dark_blue&quot;,&quot;bold&quot;:&quot;true&quot;,&quot;underlined&quot;:&quot;true&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td>/execute @a[-2725,88,-382,rm=3,score_AreaTitleFlag_min=10,score_AreaTitleFlag=10,CLOUDIA] ~ ~ ~ /playsound entity.player.levelup master @a[c=1] ~ ~ ~ 4 0.5 0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td>/title @a[-2725,88,-382,rm=3,score_AreaTitleFlag_min=10,score_AreaTitleFlag=10,CLOUDIA] subtitle {&quot;text&quot;:&quot;= Cloudia =&quot;,&quot;italic&quot;:&quot;true&quot;,&quot;color&quot;:&quot;gray&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td>/title @a[-2725,88,-382,rm=3,score_AreaTitleFlag_min=10,score_AreaTitleFlag=10,CLOUDIA] title {&quot;text&quot;:&quot;クラウディア&quot;,&quot;color&quot;:&quot;white&quot;,&quot;bold&quot;:&quot;true&quot;,&quot;underlined&quot;:&quot;true&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td>/execute @a[score_AreaTitleFlag_min=11,score_AreaTitleFlag=11,TABLE_MOUNTAIN] ~ ~ ~ /playsound entity.elder_guardian.ambient master @a[c=1] ~ ~ ~ 4 0.5 0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td>/title @a[score_AreaTitleFlag_min=11,score_AreaTitleFlag=11,TABLE_MOUNTAIN] subtitle {&quot;text&quot;:&quot;= Table Mountain =&quot;,&quot;italic&quot;:&quot;true&quot;,&quot;color&quot;:&quot;dark_green&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">28</td>
+<td>/title @a[score_AreaTitleFlag_min=11,score_AreaTitleFlag=11,TABLE_MOUNTAIN] title {&quot;text&quot;:&quot;テーブルマウンテン&quot;,&quot;color&quot;:&quot;green&quot;,&quot;bold&quot;:&quot;true&quot;,&quot;underlined&quot;:&quot;true&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td>/execute @a[score_AreaTitleFlag_min=12,score_AreaTitleFlag=12,GULLIVERS_LAND] ~ ~ ~ /playsound entity.firework.twinkle_far master @a[c=1] ~ ~ ~ 4 0.5 0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td>/title @a[score_AreaTitleFlag_min=12,score_AreaTitleFlag=12,GULLIVERS_LAND] subtitle {&quot;text&quot;:&quot;= Gulliver's Land =&quot;,&quot;italic&quot;:&quot;true&quot;,&quot;color&quot;:&quot;gold&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td>/title @a[score_AreaTitleFlag_min=12,score_AreaTitleFlag=12,GULLIVERS_LAND] title {&quot;text&quot;:&quot;ガリバーランド&quot;,&quot;color&quot;:&quot;yellow&quot;,&quot;bold&quot;:&quot;true&quot;,&quot;underlined&quot;:&quot;true&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td>/execute @a[score_AreaTitleFlag_min=13,score_AreaTitleFlag=13,ICE_SHEET_FLOAT] ~ ~ ~ /playsound entity.zombie_horse.death master @a[c=1] ~ ~ ~ 4 0.5 0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td>/title @a[score_AreaTitleFlag_min=13,score_AreaTitleFlag=13,ICE_SHEET_FLOAT] subtitle {&quot;text&quot;:&quot;= Ice Sheet Float =&quot;,&quot;italic&quot;:&quot;true&quot;,&quot;color&quot;:&quot;dark_aqua&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">34</td>
+<td>/title @a[score_AreaTitleFlag_min=13,score_AreaTitleFlag=13,ICE_SHEET_FLOAT] title {&quot;text&quot;:&quot;トカルトコルデ&quot;,&quot;color&quot;:&quot;aqua&quot;,&quot;bold&quot;:&quot;true&quot;,&quot;underlined&quot;:&quot;true&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">35</td>
+<td>/execute @a[score_AreaTitleFlag_min=-100,score_AreaTitleFlag=-100,NETHER] ~ ~ ~ /playsound entity.blaze.shoot master @a[c=1] ~ ~ ~ 4 0.5 0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">36</td>
+<td>/title @a[score_AreaTitleFlag_min=-100,score_AreaTitleFlag=-100,NETHER] subtitle {&quot;text&quot;:&quot;= The Nether =&quot;,&quot;italic&quot;:&quot;true&quot;,&quot;color&quot;:&quot;dark_red&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">37</td>
+<td>/title @a[score_AreaTitleFlag_min=-100,score_AreaTitleFlag=-100,NETHER] title {&quot;text&quot;:&quot;ネザー&quot;,&quot;color&quot;:&quot;red&quot;,&quot;bold&quot;:&quot;true&quot;,&quot;underlined&quot;:&quot;true&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">38</td>
+<td>/execute @a[score_AreaTitleFlag_min=-90,score_AreaTitleFlag=-90,NETHER_TRIAL] ~ ~ ~ /playsound block.portal.trigger master @a[c=1] ~ ~ ~ 0.6 0.8 0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">39</td>
+<td>/title @a[score_AreaTitleFlag_min=-90,score_AreaTitleFlag=-90,NETHER_TRIAL] subtitle {&quot;text&quot;:&quot;= Nether Trial =&quot;,&quot;italic&quot;:&quot;true&quot;,&quot;color&quot;:&quot;black&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">40</td>
+<td>/title @a[score_AreaTitleFlag_min=-90,score_AreaTitleFlag=-90,NETHER_TRIAL] title {&quot;text&quot;:&quot;ネザーアスレ&quot;,&quot;color&quot;:&quot;dark_red&quot;,&quot;bold&quot;:&quot;true&quot;,&quot;underlined&quot;:&quot;true&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">41</td>
+<td>/execute @a[score_AreaTitleFlag_min=-89,score_AreaTitleFlag=-89,NETHER_DUNGEON] ~ ~ ~ /playsound entity.wither.death master @a[c=1] ~ ~ ~ 0.6 0.5 0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">42</td>
+<td>/title @a[score_AreaTitleFlag_min=-89,score_AreaTitleFlag=-89,NETHER_DUNGEON] subtitle {&quot;text&quot;:&quot;= Purgatory =&quot;,&quot;italic&quot;:&quot;true&quot;,&quot;color&quot;:&quot;black&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">43</td>
+<td>/title @a[score_AreaTitleFlag_min=-89,score_AreaTitleFlag=-89,NETHER_DUNGEON] title {&quot;text&quot;:&quot; 煉  獄 &quot;,&quot;color&quot;:&quot;dark_red&quot;,&quot;bold&quot;:&quot;true&quot;,&quot;underlined&quot;:&quot;true&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">44</td>
+<td>/execute @a[score_AreaTitleFlag_min=110,score_AreaTitleFlag=110,END] ~ ~ ~ /playsound entity.zombie.unfect master @a[c=1] ~ ~ ~ 4 0.5 0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">45</td>
+<td>/title @a[score_AreaTitleFlag_min=110,score_AreaTitleFlag=110,END] subtitle {&quot;text&quot;:&quot;= The End =&quot;,&quot;italic&quot;:&quot;true&quot;,&quot;color&quot;:&quot;gray&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">46</td>
+<td>/title @a[score_AreaTitleFlag_min=110,score_AreaTitleFlag=110,END] title {&quot;text&quot;:&quot;ジ・エンド&quot;,&quot;color&quot;:&quot;black&quot;,&quot;bold&quot;:&quot;true&quot;,&quot;underlined&quot;:&quot;true&quot;}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+</tbody>
+</table>
+<div class="datatable4c-end"></div>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li><code>AreaTitleFlag</code>が-100以上であり、<code>IgnoreEnderChest</code>を持つプレイヤーが存在したら、条件に該当するすべてのプレイヤーの<code>EnderChestOpened</code>を0に設定し、<code>IgnoreEnderChest</code>を削除</li>
+<li><code>AreaTitleFlag</code>が11であり、インベントリ内に何かしらアイテムがあるすべてのプレイヤーに、<code>BringItemError</code>を付与</li>
+<li><code>AreaTitleFlag</code>が11であり、エンダーチェスト内に何かしらアイテムがあり、<code>EnderChestOpened</code>が1以上であるすべてのプレイヤーに<code>BringItemError</code>を付与</li>
+<li><code>AreaTitleFlag</code>が11であり、かつ<code>BringItemError</code>を持つプレイヤーが存在したら、「エンダーチェスト内を含む」というメッセージを表示し、(-95,13.5,54.5)の通常世界内のテーブルマウンテンへのゲート前に移動させる</li>
+<li><code>AreaTitleFlag</code>が-90であり、インベントリ内に何かしらアイテムがあるすべてのプレイヤーに<code>BringItemError</code>を付与し、ネザー内の(1,22.5,27.5)のネザーアスレのゲート前に移動させる</li>
+<li><code>BringItemError</code>を持つすべてのプレイヤーが存在したら、そのプレイヤーを対象として「アイテム持ち込み禁止エリアです!」との警告を表示し、以下の事柄を実行
+<ol>
+<li><code>AreaTitleFlag</code>を-999に設定</li>
+<li><code>BringItemError</code>を削除</li>
+</ol>
+</li>
+<li><code>AreaTitleFlga</code>が11であるすべてのプレイヤーに<code>IgnoreEnderChest</code>を付与</li>
+<li><code>AreaTitleFlag</code>が-100以上であるプレイヤーから<code>Adv</code>を削除</li>
+<li><code>AreaTitleFlag</code>が-90,-89,10以上であるすべてのプレイヤーに<code>Adv</code>を付与</li>
+<li><code>AreaTitleFlag</code>が-100以上であるすべてのプレイヤーへのタイトル表示設定をフェードイン1.5秒、表示時間2秒、フェードアウト2秒に設定</li>
+<li>以下のように<code>AreaTitleFlag</code>の値に対応したエリア侵入時のタイトルを表示</li>
+</ol>
+<p>|AreaTitleFlag|Dimension|備考|
+|-|-|
+|0|通常世界|(-53,23,34)から3m以内(スキル設定所からの帰還時)は除外される|
+|1|地下世界|
+|10|クラウディア|(-2725,88,-382)から3m以内(スキル設定所への侵入時)は除外される|
+|11|テーブルマウンテン|
+|12|ガリバーランド|
+|13|トカルトコルデ|
+|-100|ネザー|
+|-90|ネザーアスレ|
+|-89|煉獄|
+|110|ジ・エンド|</p>
 
 </body>
 </html>

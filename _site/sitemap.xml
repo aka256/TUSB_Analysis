@@ -269,8 +269,20 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <url>
-    <loc>http://localhost:4000/tickStopProcessing.html</loc>
+    <loc>http://localhost:4000/tickStopDelete.html</loc>
   </url>
   
   

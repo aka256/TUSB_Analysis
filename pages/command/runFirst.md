@@ -89,7 +89,7 @@ datatable4c: true
 9. 以下の表のようにプレイヤーのいる場所に対する`AreaChangeFlag`を変更
 10. `AreaChangeFlag`が-100以上であるプレイヤーいる場合、一人選択し`USBDimension`に`AreaChangeFlag`を代入して、以下の事柄を実行
     1. `AreaTileFlag`と`AreaChangeFlag`との値を入れ替える
-    2. (-1920,9,-200)にある[エリア侵入記録]と(-1920,8,-200)にある[エリア処理]を実行
+    2. (-1920,9,-200)にある[エリア侵入記録](areaRecord.html)と(-1920,8,-200)にある[エリア処理](areaProcessing.html)を実行
 11. adventureであり、`Adv`がなく、何かしらのteamに所属しているプレイヤーがいる場合、アドベンチャーモード解除の旨のメッセージを出し、survivalに変更
 12. survivalであり、`Adv`があるプレイヤーがいる場合、アドベンチャーモードに変更された旨のメッセージを出し、adventureに変更
 13. `#SkillTargetCount`の`Global`が1以上である時、以下の事柄を実行

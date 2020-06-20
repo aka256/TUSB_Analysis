@@ -39,6 +39,18 @@ entries:
       - title: 時間経過
         url: timeElapsed.html
         output: web, pdf
+      - title: 風切更新
+        url: kazakiriUpdata.html
+        output: web, pdf
+      - title: 約1分処理
+        url: oneMinProcessing.html
+        output: web, pdf
+      - title: Tick停止飛翔物削除
+        url: tickStopDelete.html
+        output: web, pdf
+      - title: 敵スキル実行
+        url: runMobSkill.html
+        output: web, pdf
       - title: AEC維持
         url: aecMaintenance.html
         output: web, pdf

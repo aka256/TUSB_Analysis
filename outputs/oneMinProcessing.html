@@ -365,7 +365,123 @@ code {
           : 'default'
     });
   </script>
-<p>準備中です。</p>
+<p><span class="label label-primary">位置 (-1920,14,-200)</span></p>
+<h2 id="about">About</h2>
+<p>1分置きに実行されるコマンド群であり、嫌な予感をランダムに実行したりバニラモブの難易度調整などを行う。</p>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+<th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/blockdata -1883 3 ~ {BurnTime:20000s}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/scoreboard players set @a PastorFlag 0</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/scoreboard players test #EventTimer Global * 0</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>/scoreboard players operation #EventTimer Global = @a[c=1] RndMWC</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>/scoreboard players tag @a[c=1] add UpdateRandom</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>/scoreboard players operation #EventTimer Global %= #30 Const</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>/scoreboard players operation #EventTimer Global += #30 Const</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td>/scoreboard players remove #EventTimer Global 1</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td>/scoreboard players test #EventTimer Global 0 0</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td>/scoreboard players tag @r[c=5] add CauseEvent</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td>/scoreboard players tag @a add Pray</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td>/execute @a ~ ~ ~ /playsound block.portal.travel master @a[c=1] ~ ~100 ~ 10 0.5 1</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td>/worldborder warning distance 20000</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td>/scoreboard players set #SecCount Global -8</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td>/scoreboard players add @e[tag=VillagerMeal] Freshness 1</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td>/clone -1920 17 ~ -1920 17 ~ -1920 17 ~ filtered force minecraft:command_block 5 ###難易度調整</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li>(-1883,3,-200)にあるかまど(1秒クロック用)の<code>BurnTime</code>を1000秒に設定</li>
+<li>すべてのプレイヤーの<code>PastorFlag</code>を0に設定</li>
+<li><code>#EventTimer</code>の<code>Global</code>が0以下の時、以下の事柄を実行
+<ol>
+<li><code>#EventTimer</code>の<code>Global</code>に近くの一人のプレイヤーの<code>RndMWC</code>を代入し、そのプレイヤーに<code>UpdataRandom</code>を付与</li>
+<li><code>#EventTimer</code>の<code>Global</code>に30との剰余を代入し、30を足す</li>
+</ol>
+</li>
+<li><code>#EventTimer</code>の<code>Global</code>から1を引く</li>
+<li><code>#EventTimer</code>の<code>Global</code>が0であるとき、以下の事柄を実行
+<ol>
+<li>ランダムにプレイヤーを5人選択し、<code>CauseEvent</code>を付与</li>
+<li>すべてのプレイヤーに<code>Pray</code>を付与し、効果音を鳴らす</li>
+<li>ワールドの境界線へ近づいた際の警告距離を、境界線から20000mに設定(すべてのプレイヤーに警告を出す)</li>
+<li><code>#SecCount</code>の<code>Global</code>を-8に設定</li>
+</ol>
+</li>
+<li><code>VillagerMeal</code>を持つエンティティの<code>Freshness</code>に1を足す</li>
+<li>(-1920,17,-200)にある<a href="difficultyAdjustment.html">難易度調整</a>を実行</li>
+</ol>
 
 </body>
 </html>
