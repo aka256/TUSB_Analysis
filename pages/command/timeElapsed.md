@@ -58,9 +58,9 @@ datatable4c: true
 |35|/scoreboard players add @e[tag=SkillMob] MobCastTime 20|敵スキル SkillMob CastingMob MobCastTime|
 |36|/execute @r[type=!Player,tag=SkillMob,c=1] ~ ~ ~ /scoreboard players operation @e[dx=0,tag=SkillMob,score_MobCastTime_min=400,c=1] MobCastTime %= #20 Const||条件付き|
 |37|/clone -1920 ~3 ~3 -1920 ~3 ~3 -1920 ~3 ~3 filtered force minecraft:command_block 5 ###敵スキル実行||条件付き ガラスあり|
-|38|/testfor @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0]|イベント履行|
+|38|/testfor @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0]|嫌な予感実行|
 |39|/scoreboard players test #SecCount Global 0 *||条件付き|
-|40|/clone -1920 ~ ~3 -1920 ~ ~3 -1920 ~ ~3 filtered force minecraft:command_block 5 ###イベント履行||条件付き|
+|40|/clone -1920 ~ ~3 -1920 ~ ~3 -1920 ~ ~3 filtered force minecraft:command_block 5 ###嫌な予感実行||条件付き|
 |41|/tp 0-0-2-0-2 ~ 10 ~|クロック正常入力|
 |42|/scoreboard players tag @a[score_USBDimension_min=13,score_USBDimension=13,tag=!SaveTorch,m=!spectator] add RemoveTorch|トカルト処理|
 |43|/clone -1920 ~1 ~3 -1920 ~1 ~3 -1920 ~1 ~3 filtered force minecraft:command_block 5 ###トカルト処理||条件付き|
@@ -105,7 +105,7 @@ datatable4c: true
     1. `SkillMob`を持ち、プレイヤーでないエンティティを一人ランダムに選び、`MobCastTime`が400以上であるとき`MobCastTime`に20との剰余を代入
     2. (-1920,14,-197)にある[敵スキル実行](runMobSkill.html)を実行
 16. `CauseEvent`を持ち、`USBDimension`が0であるプレイヤーが存在する時、以下の事柄を実行
-    - `#SecCount`の`Global`が0以上であるとき、(-1920,11,-197)にある[イベント履行](eventFulfill.html)を実行
+    - `#SecCount`の`Global`が0以上であるとき、(-1920,11,-197)にある[嫌な予感実行](eventFulfill.html)を実行
 17. [SystemKeeper](TUSB_Analysis_Entity.html#systemkeeper)を今の座標からy=10へ移動
 18. `USBDimension`が13であり、`SaveTorch`を持ってなく、スペクターモードでないプレイヤーが存在したら、`RemoveTorch`を付与し(-1920,12,-197)にある[トカルト処理](iceProcessing.html)を実行
 19. `SaveTouch`を持つプレイヤーから`SaveTouch`を消去

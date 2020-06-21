@@ -342,7 +342,7 @@
         }
         /* for inline code */
         
-        :not(pre):not(.hljs)>code {
+         :not(pre):not(.hljs)>code {
             color: #C9AE75;
             /* Change the old color so it seems less like an error */
             font-size: inherit;
@@ -363,8 +363,7 @@
         mermaid.initialize({
             startOnLoad: true,
             theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast') ?
-                'dark' :
-                'default'
+                'dark' : 'default'
         });
     </script>
     <h2 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AF%E9%96%8B%E5%A7%8B%E6%99%82%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%99%E3%82%8B%E3%82%82%E3%81%AE">メインクロック開始時リセットするもの</h2>
@@ -4612,7 +4611,7 @@
             </tr>
             <tr>
                 <td style="text-align:center">5</td>
-                <td style="text-align:left">/clone -1870 4 -193 -1870 4 -193 -1870 4 -193 filtered force minecraft:command_block 1 ###かまど再設定</td>
+                <td style="text-align:left">/clone -1870 4 -193 -1870 4 -193 -1870 4 -193 filtered force minecraft:command_block 1 ###チャンクローダー設定</td>
                 <td style="text-align:left"></td>
             </tr>
         </tbody>
@@ -4623,10 +4622,10 @@
         <li>[SystemKeerer]を2m上に移動</li>
         <li>秩序が戻った旨の通知を出す</li>
         <li><a href="#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%97%E3%81%9F%E3%81%84%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行するコマンド群</a>を実行</li>
-        <li>(-1870,5,-203)にある<a href="#%E3%81%8B%E3%81%BE%E3%81%A9%E5%86%8D%E8%A8%AD%E5%AE%9A">かまど再設定</a>を実行</li>
+        <li>(-1870,5,-203)にある<a href="#%E3%81%8B%E3%81%BE%E3%81%A9%E5%86%8D%E8%A8%AD%E5%AE%9A">チャンクローダー設定</a>を実行</li>
     </ol>
     <hr>
-    <h2 id="%E3%81%8B%E3%81%BE%E3%81%A9%E5%86%8D%E8%A8%AD%E5%AE%9A">かまど再設定</h2>
+    <h2 id="%E3%81%8B%E3%81%BE%E3%81%A9%E5%86%8D%E8%A8%AD%E5%AE%9A">チャンクローダー設定</h2>
     <ul>
         <li>位置(-1870,5,-203)</li>
         <li>スポーンチャンクを常に読み込むための装置 (のはず)</li>

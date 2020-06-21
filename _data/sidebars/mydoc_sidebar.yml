@@ -21,7 +21,7 @@ entries:
       - title: SystemKeeper処理
         url: systemkeeperProcessing.html      
         output: web, pdf
-      - title: かまど再設定
+      - title: チャンクローダー設定
         url: furnaceProcessing.html      
         output: web, pdf
   - title: 毎tick実行するコマンド群1
@@ -50,6 +50,9 @@ entries:
         output: web, pdf
       - title: 敵スキル実行
         url: runMobSkill.html
+        output: web, pdf
+      - title: 嫌な予感実行
+        url: eventFullfill.html
         output: web, pdf
       - title: AEC維持
         url: aecMaintenance.html

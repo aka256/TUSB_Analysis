@@ -1265,7 +1265,7 @@ folder: command
 |2|/tp @e[dy=2] ~ ~2 ~|
 |3|/me は秩序を取り戻した。|
 |4|/clone -1924 4 -200 -1924 4 -111 -1920 4 -200 filtered force minecraft:command_block 5|
-|5|/clone -1870 4 -193 -1870 4 -193 -1870 4 -193 filtered force minecraft:command_block 1 ###かまど再設定|
+|5|/clone -1870 4 -193 -1870 4 -193 -1870 4 -193 filtered force minecraft:command_block 1 ###チャンクローダー設定|
 
 ### 詳細
 
@@ -1273,11 +1273,11 @@ folder: command
 2. [SystemKeerer]を2m上に移動
 3. 秩序が戻った旨の通知を出す
 4. [毎tick実行するコマンド群](#毎tick実行するコマンド群)を実行
-5. (-1870,5,-203)にある[かまど再設定](#かまど再設定)を実行
+5. (-1870,5,-203)にある[チャンクローダー設定](#チャンクローダー設定)を実行
 
 ---
 
-## かまど再設定
+## チャンクローダー設定
 
 - 位置(-1870,5,-203)
 - スポーンチャンクを常に読み込むための装置 (のはず)
@@ -1480,6 +1480,6 @@ No.11
 [スコアボードの設定]:/TUSB_Analysis/command/setScoreboard.html
 [メインクロック処理]:/TUSB_Analysis/command/mainclockProcessing.html
 [SystemKeeper処理]:/TUSB_Analysis/command/systemKeeperProcessing.html
-[かまど再設定]:/TUSB_Analysis/command/furnaceProcessing.html
+[チャンクローダー設定]:/TUSB_Analysis/command/furnaceProcessing.html
 [毎tick必ず最初に実行したいコマンド群]:/TUSB_Analysis/command/runFirst.html
 [エリア侵入記録]:/TUSB_Analysis/command/areaRecord.html

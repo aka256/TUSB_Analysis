@@ -28,7 +28,7 @@ hide_sidebar: true
     - [初期化処理](initializeProcessing.html)
     - [メインクロック処理](mainclockProcessing.html)
     - [SystemKeeper処理](systemkeeperProcessing.html)
-    - [かまど再設定](furnaceProcessing.html)
+    - [チャンクローダー設定](furnaceProcessing.html)
   - 毎tick実行するコマンド群1
     - [毎tick必ず最初に実行したいコマンド群](runFirst.html)
     - [エリア侵入記録](areaRecord.html)
@@ -38,6 +38,7 @@ hide_sidebar: true
       - [約1分処理](oneMinProcessing.html)
       - [Tick停止飛翔物削除](tickStopDelete.html)
       - [敵スキル実行](runMobSkill.html)
+      - [嫌な予感実行](eventFullfill.html)
     - [AEC維持](aecMaintenance.html)
   - 毎tick実行するコマンド群2
     - [メインクロック開始時リセットするもの](reset.html)

@@ -39,6 +39,6 @@
 [スコアボードの設定]:/TUSB_Analysis/command/setScoreboard.html
 [メインクロック処理]:/TUSB_Analysis/command/mainclockProcessing.html
 [SystemKeeper処理]:/TUSB_Analysis/command/systemKeeperProcessing.html
-[かまど再設定]:/TUSB_Analysis/command/furnaceProcessing.html
+[チャンクローダー設定]:/TUSB_Analysis/command/furnaceProcessing.html
 [毎tick必ず最初に実行したいコマンド群]:/TUSB_Analysis/command/runFirst.html
 [エリア侵入記録]:/TUSB_Analysis/command/areaRecord.html
