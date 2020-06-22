@@ -54,6 +54,9 @@ entries:
       - title: 嫌な予感実行
         url: eventFullfill.html
         output: web, pdf
+      - title: トカルト処理
+        url: iceProcessing.html
+        output: web, pdf
       - title: AEC維持
         url: aecMaintenance.html
         output: web, pdf
