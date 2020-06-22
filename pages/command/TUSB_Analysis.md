@@ -6,6 +6,7 @@ last_updated: 2020/6/17
 sidebar: mydoc_sidebar
 permalink: TUSB_Analysis.html
 folder: command
+search: exclude
 ---
 ## メインクロック開始時リセットするもの
 

@@ -7,6 +7,7 @@ sidebar: mydoc_sidebar
 permalink: animalGuideEvent.html
 folder: command
 datatable4c: true
+search: exclude
 ---
 
 準備中です

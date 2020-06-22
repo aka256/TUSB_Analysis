@@ -1,0 +1,71 @@
+<h2>更新履歴</h2>
+{% assign i = true %}
+{% for page in site.pages %}
+    {% unless page.search=="exclude" %} 
+        {% if i %}
+            {% assign leastpagedate = page.update %}
+            {% assign i=false %}
+        {% else %}
+            {% capture day %}{{ leastpagedate | date: '%d' }}{% endcapture %}
+            {% capture month %}{{ leastpagedate | date: '%m' }}{% endcapture %} 
+            {% capture year %}{{ leastpagedate | date: '%Y' }}{% endcapture %}
+            {% capture pday %}{{ page.update | date: '%d' }}{% endcapture %}
+            {% capture pmonth %}{{ page.update | date: '%m' }}{% endcapture %} 
+            {% capture pyear %}{{ page.update | date: '%Y' }}{% endcapture %}
+            {% if day<pday and month<=pmonth and year<=pyear %}
+                {% assign leastpagedate = page.update %}
+            {% endif %}
+        {% endif %}
+    {% endunless %}
+{% endfor %}
+{% capture leastday %}{{ leastpagedate | date: '%d' }}{% endcapture %}
+{% capture leastmonth %}{{ leastpagedate | date: '%m' }}{% endcapture %} 
+{% capture leastyear %}{{ leastpagedate | date: '%Y' }}{% endcapture %} 
+<h3 id="{{year}}{{month}}">{{ year }}/{{month}}/{{day}}</h3>
+<ul class="page">
+{% for page in site.pages %}
+    {% capture pday %}{{ page.update | date: '%d' }}{% endcapture %}
+    {% capture pmonth %}{{ page.update | date: '%m' }}{% endcapture %} 
+    {% capture pyear %}{{ page.update | date: '%Y' }}{% endcapture %}
+    {% if leastday==pday and leastmonth==pmonth and leastyear==pyear %}
+    <li>
+        <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>
+{% assign i = true %}
+{% for page in site.pages %}
+    {% unless page.search=="exclude" %} 
+        {% if i %}
+            {% assign leastpagedate = page.update %}
+            {% assign i=false %}
+        {% else %}
+            {% capture day %}{{ leastpagedate | date: '%d' }}{% endcapture %}
+            {% capture month %}{{ leastpagedate | date: '%m' }}{% endcapture %} 
+            {% capture year %}{{ leastpagedate | date: '%Y' }}{% endcapture %}
+            {% capture pday %}{{ page.update | date: '%d' }}{% endcapture %}
+            {% capture pmonth %}{{ page.update | date: '%m' }}{% endcapture %} 
+            {% capture pyear %}{{ page.update | date: '%Y' }}{% endcapture %}
+            {% if day<pday and month<=pmonth and year<=pyear pday!=leastday %}
+                {% assign leastpagedate = page.update %}
+            {% endif %}
+        {% endif %}
+    {% endunless %}
+{% endfor %}
+{% capture leastday %}{{ leastpagedate | date: '%d' }}{% endcapture %}
+{% capture leastmonth %}{{ leastpagedate | date: '%m' }}{% endcapture %} 
+{% capture leastyear %}{{ leastpagedate | date: '%Y' }}{% endcapture %} 
+<h3 id="{{year}}{{month}}">{{ year }}/{{month}}/{{day}}</h3>
+<ul class="page">
+{% for page in site.pages %}
+    {% capture pday %}{{ page.update | date: '%d' }}{% endcapture %}
+    {% capture pmonth %}{{ page.update | date: '%m' }}{% endcapture %} 
+    {% capture pyear %}{{ page.update | date: '%Y' }}{% endcapture %}
+    {% if leastday==pday and leastmonth==pmonth and leastyear==pyear %}
+    <li>
+        <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>
