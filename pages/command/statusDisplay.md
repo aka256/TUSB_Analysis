@@ -3,6 +3,7 @@ title: ステータス表示
 tags: [command,display,job]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,交易島,ステータス
 last_updated: 2020/6/19
+update: 2020-06-19 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: statusDisplay.html
 folder: command

@@ -1,763 +1,760 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>timeElapsed.md</title>
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<title>timeElapsed.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
-    <style>
-        /* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-        /*---------------------------------------------------------------------------------------------
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-        
-        body {
-            font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-            font-size: var(--vscode-markdown-font-size, 14px);
-            padding: 0 26px;
-            line-height: var(--vscode-markdown-line-height, 22px);
-            word-wrap: break-word;
-        }
-        
-        #code-csp-warning {
-            position: fixed;
-            top: 0;
-            right: 0;
-            color: white;
-            margin: 16px;
-            text-align: center;
-            font-size: 12px;
-            font-family: sans-serif;
-            background-color: #444444;
-            cursor: pointer;
-            padding: 6px;
-            box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
-        }
-        
-        #code-csp-warning:hover {
-            text-decoration: none;
-            background-color: #007acc;
-            box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
-        }
-        
-        body.scrollBeyondLastLine {
-            margin-bottom: calc(100vh - 22px);
-        }
-        
-        body.showEditorSelection .code-line {
-            position: relative;
-        }
-        
-        body.showEditorSelection .code-active-line:before,
-        body.showEditorSelection .code-line:hover:before {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 0;
-            left: -12px;
-            height: 100%;
-        }
-        
-        body.showEditorSelection li.code-active-line:before,
-        body.showEditorSelection li.code-line:hover:before {
-            left: -30px;
-        }
-        
-        .vscode-light.showEditorSelection .code-active-line:before {
-            border-left: 3px solid rgba(0, 0, 0, 0.15);
-        }
-        
-        .vscode-light.showEditorSelection .code-line:hover:before {
-            border-left: 3px solid rgba(0, 0, 0, 0.40);
-        }
-        
-        .vscode-light.showEditorSelection .code-line .code-line:hover:before {
-            border-left: none;
-        }
-        
-        .vscode-dark.showEditorSelection .code-active-line:before {
-            border-left: 3px solid rgba(255, 255, 255, 0.4);
-        }
-        
-        .vscode-dark.showEditorSelection .code-line:hover:before {
-            border-left: 3px solid rgba(255, 255, 255, 0.60);
-        }
-        
-        .vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-            border-left: none;
-        }
-        
-        .vscode-high-contrast.showEditorSelection .code-active-line:before {
-            border-left: 3px solid rgba(255, 160, 0, 0.7);
-        }
-        
-        .vscode-high-contrast.showEditorSelection .code-line:hover:before {
-            border-left: 3px solid rgba(255, 160, 0, 1);
-        }
-        
-        .vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-            border-left: none;
-        }
-        
-        img {
-            max-width: 100%;
-            max-height: 100%;
-        }
-        
-        a {
-            text-decoration: none;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        a:focus,
-        input:focus,
-        select:focus,
-        textarea:focus {
-            outline: 1px solid -webkit-focus-ring-color;
-            outline-offset: -1px;
-        }
-        
-        hr {
-            border: 0;
-            height: 2px;
-            border-bottom: 2px solid;
-        }
-        
-        h1 {
-            padding-bottom: 0.3em;
-            line-height: 1.2;
-            border-bottom-width: 1px;
-            border-bottom-style: solid;
-        }
-        
-        h1,
-        h2,
-        h3 {
-            font-weight: normal;
-        }
-        
-        table {
-            border-collapse: collapse;
-        }
-        
-        table>thead>tr>th {
-            text-align: left;
-            border-bottom: 1px solid;
-        }
-        
-        table>thead>tr>th,
-        table>thead>tr>td,
-        table>tbody>tr>th,
-        table>tbody>tr>td {
-            padding: 5px 10px;
-        }
-        
-        table>tbody>tr+tr>td {
-            border-top: 1px solid;
-        }
-        
-        blockquote {
-            margin: 0 7px 0 5px;
-            padding: 0 16px 0 10px;
-            border-left-width: 5px;
-            border-left-style: solid;
-        }
-        
-        code {
-            font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-            font-size: 1em;
-            line-height: 1.357em;
-        }
-        
-        body.wordWrap pre {
-            white-space: pre-wrap;
-        }
-        
-        pre:not(.hljs),
-        pre.hljs code>div {
-            padding: 16px;
-            border-radius: 3px;
-            overflow: auto;
-        }
-        
-        pre code {
-            color: var(--vscode-editor-foreground);
-            tab-size: 4;
-        }
-        /** Theming */
-        
-        .vscode-light pre {
-            background-color: rgba(220, 220, 220, 0.4);
-        }
-        
-        .vscode-dark pre {
-            background-color: rgba(10, 10, 10, 0.4);
-        }
-        
-        .vscode-high-contrast pre {
-            background-color: rgb(0, 0, 0);
-        }
-        
-        .vscode-high-contrast h1 {
-            border-color: rgb(0, 0, 0);
-        }
-        
-        .vscode-light table>thead>tr>th {
-            border-color: rgba(0, 0, 0, 0.69);
-        }
-        
-        .vscode-dark table>thead>tr>th {
-            border-color: rgba(255, 255, 255, 0.69);
-        }
-        
-        .vscode-light h1,
-        .vscode-light hr,
-        .vscode-light table>tbody>tr+tr>td {
-            border-color: rgba(0, 0, 0, 0.18);
-        }
-        
-        .vscode-dark h1,
-        .vscode-dark hr,
-        .vscode-dark table>tbody>tr+tr>td {
-            border-color: rgba(255, 255, 255, 0.18);
-        }
-    </style>
 
-    <style>
-        /* Tomorrow Theme */
-        /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-        /* Original theme - https://github.com/chriskempson/tomorrow-theme */
-        /* Tomorrow Comment */
-        
-        .hljs-comment,
-        .hljs-quote {
-            color: #8e908c;
-        }
-        /* Tomorrow Red */
-        
-        .hljs-variable,
-        .hljs-template-variable,
-        .hljs-tag,
-        .hljs-name,
-        .hljs-selector-id,
-        .hljs-selector-class,
-        .hljs-regexp,
-        .hljs-deletion {
-            color: #c82829;
-        }
-        /* Tomorrow Orange */
-        
-        .hljs-number,
-        .hljs-built_in,
-        .hljs-builtin-name,
-        .hljs-literal,
-        .hljs-type,
-        .hljs-params,
-        .hljs-meta,
-        .hljs-link {
-            color: #f5871f;
-        }
-        /* Tomorrow Yellow */
-        
-        .hljs-attribute {
-            color: #eab700;
-        }
-        /* Tomorrow Green */
-        
-        .hljs-string,
-        .hljs-symbol,
-        .hljs-bullet,
-        .hljs-addition {
-            color: #718c00;
-        }
-        /* Tomorrow Blue */
-        
-        .hljs-title,
-        .hljs-section {
-            color: #4271ae;
-        }
-        /* Tomorrow Purple */
-        
-        .hljs-keyword,
-        .hljs-selector-tag {
-            color: #8959a8;
-        }
-        
-        .hljs {
-            display: block;
-            overflow-x: auto;
-            color: #4d4d4c;
-            padding: 0.5em;
-        }
-        
-        .hljs-emphasis {
-            font-style: italic;
-        }
-        
-        .hljs-strong {
-            font-weight: bold;
-        }
-    </style>
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
 
-    <style>
-        /*
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
  * Markdown PDF CSS
  */
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-            padding: 0 12px;
-        }
-        
-        pre {
-            background-color: #f8f8f8;
-            border: 1px solid #cccccc;
-            border-radius: 3px;
-            overflow-x: auto;
-            white-space: pre-wrap;
-            overflow-wrap: break-word;
-        }
-        
-        pre:not(.hljs) {
-            padding: 23px;
-            line-height: 19px;
-        }
-        
-        blockquote {
-            background: rgba(127, 127, 127, 0.1);
-            border-color: rgba(0, 122, 204, 0.5);
-        }
-        
-        .emoji {
-            height: 1.4em;
-        }
-        
-        code {
-            font-size: 14px;
-            line-height: 19px;
-        }
-        /* for inline code */
-        
-        :not(pre):not(.hljs)>code {
-            color: #C9AE75;
-            /* Change the old color so it seems less like an error */
-            font-size: inherit;
-        }
-        /* Page Break : use <div class="page"/> to insert page break
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
 -------------------------------------------------------- */
-        
-        .page {
-            page-break-after: always;
-        }
-    </style>
+.page {
+	page-break-after: always;
+}
 
-    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 </head>
-
 <body>
-    <script>
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast') ?
-                'dark' :
-                'default'
-        });
-    </script>
-    <p><span class="label label-primary">位置 (-1920,11,-200)</span></p>
-    <h2 id="about">About</h2>
-    <p>スキルやイベント、トカルトコルデなどでの時間経過により変化するものの処理、分岐を行っている。</p>
-    <h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
-    <div class="datatable4c-begin"></div>
-    <table>
-        <thead>
-            <tr>
-                <th style="text-align:center">No.</th>
-                <th style="text-align:left">コマンド</th>
-                <th style="text-align:left">コメント</th>
-                <th style="text-align:left">状態</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="text-align:center">1</td>
-                <td style="text-align:left">/scoreboard players remove @a[score_ManaRefresh_min=0] ManaRefresh 1</td>
-                <td style="text-align:left">時間経過マナリフレッシュ</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">2</td>
-                <td style="text-align:left">/tellraw @a[score_ManaRefresh=-1] {&quot;text&quot;:&quot;マナリフレッシュの効果が切れた。&quot;,&quot;color&quot;:&quot;gold&quot;}</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">3</td>
-                <td style="text-align:left">/scoreboard players reset @a[score_ManaRefresh=-1] ManaRefresh</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">4</td>
-                <td style="text-align:left">/scoreboard players remove @a[score_WindWall_min=0] WindWall 1</td>
-                <td style="text-align:left">時間経過ウィンドウォール</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">5</td>
-                <td style="text-align:left">/tellraw @a[score_WindWall=-1] {&quot;text&quot;:&quot;ウィンドウォールの効果が切れた。&quot;,&quot;color&quot;:&quot;gold&quot;}</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">6</td>
-                <td style="text-align:left">/scoreboard players reset @a[score_WindWall=-1] WindWall</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">7</td>
-                <td style="text-align:left">/execute @a[score_WindWall_min=0] ~ ~ ~ /playsound block.fire.extinguish master @a[r=16] ~ ~-100 ~ 0 0.5 0.1</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">8</td>
-                <td style="text-align:left">/scoreboard players remove @a[score_NinjaTime_min=0] NinjaTime 1</td>
-                <td style="text-align:left">時間経過連舞跳躍</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">9</td>
-                <td style="text-align:left">/scoreboard players set @a[score_NinjaTime=-1] Tsuremai 0</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">10</td>
-                <td style="text-align:left">/scoreboard players set @a[score_NinjaTime=-1] Choyaku 0</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">11</td>
-                <td style="text-align:left">/scoreboard players reset @a[score_NinjaTime=-1] NinjaTime</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">12</td>
-                <td style="text-align:left">/effect @a[tag=MagicShield] minecraft:resistance 15 4 true</td>
-                <td style="text-align:left">マジックシールド継続</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">13</td>
-                <td style="text-align:left">/effect @a[tag=Mokuso] minecraft:regeneration 15 1 true</td>
-                <td style="text-align:left">瞑想継続</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">14</td>
-                <td style="text-align:left">/effect @a[tag=Mokuso,score_Level_min=43] minecraft:regeneration 15 2 true</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">15</td>
-                <td style="text-align:left">/scoreboard players remove @a[score_Kazakiri_min=0] Kazakiri 1</td>
-                <td style="text-align:left">風切</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">16</td>
-                <td style="text-align:left">/clone -1920 ~ ~2 -1920 ~ ~2 -1920 ~ ~2 filtered force minecraft:command_block 5 ###風切更新</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">17</td>
-                <td style="text-align:left">/scoreboard players remove @a[score_RadarVision_min=0] RadarVision 1</td>
-                <td style="text-align:left">時間経過レーダーヴィジョン</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">18</td>
-                <td style="text-align:left">/scoreboard players tag @a[score_RadarVision=-1] add RadarEnd</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">19</td>
-                <td style="text-align:left">/tp @a[score_RadarVision=-1] ~ ~15 ~</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">20</td>
-                <td style="text-align:left">/scoreboard players reset @a[score_RadarVision=-1] RadarVision</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">21</td>
-                <td style="text-align:left">/execute 0-0-1-0-1 ~ 12 -166 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###レーダーヴィジョン終了処理予約</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">22</td>
-                <td style="text-align:left">/scoreboard players add #SecCount Global 1</td>
-                <td style="text-align:left">約1分処理イベント時伸びる</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">23</td>
-                <td style="text-align:left">/scoreboard players test #SecCount Global 0 0</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">24</td>
-                <td style="text-align:left">/worldborder warning distance 0</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">25</td>
-                <td style="text-align:left">/scoreboard players test #SecCount Global 61 *</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">26</td>
-                <td style="text-align:left">/clone -1920 14 ~ -1920 14 ~ -1920 14 ~ filtered force minecraft:command_block 5 ###１分クロック</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">27</td>
-                <td style="text-align:left">/scoreboard players tag @e[tag=FlyingObject] add TestingTick {inTile:&quot;minecraft:air&quot;}</td>
-                <td style="text-align:left">Tick停止飛翔物判定</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">28</td>
-                <td style="text-align:left">/entitydata @e[tag=TestingTick] {PortalCooldown:1}</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">29</td>
-                <td style="text-align:left">/clone -1920 15 ~ -1920 15 ~ -1920 15 ~ filtered force minecraft:command_block 5 ###tick停止判定予約</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">30</td>
-                <td style="text-align:left">/execute @e[tag=CanSpin] ~-0.5 ~ ~-0.5 /fill ~ ~ ~ ~1 ~1 ~1 minecraft:web 0 keep</td>
-                <td style="text-align:left">毒蜘蛛蜘蛛の巣設置 タグCanSpin</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">31</td>
-                <td style="text-align:left">/scoreboard players tag @e[tag=Freeze] add Melt {PortalCooldown:0}</td>
-                <td style="text-align:left">NoAI解除 Freeze Melt</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">32</td>
-                <td style="text-align:left">/entitydata @e[tag=Melt] {:,NoAI:false}</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">33</td>
-                <td style="text-align:left">/scoreboard players tag @e[tag=Melt] remove Freeze</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">34</td>
-                <td style="text-align:left">/scoreboard players tag @e[tag=Melt] remove Melt</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">35</td>
-                <td style="text-align:left">/scoreboard players add @e[tag=SkillMob] MobCastTime 20</td>
-                <td style="text-align:left">敵スキル SkillMob CastingMob MobCastTime</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">36</td>
-                <td style="text-align:left">/execute @r[type=!Player,tag=SkillMob,c=1] ~ ~ ~ /scoreboard players operation @e[dx=0,tag=SkillMob,score_MobCastTime_min=400,c=1] MobCastTime %= #20 Const</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">37</td>
-                <td style="text-align:left">/clone -1920 ~3 ~3 -1920 ~3 ~3 -1920 ~3 ~3 filtered force minecraft:command_block 5 ###敵スキル実行</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き ガラスあり</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">38</td>
-                <td style="text-align:left">/testfor @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0]</td>
-                <td style="text-align:left">嫌な予感実行</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">39</td>
-                <td style="text-align:left">/scoreboard players test #SecCount Global 0 *</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">40</td>
-                <td style="text-align:left">/clone -1920 ~ ~3 -1920 ~ ~3 -1920 ~ ~3 filtered force minecraft:command_block 5 ###嫌な予感実行</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">41</td>
-                <td style="text-align:left">/tp 0-0-2-0-2 ~ 10 ~</td>
-                <td style="text-align:left">クロック正常入力</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">42</td>
-                <td style="text-align:left">/scoreboard players tag @a[score_USBDimension_min=13,score_USBDimension=13,tag=!SaveTorch,m=!spectator] add RemoveTorch</td>
-                <td style="text-align:left">トカルト処理</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">43</td>
-                <td style="text-align:left">/clone -1920 ~1 ~3 -1920 ~1 ~3 -1920 ~1 ~3 filtered force minecraft:command_block 5 ###トカルト処理</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">44</td>
-                <td style="text-align:left">/scoreboard players tag @a[tag=SaveTorch] remove SaveTorch</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">45</td>
-                <td style="text-align:left">/execute 0-0-1-0-3 ~ ~ ~ /scoreboard players operation @e[r=5,tag=VillagerMeal] Freshness *= #-1 Const</td>
-                <td style="text-align:left">動物誘導イベント</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">46</td>
-                <td style="text-align:left">/clone -1920 ~2 ~3 -1920 ~2 ~3 -1920 ~2 ~3 filtered force minecraft:command_block 5 ###動物誘導イベント</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">47</td>
-                <td style="text-align:left">/scoreboard players tag @a add ReduceCurse {ActiveEffects:[{Id:4b,Amplifier:2b}]}</td>
-                <td style="text-align:left">ガーディアン 呪い短縮</td>
-                <td style="text-align:left"></td>
-            </tr>
-            <tr>
-                <td style="text-align:center">48</td>
-                <td style="text-align:left">/effect @a[tag=ReduceCurse] minecraft:mining_fatigue 15 3</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">49</td>
-                <td style="text-align:left">/effect @a[tag=ReduceCurse] minecraft:weakness 15 3</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">50</td>
-                <td style="text-align:left">/effect @a[tag=ReduceCurse] minecraft:hunger 15 3</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-            <tr>
-                <td style="text-align:center">51</td>
-                <td style="text-align:left">/scoreboard players tag @a[tag=ReduceCurse] remove ReduceCurse</td>
-                <td style="text-align:left"></td>
-                <td style="text-align:left">条件付き</td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="datatable4c-end"></div>
-    <h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
-    <ol>
-        <li><code>ManaRefresh</code>が0以上であるプレイヤーが存在したら、<code>ManaRefresh</code>を1に設定し、以下の事柄を実行
-            <ol>
-                <li><code>ManaRefresh</code>が-1以下であるプレイヤーにマナリフレッシュが切れたメッセージを送る</li>
-                <li><code>ManaRefresh</code>が-1以下であるプレイヤーの<code>ManaRefresh</code>を0に設定</li>
-            </ol>
-        </li>
-        <li><code>WindWall</code>が0以上であるプレイヤーが存在したら、<code>WindWall</code>から1を引き、以下の事柄を実行
-            <ol>
-                <li><code>WindWall</code>が-1以上であるプレイヤーにウィンドウォールが切れたというメッセージを送る</li>
-                <li><code>WindWall</code>が-1以上であるプレイヤーの<code>WindWall</code>を0に設定</li>
-            </ol>
-        </li>
-        <li><code>WindWall</code>が0以上であるプレイヤーのいる座標で効果音を鳴らす。</li>
-        <li><code>NinjaTime</code>が0以上であるプレイヤーが存在したら、<code>NinjaTime</code>から1を引いて以下の事柄を実行
-            <ul>
-                <li><code>NinjaTime</code>が-1以下であるとき<code>Tsuremai</code>と<code>Choyaku</code>、<code>NinjaTime</code>をそれぞれ0に設定</li>
-            </ul>
-        </li>
-        <li><code>MagicShield</code>を持つプレイヤーに耐性Lv.4を15秒間付与</li>
-        <li><code>Mokuso</code>を持つプレイヤーが存在したら、再生能力Lv.1を15秒間付与し、<code>Level</code>が43以上だったら再生能力Lv.2を15秒間付与</li>
-        <li><code>Kazakiri</code>を持つプレイヤーが存在したら、<code>Kazakiri</code>から1を引き、(-1920,11,-198)にある<a href="kazakiriUpdata.html">風切更新</a>を実行</li>
-        <li><code>RadarVision</code>が0以上であるプレイヤーが存在したら、<code>RadarVision</code>から1を引き、以下の事柄を実行
-            <ol>
-                <li><code>RadarVision</code>が-1以下であるプレイヤーに<code>RadarEnd</code>を付与し、15m下に移動、<code>RadarVision</code>を0に設定</li>
-                <li>(-1920,12,-166)にある<a href="archer_RadarVisionFinProcessing.html">狩人レーダーヴィジョン終了処理</a>を実行</li>
-            </ol>
-        </li>
-        <li><code>#SecCount</code>の<code>Global</code>に1を足す</li>
-        <li><code>#SecCount</code>の<code>Global</code>が0であるとき、ワールドの境界線から0m近づいたとき警告を出す</li>
-        <li><code>#SecCount</code>の<code>Global</code>が61以上であるとき、(-1920,14,-200)にある<a href="oneMinProcessing.html">約1分処理</a>を実行</li>
-        <li><code>FlyingObject</code>を持ち、空気中で停止している飛翔物が存在したら、それに<code>TestingTick</code>を付与し以下の事柄を実行
-            <ol>
-                <li><code>TestingTick</code>を持つエンティティの<code>PortalCooldown</code>を1に設定</li>
-                <li>(-1920,15,-200)にある<a href="tickStopDelete.html">Tick停止飛翔物削除</a>を実行</li>
-            </ol>
-        </li>
-        <li><code>CanSpin</code>を持つエンティティを中心として一辺2mの範囲に蜘蛛の巣を設置</li>
-        <li><code>Freeze</code>を持ち、<code>PortalCooldown</code>が0であるエンティティが存在したら、<code>Melt</code>を付与し以下の事柄を実行
-            <ul>
-                <li><code>Melt</code>を持つエンティティの<code>NoAI</code>をfalseにし、<code>Freeze</code>と<code>Melt</code>を削除</li>
-            </ul>
-        </li>
-        <li><code>SkillMob</code>を持つエンティティが存在したら、<code>MobCastTime</code>に20を足し、以下の事柄を実行
-            <ol>
-                <li><code>SkillMob</code>を持ち、プレイヤーでないエンティティを一人ランダムに選び、<code>MobCastTime</code>が400以上であるとき<code>MobCastTime</code>に20との剰余を代入</li>
-                <li>(-1920,14,-197)にある<a href="runMobSkill.html">敵スキル実行</a>を実行</li>
-            </ol>
-        </li>
-        <li><code>CauseEvent</code>を持ち、<code>USBDimension</code>が0であるプレイヤーが存在する時、以下の事柄を実行
-            <ul>
-                <li><code>#SecCount</code>の<code>Global</code>が0以上であるとき、(-1920,11,-197)にある<a href="eventFulfill.html">嫌な予感実行</a>を実行</li>
-            </ul>
-        </li>
-        <li><a href="TUSB_Analysis_Entity.html#systemkeeper">SystemKeeper</a>を今の座標からy=10へ移動</li>
-        <li><code>USBDimension</code>が13であり、<code>SaveTorch</code>を持ってなく、スペクターモードでないプレイヤーが存在したら、<code>RemoveTorch</code>を付与し(-1920,12,-197)にある<a href="iceProcessing.html">トカルト処理</a>を実行</li>
-        <li><code>SaveTouch</code>を持つプレイヤーから<code>SaveTouch</code>を消去</li>
-        <li>UUIDが0-0-1-0-3であるエンティティから5m以内で<code>VillagerMeal</code>を持つエンティティが存在したら、それの<code>Freshness</code>の符号を反転し、(-1920,13,-197)にある<a href="animalGuideEvent.html">動物誘導イベント</a>を実行</li>
-        <li>採掘速度低下Lv.3を持つプレイヤーが存在したら、<code>ReduceCurse</code>を付与し、以下の事柄を実行
-            <ol>
-                <li><code>ReduceCurse</code>を持つプレイヤーに採掘速度低下Lv.3を15秒間、弱体化Lv.3を15秒間、空腹Lv.3を15秒間付与</li>
-                <li><code>ReduceCurse</code>を持つプレイヤーから<code>ResuceCurce</code>を削除</li>
-            </ol>
-        </li>
-    </ol>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p><span class="label label-primary">位置 (-1920,11,-200)</span></p>
+<h2 id="about">About</h2>
+<p>スキルやイベント、トカルトコルデなどでの時間経過により変化するものの処理、分岐を行っている。</p>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<div class="datatable4c-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">コメント</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/scoreboard players remove @a[score_ManaRefresh_min=0] ManaRefresh 1</td>
+<td style="text-align:left">時間経過マナリフレッシュ</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/tellraw @a[score_ManaRefresh=-1] {&quot;text&quot;:&quot;マナリフレッシュの効果が切れた。&quot;,&quot;color&quot;:&quot;gold&quot;}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/scoreboard players reset @a[score_ManaRefresh=-1] ManaRefresh</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">/scoreboard players remove @a[score_WindWall_min=0] WindWall 1</td>
+<td style="text-align:left">時間経過ウィンドウォール</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">/tellraw @a[score_WindWall=-1] {&quot;text&quot;:&quot;ウィンドウォールの効果が切れた。&quot;,&quot;color&quot;:&quot;gold&quot;}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">/scoreboard players reset @a[score_WindWall=-1] WindWall</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">/execute @a[score_WindWall_min=0] ~ ~ ~ /playsound block.fire.extinguish master @a[r=16] ~ ~-100 ~ 0 0.5 0.1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">/scoreboard players remove @a[score_NinjaTime_min=0] NinjaTime 1</td>
+<td style="text-align:left">時間経過連舞跳躍</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">/scoreboard players set @a[score_NinjaTime=-1] Tsuremai 0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">/scoreboard players set @a[score_NinjaTime=-1] Choyaku 0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">/scoreboard players reset @a[score_NinjaTime=-1] NinjaTime</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:left">/effect @a[tag=MagicShield] minecraft:resistance 15 4 true</td>
+<td style="text-align:left">マジックシールド継続</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left">/effect @a[tag=Mokuso] minecraft:regeneration 15 1 true</td>
+<td style="text-align:left">瞑想継続</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:left">/effect @a[tag=Mokuso,score_Level_min=43] minecraft:regeneration 15 2 true</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:left">/scoreboard players remove @a[score_Kazakiri_min=0] Kazakiri 1</td>
+<td style="text-align:left">風切</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:left">/clone -1920 ~ ~2 -1920 ~ ~2 -1920 ~ ~2 filtered force minecraft:command_block 5 ###風切更新</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:left">/scoreboard players remove @a[score_RadarVision_min=0] RadarVision 1</td>
+<td style="text-align:left">時間経過レーダーヴィジョン</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:left">/scoreboard players tag @a[score_RadarVision=-1] add RadarEnd</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:left">/tp @a[score_RadarVision=-1] ~ ~15 ~</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:left">/scoreboard players reset @a[score_RadarVision=-1] RadarVision</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:left">/execute 0-0-1-0-1 ~ 12 -166 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###レーダーヴィジョン終了処理予約</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:left">/scoreboard players add #SecCount Global 1</td>
+<td style="text-align:left">約1分処理イベント時伸びる</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:left">/scoreboard players test #SecCount Global 0 0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:left">/worldborder warning distance 0</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:left">/scoreboard players test #SecCount Global 61 *</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td style="text-align:left">/clone -1920 14 ~ -1920 14 ~ -1920 14 ~ filtered force minecraft:command_block 5 ###１分クロック</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:left">/scoreboard players tag @e[tag=FlyingObject] add TestingTick {inTile:&quot;minecraft:air&quot;}</td>
+<td style="text-align:left">Tick停止飛翔物判定</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">28</td>
+<td style="text-align:left">/entitydata @e[tag=TestingTick] {PortalCooldown:1}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td style="text-align:left">/clone -1920 15 ~ -1920 15 ~ -1920 15 ~ filtered force minecraft:command_block 5 ###tick停止判定予約</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td style="text-align:left">/execute @e[tag=CanSpin] ~-0.5 ~ ~-0.5 /fill ~ ~ ~ ~1 ~1 ~1 minecraft:web 0 keep</td>
+<td style="text-align:left">毒蜘蛛蜘蛛の巣設置 タグCanSpin</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td style="text-align:left">/scoreboard players tag @e[tag=Freeze] add Melt {PortalCooldown:0}</td>
+<td style="text-align:left">NoAI解除 Freeze Melt</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td style="text-align:left">/entitydata @e[tag=Melt] {:,NoAI:false}</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td style="text-align:left">/scoreboard players tag @e[tag=Melt] remove Freeze</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">34</td>
+<td style="text-align:left">/scoreboard players tag @e[tag=Melt] remove Melt</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">35</td>
+<td style="text-align:left">/scoreboard players add @e[tag=SkillMob] MobCastTime 20</td>
+<td style="text-align:left">敵スキル SkillMob CastingMob MobCastTime</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">36</td>
+<td style="text-align:left">/execute @r[type=!Player,tag=SkillMob,c=1] ~ ~ ~ /scoreboard players operation @e[dx=0,tag=SkillMob,score_MobCastTime_min=400,c=1] MobCastTime %= #20 Const</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">37</td>
+<td style="text-align:left">/clone -1920 ~3 ~3 -1920 ~3 ~3 -1920 ~3 ~3 filtered force minecraft:command_block 5 ###敵スキル実行</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き ガラスあり</td>
+</tr>
+<tr>
+<td style="text-align:center">38</td>
+<td style="text-align:left">/testfor @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0]</td>
+<td style="text-align:left">嫌な予感実行</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">39</td>
+<td style="text-align:left">/scoreboard players test #SecCount Global 0 *</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">40</td>
+<td style="text-align:left">/clone -1920 ~ ~3 -1920 ~ ~3 -1920 ~ ~3 filtered force minecraft:command_block 5 ###嫌な予感実行</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">41</td>
+<td style="text-align:left">/tp 0-0-2-0-2 ~ 10 ~</td>
+<td style="text-align:left">クロック正常入力</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">42</td>
+<td style="text-align:left">/scoreboard players tag @a[score_USBDimension_min=13,score_USBDimension=13,tag=!SaveTorch,m=!spectator] add RemoveTorch</td>
+<td style="text-align:left">トカルト処理</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">43</td>
+<td style="text-align:left">/clone -1920 ~1 ~3 -1920 ~1 ~3 -1920 ~1 ~3 filtered force minecraft:command_block 5 ###トカルト処理</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">44</td>
+<td style="text-align:left">/scoreboard players tag @a[tag=SaveTorch] remove SaveTorch</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">45</td>
+<td style="text-align:left">/execute 0-0-1-0-3 ~ ~ ~ /scoreboard players operation @e[r=5,tag=VillagerMeal] Freshness *= #-1 Const</td>
+<td style="text-align:left">動物誘導イベント</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">46</td>
+<td style="text-align:left">/clone -1920 ~2 ~3 -1920 ~2 ~3 -1920 ~2 ~3 filtered force minecraft:command_block 5 ###動物誘導イベント</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">47</td>
+<td style="text-align:left">/scoreboard players tag @a add ReduceCurse {ActiveEffects:[{Id:4b,Amplifier:2b}]}</td>
+<td style="text-align:left">ガーディアン 呪い短縮</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">48</td>
+<td style="text-align:left">/effect @a[tag=ReduceCurse] minecraft:mining_fatigue 15 3</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">49</td>
+<td style="text-align:left">/effect @a[tag=ReduceCurse] minecraft:weakness 15 3</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">50</td>
+<td style="text-align:left">/effect @a[tag=ReduceCurse] minecraft:hunger 15 3</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">51</td>
+<td style="text-align:left">/scoreboard players tag @a[tag=ReduceCurse] remove ReduceCurse</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">条件付き</td>
+</tr>
+</tbody>
+</table>
+<div class="datatable4c-end"></div>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li><code>ManaRefresh</code>が0以上であるプレイヤーが存在したら、<code>ManaRefresh</code>を1に設定し、以下の事柄を実行
+<ol>
+<li><code>ManaRefresh</code>が-1以下であるプレイヤーにマナリフレッシュが切れたメッセージを送る</li>
+<li><code>ManaRefresh</code>が-1以下であるプレイヤーの<code>ManaRefresh</code>を0に設定</li>
+</ol>
+</li>
+<li><code>WindWall</code>が0以上であるプレイヤーが存在したら、<code>WindWall</code>から1を引き、以下の事柄を実行
+<ol>
+<li><code>WindWall</code>が-1以上であるプレイヤーにウィンドウォールが切れたというメッセージを送る</li>
+<li><code>WindWall</code>が-1以上であるプレイヤーの<code>WindWall</code>を0に設定</li>
+</ol>
+</li>
+<li><code>WindWall</code>が0以上であるプレイヤーのいる座標で効果音を鳴らす。</li>
+<li><code>NinjaTime</code>が0以上であるプレイヤーが存在したら、<code>NinjaTime</code>から1を引いて以下の事柄を実行
+<ul>
+<li><code>NinjaTime</code>が-1以下であるとき<code>Tsuremai</code>と<code>Choyaku</code>、<code>NinjaTime</code>をそれぞれ0に設定</li>
+</ul>
+</li>
+<li><code>MagicShield</code>を持つプレイヤーに耐性Lv.4を15秒間付与</li>
+<li><code>Mokuso</code>を持つプレイヤーが存在したら、再生能力Lv.1を15秒間付与し、<code>Level</code>が43以上だったら再生能力Lv.2を15秒間付与</li>
+<li><code>Kazakiri</code>を持つプレイヤーが存在したら、<code>Kazakiri</code>から1を引き、(-1920,11,-198)にある<a href="kazakiriUpdata.html">風切更新</a>を実行</li>
+<li><code>RadarVision</code>が0以上であるプレイヤーが存在したら、<code>RadarVision</code>から1を引き、以下の事柄を実行
+<ol>
+<li><code>RadarVision</code>が-1以下であるプレイヤーに<code>RadarEnd</code>を付与し、15m下に移動、<code>RadarVision</code>を0に設定</li>
+<li>(-1920,12,-166)にある<a href="archer_RadarVisionFinProcessing.html">狩人レーダーヴィジョン終了処理</a>を実行</li>
+</ol>
+</li>
+<li><code>#SecCount</code>の<code>Global</code>に1を足す</li>
+<li><code>#SecCount</code>の<code>Global</code>が0であるとき、ワールドの境界線から0m近づいたとき警告を出す</li>
+<li><code>#SecCount</code>の<code>Global</code>が61以上であるとき、(-1920,14,-200)にある<a href="oneMinProcessing.html">約1分処理</a>を実行</li>
+<li><code>FlyingObject</code>を持ち、空気中で停止している飛翔物が存在したら、それに<code>TestingTick</code>を付与し以下の事柄を実行
+<ol>
+<li><code>TestingTick</code>を持つエンティティの<code>PortalCooldown</code>を1に設定</li>
+<li>(-1920,15,-200)にある<a href="tickStopDelete.html">Tick停止飛翔物削除</a>を実行</li>
+</ol>
+</li>
+<li><code>CanSpin</code>を持つエンティティを中心として一辺2mの範囲に蜘蛛の巣を設置</li>
+<li><code>Freeze</code>を持ち、<code>PortalCooldown</code>が0であるエンティティが存在したら、<code>Melt</code>を付与し以下の事柄を実行
+<ul>
+<li><code>Melt</code>を持つエンティティの<code>NoAI</code>をfalseにし、<code>Freeze</code>と<code>Melt</code>を削除</li>
+</ul>
+</li>
+<li><code>SkillMob</code>を持つエンティティが存在したら、<code>MobCastTime</code>に20を足し、以下の事柄を実行
+<ol>
+<li><code>SkillMob</code>を持ち、プレイヤーでないエンティティを一人ランダムに選び、<code>MobCastTime</code>が400以上であるとき<code>MobCastTime</code>に20との剰余を代入</li>
+<li>(-1920,14,-197)にある<a href="runMobSkill.html">敵スキル実行</a>を実行</li>
+</ol>
+</li>
+<li><code>CauseEvent</code>を持ち、<code>USBDimension</code>が0であるプレイヤーが存在する時、以下の事柄を実行
+<ul>
+<li><code>#SecCount</code>の<code>Global</code>が0以上であるとき、(-1920,11,-197)にある<a href="eventFulfill.html">嫌な予感実行</a>を実行</li>
+</ul>
+</li>
+<li><a href="TUSB_Analysis_Entity.html#systemkeeper">SystemKeeper</a>を今の座標からy=10へ移動</li>
+<li><code>USBDimension</code>が13であり、<code>SaveTorch</code>を持ってなく、スペクターモードでないプレイヤーが存在したら、<code>RemoveTorch</code>を付与し(-1920,12,-197)にある<a href="iceProcessing.html">トカルト処理</a>を実行</li>
+<li><code>SaveTouch</code>を持つプレイヤーから<code>SaveTouch</code>を消去</li>
+<li>UUIDが0-0-1-0-3であるエンティティから5m以内で<code>VillagerMeal</code>を持つエンティティが存在したら、それの<code>Freshness</code>の符号を反転し、(-1920,13,-197)にある<a href="animalGuideEvent.html">動物誘導イベント</a>を実行</li>
+<li>採掘速度低下Lv.3を持つプレイヤーが存在したら、<code>ReduceCurse</code>を付与し、以下の事柄を実行
+<ol>
+<li><code>ReduceCurse</code>を持つプレイヤーに採掘速度低下Lv.3を15秒間、弱体化Lv.3を15秒間、空腹Lv.3を15秒間付与</li>
+<li><code>ReduceCurse</code>を持つプレイヤーから<code>ResuceCurce</code>を削除</li>
+</ol>
+</li>
+</ol>
 
 </body>
-
 </html>

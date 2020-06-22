@@ -3,6 +3,7 @@ title: ジョブチェンジ先判定
 tags: [command,job,item]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,職業変更許可書,釣りチケ,職業島,ブラジル
 last_updated: 2020/6/19
+update: 2020-06-19 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: jobChangeJudgement.html
 folder: command

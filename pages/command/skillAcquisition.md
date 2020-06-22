@@ -3,6 +3,7 @@ title: 習得スキル取得
 tags: [command,skill,job,display]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,職業,ジョブ,レベルアップ,スキル
 last_updated: 2020/6/19
+update: 2020-06-19 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: skillAcquisition.html
 folder: command

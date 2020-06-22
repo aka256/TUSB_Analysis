@@ -47,7 +47,7 @@
             {% capture pday %}{{ page.update | date: '%d' }}{% endcapture %}
             {% capture pmonth %}{{ page.update | date: '%m' }}{% endcapture %} 
             {% capture pyear %}{{ page.update | date: '%Y' }}{% endcapture %}
-            {% if day<pday and month<=pmonth and year<=pyear pday!=leastday %}
+            {% if day<pday and month<=pmonth and year<=pyear and pday!=leastday %}
                 {% assign leastpagedate = page.update %}
             {% endif %}
         {% endif %}

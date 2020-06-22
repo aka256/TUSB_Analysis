@@ -3,6 +3,7 @@ title: 攻略率表示
 tags: [command,display]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,交易島,攻略率
 last_updated: 2020/6/19
+update: 2020-06-19 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: conquerDisplay.html
 folder: command
