@@ -57,6 +57,9 @@ entries:
       - title: トカルト処理
         url: iceProcessing.html
         output: web, pdf
+      - title: 動物誘導イベント
+        url: animalGuideEvent.html
+        output: web, pdf
       - title: AEC維持
         url: aecMaintenance.html
         output: web, pdf

@@ -365,7 +365,53 @@ code {
           : 'default'
     });
   </script>
-<p>準備中です</p>
+<p><span class="label label-primary">位置 (-1920,13,-197)</span></p>
+<h2 id="about">About</h2>
+<p>嫌な予感のイベントの1つである動物誘導イベントを管理するコマンド群である。</p>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<div class="datatable3cnp-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+<th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/execute 0-0-1-0-3 ~ ~ ~ /kill @e[r=5,tag=VillagerMeal,score_Freshness_min=-9]</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/execute 0-0-1-0-3 ~ ~ ~ /tellraw @a {&quot;translate&quot;:&quot;* %1$s 「連れて来て下さったのですか！ ありがとうございます。これはほんのお礼です。お受取り下さい。」&quot;,&quot;with&quot;:[{&quot;text&quot;:&quot;農業家&quot;,&quot;color&quot;:&quot;dark_green&quot;}]}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/execute 0-0-1-0-3 ~ ~ ~ /tellraw @a {&quot;translate&quot;:&quot;* %1$s 「お～い、みんな！ ごはんだぞ～！！」&quot;,&quot;with&quot;:[{&quot;text&quot;:&quot;農業家&quot;,&quot;color&quot;:&quot;dark_green&quot;}]}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>/execute 0-0-1-0-3 ~ ~ ~ /kill @e[r=5,tag=VillagerMeal,score_Freshness=-10]</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>/execute 0-0-1-0-3 ~ ~ ~ /tellraw @a {&quot;translate&quot;:&quot;* %1$s 「あぁ…連れて来て下さったのですか…。ありがとうございます。でも食事の時間はもう終わってしまいました…。」&quot;,&quot;with&quot;:[{&quot;text&quot;:&quot;農業家&quot;,&quot;color&quot;:&quot;dark_green&quot;}]}</td>
+<td>条件付き</td>
+</tr>
+</tbody>
+</table>
+<div class="datatable3cnp-end"></div>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li>農業家の半径5m以内に<code>VillagerMeal</code>を持ち、<code>Freshness</code>が-9以上のエンティティを殺したとき、農業家からのお礼のメッセージを流す</li>
+<li>農業家の半径5m以内に<code>VillagerMeal</code>を持ち、<code>Freshness</code>が-10以下のエンティティを殺したとき、農業家から間に合わなかったとのメッセージを流す</li>
+</ol>
 
 </body>
 </html>

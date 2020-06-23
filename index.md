@@ -41,6 +41,7 @@ hide_sidebar: true
       - [敵スキル実行](runMobSkill.html)
       - [嫌な予感実行](eventFullfill.html)
       - [トカルト処理](iceProcessing.html)
+      - [動物誘導イベント](animalGuideEvent.html)
     - [AEC維持](aecMaintenance.html)
   - 毎tick実行するコマンド群2
     - [メインクロック開始時リセットするもの](reset.html)
