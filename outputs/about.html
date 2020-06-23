@@ -365,21 +365,116 @@ code {
           : 'default'
     });
   </script>
-<h2 id="%E8%B6%85%E4%BD%9C%E6%A5%AD%E5%8F%B0%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF">超作業台の仕組み</h2>
-<h3 id="%E3%82%B9%E3%82%A4%E3%83%83%E3%83%81%E5%91%A8%E3%82%8A">スイッチ周り</h3>
+<h2 id="%E8%B6%85%E4%BD%9C%E6%A5%AD%E5%8F%B0%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">超作業台について</h2>
+<p>通常の作業台とは異なるレシピにより、強力な武器などを作ることのできる摩訶不思議な超作業台であるが、その仕組みは至ってシンプルである。
+流れとしては、超作業台(<s>に見立てたドロッパー</s>)に置かれたアイテムと、超作業台ルーム内に置かれたレシピごとに配置されてあるドロッパーを比較し、一致したらそれに対応した完成品の入ったドロッパーを超作業台の所にコピーするだけである。実際にレシピを登録する方法は<a href="createRecipe.html">超作業台レシピの追加</a>を参照。</p>
+<p>{% include note.html content=&quot;レシピのドロッパーの中身は完全一致しなければならないため、同じアイテムに見えてもNBTが異なるアイテムでは超作業台によるクラフティングができないことがある。&quot; %}</p>
+<hr>
+<h2 id="%E8%B6%85%E4%BD%9C%E6%A5%AD%E5%8F%B0%E3%81%AE%E8%A9%B3%E7%B4%B0">超作業台の詳細</h2>
+<h3 id="%E8%B6%85%E4%BD%9C%E6%A5%AD%E5%8F%B0%E4%BB%98%E8%BF%91">超作業台付近</h3>
+<p>{% include image.html file=&quot;craftingTable.png&quot; alt=&quot;超作業台&quot; caption=&quot;超作業台の周り&quot; %}</p>
+<p>超作業台の周りには上図のように二つのコマンドブロックがあり、これによって超作業台ルームのコマンド群を起動している。具体的には、以下のような内容のものが記述されている。</p>
+<h4 id="%E3%83%89%E3%83%AD%E3%83%83%E3%83%91%E3%83%BC%E3%81%AE%E6%A8%AA%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF">ドロッパーの横のコマンドブロック</h4>
+<pre class="hljs"><code><div>/clone -2737 70 -369 -2721 70 -354 -2737 70 -369 filtered force minecraft:command_block 1
+</div></code></pre>
 <ul>
-<li>
-<p>/clone -2737 70 -369 -2721 70 -354 -2737 70 -369 filtered force minecraft:command_block 1</p>
-</li>
-<li>
-<p>/clone -2738 70 -353 -2738 70 -353 -2738 70 -353 filtered force minecraft:command_block
-↓
-(-2738,70,-353)
-/clone -2739 90 -362 -2739 90 -362 -2721 70 -355 filtered normal minecraft:dropper
-/clone -2735 70 -390 -2721 70 -354 -2735 70 -390 filtered force minecraft:command_block
-/clone -2721 70 -353 -2721 70 -353 -2721 70 -353 filtered force minecraft:command_block</p>
-</li>
+<li>レシピの特定を実行</li>
 </ul>
+<h4 id="%E3%83%89%E3%83%AD%E3%83%83%E3%83%91%E3%83%BC%E3%81%AE%E4%B8%8B%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF">ドロッパーの下のコマンドブロック</h4>
+<pre class="hljs"><code><div>- /clone -2738 70 -353 -2738 70 -353 -2738 70 -353 filtered force minecraft:command_block
+</div></code></pre>
+<ul>
+<li>超作業台による<a href="#%E3%82%AF%E3%83%A9%E3%83%95%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E5%AE%9F%E8%A1%8C%E9%83%A8">クラフティングの実行</a></li>
+</ul>
+<h3 id="%E8%B6%85%E4%BD%9C%E6%A5%AD%E5%8F%B0%E3%83%AB%E3%83%BC%E3%83%A0%E5%86%85">超作業台ルーム内</h3>
+<p>{% include image.html file=&quot;craftingProcessing.png&quot; alt=&quot;超作業台ルームの超作業台管理部分&quot; caption=&quot;超作業台ルームのレシピ群&quot; %}</p>
+<p>超作業台ルーム内の上図が超作業台を管理する部分である。この管理部分は大きく分けて3つに分かれており、クラフティングを実行するコマンド群、超作業台のドロッパーを一時的にコピーしたドロッパー、そして<a href="#%E3%83%AC%E3%82%B7%E3%83%94%E7%BE%A4">すべての超作業台レシピを保存している装置群</a>となっている。</p>
+<h4 id="%E3%82%AF%E3%83%A9%E3%83%95%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E5%AE%9F%E8%A1%8C%E9%83%A8">クラフティング実行部</h4>
+<p>このコマンド群は二つに分かれており、超作業台のボタンを押すことによって実行される部分(コマンド群A)と、そこから起動され演出などを実行する部分(コマンド群B)に分けられる。</p>
+<h5 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4a">コマンド群A</h5>
+<p><span class="label label-primary">位置 (-2738,70,-353)</span></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/clone -2739 90 -362 -2739 90 -362 -2721 70 -355 filtered normal minecraft:dropper</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/clone -2735 70 -390 -2721 70 -354 -2735 70 -390 filtered force minecraft:command_block</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/clone -2721 70 -353 -2721 70 -353 -2721 70 -353 filtered force minecraft:command_block</td>
+</tr>
+</tbody>
+</table>
+<p>まず、超作業台のドロッパーを(-2721,70,-355)にある一時コピー先ドロッパーにクローンし、<a href="#%E3%83%AC%E3%82%B7%E3%83%94%E7%BE%A4">レシピ群</a>を実行する。そして、<a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4b">コマンド群B</a></p>
+<h5 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4b">コマンド群B</h5>
+<p><span class="label label-primary">位置 (-2721,70,-353)</span></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+<th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/testforblocks ~ ~ ~-2 ~ ~ ~-2 -2739 90 -362</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/execute 0-0-1-0-1 -2739 90 -362 /playsound minecraft:entity.item.break master @a[r=12] ~ ~ ~ 1 1.587</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/particle smoke -2739 92 -362 1 1 1 0 50 force</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>/blockdata ~ ~-3 ~ {SuccessCount:1}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>/execute 0-0-1-0-1 -2739 90 -362 /playsound block.anvil.use master @a[r=12] ~ ~ ~ 1 1.587</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>/particle happyVillager -2739 92 -362 1 1 1 0 50 force</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>/clone -2721 70 -355 -2721 70 -355 -2739 90 -362</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>(-2721,70,-355)にある一時コピー先ドロッパーと超作業台のドロッパーを比較し、一致したとき(レシピが間違っているとき)は失敗時の演出を行い、不一致の時は成功時の演出を実行する</li>
+<li>一時コピー先ドロッパーを超作業台のドロッパーの座標にクローンする</li>
+</ol>
+<h4 id="%E3%83%AC%E3%82%B7%E3%83%94%E7%BE%A4">レシピ群</h4>
+<p>{% include image.html file=&quot;recipeset.png&quot; alt=&quot;レシピ装置&quot; caption=&quot;レシピ装置抜粋&quot; %}</p>
+<p>レシピ装置は二つのドロッパーとコマンド、そしてレッドストーンブロックからなり、これを全レシピ分用意されている。ドロッパーの下段には超作業台のレシピ、上段には完成品が入っている。また、コマンドは下段、上段の順に以下のようになっている。</p>
+<pre class="hljs"><code><div>/clone ~ ~ ~-1 ~ ~ ~-1 -2721 70 -355
+/testforblocks ~ ~ ~-1 ~ ~ ~-1 -2721 70 -355
+</div></code></pre>
+<p>要はコマンドブロックの隣にある下段のドロッパーと(-2721,70,-355)にある一時コピー先ドロッパーが一致する場合は、上段のドロッパーを一時コピー先ドロッパーにクローンする、というものである。</p>
 
 </body>
 </html>

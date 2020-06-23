@@ -439,6 +439,29 @@
       
   
   <li>
+      <a title="超作業台ルーム" href="#">超作業台ルーム</a>
+      <ul>
+          
+          
+          
+          <li><a title="超作業台" href="about.html">超作業台</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="超作業台レシピの追加" href="createRecipe.html">超作業台レシピの追加</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
       <a title="データ類" href="#">データ類</a>
       <ul>
           
@@ -553,9 +576,9 @@ $('#toc').on('click', 'a', function() {
     
         
 
-        <tr><td><a href="about.html">超作業台について</a></td>
+        <tr><td><a href="about.html">超作業台</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 超作業台の仕組み スイッチ周り   /clone -2737 70 -369 -2721 70 -354 -2737 70 -369 filtered force minecraft:command_block 1   /clone -2738 70 -353 -2738 70 -353 -2738 70 -353 filtered force minecraft:command_block ↓ (-2738,70,-353) /clone -2739 90 -362 -2739 90 -362 -2721 70 -355... </td>
+          <td> 超作業台について 通常の作業台とは異なるレシピにより、強力な武器などを作ることのできる摩訶不思議な超作業台であるが、その仕組みは至ってシンプルである。 流れとしては、超作業台(に見立てたドロッパー)に置かれたアイテムと、超作業台ルーム内に置かれたレシピごとに配置されてあるドロッパーを比較し、一致したらそれに対応した完成品の入ったドロッパーを超作業台の所にコピーするだけである。実際にレシピを登録する方法は超作業台レシピの追加を参照。  Note: レシピのドロッパーの中身は完全一致しなければならないため、同じアイテムに見えてもNBTが異なるアイテムでは超作業台によるクラフティングができないことがある。  超作業台の詳細 超作業台付近 超作業台の周り 超作業台の周りには上図のように二つのコマンドブロックがあり、これによって超作業台ルームのコマンド群を起動している。具体的には、以下のような内容のものが記述されている。 ドロッパーの横のコマンドブロック /clone -2737 70 -369 -2721 70 -354 -2737 70 -369 filtered force minecraft:command_block 1   レシピの特定を実行  ドロッパーの下のコマンドブロック &lt;code... </td>
         </tr>
         
      
@@ -661,6 +684,16 @@ $('#toc').on('click', 'a', function() {
      
         
      
+        
+     
+   
+    
+        
+
+        <tr><td><a href="createRecipe.html">超作業台レシピの追加</a></td>
+            <td><span class="label label-default">Page</span></td>
+          <td> 超作業台のレシピ追加方法 超作業台へのレシピの追加方法について説明していく。超作業台の仕組みについて知りたい場合は超作業台についてを参照。  Warning: 超作業台へのレシピ追加など、TUSBの改造は公式のサポート範囲外と思われるので実際に行う際は自己責任で行うように。  Important: 作業を始める前に、ワールドのバックアップを取っておくことを推奨する。 コマンドの使用を許可 作業を始める前にコマンドが使える状態にする。方法としてはいろいろあるが、今回は簡単に行える方法を取る。 Escを押したときのメニュー まず、レシピを追加したいTUSBのワールドに入り、Escを押した際の”LANに公開”を押す。 LANに公開を押したときのメニュー そして、チートの許可をオンに変更し、LANワールドの開始を選択する。 これにより、コマンドが使用できるようになった。なお、一旦ワールドから抜けるとこの設定は解除され、再びLANワールドを開始する必要がある。 超作業台ルームへの侵入 超作業台ルームはスキル設定所の下にある。そこに侵入するには、スペクターモードに変更して行く方法がベストだろう。 スペクターモードに変更したら、スキル設定所の入り口付近の床を下にすり抜けるとすぐに超作業台ルームにたどり着くことができる。しかし、ここはすべてバリアブロック埋もれているのでこれを取り払う必要がある。手動で1つ1つ壊してもいいのだが、専用のコマンドブロックが用意されているので使わせてもらおう。まず、壁沿いのExitという文字のEの下あたりに赤と青の羊毛がある。 バリアブロックを管理するコマンド そこにある穴を覗くとボタンがある。青の方がバリアブロック除去、赤がバリアブロック設置するコマンドとなっているので、今回は青の方のボタンを押す。(このときはクリエイティブに変更してバリアブロックを壊してボタンを押す必要がある)すると、バリアブロックが取り払われ、作業がしやすくなる。 レシピの登録... </td>
+        </tr>
         
      
    
@@ -935,6 +968,16 @@ About
     
         
 
+        <tr><td><a href="random_update.html">乱数更新</a></td>
+            <td><span class="label label-default">Page</span></td>
+          <td> /scoreboard players operation @a[tag=UpdateRandom] RndMWC *= #MWCMultiplier Const /execute @a[tag=UpdateRandom] ~ ~ ~ /scoreboard players operation @a[c=1] RndMWC += @a[c=1] RndMWCCarry /execute @a[tag=UpdateRandom] ~ ~ ~ /scoreboard players operation @a[c=1] RndMWCCarry = @a[c=1] RndMWC /scoreboard players operation @a[tag=UpdateRandom] RndMWC %= #MWCBase Const /scoreboard players operation @a[tag=UpdateRandom]... </td>
+        </tr>
+        
+     
+   
+    
+        
+
         <tr><td><a href="reset.html">メインクロック開始時リセットするもの</a></td>
             <td><span class="label label-default">Page</span></td>
           <td> 位置 (-1920,4,-192) About TUSBにログインした際にジョブやHP、満腹度修正など、様々な処理への分岐を行う。 コマンド群     No. コマンド コメント 状態     1 /scoreboard players reset @a[score_MPConsumption_min=0] MPConsumption       &lt;td style="text-align:... </td>
@@ -1160,7 +1203,7 @@ About
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-             Site last generated: 22 Jun 2020 <br />
+             Site last generated: 23 Jun 2020 <br />
         </div>
     </div>
 </footer>

@@ -118,6 +118,16 @@ entries:
       url: clockIslandProcessing.html      
       output: web, pdf
 
+  - title: 超作業台ルーム
+    output: web,pdf
+    folderitems:
+    - title: 超作業台
+      url: about.html
+      output: web, pdf
+    - title: 超作業台レシピの追加
+      url: createRecipe.html
+      output: web, pdf
+
   - title: データ類
     output: web,pdf
     folderitems:
