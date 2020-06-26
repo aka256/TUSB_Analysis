@@ -57,7 +57,7 @@ datatable3c: true
    - 1スタックの松明を与え、`ISFUnreached`を削除
 2. `RemoveTorch`を持つプレイヤーの0.5m下に水があるとき、ボートに乗っていないとき`RemoveTorchInWater`を付与
 3. `RemoveTorchInWater`を持つすべてのプレイヤーから松明を49本取り上げる
-4. `RemoveTorch`を持つすべてのプレイヤーの`ItemCount`を-1に設定し、`ItemCount`が-1以下であるプレイヤーかた松明を1本取り上げる
+4. `RemoveTorch`を持つすべてのプレイヤーの`ItemCount`を-1に設定し、`ItemCount`が-1以上であるプレイヤーから松明を1本取り上げる
 5. `RemoveTorch`を持ち、`ItemCount`が0以下であるすべてのプレイヤーに即時ダメージLv.1を付与
 6. `RemoveTorch`を持ち、`ItemCount`が1以上であるプレイヤーが存在したら、すべての対象に[消えた松明](TUSB_Analysis_Item.html#消えた松明)を与え、以下の事柄を実行
    1. `SaveTorch`を付与

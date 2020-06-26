@@ -9,6 +9,36 @@
   
   
   
+  
+  
+  <url>
+    <loc>http://localhost:4000/3_command.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <url>
     <loc>http://localhost:4000/TUSB_Analysis_Data.html</loc>
   </url>
@@ -250,6 +280,8 @@
   <url>
     <loc>http://localhost:4000/statusDisplay.html</loc>
   </url>
+  
+  
   
   
   

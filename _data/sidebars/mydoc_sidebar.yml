@@ -120,6 +120,12 @@ entries:
     - title: 時計島
       url: clockIslandProcessing.html      
       output: web, pdf
+  - title: 毎tick実行するコマンド群3
+    output: web, pdf
+    folderitems:
+    - title: 毎tick実行するコマンド群3
+      url: 3_command.html      
+      output: web, pdf
 
   - title: 超作業台ルーム
     output: web,pdf
