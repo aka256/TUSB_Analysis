@@ -365,7 +365,80 @@ code {
           : 'default'
     });
   </script>
-<p>準備中です</p>
+<p><span class="label label-primary">位置 (-1920,16,-189)</span></p>
+<h2 id="about">About</h2>
+<p>現在設定されているスキルについて表示を行う。</p>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<div class="datatable3cnp-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+<th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/tellraw @a[score_ShowSkillSlot_min=4,score_ShowSkillSlot=4,score_ModeState_min=1] {&quot;translate&quot;:&quot;現在のモードスキル設定(%1$s中) %2$s/%3$s&quot;,&quot;bold&quot;:true,&quot;with&quot;:[{&quot;text&quot;:&quot;ルビーモード&quot;,&quot;color&quot;:&quot;red&quot;},{&quot;text&quot;:&quot;↑&quot;,&quot;color&quot;:&quot;red&quot;},{&quot;text&quot;:&quot;↓&quot;,&quot;color&quot;:&quot;blue&quot;}]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/tellraw @a[score_ShowSkillSlot_min=4,score_ShowSkillSlot=4,score_ModeState=-1] {&quot;translate&quot;:&quot;現在のモードスキル設定(%1$s中) %2$s/%3$s&quot;,&quot;bold&quot;:true,&quot;with&quot;:[{&quot;text&quot;:&quot;サファイアモード&quot;,&quot;color&quot;:&quot;blue&quot;},{&quot;text&quot;:&quot;↑&quot;,&quot;color&quot;:&quot;red&quot;},{&quot;text&quot;:&quot;↓&quot;,&quot;color&quot;:&quot;blue&quot;}]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/tellraw @a[score_ShowSkillSlot_min=4,score_ShowSkillSlot=4,score_ModeState_min=0,score_ModeState=0] {&quot;translate&quot;:&quot;現在のモードスキル設定(%1$s中) %2$s/%3$s&quot;,&quot;bold&quot;:true,&quot;with&quot;:[{&quot;text&quot;:&quot;モード未設定&quot;,&quot;color&quot;:&quot;gray&quot;},{&quot;text&quot;:&quot;↑&quot;,&quot;color&quot;:&quot;red&quot;},{&quot;text&quot;:&quot;↓&quot;,&quot;color&quot;:&quot;blue&quot;}]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>/execute @a[score_ShowSkillSlot_min=4,score_ShowSkillSlot=4] ~ ~ ~ /scoreboard players operation @a[c=1] ShowSkill = @a[c=1] ModeSkillA</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>/execute @a[score_ShowSkillSlot_min=3,score_ShowSkillSlot=3] ~ ~ ~ /scoreboard players operation @a[c=1] ShowSkill = @a[c=1] ModeSkillB</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>/tellraw @a[score_ShowSkillSlot_min=2,score_ShowSkillSlot=2] {&quot;translate&quot;:&quot;現在のサポートスキル設定 %1$s/%2$s&quot;,&quot;bold&quot;:true,&quot;with&quot;:[{&quot;text&quot;:&quot;↑&quot;,&quot;color&quot;:&quot;red&quot;},{&quot;text&quot;:&quot;↓&quot;,&quot;color&quot;:&quot;blue&quot;}]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>/execute @a[score_ShowSkillSlot_min=2,score_ShowSkillSlot=2] ~ ~ ~ /scoreboard players operation @a[c=1] ShowSkill = @a[c=1] InstantSkillA</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td>/execute @a[score_ShowSkillSlot_min=1,score_ShowSkillSlot=1] ~ ~ ~ /scoreboard players operation @a[c=1] ShowSkill = @a[c=1] InstantSkillB</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td>/scoreboard players remove @a[score_ShowSkillSlot_min=1] ShowSkillSlot 1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="datatable3cnp-end"></div>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li><code>ShowSkillSlot</code>が4であり、<code>ModeState</code>が1以上であるすべてのプレイヤーに現在のルビーのモードスキル設定を表示</li>
+<li><code>ShowSkillSlot</code>が4であり、<code>ModeState</code>が-1以下であるすべてのプレイヤーに現在のサファイアのモードスキル設定を表示</li>
+<li><code>ShowSkillSlot</code>が4であり、<code>ModeState</code>が0であるすべてのプレイヤーにモード未設定時の現在のモードスキル設定を表示</li>
+<li><code>ShowSkillSlot</code>が4であるプレイヤーの<code>ShowSkill</code>に<code>ModeSkillA</code>を代入</li>
+<li><code>ShowSkillSlot</code>が3であるプレイヤーの<code>ShowSkill</code>に<code>ModeSkillB</code>を代入</li>
+<li><code>ShowSkillSlot</code>が2であるすべてのプレイヤー現在のサポートスキル設定を表示</li>
+<li><code>ShowSkillSlot</code>が2であるプレイヤーの<code>ShowSkill</code>に<code>InstantSkillA</code>を代入</li>
+<li><code>ShowSkillSlot</code>が1であるプレイヤーの<code>ShowSkill</code>に<code>InstantSkillB</code>を代入</li>
+<li><code>ShowSkillSlot</code>が1以上であるすべてのプレイヤーの<code>ShowSkillSlot</code>から1を引く</li>
+</ol>
 
 </body>
 </html>

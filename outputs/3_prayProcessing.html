@@ -365,7 +365,46 @@ code {
           : 'default'
     });
   </script>
-<p>準備中です</p>
+<p><span class="label label-primary">位置 (-1920,9,-189)</span></p>
+<h2 id="about">About</h2>
+<p>お祈りによるkillを処理を行う。</p>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/scoreboard players set @a[score_kill_min=1,score_kill=1] MP 0</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/scoreboard players set @a[score_kill_min=1,score_kill=1] MPMaxFlag 0</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/spawnpoint @a[score_kill_min=1,score_kill=1] -64 15.0625 30</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>/kill @a[score_kill_min=1]</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>/scoreboard players set @a[score_kill_min=1] kill 0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li><code>kill</code>が1であるすべてのプレイヤーの<code>MP</code>と<code>MPMaxFlag</code>をそれぞれ0に設定し、スポーンポイントを(-64,15.0625,30)に設定</li>
+<li><code>kill</code>が1以上であるすべてのプレイヤーをキルする</li>
+<li><code>kill</code>が1以上であるすべてのプレイヤーの<code>kill</code>を0に設定</li>
+</ol>
 
 </body>
 </html>

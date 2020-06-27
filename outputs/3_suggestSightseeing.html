@@ -365,7 +365,346 @@ code {
           : 'default'
     });
   </script>
-<p>準備中です</p>
+<h2 id="about">About</h2>
+<p>観光モードの提案から、変更までの処理を行う。</p>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4a">コマンド群A</h3>
+<p><span class="label label-primary">位置 (-1920,8,-188)</span></p>
+<div class="datatable3c-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+<th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/scoreboard players test Sightseeing Settings 1 *</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/tellraw @a[tag=SuggestSightseeing] {&quot;text&quot;:&quot;既に観光モードに移行済みです。&quot;}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/scoreboard players test Sightseeing Settings * 0</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>/execute @a[tag=SuggestSightseeing,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~-1 9 -188 /fill ~ ~ ~ ~ ~ ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0 ###観光モード提案タイマー起動 ###executeは提案tick鯖落ち時等誤承認回避</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>/execute @a[tag=SuggestSightseeing] ~ ~ ~ /me によって観光モードへの移行が提案されました。</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>/scoreboard players tag @a add ShowVote</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>/scoreboard players set #SSModeVoteSec Global 61</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td>/list</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td>/scoreboard players set #SSModeVoteSec Global 181</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td>/scoreboard players tag @a[tag=SuggestSightseeing] remove SuggestSightseeing</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="datatable3c-end"></div>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4b">コマンド群B</h3>
+<p><span class="label label-primary">位置 (-1920,9,-188)</span></p>
+<div class="datatable3c-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+<th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/scoreboard players add #SSModeVoteTimer Global 1</td>
+<td>リピート</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/tellraw @a[tag=ShowVote] [{&quot;text&quot;:&quot;&quot;},{&quot;text&quot;:&quot;観光モードへの移行が提案されています。\n&quot;,&quot;bold&quot;:true,&quot;color&quot;:&quot;gold&quot;},{&quot;text&quot;:&quot;観光モードに移行すると次のようになります。\n・死んでもアイテムがなくならない\n・プレイヤー名が緑色になる\n・島攻略時にクリアタイムが表示されない\n&quot;},{&quot;text&quot;:&quot;一度移行すると、戻すことはできません！\n&quot;,&quot;color&quot;:&quot;red&quot;,&quot;bold&quot;:true},{&quot;text&quot;:&quot;クリックで&quot;},{&quot;text&quot;:&quot;提案を拒否する&quot;,&quot;underlined&quot;:true,&quot;color&quot;:&quot;yellow&quot;,&quot;clickEvent&quot;:{&quot;action&quot;:&quot;run_command&quot;,&quot;value&quot;:&quot;/trigger DenySightSeeing set 1&quot;}}]</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/scoreboard players enable @a[tag=ShowVote] DenySightSeeing</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>/scoreboard players tag @a[tag=ShowVote] remove ShowVote</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>/execute @a[score_DenySightSeeing_min=1,c=1] ~ ~ ~ /scoreboard players reset #SSModeVoteSec Global</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>/tellraw @a {&quot;text&quot;:&quot;観光モード移行の提案は否決されました。&quot;,&quot;color&quot;:&quot;yellow&quot;,&quot;bold&quot;:true}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>/scoreboard players reset @a[score_DenySightSeeing_min=1] DenySightSeeing</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td>/fill -1921 ~ ~ -1921 ~ ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0 ###観光モード提案タイマー停止</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td>/scoreboard players test #SSModeVoteTimer Global 20 *</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td>/scoreboard players set #SSModeVoteTimer Global 0</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td>/execute @a ~ ~ ~ /playsound block.comparator.click master @a[c=1] ~ ~ ~ 0.25 1.782 0</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td>/clone -1920 ~1 ~ -1920 ~1 ~ -1920 ~1 ~ filtered force minecraft:command_block 5 ###観光モード提案時間経過</td>
+<td>条件付き</td>
+</tr>
+</tbody>
+</table>
+<div class="datatable3c-end"></div>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4c">コマンド群C</h3>
+<p><span class="label label-primary">位置 (-1920,10,-188)</span></p>
+<div class="datatable3c-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+<th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/scoreboard players remove #SSModeVoteSec Global 1</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/scoreboard players test #SSModeVoteSec Global 180 180</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/tellraw @a {&quot;text&quot;:&quot;観光モード移行まであと３分&quot;}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>/scoreboard players test #SSModeVoteSec Global 60 60</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>/tellraw @a {&quot;text&quot;:&quot;観光モード移行まであと１分&quot;}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>/scoreboard players test #SSModeVoteSec Global 30 30</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>/tellraw @a {&quot;text&quot;:&quot;観光モード移行まであと30秒&quot;}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td>/scoreboard players test #SSModeVoteSec Global 10 10</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td>/tellraw @a {&quot;text&quot;:&quot;観光モード移行まであと10秒&quot;}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td>/scoreboard players test #SSModeVoteSec Global 1 5</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td>/tellraw @a {&quot;translate&quot;:&quot;観光モード移行まであと%1$s秒&quot;,&quot;with&quot;:[{&quot;score&quot;:{&quot;name&quot;:&quot;#SSModeVoteSec&quot;,&quot;objective&quot;:&quot;Global&quot;}}]}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td>/scoreboard players test #SSModeVoteSec Global * 0</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td>/fill -1921 ~-1 ~ -1921 ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0 ###観光モード提案タイマー停止</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td>/scoreboard players test #SSModeVoteSec Global 0 0</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td>/tellraw @a {&quot;text&quot;:&quot;観光モードに移行しました。&quot;,&quot;color&quot;:&quot;green&quot;,&quot;bold&quot;:true}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td>/scoreboard teams option FriendlyTeam color green</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td>/gamerule keepInventory true</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td>/execute @a ~ ~ ~ /playsound entity.firework.twinkle master @a[c=1] ~ ~ ~ 1 1.19 0</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td>/scoreboard players set Sightseeing Settings 1</td>
+<td>条件付き</td>
+</tr>
+</tbody>
+</table>
+<div class="datatable3c-end"></div>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4a%E8%A9%B3%E7%B4%B0">コマンド群A詳細</h3>
+<ol>
+<li><code>Sightseeing</code>の<code>Settings</code>が1以上であるとき、<code>SuggestSightseeing</code>を持っているすべてのプレイヤーに「既に観光モードに移行済みです。」とのメッセージを表示</li>
+<li><code>Sightseeing</code>の<code>Settings</code>が0以下であるとき、<code>SuggestSightseeing</code>を持つプレイヤーを一人選択し、(-1921,9,-188)にあるラピスラズリブロックをレッドストーンブロックに置き換え、<a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4b%E8%A9%B3%E7%B4%B0">コマンド群B</a>をリピート実行し、以下の事柄を実行
+<ol>
+<li><code>SuggestSightseeing</code>を持つすべてのプレイヤーに観光モードへの移行が提案されたとのメッセージを表示</li>
+<li>すべてのプレイヤーに<code>ShowVote</code>を付与</li>
+<li><code>#SSModeVoteSec</code>の<code>Global</code>を61に設定</li>
+<li>プレイヤーリストを表示</li>
+<li><code>#SSModeVoteSec</code>の<code>Global</code>を181に設定</li>
+</ol>
+</li>
+<li><code>SuggestSightseeing</code>を持つすべてのプレイヤーから<code>SuggestSughtseeing</code>を削除</li>
+</ol>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4b%E8%A9%B3%E7%B4%B0">コマンド群B詳細</h3>
+<ol>
+<li><code>#SSModeVoteTimer</code>の<code>Global</code>に1を足す</li>
+<li><code>ShowVote</code>を持つすべてのプレイヤーに観光モードへの移行が提案されているというメッセージを表示し、以下の事柄を実行
+<ol>
+<li><code>DenySightSeeing</code>への書き込みを許可</li>
+<li><code>ShowVote</code>を削除</li>
+</ol>
+</li>
+<li><code>DenySightSeeing</code>が1以上であるプレイヤーを一人選択し、<code>#SSModeVoteSec</code>の<code>Global</code>を0に設定し、以下の事柄を実行
+<ol>
+<li>すべてのプレイヤーに「観光モード移行の提案は否決されました。」とのメッセージを表示</li>
+<li><code>DenySightSeeing</code>が1以上であるすべてのプレイヤーの<code>DenySightSeeing</code>を0に設定</li>
+<li>(-1921,9,-188)にあるレッドストーンブロックをラピスラズリブロックに置き換え、コマンド群Bのクロックを停止</li>
+</ol>
+</li>
+<li><code>##SSModeVoteTimer</code>の<code>Global</code>が20以上であるとき、以下の事柄を実行
+<ol>
+<li>一人のプレイヤーを選択し、効果音を鳴らす</li>
+<li>(-1920,10,-188)にある<a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4c%E8%A9%B3%E7%B4%B0">コマンド群C</a>を実行</li>
+</ol>
+</li>
+</ol>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4c%E8%A9%B3%E7%B4%B0">コマンド群C詳細</h3>
+<ol>
+<li><code>#SSModeVoteSec</code>の<code>Global</code>から1を引く</li>
+<li><code>#SSModeVoteSec</code>の<code>Global</code>の値に対応したメッセージを表示(以下参照)</li>
+<li><code>#SSModeVoteSec</code>の<code>Global</code>が0以下であるとき、以下の事柄を実行
+<ol>
+<li>(-1921,9,-188)にあるラピスラズリブロックをレッドストーンブロックに置き換え、<a href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4b%E8%A9%B3%E7%B4%B0">コマンド群B</a>を停止</li>
+<li><code>#SSModeVoteSec</code>が0であるとき、「観光モードに移行しました。」とのメッセージを表示し、以下の事柄を実行
+<ol>
+<li><code>FriendlyTeam</code>の色を緑に変更</li>
+<li><code>keepInventory</code>をtrueに変更</li>
+<li>プレイヤーの座標で効果音を鳴らす</li>
+<li><code>ightseeing</code>の<code>settings</code>を1に設定</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="ssmodevotesec%E3%81%AE%E5%80%A4%E3%81%A8%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8">#SSModeVoteSecの値とメッセージ</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">#SSModeVoteSec</th>
+<th>メッセージ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">180</td>
+<td>観光モード移行まであと３分</td>
+</tr>
+<tr>
+<td style="text-align:center">60</td>
+<td>観光モード移行まであと１分</td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td>観光モード移行まであと30秒</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td>観光モード移行まであと10秒</td>
+</tr>
+<tr>
+<td style="text-align:center">1~5</td>
+<td>観光モード移行まであとn秒</td>
+</tr>
+</tbody>
+</table>
 
 </body>
 </html>

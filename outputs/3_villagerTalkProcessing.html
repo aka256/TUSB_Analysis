@@ -365,7 +365,279 @@ code {
           : 'default'
     });
   </script>
-<p>準備中です</p>
+<h2 id="about">About</h2>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<div class="datatable3c-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+<th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/execute @a[score_TalkToVillager_min=1] ~ ~ ~ /tp @e[r=3,type=Item,tag=!SystemEntity] @a[c=1]</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/execute 0-0-1-0-2 ~ ~ ~ /execute @e[r=24,type=Villager,tag=Pastor,c=1] ~ ~ ~ /scoreboard players tag @a[r=5,score_TalkToVillager_min=1] add TalkToPastor</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/execute 0-0-1-0-2 ~ ~ ~ /execute @e[r=24,type=Villager,tag=Agent,c=1] ~ ~ ~ /scoreboard players tag @a[r=5,score_TalkToVillager_min=1] add TalkToAgent</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>/execute 0-0-1-0-2 ~ ~ ~ /execute @e[r=24,type=Villager,tag=Augur,c=1] ~ ~ ~ /scoreboard players tag @a[r=5,score_TalkToVillager_min=1] add TalkToAugur</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>/scoreboard players reset @a[score_TalkToVillager_min=1] TalkToVillager</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>/scoreboard players add @a[tag=TalkToPastor] PastorFlag 0</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>/tellraw @a[tag=TalkToPastor,score_PastorFlag=-1] {&quot;text&quot;:&quot;[牧師] どうかお気をつけて。&quot;}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td>/tellraw @a[tag=TalkToPastor,score_PastorFlag_min=0,score_PastorFlag=0] {&quot;translate&quot;:&quot;[牧師] ご存知ですか？  %1$s / %2$s&quot;,&quot;with&quot;:[{&quot;text&quot;:&quot;はい&quot;,&quot;color&quot;:&quot;aqua&quot;,&quot;bold&quot;:true,&quot;underlined&quot;:true,&quot;clickEvent&quot;:{&quot;action&quot;:&quot;run_command&quot;,&quot;value&quot;:&quot;/trigger PastorFlag set 2&quot;}},{&quot;text&quot;:&quot;いいえ&quot;,&quot;color&quot;:&quot;aqua&quot;,&quot;bold&quot;:true,&quot;underlined&quot;:true,&quot;clickEvent&quot;:{&quot;action&quot;:&quot;run_command&quot;,&quot;value&quot;:&quot;/trigger PastorFlag set 1&quot;}}]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td>/scoreboard players enable @a[tag=TalkToPastor,score_PastorFlag_min=0,score_PastorFlag=0] PastorFlag</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td>/scoreboard players tag @a[tag=TalkToPastor] remove TalkToPastor</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td>/scoreboard players tag @a[tag=TalkToAgent] add TalkToAgent2 {Tags:[AgentOK]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td>/scoreboard players tag @a[tag=TalkToAgent2] remove TalkToAgent</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td>/scoreboard players set @a[tag=TalkToAgent] AgentFlag 0</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td>/execute @a[tag=TalkToAgent] ~ ~ ~ /scoreboard players operation @a[c=1] AgentWarpCost = @a[c=1] Level</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td>/scoreboard players operation @a[tag=TalkToAgent] AgentWarpCost -= #50 Const</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td>/execute @a[tag=TalkToAgent] ~ ~ ~ /scoreboard players operation @a[c=1] AgentWarpCost *= @a[c=1] AgentWarpCost</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td>/scoreboard players operation @a[tag=TalkToAgent] AgentWarpCost /= #5 Const</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td>/tellraw @a[tag=TalkToAgent] {&quot;translate&quot;:&quot;[エージェント] 転職したいカ？職業島遠いだロ？\nあんたならエメラルド%1$s個で送ってやるヨ。どうダ？  %2$s&quot;,&quot;with&quot;:[{&quot;score&quot;:{&quot;name&quot;:&quot;*&quot;,&quot;objective&quot;:&quot;AgentWarpCost&quot;},&quot;color&quot;:&quot;green&quot;,&quot;bold&quot;:true},{&quot;text&quot;:&quot;送っテ！&quot;,&quot;color&quot;:&quot;aqua&quot;,&quot;bold&quot;:true,&quot;underlined&quot;:true,&quot;clickEvent&quot;:{&quot;action&quot;:&quot;run_command&quot;,&quot;value&quot;:&quot;/trigger AgentFlag set 1&quot;}}]}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td>/scoreboard players enable @a[tag=TalkToAgent] AgentFlag</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td>/scoreboard players tag @a[tag=TalkToAgent] remove TalkToAgent</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td>/scoreboard players tag @a[tag=TalkToAgent2] add AgentItemRefused {Inventory:[{}]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td>/tellraw @a[tag=AgentItemRefused] {&quot;text&quot;:&quot;[エージェント] アイテムは運べないんダ。置いてからまた話しかけてくレ。&quot;}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td>/scoreboard players tag @a[tag=AgentItemRefused] remove TalkToAgent2</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td>/scoreboard players tag @a[tag=AgentItemRefused] remove AgentItemRefused</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td>/tellraw @a[tag=TalkToAgent2,score_CurrentMode_min=1] {&quot;text&quot;:&quot;モードスキルが解除された。&quot;,&quot;color&quot;:&quot;gray&quot;}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td>/scoreboard players set @a[tag=TalkToAgent2,score_CurrentMode_min=1] ModeState 0</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td>/scoreboard players set @a[tag=TalkToAgent2,score_CurrentMode_min=1] CurrentModeCost 0</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">28</td>
+<td>/scoreboard players set @a[tag=TalkToAgent2,score_CurrentMode_min=1] CurrentMode 0</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td>/scoreboard players tag @a[tag=TalkToAgent2] add RemoveReRaise {Tags:[ReRaise]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td>/tellraw @a[tag=RemoveReRaise] {&quot;text&quot;:&quot;リレイズの効果が切れた。&quot;,&quot;color&quot;:&quot;gold&quot;}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td>/scoreboard players tag @a[tag=RemoveReRaise] remove ReRaise</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td>/scoreboard players tag @a[tag=RemoveReRaise] remove RemoveReRaise</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td>/scoreboard players tag @a[tag=TalkToAgent2] remove AgentOK</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">34</td>
+<td>/tellraw @a[tag=TalkToAgent2] {&quot;text&quot;:&quot;[エージェント] それじゃあ送ろウ。達者でナ。&quot;}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">35</td>
+<td>/give @a[tag=TalkToAgent2] minecraft:wool 32 0</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">36</td>
+<td>/tp @a[tag=TalkToAgent2] -1786 113 -137 -90 0</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">37</td>
+<td>/scoreboard players tag @a[tag=TalkToAgent2] remove TalkToAgent2</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">38</td>
+<td>/tellraw @a[tag=TalkToAugur] {&quot;translate&quot;:&quot;[占い師] 占いの館へようこそ。エメラルド%1$s個であなたの運勢を占います。\n占いますか？  %2$s&quot;,&quot;with&quot;:[{&quot;text&quot;:&quot;１&quot;,&quot;color&quot;:&quot;green&quot;,&quot;bold&quot;:true},{&quot;text&quot;:&quot;はい&quot;,&quot;color&quot;:&quot;aqua&quot;,&quot;bold&quot;:true,&quot;underlined&quot;:true,&quot;clickEvent&quot;:{&quot;action&quot;:&quot;run_command&quot;,&quot;value&quot;:&quot;/trigger AugurFlag set 1&quot;}}]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">39</td>
+<td>/scoreboard players enable @a[tag=TalkToAugur] AugurFlag</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">40</td>
+<td>/scoreboard players tag @a[tag=TalkToAugur] remove TalkToAugur</td>
+<td>条件付き</td>
+</tr>
+</tbody>
+</table>
+<div class="datatable3c-end"></div>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li><code>TalkToVillager</code>が1以上であるすべてのプレイヤーの座標から半径3m以内にある<code>SystemEntity</code>を持っていないアイテムの所に最も近くのプレイヤー一人を移動させる</li>
+<li><a href="TUSB_Analysis_Entity.html#shopgm">ShopGM</a>から半径24m以内の<code>Pastor</code>を持つ村人一人(牧師)が存在し、その村人から半径5m以内の<code>TalkToVillager</code>が1以上であるすべてのプレイヤーに<code>TalkToPastor</code>を付与し、<code>Agent</code>(エージェント)、<code>Augur</code>(占い師)も同様に実行</li>
+<li><code>TalkToVillager</code>が1以上であるプレイヤーの<code>TalkToVillager</code>を0に設定</li>
+<li><code>TalkToPastor</code>を持ち、<code>PastorFlag</code>が-1以下であるすべてのプレイヤーに「[牧師] どうかお気をつけて。」とのメッセージを表示</li>
+<li><code>TalkToPastor</code>を持ち、<code>PastorFlag</code>が0であるすべてのプレイヤーに「[牧師] ご存知ですか？」とのメッセージと選択肢を表示し、<code>PastorFlag</code>への書き込みを許可
+<ul>
+<li>「はい」を選択した際は<code>PastorFlag</code>を2に設定</li>
+<li>「いいえ」を選択した際は<code>PastorFlag</code>を1に設定</li>
+</ul>
+</li>
+<li><code>TalkToPastor</code>を持つすべてのプレイヤーから<code>TalkToPastor</code>を消去</li>
+<li><code>TalkToAgent</code>と<code>AgentOK</code>を持つすべてのプレイヤーに<code>TalkToAgent2</code>を付与し、<code>TalkToAgent</code>を削除</li>
+<li><code>TalkToAgent</code>を持つプレイヤーが存在するとき、<code>AgentFlag</code>を0に設定し、以下の事柄を実行
+<ol>
+<li>以下の計算を実行
+<ul>
+<li><code>AgentWarpCost</code>=(<code>Level</code>-50)^2/5</li>
+</ul>
+</li>
+<li>「[エージェント] 転職したいカ？」とのメッセージを表示</li>
+<li><code>AgentFlag</code>への書き込みを許可</li>
+<li><code>TalkToAgent</code>を削除</li>
+</ol>
+</li>
+<li><code>TalkToAgent2</code>を持ち、インベントリ内に何かしらのアイテムを持っているプレイヤーが存在するとき、<code>AgentItemRefused</code>を付与し、以下の事柄を実行
+<ol>
+<li>「[エージェント] アイテムは運べないんダ。置いてからまた話しかけてくレ。」とのメッセージを表示</li>
+<li><code>TalkToAgent2</code>と<code>AgentItemRefused</code>を削除</li>
+</ol>
+</li>
+<li><code>TalkToAgent2</code>を持ち、<code>CurrentMode</code>が1以上であるプレイヤーが存在するとき、「モードスキルが解除された。」とのメッセージを表示し、以下の事柄を実行
+<ul>
+<li><code>ModeState</code>、<code>CurrentModeCost</code>、<code>CurrentMode</code>を0に設定</li>
+</ul>
+</li>
+<li><code>TalkToAgent2</code>と<code>ReRaise</code>を持つプレイヤーが存在するとき、<code>RemoveReRaise</code>を付与し、以下の事柄を実行
+<ol>
+<li>「リレイズの効果が切れた。」とのメッセージを表示</li>
+<li><code>ReRaise</code>と<code>RemoveReRaise</code>を削除</li>
+</ol>
+</li>
+<li><code>TalkToAgent</code>を持つプレイヤーが存在するとき、<code>AgentOK</code>を削除し、以下の事柄を実行
+<ol>
+<li>「[エージェント] それじゃあ送ろウ。達者でナ。」とのメッセージを表示</li>
+<li>32個の羊毛を与える</li>
+<li>(-1786,113,-137)へ移動(職業島前)</li>
+<li><code>TalkToAgent2</code>を削除</li>
+</ol>
+</li>
+<li><code>TalkToAugur</code>を持つプレイヤーが存在するとき、「[占い師] 占いの館へようこそ。」とのメッセージを表示し、以下の事柄を実行
+<ol>
+<li><code>AugurFlag</code>への書き込みを許可</li>
+<li><code>TalkToAugur</code>を削除</li>
+</ol>
+</li>
+</ol>
 
 </body>
 </html>

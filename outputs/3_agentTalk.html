@@ -365,7 +365,101 @@ code {
           : 'default'
     });
   </script>
-<p>準備中です</p>
+<p><span class="label label-primary">位置 (-1920,12,-189)</span></p>
+<h2 id="about">About</h2>
+<p>交易島にいるエージェントとの会話処理を行う。</p>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<div class="datatable3cnp-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+<th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/execute 0-0-1-0-2 ~ ~ ~ /execute @e[r=24,type=Villager,tag=Agent,c=1] ~ ~ ~ /scoreboard players tag @a[r=5,score_AgentFlag_min=1] add AgentYes</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/scoreboard players enable @a[score_AgentFlag_min=1,tag=!AgentYes] AgentFlag</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/scoreboard players set @a[score_AgentFlag_min=1] AgentFlag 0</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>/scoreboard players set @a[tag=AgentYes] ItemCount -1</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>/clear @a[tag=AgentYes] minecraft:emerald 0 0</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>/execute @a[tag=AgentYes] ~ ~ ~ /scoreboard players operation @a[c=1] ItemCount -= @a[c=1] AgentWarpCost</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>/tellraw @a[tag=AgentYes,score_ItemCount=-1] {&quot;text&quot;:&quot;[エージェント] エメラルドが足りないナ。&quot;}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td>/scoreboard players reset @a[tag=AgentYes,score_ItemCount=-1] AgentFlag</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td>/tellraw @a[tag=AgentYes,score_ItemCount_min=0] {&quot;text&quot;:&quot;[エージェント] 代金は頂いタ。もう１度アイテムを持たずに話しかけてくレ。&quot;}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td>/execute @a[tag=AgentYes,score_ItemCount_min=0] ~ ~ ~ /scoreboard players operation @a[c=1] Payment += @a[c=1] AgentWarpCost</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td>/scoreboard players tag @a[tag=AgentYes,score_ItemCount_min=0] add AgentOK</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td>/scoreboard players tag @a[tag=AgentYes] remove AgentYes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="datatable3cnp-end"></div>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li><a href="TUSB_Analysis_Entity.html#shopgm">ShopGM</a>から半径24m以内の<code>Agent</code>を持つ村人(エージェント)を一人選択し、その村人から半径5m以内の<code>AgentFlag</code>が1以上であるすべてのプレイヤーに<code>AgentYes</code>を付与</li>
+<li><code>AgentFlag</code>が1以上であり、<code>AgentYes</code>を持っていないすべてのプレイヤーに<code>AgentFlag</code>への書き込みを許可</li>
+<li><code>AgentFlag</code>が1以上であるすべてのプレイヤーの<code>AgentFlag</code>を0に設定</li>
+<li><code>AgentYes</code>を持つすべてのプレイヤーの<code>ItemCount</code>を-1に設定</li>
+<li><code>AgentYes</code>を持つプレイヤーを一人選択し、<code>ItemCount</code>から<code>AgentWarpCost</code>を引き、以下の事柄を実行
+<ul>
+<li><code>AgentYes</code>を持ち、<code>ItemCount</code>が-1以上であるすべてのプレイヤーに「[エージェント] エメラルドが足りないナ。」とのメッセージを送信し、AgentFlagを0に設定</li>
+</ul>
+</li>
+<li><code>AgentYes</code>を持ち、<code>ItemCount</code>が0以上であるすべてのプレイヤーに「[エージェント] 代金は頂いタ。もう１度アイテムを持たずに話しかけてくレ。」とのメッセージを表示し、以下の事柄を実行
+<ul>
+<li><code>Payment</code>に<code>AgentWarpCost</code>を足して<code>AgentOK</code>を付与</li>
+</ul>
+</li>
+<li><code>AgentYes</code>を持つすべてのプレイヤーから<code>AgentYes</code>を削除</li>
+</ol>
 
 </body>
 </html>

@@ -365,7 +365,174 @@ code {
           : 'default'
     });
   </script>
-<p>準備中です</p>
+<p><span class="label label-primary">位置 (-1920,11,-189)</span></p>
+<h2 id="about">About</h2>
+<p>交易島の教会にいる牧師との会話処理を行う。</p>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<div class="datatable3c-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+<th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/execute 0-0-1-0-2 ~ ~ ~ /execute @e[r=24,type=Villager,tag=Pastor,c=1] ~ ~ ~ /scoreboard players tag @a[r=5,score_PastorFlag_min=1] add PastorResume</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/scoreboard players enable @a[score_PastorFlag_min=1,tag=!PastorResume] PastorFlag</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/scoreboard players set @a[score_PastorFlag_min=1,tag=!PastorResume] PastorFlag 0</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>/scoreboard players tag @a[score_PastorFlag_min=1,score_PastorFlag=1,tag=PastorResume] add PastorNo</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>/scoreboard players tag @a[score_PastorFlag_min=2,tag=PastorResume] add PastorYes</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>/scoreboard players set @a[tag=PastorResume] PastorFlag -1</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>/scoreboard players tag @a[tag=PastorResume] remove PastorResume</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td>/tellraw @a[tag=PastorYes] {&quot;text&quot;:&quot;[牧師] これは失礼しました。どうかお気をつけて。&quot;}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td>/scoreboard players tag @a[tag=PastorYes] remove PastorYes</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td>/time query gametime</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td>/scoreboard players operation #Random Global %= #PastorMax Global</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td>/scoreboard players operation @a[tag=PastorNo] Random = #Random Global</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td>/tellraw @a[tag=PastorNo,score_Random_min=0,score_Random=0] {&quot;text&quot;:&quot;[牧師] サバイバルエリアではベッドで寝ると元気になれます。\nアドベンチャーエリアではとても寝てはいられませんが…&quot;}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td>/tellraw @a[tag=PastorNo,score_Random_min=1,score_Random=1] {&quot;text&quot;:&quot;[牧師] ネザー火山内にある迷宮には多くの宝が眠っているとの噂ですが、\n熱さで何人も寄せ付けません。&quot;}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td>/tellraw @a[tag=PastorNo,score_Random_min=2,score_Random=2] {&quot;text&quot;:&quot;[牧師] MPの表示が溢れた時は、\nスキル設定所にある黒い電話ボックスを使うと良いでしょう。&quot;}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td>/tellraw @a[tag=PastorNo,score_Random_min=3,score_Random=3] {&quot;text&quot;:&quot;[牧師] 土と砂利で荒れた土をクラフトできますが、\n荒れた土は一度耕すことで普通の土に変えられます。&quot;}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td>/tellraw @a[tag=PastorNo,score_Random_min=4,score_Random=4] {&quot;text&quot;:&quot;[牧師] ポーションの中には火薬を混ぜると\n効果が消えてしまうものもあります。&quot;}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td>/tellraw @a[tag=PastorNo,score_Random_min=5,score_Random=5] {&quot;text&quot;:&quot;[牧師] 干草の俵はクラフトすることで小麦に戻せます。&quot;}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td>/tellraw @a[tag=PastorNo,score_Random_min=6,score_Random=7] {&quot;text&quot;:&quot;[牧師] もう長い間夜が続いていますが、明けない夜はないといいます。お月様の機嫌が良くなれば、夜明けはきっと来るでしょう。&quot;}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td>/scoreboard players tag @a[tag=PastorNo] remove PastorNo</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="datatable3c-end"></div>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li><a href="TUSB_Analysis_Entity.html#shopgm">ShopGM</a>から半径24m以内にいる<code>Pastor</code>を持つ村人(牧師)を一人選択し、その村人から5m以内にいる<code>PastorFlag</code>が1以上であるすべてのプレイヤーに<code>PastorResume</code>を付与</li>
+<li><code>PastorFlag</code>が1以上であり、<code>PastorResume</code>を持たないすべてのプレイヤーに<code>PastorFlag</code>への書き込みを許可し、それを0に設定</li>
+<li><code>PastorFlag</code>が1であり、<code>PastorResume</code>を持つすべてのプレイヤーに<code>PastorNo</code>を付与</li>
+<li><code>PastorFlag</code>が2以上であり、<code>PastorResume</code>を持つすべてのプレイヤーに<code>PastorYes</code>を付与</li>
+<li><code>PastorResume</code>を持つすべてのプレイヤーの<code>PastorFlag</code>を-1に設定し、<code>PastorResume</code>を削除</li>
+<li><code>PastorYes</code>を持つすべてのプレイヤーに「[牧師] これは失礼しました。どうかお気をつけて。」とのメッセージを表示し、<code>PastorYes</code>を削除</li>
+<li><code>#Random</code>の<code>Global</code>に<code>#PastorMax</code>の<code>Global</code>との剰余を代入</li>
+<li><code>PastorNo</code>を持つすべてのプレイヤーの<code>Random</code>に<code>#Random</code>の<code>Global</code>を代入</li>
+<li><code>PastorNo</code>を持つすべてのプレイヤーの<code>Random</code>の値に対して以下のメッセージを送信</li>
+</ol>
+<h3 id="%E7%89%A7%E5%B8%AB%E3%81%AE%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8">牧師のメッセージ</h3>
+<table>
+<thead>
+<tr>
+<th>Randomの値</th>
+<th>牧師のメッセージ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>[牧師] サバイバルエリアではベッドで寝ると元気になれます。アドベンチャーエリアではとても寝てはいられませんが…</td>
+</tr>
+<tr>
+<td>1</td>
+<td>[牧師] ネザー火山内にある迷宮には多くの宝が眠っているとの噂ですが、熱さで何人も寄せ付けません。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[牧師] MPの表示が溢れた時は、スキル設定所にある黒い電話ボックスを使うと良いでしょう。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[牧師] 土と砂利で荒れた土をクラフトできますが、荒れた土は一度耕すことで普通の土に変えられます。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>[牧師] ポーションの中には火薬を混ぜると効果が消えてしまうものもあります。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>[牧師] 干草の俵はクラフトすることで小麦に戻せます。</td>
+</tr>
+<tr>
+<td>6~7</td>
+<td>[牧師] もう長い間夜が続いていますが、明けない夜はないといいます。お月様の機嫌が良くなれば、夜明けはきっと来るでしょう。</td>
+</tr>
+</tbody>
+</table>
 
 </body>
 </html>

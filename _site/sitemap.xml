@@ -5,9 +5,21 @@
 
   
   
+  <url>
+    <loc>http://localhost:4000/3_agentTalk.html</loc>
+  </url>
   
   
   
+  <url>
+    <loc>http://localhost:4000/3_augurTalk.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/3_bedProcessing.html</loc>
+  </url>
   
   
   
@@ -19,17 +31,41 @@
   
   
   
+  <url>
+    <loc>http://localhost:4000/3_pastorTalk.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/3_paymentProcessing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/3_prayProcessing.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/3_skillDisplay.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/3_suggestSightseeing.html</loc>
+  </url>
   
   
   
   
   
-  
-  
-  
-  
-  
-  
+  <url>
+    <loc>http://localhost:4000/3_villagerTalkProcessing.html</loc>
+  </url>
   
   
   

@@ -365,7 +365,52 @@ code {
           : 'default'
     });
   </script>
-<p>準備中です</p>
+<p><span class="label label-primary">位置 (-1920,8,-189)</span></p>
+<h2 id="about">About</h2>
+<p>ベッドで寝た際の回復処理や、アドベンチャーモードでの就寝処理を行う。</p>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+<th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/effect @a[m=adventure,score_SleepInBed_min=1] minecraft:instant_damage 1 0 true</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/tellraw @a[m=adventure,score_SleepInBed_min=1] {&quot;text&quot;:&quot;痛っ！ここで寝るのは危ないようだ。&quot;,&quot;color&quot;:&quot;yellow&quot;}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/effect @a[m=survival,score_SleepInBed_min=1] minecraft:instant_health 1 6 true</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>/tellraw @a[m=survival,score_SleepInBed_min=1] {&quot;text&quot;:&quot;( ˘ω˘ ) ｽﾔｧ…疲れが取れていく…&quot;,&quot;color&quot;:&quot;aqua&quot;}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>/scoreboard players set @a[score_SleepInBed_min=1] SleepInBed 0</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li>アドベンチャーモードであり、<code>SleepInBed</code>が1以上であるとき、即時ダメージLv.0を付与し、「痛っ！ここで寝るのは危ないようだ。」と表示</li>
+<li>サバイバルモードであり、<code>SleepInBed</code>が1以上であるとき、即時回復Lv.6を付与し、「( ˘ω˘ ) ｽﾔｧ…疲れが取れていく…」と表示</li>
+<li><code>SleepInBed</code>が1以上であるすべてのプレイヤーの<code>SleepInBed</code>を0に設定</li>
+</ol>
 
 </body>
 </html>

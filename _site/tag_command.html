@@ -456,6 +456,69 @@
           
           
           
+          
+          
+          <li><a title="ベッド処理" href="3_bedProcessing.html">ベッド処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="お祈りkill" href="3_prayProcessing.html">お祈りkill</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="村人会話処理" href="3_villagerTalkProcessing.html">村人会話処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="牧師会話選択時処理" href="3_pastorTalk.html">牧師会話選択時処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="エージェント会話選択時処理" href="3_agentTalk.html">エージェント会話選択時処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="占い師会話選択時処理" href="3_augurTalk.html">占い師会話選択時処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="エメラルド支払い処理" href="3_paymentProcessing.html">エメラルド支払い処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="設定スキル表示" href="3_skillDisplay.html">設定スキル表示</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="観光モード提案開始" href="3_suggestSightseeing.html">観光モード提案開始</a></li>
+          
+          
+          
+          
       </ul>
    </li>
      
@@ -579,10 +642,9 @@ $('#toc').on('click', 'a', function() {
     
         
 
-        <tr><td><a href="3_agentTalk.html">エージェント会話</a></td>
+        <tr><td><a href="3_agentTalk.html">エージェント会話選択時処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 準備中です
- </td>
+          <td> 位置 (-1920,12,-189) About 交易島にいるエージェントとの会話処理を行う。 コマンド群     No. コマンド 状態     1 /execute 0-0-1-0-2 ~ ~ ~ /execute @e[r=24,type=Villager,tag=Agent,c=1] ~ ~ ~ /scoreboard players tag @a[r=5,score_AgentFlag_min=1] add AgentYes     2 /scoreboard players... </td>
         </tr>
         
      
@@ -590,10 +652,9 @@ $('#toc').on('click', 'a', function() {
     
         
 
-        <tr><td><a href="3_augurTalk.html">占い師会話</a></td>
+        <tr><td><a href="3_augurTalk.html">占い師会話選択時処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 準備中です
- </td>
+          <td> 位置 (-1920,13,-189) About 交易島にいる占い師との会話処理を行う。 コマンド群     No. コマンド 状態     1 /execute 0-0-1-0-2 ~ ~ ~ /execute @e[r=24,type=Villager,tag=Augur,c=1] ~ ~ ~ /scoreboard players tag @a[r=5,score_AugurFlag_min=1] add AugurYes     2 /scoreboard players... </td>
         </tr>
         
      
@@ -603,8 +664,7 @@ $('#toc').on('click', 'a', function() {
 
         <tr><td><a href="3_bedProcessing.html">ベッド処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 準備中です
- </td>
+          <td> 位置 (-1920,8,-189) About ベッドで寝た際の回復処理や、アドベンチャーモードでの就寝処理を行う。 コマンド群    No. コマンド 状態     1 /effect @a[m=adventure,score_SleepInBed_min=1] minecraft:instant_damage 1 0 true     2 /tellraw @a[m=adventure,score_SleepInBed_min=1] {“text”:”痛っ！ここで寝るのは危ないようだ。”,”color”:”yellow”} 条件付き   3 /effect @a[m=survival,score_SleepInBed_min=1] minecraft:instant_health 1 6... </td>
         </tr>
         
      
@@ -633,10 +693,9 @@ $('#toc').on('click', 'a', function() {
     
         
 
-        <tr><td><a href="3_pastorTalk.html">牧師会話</a></td>
+        <tr><td><a href="3_pastorTalk.html">牧師会話選択時処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 準備中です
- </td>
+          <td> 位置 (-1920,11,-189) About 交易島の教会にいる牧師との会話処理を行う。 コマンド群     No. コマンド 状態     1 /execute 0-0-1-0-2 ~ ~ ~ /execute @e[r=24,type=Villager,tag=Pastor,c=1] ~ ~ ~ /scoreboard players tag @a[r=5,score_PastorFlag_min=1] add PastorResume     2 /scoreboard players... </td>
         </tr>
         
      
@@ -644,10 +703,9 @@ $('#toc').on('click', 'a', function() {
     
         
 
-        <tr><td><a href="3_paymentProcessing.html">エメラルド支払い</a></td>
+        <tr><td><a href="3_paymentProcessing.html">エメラルド支払い処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 準備中です
- </td>
+          <td> 位置 (-1920,14,-189) About エージェントや占い師などでのエメラルドによる支払い処理を行う。 コマンド群     No. コマンド 状態     1 /scoreboard players set @a[score_Payment_min=1] ItemCount -1     2 /clear @a[score_Payment_min=1] minecraft:emerald 0 0     3 /execute... </td>
         </tr>
         
      
@@ -657,8 +715,7 @@ $('#toc').on('click', 'a', function() {
 
         <tr><td><a href="3_prayProcessing.html">お祈りkill</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 準備中です
- </td>
+          <td> 位置 (-1920,9,-189) About お祈りによるkillを処理を行う。 コマンド群    No. コマンド     1 /scoreboard players set @a[score_kill_min=1,score_kill=1] MP 0   2 /scoreboard players set @a[score_kill_min=1,score_kill=1] MPMaxFlag 0   3 /spawnpoint @a[score_kill_min=1,score_kill=1] -64 15.0625 30... </td>
         </tr>
         
      
@@ -668,8 +725,7 @@ $('#toc').on('click', 'a', function() {
 
         <tr><td><a href="3_skillDisplay.html">設定スキル表示</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 準備中です
- </td>
+          <td> 位置 (-1920,16,-189) About 現在設定されているスキルについて表示を行う。 コマンド群     No. コマンド 状態     1 /tellraw @a[score_ShowSkillSlot_min=4,score_ShowSkillSlot=4,score_ModeState_min=1] {“translate”:”現在のモードスキル設定(%1$s中) %2$s/%3$s”,”bold”:true,”with”:[{“text”:”ルビーモード”,”color”:”red”},{“text”:”↑”,”color”:”red”},{“text”:”↓”,”color”:”blue”}]}     2 /tellraw @a[score_ShowSkillSlot_min=4,score_ShowSkillSlot=4,score_ModeState=-1] {“translate”:”現在のモードスキル設定(%1$s中) %2$s/%3$s”,”bold”:true,”with”:[{“text”:”サファイアモード”,”color”:”blue”},{“text”:”↑”,”color”:”red”},{“text”:”↓”,”color”:”blue”}]}     3 /tellraw @a[score_ShowSkillSlot_min=4,score_ShowSkillSlot=4,score_ModeState_min=0,score_ModeState=0] {“translate”:”現在のモードスキル設定(%1$s中) %2$s/%3$s”,”bold”:true,”with”:[{“text”:”モード未設定”,”color”:”gray”},{“text”:”↑”,”color”:”red”},{“text”:”↓”,”color”:”blue”}]}... </td>
         </tr>
         
      
@@ -679,8 +735,7 @@ $('#toc').on('click', 'a', function() {
 
         <tr><td><a href="3_suggestSightseeing.html">観光モード提案開始</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 準備中です
- </td>
+          <td> About 観光モードの提案から、変更までの処理を行う。 コマンド群 コマンド群A 位置 (-1920,8,-188)     No. コマンド 状態     1 /scoreboard players test Sightseeing Settings 1 *     2 /tellraw @a[tag=SuggestSightseeing] {“text”:”既に観光モードに移行済みです。”} 条件付き   3... </td>
         </tr>
         
      
@@ -701,8 +756,7 @@ $('#toc').on('click', 'a', function() {
 
         <tr><td><a href="3_villagerTalkProcessing.html">村人会話処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 準備中です
- </td>
+          <td> About コマンド群     No. コマンド 状態     1 /execute @a[score_TalkToVillager_min=1] ~ ~ ~ /tp @e[r=3,type=Item,tag=!SystemEntity] @a[c=1]     2 /execute 0-0-1-0-2 ~ ~ ~ /execute @e[r=24,type=Villager,tag=Pastor,c=1] ~ ~ ~ /scoreboard players tag @a[r=5,score_TalkToVillager_min=1] add... </td>
         </tr>
         
      
