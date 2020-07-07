@@ -61,6 +61,10 @@
   
   
   
+  <url>
+    <loc>http://localhost:4000/3_typeSetting.html</loc>
+  </url>
+  
   
   
   <url>
@@ -68,6 +72,10 @@
   </url>
   
   
+  
+  <url>
+    <loc>http://localhost:4000/3_volcanoProcessing.html</loc>
+  </url>
   
   
   
@@ -110,10 +118,6 @@
   </url>
   
   
-  
-  <url>
-    <loc>http://localhost:4000/archer_RadarVisionFinProcessing.html</loc>
-  </url>
   
   
   
@@ -263,10 +267,6 @@
   
   
   
-  <url>
-    <loc>http://localhost:4000/netherBoss_Processing.html</loc>
-  </url>
-  
   
   
   <url>
@@ -376,12 +376,6 @@
   
   
   
-  
-  
-  
-  <url>
-    <loc>http://localhost:4000/typeSetting.html</loc>
-  </url>
   
   
   

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>3_volcanoProcessing.md</title>
+<title>404.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -365,62 +365,7 @@ code {
           : 'default'
     });
   </script>
-<p><span class="label label-primary">位置 (-1920,13,-188)</span></p>
-<h2 id="about">About</h2>
-<p>ネザーでネザーラック破壊した時の処理を行う。</p>
-<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
-<div class="datatable3cnp-begin"></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">No.</th>
-<th>コマンド群</th>
-<th>状態</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td>/execute @a[score_USBDimension=-100,score_MineNetherrack_min=1] ~ ~ ~ /playsound entity.blaze.ambient master @a[r=16] ~ ~ ~ 0.5 0.5</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td>/execute @a[score_USBDimension=-100,score_MineNetherrack_min=1] ~ ~ ~ /scoreboard players tag @e[r=6,type=Item] add Garbage {Item:{id:&quot;minecraft:netherrack&quot;},Age:1s}</td>
-<td>条件付き</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td>/scoreboard players test Debug Settings * 0</td>
-<td>条件付き</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td>/execute @a[score_USBDimension=-100,score_MineNetherrack_min=1] ~ ~ ~ /execute @e[r=6,type=Item,tag=Garbage,c=1] ~ ~ ~ /summon XPOrb ~ ~1 ~ {Age:6000s,Passengers:[{id:Creeper,ExplosionRadius:1f,Fuse:40s,ignited:true,Fire:40s,ActiveEffects:[{Id:14b,Amplifier:127b,Duration:100,ShowParticles:false}],Motion:[0d,2d,0d],Tags:[TypeChecked],Passengers:[{id:FallingSand,Block:minecraft:fire,Time:1,Passengers:[{id:FallingSand,Block:minecraft:flowing_lava,Time:1}]},{id:AreaEffectCloud,ReapplicantDelay:2147483647,Radius:0.5f,RadiusOnUse:0f,DurationOnUse:0f,Duration:40,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:lava,Tags:[TypeChecked]}]},{id:Creeper,ExplosionRadius:1f,Fuse:40s,ignited:true,Fire:40s,ActiveEffects:[{Id:14b,Amplifier:127b,Duration:100,ShowParticles:false}],Motion:[-0.1d,2d,0d],Tags:[TypeChecked],Passengers:[{id:FallingSand,Block:minecraft:fire,Time:1,Passengers:[{id:FallingSand,Block:minecraft:flowing_lava,Time:1}]}]},{id:Creeper,ExplosionRadius:1f,Fuse:40s,ignited:true,Fire:40s,ActiveEffects:[{Id:14b,Amplifier:127b,Duration:100,ShowParticles:false}],Motion:[0d,2d,-0.1d],Tags:[TypeChecked],Passengers:[{id:FallingSand,Block:minecraft:fire,Time:1,Passengers:[{id:FallingSand,Block:minecraft:flowing_lava,Time:1}]}]},{id:Creeper,ExplosionRadius:1f,Fuse:40s,ignited:true,Fire:40s,ActiveEffects:[{Id:14b,Amplifier:127b,Duration:100,ShowParticles:false}],Motion:[0.1d,2d,0d],Tags:[TypeChecked],Passengers:[{id:FallingSand,Block:minecraft:fire,Time:1,Passengers:[{id:FallingSand,Block:minecraft:flowing_lava,Time:1}]}]},{id:Creeper,ExplosionRadius:1f,Fuse:40s,ignited:true,Fire:40s,ActiveEffects:[{Id:14b,Amplifier:127b,Duration:100,ShowParticles:false}],Motion:[0d,2d,0.1d],Tags:[TypeChecked],Passengers:[{id:FallingSand,Block:minecraft:fire,Time:1,Passengers:[{id:FallingSand,Block:minecraft:flowing_lava,Time:1}]}]}]}</td>
-<td>条件付き</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td>/scoreboard players reset @a[score_MineNetherrack_min=1] MineNetherrack</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<div class="datatable3cnp-end"></div>
-<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
-<ol>
-<li><code>USBDimension</code>が-100以下であり、<code>MineNetherrack</code>が1以上であるすべてのプレイヤーから半径16m以内のすべてのプレイヤーの座標で効果音を鳴らし、以下の事柄を実行
-<ol>
-<li><code>USBDimension</code>が-100以下であり、<code>MineNetherrack</code>が1以上であるすべてのプレイヤーから半径6m以内にある<code>Age</code>が1のネザーラックがアイテムとしてあった時、それに<code>Garbage</code>を付与</li>
-<li><code>Debug</code>の<code>Settings</code>が0以下であるとき、以下の事柄を実行
-<ul>
-<li><code>USBDimension</code>が-100以下であり、<code>MineNetherrack</code>が1以上であるすべてのプレイヤーから半径6m以内にある<code>Garbage</code>を持つアイテムの座標に溶岩や即爆クリーパーなどが仕込まれたエンティティを召喚</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><code>MineNetherrack</code>が1以上であるすべてのプレイヤーの<code>MineNetherrack</code>を0に設定</li>
-</ol>
+<p>Sorry, but the page you were trying to view does not exist. Try searching for it or looking at the URL to see if it looks correct.</p>
 
 </body>
 </html>

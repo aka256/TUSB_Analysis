@@ -279,7 +279,7 @@
           
           
           
-          <li><a title="嫌な予感実行" href="eventFullfill.html">嫌な予感実行</a></li>
+          <li><a title="嫌な予感実行" href="eventFulfill.html">嫌な予感実行</a></li>
           
           
           
@@ -519,6 +519,20 @@
           
           
           
+          
+          
+          <li><a title="ネザーラック破壊時火山噴火処理" href="3_volcanoProcessing.html">ネザーラック破壊時火山噴火処理</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="タイプ設定" href="3_typeSetting.html">タイプ設定</a></li>
+          
+          
+          
+          
       </ul>
    </li>
      
@@ -745,8 +759,7 @@ $('#toc').on('click', 'a', function() {
 
         <tr><td><a href="3_typeSetting.html">タイプ設定</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 準備中です
- </td>
+          <td> 位置 (-1920,14,-188) About TypeCheckを持ったエンティティに対して、特定のタグの付与や野良の村人の処理、TNT、クリーパーの即爆破処理、そして攻略率に対する難易度上昇処理などを行っている。  Important: このコマンド群の中には難易度調整から直接コマンドを書き換えられるコマンドがあるため、ここをいじる場合には注意すべし コマンド群     No. コマンド コメント 状態     1 /scoreboard players tag @e[tag=TypeCheck,team=!FriendlyTeam] add Enemy {Attributes:[{Name:generic.followRange}],Invulnerable:false} タイプ設定 TypeCheck    ... </td>
         </tr>
         
      
@@ -764,10 +777,9 @@ $('#toc').on('click', 'a', function() {
     
         
 
-        <tr><td><a href="3_volcanoProcessing.html">火山噴火処理</a></td>
+        <tr><td><a href="3_volcanoProcessing.html">ネザーラック破壊時火山噴火処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 準備中です
- </td>
+          <td> 位置 (-1920,13,-188) About ネザーでネザーラック破壊した時の処理を行う。 コマンド群     No. コマンド群 状態     1 /execute @a[score_USBDimension=-100,score_MineNetherrack_min=1] ~ ~ ~ /playsound entity.blaze.ambient master @a[r=16] ~ ~ ~ 0.5 0.5     2 /execute @a[score_USBDimension=-100,score_MineNetherrack_min=1] ~ ~... </td>
         </tr>
         
      
@@ -1384,17 +1396,6 @@ About
     
         
 
-        <tr><td><a href="typeSetting.html">タイプ設定</a></td>
-            <td><span class="label label-default">Page</span></td>
-          <td> ???&gt; どうやらここは準備中らしい
- </td>
-        </tr>
-        
-     
-   
-    
-        
-
         <tr><td><a href="warpProcessing.html">ワープ処理ジョブ島・通常世界</a></td>
             <td><span class="label label-default">Page</span></td>
           <td> 位置 (-1920,15,-192) ## About 初回ログイン時のチュートリアルの処理、初回に配られるジョブ変更申請用紙、ブラジル行きの穴の処理などを行う。 ## コマンド群  |No.|コマンド|状態| |:-|:-|:-| |1|/scoreboard players add @a[tag=WarpByJob] TutorialRead 0| |2|/tellraw @a[tag=WarpByJob,score_TutorialRead=524286] {"text":"まだ読めていないチュートリアルがあるようだ。"}| |3|/tp @a[tag=WarpByJob,score_TutorialRead=524286] -1911.0 114.0 -136.0|条件付き| |4|/scoreboard players tag @a[tag=WarpByJob,score_TutorialRead=524286] remove WarpByJob|条件付き| |5|/give @a[tag=WarpByJob,score_Job=0] minecraft:paper 1 0 {display:{Lore:["§7就職に必要な申請書。","§7無職のプレイヤーには無料で交付される。","§7紛失した場合は、職業島の中央に飛び込もう。"],Name:"§r§lジョブ変更申請書"},初回:true}| |6|/tp @a[tag=WarpByJob,score_Job=0] -1786 113 -137 -90 0| |7|/tp @a[tag=WarpByJob,score_Job_min=1] 0 5... </td>
@@ -1431,7 +1432,7 @@ About
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-             Site last generated: 27 Jun 2020 <br />
+             Site last generated: 8 Jul 2020 <br />
         </div>
     </div>
 </footer>

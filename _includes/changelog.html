@@ -6,19 +6,22 @@
         {% capture pday %}{{ page.update | date: '%d' }}{% endcapture %}
         {% capture pmonth %}{{ page.update | date: '%m' }}{% endcapture %} 
         {% capture pyear %}{{ page.update | date: '%Y' }}{% endcapture %}
-        {% if firstFlag and pday<leastday and pmonth<=leastmonth and pyear<=leastyear %}
+        {% assign psum = {pyear|times:'100'|plus:pmonth|times:'100'|plus:pday} %}
+        {% assign leastsum = {leastyear|times:'100'|plus:leastmonth|times:'100'|plus:leastday} %}
+        {% if firstFlag and psum<leastsum %}
             {% assign leastpagedate = page.update %}
             {% assign firstFlag = false %}
         {% else %}
             {% capture day %}{{ leastpagedate | date: '%d' }}{% endcapture %}
             {% capture month %}{{ leastpagedate | date: '%m' }}{% endcapture %} 
             {% capture year %}{{ leastpagedate | date: '%Y' }}{% endcapture %}
+            {% assign sum = {year|times:'100'|plus:month|times:'100'|plus:day} %}
             {% if i==1 %}
-                {% if day<pday and month<=pmonth and year<=pyear %}
+                {% if sum<psum %}
                     {% assign leastpagedate = page.update %}
                 {% endif %}
             {% else %}
-                {% if day<pday and month<=pmonth and year<=pyear and pday<leastday and pmonth<=leastmonth and pyear<=leastyear %}
+                {% if sum<psum and psum<leastsum %}
                     {% assign leastpagedate = page.update %}
                 {% endif %}
             {% endif %}
@@ -27,7 +30,7 @@
 {% endfor %}
 {% capture leastday %}{{ leastpagedate | date: '%d' }}{% endcapture %}
 {% capture leastmonth %}{{ leastpagedate | date: '%m' }}{% endcapture %} 
-{% capture leastyear %}{{ leastpagedate | date: '%Y' }}{% endcapture %} 
+{% capture leastyear %}{{ leastpagedate | date: '%Y' }}{% endcapture %}
 <h3 id="{{leastyear}}{{leastmonth}}{{leastday}}">{{leastyear}}/{{leastmonth}}/{{leastday}}</h3>
 <ul class="page">
 {% for page in site.pages %}

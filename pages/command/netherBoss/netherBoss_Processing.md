@@ -7,6 +7,7 @@ sidebar: mydoc_sidebar
 permalink: netherBoss_Processing.html
 folder: command/netherBoss
 datatable4c: true
+search: exclude
 ---
 
 るなちー> 準備中だよ

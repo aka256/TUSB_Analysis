@@ -3,7 +3,7 @@ title: 難易度調整
 tags: [command]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,バニラモブ
 last_updated: 2020/6/19
-update: 2020-06-19 09:00:00 +0000
+update: 2020-07-07 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: difficultyAdjustment.html
 folder: command
@@ -49,8 +49,8 @@ datatable3cnp: true
 1. プレイヤーが一人でも生きているときに以下の事柄を実行
 2. `Difficulty`の`Settings`を2乗
 3. `Sightseeing`の`Settings`が0以下であるとき、`Difficulty`の`Settings`に`#ConquerPcInt`の`Global`を足し合わせる
-4. (-1886,14,-188)([タイプ設定](typeSetting.html)の強さ補正)のコマンドブロックに{Command:"/effect @e[tag=TypeCheck,team=,type=!Player]minecraft:speed 1 0 true"}を上書きできたとき、(-1885,14,-188)のコマンドブロックに{Command:"/effect @e[tag=TypeCheck,team=,type=!Player]minecraft:resistance 1 0 true"}を上書きする
-5. `Difficulty`の`Settings`が30以上の時、`Settings`の値によって(-1886,14,-188)と(-1885,14,-188)にあるコマンドブロックを書き換える(以下参考)
+4. (-1886,14,-188)([タイプ設定](3_typeSetting.html)の強さ補正)のコマンドブロック(No.34)に{Command:"/effect @e[tag=TypeCheck,team=,type=!Player]minecraft:speed 1 0 true"}を上書きできたとき、(-1885,14,-188)のコマンドブロック(No.35)に{Command:"/effect @e[tag=TypeCheck,team=,type=!Player]minecraft:resistance 1 0 true"}を上書きする
+5. `Difficulty`の`Settings`が30以上の時、`Settings`の値によって(-1886,14,-188)(No.34)と(-1885,14,-188)(No.35)にあるコマンドブロックを書き換える(以下参考)
 
 ### コマンド書き換え
 

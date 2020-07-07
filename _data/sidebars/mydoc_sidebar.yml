@@ -52,7 +52,7 @@ entries:
         url: runMobSkill.html
         output: web, pdf
       - title: 嫌な予感実行
-        url: eventFullfill.html
+        url: eventFulfill.html
         output: web, pdf
       - title: トカルト処理
         url: iceProcessing.html
@@ -152,6 +152,12 @@ entries:
       output: web, pdf
     - title: 観光モード提案開始
       url: 3_suggestSightseeing.html      
+      output: web, pdf
+    - title: ネザーラック破壊時火山噴火処理
+      url: 3_volcanoProcessing.html      
+      output: web, pdf
+    - title: タイプ設定
+      url: 3_typeSetting.html      
       output: web, pdf
 
   - title: 超作業台ルーム
