@@ -151,3 +151,42 @@ li.sidebarTitle {
 .navbar-inverse .navbar-toggle {
     border-color: #015CAE;
 }
+
+
+/*Adding theme for google search form*/
+
+.customSearch table,
+.customSearch td,
+.customSearch th {
+    /*border: none;*/
+    /*line-height: 1;*/
+    max-width: 300px;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    border: 0;
+    table-layout: fixed;
+    padding: 7px;
+}
+
+
+/*
+.customSearch td,
+.customSearch th {
+    padding: 0px 0px;
+}
+*/
+
+.gsc-input-box table,
+.gsc-input-box td {
+    max-width: 80%;
+    margin: 0px;
+    padding: 0px;
+    font-size: 18px;
+}
+
+
+/*
+.gsc-search-button {
+    width: 0px;
+}*/

@@ -133,27 +133,16 @@
                 <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
                  
                 <!--comment out this block if you want to hide search-->
+                <!--start search-->
                 <li>
-                    <!--start search-->
-                    <div id="search-demo-container">
-                        <input type="text" id="search-input" placeholder="search...">
-                        <ul id="results-container"></ul>
+                    <div class="customSearch">
+                        <script async src="https://cse.google.com/cse.js?cx=010172728285433694449:7hktzoqurei"></script>
+                        <div class="gcse-searchbox-only"></div>
                     </div>
-                    <script src=" js/jekyll-search.js " type="text/javascript"></script>
-                    <script type="text/javascript">
-                        SimpleJekyllSearch.init({
-                            searchInput: document.getElementById('search-input'),
-                            resultsContainer: document.getElementById('results-container'),
-                            dataSource: 'search.json',
-                            searchResultTemplate: '<li><a href="{url}" title="エンティティ">{title}</a></li>',
-                            noResultsText: 'No results found.',
-                            limit: 10,
-                            fuzzy: true,
-                        })
-                    </script>
-                    <!--end search-->
                 </li>
+                <!--end search-->
             </ul>
+
         </div>
     </div>
     <!-- /.container -->
@@ -169,429 +158,155 @@
                     
 
 <ul id="mysidebar" class="nav">
-  <li class="sidebarTitle">TUSB_Analysis </li>
-  
-  
-  
-  <li>
-      <a title="X回路区域管理コマンド群" href="#">X回路区域管理コマンド群</a>
-      <ul>
-          
-          
-          
-          <li><a title="マクラエル内部" href="insideMcLawell.html">マクラエル内部</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="初期化処理" href="initializeProcessing.html">初期化処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="メインクロック処理" href="mainclockProcessing.html">メインクロック処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="SystemKeeper処理" href="systemkeeperProcessing.html">SystemKeeper処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="チャンクローダー設定" href="furnaceProcessing.html">チャンクローダー設定</a></li>
-          
-          
-          
-          
-      </ul>
-   </li>
-     
+    <li class="sidebarTitle">TUSB_Analysis </li>
       
-  
-  <li>
-      <a title="毎tick実行するコマンド群1" href="#">毎tick実行するコマンド群1</a>
-      <ul>
-          
-          
-          
-          <li><a title="毎tick必ず最初に実行したいコマンド群" href="runFirst.html">毎tick必ず最初に実行したいコマンド群</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="エリア侵入記録" href="areaRecord.html">エリア侵入記録</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="エリア処理" href="areaProcessing.html">エリア処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="時間経過" href="timeElapsed.html">時間経過</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="風切更新" href="kazakiriUpdata.html">風切更新</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="約1分処理" href="oneMinProcessing.html">約1分処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="Tick停止飛翔物削除" href="tickStopDelete.html">Tick停止飛翔物削除</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="敵スキル実行" href="runMobSkill.html">敵スキル実行</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="嫌な予感実行" href="eventFulfill.html">嫌な予感実行</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="トカルト処理" href="iceProcessing.html">トカルト処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="動物誘導イベント" href="animalGuideEvent.html">動物誘導イベント</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="AEC維持" href="aecMaintenance.html">AEC維持</a></li>
-          
-          
-          
-          
-      </ul>
-   </li>
-     
+    <li>
+        <a title="X回路区域管理コマンド群" href="#">X回路区域管理コマンド群</a>
+        <ul>
+              
+            <li><a title="マクラエル内部" href="insideMcLawell.html">マクラエル内部</a></li>
+                 
+            <li><a title="初期化処理" href="initializeProcessing.html">初期化処理</a></li>
+                 
+            <li><a title="メインクロック処理" href="mainclockProcessing.html">メインクロック処理</a></li>
+                 
+            <li><a title="SystemKeeper処理" href="systemkeeperProcessing.html">SystemKeeper処理</a></li>
+                 
+            <li><a title="チャンクローダー設定" href="furnaceProcessing.html">チャンクローダー設定</a></li>
+               
+        </ul>
+    </li>
       
-  
-  <li>
-      <a title="毎tick実行するコマンド群2" href="#">毎tick実行するコマンド群2</a>
-      <ul>
-          
-          
-          
-          <li><a title="メインクロック開始時リセットするもの" href="reset.html">メインクロック開始時リセットするもの</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="初回ログイン時処理" href="firstLoginProcessing.html">初回ログイン時処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="ログイン時処理" href="loginProcessing.html">ログイン時処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="難易度調整" href="difficultyAdjustment.html">難易度調整</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="ジョブチェンジ先判定" href="jobChangeJudgement.html">ジョブチェンジ先判定</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="ジョブセーブ" href="jobSave.html">ジョブセーブ</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="ジョブロード" href="jobLoad.html">ジョブロード</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="ステータス表示" href="statusDisplay.html">ステータス表示</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="攻略率表示" href="conquerDisplay.html">攻略率表示</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="ワープ処理ジョブ島・通常世界" href="warpProcessing.html">ワープ処理ジョブ島・通常世界</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="KeepInventory確認" href="keepInventoryCheck.html">KeepInventory確認</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="満腹度修正" href="satietyFix.html">満腹度修正</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="経験値取得処理" href="expProcessing.html">経験値取得処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="レベルアップ処理" href="levelupProcessing.html">レベルアップ処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="習得スキル取得" href="skillAcquisition.html">習得スキル取得</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="最大HP調整処理" href="hpFix.html">最大HP調整処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="島攻略処理" href="conquerProcessing.html">島攻略処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="時計島" href="clockIslandProcessing.html">時計島</a></li>
-          
-          
-          
-          
-      </ul>
-   </li>
-     
+    <li>
+        <a title="毎tick実行するコマンド群1" href="#">毎tick実行するコマンド群1</a>
+        <ul>
+              
+            <li><a title="毎tick必ず最初に実行したいコマンド群" href="runFirst.html">毎tick必ず最初に実行したいコマンド群</a></li>
+                 
+            <li><a title="エリア侵入記録" href="areaRecord.html">エリア侵入記録</a></li>
+                 
+            <li><a title="エリア処理" href="areaProcessing.html">エリア処理</a></li>
+                 
+            <li><a title="時間経過" href="timeElapsed.html">時間経過</a></li>
+                 
+            <li><a title="風切更新" href="kazakiriUpdata.html">風切更新</a></li>
+                 
+            <li><a title="約1分処理" href="oneMinProcessing.html">約1分処理</a></li>
+                 
+            <li><a title="Tick停止飛翔物削除" href="tickStopDelete.html">Tick停止飛翔物削除</a></li>
+                 
+            <li><a title="敵スキル実行" href="runMobSkill.html">敵スキル実行</a></li>
+                 
+            <li><a title="嫌な予感実行" href="eventFulfill.html">嫌な予感実行</a></li>
+                 
+            <li><a title="トカルト処理" href="iceProcessing.html">トカルト処理</a></li>
+                 
+            <li><a title="動物誘導イベント" href="animalGuideEvent.html">動物誘導イベント</a></li>
+                 
+            <li><a title="AEC維持" href="aecMaintenance.html">AEC維持</a></li>
+               
+        </ul>
+    </li>
       
-  
-  <li>
-      <a title="毎tick実行するコマンド群3" href="#">毎tick実行するコマンド群3</a>
-      <ul>
-          
-          
-          
-          <li><a title="毎tick実行するコマンド群3" href="3_command.html">毎tick実行するコマンド群3</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="ベッド処理" href="3_bedProcessing.html">ベッド処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="お祈りkill" href="3_prayProcessing.html">お祈りkill</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="村人会話処理" href="3_villagerTalkProcessing.html">村人会話処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="牧師会話選択時処理" href="3_pastorTalk.html">牧師会話選択時処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="エージェント会話選択時処理" href="3_agentTalk.html">エージェント会話選択時処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="占い師会話選択時処理" href="3_augurTalk.html">占い師会話選択時処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="エメラルド支払い処理" href="3_paymentProcessing.html">エメラルド支払い処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="設定スキル表示" href="3_skillDisplay.html">設定スキル表示</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="観光モード提案開始" href="3_suggestSightseeing.html">観光モード提案開始</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="ネザーラック破壊時火山噴火処理" href="3_volcanoProcessing.html">ネザーラック破壊時火山噴火処理</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="タイプ設定" href="3_typeSetting.html">タイプ設定</a></li>
-          
-          
-          
-          
-      </ul>
-   </li>
-     
+    <li>
+        <a title="毎tick実行するコマンド群2" href="#">毎tick実行するコマンド群2</a>
+        <ul>
+              
+            <li><a title="メインクロック開始時リセットするもの" href="reset.html">メインクロック開始時リセットするもの</a></li>
+                 
+            <li><a title="初回ログイン時処理" href="firstLoginProcessing.html">初回ログイン時処理</a></li>
+                 
+            <li><a title="ログイン時処理" href="loginProcessing.html">ログイン時処理</a></li>
+                 
+            <li><a title="難易度調整" href="difficultyAdjustment.html">難易度調整</a></li>
+                 
+            <li><a title="ジョブチェンジ先判定" href="jobChangeJudgement.html">ジョブチェンジ先判定</a></li>
+                 
+            <li><a title="ジョブセーブ" href="jobSave.html">ジョブセーブ</a></li>
+                 
+            <li><a title="ジョブロード" href="jobLoad.html">ジョブロード</a></li>
+                 
+            <li><a title="ステータス表示" href="statusDisplay.html">ステータス表示</a></li>
+                 
+            <li><a title="攻略率表示" href="conquerDisplay.html">攻略率表示</a></li>
+                 
+            <li><a title="ワープ処理ジョブ島・通常世界" href="warpProcessing.html">ワープ処理ジョブ島・通常世界</a></li>
+                 
+            <li><a title="KeepInventory確認" href="keepInventoryCheck.html">KeepInventory確認</a></li>
+                 
+            <li><a title="満腹度修正" href="satietyFix.html">満腹度修正</a></li>
+                 
+            <li><a title="経験値取得処理" href="expProcessing.html">経験値取得処理</a></li>
+                 
+            <li><a title="レベルアップ処理" href="levelupProcessing.html">レベルアップ処理</a></li>
+                 
+            <li><a title="習得スキル取得" href="skillAcquisition.html">習得スキル取得</a></li>
+                 
+            <li><a title="最大HP調整処理" href="hpFix.html">最大HP調整処理</a></li>
+                 
+            <li><a title="島攻略処理" href="conquerProcessing.html">島攻略処理</a></li>
+                 
+            <li><a title="時計島" href="clockIslandProcessing.html">時計島</a></li>
+               
+        </ul>
+    </li>
       
-  
-  <li>
-      <a title="超作業台ルーム" href="#">超作業台ルーム</a>
-      <ul>
-          
-          
-          
-          <li><a title="超作業台" href="about.html">超作業台</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="超作業台レシピの追加" href="createRecipe.html">超作業台レシピの追加</a></li>
-          
-          
-          
-          
-      </ul>
-   </li>
-     
+    <li>
+        <a title="毎tick実行するコマンド群3" href="#">毎tick実行するコマンド群3</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群3" href="3_command.html">毎tick実行するコマンド群3</a></li>
+                 
+            <li><a title="ベッド処理" href="3_bedProcessing.html">ベッド処理</a></li>
+                 
+            <li><a title="お祈りkill" href="3_prayProcessing.html">お祈りkill</a></li>
+                 
+            <li><a title="村人会話処理" href="3_villagerTalkProcessing.html">村人会話処理</a></li>
+                 
+            <li><a title="牧師会話選択時処理" href="3_pastorTalk.html">牧師会話選択時処理</a></li>
+                 
+            <li><a title="エージェント会話選択時処理" href="3_agentTalk.html">エージェント会話選択時処理</a></li>
+                 
+            <li><a title="占い師会話選択時処理" href="3_augurTalk.html">占い師会話選択時処理</a></li>
+                 
+            <li><a title="エメラルド支払い処理" href="3_paymentProcessing.html">エメラルド支払い処理</a></li>
+                 
+            <li><a title="設定スキル表示" href="3_skillDisplay.html">設定スキル表示</a></li>
+                 
+            <li><a title="観光モード提案開始" href="3_suggestSightseeing.html">観光モード提案開始</a></li>
+                 
+            <li><a title="ネザーラック破壊時火山噴火処理" href="3_volcanoProcessing.html">ネザーラック破壊時火山噴火処理</a></li>
+                 
+            <li><a title="タイプ設定" href="3_typeSetting.html">タイプ設定</a></li>
+               
+        </ul>
+    </li>
       
-  
-  <li>
-      <a title="データ類" href="#">データ類</a>
-      <ul>
-          
-          
-          
-          <li><a title="エンティティ" href="TUSB_Analysis_Entity.html">エンティティ</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="アイテム" href="TUSB_Analysis_Item.html">アイテム</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="スコアボード、チーム" href="TUSB_Analysis_Data.html">スコアボード、チーム</a></li>
-          
-          
-          
-          
-      </ul>
-   </li>
-     
+    <li>
+        <a title="超作業台ルーム" href="#">超作業台ルーム</a>
+        <ul>
+              
+            <li><a title="超作業台" href="about.html">超作業台</a></li>
+                 
+            <li><a title="超作業台レシピの追加" href="createRecipe.html">超作業台レシピの追加</a></li>
+               
+        </ul>
+    </li>
       
+    <li>
+        <a title="データ類" href="#">データ類</a>
+        <ul>
+              
+            <li><a title="エンティティ" href="TUSB_Analysis_Entity.html">エンティティ</a></li>
+                 
+            <li><a title="アイテム" href="TUSB_Analysis_Item.html">アイテム</a></li>
+                 
+            <li><a title="スコアボード、チーム" href="TUSB_Analysis_Data.html">スコアボード、チーム</a></li>
+               
+        </ul>
+    </li>
       
-      <!-- if you aren't using the accordion, uncomment this block:
+    <!-- if you aren't using the accordion, uncomment this block:
          <p class="external">
              <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
          </p>
@@ -599,8 +314,9 @@
 </ul>
 
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
-<script>$("li.active").parents('li').toggleClass("active");</script>
-
+<script>
+    $("li.active").parents('li').toggleClass("active");
+</script>
                 </div>
                  
 

@@ -133,27 +133,16 @@
                 <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
                  
                 <!--comment out this block if you want to hide search-->
+                <!--start search-->
                 <li>
-                    <!--start search-->
-                    <div id="search-demo-container">
-                        <input type="text" id="search-input" placeholder="search...">
-                        <ul id="results-container"></ul>
+                    <div class="customSearch">
+                        <script async src="https://cse.google.com/cse.js?cx=010172728285433694449:7hktzoqurei"></script>
+                        <div class="gcse-searchbox-only"></div>
                     </div>
-                    <script src=" js/jekyll-search.js " type="text/javascript"></script>
-                    <script type="text/javascript">
-                        SimpleJekyllSearch.init({
-                            searchInput: document.getElementById('search-input'),
-                            resultsContainer: document.getElementById('results-container'),
-                            dataSource: 'search.json',
-                            searchResultTemplate: '<li><a href="{url}" title="">{title}</a></li>',
-                            noResultsText: 'No results found.',
-                            limit: 10,
-                            fuzzy: true,
-                        })
-                    </script>
-                    <!--end search-->
                 </li>
+                <!--end search-->
             </ul>
+
         </div>
     </div>
     <!-- /.container -->
@@ -169,48 +158,24 @@
                     
 
 <ul id="mysidebar" class="nav">
-  <li class="sidebarTitle"> </li>
-  
-  
-  
-  <li>
-      <a title="Products" href="#">Products</a>
-      <ul>
-          
-          
-          
-          <li><a title="News" href="news.html">News</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="Theme instructions" href="mydoc_introduction.html">Theme instructions</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="Product 1" href="p1_landing_page.html">Product 1</a></li>
-          
-          
-          
-          
-          
-          
-          <li><a title="Product 2" href="p2_landing_page.html">Product 2</a></li>
-          
-          
-          
-          
-      </ul>
-   </li>
-     
+    <li class="sidebarTitle"> </li>
       
+    <li>
+        <a title="Products" href="#">Products</a>
+        <ul>
+              
+            <li><a title="News" href="/news.html">News</a></li>
+                 
+            <li><a title="Theme instructions" href="/mydoc_introduction.html">Theme instructions</a></li>
+                 
+            <li><a title="Product 1" href="/p1_landing_page.html">Product 1</a></li>
+                 
+            <li><a title="Product 2" href="/p2_landing_page.html">Product 2</a></li>
+               
+        </ul>
+    </li>
       
-      <!-- if you aren't using the accordion, uncomment this block:
+    <!-- if you aren't using the accordion, uncomment this block:
          <p class="external">
              <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
          </p>
@@ -218,8 +183,9 @@
 </ul>
 
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
-<script>$("li.active").parents('li').toggleClass("active");</script>
-
+<script>
+    $("li.active").parents('li').toggleClass("active");
+</script>
                 </div>
                  
 

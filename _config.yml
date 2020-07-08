@@ -111,7 +111,7 @@ description: "Intended as a documentation theme based on Jekyll for technical wr
 # the description is used in the feed.xml file
 
 # needed for sitemap.xml file only
-url: https://aka256.github.io/TUSB_Analysis/
+url: https://aka256.github.io/TUSB_Analysis/blob/gh-pages/
 # baseurl: /documentation-theme-jekyll
 
 
