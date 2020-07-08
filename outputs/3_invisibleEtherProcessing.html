@@ -365,7 +365,289 @@ code {
           : 'default'
     });
   </script>
-<p>準備中です</p>
+<p><span class="label label-primary">位置 (-1920,17,-188)</span></p>
+<h2 id="about">About</h2>
+<p>TUSBでは透明化のレベルに応じて死の宣告やエーテル、エリクサー効果などの処理を行っている。ここではそれらの処理が行われている。</p>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<div class="datatable3c-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+<th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/scoreboard players tag @a[tag=Invisible] add Ether {ActiveEffects:[{Id:14b,Amplifier:3b}]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/scoreboard players add @a[tag=Ether] MP 100</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/scoreboard players tag @a[tag=Invisible] add Ether {ActiveEffects:[{Id:14b,Amplifier:2b}]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>/scoreboard players add @a[tag=Ether] MP 50</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>/scoreboard players tag @a[tag=Invisible] add Ether {ActiveEffects:[{Id:14b,Amplifier:1b}]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>/scoreboard players add @a[tag=Ether] MP 50</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>/execute @a[tag=Ether] ~ ~ ~ /scoreboard players operation @a[c=1] MP &lt; @a[c=1] MPMax</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td>/scoreboard players tag @a[tag=Ether] remove Ether</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td>/scoreboard players tag @a[tag=Invisible] add Elixir {ActiveEffects:[{Id:14b,Amplifier:5b}]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td>/execute @a[tag=Elixir] ~ ~ ~ /scoreboard players operation @a[c=1] HealCount += @a[c=1] HPMax</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td>/execute @a[tag=Elixir] ~ ~ ~ /scoreboard players operation @a[c=1] MP = @a[c=1] MPMax</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td>/scoreboard players tag @a[tag=Invisible] add Elixir {ActiveEffects:[{Id:14b,Amplifier:4b}]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td>/execute @a[tag=Elixir] ~ ~ ~ /scoreboard players operation @a[c=1] HealCount += @a[c=1] HPMax</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td>/scoreboard players operation @a[tag=Elixir] MP *= #2 Const</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td>/execute @a[tag=Elixir] ~ ~ ~ /scoreboard players operation @a[c=1] MP += @a[c=1] MPMax</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td>/scoreboard players operation @a[tag=Elixir] MP /= #2 Const</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td>/execute @a[tag=Elixir] ~ ~ ~ /scoreboard players operation @a[c=1] MP &lt; @a[c=1] MPMax</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td>/scoreboard players tag @a[tag=Elixir] remove Elixir</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td>/scoreboard players tag @a[tag=Invisible] add DoomStart {ActiveEffects:[{Id:14b,Amplifier:-1b}]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td>/scoreboard players tag @a[tag=DoomStart] remove DoomStart {Tags:[Doom]}</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td>/execute @a[tag=DoomStart] ~ ~ ~ /me は死の宣告の効果を受けた！</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td>/scoreboard players set @a[tag=DoomStart] Doom 11</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td>/scoreboard players set @a[tag=DoomStart] DoomSecond 1</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td>/scoreboard players tag @a[tag=DoomStart] add Doom</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td>/scoreboard players tag @a[tag=DoomStart] remove DoomStart</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td>/scoreboard players tag @a[tag=Invisible] add HolyWater {ActiveEffects:[{Id:14b,Amplifier:6b}],Tags:[Doom]}</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td>/execute @a[tag=HolyWater] ~ ~ ~ /me は死の宣告から逃れた！</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">28</td>
+<td>/scoreboard players tag @a[tag=HolyWater] remove Doom</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td>/scoreboard players tag @a[tag=HolyWater] remove HolyWater</td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td>/effect @a[tag=Invisible] minecraft:invisibility 0</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td>/scoreboard players tag @a[tag=Invisible] remove Invisible</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="datatable3c-end"></div>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li><code>Invisible</code>を持ち、透明化のレベルがLv.2 ~ 4のプレイヤーに<code>Ether</code>を付与し、透明化のレベルに応じて<code>MP</code>に値を足す。(<a href="#ether%E3%82%BF%E3%82%B0%E4%BB%98%E4%B8%8E%E6%99%82%E3%81%AE%E9%80%8F%E6%98%8E%E5%8C%96%E3%81%AE%E3%83%AC%E3%83%99%E3%83%AB%E3%81%A8%E8%B6%B3%E3%81%95%E3%82%8C%E3%82%8Bmp%E3%81%AE%E5%80%A4%E3%81%AE%E9%96%A2%E4%BF%82%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">以下</a>参照)</li>
+<li><code>Ether</code>を持つすべてのプレイヤーの<code>MP</code>が<code>MPMax</code>より大きいとき、<code>MP</code>に<code>MPMax</code>を代入し、<code>Ether</code>をすべてのプレイヤーから削除</li>
+<li><code>Invisible</code>を持ち、透明化のレベルがLv.5 ~ 6のプレイヤーに<code>Elixir</code>を付与し、透明化のレベルに応じて<code>MP</code>と<code>HP</code>の値を変更する(<a href="#elixir%E3%82%BF%E3%82%B0%E4%BB%98%E4%B8%8E%E6%99%82%E3%81%AE%E9%80%8F%E6%98%8E%E5%8C%96%E3%81%AE%E3%83%AC%E3%83%99%E3%83%AB%E3%81%A8%E8%B6%B3%E3%81%95%E3%82%8C%E3%82%8Bmphp%E3%81%AE%E5%80%A4%E3%81%AE%E9%96%A2%E4%BF%82%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">以下</a>参照)</li>
+<li><code>Elixir</code>を持つすべてのプレイヤーから<code>Elixir</code>を削除</li>
+<li><code>Invisible</code>を持ち、<code>Doom</code>(タグ)を持ない透明化のレベルがLv.0のプレイヤーに<code>DoomStart</code>を付与</li>
+<li><code>DoomStart</code>を持つすべてのプレイヤーに「[PlayerName]は死の宣告の効果を受けた！」とのメッセージを送り、以下の事柄を実行
+<ol>
+<li><code>DoomStart</code>を持つすべてのプレイヤーの<code>Doom</code>(スコア)を11に、<code>DoomSecond</code>を1に設定</li>
+<li><code>DoomStart</code>を持つすべてのプレイヤーに<code>Doom</code>(タグ)を付与し、<code>DoomStart</code>を削除</li>
+</ol>
+</li>
+<li><code>Invisible</code>と<code>Doom</code>を持ち、透明化のレベルがLv.7のプレイヤーに<code>HolyWater</code>を付与し、以下の事柄を実行
+<ol>
+<li><code>HolyWater</code>を持つすべてのプレイヤーに「[PlayerName]は死の宣告から逃れた！」とのメッセージを送る</li>
+<li><code>HolyWater</code>を持つすべてのプレイヤーから<code>Doom</code>と<code>HolyWater</code>を削除</li>
+</ol>
+</li>
+<li><code>Invisible</code>を持つすべてのプレイヤーに透明化を0秒付与 (透明化の削除)</li>
+<li><code>Invisible</code>を持つすべてのプレイヤーから<code>Invisible</code>を削除</li>
+</ol>
+<h3 id="tusb%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E9%80%8F%E6%98%8E%E5%8C%96%E3%81%AE%E3%83%AC%E3%83%99%E3%83%AB%E3%81%AB%E5%AF%BE%E3%81%99%E3%82%8B%E6%89%B1%E3%81%84">TUSBにおける透明化のレベルに対する扱い</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">透明化レベル</th>
+<th>処理</th>
+<th>関連するタグ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td>死の宣告</td>
+<td><code>DoomStart</code></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>MP回復1(エーテル効果)</td>
+<td><code>Ether</code></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>MP回復2(エーテル効果)</td>
+<td><code>Ether</code></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>MP回復3(エーテル効果)</td>
+<td><code>Ether</code></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>HP回復(エリクサー効果)</td>
+<td><code>Elixir</code></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>MP&amp;HP回復(エリクサー効果)</td>
+<td><code>Elixir</code></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>死の宣告からの回復</td>
+<td><code>HolyWater</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ether%E3%82%BF%E3%82%B0%E4%BB%98%E4%B8%8E%E6%99%82%E3%81%AE%E9%80%8F%E6%98%8E%E5%8C%96%E3%81%AE%E3%83%AC%E3%83%99%E3%83%AB%E3%81%A8%E8%B6%B3%E3%81%95%E3%82%8C%E3%82%8Bmp%E3%81%AE%E5%80%A4%E3%81%AE%E9%96%A2%E4%BF%82%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Etherタグ付与時の透明化のレベルと足されるMPの値の関係について</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">透明化のLv</th>
+<th style="text-align:center">足されるMPの値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">50</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">200</td>
+</tr>
+</tbody>
+</table>
+<h3 id="elixir%E3%82%BF%E3%82%B0%E4%BB%98%E4%B8%8E%E6%99%82%E3%81%AE%E9%80%8F%E6%98%8E%E5%8C%96%E3%81%AE%E3%83%AC%E3%83%99%E3%83%AB%E3%81%A8%E8%B6%B3%E3%81%95%E3%82%8C%E3%82%8Bmphp%E3%81%AE%E5%80%A4%E3%81%AE%E9%96%A2%E4%BF%82%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Elixirタグ付与時の透明化のレベルと足されるMP,HPの値の関係について</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">透明化のLv</th>
+<th>計算内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">5</td>
+<td><code>HealCount</code>+=2*<code>HPMax</code>, <code>MP</code>=<code>MPMax</code></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td><code>HealCount</code>+=<code>HPMax</code>,<code>MP</code>=(<code>MP</code>*2+<code>MPMax</code>)/2 (<code>MP</code>が<code>MPMax</code>より大きくなってしまったら<code>MP</code>=<code>MPMax</code>とする)</td>
+</tr>
+</tbody>
+</table>
 
 </body>
 </html>
