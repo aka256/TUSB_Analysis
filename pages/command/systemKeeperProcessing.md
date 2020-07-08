@@ -3,7 +3,7 @@ title: SystemKeeper処理
 tags: [command,entity,display]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/6/19
-update: 2020-06-19 09:00:00 +0000
+update: 2020-07-07 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: systemKeeperProcessing.html
 folder: command
@@ -15,7 +15,7 @@ datatable3cnp: true
 
 [SystemKeeper](TUSB_Analysis_Entity.html)という名前のアーマースタンドと、その下にあるコマンド群によって構成され、X回路区域のセーフティーネットの役割を担っている。なので、通常では実行されることがないコマンド群である。
 
-{% include note.html content="[SystemKeeper](TUSB_Analysis_Entity.html)がこの上にいる限り実行される" %}
+{% include note.html content="[SystemKeeper](TUSB_Analysis_Entity.html#systemkeeper)がこの上にいる限り実行される" %}
 
 ## コマンド群
 

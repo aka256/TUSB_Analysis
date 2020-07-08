@@ -115,7 +115,7 @@ url: https://aka256.github.io/TUSB_Analysis/
 #baseurl: blob/gh-pages/
 
 # Github URL uesd for building sitemap.xml
-githuburl: https://aka256.github.io/TUSB_Analysis/
+githuburl: https://aka256.github.io/TUSB_Analysis
 
 # change frequency it is used for buiding sitemap.xml
 changefreq: weekly
