@@ -8,7 +8,7 @@ search: exclude
   {% for post in site.posts %}
   {% unless post.search == "exclude" %}
   <url>
-    <loc>{{site.url}}{{post.url}}</loc>
+    <loc>{{githuburl.url}}{{post.url}}</loc>
   </url>
   {% endunless %}
   {% endfor %}
@@ -17,7 +17,9 @@ search: exclude
   {% for page in site.pages %}
   {% unless page.search == "exclude" %}
   <url>
-    <loc>{{site.url}}{{ page.url}}</loc>
+    <loc>{{site.githuburl}}{{page.url}}</loc>
+    <lastmod>{{page.update|date: "%Y-%m-%d %H:%M"}}</lastmod>
+    <cahgefreq>{{site.changefreq}}</cahgefreq>
   </url>
   {% endunless %}
   {% endfor %}
