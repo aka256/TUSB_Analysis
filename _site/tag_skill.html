@@ -377,35 +377,35 @@ $('#toc').on('click', 'a', function() {
                                                                                                                                                                                              
 
         <tr>
-            <td><a href="/areaRecord.html">エリア侵入記録</a></td>
+            <td><a href="./areaRecord.html">エリア侵入記録</a></td>
             <td><span class="label label-default">Page</span></td>
             <td> 位置 (-1920,9,-200) About Overworld内のディメンション移動の際の侵入記録を行う。また、その際にスキルの設定を変える、お試しセットの印玉を渡すなどの処理も行っている。 コマンド群     No. コマンド コメント 状態     1 /execute @a[score_AreaTitleFlag_min=1,score_AreaTitleFlag=1,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-193,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter エリア侵入記録... </td>
         </tr>
                                                                                                                             
 
         <tr>
-            <td><a href="/jobLoad.html">ジョブロード</a></td>
+            <td><a href="./jobLoad.html">ジョブロード</a></td>
             <td><span class="label label-default">Page</span></td>
             <td> 位置 (-1920,12,-192) About 現在ロードしている職業のスコアへの代入を行う。 コマンド群     No. コマンド 状態     1 /execute @a[score_LoadJob_min=1,score_LoadJob=1] ~ ~ ~ /scoreboard players operation @a[c=1] Level = @a[c=1] KnightLevel    ... </td>
         </tr>
                       
 
         <tr>
-            <td><a href="/kazakiriUpdata.html">風切更新</a></td>
+            <td><a href="./kazakiriUpdata.html">風切更新</a></td>
             <td><span class="label label-default">Page</span></td>
             <td> 位置 (-1920,11,-198) About コマンド群     No. コマンド 状態     1 /execute @a[score_Kazakiri_min=0] ~ ~ ~ /playsound entity.enderdragon.flap master @a[r=16] ~ ~ ~ 0.5 1.6 0     2 /execute @a[score_Kazakiri_min=0,score_Sneaking_min=1] ~ ~... </td>
         </tr>
                                                                                                 
 
         <tr>
-            <td><a href="/skillAcquisition.html">習得スキル取得</a></td>
+            <td><a href="./skillAcquisition.html">習得スキル取得</a></td>
             <td><span class="label label-default">Page</span></td>
             <td> 位置 (-1920,10,-191)~(-1920,15,-191) About レベルアップ時に新しいスキル取得したか判断する。 コマンド群  剣士(-1920,10,-191)      No. コマンド     1 /scoreboard players set @a[tag=ShowNewSkill,score_Level_min=1,score_Level=1,score_Job_min=1,score_Job=1] ShowSkill 1000   2 /scoreboard players set @a[tag=ShowNewSkill,score_Level_min=3,score_Level=3,score_Job_min=1,score_Job=1] ShowSkill... </td>
         </tr>
                                                                                                             
 
         <tr>
-            <td><a href="/timeElapsed.html">時間経過</a></td>
+            <td><a href="./timeElapsed.html">時間経過</a></td>
             <td><span class="label label-default">Page</span></td>
             <td> 位置 (-1920,11,-200) ## About スキルやイベント、トカルトコルデなどでの時間経過により変化するものの処理、分岐を行っている。 ## コマンド群  |No.|コマンド|コメント|状態| |:-:|:-|:-|:-| |1|/scoreboard players remove @a[score_ManaRefresh_min=0] ManaRefresh 1|時間経過マナリフレッシュ| |2|/tellraw @a[score_ManaRefresh=-1] {"text":"マナリフレッシュの効果が切れた。","color":"gold"}||条件付き| |3|/scoreboard players reset @a[score_ManaRefresh=-1] ManaRefresh||条件付き| |4|/scoreboard players remove @a[score_WindWall_min=0] WindWall 1|時間経過ウィンドウォール| |5|/tellraw @a[score_WindWall=-1] {"text":"ウィンドウォールの効果が切れた。","color":"gold"}||条件付き| |6|/scoreboard players reset @a[score_WindWall=-1] WindWall||条件付き| |7|/execute @a[score_WindWall_min=0] ~ ~ ~ /playsound block.fire.extinguish master @a[r=16]... </td>
         </tr>
