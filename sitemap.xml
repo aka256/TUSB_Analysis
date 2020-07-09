@@ -17,7 +17,7 @@ search: exclude
   <url>
     <loc>{{site.githuburl}}{{page.url}}</loc>
     <lastmod>{{page.update|date: "%Y-%m-%dT%H:%M:%S+09:00"}}</lastmod>
-    <chagefreq>{{site.changefreq}}</chagefreq>
+    <changefreq>{{site.changefreq}}</changefreq>
   </url>
   {% endunless %}
   {% endfor %}
