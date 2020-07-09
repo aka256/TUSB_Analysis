@@ -1,6 +1,6 @@
 ---
 title: 超作業台レシピの追加
-tags: [command]
+tags: [超作業台]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,超作業台
 last_updated: 2020/6/23
 update: 2020/6/23

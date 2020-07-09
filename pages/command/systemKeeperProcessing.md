@@ -1,6 +1,6 @@
 ---
 title: SystemKeeper処理
-tags: [command,entity,display]
+tags: [コマンド,表示,SystemKeeper]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/6/19
 update: 2020-07-07 09:00:00 +0000

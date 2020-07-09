@@ -1,7 +1,7 @@
 ---
 title: 牧師会話選択時処理
-tags: [command]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
+tags: [コマンド,村人,表示]
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,牧師,教会
 last_updated: 2020/6/26
 update: 2020/6/27
 sidebar: mydoc_sidebar

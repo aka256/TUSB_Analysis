@@ -1,6 +1,6 @@
 ---
 title: メインクロック開始時リセットするもの
-tags: [command,entity,job]
+tags: [コマンド,敵Mob,職業]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,メインクロック
 last_updated: 2020/6/19
 update: 2020-06-19 09:21:00 +0000

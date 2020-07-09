@@ -1,6 +1,6 @@
 ---
 title: KeepInventory確認
-tags: [command,dimension]
+tags: [コマンド,クラウディア,死の宣告]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,keepinventory,キープインベントリ,観光モード
 last_updated: 2020/6/19
 update: 2020-06-19 09:00:00 +0000

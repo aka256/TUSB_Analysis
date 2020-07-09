@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>Job Pages | TUSB Analysis</title>
+<title>職業タグ | TUSB Analysis</title>
 <link rel="stylesheet" href=" css/syntax.css ">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -323,7 +323,7 @@
                 <!-- Content Column -->
                 <div class="col-md-9" id="tg-sb-content">
                     <div class="post-header">
-   <h1 class="post-title-main">Job Pages</h1>
+   <h1 class="post-title-main">職業タグ</h1>
 </div>
 
 
@@ -364,475 +364,90 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>The following pages and posts are tagged with <button type="button" style="cursor: default" class="btn btn-default navbar-btn">job</button></p>
-<table><thead><tr><th>Title</th><th>Type</th><th>Excerpt</th></tr></thead>
+   <p>これらは <button type="button" style="cursor: default" class="btn btn-default navbar-btn">職業</button>にタグ付けされたページです。</p>
+<table>
+    <thead>
+        <tr>
+            <th width="20%">Title</th>
+            <th>Type</th>
+            <th>Excerpt</th>
+        </tr>
+    </thead>
     <tbody>
-    
-  
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-   
-    
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-        
+                                                                                                                                                                                                                                                               
 
-        <tr><td><a href="archer_RadarVisionFinProcessing.html">レーダーヴィジョン終了処理</a></td>
+        <tr>
+            <td><a href="/firstLoginProcessing.html">初回ログイン時処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 準備中です。
- </td>
+            <td> 位置 (-1920,8,-192) About 初回ログイン時にスコアやタグ、チーム分けそして乱数の設定を行う コマンド群     No. コマンド     1 /scoreboard players add @a[team=] USBDimension 0   2 /scoreboard players set @a[team=,tag=!Resolved] Job 0  ... </td>
         </tr>
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-        
-     
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-        
-     
-        
-     
-   
-    
-   
-    
-        
-     
-        
-     
-        
-     
-        
+                                                
 
-        <tr><td><a href="firstLoginProcessing.html">初回ログイン時処理</a></td>
+        <tr>
+            <td><a href="/jobChangeJudgement.html">ジョブチェンジ先判定</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,8,-192) About 初回ログイン時にスコアやタグ、チーム分けそして乱数の設定を行う コマンド群     No. コマンド     1 /scoreboard players add @a[team=] USBDimension 0   2 /scoreboard players set @a[team=,tag=!Resolved] Job 0  ... </td>
+            <td> 位置 (-1920,10,-192) About 職業変更許可書や釣りチケなどの処理を行う。 コマンド群     No. コマンド 状態     1 /clear @a[score_Job_min=1] minecraft:paper 0 -1 {display:{Name:”§r§lジョブ変更申請書”},初回:true}     2 /scoreboard players... </td>
         </tr>
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-        
+                
 
-        <tr><td><a href="jobChangeJudgement.html">ジョブチェンジ先判定</a></td>
+        <tr>
+            <td><a href="/jobLoad.html">ジョブロード</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,10,-192) About 職業変更許可書や釣りチケなどの処理を行う。 コマンド群     No. コマンド 状態     1 /clear @a[score_Job_min=1] minecraft:paper 0 -1 {display:{Name:”§r§lジョブ変更申請書”},初回:true}     2 /scoreboard players... </td>
+            <td> 位置 (-1920,12,-192) About 現在ロードしている職業のスコアへの代入を行う。 コマンド群     No. コマンド 状態     1 /execute @a[score_LoadJob_min=1,score_LoadJob=1] ~ ~ ~ /scoreboard players operation @a[c=1] Level = @a[c=1] KnightLevel    ... </td>
         </tr>
-        
-     
-        
-     
-   
-    
-        
-     
-        
+                
 
-        <tr><td><a href="jobLoad.html">ジョブロード</a></td>
+        <tr>
+            <td><a href="/jobSave.html">ジョブセーブ</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,12,-192) About 現在ロードしている職業のスコアへの代入を行う。 コマンド群     No. コマンド 状態     1 /execute @a[score_LoadJob_min=1,score_LoadJob=1] ~ ~ ~ /scoreboard players operation @a[c=1] Level = @a[c=1] KnightLevel    ... </td>
+            <td> 位置 (-1920,11,-192) About 職業のレベルやレベルアップのために必要な経験値量の保存を行う。 コマンド群    No. コマンド     1 /execute @a[score_SaveJob_min=1,score_SaveJob=1] ~ ~ ~ /scoreboard players operation @a[c=1] KnightLevel = @a[c=1] Level   2 /execute @a[score_SaveJob_min=1,score_SaveJob=1] ~... </td>
         </tr>
-        
-     
-        
-     
-   
-    
-        
-     
-        
+                  
 
-        <tr><td><a href="jobSave.html">ジョブセーブ</a></td>
+        <tr>
+            <td><a href="/kazakiriUpdata.html">風切更新</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,11,-192) About 職業のレベルやレベルアップのために必要な経験値量の保存を行う。 コマンド群    No. コマンド     1 /execute @a[score_SaveJob_min=1,score_SaveJob=1] ~ ~ ~ /scoreboard players operation @a[c=1] KnightLevel = @a[c=1] Level   2 /execute @a[score_SaveJob_min=1,score_SaveJob=1] ~... </td>
+            <td> 位置 (-1920,11,-198) About コマンド群     No. コマンド 状態     1 /execute @a[score_Kazakiri_min=0] ~ ~ ~ /playsound entity.enderdragon.flap master @a[r=16] ~ ~ ~ 0.5 1.6 0     2 /execute @a[score_Kazakiri_min=0,score_Sneaking_min=1] ~ ~... </td>
         </tr>
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-        
+                            
 
-        <tr><td><a href="kazakiriUpdata.html">風切更新</a></td>
+        <tr>
+            <td><a href="/levelupProcessing.html">レベルアップ処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,11,-198) About コマンド群     No. コマンド 状態     1 /execute @a[score_Kazakiri_min=0] ~ ~ ~ /playsound entity.enderdragon.flap master @a[r=16] ~ ~ ~ 0.5 1.6 0     2 /execute @a[score_Kazakiri_min=0,score_Sneaking_min=1] ~ ~... </td>
+            <td> 位置 (-1920,9,-191) About レベルアップ時のスコアボードの書き換えや、新しいスキルの取得への分岐などを行う。 コマンド群     No. コマンド     1 /scoreboard players add @a[score_ExpToLevel=0,score_Level=49] Level 1   2 /scoreboard players add @a[score_ExpToLevel=0] MPMax 1  ... </td>
         </tr>
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-        
-     
-        
+                                            
 
-        <tr><td><a href="levelupProcessing.html">レベルアップ処理</a></td>
+        <tr>
+            <td><a href="/reset.html">メインクロック開始時リセットするもの</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,9,-191) About レベルアップ時のスコアボードの書き換えや、新しいスキルの取得への分岐などを行う。 コマンド群     No. コマンド     1 /scoreboard players add @a[score_ExpToLevel=0,score_Level=49] Level 1   2 /scoreboard players add @a[score_ExpToLevel=0] MPMax 1  ... </td>
+            <td> 位置 (-1920,4,-192) About TUSBにログインした際にジョブやHP、満腹度修正など、様々な処理への分岐を行う。 コマンド群     No. コマンド コメント 状態     1 /scoreboard players reset @a[score_MPConsumption_min=0] MPConsumption       &lt;td style="text-align:... </td>
         </tr>
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-   
-    
-        
-     
-   
-    
-        
-     
-        
-     
-        
+                                        
 
-        <tr><td><a href="reset.html">メインクロック開始時リセットするもの</a></td>
+        <tr>
+            <td><a href="/skillAcquisition.html">習得スキル取得</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,4,-192) About TUSBにログインした際にジョブやHP、満腹度修正など、様々な処理への分岐を行う。 コマンド群     No. コマンド コメント 状態     1 /scoreboard players reset @a[score_MPConsumption_min=0] MPConsumption       &lt;td style="text-align:... </td>
+            <td> 位置 (-1920,10,-191)~(-1920,15,-191) About レベルアップ時に新しいスキル取得したか判断する。 コマンド群  剣士(-1920,10,-191)      No. コマンド     1 /scoreboard players set @a[tag=ShowNewSkill,score_Level_min=1,score_Level=1,score_Job_min=1,score_Job=1] ShowSkill 1000   2 /scoreboard players set @a[tag=ShowNewSkill,score_Level_min=3,score_Level=3,score_Job_min=1,score_Job=1] ShowSkill... </td>
         </tr>
-        
-     
-   
-    
-        
-     
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-   
-    
-   
-    
-        
-     
-        
-     
-        
+                  
 
-        <tr><td><a href="skillAcquisition.html">習得スキル取得</a></td>
+        <tr>
+            <td><a href="/statusDisplay.html">ステータス表示</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,10,-191)~(-1920,15,-191) About レベルアップ時に新しいスキル取得したか判断する。 コマンド群  剣士(-1920,10,-191)      No. コマンド     1 /scoreboard players set @a[tag=ShowNewSkill,score_Level_min=1,score_Level=1,score_Job_min=1,score_Job=1] ShowSkill 1000   2 /scoreboard players set @a[tag=ShowNewSkill,score_Level_min=3,score_Level=3,score_Job_min=1,score_Job=1] ShowSkill... </td>
+            <td> 位置 (-1920,14,-192) About 交易島の教会でのステータス表示の処理を行う。 コマンド群     No. コマンド     1 /tellraw @a[tag=ShowStatus] {“text”:”—- ステータス —-“,”color”:”white”,”bold”:”true”}   2 /tellraw @a[tag=ShowStatus,score_Job_min=1,score_Job=1] [{“text”:”選択している職業: “,”color”:”white”},{“text”:”剣士”,”color”:”blue”,”bold”:”true”}]   3... </td>
         </tr>
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-        
+                                                                                                                
 
-        <tr><td><a href="statusDisplay.html">ステータス表示</a></td>
+        <tr>
+            <td><a href="/warpProcessing.html">ワープ処理ジョブ島・通常世界</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,14,-192) About 交易島の教会でのステータス表示の処理を行う。 コマンド群     No. コマンド     1 /tellraw @a[tag=ShowStatus] {“text”:”—- ステータス —-“,”color”:”white”,”bold”:”true”}   2 /tellraw @a[tag=ShowStatus,score_Job_min=1,score_Job=1] [{“text”:”選択している職業: “,”color”:”white”},{“text”:”剣士”,”color”:”blue”,”bold”:”true”}]   3... </td>
+            <td> 位置 (-1920,15,-192) ## About 初回ログイン時のチュートリアルの処理、初回に配られるジョブ変更申請用紙、ブラジル行きの穴の処理などを行う。 ## コマンド群  |No.|コマンド|状態| |:-|:-|:-| |1|/scoreboard players add @a[tag=WarpByJob] TutorialRead 0| |2|/tellraw @a[tag=WarpByJob,score_TutorialRead=524286] {"text":"まだ読めていないチュートリアルがあるようだ。"}| |3|/tp @a[tag=WarpByJob,score_TutorialRead=524286] -1911.0 114.0 -136.0|条件付き| |4|/scoreboard players tag @a[tag=WarpByJob,score_TutorialRead=524286] remove WarpByJob|条件付き| |5|/give @a[tag=WarpByJob,score_Job=0] minecraft:paper 1 0 {display:{Lore:["§7就職に必要な申請書。","§7無職のプレイヤーには無料で交付される。","§7紛失した場合は、職業島の中央に飛び込もう。"],Name:"§r§lジョブ変更申請書"},初回:true}| |6|/tp @a[tag=WarpByJob,score_Job=0] -1786 113 -137 -90 0| |7|/tp @a[tag=WarpByJob,score_Job_min=1] 0 5... </td>
         </tr>
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-        
-     
-        
-     
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-        
-     
-        
-     
-        
+              
 
-        <tr><td><a href="warpProcessing.html">ワープ処理ジョブ島・通常世界</a></td>
-            <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,15,-192) ## About 初回ログイン時のチュートリアルの処理、初回に配られるジョブ変更申請用紙、ブラジル行きの穴の処理などを行う。 ## コマンド群  |No.|コマンド|状態| |:-|:-|:-| |1|/scoreboard players add @a[tag=WarpByJob] TutorialRead 0| |2|/tellraw @a[tag=WarpByJob,score_TutorialRead=524286] {"text":"まだ読めていないチュートリアルがあるようだ。"}| |3|/tp @a[tag=WarpByJob,score_TutorialRead=524286] -1911.0 114.0 -136.0|条件付き| |4|/scoreboard players tag @a[tag=WarpByJob,score_TutorialRead=524286] remove WarpByJob|条件付き| |5|/give @a[tag=WarpByJob,score_Job=0] minecraft:paper 1 0 {display:{Lore:["§7就職に必要な申請書。","§7無職のプレイヤーには無料で交付される。","§7紛失した場合は、職業島の中央に飛び込もう。"],Name:"§r§lジョブ変更申請書"},初回:true}| |6|/tp @a[tag=WarpByJob,score_Job=0] -1786 113 -137 -90 0| |7|/tp @a[tag=WarpByJob,score_Job_min=1] 0 5... </td>
-        </tr>
-        
-     
-   
-    
-   
-
-        
-        
-
-   </tbody>
+    </tbody>
 </table>
-
 
 
     <div class="tags">
@@ -849,7 +464,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-             Site last generated: 8 Jul 2020 <br />
+             Site last generated: 9 Jul 2020 <br />
         </div>
     </div>
 </footer>

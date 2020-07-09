@@ -1,7 +1,7 @@
 ---
 title: 動物誘導イベント
-tags: [command]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,動物誘導イベント
+tags: [コマンド,嫌な予感,表示,村人]
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,動物誘導イベント,嫌な予感
 last_updated: 2020/6/23
 update: 2020/6/23
 sidebar: mydoc_sidebar

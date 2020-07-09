@@ -1,6 +1,6 @@
 ---
 title: 嫌な予感実行
-tags: [command]
+tags: [コマンド,嫌な予感,敵Mob]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,嫌な予感
 last_updated: 2020/6/21
 update: 2020-06-21 09:00:00 +0000

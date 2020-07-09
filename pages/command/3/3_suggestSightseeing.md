@@ -1,6 +1,6 @@
 ---
 title: 観光モード提案開始
-tags: [command]
+tags: [コマンド,観光モード,表示]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,観光モード
 last_updated: 2020/6/26
 update: 2020/6/27

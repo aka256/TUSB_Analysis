@@ -1,6 +1,6 @@
 ---
 title: 敵スキル実行
-tags: [command,entity]
+tags: [コマンド,敵Mob,嫌な予感]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,深淵様,ホワイトライダー,ブラックライダー,レッドライダー,ペイルライダー
 last_updated: 2020/6/20
 update: 2020-06-20 09:00:00 +0000

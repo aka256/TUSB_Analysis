@@ -1,6 +1,6 @@
 ---
 title: AEC維持
-tags: [command,entity]
+tags: [コマンド,煉獄,クラウディア,ディメンション,死の宣告, スポナー]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,煉獄,スポナー,死の宣告
 last_updated: 2020/6/19
 update: 2020-06-21 09:21:00 +0000
@@ -60,7 +60,7 @@ datatable4c: true
 7. `Prayable`の`Settings`が1以上であるとき以下の事柄を実行
    1. `Pray`を持ち、`Job`が1以上であるプレイヤーの`kill`への書き込みを許可し、祈りを捧げることができるテキストを表示
    2. `Pray`を持ち、`Job`が1以上であるプレイヤーから`Pray`を削除
-8. Sleeping:true}であるプレイヤーが存在したら、`BedCheck`を付与し、以下の事柄を実行
+8. {Sleeping:true}であるプレイヤーが存在したら、`BedCheck`を付与し、以下の事柄を実行
    - `BedCheck`を持つプレイヤーの位置にベッドがあるとき、そのプレイヤーから`BedCheck`を削除
 9. `BedCheck`を持つプレイヤーから1.2001m上に`TypeChecked`を持つ雪玉を召喚し、`BedCheck`を削除
 10. (-1923,3,-202)からdx=53,dy=16,dz=133内にいて、かつアドベンチャーモードであるプレイヤーを(-1896,25,-136)へ移動させる (X回路区域からプレイヤーを追い出す)

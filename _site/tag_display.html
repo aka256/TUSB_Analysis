@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>Display Pages | TUSB Analysis</title>
+<title>表示タグ | TUSB Analysis</title>
 <link rel="stylesheet" href=" css/syntax.css ">
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -323,7 +323,7 @@
                 <!-- Content Column -->
                 <div class="col-md-9" id="tg-sb-content">
                     <div class="post-header">
-   <h1 class="post-title-main">Display Pages</h1>
+   <h1 class="post-title-main">表示タグ</h1>
 </div>
 
 
@@ -364,474 +364,153 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>The following pages and posts are tagged with <button type="button" style="cursor: default" class="btn btn-default navbar-btn">display</button></p>
-<table><thead><tr><th>Title</th><th>Type</th><th>Excerpt</th></tr></thead>
+   <p>これらは <button type="button" style="cursor: default" class="btn btn-default navbar-btn">表示</button>にタグ付けされたページです。</p>
+<table>
+    <thead>
+        <tr>
+            <th width="20%">Title</th>
+            <th>Type</th>
+            <th>Excerpt</th>
+        </tr>
+    </thead>
     <tbody>
-    
-  
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-   
-    
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-        
+                     
 
-        <tr><td><a href="areaRecord.html">エリア侵入記録</a></td>
+        <tr>
+            <td><a href="/3_augurTalk.html">占い師会話選択時処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,9,-200) About Overworld内のディメンション移動の際の侵入記録を行う。また、その際にスキルの設定を変える、お試しセットの印玉を渡すなどの処理も行っている。 コマンド群     No. コマンド コメント 状態     1 /execute @a[score_AreaTitleFlag_min=1,score_AreaTitleFlag=1,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-193,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter エリア侵入記録... </td>
+            <td> 位置 (-1920,13,-189) About 交易島にいる占い師との会話処理を行う。 コマンド群     No. コマンド 状態     1 /execute 0-0-1-0-2 ~ ~ ~ /execute @e[r=24,type=Villager,tag=Augur,c=1] ~ ~ ~ /scoreboard players tag @a[r=5,score_AugurFlag_min=1] add AugurYes     2 /scoreboard players... </td>
         </tr>
-        
-     
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-        
+                
 
-        <tr><td><a href="conquerDisplay.html">攻略率表示</a></td>
+        <tr>
+            <td><a href="/3_bedProcessing.html">ベッド処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,18,-192) About 交易島の教会での攻略率表示の処理を行う。 コマンド群     No. コマンド 状態     1 /scoreboard players test Sightseeing Settings * 0     2 /time... </td>
+            <td> 位置 (-1920,8,-189) About ベッドで寝た際の回復処理や、アドベンチャーモードでの就寝処理を行う。 コマンド群    No. コマンド 状態     1 /effect @a[m=adventure,score_SleepInBed_min=1] minecraft:instant_damage 1 0 true     2 /tellraw @a[m=adventure,score_SleepInBed_min=1] {“text”:”痛っ！ここで寝るのは危ないようだ。”,”color”:”yellow”} 条件付き   3 /effect @a[m=survival,score_SleepInBed_min=1] minecraft:instant_health 1 6... </td>
         </tr>
-        
-     
-   
-    
-        
-     
-        
-     
-        
+                          
 
-        <tr><td><a href="conquerProcessing.html">島攻略処理</a></td>
+        <tr>
+            <td><a href="/3_pastorTalk.html">牧師会話選択時処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,17,-191),(-1920,18,-191) About 島攻略時の演出や、製作者村人の出現などの処理を行う。 コマンド群 (-1920,17,-191)にあるコマンド群 (島攻略処理という看板がついているもの)     No. コマンド 状態     1 /scoreboard players tag @a[score_UseEnderEye_min=1,c=1] add Conquer     2 &lt;td... </td>
+            <td> 位置 (-1920,11,-189) About 交易島の教会にいる牧師との会話処理を行う。 コマンド群     No. コマンド 状態     1 /execute 0-0-1-0-2 ~ ~ ~ /execute @e[r=24,type=Villager,tag=Pastor,c=1] ~ ~ ~ /scoreboard players tag @a[r=5,score_PastorFlag_min=1] add PastorResume     2 /scoreboard players... </td>
         </tr>
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-        
-     
-        
+                      
 
-        <tr><td><a href="expProcessing.html">経験値取得処理</a></td>
+        <tr>
+            <td><a href="/3_skillDisplay.html">設定スキル表示</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,8,-191) About ネザースターの取得時の処理や、マルチプレイ時の距離による経験値取得制限を行う。 コマンド群    No. コマンド     1 /scoreboard players set @a[score_GotExpFlag_min=1] GotExpFlag 0   2 /clear @a[score_GotExpFlag=-1] minecraft:nether_star   3 &lt;td style="text-align:... </td>
+            <td> 位置 (-1920,16,-189) About 現在設定されているスキルについて表示を行う。 コマンド群     No. コマンド 状態     1 /tellraw @a[score_ShowSkillSlot_min=4,score_ShowSkillSlot=4,score_ModeState_min=1] {“translate”:”現在のモードスキル設定(%1$s中) %2$s/%3$s”,”bold”:true,”with”:[{“text”:”ルビーモード”,”color”:”red”},{“text”:”↑”,”color”:”red”},{“text”:”↓”,”color”:”blue”}]}     2 /tellraw @a[score_ShowSkillSlot_min=4,score_ShowSkillSlot=4,score_ModeState=-1] {“translate”:”現在のモードスキル設定(%1$s中) %2$s/%3$s”,”bold”:true,”with”:[{“text”:”サファイアモード”,”color”:”blue”},{“text”:”↑”,”color”:”red”},{“text”:”↓”,”color”:”blue”}]}     3 /tellraw @a[score_ShowSkillSlot_min=4,score_ShowSkillSlot=4,score_ModeState_min=0,score_ModeState=0] {“translate”:”現在のモードスキル設定(%1$s中) %2$s/%3$s”,”bold”:true,”with”:[{“text”:”モード未設定”,”color”:”gray”},{“text”:”↑”,”color”:”red”},{“text”:”↓”,”color”:”blue”}]}... </td>
         </tr>
-        
-     
-   
-    
-   
-    
-        
-     
-        
-     
-        
-     
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-        
+                
 
-        <tr><td><a href="levelupProcessing.html">レベルアップ処理</a></td>
+        <tr>
+            <td><a href="/3_suggestSightseeing.html">観光モード提案開始</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,9,-191) About レベルアップ時のスコアボードの書き換えや、新しいスキルの取得への分岐などを行う。 コマンド群     No. コマンド     1 /scoreboard players add @a[score_ExpToLevel=0,score_Level=49] Level 1   2 /scoreboard players add @a[score_ExpToLevel=0] MPMax 1  ... </td>
+            <td> About 観光モードの提案から、変更までの処理を行う。 コマンド群 コマンド群A 位置 (-1920,8,-188)     No. コマンド 状態     1 /scoreboard players test Sightseeing Settings 1 *     2 /tellraw @a[tag=SuggestSightseeing] {“text”:”既に観光モードに移行済みです。”} 条件付き   3... </td>
         </tr>
-        
-     
-        
-     
-        
-     
-   
-    
-        
-     
-        
+                      
 
-        <tr><td><a href="loginProcessing.html">ログイン時処理</a></td>
+        <tr>
+            <td><a href="/3_villagerTalkProcessing.html">村人会話処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,9,-192) About 通常ログイン時のMPや職業などの処理を行う。 コマンド群     No. コマンド 状態     1 /difficulty hard     2 /scoreboard players tag @a[score_LeaveGame_min=1,tag=Resolved,score_Job=2147483647] remove Resolved... </td>
+            <td> 位置 (-1920,10,-189) About 交易島内の村人(牧師、エージェント、占い師)との会話や職業島へのワープ時の処理などを行う。 コマンド群     No. コマンド 状態     1 /execute @a[score_TalkToVillager_min=1] ~ ~ ~ /tp @e[r=3,type=Item,tag=!SystemEntity] @a[c=1]     2 /execute 0-0-1-0-2 ~ ~ ~ /execute @e[r=24,type=Villager,tag=Pastor,c=1] ~ ~ ~... </td>
         </tr>
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-   
-    
-   
-    
-        
-     
-   
-    
-        
-     
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-        
-     
-        
+                                                                  
 
-        <tr><td><a href="satietyFix.html">満腹度修正</a></td>
+        <tr>
+            <td><a href="/animalGuideEvent.html">動物誘導イベント</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,17,-192) About リスポーン時に死亡前の満腹度の再現を行う。また、満腹度が小さい場合は救済処理を行う。 コマンド群     No. コマンド 状態     1 /tellraw @a[score_HP_min=1,score_Hunger_min=0,score_Hunger=3] [{“text”:”どこからか声が聞こえる…。\n「腹が減っては探索できぬぞ。」\n”},{“text”:”お腹が少し満たされた。\n”,”color”:”aqua”},{“text”:”目の前が真っ暗になった。”,”color”:”light_purple”}]     2 /effect @a[score_HP_min=1,score_Hunger_min=0,score_Hunger=4] minecraft:hunger 1 174... </td>
+            <td> 位置 (-1920,13,-197) About 嫌な予感のイベントの1つである動物誘導イベントを管理するコマンド群である。 コマンド群     No. コマンド 状態     1 /execute 0-0-1-0-3 ~ ~ ~ /kill @e[r=5,tag=VillagerMeal,score_Freshness_min=-9]     2 /execute 0-0-1-0-3 ~ ~ ~ /tellraw @a {“translate”:”* %1$s 「連れて来て下さったのですか！ ありがとうございます。これはほんのお礼です。お受取り下さい。」”,”with”:[{“text”:”農業家”,”color”:”dark_green”}]}... </td>
         </tr>
-        
-     
-   
-    
-   
-    
-   
-    
-        
-     
-        
-     
-        
-     
-        
+                        
 
-        <tr><td><a href="skillAcquisition.html">習得スキル取得</a></td>
+        <tr>
+            <td><a href="/areaProcessing.html">エリア処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,10,-191)~(-1920,15,-191) About レベルアップ時に新しいスキル取得したか判断する。 コマンド群  剣士(-1920,10,-191)      No. コマンド     1 /scoreboard players set @a[tag=ShowNewSkill,score_Level_min=1,score_Level=1,score_Job_min=1,score_Job=1] ShowSkill 1000   2 /scoreboard players set @a[tag=ShowNewSkill,score_Level_min=3,score_Level=3,score_Job_min=1,score_Job=1] ShowSkill... </td>
+            <td> 位置 (-1920,8,-200) About エリア侵入時の演出やテーブルマウンテン、ネザーアスレ侵入時のエンダーチェスト処理を行う。 コマンド群     No. コマンド コメント 状態     1 /scoreboard players set @a[score_AreaTitleFlag_min=-100,tag=IgnoreEnderChest] EnderChestOpened 0 エリア処理 持ち込み判定 BringItemError アドべ処理 Adv     2 /scoreboard players tag @a[score_AreaTitleFlag_min=-100,tag=IgnoreEnderChest] remove IgnoreEnderChest... </td>
         </tr>
-        
-     
-   
-    
-        
-     
-        
+                                    
 
-        <tr><td><a href="statusDisplay.html">ステータス表示</a></td>
+        <tr>
+            <td><a href="/areaRecord.html">エリア侵入記録</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,14,-192) About 交易島の教会でのステータス表示の処理を行う。 コマンド群     No. コマンド     1 /tellraw @a[tag=ShowStatus] {“text”:”—- ステータス —-“,”color”:”white”,”bold”:”true”}   2 /tellraw @a[tag=ShowStatus,score_Job_min=1,score_Job=1] [{“text”:”選択している職業: “,”color”:”white”},{“text”:”剣士”,”color”:”blue”,”bold”:”true”}]   3... </td>
+            <td> 位置 (-1920,9,-200) About Overworld内のディメンション移動の際の侵入記録を行う。また、その際にスキルの設定を変える、お試しセットの印玉を渡すなどの処理も行っている。 コマンド群     No. コマンド コメント 状態     1 /execute @a[score_AreaTitleFlag_min=1,score_AreaTitleFlag=1,c=1] ~ ~ ~ /scoreboard players tag @e[-1920,6,-193,dx=0,type=AreaEffectCloud,tag=!Enter] add Enter エリア侵入記録... </td>
         </tr>
-        
-     
-        
-     
-   
-    
-        
-     
-   
-    
-        
-     
-        
-     
-        
+                                  
 
-        <tr><td><a href="systemKeeperProcessing.html">SystemKeeper処理</a></td>
+        <tr>
+            <td><a href="/conquerDisplay.html">攻略率表示</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1870,7,-197) About SystemKeeperという名前のアーマースタンドと、その下にあるコマンド群によって構成され、X回路区域のセーフティーネットの役割を担っている。なので、通常では実行されることがないコマンド群である。  Note: SystemKeeperがこの上にいる限り実行される コマンド群     No. コマンド 状態     1 /fill ~ ~1 ~ ~ ~1 ~ minecraft:stone_pressure_plate... </td>
+            <td> 位置 (-1920,18,-192) About 交易島の教会での攻略率表示の処理を行う。 コマンド群     No. コマンド 状態     1 /scoreboard players test Sightseeing Settings * 0     2 /time... </td>
         </tr>
-        
-     
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-        
-     
-   
-    
-        
-     
-        
-     
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-        
-     
-        
+                
 
-        <tr><td><a href="warpProcessing.html">ワープ処理ジョブ島・通常世界</a></td>
+        <tr>
+            <td><a href="/conquerProcessing.html">島攻略処理</a></td>
             <td><span class="label label-default">Page</span></td>
-          <td> 位置 (-1920,15,-192) ## About 初回ログイン時のチュートリアルの処理、初回に配られるジョブ変更申請用紙、ブラジル行きの穴の処理などを行う。 ## コマンド群  |No.|コマンド|状態| |:-|:-|:-| |1|/scoreboard players add @a[tag=WarpByJob] TutorialRead 0| |2|/tellraw @a[tag=WarpByJob,score_TutorialRead=524286] {"text":"まだ読めていないチュートリアルがあるようだ。"}| |3|/tp @a[tag=WarpByJob,score_TutorialRead=524286] -1911.0 114.0 -136.0|条件付き| |4|/scoreboard players tag @a[tag=WarpByJob,score_TutorialRead=524286] remove WarpByJob|条件付き| |5|/give @a[tag=WarpByJob,score_Job=0] minecraft:paper 1 0 {display:{Lore:["§7就職に必要な申請書。","§7無職のプレイヤーには無料で交付される。","§7紛失した場合は、職業島の中央に飛び込もう。"],Name:"§r§lジョブ変更申請書"},初回:true}| |6|/tp @a[tag=WarpByJob,score_Job=0] -1786 113 -137 -90 0| |7|/tp @a[tag=WarpByJob,score_Job_min=1] 0 5... </td>
+            <td> 位置 (-1920,17,-191),(-1920,18,-191) About 島攻略時の演出や、製作者村人の出現などの処理を行う。 コマンド群 (-1920,17,-191)にあるコマンド群 (島攻略処理という看板がついているもの)     No. コマンド 状態     1 /scoreboard players tag @a[score_UseEnderEye_min=1,c=1] add Conquer     2 &lt;td... </td>
         </tr>
-        
-     
-        
-     
-   
-    
-   
+                                  
 
-        
-        
+        <tr>
+            <td><a href="/expProcessing.html">経験値取得処理</a></td>
+            <td><span class="label label-default">Page</span></td>
+            <td> 位置 (-1920,8,-191) About ネザースターの取得時の処理や、マルチプレイ時の距離による経験値取得制限を行う。 コマンド群    No. コマンド     1 /scoreboard players set @a[score_GotExpFlag_min=1] GotExpFlag 0   2 /clear @a[score_GotExpFlag=-1] minecraft:nether_star   3 &lt;td style="text-align:... </td>
+        </tr>
+                                                                                                    
 
-   </tbody>
+        <tr>
+            <td><a href="/levelupProcessing.html">レベルアップ処理</a></td>
+            <td><span class="label label-default">Page</span></td>
+            <td> 位置 (-1920,9,-191) About レベルアップ時のスコアボードの書き換えや、新しいスキルの取得への分岐などを行う。 コマンド群     No. コマンド     1 /scoreboard players add @a[score_ExpToLevel=0,score_Level=49] Level 1   2 /scoreboard players add @a[score_ExpToLevel=0] MPMax 1  ... </td>
+        </tr>
+                  
+
+        <tr>
+            <td><a href="/loginProcessing.html">ログイン時処理</a></td>
+            <td><span class="label label-default">Page</span></td>
+            <td> 位置 (-1920,9,-192) About 通常ログイン時のMPや職業などの処理を行う。 コマンド群     No. コマンド 状態     1 /difficulty hard     2 /scoreboard players tag @a[score_LeaveGame_min=1,tag=Resolved,score_Job=2147483647] remove Resolved... </td>
+        </tr>
+                                                          
+
+        <tr>
+            <td><a href="/satietyFix.html">満腹度修正</a></td>
+            <td><span class="label label-default">Page</span></td>
+            <td> 位置 (-1920,17,-192) About リスポーン時に死亡前の満腹度の再現を行う。また、満腹度が小さい場合は救済処理を行う。 コマンド群     No. コマンド 状態     1 /tellraw @a[score_HP_min=1,score_Hunger_min=0,score_Hunger=3] [{“text”:”どこからか声が聞こえる…。\n「腹が減っては探索できぬぞ。」\n”},{“text”:”お腹が少し満たされた。\n”,”color”:”aqua”},{“text”:”目の前が真っ暗になった。”,”color”:”light_purple”}]     2 /effect @a[score_HP_min=1,score_Hunger_min=0,score_Hunger=4] minecraft:hunger 1 174... </td>
+        </tr>
+                      
+
+        <tr>
+            <td><a href="/skillAcquisition.html">習得スキル取得</a></td>
+            <td><span class="label label-default">Page</span></td>
+            <td> 位置 (-1920,10,-191)~(-1920,15,-191) About レベルアップ時に新しいスキル取得したか判断する。 コマンド群  剣士(-1920,10,-191)      No. コマンド     1 /scoreboard players set @a[tag=ShowNewSkill,score_Level_min=1,score_Level=1,score_Job_min=1,score_Job=1] ShowSkill 1000   2 /scoreboard players set @a[tag=ShowNewSkill,score_Level_min=3,score_Level=3,score_Job_min=1,score_Job=1] ShowSkill... </td>
+        </tr>
+              
+
+        <tr>
+            <td><a href="/statusDisplay.html">ステータス表示</a></td>
+            <td><span class="label label-default">Page</span></td>
+            <td> 位置 (-1920,14,-192) About 交易島の教会でのステータス表示の処理を行う。 コマンド群     No. コマンド     1 /tellraw @a[tag=ShowStatus] {“text”:”—- ステータス —-“,”color”:”white”,”bold”:”true”}   2 /tellraw @a[tag=ShowStatus,score_Job_min=1,score_Job=1] [{“text”:”選択している職業: “,”color”:”white”},{“text”:”剣士”,”color”:”blue”,”bold”:”true”}]   3... </td>
+        </tr>
+                    
+
+        <tr>
+            <td><a href="/systemKeeperProcessing.html">SystemKeeper処理</a></td>
+            <td><span class="label label-default">Page</span></td>
+            <td> 位置 (-1870,7,-197) About SystemKeeperという名前のアーマースタンドと、その下にあるコマンド群によって構成され、X回路区域のセーフティーネットの役割を担っている。なので、通常では実行されることがないコマンド群である。  Note: SystemKeeperがこの上にいる限り実行される コマンド群     No. コマンド 状態     1 /fill ~ ~1 ~ ~ ~1 ~ minecraft:stone_pressure_plate... </td>
+        </tr>
+                                                                                                    
+
+        <tr>
+            <td><a href="/warpProcessing.html">ワープ処理ジョブ島・通常世界</a></td>
+            <td><span class="label label-default">Page</span></td>
+            <td> 位置 (-1920,15,-192) ## About 初回ログイン時のチュートリアルの処理、初回に配られるジョブ変更申請用紙、ブラジル行きの穴の処理などを行う。 ## コマンド群  |No.|コマンド|状態| |:-|:-|:-| |1|/scoreboard players add @a[tag=WarpByJob] TutorialRead 0| |2|/tellraw @a[tag=WarpByJob,score_TutorialRead=524286] {"text":"まだ読めていないチュートリアルがあるようだ。"}| |3|/tp @a[tag=WarpByJob,score_TutorialRead=524286] -1911.0 114.0 -136.0|条件付き| |4|/scoreboard players tag @a[tag=WarpByJob,score_TutorialRead=524286] remove WarpByJob|条件付き| |5|/give @a[tag=WarpByJob,score_Job=0] minecraft:paper 1 0 {display:{Lore:["§7就職に必要な申請書。","§7無職のプレイヤーには無料で交付される。","§7紛失した場合は、職業島の中央に飛び込もう。"],Name:"§r§lジョブ変更申請書"},初回:true}| |6|/tp @a[tag=WarpByJob,score_Job=0] -1786 113 -137 -90 0| |7|/tp @a[tag=WarpByJob,score_Job_min=1] 0 5... </td>
+        </tr>
+                
+
+    </tbody>
 </table>
-
 
 
     <div class="tags">
@@ -848,7 +527,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-             Site last generated: 8 Jul 2020 <br />
+             Site last generated: 9 Jul 2020 <br />
         </div>
     </div>
 </footer>

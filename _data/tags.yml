@@ -2,19 +2,69 @@
 # If you are using the createtag script, don't leave an blank line at the end of this file.
 # In other words, the last line must be the last tag in the allowed-tags list.
 allowed-tags:
-  - command
-  - eneity
-  - item
-  - scoreboard
-  - team
-  - display
-  - job
-  - skill
-  - dimension
-  - exp
-  - knight
-  - ninja
-  - archer
-  - whiteMage
-  - blackMage
-  - summoner
+  - tag: コマンド
+    folder: tag_command.html
+  - tag: アイテム
+    folder: tag_item.html
+  - tag: スコアボード
+    folder: tag_scoreboard.html
+  - tag: チーム
+    folder: tag_team.html
+  - tag: 表示
+    folder: tag_display.html
+  - tag: 職業
+    folder: tag_job.html
+  - tag: スキル
+    folder: tag_skill.html
+  - tag: ディメンション
+    folder: tag_dimension.html
+  - tag: 経験値
+    folder: tag_exp.html
+  - tag: 剣士
+    folder: tag_knight.html
+  - tag: 忍者
+    folder: tag_ninja.html
+  - tag: 狩人
+    folder: tag_archer.html
+  - tag: 白魔導士
+    folder: tag_whiteMage.html
+  - tag: 黒魔導士
+    folder: tag_blackMage.html
+  - tag: 召喚士
+    folder: tag_summoner.html
+  - tag: 村人
+    folder: tag_villager.html
+  - tag: 嫌な予感
+    folder: tag_event.html
+  - tag: 死の宣告
+    folder: tag_doom.html
+  - tag: 敵Mob
+    folder: tag_enemy.html
+  - tag: SystemEntity
+    folder: tag_systemEnetity.html
+  - tag: 観光モード
+    folder: tag_sightseeing.html
+  - tag: 通常世界
+    folder: tag_skylands.html
+  - tag: クラウディア
+    folder: tag_cloudia.html
+  - tag: 地下世界
+    folder: tag_underWorld.html
+  - tag: テーブルマウンテン
+    folder: tag_mtTable.html
+  - tag: ガリバーランド
+    folder: tag_gulliverland.html
+  - tag: トカルトコルデ
+    folder: tag_iceSheetFloat.html
+  - tag: ネザー
+    folder: tag_nether.html
+  - tag: 煉獄
+    folder: tag_netherDungeon.html
+  - tag: ネザーアスレ
+    folder: tag_netherTrial.html
+  - tag: エンド
+    folder: tag_theEnd.html
+  - tag: スポナー
+    folder: tag_spawner.html
+  - tag: 超作業台
+    folder: tag_scraftingtable.html

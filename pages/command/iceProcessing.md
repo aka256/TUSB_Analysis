@@ -1,7 +1,7 @@
 ---
 title: トカルト処理
-tags: [command]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,トカルトコルデ,トカルト
+tags: [コマンド,ディメンション,トカルトコルデ,敵Mob]
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,トカルトコルデ,トカルト,トカルトエンカウント
 last_updated: 2020/6/22
 update: 2020/6/22
 sidebar: mydoc_sidebar
@@ -13,6 +13,8 @@ datatable3c: true
 <span class="label label-primary">位置 (-1920,12,-197)</span>
 
 ## About
+
+トカルトコルデでの松明減少やトカルトエンカウントなどの処理を行う。
 
 ## コマンド群
 

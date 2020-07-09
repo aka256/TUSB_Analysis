@@ -1,7 +1,7 @@
 ---
 title: お祈りkill
-tags: [command]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
+tags: [コマンド]
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,お祈り
 last_updated: 2020/6/26
 update: 2020/6/27
 sidebar: mydoc_sidebar

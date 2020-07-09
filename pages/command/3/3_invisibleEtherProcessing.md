@@ -1,6 +1,6 @@
 ---
 title: 透明化&エーテル処理
-tags: [command]
+tags: [コマンド,死の宣告]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,死の宣告,エーテル,エリクサー
 last_updated: 2020/6/26
 update: 2020/7/8

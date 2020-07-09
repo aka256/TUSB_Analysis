@@ -1,6 +1,6 @@
 ---
 title: ネザーラック破壊時火山噴火処理
-tags: [command]
+tags: [コマンド,ネザー,ディメンション]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/6/26
 update: 2020/7/7

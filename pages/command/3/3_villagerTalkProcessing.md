@@ -1,16 +1,20 @@
 ---
 title: 村人会話処理
-tags: [command]
+tags: [コマンド,村人,表示]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/6/26
-update: 2020/6/27
+update: 2020/7/8
 sidebar: mydoc_sidebar
 permalink: 3_villagerTalkProcessing.html
 folder: command/3
 datatable3c: true
 ---
 
+<span class="label label-primary">位置 (-1920,10,-189)</span>
+
 ## About
+
+交易島内の村人(牧師、エージェント、占い師)との会話や職業島へのワープ時の処理などを行う。
 
 ## コマンド群
 

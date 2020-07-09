@@ -1,11 +1,9 @@
 ---
-title: "Ninja Pages"
-tagName: ninja
+title: "忍者タグ"
+tagName: 忍者
 search: exclude
 permalink: tag_ninja.html
 sidebar: mydoc_sidebar
 folder: tags
 ---
 {% include taglogic.html %}
-
-{% include links.html %}

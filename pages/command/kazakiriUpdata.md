@@ -1,7 +1,7 @@
 ---
 title: 風切更新
-tags: [command,skill,job,ninja]
-keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
+tags: [コマンド,スキル,職業,忍者]
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,忍者,風切
 last_updated: 2020/6/20
 update: 2020-06-20 09:00:00 +0000
 sidebar: mydoc_sidebar
