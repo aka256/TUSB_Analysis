@@ -3,7 +3,7 @@ title: タイプ設定
 tags: [コマンド,敵Mob]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/7/7
-update: 2020/07/07
+update: 2020/07/14
 sidebar: mydoc_sidebar
 permalink: 3_typeSetting.html
 folder: command/3
@@ -90,7 +90,7 @@ datatable4c: true
    1. `Vanillager`を持つすべてのエンティティにデータタグを付与([以下](#vanillagerに付与するデータタグ)参照)
    2. `Vanillager`を持つすべてのエンティティから`Vanillager`を削除
 5. `TypeCheck`を持つPrimedTntに{Fuse:0s,Motion:[0d,0d,0d]}を付与(**要は即爆破TNTの処理**)
-6. `TypeCheck`を持ち、チームに含まれていないプレイヤー以外のすべてのエンティティに移動速度上昇と耐性をそれぞれ付与。なお、この二つのステータス効果は[難易度調整](difficultyAdjustment.html)によって書き換えられる。また、以下の事柄を実行
+6. `TypeCheck`を持ち、チームに含まれていないプレイヤー以外のすべてのエンティティに移動速度上昇と耐性をそれぞれ付与。**なお、この二つのステータス効果は[難易度調整](difficultyAdjustment.html)によって書き換えられる。**また、以下の事柄を実行
    1. `TypeCheck`を持つPigZombieの`Anger`を32767に設定
 7. `TypeCheck`を持ち、`Fuse`が30であるCreeperに`LongFuse`を付与し、以下の事柄を実行
    1. `LongFuse`を持つ`Creeper`の`Fuse`を15に設定

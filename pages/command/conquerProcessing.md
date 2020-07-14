@@ -2,8 +2,7 @@
 title: 島攻略処理
 tags: [コマンド,村人,表示]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,島攻略,製作者村人
-last_updated: 2020/6/19
-update: 2020-06-19 09:00:00 +0000
+update: 2020-07-14 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: conquerProcessing.html
 folder: command
@@ -54,7 +53,7 @@ datatable3c: true
 |28|/effect @a minecraft:instant_health 1 6 true|
 |29|/effect @a minecraft:saturation 1 19 true|
 |30|/scoreboard players test Sightseeing Settings * 0|
-|31|/time query gametime|条件付き|
+|31|/time query gametime|条件付き [補足]あり|
 |32|/scoreboard players operation #ConqTimeSec Global -= #StartTime Global|条件付き|
 |33|/scoreboard players operation #ConqTimeSec Global /= #20 Const|条件付き|
 |34|/scoreboard players operation #ConqTimeMin Global = #ConqTimeSec Global|条件付き|
@@ -66,6 +65,14 @@ datatable3c: true
 |40|/tellraw @a {"translate":"攻略タイム : %1\$s","italic":true,"bold":true,"color":"white","with":[{"translate":"%1\$s時間%2\$s分%3\$s秒","italic":"false","with":[{"score":{"name":"#ConqTimeHour","objective":"Global"}},{"score":{"name":"#ConqTimeMin","objective":"Global"}},{"score":{"name":"#ConqTimeSec","objective":"Global"}}]}]}|条件付き|
 
 <div class="datatable3c-end"></div>
+
+#### No.31のコマンドブロックについて
+
+No.31 のコマンドブロックには、以下のデータタグが付与されている。
+
+```minecraftcommand
+CommandStats:{QueryResultName:"#ConqTimeSec",QueryResultObjective:"Global"}
+```
 
 ### (-1920,18,-191)にあるコマンド群 (島攻略処理という看板がついているものの上のやつ)
 
@@ -95,14 +102,14 @@ datatable3c: true
 
 1. `UseEnderEye`が1以上であるプレイヤーを一人選択し、`Conquer`を付与
 2. `Conquer`を持つプレイヤーの`UseEnderEye`を0に設定
-3. `Conquer`を持ち、`USBDimension`が-1以下であるプレイヤーがいるとき、`#ConqCntNether`の`Global`を1に設定
-4. `Conquer`を持ち、`USBDimension`が100以上であるプレイヤーがいるとき、`#ConqCntEnd`の`Global`を1に設定
-5. `Conquer`を持ち、`USBDimension`が0であるプレイヤーがいるとき、`#ConqCntSkylands`の`Global`を1に設定
-6. `Conquer`を持ち、`USBDimension`が1であるプレイヤーがいるとき、`#ConqCntUnderworld`の`Global`を1に設定
-7. `Conquer`を持ち、`USBDimension`が10であるプレイヤーがいるとき、`#ConqCntCloudia`の`Global`を1に設定
-8. `Conquer`を持ち、`USBDimension`が11であるプレイヤーがいるとき、`#ConqCntMtTable`の`Global`を1に設定
-9. `Conquer`を持ち、`USBDimension`が12であるプレイヤーがいるとき、`#ConqCntGLand`の`Global`を1に設定
-10. `Conquer`を持ち、`USBDimension`が13であるプレイヤーがいるとき、`#ConqCntIce`の`Global`を1に設定
+3. `Conquer`を持ち、`USBDimension`が-1以下であるプレイヤーがいるとき、`#ConqCntNether`の`Global`を1を加算する
+4. `Conquer`を持ち、`USBDimension`が100以上であるプレイヤーがいるとき、`#ConqCntEnd`の`Global`を1を加算する
+5. `Conquer`を持ち、`USBDimension`が0であるプレイヤーがいるとき、`#ConqCntSkylands`の`Global`を1を加算する
+6. `Conquer`を持ち、`USBDimension`が1であるプレイヤーがいるとき、`#ConqCntUnderworld`の`Global`を1を加算する
+7. `Conquer`を持ち、`USBDimension`が10であるプレイヤーがいるとき、`#ConqCntCloudia`の`Global`を1を加算する
+8. `Conquer`を持ち、`USBDimension`が11であるプレイヤーがいるとき、`#ConqCntMtTable`の`Global`を1を加算する
+9. `Conquer`を持ち、`USBDimension`が12であるプレイヤーがいるとき、`#ConqCntGLand`の`Global`を1を加算する
+10. `Conquer`を持ち、`USBDimension`が13であるプレイヤーがいるとき、`#ConqCntIce`の`Global`を1を加算する
 11. `Conquer`を持つプレイヤーから`Conquer`を消去
 12. `#ConquerCount`の`Global`に1を足す
 13. `#ConquerPctInt`の`Global`に`#ConquerCount`の`Global`を代入し、1000を掛け、`#ConquerMax`の`Const` = 50で割る
@@ -116,7 +123,7 @@ datatable3c: true
     - `#ConquerCountResidue`'s `Global` = `#ConquerCount`'s `Global` / 4
 18. すべてのプレイヤーの座標で演出を実行し、即時回復Lv.6を1秒間、満腹Lv.19を1秒間付与
 19. `Sightseeing`の`Setting`が0以下の時、以下の事柄を実行
-    1. ワールドが作られてからの時間を表示
+    1. ワールドが作られてからの時間を`ConqTimeSec`に代入
     2. `StartTime`から攻略時間を計算し、`ConqTimeSec`、`ConqTimeMin`、`ConqTimeHour`にそれぞれに対応する値を代入
     3. 攻略タイムの表示
 

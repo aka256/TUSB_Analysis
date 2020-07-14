@@ -4,12 +4,32 @@
     font-size: 16px;
 }
 
+h2 {
+    padding: 0.5em;
+    /*文字周りの余白*/
+    color: #494949;
+    /*文字色*/
+    background: #f4f8ff;
+    /*背景色*/
+    border-left: solid 5px #015CAE;
+    /*左線（実線 太さ 色）*/
+}
+
 h3 {
-    color: #191ced;
+    color: #6594e0;
+    /*文字色*/
+    /*線の種類（点線）2px 線色*/
+    border-bottom: dotted 2px #6594e0;
+    padding-left: 0.5em;
+    padding-bottom: 0.2em;
 }
 
 h4 {
-    color: #808080;
+    color: black;
+}
+
+h5 {
+    color: black;
 }
 
 .nav-tabs>li.active>a,

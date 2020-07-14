@@ -3,7 +3,7 @@ title: ログイン時処理
 tags: [コマンド,表示]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/6/19
-update: 2020-06-19 09:00:00 +0000
+update: 2020-07-10 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: loginProcessing.html
 folder: command
@@ -42,7 +42,7 @@ datatable3cnp: true
 
 1. 難易度をhardに設定
 2. `LeaveGame`が1以上,`Job`が2147483647以下かつ`Resolved`であるプレイヤーの`Resolved`を削除
-3. `LeaveGame`が1以上かつ`Resolved`であるプレイヤーにプレイヤー名変更時の通知を出し、`LeaveGame`を削除
+3. `LeaveGame`が1以上かつ`Resolved`であるプレイヤーにプレイヤー名変更時の通知を出し、`LeaveGame`を0に設定
 4. `LeaveGame`が1以上であるプレイヤーに`Resolved`を付与
 5. `LeaveGame`が1以上であるプレイヤーの`MP`を0に設定
 6. `LeaveGame`が1以上,`MP`が0以下,`MPMaxFlag`が1以上であるプレイヤーの`MPMaxFlag`を0に設定

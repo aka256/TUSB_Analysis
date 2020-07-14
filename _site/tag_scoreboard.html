@@ -43,6 +43,10 @@
 <![endif]-->
 
 <link rel="alternate" type="application/rss+xml" title="TUSB_Analysis" href="http://localhost:4000 /feed.xml ">
+
+<!--MathJax-->
+
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <script>
         $(document).ready(function() {
             // Initialize navgoco with default options
@@ -301,7 +305,24 @@
                  
             <li><a title="アイテム" href="TUSB_Analysis_Item.html">アイテム</a></li>
                  
-            <li><a title="スコアボード、チーム" href="TUSB_Analysis_Data.html">スコアボード、チーム</a></li>
+            <li><a title="チーム" href="others_teams.html">チーム</a></li>
+                 
+            <li><a title="タグ" href="others_tags.html">タグ</a></li>
+              
+            <li class="subfolders">
+                <a title="スコアボード" href="#">スコアボード</a>
+                <ul>
+                      
+                    <li><a title="スコアボード一覧" href="scoreboard_list.html">スコアボード一覧</a></li>
+                        
+                    <li><a title="Const" href="scoreboard_const.html">Const</a></li>
+                        
+                    <li><a title="Setting" href="scoreboard_setting.html">Setting</a></li>
+                        
+                    <li><a title="Global" href="scoreboard_global.html">Global</a></li>
+                      
+                </ul>
+            </li>
                
         </ul>
     </li>
@@ -379,7 +400,7 @@ $('#toc').on('click', 'a', function() {
         <tr>
             <td><a href="TUSB_Analysis/TUSB_Analysis_Data.html">チーム、スコアボード</a></td>
             <td><span class="label label-default">Page</span></td>
-            <td> Team  (空白):最初にログインしたときのチーム FriendlyTeam:通常プレイ時のチーム   Scoreboard LoadJob/SaveJob    値 職業     1 剣士   2 忍者   3 狩人   &lt;td... </td>
+            <td> Team  (空白):最初にログインしたときのチーム FriendlyTeam:通常プレイ時のチーム   Scoreboard ScoreboardList Const スコアの計算等に用いられる定数群    Objective Criterion     Const dummy       Target Score 備考     #0 0     #-1 -1     #2... </td>
         </tr>
                                                                                                                                                                                             
 
@@ -388,7 +409,61 @@ $('#toc').on('click', 'a', function() {
             <td><span class="label label-default">Page</span></td>
             <td> 位置 (-1870,4-194)~(-1870,4,-158) About (-1870,4-194)から(-1870,4,-158)の壁沿いに並んでいるコマンド群であり、X回路区域やスコアボードなど、様々な初期化処理を行う。  Note: ここにあるコマンド群はその名の通り、初期化処理を行うので基本的に1度しか起動されない。 コマンド群 メインクロックON     No. コマンド 状態     1 (空白) 何も書かれていない   &lt;td style="text-align:... </td>
         </tr>
-                                                                                                                                                                                                                                                              
+                                                                                                                                        
+
+        <tr>
+            <td><a href="TUSB_Analysis/scoreboard_const.html">Const</a></td>
+            <td><span class="label label-default">Page</span></td>
+            <td> About スコアの計算等に用いられる定数群    Objective Criterion     Const dummy       Target Score 備考     #0 0     #-1 -1     #2 2     #3 3     #5 5  ... </td>
+        </tr>
+            
+
+        <tr>
+            <td><a href="TUSB_Analysis/scoreboard_global.html">Global</a></td>
+            <td><span class="label label-default">Page</span></td>
+            <td> About プレイヤー達の間で共有されるスコアであり、攻略率関係のものが多い。    Objective Criterion     Grobal dummy       Target 初期値 備考     #ConquerCount 0 攻略した島の数   #ConquerPctInt 0 攻略率の整数部   #ConquerPctDec 0 攻略率の小数部   #ConquerSkylands 0 通常世界の攻略数   #ConquerNether 0 ネザーの攻略数... </td>
+        </tr>
+            
+
+        <tr>
+            <td><a href="TUSB_Analysis/scoreboard_list.html">スコアボード一覧</a></td>
+            <td><span class="label label-default">Page</span></td>
+            <td> 
+  
+    
+      Objective
+      Criterion
+      詳細
+    
+  
+  
+    
+      Const
+      dummy
+      Const
+    
+    
+      Setting
+      dummy
+      Setting
+    
+    
+      Global
+      dummy
+      Global
+    
+  
+
+ </td>
+        </tr>
+            
+
+        <tr>
+            <td><a href="TUSB_Analysis/scoreboard_setting.html">Setting</a></td>
+            <td><span class="label label-default">Page</span></td>
+            <td> About 様々な設定を管理しているスコア    Objective Criterion     Setting dummy       Target 初期値     Sightseeing 0   ForceNight 1   Debug 0   Prayable 0   MobGriefing 0   Diffuculty 0  ... </td>
+        </tr>
+                                                                                                                                            
 
     </tbody>
 </table>
@@ -408,7 +483,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-             Site last generated: 9 Jul 2020 <br />
+             Site last generated: 14 Jul 2020 <br />
         </div>
     </div>
 </footer>

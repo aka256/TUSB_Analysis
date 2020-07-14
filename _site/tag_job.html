@@ -43,6 +43,10 @@
 <![endif]-->
 
 <link rel="alternate" type="application/rss+xml" title="TUSB_Analysis" href="http://localhost:4000 /feed.xml ">
+
+<!--MathJax-->
+
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <script>
         $(document).ready(function() {
             // Initialize navgoco with default options
@@ -301,7 +305,24 @@
                  
             <li><a title="アイテム" href="TUSB_Analysis_Item.html">アイテム</a></li>
                  
-            <li><a title="スコアボード、チーム" href="TUSB_Analysis_Data.html">スコアボード、チーム</a></li>
+            <li><a title="チーム" href="others_teams.html">チーム</a></li>
+                 
+            <li><a title="タグ" href="others_tags.html">タグ</a></li>
+              
+            <li class="subfolders">
+                <a title="スコアボード" href="#">スコアボード</a>
+                <ul>
+                      
+                    <li><a title="スコアボード一覧" href="scoreboard_list.html">スコアボード一覧</a></li>
+                        
+                    <li><a title="Const" href="scoreboard_const.html">Const</a></li>
+                        
+                    <li><a title="Setting" href="scoreboard_setting.html">Setting</a></li>
+                        
+                    <li><a title="Global" href="scoreboard_global.html">Global</a></li>
+                      
+                </ul>
+            </li>
                
         </ul>
     </li>
@@ -379,7 +400,7 @@ $('#toc').on('click', 'a', function() {
         <tr>
             <td><a href="TUSB_Analysis/firstLoginProcessing.html">初回ログイン時処理</a></td>
             <td><span class="label label-default">Page</span></td>
-            <td> 位置 (-1920,8,-192) About 初回ログイン時にスコアやタグ、チーム分けそして乱数の設定を行う コマンド群     No. コマンド     1 /scoreboard players add @a[team=] USBDimension 0   2 /scoreboard players set @a[team=,tag=!Resolved] Job 0  ... </td>
+            <td> 位置 (-1920,8,-192) About 初回ログイン時にスコアやタグ、チーム分けそして乱数の設定を行う コマンド群     No. コマンド       1 /scoreboard players add @a[team=] USBDimension 0     2 /scoreboard players set @a[team=,tag=!Resolved] Job 0... </td>
         </tr>
                                                 
 
@@ -416,14 +437,14 @@ $('#toc').on('click', 'a', function() {
             <td><span class="label label-default">Page</span></td>
             <td> 位置 (-1920,9,-191) About レベルアップ時のスコアボードの書き換えや、新しいスキルの取得への分岐などを行う。 コマンド群     No. コマンド     1 /scoreboard players add @a[score_ExpToLevel=0,score_Level=49] Level 1   2 /scoreboard players add @a[score_ExpToLevel=0] MPMax 1  ... </td>
         </tr>
-                                            
+                                                      
 
         <tr>
             <td><a href="TUSB_Analysis/reset.html">メインクロック開始時リセットするもの</a></td>
             <td><span class="label label-default">Page</span></td>
             <td> 位置 (-1920,4,-192) About TUSBにログインした際にジョブやHP、満腹度修正など、様々な処理への分岐を行う。 コマンド群     No. コマンド コメント 状態     1 /scoreboard players reset @a[score_MPConsumption_min=0] MPConsumption       &lt;td style="text-align:... </td>
         </tr>
-                                        
+                                                        
 
         <tr>
             <td><a href="TUSB_Analysis/skillAcquisition.html">習得スキル取得</a></td>
@@ -464,7 +485,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-             Site last generated: 9 Jul 2020 <br />
+             Site last generated: 14 Jul 2020 <br />
         </div>
     </div>
 </footer>

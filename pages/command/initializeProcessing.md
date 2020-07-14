@@ -2,8 +2,7 @@
 title: 初期化処理
 tags: [コマンド,スコアボード,SystemEntity]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,初期化処理
-last_updated: 2020/6/19
-update: 2020-06-19 09:00:00 +0000
+update: 2020-07-14 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: initializeProcessing.html
 folder: command
@@ -84,8 +83,8 @@ datatable3cnp: true
 
 ### Global
 
-|No.|コマンド|
-|:-:|:-|
+|No.|コマンド|備考|
+|:-:|:-|-|
 |1|/scoreboard objectives add Global dummy|
 |2|/scoreboard players set #ConquerCount Global 0|
 |3|/scoreboard players set #ConquerPctInt Global 0|
@@ -103,12 +102,20 @@ datatable3cnp: true
 |15|/scoreboard players set #ProjectileUpdate Global 0|
 |16|/scoreboard players set #PastorMax Global 8|
 |17|/scoreboard players set #StartTime Global 0|
-|18|/time query gametime|
+|18|/time query gametime|[補足](#no18のコマンドブロックについて)あり|
 |19|/scoreboard players set #ConqTimeSec Global 0|
 |20|/scoreboard players set #EntityCount Global 0|
 |21|/scoreboard players set #BlockCount Global 0|
 |22|/scoreboard players set #SkillTargetCount Global 0|
 |23|/scoreboard players set #NetherBossWaitCount Global 36|
+
+#### No.18のコマンドブロックについて
+
+No.18のコマンドブロックには、以下のデータタグが付与されている。
+
+```minecraftcommand
+CommandStats:{QueryResultName:"#StartTime",QueryResultObjective:"Global"}
+```
 
 ### プレイヤー基礎
 
@@ -566,9 +573,9 @@ datatable3cnp: true
 |#ConquerCntIce|0|トカルトコルデの攻略数|
 |#GameTime|0|
 |#Random|0|
-|#ProjectileUpdata|0|
+|#ProjectileUpdate|0|
 |#PastorMax|8|
-|#StartTime|0|
+|#StartTime|(ワールド作成時からのゲーム内時間)|
 |#ConquerTimeSec|0|
 |#EntityCount|0|
 |#BlockCount|0|

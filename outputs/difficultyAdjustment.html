@@ -382,7 +382,7 @@ code {
 <tr>
 <td style="text-align:center">1</td>
 <td style="text-align:left">/testfor @a</td>
-<td style="text-align:left"></td>
+<td style="text-align:left"><a href="#no1%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">補足</a>あり</td>
 </tr>
 <tr>
 <td style="text-align:center">2</td>
@@ -477,11 +477,15 @@ code {
 </tbody>
 </table>
 <div class="datatable3cnp-end"></div>
+<h3 id="no1%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">No.1のコマンドブロックについて</h3>
+<p>No.1 のコマンドブロックには以下のデータタグが付与されている。</p>
+<pre class="hljs"><code><div>CommandStats:{AffectedEntitiesObjective:&quot;Settings&quot;,AffectedEntitiesName:&quot;Difficulty&quot;}
+</div></code></pre>
 <h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
 <ol>
-<li>プレイヤーが一人でも生きているときに以下の事柄を実行</li>
+<li>プレイヤーの人数を<code>Difficulty</code>に代入</li>
 <li><code>Difficulty</code>の<code>Settings</code>を2乗</li>
-<li><code>Sightseeing</code>の<code>Settings</code>が0以下であるとき、<code>Difficulty</code>の<code>Settings</code>に<code>#ConquerPcInt</code>の<code>Global</code>を足し合わせる</li>
+<li><code>Sightseeing</code>の<code>Settings</code>が0以下であるとき、<code>Difficulty</code>の<code>Settings</code>に<code>#ConquerPctInt</code>の<code>Global</code>を足し合わせる</li>
 <li>(-1886,14,-188)(<a href="3_typeSetting.html">タイプ設定</a>の強さ補正)のコマンドブロック(No.34)に{Command:&quot;/effect @e[tag=TypeCheck,team=,type=!Player]minecraft:speed 1 0 true&quot;}を上書きできたとき、(-1885,14,-188)のコマンドブロック(No.35)に{Command:&quot;/effect @e[tag=TypeCheck,team=,type=!Player]minecraft:resistance 1 0 true&quot;}を上書きする</li>
 <li><code>Difficulty</code>の<code>Settings</code>が30以上の時、<code>Settings</code>の値によって(-1886,14,-188)(No.34)と(-1885,14,-188)(No.35)にあるコマンドブロックを書き換える(以下参考)</li>
 </ol>

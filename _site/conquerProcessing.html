@@ -43,6 +43,10 @@
 <![endif]-->
 
 <link rel="alternate" type="application/rss+xml" title="TUSB_Analysis" href="http://localhost:4000 /feed.xml ">
+
+<!--MathJax-->
+
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <script>
         $(document).ready(function() {
             // Initialize navgoco with default options
@@ -332,7 +336,24 @@
                  
             <li><a title="アイテム" href="TUSB_Analysis_Item.html">アイテム</a></li>
                  
-            <li><a title="スコアボード、チーム" href="TUSB_Analysis_Data.html">スコアボード、チーム</a></li>
+            <li><a title="チーム" href="others_teams.html">チーム</a></li>
+                 
+            <li><a title="タグ" href="others_tags.html">タグ</a></li>
+              
+            <li class="subfolders">
+                <a title="スコアボード" href="#">スコアボード</a>
+                <ul>
+                      
+                    <li><a title="スコアボード一覧" href="scoreboard_list.html">スコアボード一覧</a></li>
+                        
+                    <li><a title="Const" href="scoreboard_const.html">Const</a></li>
+                        
+                    <li><a title="Setting" href="scoreboard_setting.html">Setting</a></li>
+                        
+                    <li><a title="Global" href="scoreboard_global.html">Global</a></li>
+                      
+                </ul>
+            </li>
                
         </ul>
     </li>
@@ -569,7 +590,7 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: center">31</td>
       <td style="text-align: left">/time query gametime</td>
-      <td style="text-align: left">条件付き</td>
+      <td style="text-align: left">条件付き [補足]あり</td>
     </tr>
     <tr>
       <td style="text-align: center">32</td>
@@ -620,6 +641,13 @@ $('#toc').on('click', 'a', function() {
 </table>
 
 <div class="datatable3c-end"></div>
+
+<h4 id="no31のコマンドブロックについて">No.31のコマンドブロックについて</h4>
+
+<p>No.31 のコマンドブロックには、以下のデータタグが付与されている。</p>
+
+<pre><code class="language-minecraftcommand">CommandStats:{QueryResultName:"#ConqTimeSec",QueryResultObjective:"Global"}
+</code></pre>
 
 <h3 id="-192018-191にあるコマンド群-島攻略処理という看板がついているものの上のやつ">(-1920,18,-191)にあるコマンド群 (島攻略処理という看板がついているものの上のやつ)</h3>
 
@@ -711,14 +739,14 @@ $('#toc').on('click', 'a', function() {
 <ol>
   <li><code class="language-plaintext highlighter-rouge">UseEnderEye</code>が1以上であるプレイヤーを一人選択し、<code class="language-plaintext highlighter-rouge">Conquer</code>を付与</li>
   <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持つプレイヤーの<code class="language-plaintext highlighter-rouge">UseEnderEye</code>を0に設定</li>
-  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が-1以下であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntNether</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1に設定</li>
-  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が100以上であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntEnd</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1に設定</li>
-  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が0であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntSkylands</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1に設定</li>
-  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が1であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntUnderworld</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1に設定</li>
-  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が10であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntCloudia</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1に設定</li>
-  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が11であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntMtTable</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1に設定</li>
-  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が12であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntGLand</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1に設定</li>
-  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が13であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntIce</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1に設定</li>
+  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が-1以下であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntNether</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1を加算する</li>
+  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が100以上であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntEnd</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1を加算する</li>
+  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が0であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntSkylands</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1を加算する</li>
+  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が1であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntUnderworld</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1を加算する</li>
+  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が10であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntCloudia</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1を加算する</li>
+  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が11であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntMtTable</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1を加算する</li>
+  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が12であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntGLand</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1を加算する</li>
+  <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が13であるプレイヤーがいるとき、<code class="language-plaintext highlighter-rouge">#ConqCntIce</code>の<code class="language-plaintext highlighter-rouge">Global</code>を1を加算する</li>
   <li><code class="language-plaintext highlighter-rouge">Conquer</code>を持つプレイヤーから<code class="language-plaintext highlighter-rouge">Conquer</code>を消去</li>
   <li><code class="language-plaintext highlighter-rouge">#ConquerCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>に1を足す</li>
   <li><code class="language-plaintext highlighter-rouge">#ConquerPctInt</code>の<code class="language-plaintext highlighter-rouge">Global</code>に<code class="language-plaintext highlighter-rouge">#ConquerCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>を代入し、1000を掛け、<code class="language-plaintext highlighter-rouge">#ConquerMax</code>の<code class="language-plaintext highlighter-rouge">Const</code> = 50で割る</li>
@@ -739,7 +767,7 @@ $('#toc').on('click', 'a', function() {
   <li>すべてのプレイヤーの座標で演出を実行し、即時回復Lv.6を1秒間、満腹Lv.19を1秒間付与</li>
   <li><code class="language-plaintext highlighter-rouge">Sightseeing</code>の<code class="language-plaintext highlighter-rouge">Setting</code>が0以下の時、以下の事柄を実行
     <ol>
-      <li>ワールドが作られてからの時間を表示</li>
+      <li>ワールドが作られてからの時間を<code class="language-plaintext highlighter-rouge">ConqTimeSec</code>に代入</li>
       <li><code class="language-plaintext highlighter-rouge">StartTime</code>から攻略時間を計算し、<code class="language-plaintext highlighter-rouge">ConqTimeSec</code>、<code class="language-plaintext highlighter-rouge">ConqTimeMin</code>、<code class="language-plaintext highlighter-rouge">ConqTimeHour</code>にそれぞれに対応する値を代入</li>
       <li>攻略タイムの表示</li>
     </ol>
@@ -1002,7 +1030,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 19 Jun 2020<br/> Site last generated: 9 Jul 2020 <br />
+            <span>Page last updated:</span> 14 Jul 2020<br/> Site last generated: 14 Jul 2020 <br />
         </div>
     </div>
 </footer>

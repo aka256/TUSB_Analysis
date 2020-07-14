@@ -179,7 +179,26 @@ entries:
     - title: アイテム
       url: TUSB_Analysis_Item.html
       output: web, pdf
-    - title: スコアボード、チーム
-      url: TUSB_Analysis_Data.html
+    - title: チーム
+      url: others_teams.html
       output: web, pdf
+    - title: タグ
+      url: others_tags.html
+      output: web, pdf
+      subfolders:
+      - title: スコアボード
+        output: web, pdf
+        subfolderitems:
+          - title: スコアボード一覧
+            url: scoreboard_list.html
+            output: web, pdf
+          - title: Const
+            url: scoreboard_const.html
+            output: web, pdf
+          - title: Setting
+            url: scoreboard_setting.html
+            output: web, pdf
+          - title: Global
+            url: scoreboard_global.html
+            output: web, pdf
 

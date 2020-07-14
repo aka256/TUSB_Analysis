@@ -43,6 +43,10 @@
 <![endif]-->
 
 <link rel="alternate" type="application/rss+xml" title="TUSB_Analysis" href="http://localhost:4000 /feed.xml ">
+
+<!--MathJax-->
+
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <script>
         $(document).ready(function() {
             // Initialize navgoco with default options
@@ -301,7 +305,24 @@
                  
             <li><a title="アイテム" href="TUSB_Analysis_Item.html">アイテム</a></li>
                  
-            <li><a title="スコアボード、チーム" href="TUSB_Analysis_Data.html">スコアボード、チーム</a></li>
+            <li><a title="チーム" href="others_teams.html">チーム</a></li>
+                 
+            <li><a title="タグ" href="others_tags.html">タグ</a></li>
+              
+            <li class="subfolders">
+                <a title="スコアボード" href="#">スコアボード</a>
+                <ul>
+                      
+                    <li><a title="スコアボード一覧" href="scoreboard_list.html">スコアボード一覧</a></li>
+                        
+                    <li><a title="Const" href="scoreboard_const.html">Const</a></li>
+                        
+                    <li><a title="Setting" href="scoreboard_setting.html">Setting</a></li>
+                        
+                    <li><a title="Global" href="scoreboard_global.html">Global</a></li>
+                      
+                </ul>
+            </li>
                
         </ul>
     </li>
@@ -472,14 +493,14 @@ $('#toc').on('click', 'a', function() {
             <td><span class="label label-default">Page</span></td>
             <td> 位置 (-1920,9,-192) About 通常ログイン時のMPや職業などの処理を行う。 コマンド群     No. コマンド 状態     1 /difficulty hard     2 /scoreboard players tag @a[score_LeaveGame_min=1,tag=Resolved,score_Job=2147483647] remove Resolved... </td>
         </tr>
-                                                          
+                                                                    
 
         <tr>
             <td><a href="TUSB_Analysis/satietyFix.html">満腹度修正</a></td>
             <td><span class="label label-default">Page</span></td>
             <td> 位置 (-1920,17,-192) About リスポーン時に死亡前の満腹度の再現を行う。また、満腹度が小さい場合は救済処理を行う。 コマンド群     No. コマンド 状態     1 /tellraw @a[score_HP_min=1,score_Hunger_min=0,score_Hunger=3] [{“text”:”どこからか声が聞こえる…。\n「腹が減っては探索できぬぞ。」\n”},{“text”:”お腹が少し満たされた。\n”,”color”:”aqua”},{“text”:”目の前が真っ暗になった。”,”color”:”light_purple”}]     2 /effect @a[score_HP_min=1,score_Hunger_min=0,score_Hunger=4] minecraft:hunger 1 174... </td>
         </tr>
-                      
+                                      
 
         <tr>
             <td><a href="TUSB_Analysis/skillAcquisition.html">習得スキル取得</a></td>
@@ -527,7 +548,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-             Site last generated: 9 Jul 2020 <br />
+             Site last generated: 14 Jul 2020 <br />
         </div>
     </div>
 </footer>

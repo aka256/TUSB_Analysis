@@ -3,7 +3,7 @@ title: 観光モード提案開始
 tags: [コマンド,観光モード,表示]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,観光モード
 last_updated: 2020/6/26
-update: 2020/6/27
+update: 2020/7/10
 sidebar: mydoc_sidebar
 permalink: 3_suggestSightseeing.html
 folder: command/3
@@ -127,7 +127,7 @@ datatable3c: true
       1. `FriendlyTeam`の色を緑に変更
       2. `keepInventory`をtrueに変更
       3. プレイヤーの座標で効果音を鳴らす
-      4. `ightseeing`の`settings`を1に設定
+      4. `Sightseeing`の`Settings`を1に設定
 
 #### \#SSModeVoteSecの値とメッセージ
 

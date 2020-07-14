@@ -427,7 +427,7 @@ code {
 <tr>
 <td style="text-align:center">10</td>
 <td>/time query gametime</td>
-<td></td>
+<td><a href="#no10%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">補足</a>あり</td>
 </tr>
 <tr>
 <td style="text-align:center">11</td>
@@ -482,6 +482,10 @@ code {
 </tbody>
 </table>
 <div class="datatable3c-end"></div>
+<h3 id="no10%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">No.10のコマンドブロックについて</h3>
+<p>No.10 のコマンドブロックには、以下のデータタグが付与されている。</p>
+<pre class="hljs"><code><div>CommandStats:{QueryResultName:&quot;#Random&quot;,QueryResultObjective:&quot;Global&quot;}
+</div></code></pre>
 <h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
 <ol>
 <li><a href="TUSB_Analysis_Entity.html#shopgm">ShopGM</a>から半径24m以内にいる<code>Pastor</code>を持つ村人(牧師)を一人選択し、その村人から5m以内にいる<code>PastorFlag</code>が1以上であるすべてのプレイヤーに<code>PastorResume</code>を付与</li>
@@ -490,7 +494,7 @@ code {
 <li><code>PastorFlag</code>が2以上であり、<code>PastorResume</code>を持つすべてのプレイヤーに<code>PastorYes</code>を付与</li>
 <li><code>PastorResume</code>を持つすべてのプレイヤーの<code>PastorFlag</code>を-1に設定し、<code>PastorResume</code>を削除</li>
 <li><code>PastorYes</code>を持つすべてのプレイヤーに「[牧師] これは失礼しました。どうかお気をつけて。」とのメッセージを表示し、<code>PastorYes</code>を削除</li>
-<li><code>#Random</code>の<code>Global</code>に<code>#PastorMax</code>の<code>Global</code>との剰余を代入</li>
+<li><code>#Random</code>の<code>Global</code>にゲーム内時間を代入し、<code>#PastorMax</code>の<code>Global</code>との剰余を代入</li>
 <li><code>PastorNo</code>を持つすべてのプレイヤーの<code>Random</code>に<code>#Random</code>の<code>Global</code>を代入</li>
 <li><code>PastorNo</code>を持つすべてのプレイヤーの<code>Random</code>の値に対して以下のメッセージを送信</li>
 </ol>
