@@ -43,6 +43,10 @@
 <![endif]-->
 
 <link rel="alternate" type="application/rss+xml" title="TUSB_Analysis" href="http://localhost:4000 /feed.xml ">
+
+<!--MathJax-->
+
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <script>
         $(document).ready(function() {
             // Initialize navgoco with default options
@@ -332,7 +336,24 @@
                  
             <li><a title="アイテム" href="TUSB_Analysis_Item.html">アイテム</a></li>
                  
-            <li><a title="スコアボード、チーム" href="TUSB_Analysis_Data.html">スコアボード、チーム</a></li>
+            <li><a title="チーム" href="others_teams.html">チーム</a></li>
+                 
+            <li><a title="タグ" href="others_tags.html">タグ</a></li>
+              
+            <li class="subfolders">
+                <a title="スコアボード" href="#">スコアボード</a>
+                <ul>
+                      
+                    <li><a title="スコアボード一覧" href="scoreboard_list.html">スコアボード一覧</a></li>
+                        
+                    <li><a title="Const" href="scoreboard_const.html">Const</a></li>
+                        
+                    <li><a title="Setting" href="scoreboard_setting.html">Setting</a></li>
+                        
+                    <li><a title="Global" href="scoreboard_global.html">Global</a></li>
+                      
+                </ul>
+            </li>
                
         </ul>
     </li>
@@ -464,8 +485,8 @@ $('#toc').on('click', 'a', function() {
 <ol>
   <li><code class="language-plaintext highlighter-rouge">WarpByJob</code>を持つプレイヤーの<code class="language-plaintext highlighter-rouge">TutorialRead</code>を0に設定</li>
   <li><code class="language-plaintext highlighter-rouge">WarpByJob</code>を持ち、<code class="language-plaintext highlighter-rouge">TutorialRead</code>が524286以下であるプレイヤーにチュートリアルが読めていない旨のメッセージを表示し、(-1911.0 114.0 -136.0)(初期リス地点)に移動させ、<code class="language-plaintext highlighter-rouge">WarpByJob</code>を削除</li>
-  <li><code class="language-plaintext highlighter-rouge">WarpBuJob</code>を持ち、<code class="language-plaintext highlighter-rouge">Job</code>が0以下であるプレイヤーにジョブ変更申請書を与え、(-1786,113,-137,-90,0)(職業島入口)に移動</li>
-  <li><code class="language-plaintext highlighter-rouge">WarpBuJob</code>を持ち、<code class="language-plaintext highlighter-rouge">Job</code>が1以上であるプレイヤーを(0,5,2,-90,-30)(通常世界)に移動</li>
+  <li><code class="language-plaintext highlighter-rouge">WarpByJob</code>を持ち、<code class="language-plaintext highlighter-rouge">Job</code>が0以下であるプレイヤーにジョブ変更申請書を与え、(-1786,113,-137,-90,0)(職業島入口)に移動</li>
+  <li><code class="language-plaintext highlighter-rouge">WarpByJob</code>を持ち、<code class="language-plaintext highlighter-rouge">Job</code>が1以上であるプレイヤーを(0,5,2,-90,-30)(通常世界)に移動</li>
   <li><code class="language-plaintext highlighter-rouge">WarpByJob</code>を持つプレイヤーから<code class="language-plaintext highlighter-rouge">WarpByJob</code>を削除</li>
 </ol>
 
@@ -698,7 +719,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 19 Jun 2020<br/> Site last generated: 9 Jul 2020 <br />
+            <span>Page last updated:</span> 10 Jul 2020<br/> Site last generated: 14 Jul 2020 <br />
         </div>
     </div>
 </footer>

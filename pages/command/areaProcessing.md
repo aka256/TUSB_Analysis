@@ -81,7 +81,7 @@ datatable4c: true
 6. `BringItemError`を持つすべてのプレイヤーが存在したら、そのプレイヤーを対象として「アイテム持ち込み禁止エリアです!」との警告を表示し、以下の事柄を実行
    1. `AreaTitleFlag`を-999に設定
    2. `BringItemError`を削除
-7. `AreaTitleFlga`が11であるすべてのプレイヤーに`IgnoreEnderChest`を付与
+7. `AreaTitleFlag`が11であるすべてのプレイヤーに`IgnoreEnderChest`を付与
 8. `AreaTitleFlag`が-100以上であるプレイヤーから`Adv`を削除
 9. `AreaTitleFlag`が-90,-89,10以上であるすべてのプレイヤーに`Adv`を付与
 10. `AreaTitleFlag`が-100以上であるすべてのプレイヤーへのタイトル表示設定をフェードイン1.5秒、表示時間2秒、フェードアウト2秒に設定

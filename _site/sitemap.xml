@@ -45,7 +45,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/3_pastorTalk.html</loc>
-    <lastmod>2020-06-27T00:00:00+09:00</lastmod>
+    <lastmod>2020-07-14T00:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -77,7 +77,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/3_suggestSightseeing.html</loc>
-    <lastmod>2020-06-27T00:00:00+09:00</lastmod>
+    <lastmod>2020-07-10T00:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -85,7 +85,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/3_typeSetting.html</loc>
-    <lastmod>2020-07-07T00:00:00+09:00</lastmod>
+    <lastmod>2020-07-14T00:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -187,7 +187,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/conquerDisplay.html</loc>
-    <lastmod>2020-06-19T09:00:00+09:00</lastmod>
+    <lastmod>2020-07-14T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -195,7 +195,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/conquerProcessing.html</loc>
-    <lastmod>2020-06-19T09:00:00+09:00</lastmod>
+    <lastmod>2020-07-14T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -211,7 +211,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/difficultyAdjustment.html</loc>
-    <lastmod>2020-07-07T09:00:00+09:00</lastmod>
+    <lastmod>2020-07-13T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -237,7 +237,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/firstLoginProcessing.html</loc>
-    <lastmod>2020-06-19T09:00:00+09:00</lastmod>
+    <lastmod>2020-07-14T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -277,7 +277,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/initializeProcessing.html</loc>
-    <lastmod>2020-06-19T09:00:00+09:00</lastmod>
+    <lastmod>2020-07-14T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -341,7 +341,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/loginProcessing.html</loc>
-    <lastmod>2020-06-19T09:00:00+09:00</lastmod>
+    <lastmod>2020-07-10T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -349,9 +349,11 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/mainclockProcessing.html</loc>
-    <lastmod>2020-06-17T09:00:00+09:00</lastmod>
+    <lastmod>2020-07-10T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
+  
+  
   
   
   
@@ -360,6 +362,22 @@
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/oneMinProcessing.html</loc>
     <lastmod>2020-06-20T09:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/others_tags.html</loc>
+    <lastmod>2020-07-10T09:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/others_teams.html</loc>
+    <lastmod>2020-07-14T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -379,7 +397,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/runFirst.html</loc>
-    <lastmod>2020-06-19T09:00:00+09:00</lastmod>
+    <lastmod>2020-07-14T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -396,6 +414,38 @@
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/satietyFix.html</loc>
     <lastmod>2020-06-19T09:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/scoreboard_const.html</loc>
+    <lastmod>2020-07-14T09:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/scoreboard_global.html</loc>
+    <lastmod>2020-07-14T09:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/scoreboard_list.html</loc>
+    <lastmod>2020-07-14T09:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/scoreboard_setting.html</loc>
+    <lastmod>2020-07-14T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -523,7 +573,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/warpProcessing.html</loc>
-    <lastmod>2020-06-19T09:00:00+09:00</lastmod>
+    <lastmod>2020-07-10T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   

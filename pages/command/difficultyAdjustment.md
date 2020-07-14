@@ -3,7 +3,7 @@ title: 難易度調整
 tags: [コマンド,敵Mob]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,バニラモブ
 last_updated: 2020/6/19
-update: 2020-07-07 09:00:00 +0000
+update: 2020-07-13 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: difficultyAdjustment.html
 folder: command
@@ -22,7 +22,7 @@ datatable3cnp: true
 
 |No.|コマンド|状態|
 |:-:|:-|:-|
-|1|/testfor @a|
+|1|/testfor @a|[補足](#no1のコマンドブロックについて)あり|
 |2|/scoreboard players operation Difficulty Settings *= Difficulty Settings|
 |3|/scoreboard players test Sightseeing Settings * 0|
 |4|/scoreboard players operation Difficulty Settings += #ConquerPctInt Global|条件付き|
@@ -44,11 +44,19 @@ datatable3cnp: true
 
 <div class="datatable3cnp-end"></div>
 
+### No.1のコマンドブロックについて
+
+No.1 のコマンドブロックには以下のデータタグが付与されている。
+
+```minecarftcommand
+CommandStats:{AffectedEntitiesObjective:"Settings",AffectedEntitiesName:"Difficulty"}
+```
+
 ## 詳細
 
-1. プレイヤーが一人でも生きているときに以下の事柄を実行
+1. プレイヤーの人数を`Difficulty`に代入
 2. `Difficulty`の`Settings`を2乗
-3. `Sightseeing`の`Settings`が0以下であるとき、`Difficulty`の`Settings`に`#ConquerPcInt`の`Global`を足し合わせる
+3. `Sightseeing`の`Settings`が0以下であるとき、`Difficulty`の`Settings`に`#ConquerPctInt`の`Global`を足し合わせる
 4. (-1886,14,-188)([タイプ設定](3_typeSetting.html)の強さ補正)のコマンドブロック(No.34)に{Command:"/effect @e[tag=TypeCheck,team=,type=!Player]minecraft:speed 1 0 true"}を上書きできたとき、(-1885,14,-188)のコマンドブロック(No.35)に{Command:"/effect @e[tag=TypeCheck,team=,type=!Player]minecraft:resistance 1 0 true"}を上書きする
 5. `Difficulty`の`Settings`が30以上の時、`Settings`の値によって(-1886,14,-188)(No.34)と(-1885,14,-188)(No.35)にあるコマンドブロックを書き換える(以下参考)
 

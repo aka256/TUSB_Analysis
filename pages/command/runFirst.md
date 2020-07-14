@@ -3,7 +3,7 @@ title: 毎tick必ず最初に実行したいコマンド群
 tags: [コマンド,ディメンション]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/6/19
-update: 2020-06-19 09:00:00 +0000
+update: 2020-07-14 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: runFirst.html
 folder: command
@@ -63,7 +63,7 @@ datatable4c: true
 |37|/scoreboard players tag @e[tag=SkillTarget] remove SkillTarget||条件付き|
 |38|/blockdata ~ ~-1 ~ {Items:[{id:minecraft:porkchop,Count:1b,Slot:0b,Damage:0s}],CookTimeTotal:20s}|1秒クロック|
 |39|/clone -1920 11 ~ -1920 12 ~ -1920 11 ~ filtered force minecraft:command_block 5 ###１秒毎処理||条件付き|
-|40|/gamerule mobGriefing|mobGriefing修正|
+|40|/gamerule mobGriefing|mobGriefing修正 [補足](#no40のコマンドブロックについて)あり|
 |41|/scoreboard players test MobGriefing Settings * 0|
 |42|/gamerule mobGriefing true||条件付き|
 |43|/difficulty hard||条件付き|
@@ -74,6 +74,14 @@ datatable4c: true
 |48|/tellraw AiAkaishi {"score":{"name":"*","objective":"CoolTickCounter"}}||条件付き|
 
 <div class="datatable4c-end"></div>
+
+### No.40のコマンドブロックについて
+
+No.40 のコマンドブロックには、以下のデータタグが付与されている。
+
+```minecarftcommand
+CommandStats:{QueryResultName:"MobGriefing",QueryResultObjective:"Settings"}
+```
 
 ## 詳細
 
@@ -97,8 +105,8 @@ datatable4c: true
     1. `SkillTarget`を持つエンティティを0.4m下に移動
     2. `SkillTarget`を持つエンティティから`SkillTarget`を消去
 14. (-1883,3,-200)にあるかまどに1秒で燃焼する豚肉を入れることができたら(要は1秒たったら)、(-1920,11,-200)にある[時間経過](timeElapsed.html)と(-1920,12,-200)にある[AEC維持](aecMaintenance.html)を実行
-15. `mobGriefing`について表示? (よくわからない)
-16. `mobGriefing`が0以下(false)の時、`mobGriefing`=trueとし、難易度を`hard`に変更
+15. `mobGriefing`の値を`MobGriefing`に保存
+16. `mobGriefing`がfalseの時、`mobGriefing`=trueとし、難易度を`hard`に変更
 17. `FallingSand`を持ち、{FallDistance:0f}であるエンティティに`Garbage`を付与し、{Time:0}であるエンティティから`Garbage`を削除
 18. (-1875,5,-198)に石の感圧板があるとき、以下の事柄を実行 (恐らくデバッグ用なので無視して構わない)
     - 1tickで死亡するアーマースタンドを(-1875,5,-198)に召喚し、AiAkaishiに`CoolTickCounter`を持つエンティティの名前を送信する

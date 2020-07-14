@@ -505,11 +505,15 @@ code {
 </tbody>
 </table>
 <div class="datatable2c-end"></div>
+<h3 id="no21%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">No.21のコマンドブロックについて</h3>
+<p>No.21 のコマンドブロックには以下のデータタグが付与されている。</p>
+<pre class="hljs"><code><div>CommandStats:{QueryResultName:&quot;#GameTime&quot;,QueryResultObjective:&quot;Global&quot;}
+</div></code></pre>
 <h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
 <ol>
 <li><code>team=</code>であるプレイヤーの<code>USBDimension</code>を0、<code>Hunger</code>を-1、<code>LeaveGame</code>を1にする</li>
 <li><code>team=</code>かつ<code>Resolved</code>を持っていないプレイヤーのスコアをそれぞれ<code>HP=20</code>、<code>Food=20</code>、<code>MPMax=100</code>、<code>ModeState=0</code>、<code>KnightLevel=0</code>、<code>NinjaLevel=0</code>、<code>ArcherLevel=0</code>、<code>WhiteMageLevel=0</code>、<code>BlackMageLevel=0</code>、<code>SummonerLevel=0</code>、<code>KnightToLevel=0</code>、<code>NinjaToLevel=0</code>、<code>ArcherToLevel=0</code>、<code>WhiteMageToLevel=0</code>、<code>BlackMageToLevel=0</code>、<code>SummonerToLevel=0</code>に設定する</li>
-<li>ワールドが作られてからの時間を表示</li>
+<li>ワールドが作られてからの時間を<code>GameTime</code>に代入</li>
 <li><code>team=</code>かつ<code>Resolved</code>を持っていないプレイヤーの<code>RndMWC</code>と<code>RndMWCCarry</code>にそれぞれ<code>#GameTime</code>の<code>Global</code>を代入</li>
 <li><code>team=</code>かつ<code>Resolved</code>を持っていないプレイヤーの<code>RndMWC</code>に<code>#MWCBase</code>の<code>Const</code>との剰余を代入</li>
 <li><code>team=</code>かつ<code>Resolved</code>を持っていないプレイヤーの<code>RndMWCCarry</code>に<code>#MWCBase</code>の<code>Const</code>との商を代入</li>

@@ -618,7 +618,7 @@ code {
 <tr>
 <td style="text-align:center">40</td>
 <td style="text-align:left">/gamerule mobGriefing</td>
-<td style="text-align:left">mobGriefing修正</td>
+<td style="text-align:left">mobGriefing修正 <a href="#no40%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">補足</a>あり</td>
 <td style="text-align:left"></td>
 </tr>
 <tr>
@@ -672,6 +672,10 @@ code {
 </tbody>
 </table>
 <div class="datatable4c-end"></div>
+<h3 id="no40%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">No.40のコマンドブロックについて</h3>
+<p>No.40 のコマンドブロックには、以下のデータタグが付与されている。</p>
+<pre class="hljs"><code><div>CommandStats:{QueryResultName:&quot;MobGriefing&quot;,QueryResultObjective:&quot;Settings&quot;}
+</div></code></pre>
 <h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
 <ol>
 <li><a href="expProcessing.html">毎tick必ず最初に実行したいコマンド群</a>を実行 (ここで自身を呼び出すことでセルフクロックを行っている)</li>
@@ -703,8 +707,8 @@ code {
 </ol>
 </li>
 <li>(-1883,3,-200)にあるかまどに1秒で燃焼する豚肉を入れることができたら(要は1秒たったら)、(-1920,11,-200)にある<a href="timeElapsed.html">時間経過</a>と(-1920,12,-200)にある<a href="aecMaintenance.html">AEC維持</a>を実行</li>
-<li><code>mobGriefing</code>について表示? (よくわからない)</li>
-<li><code>mobGriefing</code>が0以下(false)の時、<code>mobGriefing</code>=trueとし、難易度を<code>hard</code>に変更</li>
+<li><code>mobGriefing</code>の値を<code>MobGriefing</code>に保存</li>
+<li><code>mobGriefing</code>がfalseの時、<code>mobGriefing</code>=trueとし、難易度を<code>hard</code>に変更</li>
 <li><code>FallingSand</code>を持ち、{FallDistance:0f}であるエンティティに<code>Garbage</code>を付与し、{Time:0}であるエンティティから<code>Garbage</code>を削除</li>
 <li>(-1875,5,-198)に石の感圧板があるとき、以下の事柄を実行 (恐らくデバッグ用なので無視して構わない)
 <ul>

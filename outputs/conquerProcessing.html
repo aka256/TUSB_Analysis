@@ -533,7 +533,7 @@ code {
 <tr>
 <td style="text-align:center">31</td>
 <td style="text-align:left">/time query gametime</td>
-<td style="text-align:left">条件付き</td>
+<td style="text-align:left">条件付き [補足]あり</td>
 </tr>
 <tr>
 <td style="text-align:center">32</td>
@@ -583,6 +583,10 @@ code {
 </tbody>
 </table>
 <div class="datatable3c-end"></div>
+<h4 id="no31%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">No.31のコマンドブロックについて</h4>
+<p>No.31 のコマンドブロックには、以下のデータタグが付与されている。</p>
+<pre class="hljs"><code><div>CommandStats:{QueryResultName:&quot;#ConqTimeSec&quot;,QueryResultObjective:&quot;Global&quot;}
+</div></code></pre>
 <h3 id="192018-191%E3%81%AB%E3%81%82%E3%82%8B%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86%E3%81%A8%E3%81%84%E3%81%86%E7%9C%8B%E6%9D%BF%E3%81%8C%E3%81%A4%E3%81%84%E3%81%A6%E3%81%84%E3%82%8B%E3%82%82%E3%81%AE%E3%81%AE%E4%B8%8A%E3%81%AE%E3%82%84%E3%81%A4">(-1920,18,-191)にあるコマンド群 (島攻略処理という看板がついているものの上のやつ)</h3>
 <div class="datatable3c-begin"></div>
 <table>
@@ -667,14 +671,14 @@ code {
 <ol>
 <li><code>UseEnderEye</code>が1以上であるプレイヤーを一人選択し、<code>Conquer</code>を付与</li>
 <li><code>Conquer</code>を持つプレイヤーの<code>UseEnderEye</code>を0に設定</li>
-<li><code>Conquer</code>を持ち、<code>USBDimension</code>が-1以下であるプレイヤーがいるとき、<code>#ConqCntNether</code>の<code>Global</code>を1に設定</li>
-<li><code>Conquer</code>を持ち、<code>USBDimension</code>が100以上であるプレイヤーがいるとき、<code>#ConqCntEnd</code>の<code>Global</code>を1に設定</li>
-<li><code>Conquer</code>を持ち、<code>USBDimension</code>が0であるプレイヤーがいるとき、<code>#ConqCntSkylands</code>の<code>Global</code>を1に設定</li>
-<li><code>Conquer</code>を持ち、<code>USBDimension</code>が1であるプレイヤーがいるとき、<code>#ConqCntUnderworld</code>の<code>Global</code>を1に設定</li>
-<li><code>Conquer</code>を持ち、<code>USBDimension</code>が10であるプレイヤーがいるとき、<code>#ConqCntCloudia</code>の<code>Global</code>を1に設定</li>
-<li><code>Conquer</code>を持ち、<code>USBDimension</code>が11であるプレイヤーがいるとき、<code>#ConqCntMtTable</code>の<code>Global</code>を1に設定</li>
-<li><code>Conquer</code>を持ち、<code>USBDimension</code>が12であるプレイヤーがいるとき、<code>#ConqCntGLand</code>の<code>Global</code>を1に設定</li>
-<li><code>Conquer</code>を持ち、<code>USBDimension</code>が13であるプレイヤーがいるとき、<code>#ConqCntIce</code>の<code>Global</code>を1に設定</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が-1以下であるプレイヤーがいるとき、<code>#ConqCntNether</code>の<code>Global</code>を1を加算する</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が100以上であるプレイヤーがいるとき、<code>#ConqCntEnd</code>の<code>Global</code>を1を加算する</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が0であるプレイヤーがいるとき、<code>#ConqCntSkylands</code>の<code>Global</code>を1を加算する</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が1であるプレイヤーがいるとき、<code>#ConqCntUnderworld</code>の<code>Global</code>を1を加算する</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が10であるプレイヤーがいるとき、<code>#ConqCntCloudia</code>の<code>Global</code>を1を加算する</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が11であるプレイヤーがいるとき、<code>#ConqCntMtTable</code>の<code>Global</code>を1を加算する</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が12であるプレイヤーがいるとき、<code>#ConqCntGLand</code>の<code>Global</code>を1を加算する</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が13であるプレイヤーがいるとき、<code>#ConqCntIce</code>の<code>Global</code>を1を加算する</li>
 <li><code>Conquer</code>を持つプレイヤーから<code>Conquer</code>を消去</li>
 <li><code>#ConquerCount</code>の<code>Global</code>に1を足す</li>
 <li><code>#ConquerPctInt</code>の<code>Global</code>に<code>#ConquerCount</code>の<code>Global</code>を代入し、1000を掛け、<code>#ConquerMax</code>の<code>Const</code> = 50で割る</li>
@@ -695,7 +699,7 @@ code {
 <li>すべてのプレイヤーの座標で演出を実行し、即時回復Lv.6を1秒間、満腹Lv.19を1秒間付与</li>
 <li><code>Sightseeing</code>の<code>Setting</code>が0以下の時、以下の事柄を実行
 <ol>
-<li>ワールドが作られてからの時間を表示</li>
+<li>ワールドが作られてからの時間を<code>ConqTimeSec</code>に代入</li>
 <li><code>StartTime</code>から攻略時間を計算し、<code>ConqTimeSec</code>、<code>ConqTimeMin</code>、<code>ConqTimeHour</code>にそれぞれに対応する値を代入</li>
 <li>攻略タイムの表示</li>
 </ol>

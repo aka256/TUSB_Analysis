@@ -43,6 +43,10 @@
 <![endif]-->
 
 <link rel="alternate" type="application/rss+xml" title="TUSB_Analysis" href="http://localhost:4000 /feed.xml ">
+
+<!--MathJax-->
+
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <script>
         $(document).ready(function() {
             // Initialize navgoco with default options
@@ -336,7 +340,24 @@
                  
             <li><a title="アイテム" href="TUSB_Analysis_Item.html">アイテム</a></li>
                  
-            <li><a title="スコアボード、チーム" href="TUSB_Analysis_Data.html">スコアボード、チーム</a></li>
+            <li><a title="チーム" href="others_teams.html">チーム</a></li>
+                 
+            <li><a title="タグ" href="others_tags.html">タグ</a></li>
+              
+            <li class="subfolders">
+                <a title="スコアボード" href="#">スコアボード</a>
+                <ul>
+                      
+                    <li><a title="スコアボード一覧" href="scoreboard_list.html">スコアボード一覧</a></li>
+                        
+                    <li><a title="Const" href="scoreboard_const.html">Const</a></li>
+                        
+                    <li><a title="Setting" href="scoreboard_setting.html">Setting</a></li>
+                        
+                    <li><a title="Global" href="scoreboard_global.html">Global</a></li>
+                      
+                </ul>
+            </li>
                
         </ul>
     </li>
@@ -658,7 +679,7 @@ $('#toc').on('click', 'a', function() {
     <tr>
       <td style="text-align: center">40</td>
       <td style="text-align: left">/gamerule mobGriefing</td>
-      <td style="text-align: left">mobGriefing修正</td>
+      <td style="text-align: left">mobGriefing修正 <a href="#no40のコマンドブロックについて">補足</a>あり</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
@@ -714,6 +735,13 @@ $('#toc').on('click', 'a', function() {
 
 <div class="datatable4c-end"></div>
 
+<h3 id="no40のコマンドブロックについて">No.40のコマンドブロックについて</h3>
+
+<p>No.40 のコマンドブロックには、以下のデータタグが付与されている。</p>
+
+<pre><code class="language-minecarftcommand">CommandStats:{QueryResultName:"MobGriefing",QueryResultObjective:"Settings"}
+</code></pre>
+
 <h2 id="詳細">詳細</h2>
 
 <ol>
@@ -746,8 +774,8 @@ $('#toc').on('click', 'a', function() {
     </ol>
   </li>
   <li>(-1883,3,-200)にあるかまどに1秒で燃焼する豚肉を入れることができたら(要は1秒たったら)、(-1920,11,-200)にある<a href="timeElapsed.html">時間経過</a>と(-1920,12,-200)にある<a href="aecMaintenance.html">AEC維持</a>を実行</li>
-  <li><code class="language-plaintext highlighter-rouge">mobGriefing</code>について表示? (よくわからない)</li>
-  <li><code class="language-plaintext highlighter-rouge">mobGriefing</code>が0以下(false)の時、<code class="language-plaintext highlighter-rouge">mobGriefing</code>=trueとし、難易度を<code class="language-plaintext highlighter-rouge">hard</code>に変更</li>
+  <li><code class="language-plaintext highlighter-rouge">mobGriefing</code>の値を<code class="language-plaintext highlighter-rouge">MobGriefing</code>に保存</li>
+  <li><code class="language-plaintext highlighter-rouge">mobGriefing</code>がfalseの時、<code class="language-plaintext highlighter-rouge">mobGriefing</code>=trueとし、難易度を<code class="language-plaintext highlighter-rouge">hard</code>に変更</li>
   <li><code class="language-plaintext highlighter-rouge">FallingSand</code>を持ち、{FallDistance:0f}であるエンティティに<code class="language-plaintext highlighter-rouge">Garbage</code>を付与し、{Time:0}であるエンティティから<code class="language-plaintext highlighter-rouge">Garbage</code>を削除</li>
   <li>(-1875,5,-198)に石の感圧板があるとき、以下の事柄を実行 (恐らくデバッグ用なので無視して構わない)
     <ul>
@@ -976,7 +1004,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 19 Jun 2020<br/> Site last generated: 9 Jul 2020 <br />
+            <span>Page last updated:</span> 14 Jul 2020<br/> Site last generated: 14 Jul 2020 <br />
         </div>
     </div>
 </footer>

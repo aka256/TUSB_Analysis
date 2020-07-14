@@ -3,7 +3,7 @@ title: 牧師会話選択時処理
 tags: [コマンド,村人,表示]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,牧師,教会
 last_updated: 2020/6/26
-update: 2020/6/27
+update: 2020/7/14
 sidebar: mydoc_sidebar
 permalink: 3_pastorTalk.html
 folder: command/3
@@ -31,7 +31,7 @@ datatable3c: true
 |7|/scoreboard players tag @a[tag=PastorResume] remove PastorResume|条件付き|
 |8|/tellraw @a[tag=PastorYes] {"text":"[牧師] これは失礼しました。どうかお気をつけて。"}|
 |9|/scoreboard players tag @a[tag=PastorYes] remove PastorYes|条件付き|
-|10|/time query gametime|
+|10|/time query gametime|[補足](#no10のコマンドブロックについて)あり|
 |11|/scoreboard players operation #Random Global %= #PastorMax Global|条件付き|
 |12|/scoreboard players operation @a[tag=PastorNo] Random = #Random Global|
 |13|/tellraw @a[tag=PastorNo,score_Random_min=0,score_Random=0] {"text":"[牧師] サバイバルエリアではベッドで寝ると元気になれます。\nアドベンチャーエリアではとても寝てはいられませんが…"}|
@@ -45,6 +45,14 @@ datatable3c: true
 
 <div class="datatable3c-end"></div>
 
+### No.10のコマンドブロックについて
+
+No.10 のコマンドブロックには、以下のデータタグが付与されている。
+
+```minecraft
+CommandStats:{QueryResultName:"#Random",QueryResultObjective:"Global"}
+```
+
 ## 詳細
 
 1. [ShopGM](TUSB_Analysis_Entity.html#shopgm)から半径24m以内にいる`Pastor`を持つ村人(牧師)を一人選択し、その村人から5m以内にいる`PastorFlag`が1以上であるすべてのプレイヤーに`PastorResume`を付与
@@ -53,7 +61,7 @@ datatable3c: true
 4. `PastorFlag`が2以上であり、`PastorResume`を持つすべてのプレイヤーに`PastorYes`を付与
 5. `PastorResume`を持つすべてのプレイヤーの`PastorFlag`を-1に設定し、`PastorResume`を削除
 6. `PastorYes`を持つすべてのプレイヤーに「[牧師] これは失礼しました。どうかお気をつけて。」とのメッセージを表示し、`PastorYes`を削除
-7. `#Random`の`Global`に`#PastorMax`の`Global`との剰余を代入
+7. `#Random`の`Global`にゲーム内時間を代入し、`#PastorMax`の`Global`との剰余を代入
 8. `PastorNo`を持つすべてのプレイヤーの`Random`に`#Random`の`Global`を代入
 9. `PastorNo`を持つすべてのプレイヤーの`Random`の値に対して以下のメッセージを送信
 

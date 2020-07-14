@@ -62,7 +62,7 @@ datatable3c: true
 3. `CauseEvent`を持ち、`USBDimention`が0であるプレイヤーを一人選択し、以下の計算などを実行する。なお、`Global`は省略する。
    - `EventRank`=`RndMWC`%100+`#ConquerPctInt`-100
    - `EventRank2`=(`RndMWC`/10)%100
-   - `UpdataRnadom`を付与し、`CauseEvent`を消去
+   - `UpdataRandom`を付与し、`CauseEvent`を消去
 
 ### EventRankとその内容
 

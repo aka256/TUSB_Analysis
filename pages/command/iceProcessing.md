@@ -75,7 +75,7 @@ datatable3c: true
       3. `RemoveTorch`を持ち、`ISFEncount`が0以下であるすべてのプレイヤーに対して以下の事柄を実行
          1. `UpdateRandom`を付与
          2. `ISFEnount`=(`ISFEncount`%60)-60
-         3. `ISFEncount`が0以下の時、`ISEEncoun`(タグ)を付与
+         3. `ISFEncount`が0以下の時、`ISEEncount`(タグ)を付与
          4. `ISFEncount`が0以下の時、`ISFEncount`の符号を反転
 10. `RemoveTorch`を持つすべてのプレイヤーから`RemoveTorch`を削除
 11. `ISFEncount`を持つすべてのプレイヤーの7m上に様々なモンスターを召喚するスポナー付きマインカートを召喚(以下の表を参考)

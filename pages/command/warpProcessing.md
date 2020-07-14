@@ -3,7 +3,7 @@ title: ワープ処理ジョブ島・通常世界
 tags: [コマンド,表示,職業]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,チュートリアル,ジョブ変更申請書,ブラジル
 last_updated: 2020/6/19
-update: 2020-06-19 09:00:00 +0000
+update: 2020-07-10 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: warpProcessing.html
 folder: command
@@ -37,6 +37,6 @@ datatable3cnp: true
 
 1. `WarpByJob`を持つプレイヤーの`TutorialRead`を0に設定
 2. `WarpByJob`を持ち、`TutorialRead`が524286以下であるプレイヤーにチュートリアルが読めていない旨のメッセージを表示し、(-1911.0 114.0 -136.0)(初期リス地点)に移動させ、`WarpByJob`を削除
-3. `WarpBuJob`を持ち、`Job`が0以下であるプレイヤーにジョブ変更申請書を与え、(-1786,113,-137,-90,0)(職業島入口)に移動
-4. `WarpBuJob`を持ち、`Job`が1以上であるプレイヤーを(0,5,2,-90,-30)(通常世界)に移動
+3. `WarpByJob`を持ち、`Job`が0以下であるプレイヤーにジョブ変更申請書を与え、(-1786,113,-137,-90,0)(職業島入口)に移動
+4. `WarpByJob`を持ち、`Job`が1以上であるプレイヤーを(0,5,2,-90,-30)(通常世界)に移動
 5. `WarpByJob`を持つプレイヤーから`WarpByJob`を削除
