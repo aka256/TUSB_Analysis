@@ -30,7 +30,7 @@ layout: default
 
 <div class="post-content">
 
-   {% if page.summary %}
+   {% if page.summary and summaryDisable==true %}
     <div class="summary">{{page.summary}}</div>
    {% endif %}
 
@@ -54,7 +54,7 @@ layout: default
         {% for tag in page.tags %}
         {% for allowed in projectTagsData %}
         {% if allowed.tag==tag %}
-        <a href="{{ allowed.folder }}" class="btn btn-default navbar-btn cursorNorm" role="button">{{page.tagName}}{{tag}}</a>
+        <a href="{{ allowed.folder | prepend : site.data.tags.baseurl }}" class="btn btn-default navbar-btn cursorNorm" role="button">{{page.tagName}}{{tag}}</a>
         {% endif %}
         {% endfor %}
         {% endfor %}

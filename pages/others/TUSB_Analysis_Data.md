@@ -1,6 +1,6 @@
 ---
 title: チーム、スコアボード
-tags: [チーム,スコアボード]
+#tags: [チーム,スコアボード]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/6/17
 update: 2020-06-17 09:00:00 +0000

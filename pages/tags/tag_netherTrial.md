@@ -2,7 +2,7 @@
 title: "ネザーアスレタグ"
 tagName: ネザーアスレ
 search: exclude
-permalink: tag_netherTrial.html
+permalink: tags/tag_netherTrial.html
 sidebar: mydoc_sidebar
 folder: tags
 ---

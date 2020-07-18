@@ -5,8 +5,10 @@ keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X�
 last_updated: 2020/6/17
 update: 2020-07-14 09:00:00 +0000
 sidebar: mydoc_sidebar
-permalink: scoreboard_global.html
+permalink: scoreboard/scoreboard_global.html
 folder: scoreboard
+summary: プレイヤー達の間で共有されるスコアであり、攻略率関係のものが多い。
+summaryDisable: true
 ---
 
 ## About
@@ -43,19 +45,19 @@ folder: scoreboard
 
 ### ConquerCount
 
-これまでに攻略した島、もしくはディメンションの数を保存するスコア。[島攻略処理](conquerProcessing.html)で加算される。
+これまでに攻略した島、もしくはディメンションの数を保存するスコア。[島攻略処理](/command/xCircuit2/xCircuit2_conquerProcessing.html)で加算される。
 
 ### ConquerPctInt / ConquerPctDec
 
-現在の攻略率の整数値(ConquerPercentInteger)と小数値(ConquerPersentDecimal)を保存するスコア。[島攻略処理](conquerProcessing.html)で計算される。
+現在の攻略率の整数値(ConquerPercentInteger)と小数値(ConquerPersentDecimal)を保存するスコア。[島攻略処理](/command/xCircuit2/xCircuit2_conquerProcessing.html)で計算される。
 
 ### ConquerSkylands / Nether / End / Underworld / Cloudia / MtTable / GLand / CntIse
 
-それぞれのディメンションでの攻略数を保存するスコア。[島攻略処理](conquerProcessing.html)で加算される。
+それぞれのディメンションでの攻略数を保存するスコア。[島攻略処理](/command/xCircuit2/xCircuit2_conquerProcessing.html)で加算される。
 
 ### GameTime
 
-TUSB開始時のワールドが作られてからの時間を保存するスコア。初回ログイン時に書きこまれる。詳しくは[初回ログイン時処理](firstLoginProcessing.html)
+TUSB開始時のワールドが作られてからの時間を保存するスコア。初回ログイン時に書きこまれる。詳しくは[初回ログイン時処理](/command/xCircuit2/xCircuit2_firstLoginProcessing.html)
 
 ### Random
 
@@ -67,11 +69,11 @@ TUSB開始時のワールドが作られてからの時間を保存するスコ�
 
 ### PastorMax
 
-牧師のアドバイスで用いられるスコア。月島のエンドポータルフレームにエンダーアイをはめることにより、値が6に書き変わり「もう長い間夜が続いていますが、...」のメッセージが表示されないようにしている。牧師からのアドバイスについての詳細は[牧師会話選択時処理](3_pastorTalk.html)で管理されている。
+牧師のアドバイスで用いられるスコア。月島のエンドポータルフレームにエンダーアイをはめることにより、値が6に書き変わり「もう長い間夜が続いていますが、...」のメッセージが表示されないようにしている。牧師からのアドバイスについての詳細は[牧師会話選択時処理](/command/xCircuit3/xCircuit3_pastorTalk.html)で管理されている。
 
 ### StartTime
 
-TUSB開始時のワールドが作られてからの時間を保存するスコア。[初期化処理](initializeProcessing.html)で書きこまれる。
+TUSB開始時のワールドが作られてからの時間を保存するスコア。[初期化処理](/command/xCircuitCore/xCircuitCore_initializeProcessing.html)で書きこまれる。
 
 ### ConquerTimeSec
 

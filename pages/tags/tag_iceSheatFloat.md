@@ -2,7 +2,7 @@
 title: "トカルトコルデタグ"
 tagName: トカルトコルデ
 search: exclude
-permalink: tag_iceSheetFloat.html
+permalink: tags/tag_iceSheetFloat.html
 sidebar: mydoc_sidebar
 folder: tags
 ---

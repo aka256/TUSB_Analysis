@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>xCircuit3_typeSetting.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="about">About</h2>
+<p><span class="tagYellow">位置</span> (-1920,14,-188)</p>
+<p><span class="tagBlack">呼び出し元</span> <a href="/command/xCircuit3/xCircuit3_command.html">毎tick実行するコマンド群3</a></p>
+<p><code>TypeCheck</code>を持ったエンティティに対して、特定のタグの付与や野良の村人の処理、TNT、クリーパーの即爆破処理、そして攻略率に対する難易度上昇処理などを行っている。</p>
+<p>{% include important.html content=&quot;このコマンド群の中には<a href="/command/xCircuit2/xCircuit2_difficultyAdjustment.html">難易度調整</a>から<strong>直接コマンドを書き換えられるコマンドがある</strong>ため、ここをいじる場合には注意すべし&quot; %}</p>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<div class="datatable4c-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>コマンド</th>
+<th>コメント</th>
+<th>状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,team=!FriendlyTeam] add Enemy {Attributes:[{Name:generic.followRange}],Invulnerable:false}</td>
+<td>タイプ設定 TypeCheck</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>/scoreboard players tag @e[tag=TypeCheck] add Poofable {Tags:[Enemy]}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>/fill ~1 ~1 ~ ~14 ~1 ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=!PigZombie] add BurnableEnemy {Tags:[Enemy]}</td>
+<td></td>
+<td>動力が必要</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=Blaze] remove BurnableEnemy</td>
+<td></td>
+<td>動力が必要</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=Ghast] remove BurnableEnemy</td>
+<td></td>
+<td>動力が必要</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=LavaSlime] remove BurnableEnemy</td>
+<td></td>
+<td>動力が必要</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=WitherBoss] remove BurnableEnemy</td>
+<td></td>
+<td>動力が必要</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=Skeleton] remove BurnableEnemy {SkeletonType:1b}</td>
+<td></td>
+<td>動力が必要</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=!Skeleton] add LivingEnemy {Tags:[Enemy]}</td>
+<td></td>
+<td>動力が必要</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=WitherBoss] remove LivingEnemy</td>
+<td></td>
+<td>動力が必要</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=EntityHorse] remove LivingEnemy {Type:3}</td>
+<td></td>
+<td>動力が必要</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=EntityHorse] remove LivingEnemy {Type:4}</td>
+<td></td>
+<td>動力が必要</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td>/scoreboard players tag @e[tag=TypeCheck] remove LivingEnemy {ConversionTime:-1}</td>
+<td></td>
+<td>動力が必要</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=Slime] add Slimy</td>
+<td></td>
+<td>動力が必要</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=LavaSlime] add Slimy</td>
+<td></td>
+<td>動力が必要</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td>/fill ~-13 ~1 ~ ~ ~1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+<td></td>
+<td>動力が必要</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td>/scoreboard players tag @e[tag=TypeCheck] add HasCloud {Tags:[Enemy],Passengers:[{id:AreaEffectCloud}]}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td>/execute @e[tag=HasCloud] ~ ~ ~ /entitydata @e[dy=10,type=AreaEffectCloud,tag=TypeCheck] {Tags:[MobCloud,TypeChecked],Duration:28,Age:5,WaitTime:5,DurationOnUse:0,RadiusOnUse:0f,RadiusPerTick:0f,ReapplicationDelay:0}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td>/scoreboard players tag @e[tag=HasCloud] remove HasCloud</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td>/scoreboard players tag @e[tag=TypeCheck] add FlyingObject {inTile:&quot;minecraft:air&quot;}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td>/scoreboard players tag @e[tag=TypeCheck] add Driftable {Tags:[FlyingObject]}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td>/scoreboard players tag @e[tag=TypeCheck] add Arrow {Tags:[FlyingObject],inGround:false,life:0s}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td>/scoreboard players tag @e[tag=TypeCheck] add DriftableA {Tags:[Arrow]}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=ShulkerBullet] add Driftable</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td>/execute @e[tag=TypeCheck,type=ShulkerBullet] ~ ~ ~ /effect @e[r=5,type=Shulker,c=1] minecraft:wither 1 1 true</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=MinecartSpawner] add CooldownRequired</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=MinecartSpawner] remove CooldownRequired {PortalCooldown:0}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">28</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=MinecartSpawner] add FloatingRequired</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=MinecartSpawner] remove FloatingRequired {Tags:[CooldownRequired]}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=Villager] add Vanillager {CareerLevel:0}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td>/entitydata @e[tag=Vanillager] {Profession:0,Career:3,CareerLevel:1,Offers:{Recipes:[{maxUses:7,buy:{id:&quot;minecraft:wool&quot;,Count:22b,Damage:0s},sell:{id:&quot;minecraft:emerald&quot;,Count:1b,Damage:0s},uses:0,rewardExp:1b},1:{maxUses:7,buy:{id:&quot;minecraft:emerald&quot;,Count:4b,Damage:0s},sell:{id:&quot;minecraft:shears&quot;,Count:1b,Damage:0s},uses:0,rewardExp:1b}]}}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td>/scoreboard players tag @e[tag=Vanillager] remove Vanillager</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td>/entitydata @e[tag=TypeCheck,type=PrimedTnt] {Fuse:0s,Motion:[0d,0d,0d]}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">34</td>
+<td>/effect @e[tag=TypeCheck,team=,type=!Player] minecraft:speed 1 0 true</td>
+<td>強さ補正</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">35</td>
+<td>/effect @e[tag=TypeCheck,team=,type=!Player] minecraft:resistance 1 0 true</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">36</td>
+<td>/entitydata @e[tag=TypeCheck,type=PigZombie] {Anger:32767s}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">37</td>
+<td>/scoreboard players tag @e[tag=TypeCheck,type=Creeper] add LongFuse {Fuse:30s}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">38</td>
+<td>/entitydata @e[tag=LongFuse,type=Creeper] {Fuse:15s}</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">39</td>
+<td>/scoreboard players tag @e[tag=LongFuse,type=Creeper] remove LongFuse</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">40</td>
+<td>/scoreboard players tag @e[tag=TypeCheck] add TypeChecked</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">41</td>
+<td>/scoreboard players tag @e[tag=TypeCheck] remove TypeCheck</td>
+<td></td>
+<td>条件付き</td>
+</tr>
+</tbody>
+</table>
+<div class="datatable4c-end"></div>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<ol>
+<li><code>TypeCheck</code>を持ち、<code>FriendlyTeam</code>に属さず、<code>generic.followRange</code>(索敵範囲)を持ち、<code>Invulnerable</code>(無敵)がfalseであるすべてのエンティティに<code>Enemy</code>を付与し、以下の事柄を実行
+<ol>
+<li><code>TypeCheck</code>と<code>Enemy</code>を持つすべてのエンティティに<code>Poofable</code>を付与</li>
+<li><code>Enemy</code>と<code>TypeCheck</code>を持ち、<a href="#burnableenemy%E3%82%92%E6%8C%81%E3%81%9F%E3%81%AA%E3%81%84%E3%82%A8%E3%83%B3%E3%83%86%E3%82%A3%E3%83%86%E3%82%A3">以下の表</a>以外のすべてのエンティティに<code>BurnableEnemy</code>を付与</li>
+<li><code>Enemy</code>と<code>TypeCheck</code>を持ち、<a href="#LivingEnemy%E3%82%92%E6%8C%81%E3%81%9F%E3%81%AA%E3%81%84%E3%82%A8%E3%83%B3%E3%83%86%E3%82%A3%E3%83%86%E3%82%A3">以下の表</a>以外のすべてのエンティティに<code>LivingEnemy</code>を付与</li>
+<li><code>TypeCheck</code>を持つSlimeとLavaSlimeに<code>Slimy</code>を付与</li>
+<li><code>TypeCheck</code>と<code>Enemy</code>を持ち、<code>Passengers</code>の中にAECが含まれるすべてのエンティティに<code>HasCloud</code>を付与</li>
+<li><code>HasCloud</code>を持つすべてのエンティティから10m上の範囲に存在する<code>TypeCheck</code>を持つAECにデータタグを付与(<a href="#aec%E3%81%AB%E4%BB%98%E4%B8%8E%E3%81%99%E3%82%8B%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BF%E3%82%B0">以下</a>参照)</li>
+<li><code>HasCloud</code>を持つすべてのエンティティから<code>HasCloud</code>を削除</li>
+</ol>
+</li>
+<li><code>TypeCheck</code>を持ち、空気中に命中している(凍結されたチャンクに滞留してしまった投擲物?)に<code>FlyingObject</code>を付与し、以下の事柄を実行
+<ol>
+<li><code>TypeCheck</code>と<code>FlyingObject</code>を持つすべてのエンティティに<code>Driftable</code>を付与</li>
+<li><code>TypeCheck</code>と<code>FlyingObject</code>を持ち、地面に刺さっていなく、動いているすべてのエンティティに<code>Arrow</code>と<code>DriftableA</code>を付与</li>
+<li><code>TypeCheck</code>を持つすべてのShulkerBulletに<code>Driftable</code>を付与し、そこから半径5m以内にいる一体のShulkerにウィザーLv.1 1tick を付与</li>
+</ol>
+</li>
+<li><code>TypeCheck</code>を持つすべてのMinecartSpawnerに<code>CooldownRequired</code>を付与し、以下の事柄を実行
+<ol>
+<li><code>TypeCheck</code>を持ち、<code>PortalCooldown</code>が0であるすべてのMinecartSpawnerから<code>CooldownRequired</code>を削除</li>
+<li><code>TypeCheck</code>を持ち、<code>CooldownRequired</code>を持たないすべてのMinecartSpawnerに<code>FloatingRequired</code>を付与</li>
+</ol>
+</li>
+<li><code>TypeCheck</code>を持ち、<code>CareerLevel</code>(村人の取引レベル)が0であるVillagerに<code>Vanillager</code>(VanilaとVillagerを掛けてるんですかね)を付与し、以下の事柄を実行
+<ol>
+<li><code>Vanillager</code>を持つすべてのエンティティにデータタグを付与(<a href="#vanillager%E3%81%AB%E4%BB%98%E4%B8%8E%E3%81%99%E3%82%8B%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BF%E3%82%B0">以下</a>参照)</li>
+<li><code>Vanillager</code>を持つすべてのエンティティから<code>Vanillager</code>を削除</li>
+</ol>
+</li>
+<li><code>TypeCheck</code>を持つPrimedTntに{Fuse:0s,Motion:[0d,0d,0d]}を付与(<strong>要は即爆破TNTの処理</strong>)</li>
+<li><code>TypeCheck</code>を持ち、チームに含まれていないプレイヤー以外のすべてのエンティティに移動速度上昇と耐性をそれぞれ付与。**なお、この二つのステータス効果は<a href="/command/xCircuit2/xCircuit2_difficultyAdjustment.html">難易度調整</a>によって書き換えられる。**また、以下の事柄を実行
+<ol>
+<li><code>TypeCheck</code>を持つPigZombieの<code>Anger</code>を32767に設定</li>
+</ol>
+</li>
+<li><code>TypeCheck</code>を持ち、<code>Fuse</code>が30であるCreeperに<code>LongFuse</code>を付与し、以下の事柄を実行
+<ol>
+<li><code>LongFuse</code>を持つ<code>Creeper</code>の<code>Fuse</code>を15に設定</li>
+<li><code>LongFuse</code>を持つ<code>Creeper</code>から<code>LongFuse</code>を削除</li>
+</ol>
+</li>
+<li><code>TypeCheck</code>を持つすべてのエンティティに<code>TypeChecked</code>を付与し、<code>TypeCheck</code>を削除</li>
+</ol>
+<h3 id="burnableenemy%E3%82%92%E6%8C%81%E3%81%9F%E3%81%AA%E3%81%84%E3%82%A8%E3%83%B3%E3%83%86%E3%82%A3%E3%83%86%E3%82%A3">BurnableEnemyを持たないエンティティ</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>PigZombie</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>Blaze</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>Ghast</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>LavaSlime</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>WitherBoss</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td>WitherSkelton</td>
+</tr>
+</tbody>
+</table>
+<h3 id="livingenemy%E3%82%92%E6%8C%81%E3%81%9F%E3%81%AA%E3%81%84%E3%82%A8%E3%83%B3%E3%83%86%E3%82%A3%E3%83%86%E3%82%A3">LivingEnemyを持たないエンティティ</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th>Type</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td>Skelton</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td>WitherBoss</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td>ZombieHorse</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td>SkeltonHorse</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td>Zombie</td>
+<td><code>ConversionTime</code>(ゾンビが村人ゾンビに戻るまでのtick)が-1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="aec%E3%81%AB%E4%BB%98%E4%B8%8E%E3%81%99%E3%82%8B%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BF%E3%82%B0">AECに付与するデータタグ</h3>
+<table>
+<thead>
+<tr>
+<th>TagName</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tags</td>
+<td>MobCloud,TypeChecked</td>
+</tr>
+<tr>
+<td>Duration</td>
+<td>28</td>
+</tr>
+<tr>
+<td>Age</td>
+<td>5</td>
+</tr>
+<tr>
+<td>WaitTime</td>
+<td>5</td>
+</tr>
+<tr>
+<td>DurationOnUse</td>
+<td>0</td>
+</tr>
+<tr>
+<td>RadiusOnUse</td>
+<td>0</td>
+</tr>
+<tr>
+<td>RadiusPerTick</td>
+<td>0</td>
+</tr>
+<tr>
+<td>ReapplicationDelay</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vanillager%E3%81%AB%E4%BB%98%E4%B8%8E%E3%81%99%E3%82%8B%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BF%E3%82%B0">Vanillagerに付与するデータタグ</h3>
+<table>
+<thead>
+<tr>
+<th>TagName</th>
+<th>Value</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Profession</td>
+<td>0</td>
+<td>農民のスキン</td>
+</tr>
+<tr>
+<td>Carrer</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>CarrerLevel</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>Offers</td>
+<td>下記参照</td>
+<td>取引内容</td>
+</tr>
+</tbody>
+</table>
+<h4 id="vanillager%E3%81%AE%E5%8F%96%E5%BC%95%E5%86%85%E5%AE%B9">Vanillagerの取引内容</h4>
+<table>
+<thead>
+<tr>
+<th>買い取るアイテム</th>
+<th>個数</th>
+<th></th>
+<th>売るアイテム</th>
+<th>個数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>羊毛</td>
+<td>22</td>
+<td>-&gt;</td>
+<td>エメラルド</td>
+<td>1</td>
+</tr>
+<tr>
+<td>エメラルド</td>
+<td>4</td>
+<td>-&gt;</td>
+<td>ハサミ</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>

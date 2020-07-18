@@ -2,7 +2,7 @@
 title: "ディメンションタグ"
 tagName: ディメンション
 search: exclude
-permalink: tag_dimension.html
+permalink: tags/tag_dimension.html
 sidebar: mydoc_sidebar
 folder: tags
 ---

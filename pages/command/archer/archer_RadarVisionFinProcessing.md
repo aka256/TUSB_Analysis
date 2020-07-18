@@ -4,8 +4,7 @@ tags: [command,job]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/6/17
 sidebar: mydoc_sidebar
-permalink: archer_RadarVisionFinProcessing.html
-folder: command/archer
+permalink: command/archer/archer_radarVisionFinProcessing.html
 datatable4cnp: false
 search: exclude
 ---

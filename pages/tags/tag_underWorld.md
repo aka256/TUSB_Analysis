@@ -2,7 +2,7 @@
 title: "地下世界タグ"
 tagName: 地下世界
 search: exclude
-permalink: tag_underWorld.html
+permalink: tags/tag_underWorld.html
 sidebar: mydoc_sidebar
 folder: tags
 ---

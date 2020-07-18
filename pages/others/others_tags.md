@@ -4,9 +4,11 @@ tags: [タグ]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 update: 2020-07-10 09:00:00 +0000
 sidebar: mydoc_sidebar
-permalink: others_tags.html
+permalink: others/others_tags.html
 folder: others
 #search: exclude
+summary: コマンドに関係するタグについてまとめる。
+summaryDisable: true
 ---
 
 ## TagList

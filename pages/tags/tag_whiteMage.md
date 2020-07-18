@@ -2,7 +2,7 @@
 title: "白魔導士タグ"
 tagName: 白魔導士
 search: exclude
-permalink: tag_whiteMage.html
+permalink: tags/tag_whiteMage.html
 sidebar: mydoc_sidebar
 folder: tags
 ---

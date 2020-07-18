@@ -2,7 +2,7 @@
 title: "敵Mobタグ"
 tagName: 敵Mob
 search: exclude
-permalink: tag_enemy.html
+permalink: tags/tag_enemy.html
 sidebar: mydoc_sidebar
 folder: tags
 ---

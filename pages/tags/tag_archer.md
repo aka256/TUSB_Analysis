@@ -2,7 +2,7 @@
 title: "狩人タグ"
 tagName: 狩人
 search: exclude
-permalink: tag_archer.html
+permalink: tags/tag_archer.html
 sidebar: mydoc_sidebar
 folder: tags
 ---

@@ -1,6 +1,7 @@
 # Note:
 # If you are using the createtag script, don't leave an blank line at the end of this file.
 # In other words, the last line must be the last tag in the allowed-tags list.
+baseurl: /tags/
 allowed-tags:
   - tag: コマンド
     folder: tag_command.html
@@ -41,7 +42,7 @@ allowed-tags:
   - tag: 敵Mob
     folder: tag_enemy.html
   - tag: SystemEntity
-    folder: tag_systemEnetity.html
+    folder: tag_systemEntity.html
   - tag: 観光モード
     folder: tag_sightseeing.html
   - tag: 通常世界

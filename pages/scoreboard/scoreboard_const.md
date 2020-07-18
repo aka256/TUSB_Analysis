@@ -5,13 +5,15 @@ keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X�
 last_updated: 2020/6/17
 update: 2020-07-14 09:00:00 +0000
 sidebar: mydoc_sidebar
-permalink: scoreboard_const.html
+permalink: scoreboard/scoreboard_const.html
 folder: scoreboard
+summary: スコアの計算等に用いられる定数群である。
+summaryDisable: true
 ---
 
 ## About
 
-スコアの計算等に用いられる定数群
+スコアの計算等に用いられる定数群である。
 
 |Objective|Criterion|
 |-|-|

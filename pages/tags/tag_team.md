@@ -2,7 +2,7 @@
 title: "チームタグ"
 tagName: チーム
 search: exclude
-permalink: tag_team.html
+permalink: tags/tag_team.html
 sidebar: mydoc_sidebar
 folder: tags
 ---

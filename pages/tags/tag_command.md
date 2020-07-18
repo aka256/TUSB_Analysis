@@ -2,7 +2,7 @@
 title: "コマンドタグ"
 tagName: コマンド
 search: exclude
-permalink: tag_command.html
+permalink: tags/tag_command.html
 sidebar: mydoc_sidebar
 folder: tags
 ---

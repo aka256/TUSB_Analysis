@@ -2,7 +2,7 @@
 title: "SystemEntityタグ"
 tagName: SystemEntity
 search: exclude
-permalink: tag_systemEntiry.html
+permalink: tags/tag_systemEntity.html
 sidebar: mydoc_sidebar
 folder: tags
 ---

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>xCircuit2_conquerProcessing.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="about">About</h2>
+<p><span class="tagYellow">位置</span> (-1920,17,-191),(-1920,18,-191)</p>
+<p><span class="tagBlack">呼び出し元</span> <a href="/command/xCircuit2/xCircuit2_reset.html">毎tick実行するコマンド群2</a></p>
+<p><span class="tagBlue">分岐先</span> <a href="/command/xCircuit2/xCircuit2_clockIslandProcessing.html">時計島</a></p>
+<p>島攻略時の演出や、攻略率による時計島の形態変化への分岐、月島の処理、製作者村人の出現などの処理を行う。</p>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
+<h3 id="192017-191%E3%81%AB%E3%81%82%E3%82%8B%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86%E3%81%A8%E3%81%84%E3%81%86%E7%9C%8B%E6%9D%BF%E3%81%8C%E3%81%A4%E3%81%84%E3%81%A6%E3%81%84%E3%82%8B%E3%82%82%E3%81%AE">(-1920,17,-191)にあるコマンド群 (島攻略処理という看板がついているもの)</h3>
+<div class="datatable3c-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/scoreboard players tag @a[score_UseEnderEye_min=1,c=1] add Conquer</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/scoreboard players reset @a[tag=Conquer] UseEnderEye</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/execute @a[tag=Conquer,score_USBDimension=-1] ~ ~ ~ /scoreboard players add #ConqCntNether Global 1</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">/execute @a[tag=Conquer,score_USBDimension_min=100] ~ ~ ~ /scoreboard players add #ConqCntEnd Global 1</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">/execute @a[tag=Conquer,score_USBDimension_min=0,score_USBDimension=0] ~ ~ ~ /scoreboard players add #ConqCntSkylands Global 1</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">/execute @a[tag=Conquer,score_USBDimension_min=1,score_USBDimension=1] ~ ~ ~ /scoreboard players add #ConqCntUnderworld Global 1</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">/execute @a[tag=Conquer,score_USBDimension_min=10,score_USBDimension=10] ~ ~ ~ /scoreboard players add #ConqCntCloudia Global 1</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">/execute @a[tag=Conquer,score_USBDimension_min=11,score_USBDimension=11] ~ ~ ~ /scoreboard players add #ConqCntMtTable Global 1</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">/execute @a[tag=Conquer,score_USBDimension_min=12,score_USBDimension=12] ~ ~ ~ /scoreboard players add #ConqCntGLand Global 1</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">/execute @a[tag=Conquer,score_USBDimension_min=13,score_USBDimension=13] ~ ~ ~ /scoreboard players add #ConqCntIce Global 1</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">/scoreboard players tag @a[tag=Conquer] remove Conquer</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:left">/scoreboard players add #ConquerCount Global 1</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left">/scoreboard players operation #ConquerPctInt Global = #ConquerCount Global</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:left">/scoreboard players operation #ConquerPctInt Global *= #1000 Const</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:left">/scoreboard players operation #ConquerPctInt Global /= #ConquerMax Const</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:left">/scoreboard players operation #ConquerPctDec Global = #ConquerPctInt Global</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:left">/scoreboard players operation #ConquerPctInt Global /= #10 Const</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:left">/scoreboard players operation #ConquerPctDec Global %= #10 Const</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:left">/scoreboard players operation #ConquerCountResidue Global = #ConquerCount Global</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:left">/scoreboard players operation #ConquerCountResidue Global %= #AddStuffSpan Const</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:left">/execute @a ~ ~ ~ /playsound entity.enderdragon.death master @a[c=1] ~ ~ ~ 0.3 2 0.3</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:left">/execute @a ~ ~ ~ /particle happyVillager ~ ~ ~ 1 1 1 0 30 normal</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:left">/execute @a ~ ~ ~ /particle instantSpell ~ ~1 ~ 1 1 1 0.1 90 normal</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:left">/execute @a ~ ~1 ~ /summon FireworksRocketEntity ~ ~ ~ {LifeTime:10,FireworksItem:{id:minecraft:fireworks,Count:1b,tag:{Fireworks:{Explosions:[{Type:1b,Flicker:true,Trail:true,Colors:[16774552],FadeColors:[16777215]},{Type:0b,Flicker:false,Trail:false,Colors:[65407,16777215,16777215],FadeColors:[16777215]}]}}}}</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:left">/title @a times 5 150 20</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td style="text-align:left">/title @a subtitle {&quot;translate&quot;:&quot;攻略率 : %1$s/%2$s (%3$s.%4$s%%)&quot;,&quot;italic&quot;:true,&quot;color&quot;:&quot;white&quot;,&quot;with&quot;:[{&quot;score&quot;:{&quot;name&quot;:&quot;#ConquerCount&quot;,&quot;objective&quot;:&quot;Global&quot;},&quot;bold&quot;:true,&quot;italic&quot;:false},{&quot;score&quot;:{&quot;name&quot;:&quot;#ConquerMax&quot;,&quot;objective&quot;:&quot;Const&quot;}},{&quot;score&quot;:{&quot;name&quot;:&quot;#ConquerPctInt&quot;,&quot;objective&quot;:&quot;Global&quot;}},{&quot;score&quot;:{&quot;name&quot;:&quot;#ConquerPctDec&quot;,&quot;objective&quot;:&quot;Global&quot;}}]}</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:left">/title @a title {&quot;text&quot;:&quot;島を攻略した！&quot;,&quot;color&quot;:&quot;gold&quot;,&quot;bold&quot;:true}</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">28</td>
+<td style="text-align:left">/effect @a minecraft:instant_health 1 6 true</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td style="text-align:left">/effect @a minecraft:saturation 1 19 true</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td style="text-align:left">/scoreboard players test Sightseeing Settings * 0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td style="text-align:left">/time query gametime</td>
+<td style="text-align:left">条件付き [補足]あり</td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td style="text-align:left">/scoreboard players operation #ConqTimeSec Global -= #StartTime Global</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td style="text-align:left">/scoreboard players operation #ConqTimeSec Global /= #20 Const</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">34</td>
+<td style="text-align:left">/scoreboard players operation #ConqTimeMin Global = #ConqTimeSec Global</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">35</td>
+<td style="text-align:left">/scoreboard players operation #ConqTimeSec Global %= #60 Const</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">36</td>
+<td style="text-align:left">/scoreboard players operation #ConqTimeMin Global /= #60 Const</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">37</td>
+<td style="text-align:left">/scoreboard players operation #ConqTimeHour Global = #ConqTimeMin Global</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">38</td>
+<td style="text-align:left">/scoreboard players operation #ConqTimeMin Global %= #60 Const</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">39</td>
+<td style="text-align:left">/scoreboard players operation #ConqTimeHour Global /= #60 Const</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">40</td>
+<td style="text-align:left">/tellraw @a {&quot;translate&quot;:&quot;攻略タイム : %1$s&quot;,&quot;italic&quot;:true,&quot;bold&quot;:true,&quot;color&quot;:&quot;white&quot;,&quot;with&quot;:[{&quot;translate&quot;:&quot;%1$s時間%2$s分%3$s秒&quot;,&quot;italic&quot;:&quot;false&quot;,&quot;with&quot;:[{&quot;score&quot;:{&quot;name&quot;:&quot;#ConqTimeHour&quot;,&quot;objective&quot;:&quot;Global&quot;}},{&quot;score&quot;:{&quot;name&quot;:&quot;#ConqTimeMin&quot;,&quot;objective&quot;:&quot;Global&quot;}},{&quot;score&quot;:{&quot;name&quot;:&quot;#ConqTimeSec&quot;,&quot;objective&quot;:&quot;Global&quot;}}]}]}</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+</tbody>
+</table>
+<div class="datatable3c-end"></div>
+<h4 id="no31%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">No.31のコマンドブロックについて</h4>
+<p>No.31 のコマンドブロックには、以下のデータタグが付与されている。</p>
+<pre class="hljs"><code><div>CommandStats:{QueryResultName:&quot;#ConqTimeSec&quot;,QueryResultObjective:&quot;Global&quot;}
+</div></code></pre>
+<h3 id="192018-191%E3%81%AB%E3%81%82%E3%82%8B%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86%E3%81%A8%E3%81%84%E3%81%86%E7%9C%8B%E6%9D%BF%E3%81%8C%E3%81%A4%E3%81%84%E3%81%A6%E3%81%84%E3%82%8B%E3%82%82%E3%81%AE%E3%81%AE%E4%B8%8A%E3%81%AE%E3%82%84%E3%81%A4">(-1920,18,-191)にあるコマンド群 (島攻略処理という看板がついているものの上のやつ)</h3>
+<div class="datatable3c-begin"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">No.</th>
+<th style="text-align:left">コマンド</th>
+<th style="text-align:left">状態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:left">/scoreboard players test #ConquerCountResidue Global 0 0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:left">/entitydata @r[-1899,3,-82,dx=20,dy=2,dz=2,type=Villager,tag=!ShopStaff,c=1] {NoAI:false,Silent:false,Tags:[ShopStaff,TypeChecked]}</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:left">/scoreboard players test Prayable Settings * 0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:left">/testforblock -70 15 32 minecraft:end_portal_frame 7</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:left">/scoreboard players set Prayable Settings 1</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:left">/scoreboard players test ForceNight Settings * 0</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:left">/execute 0-0-1-0-1 -1920 4 -96 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###時計島</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:left">/scoreboard players test ForceNight Settings 1 *</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:left">/testforblock 3 77 87 minecraft:end_portal_frame 4</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:left">/time set day</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:left">/gamerule doDaylightCycle true</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:left">/scoreboard players remove #PastorMax Global 2</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left">/scoreboard players set ForceNight Settings 0</td>
+<td style="text-align:left">条件付き</td>
+</tr>
+</tbody>
+</table>
+<div class="datatable3c-end"></div>
+<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
+<h3 id="192017-191%E3%81%AB%E3%81%82%E3%82%8B%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86%E3%81%A8%E3%81%84%E3%81%86%E7%9C%8B%E6%9D%BF%E3%81%8C%E3%81%A4%E3%81%84%E3%81%A6%E3%81%84%E3%82%8B%E3%82%82%E3%81%AE">(-1920,17,-191)にあるコマンド群 (島攻略処理という看板がついているもの)</h3>
+<ol>
+<li><code>UseEnderEye</code>が1以上であるプレイヤーを一人選択し、<code>Conquer</code>を付与</li>
+<li><code>Conquer</code>を持つプレイヤーの<code>UseEnderEye</code>を0に設定</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が-1以下であるプレイヤーがいるとき、<code>#ConqCntNether</code>の<code>Global</code>を1を加算する</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が100以上であるプレイヤーがいるとき、<code>#ConqCntEnd</code>の<code>Global</code>を1を加算する</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が0であるプレイヤーがいるとき、<code>#ConqCntSkylands</code>の<code>Global</code>を1を加算する</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が1であるプレイヤーがいるとき、<code>#ConqCntUnderworld</code>の<code>Global</code>を1を加算する</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が10であるプレイヤーがいるとき、<code>#ConqCntCloudia</code>の<code>Global</code>を1を加算する</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が11であるプレイヤーがいるとき、<code>#ConqCntMtTable</code>の<code>Global</code>を1を加算する</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が12であるプレイヤーがいるとき、<code>#ConqCntGLand</code>の<code>Global</code>を1を加算する</li>
+<li><code>Conquer</code>を持ち、<code>USBDimension</code>が13であるプレイヤーがいるとき、<code>#ConqCntIce</code>の<code>Global</code>を1を加算する</li>
+<li><code>Conquer</code>を持つプレイヤーから<code>Conquer</code>を消去</li>
+<li><code>#ConquerCount</code>の<code>Global</code>に1を足す</li>
+<li><code>#ConquerPctInt</code>の<code>Global</code>に<code>#ConquerCount</code>の<code>Global</code>を代入し、1000を掛け、<code>#ConquerMax</code>の<code>Const</code> = 50で割る</li>
+<li><code>#ConquerPctDec</code>の<code>Global</code>に<code>#ConquerPctInt</code>の<code>Global</code>を代入</li>
+<li><code>#ConquerPctInt</code>の<code>Global</code>を10で割る</li>
+<li><code>#ConquerPctDec</code>の<code>Global</code>を10との剰余を代入
+<ul>
+<li><code>#ConquerPctInt</code>'s <code>Global</code> = <code>ConquerCount</code>'s <code>Global</code> * 1000 / 50 / 10 = <code>ConquerCount</code>'s<code>Global</code> * 2</li>
+<li><code>#ConquerPctDec</code>'s <code>Global</code> = <code>#ConquerPctInt</code>'s <code>Global</code> % 10</li>
+<li><code>#ConquerPctInt</code>の<code>Global</code>が攻略率の整数部、<code>#ConquerPctDec</code>の<code>Global</code>が攻略率の小数部</li>
+</ul>
+</li>
+<li><code>#ConquerCountResidue</code>の<code>Global</code>に<code>#ConquerCount</code>の<code>Global</code>を代入し、<code>#AddStuffSpan</code>の<code>Const</code>=4で割る
+<ul>
+<li><code>#ConquerCountResidue</code>'s <code>Global</code> = <code>#ConquerCount</code>'s <code>Global</code> / 4</li>
+</ul>
+</li>
+<li>すべてのプレイヤーの座標で演出を実行し、即時回復Lv.6を1秒間、満腹Lv.19を1秒間付与</li>
+<li><code>Sightseeing</code>の<code>Setting</code>が0以下の時、以下の事柄を実行
+<ol>
+<li>ワールドが作られてからの時間を<code>ConqTimeSec</code>に代入</li>
+<li><code>StartTime</code>から攻略時間を計算し、<code>ConqTimeSec</code>、<code>ConqTimeMin</code>、<code>ConqTimeHour</code>にそれぞれに対応する値を代入</li>
+<li>攻略タイムの表示</li>
+</ol>
+</li>
+</ol>
+<h3 id="192018-191%E3%81%AB%E3%81%82%E3%82%8B%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4-%E5%B3%B6%E6%94%BB%E7%95%A5%E5%87%A6%E7%90%86%E3%81%A8%E3%81%84%E3%81%86%E7%9C%8B%E6%9D%BF%E3%81%8C%E3%81%A4%E3%81%84%E3%81%A6%E3%81%84%E3%82%8B%E3%82%82%E3%81%AE%E3%81%AE%E4%B8%8A%E3%81%AE%E3%82%84%E3%81%A4">(-1920,18,-191)にあるコマンド群 (島攻略処理という看板がついているものの上のやつ)</h3>
+<ol>
+<li><code>#ConquerCountResidue</code>の<code>Global</code>が0の時、以下の事柄を実行
+<ul>
+<li>(-1899,3,-82)付近にいる製作者村人に{NoAI:false,Silent:false,Tags:[ShopStaff,TypeChecked]}を付与</li>
+</ul>
+</li>
+<li><code>Prayable</code>の<code>Settings</code>が0以下の時、以下の事柄を実行
+<ul>
+<li>(-70,15,32)(交易島)の東向きでエンダーアイがはめられているエンドポータルフレームが存在する時、<code>Prayable</code>の<code>Settings</code>を1に設定</li>
+</ul>
+</li>
+<li><code>ForceNight</code>の<code>Settings</code>が0以下の時、以下の事柄を実行
+<ul>
+<li><a href="/entity/entity_entity.html#commongm">CommonGM</a>が(-1920,4,-96)にある<a href="/command/xCircuit2/xCircuit2_clockIslandProcessing.html">時計島</a>を実行</li>
+</ul>
+</li>
+<li><code>ForceNight</code>の<code>Settings</code>が1以上であり、(3,77,87)にある南向きでエンダーアイがはめられたエンドポータルフレーム(月島のエンドポータルフレーム)が存在する時、以下の事柄を実行
+<ol>
+<li>時間をdayに設定し、<code>doDaylightCycle</code>をtrueに変更</li>
+<li><code>#PastorMax</code>の<code>Global</code>から2引く</li>
+<li><code>ForceNight</code>の<code>Settings</code>を0に設定</li>
+</ol>
+</li>
+</ol>
+
+</body>
+</html>

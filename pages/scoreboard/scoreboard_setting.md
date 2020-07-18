@@ -5,13 +5,15 @@ keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X�
 last_updated: 2020/6/17
 update: 2020-07-14 09:00:00 +0000
 sidebar: mydoc_sidebar
-permalink: scoreboard_setting.html
+permalink: scoreboard/scoreboard_setting.html
 folder: scoreboard
+summary: 様々な設定を管理しているスコアである。
+summaryDisable: true
 ---
 
 ## About
 
-様々な設定を管理しているスコア
+様々な設定を管理しているスコアである。
 
 |Objective|Criterion|
 |-|-|
@@ -28,7 +30,7 @@ folder: scoreboard
 
 ### Sightseeing
 
-観光モードの適応状況を示すスコア。当然だが観光モードをONにすると、書き換えられる。詳しくは[観光モード提案開始](3_suggestSightseeing.html)
+観光モードの適応状況を示すスコア。当然だが観光モードをONにすると、書き換えられる。詳しくは[観光モード提案開始](/command/xCircuit3/xCircuit3_suggestSightseeing.html)
 
 |値|説明|
 |-|-|
@@ -37,7 +39,7 @@ folder: scoreboard
 
 ### ForceNight
 
-強制的に夜にするかどうかを示すスコア。月島のエンドポータルフレームにエンダーアイをはめることにより、書き換えられる。詳しくは[島攻略処理](conquerProcessing.html)
+強制的に夜にするかどうかを示すスコア。月島のエンドポータルフレームにエンダーアイをはめることにより、書き換えられる。詳しくは[島攻略処理](/command/xCircuit2/xCircuit2_conquerProcessing.html)
 
 |値|説明|
 |-|-|
@@ -55,7 +57,7 @@ folder: scoreboard
 
 ### Prayable
 
-お祈りをすることができるか、管理するスコア。交易島の教会内にあるエンドポータルフレームにエンダーアイをはめることにより、書き換えられる。詳しくは[島攻略処理](conquerProcessing.html)
+お祈りをすることができるか、管理するスコア。交易島の教会内にあるエンドポータルフレームにエンダーアイをはめることにより、書き換えられる。詳しくは[島攻略処理](/command/xCircuit2/xCircuit2_conquerProcessing.html)
 
 |値|説明|
 |-|-|
@@ -64,7 +66,7 @@ folder: scoreboard
 
 ### MobGriefing
 
-ゲームルールのmobGriefingの値を保存するスコア。[毎tick必ず最初に実行したいコマンド群](runFirst.html)で書き換えられる。
+ゲームルールのmobGriefingの値を保存するスコア。[毎tick実行するコマンド群1](/command/xCircuit1/xCircuit1_runFirst.html)で書き換えられる。
 
 |値|説明|
 |-|-|
@@ -72,7 +74,7 @@ folder: scoreboard
 
 ### Difficulty
 
-攻略率による難易度を数値化したもの。`TypeCheck`を持つエンティティ(すべての敵Mob)へのバフのレベルに影響を与える。詳しくは[難易度調整](difficultyAdjustment.html)と[タイプ設定](3_typeSetting.html)
+攻略率による難易度を数値化したもの。`TypeCheck`を持つエンティティ(すべての敵Mob)へのバフのレベルに影響を与える。詳しくは[難易度調整](/command/xCircuit2/xCircuit2_difficultyAdjustment.html)と[タイプ設定](/command/xCircuit3/xCircuit3_typeSetting.html)
 
 $$
 Difficult = (PlayerNum)^2+ConquerPctInt\\

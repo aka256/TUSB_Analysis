@@ -2,7 +2,7 @@
 title: "スコアボードタグ"
 tagName: スコアボード
 search: exclude
-permalink: tag_scoreboard.html
+permalink: tags/tag_scoreboard.html
 sidebar: mydoc_sidebar
 folder: tags
 ---

@@ -5,8 +5,7 @@ keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X�
 last_updated: 2020/6/23
 update: 2020/6/23
 sidebar: mydoc_sidebar
-permalink: summoner_fill.html
-folder: summoner
+permalink: command/summoner/summoner_fill.html
 datatable4cnp: false
 search: exclude
 ---
