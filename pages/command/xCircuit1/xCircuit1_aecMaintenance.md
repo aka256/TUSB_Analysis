@@ -15,9 +15,9 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,12,-200)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群1](/command/xCircuit1/xCircuit1_runFirst.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群1]({{site.baseurl}}/command/xCircuit1/xCircuit1_runFirst.html)
 
-<span class="tagBlue">分岐先</span> [ネザーボス戦闘中](/command/netherBoss/netherBoss_processing.html)
+<span class="tagBlue">分岐先</span> [ネザーボス戦闘中]({{site.baseurl}}/command/netherBoss/netherBoss_processing.html)
 
 敵MobのAEC(ルナティックアイのデバフなど)の延長処理や煉獄のボスの実行、死の宣告、特殊スポナー処理、不正対策等が行われているコマンド群である。
 
@@ -55,7 +55,7 @@ summaryDisable: true
 ## 詳細
 
 1. `MobCloud`を持つエンティティの座標から、x座標が同一であり`Enemy`を持つエンティティを一つ選択し、その座標から上に10mで`MobCloud`を持つエンティティに{Age:5}を付与
-2. ネザーの(-1859,31,-124)にいる[NetherBossPoint](/entity/entity_entity.html#netherbosspoint)から(-1860,20,-51)(煉獄最下層のボス部屋の中心)がスライムブロックであり、(-1859,12,-50)から65m以内にプレイヤーがいる場合、OverWorldの(-1920,11,-195)にある[ネザーボス戦闘中](/command/netherBoss/netherBoss_Processing.html)を実行
+2. ネザーの(-1859,31,-124)にいる[NetherBossPoint]({{site.baseurl}}/entity/entity_entity.html#netherbosspoint)から(-1860,20,-51)(煉獄最下層のボス部屋の中心)がスライムブロックであり、(-1859,12,-50)から65m以内にプレイヤーがいる場合、OverWorldの(-1920,11,-195)にある[ネザーボス戦闘中]({{site.baseurl}}/command/netherBoss/netherBoss_Processing.html)を実行
 3. `Doom`(tag)を持つプレイヤーが存在したら、`DoomSecond`から1を引き、以下の事柄を実行 (死の宣告処理)
    1. `Doom`(tag)を持ち、`DoomSecond`が0以下であるプレイヤーの`Doom`(score)から1を引き、`Doom`(score)の値を表示、`DoomSecond`を3に設定
    2. `Doom`(tag)を持ち、`Doom`(score)が0以下であるプレイヤーをキル

@@ -16,7 +16,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,11,-189)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群3](/command/xCircuit3/xCircuit3_command.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群3]({{site.baseurl}}/command/xCircuit3/xCircuit3_command.html)
 
 交易島の教会にいる牧師との会話処理を行う。
 
@@ -59,7 +59,7 @@ CommandStats:{QueryResultName:"#Random",QueryResultObjective:"Global"}
 
 ## 詳細
 
-1. [ShopGM](/entity/entity_entity.html#shopgm)から半径24m以内にいる`Pastor`を持つ村人(牧師)を一人選択し、その村人から5m以内にいる`PastorFlag`が1以上であるすべてのプレイヤーに`PastorResume`を付与
+1. [ShopGM]({{site.baseurl}}/entity/entity_entity.html#shopgm)から半径24m以内にいる`Pastor`を持つ村人(牧師)を一人選択し、その村人から5m以内にいる`PastorFlag`が1以上であるすべてのプレイヤーに`PastorResume`を付与
 2. `PastorFlag`が1以上であり、`PastorResume`を持たないすべてのプレイヤーに`PastorFlag`への書き込みを許可し、それを0に設定
 3. `PastorFlag`が1であり、`PastorResume`を持つすべてのプレイヤーに`PastorNo`を付与
 4. `PastorFlag`が2以上であり、`PastorResume`を持つすべてのプレイヤーに`PastorYes`を付与

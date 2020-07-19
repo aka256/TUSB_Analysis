@@ -16,11 +16,11 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,14,-188)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群3](/command/xCircuit3/xCircuit3_command.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群3]({{site.baseurl}}/command/xCircuit3/xCircuit3_command.html)
 
 `TypeCheck`を持ったエンティティに対して、特定のタグの付与や野良の村人の処理、TNT、クリーパーの即爆破処理、そして攻略率に対する難易度上昇処理などを行っている。
 
-{% include important.html content="このコマンド群の中には[難易度調整](/command/xCircuit2/xCircuit2_difficultyAdjustment.html)から**直接コマンドを書き換えられるコマンドがある**ため、ここをいじる場合には注意すべし" %}
+{% include important.html content="このコマンド群の中には[難易度調整](/TUSB_Analysis/command/xCircuit2/xCircuit2_difficultyAdjustment.html)から**直接コマンドを書き換えられるコマンドがある**ため、ここをいじる場合には注意すべし" %}
 
 ## コマンド群
 
@@ -94,7 +94,7 @@ summaryDisable: true
    1. `Vanillager`を持つすべてのエンティティにデータタグを付与([以下](#vanillagerに付与するデータタグ)参照)
    2. `Vanillager`を持つすべてのエンティティから`Vanillager`を削除
 5. `TypeCheck`を持つPrimedTntに{Fuse:0s,Motion:[0d,0d,0d]}を付与(**要は即爆破TNTの処理**)
-6. `TypeCheck`を持ち、チームに含まれていないプレイヤー以外のすべてのエンティティに移動速度上昇と耐性をそれぞれ付与。**なお、この二つのステータス効果は[難易度調整](/command/xCircuit2/xCircuit2_difficultyAdjustment.html)によって書き換えられる。**また、以下の事柄を実行
+6. `TypeCheck`を持ち、チームに含まれていないプレイヤー以外のすべてのエンティティに移動速度上昇と耐性をそれぞれ付与。**なお、この二つのステータス効果は[難易度調整](/TUSB_Analysis/command/xCircuit2/xCircuit2_difficultyAdjustment.html)によって書き換えられる。**また、以下の事柄を実行
    1. `TypeCheck`を持つPigZombieの`Anger`を32767に設定
 7. `TypeCheck`を持ち、`Fuse`が30であるCreeperに`LongFuse`を付与し、以下の事柄を実行
    1. `LongFuse`を持つ`Creeper`の`Fuse`を15に設定

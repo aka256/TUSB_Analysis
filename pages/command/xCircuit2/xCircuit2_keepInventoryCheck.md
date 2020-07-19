@@ -16,7 +16,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,16,-192)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群2](/command/xCircuit2/xCircuit2_reset.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群2]({{site.baseurl}}/command/xCircuit2/xCircuit2_reset.html)
 
 観光モード関係の処理と思われるが、確証がまだ得られていない。
 

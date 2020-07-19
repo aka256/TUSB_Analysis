@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>xCircuit3_agentTalk.md</title>
+<title>scraftingtable_createRecipe.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -365,102 +365,39 @@ code {
           : 'default'
     });
   </script>
-<h2 id="about">About</h2>
-<p><span class="tagYellow">位置</span> (-1920,12,-189)</p>
-<p><span class="tagBlack">呼び出し元</span> <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_command.html">毎tick実行するコマンド群3</a></p>
-<p>交易島にいるエージェントとの会話処理を行い、その会話内容やプレイヤーの手持ちのエメラルド等により職業島までのワープフラグを与える。</p>
-<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
-<div class="datatable3cnp-begin"></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">No.</th>
-<th>コマンド</th>
-<th>状態</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td>/execute 0-0-1-0-2 ~ ~ ~ /execute @e[r=24,type=Villager,tag=Agent,c=1] ~ ~ ~ /scoreboard players tag @a[r=5,score_AgentFlag_min=1] add AgentYes</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td>/scoreboard players enable @a[score_AgentFlag_min=1,tag=!AgentYes] AgentFlag</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td>/scoreboard players set @a[score_AgentFlag_min=1] AgentFlag 0</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td>/scoreboard players set @a[tag=AgentYes] ItemCount -1</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td>/clear @a[tag=AgentYes] minecraft:emerald 0 0</td>
-<td>条件付き</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td>/execute @a[tag=AgentYes] ~ ~ ~ /scoreboard players operation @a[c=1] ItemCount -= @a[c=1] AgentWarpCost</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td>/tellraw @a[tag=AgentYes,score_ItemCount=-1] {&quot;text&quot;:&quot;[エージェント] エメラルドが足りないナ。&quot;}</td>
-<td>条件付き</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td>/scoreboard players reset @a[tag=AgentYes,score_ItemCount=-1] AgentFlag</td>
-<td>条件付き</td>
-</tr>
-<tr>
-<td style="text-align:center">10</td>
-<td>/tellraw @a[tag=AgentYes,score_ItemCount_min=0] {&quot;text&quot;:&quot;[エージェント] 代金は頂いタ。もう１度アイテムを持たずに話しかけてくレ。&quot;}</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td>/execute @a[tag=AgentYes,score_ItemCount_min=0] ~ ~ ~ /scoreboard players operation @a[c=1] Payment += @a[c=1] AgentWarpCost</td>
-<td>条件付き</td>
-</tr>
-<tr>
-<td style="text-align:center">12</td>
-<td>/scoreboard players tag @a[tag=AgentYes,score_ItemCount_min=0] add AgentOK</td>
-<td>条件付き</td>
-</tr>
-<tr>
-<td style="text-align:center">13</td>
-<td>/scoreboard players tag @a[tag=AgentYes] remove AgentYes</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<div class="datatable3cnp-end"></div>
-<h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
-<ol>
-<li><a href="%7B%7Bsite.baseurl%7D%7D/entity/entity_entity.html#shopgm">ShopGM</a>から半径24m以内の<code>Agent</code>を持つ村人(エージェント)を一人選択し、その村人から半径5m以内の<code>AgentFlag</code>が1以上であるすべてのプレイヤーに<code>AgentYes</code>を付与</li>
-<li><code>AgentFlag</code>が1以上であり、<code>AgentYes</code>を持っていないすべてのプレイヤーに<code>AgentFlag</code>への書き込みを許可</li>
-<li><code>AgentFlag</code>が1以上であるすべてのプレイヤーの<code>AgentFlag</code>を0に設定</li>
-<li><code>AgentYes</code>を持つすべてのプレイヤーの<code>ItemCount</code>を-1に設定</li>
-<li><code>AgentYes</code>を持つプレイヤーを一人選択し、<code>ItemCount</code>から<code>AgentWarpCost</code>を引き、以下の事柄を実行
-<ul>
-<li><code>AgentYes</code>を持ち、<code>ItemCount</code>が-1以上であるすべてのプレイヤーに「[エージェント] エメラルドが足りないナ。」とのメッセージを送信し、AgentFlagを0に設定</li>
-</ul>
-</li>
-<li><code>AgentYes</code>を持ち、<code>ItemCount</code>が0以上であるすべてのプレイヤーに「[エージェント] 代金は頂いタ。もう１度アイテムを持たずに話しかけてくレ。」とのメッセージを表示し、以下の事柄を実行
-<ul>
-<li><code>Payment</code>に<code>AgentWarpCost</code>を足して<code>AgentOK</code>を付与</li>
-</ul>
-</li>
-<li><code>AgentYes</code>を持つすべてのプレイヤーから<code>AgentYes</code>を削除</li>
-</ol>
+<h2 id="%E8%B6%85%E4%BD%9C%E6%A5%AD%E5%8F%B0%E3%81%AE%E3%83%AC%E3%82%B7%E3%83%94%E8%BF%BD%E5%8A%A0%E6%96%B9%E6%B3%95">超作業台のレシピ追加方法</h2>
+<p>超作業台へのレシピの追加方法について説明していく。超作業台の仕組みについて知りたい場合は<a href="%7B%7Bsite.baseurl%7D%7D/scraftingtable/scraftingtable_about.html">超作業台について</a>を参照。</p>
+<p>{% include warning.html content=&quot;超作業台へのレシピ追加など、TUSBの改造は公式のサポート範囲外と思われるので実際に行う際は<strong>自己責任で行うように。</strong>&quot; %}</p>
+<p>{% include important.html content=&quot;作業を始める前に、<strong>ワールドのバックアップを取っておくことを推奨する。</strong>&quot; %}</p>
+<h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AE%E4%BD%BF%E7%94%A8%E3%82%92%E8%A8%B1%E5%8F%AF">コマンドの使用を許可</h3>
+<p>作業を始める前にコマンドが使える状態にする。方法としてはいろいろあるが、今回は簡単に行える方法を取る。</p>
+<p>{% include image.html file=&quot;escMenu.png&quot; alt=&quot;EscMenu&quot; caption=&quot;Escを押したときのメニュー&quot; %}</p>
+<p>まず、レシピを追加したいTUSBのワールドに入り、Escを押した際の&quot;LANに公開&quot;を押す。</p>
+<p>{% include image.html file=&quot;publishedonLAN.jpeg&quot; alt=&quot;LANに公開&quot; caption=&quot;LANに公開を押したときのメニュー&quot; %}</p>
+<p>そして、チートの許可をオンに変更し、LANワールドの開始を選択する。
+これにより、コマンドが使用できるようになった。なお、一旦ワールドから抜けるとこの設定は解除され、再びLANワールドを開始する必要がある。</p>
+<h3 id="%E8%B6%85%E4%BD%9C%E6%A5%AD%E5%8F%B0%E3%83%AB%E3%83%BC%E3%83%A0%E3%81%B8%E3%81%AE%E4%BE%B5%E5%85%A5">超作業台ルームへの侵入</h3>
+<p>超作業台ルームはスキル設定所の下にある。そこに侵入するには、スペクターモードに変更して行く方法がベストだろう。
+スペクターモードに変更したら、スキル設定所の入り口付近の床を下にすり抜けるとすぐに超作業台ルームにたどり着くことができる。しかし、ここはすべてバリアブロック埋もれているのでこれを取り払う必要がある。手動で1つ1つ壊してもいいのだが、専用のコマンドブロックが用意されているので使わせてもらおう。まず、壁沿いのExitという文字のEの下あたりに赤と青の羊毛がある。</p>
+<p>{% include image.html file=&quot;switch.png&quot; alt=&quot;スイッチ&quot; caption=&quot;バリアブロックを管理するコマンド&quot; %}</p>
+<p>そこにある穴を覗くとボタンがある。青の方がバリアブロック除去、赤がバリアブロック設置するコマンドとなっているので、今回は青の方のボタンを押す。(このときはクリエイティブに変更してバリアブロックを壊してボタンを押す必要がある)すると、バリアブロックが取り払われ、作業がしやすくなる。</p>
+<h3 id="%E3%83%AC%E3%82%B7%E3%83%94%E3%81%AE%E7%99%BB%E9%8C%B2">レシピの登録</h3>
+<p>次にレシピの登録を行う。まず、レシピを登録する場所を決めるのだが、レッドストーンブロックの上が白いガラスブロックである部分が、レシピ未登録部分であるのでその中から一か所を選ぶ。</p>
+<p>{% include image.html file=&quot;before.png&quot; alt=&quot;決定場所&quot; caption=&quot;今回はここにレシピを登録する&quot; %}</p>
+<p>次に、下側のドロッパーの1ブロック下にレッドストーンブロックを置く。このとき周囲のガラスブロックやマグマブロックなどは壊してしまって構わない。</p>
+<p>{% include image.html file=&quot;setredstone.png&quot; alt=&quot;レッドストーンブロックの設置&quot; caption=&quot;レッドストーンブロックはここに設置する&quot; %}</p>
+<p>そうしたら、コマンドブロックを図のように置く。</p>
+<p>{% include image.html file=&quot;setcommand.png&quot; alt=&quot;コマンドブロックの設置&quot; caption=&quot;コマンドブロックはこの向きに設置する&quot; %}</p>
+<p>(向きに注意) コマンドブロックの中には以下のコマンドを書き込み、<code>動力が必要</code>から<code>常時実行</code>に変更する。</p>
+<p>{% include image.html file=&quot;recipecommand.png&quot; alt=&quot;コマンド設定&quot; caption=&quot;コマンドブロックの設定&quot; %}</p>
+<pre class="hljs"><code><div>/testforblocks ~ ~ ~-1 ~ ~ ~-1 -2721 70 -355
+</div></code></pre>
+<p>コマンドブロックを設置したら、反対側に回り込みレシピの登録を行う。下側のドロッパーがレシピ、上側のドロッパーが完成品となっているので、好きな物を登録しよう。</p>
+<p>{% include image.html file=&quot;recipe.png&quot; alt=&quot;レシピ例&quot; caption=&quot;下のドロッパーにはこのようにレシピを登録する&quot; %}</p>
+<p>{% include image.html file=&quot;product.png&quot; alt=&quot;完成品例&quot; caption=&quot;上のドロッパーにはこのように完成品を登録する&quot; %}</p>
+<p>これで超作業台へのレシピ登録は完了する。</p>
+<p>{% include image.html file=&quot;after.png&quot; alt=&quot;完成&quot; caption=&quot;最終的にはこのようになっているはず&quot; %}</p>
+<p>後は壊したブロックを直し、超作業台ルーム内のバリアブロックを元に戻し外に出ればすべての作業が終了する。</p>
 
 </body>
 </html>

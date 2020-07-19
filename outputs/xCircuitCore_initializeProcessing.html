@@ -367,8 +367,8 @@ code {
   </script>
 <h2 id="about">About</h2>
 <p><span class="tagYellow">位置</span> (-1870,4-194)~(-1870,4,-158)</p>
-<p><span class="tagBlack">呼び出し元</span> <a href="/command/xCircuitCore/xCircuitCore_insideMcLawell.html">村人像内部</a></p>
-<p><span class="tagBlue">分岐先</span> <a href="/command/xCircuit1/xCircuit1_runFirst.html">毎tick実行するコマンド群1</a>, <a href="/command/xCircuit2/xCircuit2_reset.html">毎tick実行するコマンド群2</a>, <a href="/command/xCircuit3/xCircuit3_command.html">毎tick実行するコマンド群3</a>, <a href="/command/xCircuitCore/xCircuitCore_mainclockProcessing.html">メインクロック起動処理</a>, <a href="/command/xCircuitCore/xCircuitCore_insideMcLawell.html">村人像内部</a>, <a href="/command/xCircuitCore/xCircuitCore_furnaceProcessing.html">チャンクローダー設定</a></p>
+<p><span class="tagBlack">呼び出し元</span> <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuitCore/xCircuitCore_insideMcLawell.html">村人像内部</a></p>
+<p><span class="tagBlue">分岐先</span> <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit1/xCircuit1_runFirst.html">毎tick実行するコマンド群1</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit2/xCircuit2_reset.html">毎tick実行するコマンド群2</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_command.html">毎tick実行するコマンド群3</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuitCore/xCircuitCore_mainclockProcessing.html">メインクロック起動処理</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuitCore/xCircuitCore_insideMcLawell.html">村人像内部</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuitCore/xCircuitCore_furnaceProcessing.html">チャンクローダー設定</a></p>
 <p>(-1870,4-194)から(-1870,4,-158)の壁沿いに並んでいるコマンド群であり、X回路区域やスコアボードなど、様々な初期化処理を行う。</p>
 <p>{% include note.html content=&quot;ここにあるコマンド群はその名の通り、初期化処理を行うので基本的に1度しか起動されない。&quot; %}</p>
 <h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
@@ -2045,14 +2045,14 @@ code {
 <h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
 <h3 id="%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFon">メインクロックON</h3>
 <ol>
-<li><a href="/command/xCircuitCore/xCircuitCore_mainclockProcessing.html#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%95%E3%82%8C%E3%82%8B%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行されるコマンド群</a>を実行</li>
-<li><a href="/entity/entity_entity.html#systemkeeper">SystemKeeper</a>君を(-1870,10,-197)に召喚し、<a href="/command/xCircuitCore/xCircuitCore_mainclockProcessing.html">メインクロック起動処理</a>を作動させる</li>
+<li><a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuitCore/xCircuitCore_mainclockProcessing.html#%E6%AF%8Etick%E5%AE%9F%E8%A1%8C%E3%81%95%E3%82%8C%E3%82%8B%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">毎tick実行されるコマンド群</a>を実行</li>
+<li><a href="%7B%7Bsite.baseurl%7D%7D/entity/entity_entity.html#systemkeeper">SystemKeeper</a>君を(-1870,10,-197)に召喚し、<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuitCore/xCircuitCore_mainclockProcessing.html">メインクロック起動処理</a>を作動させる</li>
 </ol>
 <h3 id="%E5%88%9D%E6%9C%9F%E5%8C%96%E8%A3%85%E7%BD%AE%E5%81%9C%E6%AD%A2">初期化装置停止</h3>
 <ol>
-<li>(-1896,117,-137)にあるレッドストーンブロックをラピスラズリブロックに置き換えて、<a href="/command/xCircuitCore/xCircuitCore_insideMcLawell.html">村人像内部</a>を停止</li>
+<li>(-1896,117,-137)にあるレッドストーンブロックをラピスラズリブロックに置き換えて、<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuitCore/xCircuitCore_insideMcLawell.html">村人像内部</a>を停止</li>
 <li>(-1883,3,-200)にある、1秒クロックのためのかまどの燃料がなくなるまでの時間を1000秒に設定</li>
-<li>(-1872,5,-203)にある<a href="/command/xCircuitCore/xCircuitCore_furnaceProcessing.html">チャンクローダー</a>にサボテンと石炭を投入し、これを稼働させる</li>
+<li>(-1872,5,-203)にある<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuitCore/xCircuitCore_furnaceProcessing.html">チャンクローダー</a>にサボテンと石炭を投入し、これを稼働させる</li>
 </ol>
 <h3 id="const">Const</h3>
 <ul>
@@ -3669,7 +3669,7 @@ code {
 <li>ワールドの境界線を(0,0)を中心とし、7000mを一辺の長さとした矩形として構成</li>
 <li>時間を14000に設定</li>
 <li>15秒間雨を降らせる</li>
-<li>(-1920,6,-197)付近にいる<a href="/entity/entity_entity.html#%E5%9C%B0%E4%B8%8B%E4%B8%96%E7%95%8C">地下世界</a>、<a href="/entity/entity_entity.html#%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%87%E3%82%A3%E3%82%A2">クラウディア</a>、<a href="/entity/entity_entity.html#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%86%E3%83%B3">テーブルマウンテン</a>、<a href="/entity/entity_entity.html#%E3%82%AC%E3%83%AA%E3%83%90%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89">ガリバーランド</a>、<a href="/entity/entity_entity.html#%E3%83%88%E3%82%AB%E3%83%AB%E3%83%88%E3%82%B3%E3%83%AB%E3%83%87">トカルトコルデ</a>から<code>Enter</code>を消去</li>
+<li>(-1920,6,-197)付近にいる<a href="%7B%7Bsite.baseurl%7D%7D/entity/entity_entity.html#%E5%9C%B0%E4%B8%8B%E4%B8%96%E7%95%8C">地下世界</a>、<a href="%7B%7Bsite.baseurl%7D%7D/entity/entity_entity.html#%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%87%E3%82%A3%E3%82%A2">クラウディア</a>、<a href="%7B%7Bsite.baseurl%7D%7D/entity/entity_entity.html#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%86%E3%83%B3">テーブルマウンテン</a>、<a href="%7B%7Bsite.baseurl%7D%7D/entity/entity_entity.html#%E3%82%AC%E3%83%AA%E3%83%90%E3%83%BC%E3%83%A9%E3%83%B3%E3%83%89">ガリバーランド</a>、<a href="%7B%7Bsite.baseurl%7D%7D/entity/entity_entity.html#%E3%83%88%E3%82%AB%E3%83%AB%E3%83%88%E3%82%B3%E3%83%AB%E3%83%87">トカルトコルデ</a>から<code>Enter</code>を消去</li>
 </ol>
 
 </body>

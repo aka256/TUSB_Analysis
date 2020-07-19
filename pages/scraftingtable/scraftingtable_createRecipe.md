@@ -14,7 +14,7 @@ summaryDisable: true
 
 ## 超作業台のレシピ追加方法
 
-超作業台へのレシピの追加方法について説明していく。超作業台の仕組みについて知りたい場合は[超作業台について](/scraftingtable/scraftingtable_about.html)を参照。
+超作業台へのレシピの追加方法について説明していく。超作業台の仕組みについて知りたい場合は[超作業台について]({{site.baseurl}}/scraftingtable/scraftingtable_about.html)を参照。
 
 {% include warning.html content="超作業台へのレシピ追加など、TUSBの改造は公式のサポート範囲外と思われるので実際に行う際は**自己責任で行うように。**" %}
 

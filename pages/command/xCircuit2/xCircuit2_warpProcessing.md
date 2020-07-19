@@ -16,7 +16,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,15,-192)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群2](/command/xCircuit2/xCircuit2_reset.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群2]({{site.baseurl}}/command/xCircuit2/xCircuit2_reset.html)
 
 初回ログイン時のチュートリアルの処理、初回に配られるジョブ変更申請用紙、ブラジル行きの穴の処理などを行う。
 

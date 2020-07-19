@@ -16,7 +16,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,10,-189)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群3](/command/xCircuit3/xCircuit3_command.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群3]({{site.baseurl}}/command/xCircuit3/xCircuit3_command.html)
 
 交易島内の村人(牧師、エージェント、占い師)との会話や職業島へのワープ時の処理などを行う。
 
@@ -72,7 +72,7 @@ summaryDisable: true
 ## 詳細
 
 1. `TalkToVillager`が1以上であるすべてのプレイヤーの座標から半径3m以内にある`SystemEntity`を持っていないアイテムの所に最も近くのプレイヤー一人を移動させる
-2. [ShopGM](/entity/entity_entity.html#shopgm)から半径24m以内の`Pastor`を持つ村人一人(牧師)が存在し、その村人から半径5m以内の`TalkToVillager`が1以上であるすべてのプレイヤーに`TalkToPastor`を付与し、`Agent`(エージェント)、`Augur`(占い師)も同様に実行
+2. [ShopGM]({{site.baseurl}}/entity/entity_entity.html#shopgm)から半径24m以内の`Pastor`を持つ村人一人(牧師)が存在し、その村人から半径5m以内の`TalkToVillager`が1以上であるすべてのプレイヤーに`TalkToPastor`を付与し、`Agent`(エージェント)、`Augur`(占い師)も同様に実行
 3. `TalkToVillager`が1以上であるプレイヤーの`TalkToVillager`を0に設定
 4. `TalkToPastor`を持ち、`PastorFlag`が-1以下であるすべてのプレイヤーに「\[牧師\] どうかお気をつけて。」とのメッセージを表示
 5. `TalkToPastor`を持ち、`PastorFlag`が0であるすべてのプレイヤーに「\[牧師\] ご存知ですか？」とのメッセージと選択肢を表示し、`PastorFlag`への書き込みを許可

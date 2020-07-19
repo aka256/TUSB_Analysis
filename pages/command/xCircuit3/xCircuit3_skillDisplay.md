@@ -16,7 +16,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,16,-189)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群3](/command/xCircuit3/xCircuit3_command.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群3]({{site.baseurl}}/command/xCircuit3/xCircuit3_command.html)
 
 現在設定されているスキルについて表示を行う。
 

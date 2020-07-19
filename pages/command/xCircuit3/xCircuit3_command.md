@@ -16,9 +16,9 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,4,-189)
 
-<span class="tagBlack">呼び出し元</span> [初期化処理](/command/xCircuitCore/xCircuitCore_initializeProcessing.html), [村人像](/command/xCircuitCore/xCircuitCore_mainclockProcessing.html)
+<span class="tagBlack">呼び出し元</span> [初期化処理]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_initializeProcessing.html), [村人像]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_mainclockProcessing.html)
 
-<span class="tagBlue">分岐先</span> [ベッド処理](/command/xCircuit3/xCircuit3_bedProcessing.html), [お祈りkill](/command/xCircuit3/xCircuit3_prayProcessing.html), [村人会話処理](/command/xCircuit3/xCircuit3_villagerTalkProcessing.html), [牧師会話選択時処理](/command/xCircuit3/xCircuit3_pastorTalk.html), [エージェント会話選択時処理](/command/xCircuit3/xCircuit3_agentTalk.html), [占い師会話選択時処理](/command/xCircuit3/xCircuit3_augurTalk.html), [エメラルド支払い](/command/xCircuit3/xCircuit3_paymentProcessing.html), [設定スキル表示](/command/xCircuit3/xCircuit3_skillDisplay.html), [観光モード提案開始](/command/xCircuit3/xCircuit3_suggestSightseeing.html), [ネザーラック破壊時火山噴火処理](/command/xCircuit3/xCircuit3_volcanoProcessing.html), [タイプ設定](/command/xCircuit3/xCircuit3_typeSetting.html), [透明化&エーテル処理](/command/xCircuit3/xCircuit3_invisibleEtherProcessing.html)
+<span class="tagBlue">分岐先</span> [ベッド処理]({{site.baseurl}}/command/xCircuit3/xCircuit3_bedProcessing.html), [お祈りkill]({{site.baseurl}}/command/xCircuit3/xCircuit3_prayProcessing.html), [村人会話処理]({{site.baseurl}}/command/xCircuit3/xCircuit3_villagerTalkProcessing.html), [牧師会話選択時処理]({{site.baseurl}}/command/xCircuit3/xCircuit3_pastorTalk.html), [エージェント会話選択時処理]({{site.baseurl}}/command/xCircuit3/xCircuit3_agentTalk.html), [占い師会話選択時処理]({{site.baseurl}}/command/xCircuit3/xCircuit3_augurTalk.html), [エメラルド支払い]({{site.baseurl}}/command/xCircuit3/xCircuit3_paymentProcessing.html), [設定スキル表示]({{site.baseurl}}/command/xCircuit3/xCircuit3_skillDisplay.html), [観光モード提案開始]({{site.baseurl}}/command/xCircuit3/xCircuit3_suggestSightseeing.html), [ネザーラック破壊時火山噴火処理]({{site.baseurl}}/command/xCircuit3/xCircuit3_volcanoProcessing.html), [タイプ設定]({{site.baseurl}}/command/xCircuit3/xCircuit3_typeSetting.html), [透明化&エーテル処理]({{site.baseurl}}/command/xCircuit3/xCircuit3_invisibleEtherProcessing.html)
 
 村人関係の処理やそれぞれのディメンションでの特殊処理(ネザーラック破壊時の処理など)などへの分岐を行う。
 
@@ -62,24 +62,24 @@ summaryDisable: true
 
 ## 詳細
 
-1. `SleepInBed`が1以上のプレイヤーを一人選択し、(-1920,8,-189)にある[ベッド処理](/command/xCircuit3/xCircuit3_bedProcessing.html)を実行
-2. `kill`が1以上であるプレイヤーを一人選択し、(-1920,9,-189)にある[お祈りkill](/command/xCircuit3/xCircuit3_prayProcessing.html)を実行
+1. `SleepInBed`が1以上のプレイヤーを一人選択し、(-1920,8,-189)にある[ベッド処理]({{site.baseurl}}/command/xCircuit3/xCircuit3_bedProcessing.html)を実行
+2. `kill`が1以上であるプレイヤーを一人選択し、(-1920,9,-189)にある[お祈りkill]({{site.baseurl}}/command/xCircuit3/xCircuit3_prayProcessing.html)を実行
 3. (-55,14,8)にある岩盤(交易島のドラッグストアの下辺り)が存在するとき、そこから25m外側に`ShopStaff`を持つ村人を(-54,24,9)にいる`ShopHomePoint`を持つアーマースタンドの所に移動 (つまり、岩盤がなければ村人はTPされない)
-4. `TalkToVillager`が1以上であるプレイヤーを一人選択し、(-1920,10,-189)にある[村人会話処理](/command/xCircuit3/xCircuit3_villagerTalkProcessing.html)を実行
-5. `PastorFlag`が1以上であるプレイヤーを一人選択し、(-1920,11,-189)にある[牧師会話選択時処理](/command/xCircuit3/xCircuit3_pastorTalk.html)を実行
-6. `AgentFlag`が1以上であるプレイヤーを一人選択し、(-1920,12,-189)にある[エージェント会話選択時処理](/command/xCircuit3/xCircuit3_agentTalk.html)を実行
-7. `AugurFlag`が1以上であるプレイヤーを一人選択し、(-1920,13,-189)にある[占い師会話選択時処理](/command/xCircuit3/xCircuit3_augurTalk.html)を実行
-8. `Payment`が1以上であるすべてのプレイヤーのインベントリ内にエメラルドが存在するとき、(-1920,14,-189)にある[エメラルド支払い](/command/xCircuit3/xCircuit3_paymentProcessing.html)を実行
-9. `ShowSkillSlot`が1以上であるプレイヤーを一人選択し、(-1920,16,-189)にある[設定スキル表示](/command/xCircuit3/xCircuit3_skillDisplay.html)を実行し、`#ReserveShowSkill`の`Global`を1に設定
-10. `SuggestSightseeing`を持つプレイヤーを一人選択し、(-1920,8,-188)にある[観光モード提案開始](/command/xCircuit3/xCircuit3_suggestSightseeing.html)を実行
+4. `TalkToVillager`が1以上であるプレイヤーを一人選択し、(-1920,10,-189)にある[村人会話処理]({{site.baseurl}}/command/xCircuit3/xCircuit3_villagerTalkProcessing.html)を実行
+5. `PastorFlag`が1以上であるプレイヤーを一人選択し、(-1920,11,-189)にある[牧師会話選択時処理]({{site.baseurl}}/command/xCircuit3/xCircuit3_pastorTalk.html)を実行
+6. `AgentFlag`が1以上であるプレイヤーを一人選択し、(-1920,12,-189)にある[エージェント会話選択時処理]({{site.baseurl}}/command/xCircuit3/xCircuit3_agentTalk.html)を実行
+7. `AugurFlag`が1以上であるプレイヤーを一人選択し、(-1920,13,-189)にある[占い師会話選択時処理]({{site.baseurl}}/command/xCircuit3/xCircuit3_augurTalk.html)を実行
+8. `Payment`が1以上であるすべてのプレイヤーのインベントリ内にエメラルドが存在するとき、(-1920,14,-189)にある[エメラルド支払い]({{site.baseurl}}/command/xCircuit3/xCircuit3_paymentProcessing.html)を実行
+9. `ShowSkillSlot`が1以上であるプレイヤーを一人選択し、(-1920,16,-189)にある[設定スキル表示]({{site.baseurl}}/command/xCircuit3/xCircuit3_skillDisplay.html)を実行し、`#ReserveShowSkill`の`Global`を1に設定
+10. `SuggestSightseeing`を持つプレイヤーを一人選択し、(-1920,8,-188)にある[観光モード提案開始]({{site.baseurl}}/command/xCircuit3/xCircuit3_suggestSightseeing.html)を実行
 11. (-2827,57,-410)からdx=9,dy=123,dz=9の範囲(個人ロッカー内)にある鉄のトラップドアの座標上にアドベンチャーモードであるプレイヤーが存在するとき、1m下に移動させる
 12. (-6,65,-2148)からdx=64,dy=135,dz=48の範囲(テーブルマウンテンの滝)にアドベンチャーモードであるプレイヤーがいるとき、「不思議な力で押し戻された」とのメッセジーを流し、y=37に移動させる
-13. `MineNetherrack`が1以上であるプレイヤーを一人選択し、(-1920,13,-188)にある[ネザーラック破壊時火山噴火処理](/command/xCircuit3/xCircuit3_volcanoProcessing.html)を実行
+13. `MineNetherrack`が1以上であるプレイヤーを一人選択し、(-1920,13,-188)にある[ネザーラック破壊時火山噴火処理]({{site.baseurl}}/command/xCircuit3/xCircuit3_volcanoProcessing.html)を実行
 14. (39,6,67)が空気ブロックであり、(39,7,67)がシミ入り石ブロックであるとき、(39,7,67)にお知らせのスポナーを設置し、以下の事柄を実行
     - `Debug`の`Setting`が0以下であるとき(8,26,4)に着火されたTNTと炎をまき散らすスポナー付きマインカートを乗せたコウモリを召喚
 15. (39,6,67)がチェストであるとき(39,7,67)にシミ入り石ブロックを設置
-16. `FallingSand`と`TypeChecked`を持っていないすべてのエンティティに`TypeCheck`を付与し、(-1920,14,-188)にある[タイプ設定](/command/xCircuit3/xCircuit3_typeSetting.html)を実行
+16. `FallingSand`と`TypeChecked`を持っていないすべてのエンティティに`TypeCheck`を付与し、(-1920,14,-188)にある[タイプ設定]({{site.baseurl}}/command/xCircuit3/xCircuit3_typeSetting.html)を実行
 17. `Arrow`を持ち、`inGround`がtrueであるすべてのエンティティ(矢)に`InGround`と`TypeChecked`を付与
-18. 透明化を付与されているすべてのプレイヤーに`Invisible`を付与し、(-1920,17,-188)にある[透明化&エーテル処理](/command/xCircuit3/xCircuit3_invisibleEtherProcessing.html)を実行
+18. 透明化を付与されているすべてのプレイヤーに`Invisible`を付与し、(-1920,17,-188)にある[透明化&エーテル処理]({{site.baseurl}}/command/xCircuit3/xCircuit3_invisibleEtherProcessing.html)を実行
 19. `AbyssWarp`を持つエンティティの1m下から29m下いる`AbyssWarp`を持つエンティティを80m以内にいる一人のプレイヤーの座標に移動し、すべてのプレイヤーから30m下を起点として32m上までの範囲にいるすべてのプレイヤーをその場に移動
 20. `Freeze`を持つエンティの`Motion`を[0,0,0]に設定

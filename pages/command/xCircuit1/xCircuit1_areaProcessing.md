@@ -16,7 +16,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,8,-200)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群1](/command/xCircuit1/xCircuit1_runFirst.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群1]({{site.baseurl}}/command/xCircuit1/xCircuit1_runFirst.html)
 
 エリア侵入時の演出やテーブルマウンテン、ネザーアスレ侵入時のエンダーチェスト処理を行う。
 

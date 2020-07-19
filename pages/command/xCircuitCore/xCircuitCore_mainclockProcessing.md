@@ -18,11 +18,11 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1870,4,-194)
 
-<span class="tagBlack">呼び出し元</span> [村人像内部](/command/xCircuitCore/xCircuitCore_insideMcLawell.html)
+<span class="tagBlack">呼び出し元</span> [村人像内部]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_insideMcLawell.html)
 
-<span class="tagBlue">分岐先</span> [毎tick実行するコマンド群1](/command/xCircuit1/xCircuit1_runFirst.html), [毎tick実行するコマンド群2](/command/xCircuit2/xCircuit2_reset.html), [毎tick実行するコマンド群3](/command/xCircuit3/xCircuit3_command.html)
+<span class="tagBlue">分岐先</span> [毎tick実行するコマンド群1]({{site.baseurl}}/command/xCircuit1/xCircuit1_runFirst.html), [毎tick実行するコマンド群2]({{site.baseurl}}/command/xCircuit2/xCircuit2_reset.html), [毎tick実行するコマンド群3]({{site.baseurl}}/command/xCircuit3/xCircuit3_command.html)
 
-X回路区域内のメインクロックを起動させるコマンド群であり、[初期化処理](/command/xCircuitCore/xCircuitCore_initializeProcessing.html)の一部でもある。
+X回路区域内のメインクロックを起動させるコマンド群であり、[初期化処理]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_initializeProcessing.html)の一部でもある。
 
 {% include note.html content="(-1870,7,-194)にあるスイッチ(青い羊毛についているやつ)によって手動にて操作可能" %}
 
@@ -41,7 +41,7 @@ X回路区域内のメインクロックを起動させるコマンド群であ�
 ### 詳細
 
 1. [毎tick実行するコマンド群](#毎tick実行するコマンド群)を実行
-2. [SystemKeeper](/entity/entity_entity.html#systemkeeper)君を(-1870,10,-197)に召喚し、メインクロックを作動させる
+2. [SystemKeeper]({{site.baseurl}}/entity/entity_entity.html#systemkeeper)君を(-1870,10,-197)に召喚し、メインクロックを作動させる
 
 ### 毎tick実行するコマンド群
 
@@ -49,9 +49,9 @@ X回路区域内のメインクロックを起動させるコマンド群であ�
 
 |z座標|コマンド群名称、先頭処理名|
 |:-:|:-|
-|-200|[毎tick実行するコマンド群1](/command/xCircuit1/xCircuit1_runFirst.html)|
-|-192|[毎tick実行するコマンド群2](/command/xCircuit2/xCircuit2_reset.html)|
-|-189|[毎tick実行するコマンド群3](/command/xCircuit3/xCircuit3_command.html)|
+|-200|[毎tick実行するコマンド群1]({{site.baseurl}}/command/xCircuit1/xCircuit1_runFirst.html)|
+|-192|[毎tick実行するコマンド群2]({{site.baseurl}}/command/xCircuit2/xCircuit2_reset.html)|
+|-189|[毎tick実行するコマンド群3]({{site.baseurl}}/command/xCircuit3/xCircuit3_command.html)|
 |-184|[黙想終了処理Mokuso]|
 |-181|[与ダメージDamegeDealt]|
 |-180|[スニークSneakTime]|
@@ -91,6 +91,6 @@ X回路区域内のメインクロックを停止指せるコマンド群であ�
 
 ### 詳細
 
-1. (-1920,4,-200)にある[毎tick実行するコマンド群1](/command/xCircuit1/xCircuit1_runFirst.html)を停止
+1. (-1920,4,-200)にある[毎tick実行するコマンド群1]({{site.baseurl}}/command/xCircuit1/xCircuit1_runFirst.html)を停止
 2. (-1920,4,-111)にある[毎tick必ず最後にに実行したいコマンド群]を停止
-3. [SystemKeeper](/entity/entity_entity.html#systemkeeper)君をキル
+3. [SystemKeeper]({{site.baseurl}}/entity/entity_entity.html#systemkeeper)君をキル

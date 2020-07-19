@@ -16,9 +16,9 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,14,-200)
 
-<span class="tagBlack">呼び出し元</span> [時間経過](/command/xCircuit1/xCircuit1_timeElapsed.html)
+<span class="tagBlack">呼び出し元</span> [時間経過]({{site.baseurl}}/command/xCircuit1/xCircuit1_timeElapsed.html)
 
-<span class="tagBlue">分岐先</span> [難易度調整](/command/xCircuit2/xCircuit2_difficultyAdjustment.html)
+<span class="tagBlue">分岐先</span> [難易度調整]({{site.baseurl}}/command/xCircuit2/xCircuit2_difficultyAdjustment.html)
 
 1分置きに実行されるコマンド群であり、嫌な予感をランダムに実行したりバニラモブの難易度調整などを行う。
 
@@ -57,4 +57,4 @@ summaryDisable: true
    3. ワールドの境界線へ近づいた際の警告距離を、境界線から20000mに設定(すべてのプレイヤーに警告を出す)
    4. `#SecCount`の`Global`を-8に設定
 6. `VillagerMeal`を持つエンティティの`Freshness`に1を足す
-7. (-1920,17,-200)にある[難易度調整](/command/xCircuit2/xCircuit2_difficultyAdjustment.html)を実行
+7. (-1920,17,-200)にある[難易度調整]({{site.baseurl}}/command/xCircuit2/xCircuit2_difficultyAdjustment.html)を実行

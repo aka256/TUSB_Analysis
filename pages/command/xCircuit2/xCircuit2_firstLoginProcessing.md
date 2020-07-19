@@ -15,7 +15,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,8,-192)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群2](/command/xCircuit2/xCircuit2_reset.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群2]({{site.baseurl}}/command/xCircuit2/xCircuit2_reset.html)
 
 初回ログイン時にスコアやタグ、チーム分けそして乱数の設定を行う。
 

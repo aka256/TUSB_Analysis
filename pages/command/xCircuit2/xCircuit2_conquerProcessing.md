@@ -15,9 +15,9 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,17,-191),(-1920,18,-191)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群2](/command/xCircuit2/xCircuit2_reset.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群2]({{site.baseurl}}/command/xCircuit2/xCircuit2_reset.html)
 
-<span class="tagBlue">分岐先</span> [時計島](/command/xCircuit2/xCircuit2_clockIslandProcessing.html)
+<span class="tagBlue">分岐先</span> [時計島]({{site.baseurl}}/command/xCircuit2/xCircuit2_clockIslandProcessing.html)
 
 島攻略時の演出や、攻略率による時計島の形態変化への分岐、月島の処理、製作者村人の出現などの処理を行う。
 
@@ -140,7 +140,7 @@ CommandStats:{QueryResultName:"#ConqTimeSec",QueryResultObjective:"Global"}
 2. `Prayable`の`Settings`が0以下の時、以下の事柄を実行
     - (-70,15,32)(交易島)の東向きでエンダーアイがはめられているエンドポータルフレームが存在する時、`Prayable`の`Settings`を1に設定
 3. `ForceNight`の`Settings`が0以下の時、以下の事柄を実行
-    - [CommonGM](/entity/entity_entity.html#commongm)が(-1920,4,-96)にある[時計島](/command/xCircuit2/xCircuit2_clockIslandProcessing.html)を実行
+    - [CommonGM]({{site.baseurl}}/entity/entity_entity.html#commongm)が(-1920,4,-96)にある[時計島]({{site.baseurl}}/command/xCircuit2/xCircuit2_clockIslandProcessing.html)を実行
 4. `ForceNight`の`Settings`が1以上であり、(3,77,87)にある南向きでエンダーアイがはめられたエンドポータルフレーム(月島のエンドポータルフレーム)が存在する時、以下の事柄を実行
     1. 時間をdayに設定し、`doDaylightCycle`をtrueに変更
     2. `#PastorMax`の`Global`から2引く

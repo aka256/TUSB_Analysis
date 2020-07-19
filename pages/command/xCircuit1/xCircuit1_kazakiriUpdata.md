@@ -16,7 +16,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,11,-198)
 
-<span class="tagBlack">呼び出し元</span> [時間経過](/command/xCircuit1/xCircuit1_timeElapsed.html)
+<span class="tagBlack">呼び出し元</span> [時間経過]({{site.baseurl}}/command/xCircuit1/xCircuit1_timeElapsed.html)
 
 忍者のスキルの1つである風切の更新処理を行う。
 

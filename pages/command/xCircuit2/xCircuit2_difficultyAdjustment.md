@@ -16,7 +16,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,17,-200)
 
-<span class="tagBlack">呼び出し元</span> [約一分処理](/command/xCircuit1/xCircuit1_oneMinProcessing.html), [ログイン時処理](/command/xCircuit2/xCircuit2_loginProcessing.html)
+<span class="tagBlack">呼び出し元</span> [約一分処理]({{site.baseurl}}/command/xCircuit1/xCircuit1_oneMinProcessing.html), [ログイン時処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_loginProcessing.html)
 
 攻略率の値による敵Mobの強化を行う。
 
@@ -61,7 +61,7 @@ CommandStats:{AffectedEntitiesObjective:"Settings",AffectedEntitiesName:"Difficu
 1. プレイヤーの人数を`Difficulty`に代入
 2. `Difficulty`の`Settings`を2乗
 3. `Sightseeing`の`Settings`が0以下であるとき、`Difficulty`の`Settings`に`#ConquerPctInt`の`Global`を足し合わせる
-4. (-1886,14,-188)([タイプ設定](/command/xCircuit3/xCircuit3_typeSetting.html)の強さ補正)のコマンドブロック(No.34)に{Command:"/effect @e[tag=TypeCheck,team=,type=!Player]minecraft:speed 1 0 true"}を上書きできたとき、(-1885,14,-188)のコマンドブロック(No.35)に{Command:"/effect @e[tag=TypeCheck,team=,type=!Player]minecraft:resistance 1 0 true"}を上書きする
+4. (-1886,14,-188)([タイプ設定]({{site.baseurl}}/command/xCircuit3/xCircuit3_typeSetting.html)の強さ補正)のコマンドブロック(No.34)に{Command:"/effect @e[tag=TypeCheck,team=,type=!Player]minecraft:speed 1 0 true"}を上書きできたとき、(-1885,14,-188)のコマンドブロック(No.35)に{Command:"/effect @e[tag=TypeCheck,team=,type=!Player]minecraft:resistance 1 0 true"}を上書きする
 5. `Difficulty`の`Settings`が30以上の時、`Settings`の値によって(-1886,14,-188)(No.34)と(-1885,14,-188)(No.35)にあるコマンドブロックを書き換える(以下参考)
 
 ### コマンド書き換え

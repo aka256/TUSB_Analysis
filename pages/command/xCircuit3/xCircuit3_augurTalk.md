@@ -16,7 +16,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,13,-189)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群3](/command/xCircuit3/xCircuit3_command.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群3]({{site.baseurl}}/command/xCircuit3/xCircuit3_command.html)
 
 交易島にいる占い師との会話処理を行い、次に起こる嫌な予感に対するメッセージを表示する。
 
@@ -50,7 +50,7 @@ summaryDisable: true
 
 ## 詳細
 
-1. [ShopGM](/entity/entity_entity.html#shopgm)から半径24m以内の`Augur`を持つ村人(占い師)を一人選択し、その村人から半径5m以内にいる`AugurFlag`が1以上であるすべてのプレイヤーに`AugurYes`を付与
+1. [ShopGM]({{site.baseurl}}/entity/entity_entity.html#shopgm)から半径24m以内の`Augur`を持つ村人(占い師)を一人選択し、その村人から半径5m以内にいる`AugurFlag`が1以上であるすべてのプレイヤーに`AugurYes`を付与
 2. `AugurFlag`が1以上、`AugurYes`を持っていないすべてのプレイヤーに`AugurFlag`への書き込みを許可
 3. `AugurFlag`が1以上であるすべてのプレイヤーの`AugurFlag`を0に設定
 4. `AugurYes`を持つすべてのプレイヤーの`ItemCount`を-1に設定

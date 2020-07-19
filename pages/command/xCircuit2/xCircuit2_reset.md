@@ -16,9 +16,9 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,4,-192)
 
-<span class="tagBlack">呼び出し元</span> [初期化処理](/command/xCircuitCore/xCircuitCore_initializeProcessing.html), [村人像](/command/xCircuitCore/xCircuitCore_mainclockProcessing.html)
+<span class="tagBlack">呼び出し元</span> [初期化処理]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_initializeProcessing.html), [村人像]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_mainclockProcessing.html)
 
-<span class="tagBlue">分岐先</span> [初回ログイン時処理](/command/xCircuit2/xCircuit2_firstLoginProcessing.html), [ログイン時処理](/command/xCircuit2/xCircuit2_loginProcessing.html), [ジョブチェンジ先判定](/command/xCircuit2/xCircuit2_jobChangeJudgement.html), [ジョブセーブ](/command/xCircuit2/xCircuit2_jobSave.html), [ジョブロード](/command/xCircuit2/xCircuit2_jobLoad.html), [ステータス表示](/command/xCircuit2/xCircuit2_statusDisplay.html), [攻略率表示](/command/xCircuit2/xCircuit2_conquerDisplay.html), [ワープ処理_ジョブ島/通常世界](/command/xCircuit2/xCircuit2_warpProcessing.html), [KeepInventory確認](/command/xCircuit2/xCircuit2_keepinventoryCheck.html), [満腹度修正](/command/xCircuit2/xCircuit2_satietyFix.html), [経験値取得処理](/command/xCircuit2/xCircuit2_expProcessing.html), [レベルアップ処理](/command/xCircuit2/xCircuit2_levelupProcessing.html), [最大HP調整処理](/command/xCircuit2/xCircuit2_hpFix.html), [島攻略処理](/command/xCircuit2/xCircuit2_conquerProcessing.html)
+<span class="tagBlue">分岐先</span> [初回ログイン時処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_firstLoginProcessing.html), [ログイン時処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_loginProcessing.html), [ジョブチェンジ先判定]({{site.baseurl}}/command/xCircuit2/xCircuit2_jobChangeJudgement.html), [ジョブセーブ]({{site.baseurl}}/command/xCircuit2/xCircuit2_jobSave.html), [ジョブロード]({{site.baseurl}}/command/xCircuit2/xCircuit2_jobLoad.html), [ステータス表示]({{site.baseurl}}/command/xCircuit2/xCircuit2_statusDisplay.html), [攻略率表示]({{site.baseurl}}/command/xCircuit2/xCircuit2_conquerDisplay.html), [ワープ処理_ジョブ島/通常世界]({{site.baseurl}}/command/xCircuit2/xCircuit2_warpProcessing.html), [KeepInventory確認]({{site.baseurl}}/command/xCircuit2/xCircuit2_keepinventoryCheck.html), [満腹度修正]({{site.baseurl}}/command/xCircuit2/xCircuit2_satietyFix.html), [経験値取得処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_expProcessing.html), [レベルアップ処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_levelupProcessing.html), [最大HP調整処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_hpFix.html), [島攻略処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_conquerProcessing.html)
 
 毎tick実行するコマンド群の1つであり、TUSBにログインした際にジョブやHP、満腹度修正など、様々な処理への分岐を行う。
 
@@ -70,26 +70,26 @@ summaryDisable: true
 ## 詳細
 
 1. `MPConsumption`が0以上のプレイヤーの`MPConsumption`を0とし、`ActivatedSkill`が0以上のプレイヤーの`ActivatedSkill`を0とする。そして`Sneaking`を削除
-2. チームに属していないプレイヤー(team=)を一人選択し、[CommonGM](/entity/entity_entity.html#commongm)から(~,8,-192)にある[初回ログイン時処理](/command/xCircuit2/xCircuit2_firstLoginProcessing.html)を実行
-3. `LeaveGame`が1以上のプレイヤーを一人選択し、[CommonGM](/entity/entity_entity.html#commongm)から(~,9,-192)にある[ログイン時処理](/command/xCircuit2/xCircuit2_loginProcessing.html)を実行
+2. チームに属していないプレイヤー(team=)を一人選択し、[CommonGM]({{site.baseurl}}/entity/entity_entity.html#commongm)から(~,8,-192)にある[初回ログイン時処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_firstLoginProcessing.html)を実行
+3. `LeaveGame`が1以上のプレイヤーを一人選択し、[CommonGM]({{site.baseurl}}/entity/entity_entity.html#commongm)から(~,9,-192)にある[ログイン時処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_loginProcessing.html)を実行
 4. `PickerPaper`が1以上のプレイヤーの`TradedVillager`と`PickerPaper`の値を入れ替える
-5. `TradedVillager`が1以上のプレイヤーの`TradedVillager`を0にし、(-1920,10,-192)にある[ジョブチェンジ先判定](/command/xCircuit2/xCircuit2_jobChangeJudgement.html)を実行
+5. `TradedVillager`が1以上のプレイヤーの`TradedVillager`を0にし、(-1920,10,-192)にある[ジョブチェンジ先判定]({{site.baseurl}}/command/xCircuit2/xCircuit2_jobChangeJudgement.html)を実行
 6. `ShowStatus`を持っているプレイヤーを一人選択し、`SaveJob`に`Job`を代入する
 7. `LoadJob`が0以上であるプレイヤーを一人選択し、`SaveJob`に`Job`を代入する
-8. `SaveJob`が0以上であるプレイヤーを一人選択し、(-1920,11,-192)にある[ジョブセーブ](/command/xCircuit2/xCircuit2_jobSave.html)を実行
-9. `LoadJob`が0以上であるプレイヤーを一人選択し、(-1920,12,-192)にある[ジョブロード](/command/xCircuit2/xCircuit2_jobLoad.html)を実行
-10. `ShowStatus`のプレイヤーを一人選択し、(-1920,14,-192)にある[ステータス表示](/command/xCircuit2/xCircuit2_statusDisplay.html)を実行
-11. `ShowConquest`のプレイヤーを一人選択し、(-1920,18,-192)にある[攻略率表示](/command/xCircuit2/xCircuit2_conquerDisplay.html)を実行
-12. (-1755,98,-153)からdx=32,dy=9,dz=32(ブラジル行きの穴)にいるプレイヤーに`WarpByJob`を付与し、(-1920,15,-192)にある[ワープ処理_ジョブ島/通常世界](/command/xCircuit2/xCircuit2_warpProcessing.html)を実行
-13. `HP`が0以下,`Hunger`が-1以下であるプレイヤーを一人選択し、`Hunger`に`Food`を代入し、(-1920,16,-192)にある[KeepInventory確認](/command/xCircuit2/xCircuit2_keepinventoryCheck.html)を実行
-14. `HP`が1以上,`Hunger`が0以上であるプレイヤーを一人選択し、[CommonGM](/entity/entity_entity.html#commongm)から(~,17,-192)にある[満腹度修正](/command/xCircuit2/xCircuit2_satietyFix.html)を実行
-15. `HP`が1以上かつインベントリにネザースターのあるプレイヤーの`GotExpFlag`を-1にし、(-1920,8,-191)にある[経験値取得処理](/command/xCircuit2/xCircuit2_expProcessing.html)を実行
-16. `ExpToLevel`が0以下であるプレイヤーを一人選択し、[CommonGM](/entity/entity_entity.html#commongm)から(~,9,-191)にある[レベルアップ処理](/command/xCircuit2/xCircuit2_levelupProcessing.html)を実行
-17. `RefreshHPMax`が1以上であるプレイヤーを一人選択し、[CommonGM](/entity/entity_entity.html#commongm)から(~,16,-191)にある[最大HP調整処理](/command/xCircuit2/xCircuit2_hpFix.html)を実行
+8. `SaveJob`が0以上であるプレイヤーを一人選択し、(-1920,11,-192)にある[ジョブセーブ]({{site.baseurl}}/command/xCircuit2/xCircuit2_jobSave.html)を実行
+9. `LoadJob`が0以上であるプレイヤーを一人選択し、(-1920,12,-192)にある[ジョブロード]({{site.baseurl}}/command/xCircuit2/xCircuit2_jobLoad.html)を実行
+10. `ShowStatus`のプレイヤーを一人選択し、(-1920,14,-192)にある[ステータス表示]({{site.baseurl}}/command/xCircuit2/xCircuit2_statusDisplay.html)を実行
+11. `ShowConquest`のプレイヤーを一人選択し、(-1920,18,-192)にある[攻略率表示]({{site.baseurl}}/command/xCircuit2/xCircuit2_conquerDisplay.html)を実行
+12. (-1755,98,-153)からdx=32,dy=9,dz=32(ブラジル行きの穴)にいるプレイヤーに`WarpByJob`を付与し、(-1920,15,-192)にある[ワープ処理_ジョブ島/通常世界]({{site.baseurl}}/command/xCircuit2/xCircuit2_warpProcessing.html)を実行
+13. `HP`が0以下,`Hunger`が-1以下であるプレイヤーを一人選択し、`Hunger`に`Food`を代入し、(-1920,16,-192)にある[KeepInventory確認]({{site.baseurl}}/command/xCircuit2/xCircuit2_keepinventoryCheck.html)を実行
+14. `HP`が1以上,`Hunger`が0以上であるプレイヤーを一人選択し、[CommonGM]({{site.baseurl}}/entity/entity_entity.html#commongm)から(~,17,-192)にある[満腹度修正]({{site.baseurl}}/command/xCircuit2/xCircuit2_satietyFix.html)を実行
+15. `HP`が1以上かつインベントリにネザースターのあるプレイヤーの`GotExpFlag`を-1にし、(-1920,8,-191)にある[経験値取得処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_expProcessing.html)を実行
+16. `ExpToLevel`が0以下であるプレイヤーを一人選択し、[CommonGM]({{site.baseurl}}/entity/entity_entity.html#commongm)から(~,9,-191)にある[レベルアップ処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_levelupProcessing.html)を実行
+17. `RefreshHPMax`が1以上であるプレイヤーを一人選択し、[CommonGM]({{site.baseurl}}/entity/entity_entity.html#commongm)から(~,16,-191)にある[最大HP調整処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_hpFix.html)を実行
 18. `CoolTickCounter`が1以上,`MPMaxFlag`が0以下,`ManaRefresh`が0以上であるプレイヤーを一人選択し、`MP`に`MPIncrement`を足し合わせる
 19. `CoolTickCounter`が1以上,`MPMaxFlag`が0以下であるプレイヤーを一人選択し、`MP`に`MPIncrement`を足し合わせ、`MP`から`MPMax`を引く。そして、`CoolTickCounter`が1以上,`MPMaxFlag`が0以下,`MP`が0以上であるプレイヤーを一人選択し、`MP`に`MPMax`を代入し、`score_CoolTickCounter_min=1`,`score_MPMaxFlag=0`,`score_MP_min=0`であるプレイヤーの`MPMaxFlag`を1にする
 20. `CoolTickCounter`が1以上,`MPMaxFlag`が0以下であるプレイヤーを一人選択し、`MP`に`MPMax`を足し合わせ、`CoolTickCounter`が1以上,`MPMaxFlag`が0以下であるプレイヤーを一人選択し、`CoolTickCounter`に`CoolTickSpan`を代入する
-21. `UseEnderEye`が1以上であるプレイヤーを一人選択し、[CommonGM](/entity/entity_entity.html#commongm)から(~,17,-191)と(~,18,-191)にある[島攻略処理](/command/xCircuit2/xCircuit2_conquerProcessing.html)を実行
+21. `UseEnderEye`が1以上であるプレイヤーを一人選択し、[CommonGM]({{site.baseurl}}/entity/entity_entity.html#commongm)から(~,17,-191)と(~,18,-191)にある[島攻略処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_conquerProcessing.html)を実行
 22. `UseChorus`が1以上であるプレイヤーに`Pray`を追加。(-2827,57,-410)から(dx=9,dy=123,dz=9)(タワーバンク内)にいてかつ`Use_Chorus`が1以上であるプレイヤーを(-2811,75,-396,-53,0)(タワーバンク入口)に移動させる
-23. `UseChorus`が1以上であるプレイヤーのところに[コーラスマイト](/entity/entity_entity.html#コーラスマイト)を出現させ、`UseChorus`が1以上であるプレイヤーの`UseChorus`を0にする
+23. `UseChorus`が1以上であるプレイヤーのところに[コーラスマイト]({{site.baseurl}}/entity/entity_entity.html#コーラスマイト)を出現させ、`UseChorus`が1以上であるプレイヤーの`UseChorus`を0にする
 24. `Deaths`が1以上,`HP`が1以上であるプレイヤーのエフェクトをすべて消去する

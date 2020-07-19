@@ -16,7 +16,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,15,-200)
 
-<span class="tagBlack">呼び出し元</span> [時間経過](/command/xCircuit1/xCircuit1_timeElapsed.html)
+<span class="tagBlack">呼び出し元</span> [時間経過]({{site.baseurl}}/command/xCircuit1/xCircuit1_timeElapsed.html)
 
 凍結されたチャンク内にある飛翔物を削除するためのコマンド群と思われる。
 

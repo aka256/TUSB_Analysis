@@ -16,9 +16,9 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,9,-200)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群1](/command/xCircuit1/xCircuit1_runFirst.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群1]({{site.baseurl}}/command/xCircuit1/xCircuit1_runFirst.html)
 
-Overworld内のディメンション移動の際の侵入記録を行う。また、その際にスキルの設定を変える、[お試しセットの印玉](/others/others_item.html#お試しセットの印玉)を渡すなどの処理も行っている。
+Overworld内のディメンション移動の際の侵入記録を行う。また、その際にスキルの設定を変える、[お試しセットの印玉]({{site.baseurl}}/others/others_item.html#お試しセットの印玉)を渡すなどの処理も行っている。
 
 ## コマンド群
 
@@ -52,17 +52,17 @@ No.11
 ## 詳細
 
 1. `AreaTitleFlag`の値に対応した`Enter`の持っていないエリアエフェクトクラウドに`Enter`を付与(以下の表参照)
-2. `AreaTitleFlag`が-100以上であるプレイヤー一人選択し、プレイヤーの1m上に4m以内にいる`ViewPoint`を持つエンティティ([ViewPoint(仮)](/entity/entity_entity.html#viewpoint(仮)))を移動
+2. `AreaTitleFlag`が-100以上であるプレイヤー一人選択し、プレイヤーの1m上に4m以内にいる`ViewPoint`を持つエンティティ([ViewPoint(仮)]({{site.baseurl}}/entity/entity_entity.html#viewpoint(仮)))を移動
 3. `AreaTitleFlag`が-100以上であるプレイヤーの`InstantChangeA`、`InstantChangeB`、`ModeChangeA`、`ModeChangeB`をそれぞれ0に設定
-4. (-2725,88,-382)から2m以内(スキル設定所入口)にいて`AreaTitleFlag`が10であり、`TrialSet`を持つプレイヤーが存在したら、[お試しセットの印玉](/others/others_item.html#お試しセットの印玉)を与え以下の事柄を実行
-   1. [お試しセットの印玉](/others/others_item.html#お試しセットの印玉)を受け取ったというメッセージを表示
+4. (-2725,88,-382)から2m以内(スキル設定所入口)にいて`AreaTitleFlag`が10であり、`TrialSet`を持つプレイヤーが存在したら、[お試しセットの印玉]({{site.baseurl}}/others/others_item.html#お試しセットの印玉)を与え以下の事柄を実行
+   1. [お試しセットの印玉]({{site.baseurl}}/others/others_item.html#お試しセットの印玉)を受け取ったというメッセージを表示
    2. `TrialSet`を削除
 5. `AreaTitleFlag`が-100以上であるプレイヤーの`AreaTitleFlag`を-999に設定
 
 |AreaTitleFlag|AreaEffectCloudName|
 |:-:|:-:|
-|1|[地下世界](/entity/entity_entity.html#地下世界)|
-|10|[クラウディア](/entity/entity_entity.html#クラウディア)|
-|11|[テーブルマウンテン](/entity/entity_entity.html#テーブルマウンテン)|
-|12|[ガリバーランド](/entity/entity_entity.html#ガリバーランド)|
-|13|[トカルトコルデ](/entity/entity_entity.html#トカルトコルデ)|
+|1|[地下世界]({{site.baseurl}}/entity/entity_entity.html#地下世界)|
+|10|[クラウディア]({{site.baseurl}}/entity/entity_entity.html#クラウディア)|
+|11|[テーブルマウンテン]({{site.baseurl}}/entity/entity_entity.html#テーブルマウンテン)|
+|12|[ガリバーランド]({{site.baseurl}}/entity/entity_entity.html#ガリバーランド)|
+|13|[トカルトコルデ]({{site.baseurl}}/entity/entity_entity.html#トカルトコルデ)|

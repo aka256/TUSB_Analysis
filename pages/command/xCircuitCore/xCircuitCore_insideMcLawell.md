@@ -15,7 +15,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1896,117,-136)
 
-<span class="tagBlue">分岐先</span> [初期化処理](/command/xCircuitCore/xCircuitCore_initializeProcessing.html)
+<span class="tagBlue">分岐先</span> [初期化処理]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_initializeProcessing.html)
 
 TUSBに初めてログインした時にトリガーとなる部分である。初期リスポーン地点にある村人像の内部にあるコマンドブロック付きトロッコの横にあるラピスラズリブロックが、初期ファイルではこれがレッドストーンブロックになっておりコマンドブロック付きトロッコを起動させている。要は**X回路区域はこれによって起動されていることになる**。
 
@@ -41,7 +41,7 @@ TUSBに初めてログインした時にトリガーとなる部分である。�
 
 ### コマンドブロック付きトロッコ
 
-- 周囲30m以内にcreativeでないプレイヤーがいる時、[初期化処理](/command/xCircuitCore/xCircuitCore_initializeProcessing.html)を実行 (X回路区域の起動)
+- 周囲30m以内にcreativeでないプレイヤーがいる時、[初期化処理]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_initializeProcessing.html)を実行 (X回路区域の起動)
 
 ### その他コマンド群
 
@@ -50,5 +50,5 @@ TUSBに初めてログインした時にトリガーとなる部分である。�
 {% include tip.html content="もし、何らかの事情で初期化したいときはコマンドブロック付きトロッコの隣にあるラピスラズリブロックをレッドストーンブロックに置き換えればよいと思われる。(どこで使うかは分からないが)" %}
 
 1. (-1884,11,-200)にあるコマンドブロックに{auto:true}を付与
-2. (-1901,4,-192)にある[毎tick実行するコマンド群2](/command/xCircuit2/xCircuit2_reset.html)のNo.20のコマンドブロックに{auto:true}を付与
-3. (-1870,4,-195)にある[メインクロックOFF](/command/xCircuitCore/xCircuitCore_mainclockProcessing.html#メインクロックOFF)を実行
+2. (-1901,4,-192)にある[毎tick実行するコマンド群2]({{site.baseurl}}/command/xCircuit2/xCircuit2_reset.html)のNo.20のコマンドブロックに{auto:true}を付与
+3. (-1870,4,-195)にある[メインクロックOFF]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_mainclockProcessing.html#メインクロックOFF)を実行

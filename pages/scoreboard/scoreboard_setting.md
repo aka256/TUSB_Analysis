@@ -30,7 +30,7 @@ summaryDisable: true
 
 ### Sightseeing
 
-観光モードの適応状況を示すスコア。当然だが観光モードをONにすると、書き換えられる。詳しくは[観光モード提案開始](/command/xCircuit3/xCircuit3_suggestSightseeing.html)
+観光モードの適応状況を示すスコア。当然だが観光モードをONにすると、書き換えられる。詳しくは[観光モード提案開始]({{site.baseurl}}/command/xCircuit3/xCircuit3_suggestSightseeing.html)
 
 |値|説明|
 |-|-|
@@ -39,7 +39,7 @@ summaryDisable: true
 
 ### ForceNight
 
-強制的に夜にするかどうかを示すスコア。月島のエンドポータルフレームにエンダーアイをはめることにより、書き換えられる。詳しくは[島攻略処理](/command/xCircuit2/xCircuit2_conquerProcessing.html)
+強制的に夜にするかどうかを示すスコア。月島のエンドポータルフレームにエンダーアイをはめることにより、書き換えられる。詳しくは[島攻略処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_conquerProcessing.html)
 
 |値|説明|
 |-|-|
@@ -57,7 +57,7 @@ summaryDisable: true
 
 ### Prayable
 
-お祈りをすることができるか、管理するスコア。交易島の教会内にあるエンドポータルフレームにエンダーアイをはめることにより、書き換えられる。詳しくは[島攻略処理](/command/xCircuit2/xCircuit2_conquerProcessing.html)
+お祈りをすることができるか、管理するスコア。交易島の教会内にあるエンドポータルフレームにエンダーアイをはめることにより、書き換えられる。詳しくは[島攻略処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_conquerProcessing.html)
 
 |値|説明|
 |-|-|
@@ -66,7 +66,7 @@ summaryDisable: true
 
 ### MobGriefing
 
-ゲームルールのmobGriefingの値を保存するスコア。[毎tick実行するコマンド群1](/command/xCircuit1/xCircuit1_runFirst.html)で書き換えられる。
+ゲームルールのmobGriefingの値を保存するスコア。[毎tick実行するコマンド群1]({{site.baseurl}}/command/xCircuit1/xCircuit1_runFirst.html)で書き換えられる。
 
 |値|説明|
 |-|-|
@@ -74,7 +74,7 @@ summaryDisable: true
 
 ### Difficulty
 
-攻略率による難易度を数値化したもの。`TypeCheck`を持つエンティティ(すべての敵Mob)へのバフのレベルに影響を与える。詳しくは[難易度調整](/command/xCircuit2/xCircuit2_difficultyAdjustment.html)と[タイプ設定](/command/xCircuit3/xCircuit3_typeSetting.html)
+攻略率による難易度を数値化したもの。`TypeCheck`を持つエンティティ(すべての敵Mob)へのバフのレベルに影響を与える。詳しくは[難易度調整]({{site.baseurl}}/command/xCircuit2/xCircuit2_difficultyAdjustment.html)と[タイプ設定]({{site.baseurl}}/command/xCircuit3/xCircuit3_typeSetting.html)
 
 $$
 Difficult = (PlayerNum)^2+ConquerPctInt\\

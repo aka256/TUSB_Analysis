@@ -16,9 +16,9 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1870,7,-197)
 
-[SystemKeeper](/entity/entity_entity.html)という名前のアーマースタンドと、その下にあるコマンド群によって構成され、X回路区域のセーフティーネットの役割を担っている。なので、通常では実行されることがないコマンド群である。
+[SystemKeeper]({{site.baseurl}}/entity/entity_entity.html)という名前のアーマースタンドと、その下にあるコマンド群によって構成され、X回路区域のセーフティーネットの役割を担っている。なので、通常では実行されることがないコマンド群である。
 
-{% include note.html content="[SystemKeeper](/entity/entity_entity.html#systemkeeper)がこの上にいる限り実行される" %}
+{% include note.html content="[SystemKeeper](/TUSB_Analysis/entity/entity_entity.html#systemkeeper)がこの上にいる限り実行される" %}
 
 ## コマンド群
 
@@ -36,10 +36,10 @@ summaryDisable: true
 
 ## 詳細
 
-何かトラブルが発生し、[SystemKeeper](/entity/entity_entity.html)の移動がされず石の感圧版を押した際に以下の事柄が実行される。
+何かトラブルが発生し、[SystemKeeper]({{site.baseurl}}/entity/entity_entity.html)の移動がされず石の感圧版を押した際に以下の事柄が実行される。
 
-1. (-1870,8,-197)の[SystemKeeper](/entity/entity_entity.html)の足元に石の感圧版を設置
-2. [SystemKeerer](/entity/entity_entity.html)を2m上に移動
+1. (-1870,8,-197)の[SystemKeeper]({{site.baseurl}}/entity/entity_entity.html)の足元に石の感圧版を設置
+2. [SystemKeerer]({{site.baseurl}}/entity/entity_entity.html)を2m上に移動
 3. 秩序が戻った旨の通知を出す
-4. [毎tick実行するコマンド群](/command/xCircuit1/xCircuit1_mainclockProcessing.html#毎tick実行するコマンド群)を実行
-5. (-1870,5,-203)にある[チャンクローダー設定](/command/xCircuitCore/xCircuitCore_furnaceProcessing.html)を実行
+4. [毎tick実行するコマンド群]({{site.baseurl}}/command/xCircuit1/xCircuit1_mainclockProcessing.html#毎tick実行するコマンド群)を実行
+5. (-1870,5,-203)にある[チャンクローダー設定]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_furnaceProcessing.html)を実行

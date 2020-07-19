@@ -16,7 +16,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,10,-191)~(-1920,15,-191)
 
-<span class="tagBlack">呼び出し元</span> [レベルアップ処理](/command/xCircuit2/xCircuit2_levelupProcessing.html)
+<span class="tagBlack">呼び出し元</span> [レベルアップ処理]({{site.baseurl}}/command/xCircuit2/xCircuit2_levelupProcessing.html)
 
 レベルアップ時に新しいスキル取得したか判断する。
 

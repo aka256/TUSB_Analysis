@@ -5,10 +5,12 @@
 		}
 	],
 	"settings": {
+		/*
 		"markdown-pdf.type":[
 			"pdf",
 			"html"
 		],
+		*/
 		"markdown-pdf.convertOnSave":true,
 		/*
 		"markdown-pdf.styles": [

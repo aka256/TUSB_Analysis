@@ -16,9 +16,9 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,9,-192)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群2](/command/xCircuit2/xCircuit2_reset.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群2]({{site.baseurl}}/command/xCircuit2/xCircuit2_reset.html)
 
-<span class="tagBlue">分岐先</span> [難易度調整](/command/xCircuit2/xCircuit2_difficultyAdjustment.html)
+<span class="tagBlue">分岐先</span> [難易度調整]({{site.baseurl}}/command/xCircuit2/xCircuit2_difficultyAdjustment.html)
 
 通常ログイン時のMPや職業などの処理を行う。
 
@@ -57,4 +57,4 @@ summaryDisable: true
 9. `LeaveGame`が1以上,`Job`が1以上であるプレイヤーの`ShowSkillSlot`を4に設定
 10. `LeaveGame`が1以上であるプレイヤーに`Pray`を付与
 11. `LeaveGame`が1以上であるプレイヤーの`LeaveGame`を0に設定
-12. (-1920,17,-200)にある[難易度調整](/command/xCircuit2/xCircuit2_difficultyAdjustment.html)を実行
+12. (-1920,17,-200)にある[難易度調整]({{site.baseurl}}/command/xCircuit2/xCircuit2_difficultyAdjustment.html)を実行

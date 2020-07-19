@@ -367,8 +367,8 @@ code {
   </script>
 <h2 id="about">About</h2>
 <p><span class="tagYellow">位置</span> (-1920,4,-189)</p>
-<p><span class="tagBlack">呼び出し元</span> <a href="/command/xCircuitCore/xCircuitCore_initializeProcessing.html">初期化処理</a>, <a href="/command/xCircuitCore/xCircuitCore_mainclockProcessing.html">メインクロック処理</a></p>
-<p><span class="tagBlue">分岐先</span> <a href="/command/xCircuit3/xCircuit3_bedProcessing.html">ベッド処理</a>, <a href="/command/xCircuit3/xCircuit3_prayProcessing.html">お祈りkill</a>, <a href="/command/xCircuit3/xCircuit3_villagerTalkProcessing.html">村人会話処理</a>, <a href="/command/xCircuit3/xCircuit3_pastorTalk.html">牧師会話選択時処理</a>, <a href="/command/xCircuit3/xCircuit3_agentTalk.html">エージェント会話選択時処理</a>, <a href="/command/xCircuit3/xCircuit3_augurTalk.html">占い師会話選択時処理</a>, <a href="/command/xCircuit3/xCircuit3_paymentProcessing.html">エメラルド支払い</a>, <a href="/command/xCircuit3/xCircuit3_skillDisplay.html">設定スキル表示</a>, <a href="/command/xCircuit3/xCircuit3_suggestSightseeing.html">観光モード提案開始</a>, <a href="/command/xCircuit3/xCircuit3_volcanoProcessing.html">ネザーラック破壊時火山噴火処理</a>, <a href="/command/xCircuit3/xCircuit3_typeSetting.html">タイプ設定</a>, <a href="/command/xCircuit3/xCircuit3_invisibleEtherProcessing.html">透明化&amp;エーテル処理</a></p>
+<p><span class="tagBlack">呼び出し元</span> <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuitCore/xCircuitCore_initializeProcessing.html">初期化処理</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuitCore/xCircuitCore_mainclockProcessing.html">村人像</a></p>
+<p><span class="tagBlue">分岐先</span> <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_bedProcessing.html">ベッド処理</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_prayProcessing.html">お祈りkill</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_villagerTalkProcessing.html">村人会話処理</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_pastorTalk.html">牧師会話選択時処理</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_agentTalk.html">エージェント会話選択時処理</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_augurTalk.html">占い師会話選択時処理</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_paymentProcessing.html">エメラルド支払い</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_skillDisplay.html">設定スキル表示</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_suggestSightseeing.html">観光モード提案開始</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_volcanoProcessing.html">ネザーラック破壊時火山噴火処理</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_typeSetting.html">タイプ設定</a>, <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_invisibleEtherProcessing.html">透明化&amp;エーテル処理</a></p>
 <p>村人関係の処理やそれぞれのディメンションでの特殊処理(ネザーラック破壊時の処理など)などへの分岐を行う。</p>
 <h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
 <div class="datatable4c-begin"></div>
@@ -561,28 +561,28 @@ code {
 <div class="datatable4c-end"></div>
 <h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
 <ol>
-<li><code>SleepInBed</code>が1以上のプレイヤーを一人選択し、(-1920,8,-189)にある<a href="/command/xCircuit3/xCircuit3_bedProcessing.html">ベッド処理</a>を実行</li>
-<li><code>kill</code>が1以上であるプレイヤーを一人選択し、(-1920,9,-189)にある<a href="/command/xCircuit3/xCircuit3_prayProcessing.html">お祈りkill</a>を実行</li>
+<li><code>SleepInBed</code>が1以上のプレイヤーを一人選択し、(-1920,8,-189)にある<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_bedProcessing.html">ベッド処理</a>を実行</li>
+<li><code>kill</code>が1以上であるプレイヤーを一人選択し、(-1920,9,-189)にある<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_prayProcessing.html">お祈りkill</a>を実行</li>
 <li>(-55,14,8)にある岩盤(交易島のドラッグストアの下辺り)が存在するとき、そこから25m外側に<code>ShopStaff</code>を持つ村人を(-54,24,9)にいる<code>ShopHomePoint</code>を持つアーマースタンドの所に移動 (つまり、岩盤がなければ村人はTPされない)</li>
-<li><code>TalkToVillager</code>が1以上であるプレイヤーを一人選択し、(-1920,10,-189)にある<a href="/command/xCircuit3/xCircuit3_villagerTalkProcessing.html">村人会話処理</a>を実行</li>
-<li><code>PastorFlag</code>が1以上であるプレイヤーを一人選択し、(-1920,11,-189)にある<a href="/command/xCircuit3/xCircuit3_pastorTalk.html">牧師会話選択時処理</a>を実行</li>
-<li><code>AgentFlag</code>が1以上であるプレイヤーを一人選択し、(-1920,12,-189)にある<a href="/command/xCircuit3/xCircuit3_agentTalk.html">エージェント会話選択時処理</a>を実行</li>
-<li><code>AugurFlag</code>が1以上であるプレイヤーを一人選択し、(-1920,13,-189)にある<a href="/command/xCircuit3/xCircuit3_augurTalk.html">占い師会話選択時処理</a>を実行</li>
-<li><code>Payment</code>が1以上であるすべてのプレイヤーのインベントリ内にエメラルドが存在するとき、(-1920,14,-189)にある<a href="/command/xCircuit3/xCircuit3_paymentProcessing.html">エメラルド支払い</a>を実行</li>
-<li><code>ShowSkillSlot</code>が1以上であるプレイヤーを一人選択し、(-1920,16,-189)にある<a href="/command/xCircuit3/xCircuit3_skillDisplay.html">設定スキル表示</a>を実行し、<code>#ReserveShowSkill</code>の<code>Global</code>を1に設定</li>
-<li><code>SuggestSightseeing</code>を持つプレイヤーを一人選択し、(-1920,8,-188)にある<a href="/command/xCircuit3/xCircuit3_suggestSightseeing.html">観光モード提案開始</a>を実行</li>
+<li><code>TalkToVillager</code>が1以上であるプレイヤーを一人選択し、(-1920,10,-189)にある<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_villagerTalkProcessing.html">村人会話処理</a>を実行</li>
+<li><code>PastorFlag</code>が1以上であるプレイヤーを一人選択し、(-1920,11,-189)にある<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_pastorTalk.html">牧師会話選択時処理</a>を実行</li>
+<li><code>AgentFlag</code>が1以上であるプレイヤーを一人選択し、(-1920,12,-189)にある<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_agentTalk.html">エージェント会話選択時処理</a>を実行</li>
+<li><code>AugurFlag</code>が1以上であるプレイヤーを一人選択し、(-1920,13,-189)にある<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_augurTalk.html">占い師会話選択時処理</a>を実行</li>
+<li><code>Payment</code>が1以上であるすべてのプレイヤーのインベントリ内にエメラルドが存在するとき、(-1920,14,-189)にある<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_paymentProcessing.html">エメラルド支払い</a>を実行</li>
+<li><code>ShowSkillSlot</code>が1以上であるプレイヤーを一人選択し、(-1920,16,-189)にある<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_skillDisplay.html">設定スキル表示</a>を実行し、<code>#ReserveShowSkill</code>の<code>Global</code>を1に設定</li>
+<li><code>SuggestSightseeing</code>を持つプレイヤーを一人選択し、(-1920,8,-188)にある<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_suggestSightseeing.html">観光モード提案開始</a>を実行</li>
 <li>(-2827,57,-410)からdx=9,dy=123,dz=9の範囲(個人ロッカー内)にある鉄のトラップドアの座標上にアドベンチャーモードであるプレイヤーが存在するとき、1m下に移動させる</li>
 <li>(-6,65,-2148)からdx=64,dy=135,dz=48の範囲(テーブルマウンテンの滝)にアドベンチャーモードであるプレイヤーがいるとき、「不思議な力で押し戻された」とのメッセジーを流し、y=37に移動させる</li>
-<li><code>MineNetherrack</code>が1以上であるプレイヤーを一人選択し、(-1920,13,-188)にある<a href="/command/xCircuit3/xCircuit3_volcanoProcessing.html">ネザーラック破壊時火山噴火処理</a>を実行</li>
+<li><code>MineNetherrack</code>が1以上であるプレイヤーを一人選択し、(-1920,13,-188)にある<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_volcanoProcessing.html">ネザーラック破壊時火山噴火処理</a>を実行</li>
 <li>(39,6,67)が空気ブロックであり、(39,7,67)がシミ入り石ブロックであるとき、(39,7,67)にお知らせのスポナーを設置し、以下の事柄を実行
 <ul>
 <li><code>Debug</code>の<code>Setting</code>が0以下であるとき(8,26,4)に着火されたTNTと炎をまき散らすスポナー付きマインカートを乗せたコウモリを召喚</li>
 </ul>
 </li>
 <li>(39,6,67)がチェストであるとき(39,7,67)にシミ入り石ブロックを設置</li>
-<li><code>FallingSand</code>と<code>TypeChecked</code>を持っていないすべてのエンティティに<code>TypeCheck</code>を付与し、(-1920,14,-188)にある<a href="/command/xCircuit3/xCircuit3_typeSetting.html">タイプ設定</a>を実行</li>
+<li><code>FallingSand</code>と<code>TypeChecked</code>を持っていないすべてのエンティティに<code>TypeCheck</code>を付与し、(-1920,14,-188)にある<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_typeSetting.html">タイプ設定</a>を実行</li>
 <li><code>Arrow</code>を持ち、<code>inGround</code>がtrueであるすべてのエンティティ(矢)に<code>InGround</code>と<code>TypeChecked</code>を付与</li>
-<li>透明化を付与されているすべてのプレイヤーに<code>Invisible</code>を付与し、(-1920,17,-188)にある<a href="/command/xCircuit3/xCircuit3_invisibleEtherProcessing.html">透明化&amp;エーテル処理</a>を実行</li>
+<li>透明化を付与されているすべてのプレイヤーに<code>Invisible</code>を付与し、(-1920,17,-188)にある<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_invisibleEtherProcessing.html">透明化&amp;エーテル処理</a>を実行</li>
 <li><code>AbyssWarp</code>を持つエンティティの1m下から29m下いる<code>AbyssWarp</code>を持つエンティティを80m以内にいる一人のプレイヤーの座標に移動し、すべてのプレイヤーから30m下を起点として32m上までの範囲にいるすべてのプレイヤーをその場に移動</li>
 <li><code>Freeze</code>を持つエンティの<code>Motion</code>を[0,0,0]に設定</li>
 </ol>

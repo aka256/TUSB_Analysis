@@ -367,7 +367,7 @@ code {
   </script>
 <h2 id="about">About</h2>
 <p><span class="tagYellow">位置</span> (-1896,117,-136)</p>
-<p><span class="tagBlue">分岐先</span> <a href="/command/xCircuitCore/xCircuitCore_initializeProcessing.html">初期化処理</a></p>
+<p><span class="tagBlue">分岐先</span> <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuitCore/xCircuitCore_initializeProcessing.html">初期化処理</a></p>
 <p>TUSBに初めてログインした時にトリガーとなる部分である。初期リスポーン地点にある村人像の内部にあるコマンドブロック付きトロッコの横にあるラピスラズリブロックが、初期ファイルではこれがレッドストーンブロックになっておりコマンドブロック付きトロッコを起動させている。要は<strong>X回路区域はこれによって起動されていることになる</strong>。</p>
 <p>{% include note.html content=&quot;初期状態を確かめるにはクリエイティブでワールドに入る必要がある。これを実現させるためには<strong>NBT Explorer</strong>などの外部ツールによって、level.datを書き換える必要がある。&quot; %}</p>
 <h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
@@ -400,15 +400,15 @@ code {
 <h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
 <h3 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E4%BB%98%E3%81%8D%E3%83%88%E3%83%AD%E3%83%83%E3%82%B3">コマンドブロック付きトロッコ</h3>
 <ul>
-<li>周囲30m以内にcreativeでないプレイヤーがいる時、<a href="/command/xCircuitCore/xCircuitCore_initializeProcessing.html">初期化処理</a>を実行 (X回路区域の起動)</li>
+<li>周囲30m以内にcreativeでないプレイヤーがいる時、<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuitCore/xCircuitCore_initializeProcessing.html">初期化処理</a>を実行 (X回路区域の起動)</li>
 </ul>
 <h3 id="%E3%81%9D%E3%81%AE%E4%BB%96%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">その他コマンド群</h3>
 <p>以下のコマンド群はTUSBを配布直前に行う初期化装置と思われるので、<strong>基本的には使われることはなく無視して構わない。</strong></p>
 <p>{% include tip.html content=&quot;もし、何らかの事情で初期化したいときはコマンドブロック付きトロッコの隣にあるラピスラズリブロックをレッドストーンブロックに置き換えればよいと思われる。(どこで使うかは分からないが)&quot; %}</p>
 <ol>
 <li>(-1884,11,-200)にあるコマンドブロックに{auto:true}を付与</li>
-<li>(-1901,4,-192)にある<a href="/command/xCircuit2/xCircuit2_reset.html">毎tick実行するコマンド群2</a>のNo.20のコマンドブロックに{auto:true}を付与</li>
-<li>(-1870,4,-195)にある<a href="/command/xCircuitCore/xCircuitCore_mainclockProcessing.html#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFOFF">メインクロックOFF</a>を実行</li>
+<li>(-1901,4,-192)にある<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit2/xCircuit2_reset.html">毎tick実行するコマンド群2</a>のNo.20のコマンドブロックに{auto:true}を付与</li>
+<li>(-1870,4,-195)にある<a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuitCore/xCircuitCore_mainclockProcessing.html#%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%AF%E3%83%AD%E3%83%83%E3%82%AFOFF">メインクロックOFF</a>を実行</li>
 </ol>
 
 </body>

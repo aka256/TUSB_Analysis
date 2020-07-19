@@ -15,9 +15,9 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1870,4-194)~(-1870,4,-158)
 
-<span class="tagBlack">呼び出し元</span> [村人像内部](/command/xCircuitCore/xCircuitCore_insideMcLawell.html)
+<span class="tagBlack">呼び出し元</span> [村人像内部]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_insideMcLawell.html)
 
-<span class="tagBlue">分岐先</span> [毎tick実行するコマンド群1](/command/xCircuit1/xCircuit1_runFirst.html), [毎tick実行するコマンド群2](/command/xCircuit2/xCircuit2_reset.html), [毎tick実行するコマンド群3](/command/xCircuit3/xCircuit3_command.html), [メインクロック起動処理](/command/xCircuitCore/xCircuitCore_mainclockProcessing.html), [村人像内部](/command/xCircuitCore/xCircuitCore_insideMcLawell.html), [チャンクローダー設定](/command/xCircuitCore/xCircuitCore_furnaceProcessing.html)
+<span class="tagBlue">分岐先</span> [毎tick実行するコマンド群1]({{site.baseurl}}/command/xCircuit1/xCircuit1_runFirst.html), [毎tick実行するコマンド群2]({{site.baseurl}}/command/xCircuit2/xCircuit2_reset.html), [毎tick実行するコマンド群3]({{site.baseurl}}/command/xCircuit3/xCircuit3_command.html), [メインクロック起動処理]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_mainclockProcessing.html), [村人像内部]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_insideMcLawell.html), [チャンクローダー設定]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_furnaceProcessing.html)
 
 (-1870,4-194)から(-1870,4,-158)の壁沿いに並んでいるコマンド群であり、X回路区域やスコアボードなど、様々な初期化処理を行う。
 
@@ -522,14 +522,14 @@ CommandStats:{QueryResultName:"#StartTime",QueryResultObjective:"Global"}
 
 ### メインクロックON
 
-1. [毎tick実行されるコマンド群](/command/xCircuitCore/xCircuitCore_mainclockProcessing.html#毎tick実行されるコマンド群)を実行
-2. [SystemKeeper](/entity/entity_entity.html#systemkeeper)君を(-1870,10,-197)に召喚し、[メインクロック起動処理](/command/xCircuitCore/xCircuitCore_mainclockProcessing.html)を作動させる
+1. [毎tick実行されるコマンド群]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_mainclockProcessing.html#毎tick実行されるコマンド群)を実行
+2. [SystemKeeper]({{site.baseurl}}/entity/entity_entity.html#systemkeeper)君を(-1870,10,-197)に召喚し、[メインクロック起動処理]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_mainclockProcessing.html)を作動させる
 
 ### 初期化装置停止
 
-1. (-1896,117,-137)にあるレッドストーンブロックをラピスラズリブロックに置き換えて、[村人像内部](/command/xCircuitCore/xCircuitCore_insideMcLawell.html)を停止
+1. (-1896,117,-137)にあるレッドストーンブロックをラピスラズリブロックに置き換えて、[村人像内部]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_insideMcLawell.html)を停止
 2. (-1883,3,-200)にある、1秒クロックのためのかまどの燃料がなくなるまでの時間を1000秒に設定
-3. (-1872,5,-203)にある[チャンクローダー](/command/xCircuitCore/xCircuitCore_furnaceProcessing.html)にサボテンと石炭を投入し、これを稼働させる
+3. (-1872,5,-203)にある[チャンクローダー]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_furnaceProcessing.html)にサボテンと石炭を投入し、これを稼働させる
 
 ### Const
 
@@ -982,4 +982,4 @@ CommandStats:{QueryResultName:"#StartTime",QueryResultObjective:"Global"}
 2. ワールドの境界線を(0,0)を中心とし、7000mを一辺の長さとした矩形として構成
 3. 時間を14000に設定
 4. 15秒間雨を降らせる
-5. (-1920,6,-197)付近にいる[地下世界](/entity/entity_entity.html#地下世界)、[クラウディア](/entity/entity_entity.html#クラウディア)、[テーブルマウンテン](/entity/entity_entity.html#テーブルマウンテン)、[ガリバーランド](/entity/entity_entity.html#ガリバーランド)、[トカルトコルデ](/entity/entity_entity.html#トカルトコルデ)から`Enter`を消去
+5. (-1920,6,-197)付近にいる[地下世界]({{site.baseurl}}/entity/entity_entity.html#地下世界)、[クラウディア]({{site.baseurl}}/entity/entity_entity.html#クラウディア)、[テーブルマウンテン]({{site.baseurl}}/entity/entity_entity.html#テーブルマウンテン)、[ガリバーランド]({{site.baseurl}}/entity/entity_entity.html#ガリバーランド)、[トカルトコルデ]({{site.baseurl}}/entity/entity_entity.html#トカルトコルデ)から`Enter`を消去

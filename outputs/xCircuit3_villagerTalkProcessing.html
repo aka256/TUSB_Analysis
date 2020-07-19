@@ -367,7 +367,7 @@ code {
   </script>
 <h2 id="about">About</h2>
 <p><span class="tagYellow">位置</span> (-1920,10,-189)</p>
-<p><span class="tagBlack">呼び出し元</span> <a href="/command/xCircuit3/xCircuit3_command.html">毎tick実行するコマンド群3</a></p>
+<p><span class="tagBlack">呼び出し元</span> <a href="%7B%7Bsite.baseurl%7D%7D/command/xCircuit3/xCircuit3_command.html">毎tick実行するコマンド群3</a></p>
 <p>交易島内の村人(牧師、エージェント、占い師)との会話や職業島へのワープ時の処理などを行う。</p>
 <h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E7%BE%A4">コマンド群</h2>
 <div class="datatable3c-begin"></div>
@@ -586,7 +586,7 @@ code {
 <h2 id="%E8%A9%B3%E7%B4%B0">詳細</h2>
 <ol>
 <li><code>TalkToVillager</code>が1以上であるすべてのプレイヤーの座標から半径3m以内にある<code>SystemEntity</code>を持っていないアイテムの所に最も近くのプレイヤー一人を移動させる</li>
-<li><a href="/entity/entity_entity.html#shopgm">ShopGM</a>から半径24m以内の<code>Pastor</code>を持つ村人一人(牧師)が存在し、その村人から半径5m以内の<code>TalkToVillager</code>が1以上であるすべてのプレイヤーに<code>TalkToPastor</code>を付与し、<code>Agent</code>(エージェント)、<code>Augur</code>(占い師)も同様に実行</li>
+<li><a href="%7B%7Bsite.baseurl%7D%7D/entity/entity_entity.html#shopgm">ShopGM</a>から半径24m以内の<code>Pastor</code>を持つ村人一人(牧師)が存在し、その村人から半径5m以内の<code>TalkToVillager</code>が1以上であるすべてのプレイヤーに<code>TalkToPastor</code>を付与し、<code>Agent</code>(エージェント)、<code>Augur</code>(占い師)も同様に実行</li>
 <li><code>TalkToVillager</code>が1以上であるプレイヤーの<code>TalkToVillager</code>を0に設定</li>
 <li><code>TalkToPastor</code>を持ち、<code>PastorFlag</code>が-1以下であるすべてのプレイヤーに「[牧師] どうかお気をつけて。」とのメッセージを表示</li>
 <li><code>TalkToPastor</code>を持ち、<code>PastorFlag</code>が0であるすべてのプレイヤーに「[牧師] ご存知ですか？」とのメッセージと選択肢を表示し、<code>PastorFlag</code>への書き込みを許可

@@ -15,7 +15,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,8,-191)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群2](/command/xCircuit2/xCircuit2_reset.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群2]({{site.baseurl}}/command/xCircuit2/xCircuit2_reset.html)
 
 ネザースターの取得時の処理や、マルチプレイ時の距離による経験値取得制限を行う。
 

@@ -16,9 +16,9 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,4,-200)
 
-<span class="tagBlack">呼び出し元</span> [初期化処理](/command/xCircuitCore/xCircuitCore_initializeProcessing.html), [村人像](/command/xCircuitCore/xCircuitCore_mainclockProcessing.html), [毎tick実行するコマンド群1](/command/xCircuit1/xCircuit1_runFirst.html)
+<span class="tagBlack">呼び出し元</span> [初期化処理]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_initializeProcessing.html), [村人像]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_mainclockProcessing.html), [毎tick実行するコマンド群1]({{site.baseurl}}/command/xCircuit1/xCircuit1_runFirst.html)
 
-<span class="tagBlue">分岐先</span> [エリア侵入記録](/command/xCircuit1/xCircuit1_areaRecord.html), [エリア処理](/command/xCircuit1/xCircuit1_areaProcessing.html), [時間経過](/command/xCircuit1/xCircuit1_timeElapsed.html), [AEC維持](/command/xCircuit1/xCircuit1_aecMaintenance.html)
+<span class="tagBlue">分岐先</span> [エリア侵入記録]({{site.baseurl}}/command/xCircuit1/xCircuit1_areaRecord.html), [エリア処理]({{site.baseurl}}/command/xCircuit1/xCircuit1_areaProcessing.html), [時間経過]({{site.baseurl}}/command/xCircuit1/xCircuit1_timeElapsed.html), [AEC維持]({{site.baseurl}}/command/xCircuit1/xCircuit1_aecMaintenance.html)
 
 毎tick実行するコマンド群の一部であり、方角の関係から必ず最初に実行されるコマンド群である。また、このコマンド群自身がセルフクロックを行っている。
 
@@ -91,7 +91,7 @@ CommandStats:{QueryResultName:"MobGriefing",QueryResultObjective:"Settings"}
 
 ## 詳細
 
-1. [毎tick実行するコマンド群1](/command/xCircuit1/xCircuit1_runFirst.html)を実行 (ここで自身を呼び出すことでセルフクロックを行っている)
+1. [毎tick実行するコマンド群1]({{site.baseurl}}/command/xCircuit1/xCircuit1_runFirst.html)を実行 (ここで自身を呼び出すことでセルフクロックを行っている)
 2. `FloationRequired`を持ち、{OnGround:true}であるエンティティと`CooldownRequired`を持ち、{PortalCooldown:0}であるエンティティに`Garbage`を付与
 3. `Slimy`を持ち、{AbsorptionAmount:0f}であるエンティティが存在したら`Garbage`を付与し、以下の事柄を実行
    1. `Garbage`を持つエンティティに{Size:0}を付与
@@ -104,13 +104,13 @@ CommandStats:{QueryResultName:"MobGriefing",QueryResultObjective:"Settings"}
 9. 以下の表のようにプレイヤーのいる場所に対する`AreaChangeFlag`を変更
 10. `AreaChangeFlag`が-100以上であるプレイヤーいる場合、一人選択し`USBDimension`に`AreaChangeFlag`を代入して、以下の事柄を実行
     1. `AreaTileFlag`と`AreaChangeFlag`との値を入れ替える
-    2. (-1920,9,-200)にある[エリア侵入記録](/command/xCircuit1/xCircuit1_areaRecord.html)と(-1920,8,-200)にある[エリア処理](/command/xCircuit1/xCircuit1_areaProcessing.html)を実行
+    2. (-1920,9,-200)にある[エリア侵入記録]({{site.baseurl}}/command/xCircuit1/xCircuit1_areaRecord.html)と(-1920,8,-200)にある[エリア処理]({{site.baseurl}}/command/xCircuit1/xCircuit1_areaProcessing.html)を実行
 11. adventureであり、`Adv`がなく、何かしらのteamに所属しているプレイヤーがいる場合、アドベンチャーモード解除の旨のメッセージを出し、survivalに変更
 12. survivalであり、`Adv`があるプレイヤーがいる場合、アドベンチャーモードに変更された旨のメッセージを出し、adventureに変更
 13. `#SkillTargetCount`の`Global`が1以上である時、以下の事柄を実行
     1. `SkillTarget`を持つエンティティを0.4m下に移動
     2. `SkillTarget`を持つエンティティから`SkillTarget`を消去
-14. (-1883,3,-200)にあるかまどに1秒で燃焼する豚肉を入れることができたら(要は1秒たったら)、(-1920,11,-200)にある[時間経過](/command/xCircuit1/xCircuit1_timeElapsed.html)と(-1920,12,-200)にある[AEC維持](/command/xCircuit1/xCircuit1_aecMaintenance.html)を実行
+14. (-1883,3,-200)にあるかまどに1秒で燃焼する豚肉を入れることができたら(要は1秒たったら)、(-1920,11,-200)にある[時間経過]({{site.baseurl}}/command/xCircuit1/xCircuit1_timeElapsed.html)と(-1920,12,-200)にある[AEC維持]({{site.baseurl}}/command/xCircuit1/xCircuit1_aecMaintenance.html)を実行
 15. `mobGriefing`の値を`MobGriefing`に保存
 16. `mobGriefing`がfalseの時、`mobGriefing`=trueとし、難易度を`hard`に変更
 17. `FallingSand`を持ち、{FallDistance:0f}であるエンティティに`Garbage`を付与し、{Time:0}であるエンティティから`Garbage`を削除

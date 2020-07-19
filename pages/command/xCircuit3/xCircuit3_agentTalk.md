@@ -16,7 +16,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,12,-189)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群3](/command/xCircuit3/xCircuit3_command.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群3]({{site.baseurl}}/command/xCircuit3/xCircuit3_command.html)
 
 交易島にいるエージェントとの会話処理を行い、その会話内容やプレイヤーの手持ちのエメラルド等により職業島までのワープフラグを与える。
 
@@ -43,7 +43,7 @@ summaryDisable: true
 
 ## 詳細
 
-1. [ShopGM](/entity/entity_entity.html#shopgm)から半径24m以内の`Agent`を持つ村人(エージェント)を一人選択し、その村人から半径5m以内の`AgentFlag`が1以上であるすべてのプレイヤーに`AgentYes`を付与
+1. [ShopGM]({{site.baseurl}}/entity/entity_entity.html#shopgm)から半径24m以内の`Agent`を持つ村人(エージェント)を一人選択し、その村人から半径5m以内の`AgentFlag`が1以上であるすべてのプレイヤーに`AgentYes`を付与
 2. `AgentFlag`が1以上であり、`AgentYes`を持っていないすべてのプレイヤーに`AgentFlag`への書き込みを許可
 3. `AgentFlag`が1以上であるすべてのプレイヤーの`AgentFlag`を0に設定
 4. `AgentYes`を持つすべてのプレイヤーの`ItemCount`を-1に設定

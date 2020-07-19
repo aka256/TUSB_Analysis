@@ -15,7 +15,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1870,5,-203)
 
-<span class="tagBlack">呼び出し元</span> [初期化処理](/command/xCircuitCore/xCircuitCore_initializeProcessing.html), [SystemKeeper処理](/command/xCircuitCore/xCircuitCore_systemKeeperProcessing.html)
+<span class="tagBlack">呼び出し元</span> [初期化処理]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_initializeProcessing.html), [SystemKeeper処理]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_systemKeeperProcessing.html)
 
 かまど、ネザーポータル、レッドストーン回路などによって構成されていて、スポーンチャンクを常に読み込むための装置である。
 

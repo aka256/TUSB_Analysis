@@ -16,9 +16,9 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,9,-191)
 
-<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群2](/command/xCircuit2/xCircuit2_reset.html)
+<span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群2]({{site.baseurl}}/command/xCircuit2/xCircuit2_reset.html)
 
-<span class="tagBlue">分岐先</span> [習得スキル取得](/command/xCircuit2/xCircuit2_skillAcquisition.html)
+<span class="tagBlue">分岐先</span> [習得スキル取得]({{site.baseurl}}/command/xCircuit2/xCircuit2_skillAcquisition.html)
 
 レベルアップ時のスコアボードの書き換えや、新しいスキルの取得への分岐などを行う。
 
@@ -65,6 +65,6 @@ summaryDisable: true
 5. `ExpTolevel`が0以下であるプレイヤーの`MPIncrement`に50で割った時の商を代入、`MPIncrement`に3を足す
 6. `ExpTolevel`が0以下であるプレイヤーの座標で演出の実行
 7. `ExpToLevel`が0以上、`Level`が1以上50以下、`NextExp`が349以下であるプレイヤーに`ShowNewSkill`を付与
-8. (-1920,10,-191)から(-1920,15,-191)にある[習得スキル取得](/command/xCircuit2/xCircuit2_skillAcquisition.html)を実行
+8. (-1920,10,-191)から(-1920,15,-191)にある[習得スキル取得]({{site.baseurl}}/command/xCircuit2/xCircuit2_skillAcquisition.html)を実行
 9. `#ReserveShowSkill`の`Global`を1に設定
 10. `ExpToLevel`が0以下であるプレイヤーの`RefreshHPMax`を3に設定、`NextExp`に`Level`を代入、`NextExp`に7との積を代入、`ExpToLevel`に`NextExp`を足し合わせる

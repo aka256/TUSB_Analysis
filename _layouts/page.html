@@ -54,7 +54,7 @@ layout: default
         {% for tag in page.tags %}
         {% for allowed in projectTagsData %}
         {% if allowed.tag==tag %}
-        <a href="{{ allowed.folder | prepend : site.data.tags.baseurl }}" class="btn btn-default navbar-btn cursorNorm" role="button">{{page.tagName}}{{tag}}</a>
+        <a href="{{site.baseurl}}{{ allowed.folder | prepend : site.data.tags.baseurl }}" class="btn btn-default navbar-btn cursorNorm" role="button">{{page.tagName}}{{tag}}</a>
         {% endif %}
         {% endfor %}
         {% endfor %}

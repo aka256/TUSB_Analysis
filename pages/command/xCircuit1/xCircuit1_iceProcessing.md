@@ -16,7 +16,7 @@ summaryDisable: true
 
 <span class="tagYellow">位置</span> (-1920,12,-197)
 
-<span class="tagBlack">呼び出し元</span> [時間経過](/command/xCircuit1/xCircuit1_timeElapsed.html)
+<span class="tagBlack">呼び出し元</span> [時間経過]({{site.baseurl}}/command/xCircuit1/xCircuit1_timeElapsed.html)
 
 トカルトコルデでの松明減少やトカルトエンカウントなどの処理を行う。
 
@@ -65,9 +65,9 @@ summaryDisable: true
 3. `RemoveTorchInWater`を持つすべてのプレイヤーから松明を49本取り上げる
 4. `RemoveTorch`を持つすべてのプレイヤーの`ItemCount`を-1に設定し、`ItemCount`が-1以上であるプレイヤーから松明を1本取り上げる
 5. `RemoveTorch`を持ち、`ItemCount`が0以下であるすべてのプレイヤーに即時ダメージLv.1を付与
-6. `RemoveTorch`を持ち、`ItemCount`が1以上であるプレイヤーが存在したら、すべての対象に[消えた松明](/others/others_item.html#消えた松明)を与え、以下の事柄を実行
+6. `RemoveTorch`を持ち、`ItemCount`が1以上であるプレイヤーが存在したら、すべての対象に[消えた松明]({{site.baseurl}}/others/others_item.html#消えた松明)を与え、以下の事柄を実行
    1. `SaveTorch`を付与
-   2. `RemoveTorchInWater`を持つすべてのプレイヤーの同一座標上の`OffTorch`([消えた松明](/others/others_item.html#消えた松明)のタグ)を持つアイテムエンティティの個数を50個に設定
+   2. `RemoveTorchInWater`を持つすべてのプレイヤーの同一座標上の`OffTorch`([消えた松明]({{site.baseurl}}/others/others_item.html#消えた松明)のタグ)を持つアイテムエンティティの個数を50個に設定
    3. `RemoveTorchInWater`を持つすべてのプレイヤーから`SaveTorch`を削除
 7. `RemoveTorchInWater`を持つすべてのプレイヤーから`RemoveTorchInWater`を削除
 8. `RemoveTorch`を持つすべてのプレイヤーから半径16m以内に`Enemy`を持たない村人一人が存在したら、その村人から半径16m以内で`RemoveTorch`を持つすべてのプレイヤーから`RemoveTorch`を削除
