@@ -123,3 +123,5 @@ changefreq: weekly
 encoding: "utf-8"
 
 github: [metadata]
+
+taglistpageurl: "/includeTags/includeTags_list.html"
