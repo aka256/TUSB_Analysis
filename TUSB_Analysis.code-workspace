@@ -11,7 +11,7 @@
 			"html"
 		],
 		*/
-		"markdown-pdf.convertOnSave":true,
+		"markdown-pdf.convertOnSave":false,
 		/*
 		"markdown-pdf.styles": [
 			"style.scc"
