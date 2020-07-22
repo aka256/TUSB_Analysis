@@ -11,20 +11,21 @@
 			"html"
 		],
 		*/
-		"markdown-pdf.convertOnSave":true,
+		"markdown-pdf.convertOnSave":false,
 		/*
 		"markdown-pdf.styles": [
 			"style.scc"
 		]
 		*/
-		"markdown-pdf.outputDirectory": "outputs",
+		/*"markdown-pdf.outputDirectory": "outputs",*/
 		"markdown-pdf.convertOnSaveExclude": [
 			"README.md"
 		],
 		"markdownlint.config": {
 			"MD033":false,
 			"MD024":false,
-			"MD036":false
+			"MD036":false,
+			"MD029":false
 		},
 	}
 }

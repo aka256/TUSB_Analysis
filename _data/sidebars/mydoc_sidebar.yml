@@ -160,6 +160,22 @@ entries:
       url: /command/xCircuit3/xCircuit3_typeSetting.html      
       output: web, pdf
 
+  - title: 毎tick実行するコマンド群4
+    output: web, pdf
+    folderitems:
+    - title: 毎tick実行するコマンド群4
+      url: /command/xCircuit4/xCircuit4_command.html      
+      output: web, pdf
+    - title: 黙想終了処理
+      url: /command/xCircuit4/xCircuit4_mokusoEndProcessing.html
+      output: web, pdf
+    - title: マジックシールド終了処理
+      url: /command/xCircuit4/xCircuit4_magicShieldEndProcessing.html
+      output: web, pdf
+    - title: アイアンウィル継続判定
+      url: /command/xCircuit4/xCircuit4_ironWillContinueJudgment.html
+      output: web, pdf
+
   - title: 超作業台ルーム
     output: web,pdf
     folderitems:
