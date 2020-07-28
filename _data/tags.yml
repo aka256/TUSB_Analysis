@@ -69,3 +69,5 @@ allowed-tags:
     folder: tag_spawner.html
   - tag: 超作業台
     folder: tag_scraftingtable.html
+  - tag: レガシー
+    folder: tag_legacy.html
