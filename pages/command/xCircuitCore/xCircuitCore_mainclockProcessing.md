@@ -2,8 +2,7 @@
 title: メインクロック起動処理
 tags: [コマンド,SystemKeeper]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-last_updated: 2020/6/17
-update: 2020-07-10 09:00:00 +0000
+update: 2020-07-31 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuitCore/xCircuitCore_mainclockProcessing.html
 folder: command
@@ -52,9 +51,9 @@ X回路区域内のメインクロックを起動させるコマンド群であ�
 |-200|[毎tick実行するコマンド群1]({{site.baseurl}}/command/xCircuit1/xCircuit1_runFirst.html)|
 |-192|[毎tick実行するコマンド群2]({{site.baseurl}}/command/xCircuit2/xCircuit2_reset.html)|
 |-189|[毎tick実行するコマンド群3]({{site.baseurl}}/command/xCircuit3/xCircuit3_command.html)|
-|-184|[黙想終了処理Mokuso]|
-|-181|[与ダメージDamegeDealt]|
-|-180|[スニークSneakTime]|
+|-184|[毎tick実行するコマンド群4]({{site.baseurl}}/command/xCircuit4/xCircuit4_command.html)|
+|-181|[毎tick実行するコマンド群5]({{site.baseurl}}/command/xCircuit5/xCircuit5_command.html)|
+|-180|[毎tick実行するコマンド群6]({{site.baseurl}}/command/xCircuit6/xCircuit6_command.html)|
 |-178|[報酬用演出]|
 |-177|[範囲化可能スキル判定]|
 |-175|[剣士即時分岐]|
