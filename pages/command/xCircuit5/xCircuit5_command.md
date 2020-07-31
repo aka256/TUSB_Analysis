@@ -2,7 +2,7 @@
 title: 毎tick実行するコマンド群5
 tags: [コマンド,スキル,剣士,狩人,黒魔導士,レガシー]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-07-22 09:21:00 +0000
+update: 2020-07-23 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit5/xCircuit5_command.html
 datatable4c: true
@@ -16,7 +16,7 @@ summaryDisable: true
 
 <span class="tagBlack">呼び出し元</span> [初期化処理]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_initializeProcessing.html), [村人像]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_mainclockProcessing.html)
 
-<span class="tagBlue">分岐先</span> [Hitリセット]({{site.baseurl}}/command/xCircuit5/xCircuit5_hitReset.html), [エンアスピルMP回復]({{site.baseurl}}/command/xCircuit5/xCircuit5_enAspirMPRecovering.html), [レガシーアイテム処理]({{site.baseurl}}/command/xCircuit5/xCircuit5_legacyProcessing.html), [エンチェイス探索処理]({{site.baseurl}}/command/xCircuit5/xCircuit5_enchaseSearchProcessing.html), [タクティカルヒール処理]({{site.baseurl}}/command/xCircuit5/xCircuit5_tacticalHealProcessing.html), [真空斬り使用判定]({{site.baseurl}}/command/xCircuit5/xCircuit5_aerialShlashUseJudgment.html)
+<span class="tagBlue">分岐先</span> [Hitリセット]({{site.baseurl}}/command/xCircuit5/xCircuit5_hitReset.html), [エンアスピルMP回復]({{site.baseurl}}/command/xCircuit5/xCircuit5_enAspirMPRecovering.html), [レガシーアイテム処理]({{site.baseurl}}/command/xCircuit5/xCircuit5_legacyProcessing.html), [エンチェイス探索処理]({{site.baseurl}}/command/xCircuit5/xCircuit5_enchaseSearchProcessing.html), [タクティカルヒール処理]({{site.baseurl}}/command/xCircuit5/xCircuit5_tacticalHealProcessing.html), [真空斬り使用判定]({{site.baseurl}}/command/xCircuit5/xCircuit5_aerialSlashUseJudgment.html)
 
 エンアスピル、エンチェイス、タクティカルヒール、真空斬りの処理とレガシーアイテムの処理を行う。
 
@@ -101,4 +101,4 @@ summaryDisable: true
    2. `AerialChance`を持っているすべてのプレイヤーから`AerialChance`を削除
    3. `FlyOneCm`が1以上であり、`AerialSlash`を持つすべてのプレイヤーの頭上2.3mにファイアボール[AerialShockwave]({{site.baseurl}}/entity/entity_entity.html)を召喚
    4. `FlyOneCm`が1以上であり、`AerialSlash`を持つすべてのプレイヤーの`FlyOneCm`を-1000000に設定
-   5. (-1920,12,-181)にある[真空斬り使用判定]({{site.baseurl}}/command/xCircuit5/xCircuit5_aerialShlashUseJudgment.html)をリピート実行
+   5. (-1920,12,-181)にある[真空斬り使用判定]({{site.baseurl}}/command/xCircuit5/xCircuit5_aerialSlashUseJudgment.html)をリピート実行

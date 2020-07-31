@@ -1,14 +1,13 @@
 ---
 title: エンアスピルMP回復
-tags: [コマンド]
+tags: [コマンド,スキル,黒魔導士]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-07-22 09:21:00 +0000
+update: 2020-07-31 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit5/xCircuit5_enAspirMPRecovering.html
-datatable4c: true
-summary: Hitタグの削除を行う。ただそれだけ
+datatable: false
+summary: 黒魔導士のスキルの1つであるエンアスピル発動時の処理を行う。
 summaryDisable: true
-search: exclude
 ---
 
 ## About
@@ -16,6 +15,8 @@ search: exclude
 <span class="tagYellow">位置</span> (-1920,8,-181)
 
 <span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群5]({{site.baseurl}}/command/xCircuit5/xCircuit5_command.html)
+
+黒魔導士のスキルの1つであるエンアスピル発動時の処理を行う。
 
 ## コマンド群
 
@@ -38,5 +39,6 @@ search: exclude
 1. \\(\text{AspirBase} = \frac{\text{AspirBase}\times\text{EnAspir}}{100}\\)
 2. \\(\text{EnAspir} = 0\\)
 3. 演出を実行
-4. $$\text{MP}=\begin{cases}\text{MP}+\text{AspirBase} & ()\\\text{MPMax} & ()\end{cases}$$
-5. 「<span style="color: gold">エンアスピルの効果が切れた。</span>」
+4. \\(\text{MP}=\text{MP}+\text{AspirBase}\\)とし、`MP`が`MPMax`を超えた際は\\(\text{MP}=\text{MPMax}\\)とする
+5. 「<span style="color: gold;background-color:gray">エンアスピルの効果が切れた。</span>」とのメッセージを表示
+6. `AspirBase`を0に設定

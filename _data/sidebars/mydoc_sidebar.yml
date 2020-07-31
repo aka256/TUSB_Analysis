@@ -176,6 +176,31 @@ entries:
       url: /command/xCircuit4/xCircuit4_ironWillContinueJudgment.html
       output: web, pdf
 
+  - title: 毎tick実行するコマンド群5
+    output: web, pdf
+    folderitems:
+    - title: 毎tick実行するコマンド群5
+      url: /command/xCircuit5/xCircuit5_command.html      
+      output: web, pdf
+    - title: Hitリセット
+      url: /command/xCircuit5/xCircuit5_hitReset.html
+      output: web, pdf
+    - title: エンアスピルMP回復
+      url: /command/xCircuit5/xCircuit5_enAspirMPRecovering.html
+      output: web, pdf
+    - title: レガシーアイテム処理
+      url: /command/xCircuit5/xCircuit5_legacyProcessing.html
+      output: web, pdf
+    - title: エンチェイス探索処理
+      url: /command/xCircuit5/xCircuit5_enchaseSearchProcessing.html
+      output: web, pdf
+    - title: タクティカルヒール処理
+      url: /command/xCircuit5/xCircuit5_tacticalHealProcessing.html
+      output: web, pdf
+    - title: 真空斬り使用判定
+      url: /command/xCircuit5/xCircuit5_aerialSlashUseJudgment.html
+      output: web, pdf
+
   - title: 超作業台ルーム
     output: web,pdf
     folderitems:
