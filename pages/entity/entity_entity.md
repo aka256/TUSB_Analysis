@@ -2,7 +2,7 @@
 title: エンティティ
 tags: [敵Mob,SystemEntity,村人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,エンティティ
-update: 2020-07-20 09:00:00 +0000
+update: 2020-07-22 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: entity/entity_entity.html
 summary: コマンドに関係するエンティティについてまとめる。
@@ -410,4 +410,15 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 
 ```minecraftcommand
 /summon Arrow ~ ~0.02 ~ {CustomName:”旋風”,damage:60d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage]}
+```
+
+### AerialShockwave
+
+|-|-|
+|Name|(None)|
+|Type|Fireball|
+|Tags|AerialShockwave,CooldownRequired,TypeChecked|
+
+```minecraft
+/summon Fireball ~ ~ ~ {direction:[0d,0d,0d],ExplosionPower:0,Tags:[AerialShockwave,CooldownRequired,TypeChecked],PortalCooldown:5}
 ```
