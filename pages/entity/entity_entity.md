@@ -2,7 +2,7 @@
 title: エンティティ
 tags: [敵Mob,SystemEntity,村人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,エンティティ
-update: 2020-07-22 09:00:00 +0000
+update: 2020-07-31 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: entity/entity_entity.html
 summary: コマンドに関係するエンティティについてまとめる。
@@ -273,6 +273,17 @@ summaryDisable: true
 
 ```minecraftcommand
 /summon AreaEffectCloud ~ ~ ~ {Invulnerable:true,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:0,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:take,Tags:[IronWillPoint,SystemEntity,TypeChecked]}
+```
+
+### TrapPoint
+
+|-|-|
+|Name|(None)|
+|Type|AEC|
+|Tags|TrapPoint,SystemEntity,TypeChecked|
+
+```minecraftcommand
+/summon AreaEffectCloud ~ ~ ~ {Invulnerable:true,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:take,Tags:[TrapPoint,SystemEntity,TypeChecked]}
 ```
 
 ## MOB
