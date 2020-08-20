@@ -5,8 +5,8 @@
         <description>The Unsusal Skyblock 内のコマンドについて解説するサイトです。</description>
         <link>http://localhost:4000/</link>
         <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Thu, 20 Aug 2020 20:38:16 +0900</pubDate>
-        <lastBuildDate>Thu, 20 Aug 2020 20:38:16 +0900</lastBuildDate>
+        <pubDate>Thu, 20 Aug 2020 20:52:54 +0900</pubDate>
+        <lastBuildDate>Thu, 20 Aug 2020 20:52:54 +0900</lastBuildDate>
         <generator>Jekyll v3.8.7</generator>
         
     </channel>
