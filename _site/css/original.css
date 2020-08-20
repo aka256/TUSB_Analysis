@@ -1,0 +1,55 @@
+.tagBlack {
+    padding: 0.3em 0.5em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #ffffff;
+    background: #575757;
+    /*背景色*/
+    border-radius: 5px;
+    /*角の丸み*/
+}
+
+.tagBlue {
+    padding: 0.3em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #ffffff;
+    background: #6ac3f7;
+    /*背景色*/
+    border-radius: 5px;
+    /*角の丸み*/
+}
+
+.tagYellow {
+    padding: 0.3em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #ffffff;
+    background: #f7d53f;
+    /*背景色*/
+    border-radius: 5px;
+    /*角の丸み*/
+}
+
+.openHere {
+    display: none;
+}
+
+.expandButton {
+    display: inline-block;
+    width: 20px;
+    border-style: solid;
+    border-color: gray;
+    border-width: 0.5px;
+    padding-right: 3px;
+    padding-left: 3px;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-align: center;
+}
+
+
+/*
+.expandButton:before {
+    content: "+";
+}*/

@@ -1,0 +1,4511 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="スキルの変更時、現在のスキルIDの変更、スキルコストの変更などを行う。">
+<meta name="keywords" content="コマンド表示スキル,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<title>スキル設定変更 | TUSB Analysis</title>
+
+<!-- Google Tag Manager -->
+<script>
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5HTHV6Q');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/TUSB_Analysis/css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="/TUSB_Analysis/css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/TUSB_Analysis/css/customstyles.css">
+<link rel="stylesheet" href="/TUSB_Analysis/css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="/TUSB_Analysis/css/theme-blue2.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/TUSB_Analysis/js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="/TUSB_Analysis/js/toc.js"></script>
+<script src="/TUSB_Analysis/js/customscripts.js"></script>
+
+<!-- original.js -->
+<script src="/TUSB_Analysis/js/original.js"></script>
+
+<link rel="shortcut icon" href="/TUSB_Analysis/images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="TUSB_Analysis" href="https://aka256.github.io/TUSB_Analysis/feed.xml">
+
+<!--MathJax-->
+
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<!--Original style-->
+
+<link rel="stylesheet" href="/TUSB_Analysis/css/original.css">
+
+<meta name="google-site-verification" content="IfKF0TOJNUtCg_H2zFNe6k3qnuQiJWoIfV3nXyV3OPs" />
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+    </script>
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+     
+    <!-- Include the standard DataTables bits -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <!-- First, this walks through the tables that occur between ...-begin
+         and ...-end and add the "datatable" class to them.
+         Then it invokes DataTable's standard initializer
+         Credit here: http://www.beardedhacker.com/blog/2015/08/28/add-class-attribute-to-markdown-table/
+      -->
+    <script>
+        $(document).ready(function() {
+            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
+            $('table.display').DataTable({
+                paging: true,
+                stateSave: true,
+                searching: true,
+                autoWidth: false,
+                lengthChange: true,
+                columns: [{
+                    responsivePriority: 2,
+                    width: "6%"
+                }, {
+                    responsivePriority: 3,
+                    width: "79%"
+                }, {
+                    responsivePriority: 1,
+                    width: "15%"
+                }],
+            });
+        });
+    </script>
+    
+    <style type="text/css">
+        table {
+            table-layout: fixed;
+        }
+        
+        table td {
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HTHV6Q"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="/TUSB_Analysis/">&nbsp;<span class="projectTitle"> TUSB Analysis</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Sidebar</a></li>
+                <!-- entries without drop-downs appear here -->
+
+                    
+                <li><a href="https://twitter.com/Re16d5" target="_blank" rel="noopener">Twitter</a></li>
+                  
+                <li><a href="https://github.com/aka256/TUSB_Analysis/" target="_blank" rel="noopener">GitHub</a></li>
+                  
+                <li><a href="https://skyblock.jp/" target="_blank" rel="noopener">TUSB公式サイト</a></li>
+                  
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                 
+                <!--comment out this block if you want to hide search-->
+                <!--start search-->
+                <li>
+                    <div class="customSearch">
+                        <script async src="https://cse.google.com/cse.js?cx=010172728285433694449:7hktzoqurei"></script>
+                        <div class="gcse-searchbox-only"></div>
+                    </div>
+                </li>
+                <!--end search-->
+            </ul>
+
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+    <!-- Page Content -->
+    <div class="container">
+        <div id="main">
+            <!-- Content Row -->
+            <div class="row">
+                 
+                <!-- Sidebar Column -->
+                <div class="col-md-3" id="tg-sb-sidebar">
+                    
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">TUSB Analysis </li>
+      
+    <li>
+        <a title="X回路区域管理コマンド群" href="#">X回路区域管理コマンド群</a>
+        <ul>
+              
+            <li><a title="マクラエル内部" href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_insideMcLawell.html">マクラエル内部</a></li>
+                 
+            <li><a title="初期化処理" href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_initializeProcessing.html">初期化処理</a></li>
+                 
+            <li><a title="メインクロック起動処理" href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_mainclockProcessing.html">メインクロック起動処理</a></li>
+                 
+            <li><a title="SystemKeeper処理" href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_systemKeeperProcessing.html">SystemKeeper処理</a></li>
+                 
+            <li><a title="チャンクローダー設定" href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_furnaceProcessing.html">チャンクローダー設定</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群1" href="#">毎tick実行するコマンド群1</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群1" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_runFirst.html">毎tick実行するコマンド群1</a></li>
+                 
+            <li><a title="エリア侵入記録" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_areaRecord.html">エリア侵入記録</a></li>
+                 
+            <li><a title="エリア処理" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_areaProcessing.html">エリア処理</a></li>
+                 
+            <li><a title="時間経過" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_timeElapsed.html">時間経過</a></li>
+                 
+            <li><a title="風切更新" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_kazakiriUpdata.html">風切更新</a></li>
+                 
+            <li><a title="約1分処理" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_oneMinProcessing.html">約1分処理</a></li>
+                 
+            <li><a title="Tick停止飛翔物削除" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_tickStopDelete.html">Tick停止飛翔物削除</a></li>
+                 
+            <li><a title="敵スキル実行" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_runMobSkill.html">敵スキル実行</a></li>
+                 
+            <li><a title="嫌な予感実行" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_eventFulfill.html">嫌な予感実行</a></li>
+                 
+            <li><a title="トカルト処理" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_iceProcessing.html">トカルト処理</a></li>
+                 
+            <li><a title="動物誘導イベント" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_animalGuideEvent.html">動物誘導イベント</a></li>
+                 
+            <li><a title="AEC維持" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_aecMaintenance.html">AEC維持</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群2" href="#">毎tick実行するコマンド群2</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群2" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_reset.html">毎tick実行するコマンド群2</a></li>
+                 
+            <li><a title="初回ログイン時処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_firstLoginProcessing.html">初回ログイン時処理</a></li>
+                 
+            <li><a title="ログイン時処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_loginProcessing.html">ログイン時処理</a></li>
+                 
+            <li><a title="難易度調整" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_difficultyAdjustment.html">難易度調整</a></li>
+                 
+            <li><a title="ジョブチェンジ先判定" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_jobChangeJudgement.html">ジョブチェンジ先判定</a></li>
+                 
+            <li><a title="ジョブセーブ" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_jobSave.html">ジョブセーブ</a></li>
+                 
+            <li><a title="ジョブロード" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_jobLoad.html">ジョブロード</a></li>
+                 
+            <li><a title="ステータス表示" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_statusDisplay.html">ステータス表示</a></li>
+                 
+            <li><a title="攻略率表示" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_conquerDisplay.html">攻略率表示</a></li>
+                 
+            <li><a title="ワープ処理ジョブ島・通常世界" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_warpProcessing.html">ワープ処理ジョブ島・通常世界</a></li>
+                 
+            <li><a title="KeepInventory確認" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_keepInventoryCheck.html">KeepInventory確認</a></li>
+                 
+            <li><a title="満腹度修正" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_satietyFix.html">満腹度修正</a></li>
+                 
+            <li><a title="経験値取得処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_expProcessing.html">経験値取得処理</a></li>
+                 
+            <li><a title="レベルアップ処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_levelupProcessing.html">レベルアップ処理</a></li>
+                 
+            <li><a title="習得スキル取得" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_skillAcquisition.html">習得スキル取得</a></li>
+                 
+            <li><a title="最大HP調整処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_hpFix.html">最大HP調整処理</a></li>
+                 
+            <li><a title="島攻略処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_conquerProcessing.html">島攻略処理</a></li>
+                 
+            <li><a title="時計島" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_clockIslandProcessing.html">時計島</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群3" href="#">毎tick実行するコマンド群3</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群3" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_command.html">毎tick実行するコマンド群3</a></li>
+                 
+            <li><a title="ベッド処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_bedProcessing.html">ベッド処理</a></li>
+                 
+            <li><a title="お祈りkill" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_prayProcessing.html">お祈りkill</a></li>
+                 
+            <li><a title="村人会話処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_villagerTalkProcessing.html">村人会話処理</a></li>
+                 
+            <li><a title="牧師会話選択時処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_pastorTalk.html">牧師会話選択時処理</a></li>
+                 
+            <li><a title="エージェント会話選択時処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_agentTalk.html">エージェント会話選択時処理</a></li>
+                 
+            <li><a title="占い師会話選択時処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_augurTalk.html">占い師会話選択時処理</a></li>
+                 
+            <li><a title="エメラルド支払い処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_paymentProcessing.html">エメラルド支払い処理</a></li>
+                 
+            <li><a title="設定スキル表示" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_skillDisplay.html">設定スキル表示</a></li>
+                 
+            <li><a title="観光モード提案開始" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_suggestSightseeing.html">観光モード提案開始</a></li>
+                 
+            <li><a title="ネザーラック破壊時火山噴火処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_volcanoProcessing.html">ネザーラック破壊時火山噴火処理</a></li>
+                 
+            <li><a title="タイプ設定" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_typeSetting.html">タイプ設定</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群4" href="#">毎tick実行するコマンド群4</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群4" href="/TUSB_Analysis/command/xCircuit4/xCircuit4_command.html">毎tick実行するコマンド群4</a></li>
+                 
+            <li><a title="黙想終了処理" href="/TUSB_Analysis/command/xCircuit4/xCircuit4_mokusoEndProcessing.html">黙想終了処理</a></li>
+                 
+            <li><a title="マジックシールド終了処理" href="/TUSB_Analysis/command/xCircuit4/xCircuit4_magicShieldEndProcessing.html">マジックシールド終了処理</a></li>
+                 
+            <li><a title="アイアンウィル継続判定" href="/TUSB_Analysis/command/xCircuit4/xCircuit4_ironWillContinueJudgment.html">アイアンウィル継続判定</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群5" href="#">毎tick実行するコマンド群5</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群5" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_command.html">毎tick実行するコマンド群5</a></li>
+                 
+            <li><a title="Hitリセット" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_hitReset.html">Hitリセット</a></li>
+                 
+            <li><a title="エンアスピルMP回復" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_enAspirMPRecovering.html">エンアスピルMP回復</a></li>
+                 
+            <li><a title="レガシーアイテム処理" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_legacyProcessing.html">レガシーアイテム処理</a></li>
+                 
+            <li><a title="エンチェイス探索処理" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_enchaseSearchProcessing.html">エンチェイス探索処理</a></li>
+                 
+            <li><a title="タクティカルヒール処理" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_tacticalHealProcessing.html">タクティカルヒール処理</a></li>
+                 
+            <li><a title="真空斬り使用判定" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_aerialSlashUseJudgment.html">真空斬り使用判定</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群6" href="#">毎tick実行するコマンド群6</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群6" href="/TUSB_Analysis/command/xCircuit6/xCircuit6_command.html">毎tick実行するコマンド群6</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群7" href="#">毎tick実行するコマンド群7</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群7" href="/TUSB_Analysis/command/xCircuit7/xCircuit7_command.html">毎tick実行するコマンド群7</a></li>
+                 
+            <li><a title="モード変更" href="/TUSB_Analysis/command/xCircuit7/xCircuit7_modeChange.html">モード変更</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群8" href="#">毎tick実行するコマンド群8</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群8" href="/TUSB_Analysis/command/xCircuit8/xCircuit8_command.html">毎tick実行するコマンド群8</a></li>
+                 
+            <li><a title="MP不足演出" href="/TUSB_Analysis/command/xCircuit8/xCircuit8_mpLack.html">MP不足演出</a></li>
+                 
+            <li class="active"><a title="スキル設定変更" href="/TUSB_Analysis/command/xCircuit8/xCircuit8_skillSettingChange.html">スキル設定変更</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="超作業台ルーム" href="#">超作業台ルーム</a>
+        <ul>
+              
+            <li><a title="超作業台" href="/TUSB_Analysis/scraftingtable/scraftingtable_about.html">超作業台</a></li>
+                 
+            <li><a title="超作業台レシピの追加" href="/TUSB_Analysis/scraftingtable/scraftingtable_createRecipe.html">超作業台レシピの追加</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="データ類" href="#">データ類</a>
+        <ul>
+              
+            <li><a title="エンティティ" href="/TUSB_Analysis/entity/entity_entity.html">エンティティ</a></li>
+                 
+            <li><a title="アイテム" href="/TUSB_Analysis/others/others_item.html">アイテム</a></li>
+                 
+            <li><a title="チーム" href="/TUSB_Analysis/others/others_teams.html">チーム</a></li>
+                 
+            <li><a title="タグ" href="/TUSB_Analysis/others/others_tags.html">タグ</a></li>
+              
+            <li class="subfolders">
+                <a title="スコアボード" href="#">スコアボード</a>
+                <ul>
+                      
+                    <li><a title="スコアボード一覧" href="/TUSB_Analysis/scoreboard/scoreboard_list.html">スコアボード一覧</a></li>
+                        
+                    <li><a title="Const" href="/TUSB_Analysis/scoreboard/scoreboard_const.html">Const</a></li>
+                        
+                    <li><a title="Setting" href="/TUSB_Analysis/scoreboard/scoreboard_setting.html">Setting</a></li>
+                        
+                    <li><a title="Global" href="/TUSB_Analysis/scoreboard/scoreboard_global.html">Global</a></li>
+                      
+                </ul>
+            </li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="ページ内タグ" href="#">ページ内タグ</a>
+        <ul>
+              
+            <li><a title="タグ一覧" href="/TUSB_Analysis/includeTags/includeTags_list.html">タグ一覧</a></li>
+               
+        </ul>
+    </li>
+      
+    <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>
+    $("li.active").parents('li').toggleClass("active");
+</script>
+                </div>
+                 
+
+                <!-- Content Column -->
+                <div class="col-md-9" id="tg-sb-content">
+                    <div class="post-header">
+   <h1 class="post-title-main">スキル設定変更</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+   <h2 id="about">About</h2>
+
+<p><span class="tagYellow">位置</span> (-1920,10,-177) ~ (-1920,16,-178)</p>
+
+<p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit8/xCircuit8_command.html">毎tick実行するコマンド群8</a></p>
+
+<p>スキルの変更時、現在のスキルIDの変更、スキルコストの変更などを行う。</p>
+
+<h2 id="changeskill絞り込み全体">ChangeSkill絞り込み(全体)</h2>
+
+<h3 id="コマンド群">コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,10,-178)</p>
+
+<p><span class="expandButton" onclick="openCloseBE(`openHere1-begin`)">+</span>コマンド</p>
+
+<div class="openHere-begin openHere1-begin"></div>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players tag @a[score_InstantChangeA_min=0] add SkillChanging</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @a[score_InstantChangeA_min=0,score_InstantChangeA=19] ~ ~ ~ /scoreboard players operation @a[c=1] ChangeSkill = @a[c=1] InstantChangeA</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players tag @a[score_InstantChangeB_min=0] add SkillChanging</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/execute @a[score_InstantChangeB_min=0,score_InstantChangeB=19] ~ ~ ~ /scoreboard players operation @a[c=1] ChangeSkill = @a[c=1] InstantChangeB</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players tag @a[score_ModeChangeA_min=0] add SkillChanging</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/execute @a[score_ModeChangeA_min=20,score_ModeChangeA=39] ~ ~ ~ /scoreboard players operation @a[c=1] ChangeSkill = @a[c=1] ModeChangeA</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players tag @a[score_ModeChangeB_min=0] add SkillChanging</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/execute @a[score_ModeChangeB_min=20,score_ModeChangeB=39] ~ ~ ~ /scoreboard players operation @a[c=1] ChangeSkill = @a[c=1] ModeChangeB</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players operation @a Job *= #100 Const</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/execute @a[score_ChangeSkill_min=0] ~ ~ ~ /scoreboard players operation @a[c=1] ChangeSkill += @a[c=1] Job</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players operation @a Job /= #100 Const</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=0] ChangeSkill *= #10 Const</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<div class="openHere-end openHere1-end"></div>
+
+<h3 id="詳細">詳細</h3>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">InstantChangeA</code>, <code class="language-plaintext highlighter-rouge">InstantChangB</code>, <code class="language-plaintext highlighter-rouge">ModeChangeA</code>, <code class="language-plaintext highlighter-rouge">ModeChangeB</code>がそれぞれ0以上であるすべてのプレイヤーに<code class="language-plaintext highlighter-rouge">SkillChanging</code>を付与し、それぞれのスコアが条件を満たす時(<a href="#changeskillへの代入の条件">ChangeSkillの条件</a>を参照)、<code class="language-plaintext highlighter-rouge">ChangeSkill</code>にそれぞれのスコアの値を代入する</li>
+  <li><code class="language-plaintext highlighter-rouge">ChangeSkill</code>が0以上であるすべてのプレイヤーに対し、以下の計算を実行</li>
+</ol>
+
+<script type="math/tex; mode=display">\text{ChangeSkill} = (\text{ChangeSkill}+100\times \text{Job})\times 10</script>
+
+<h4 id="changeskillへの代入の条件">ChangeSkillへの代入の条件</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>対象スコア</th>
+      <th>条件</th>
+      <th>結果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">InstantChangeA</code></td>
+      <td>\(0\leq\text{InstantChangeA}\leq 19\)</td>
+      <td>\(\text{ChangeSkill}=\text{InstantChangeA}\)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">InstantChangeB</code></td>
+      <td>\(0\leq\text{InstantChangeB}\leq 19\)</td>
+      <td>\(\text{ChangeSkill}=\text{InstantChangeB}\)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ModeChangeA</code></td>
+      <td>\(20\leq\text{ModeChangeA}\leq 39\)</td>
+      <td>\(\text{ChangeSkill}=\text{ModeChangeA}\)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ModeChangeB</code></td>
+      <td>\(20\leq\text{ModeChangeB}\leq 39\)</td>
+      <td>\(\text{ChangeSkill}=\text{ModeChangeB}\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> 実行後の<code class="language-plaintext highlighter-rouge">ChangeSkill</code>は4桁目に<code class="language-plaintext highlighter-rouge">Job</code>、2,3桁目に<code class="language-plaintext highlighter-rouge">InstantChangeA</code>, <code class="language-plaintext highlighter-rouge">InstantChangeB</code>, <code class="language-plaintext highlighter-rouge">ModeChangeA</code>, <code class="language-plaintext highlighter-rouge">ModeChangeB</code>のいずれか、そして1桁目に0が入る。<br /><br /> 例: <code class="language-plaintext highlighter-rouge">Job</code>=2(忍者)、<code class="language-plaintext highlighter-rouge">InstantChangeB</code>=13であるときは、<code class="language-plaintext highlighter-rouge">ChangeSkill</code>=2130となる。</div>
+
+<h2 id="changeskill絞り込み剣士">ChangeSkill絞り込み(剣士)</h2>
+
+<h3 id="コマンド群-1">コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,11,-178)</p>
+
+<p><span class="expandButton" onclick="openCloseBE(`openHere2-begin`)">+</span>コマンド</p>
+
+<div class="openHere-begin openHere2-begin"></div>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1000,score_ChangeSkill=1008,score_Level_min=15] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1000,score_ChangeSkill=1008,score_Level_min=30] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1000,score_ChangeSkill=1008,score_Level_min=45] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1010,score_ChangeSkill=1018,score_Level_min=35] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1020,score_ChangeSkill=1028,score_Level_min=25] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1020,score_ChangeSkill=1028,score_Level_min=40] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1030,score_ChangeSkill=1038,score_Level_min=38] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1200,score_ChangeSkill=1208,score_Level_min=20] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1200,score_ChangeSkill=1208,score_Level_min=37] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1210,score_ChangeSkill=1218,score_Level_min=28] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1210,score_ChangeSkill=1218,score_Level_min=48] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1220,score_ChangeSkill=1228,score_Level_min=26] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1220,score_ChangeSkill=1228,score_Level_min=39] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1230,score_ChangeSkill=1238,score_Level_min=33] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1230,score_ChangeSkill=1238,score_Level_min=49] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=1240,score_ChangeSkill=1248,score_Level_min=46] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=1000,score_ChangeSkill=1009,score_Level=0] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=1010,score_ChangeSkill=1019,score_Level=4] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=1020,score_ChangeSkill=1029,score_Level=9] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=1030,score_ChangeSkill=1039,score_Level=17] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=1040,score_ChangeSkill=1049,score_Level=42] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=1200,score_ChangeSkill=1209,score_Level=2] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=1210,score_ChangeSkill=1219,score_Level=7] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=1220,score_ChangeSkill=1229,score_Level=12] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=1230,score_ChangeSkill=1239,score_Level=16] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=1240,score_ChangeSkill=1249,score_Level=22] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">27</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=1250,score_ChangeSkill=1259,score_Level=49] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">28</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=1050,score_ChangeSkill=1199] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">29</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=1260,score_ChangeSkill=1999] ChangeSkill</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<div class="openHere-end openHere2-end"></div>
+
+<h3 id="詳細-1">詳細</h3>
+
+<ul>
+  <li>すべてのプレイヤーの<code class="language-plaintext highlighter-rouge">ChangeSkill</code>と<code class="language-plaintext highlighter-rouge">Level</code>の値に対して、<code class="language-plaintext highlighter-rouge">ChangeSkill</code>に特定の値を足す、もしくは<code class="language-plaintext highlighter-rouge">ChangeSkill</code>を0に設定する。詳細は<a href="#job1剣士でのchangeskill操作">Job=1(剣士)でのChangeSkill操作</a>を参考。</li>
+</ul>
+
+<h4 id="job1剣士でのchangeskill操作">Job=1(剣士)でのChangeSkill操作</h4>
+
+<p>下記の表の「<code class="language-plaintext highlighter-rouge">ChangeSkill</code>への操作」に整数がある場合はそれを<code class="language-plaintext highlighter-rouge">ChangeSkill</code>へ足しこみ、resetとある場合は<code class="language-plaintext highlighter-rouge">ChangeSkill</code>=0とする。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">ChangeSkillの範囲</th>
+      <th style="text-align: center">Levelの範囲</th>
+      <th style="text-align: center">ChangeSkillへの操作</th>
+      <th style="text-align: center">操作後のChangeSkill</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">\(1000\leq\text{ChangeSkill}\leq 1009\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 0\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((1000\leq\text{ChangeSkill}\leq 1009)\)</td>
+      <td style="text-align: center">\(1\leq\text{Level}\leq 14\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">1000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1000\leq\text{ChangeSkill}\leq 1008\)</td>
+      <td style="text-align: center">\(15\leq\text{Level}\leq 29\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">1001</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(30\leq\text{Level}\leq 44\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">1002</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(45\leq\text{Level}\)</td>
+      <td style="text-align: center">+3</td>
+      <td style="text-align: center">1003</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1010\leq\text{ChangeSkill}\leq 1019\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 4\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((1010\leq\text{ChangeSkill}\leq 1019)\)</td>
+      <td style="text-align: center">\(5\leq\text{Level}\leq 34\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">1010</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1010\leq\text{ChangeSkill}\leq 1018\)</td>
+      <td style="text-align: center">\(35\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">1011</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1020\leq\text{ChangeSkill}\leq 1029\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 9\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((1020\leq\text{ChangeSkill}\leq 1029)\)</td>
+      <td style="text-align: center">\(10\leq\text{Level}\leq 24\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">1020</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1020\leq\text{ChangeSkill}\leq 1028\)</td>
+      <td style="text-align: center">\(25\leq\text{Level}\leq 39\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">1021</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(40\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">1022</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1030\leq\text{ChangeSkill}\leq 1039\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 17\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((1030\leq\text{ChangeSkill}\leq 1039)\)</td>
+      <td style="text-align: center">\(18\leq\text{Level}\leq 37\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">1030</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1030\leq\text{ChangeSkill}\leq 1038\)</td>
+      <td style="text-align: center">\(38\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">1031</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1040\leq\text{ChangeSkill}\leq 1049\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 42\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((1040\leq\text{ChangeSkill}\leq 1049)\)</td>
+      <td style="text-align: center">\(43\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">1040</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1050\leq\text{ChangeSkill}\leq 1199\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1200\leq\text{ChangeSkill}\leq 1209\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 2\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((1200\leq\text{ChangeSkill}\leq 1209)\)</td>
+      <td style="text-align: center">\(3\leq\text{Level}\leq 19\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">1200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1200\leq\text{ChangeSkill}\leq 1208\)</td>
+      <td style="text-align: center">\(20\leq\text{Level}\leq 36\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">1201</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(37\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">1202</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1210\leq\text{ChangeSkill}\leq 1219\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 7\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((1210\leq\text{ChangeSkill}\leq 1219)\)</td>
+      <td style="text-align: center">\(8\leq\text{Level}\leq 27\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">1210</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1210\leq\text{ChangeSkill}\leq 1218\)</td>
+      <td style="text-align: center">\(28\leq\text{Level}\leq 47\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">1211</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(48\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">1212</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1220\leq\text{ChangeSkill}\leq 1229\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 12\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((1220\leq\text{ChangeSkill}\leq 1229)\)</td>
+      <td style="text-align: center">\(13\leq\text{Level}\leq 25\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">1220</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1220\leq\text{ChangeSkill}\leq 1228\)</td>
+      <td style="text-align: center">\(26\leq\text{Level}\leq 38\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">1221</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(39\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">1222</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1230\leq\text{ChangeSkill}\leq 1239\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 16\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((1230\leq\text{ChangeSkill}\leq 1239)\)</td>
+      <td style="text-align: center">\(17\leq\text{Level}\leq 32\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">1230</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1230\leq\text{ChangeSkill}\leq 1238\)</td>
+      <td style="text-align: center">\(33\leq\text{Level}\leq 48\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">1231</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(49\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">1232</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1240\leq\text{ChangeSkill}\leq 1249\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 22\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((1240\leq\text{ChangeSkill}\leq 1249)\)</td>
+      <td style="text-align: center">\(23\leq\text{Level}\leq 45\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">1240</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1240\leq\text{ChangeSkill}\leq 1248\)</td>
+      <td style="text-align: center">\(46\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">1241</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(1260\leq\text{ChangeSkill}\leq 1999\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="changeskill絞り込み忍者">ChangeSkill絞り込み(忍者)</h2>
+
+<h3 id="コマンド群-2">コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,12,-178)</p>
+
+<p><span class="expandButton" onclick="openCloseBE(`openHere3-begin`)">+</span>コマンド</p>
+
+<div class="openHere-begin openHere3-begin"></div>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=2010,score_ChangeSkill=2018,score_Level_min=23] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=2010,score_ChangeSkill=2018,score_Level_min=38] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=2030,score_ChangeSkill=2038,score_Level_min=35] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=2040,score_ChangeSkill=2048,score_Level_min=43] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=2070,score_ChangeSkill=2078,score_Level_min=49] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=2200,score_ChangeSkill=2208,score_Level_min=18] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=2200,score_ChangeSkill=2208,score_Level_min=33] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=2200,score_ChangeSkill=2208,score_Level_min=48] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=2210,score_ChangeSkill=2218,score_Level_min=25] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=2210,score_ChangeSkill=2218,score_Level_min=45] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=2220,score_ChangeSkill=2228,score_Level_min=26] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=2220,score_ChangeSkill=2228,score_Level_min=39] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=2230,score_ChangeSkill=2238,score_Level_min=46] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2000,score_ChangeSkill=2009,score_Level=0] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2010,score_ChangeSkill=2019,score_Level=7] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2020,score_ChangeSkill=2029,score_Level=9] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2030,score_ChangeSkill=2039,score_Level=14] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2040,score_ChangeSkill=2049,score_Level=16] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2050,score_ChangeSkill=2059,score_Level=19] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2060,score_ChangeSkill=2069,score_Level=29] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2070,score_ChangeSkill=2079,score_Level=36] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2080,score_ChangeSkill=2089,score_Level=39] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2200,score_ChangeSkill=2209,score_Level=2] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2210,score_ChangeSkill=2219,score_Level=4] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2220,score_ChangeSkill=2229,score_Level=12] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2230,score_ChangeSkill=2239,score_Level=27] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">27</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2240,score_ChangeSkill=2249,score_Level=49] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">28</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2090,score_ChangeSkill=2199] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">29</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=2250,score_ChangeSkill=2999] ChangeSkill</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<div class="openHere-end openHere3-end"></div>
+
+<h3 id="詳細-2">詳細</h3>
+
+<ul>
+  <li>すべてのプレイヤーの<code class="language-plaintext highlighter-rouge">ChangeSkill</code>と<code class="language-plaintext highlighter-rouge">Level</code>の値に対して、<code class="language-plaintext highlighter-rouge">ChangeSkill</code>に特定の値を足す、もしくは<code class="language-plaintext highlighter-rouge">ChangeSkill</code>を0に設定する。詳細は<a href="#job2忍者でのchangeskill操作">Job=2(忍者)でのChangeSkill操作</a>を参考。</li>
+</ul>
+
+<h4 id="job2忍者でのchangeskill操作">Job=2(忍者)でのChangeSkill操作</h4>
+
+<p>下記の表の「<code class="language-plaintext highlighter-rouge">ChangeSkill</code>への操作」に整数がある場合はそれを<code class="language-plaintext highlighter-rouge">ChangeSkill</code>へ足しこみ、resetとある場合は<code class="language-plaintext highlighter-rouge">ChangeSkill</code>=0とする。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">ChangeSkillの範囲</th>
+      <th style="text-align: center">Levelの範囲</th>
+      <th style="text-align: center">ChangeSkillへの操作</th>
+      <th style="text-align: center">操作後のChangeSkill</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">\(2000\leq\text{ChangeSkill}\leq 2009\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 0\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((2000\leq\text{ChangeSkill}\leq 2009)\)</td>
+      <td style="text-align: center">\(1\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">2000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2010\leq\text{ChangeSkill}\leq 2019\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 7\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((2010\leq\text{ChangeSkill}\leq 2019)\)</td>
+      <td style="text-align: center">\(8\leq\text{Level}\leq 22\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">2010</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2010\leq\text{ChangeSkill}\leq 2018\)</td>
+      <td style="text-align: center">\(23\leq\text{Level}\leq 37\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">2011</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(38\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">2012</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2020\leq\text{ChangeSkill}\leq 2029\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 9\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((2020\leq\text{ChangeSkill}\leq 2029)\)</td>
+      <td style="text-align: center">\(10\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">2020</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2030\leq\text{ChangeSkill}\leq 2039\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 14\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((2030\leq\text{ChangeSkill}\leq 2039)\)</td>
+      <td style="text-align: center">\(15\leq\text{Level}\leq 34\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">2030</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2030\leq\text{ChangeSkill}\leq 2038\)</td>
+      <td style="text-align: center">\(35\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">2031</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2040\leq\text{ChangeSkill}\leq 2049\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 16\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((2040\leq\text{ChangeSkill}\leq 2049)\)</td>
+      <td style="text-align: center">\(17\leq\text{Level}\leq 42\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">2040</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2040\leq\text{ChangeSkill}\leq 2048\)</td>
+      <td style="text-align: center">\(43\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">2041</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2050\leq\text{ChangeSkill}\leq 2059\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 19\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((2050\leq\text{ChangeSkill}\leq 2059)\)</td>
+      <td style="text-align: center">\(20\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">2050</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2060\leq\text{ChangeSkill}\leq 2069\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 29\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((2060\leq\text{ChangeSkill}\leq 2069)\)</td>
+      <td style="text-align: center">\(30\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">2060</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2070\leq\text{ChangeSkill}\leq 2079\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 36\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((2070\leq\text{ChangeSkill}\leq 2079)\)</td>
+      <td style="text-align: center">\(37\leq\text{Level}\leq 48\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">2070</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2070\leq\text{ChangeSkill}\leq 2078\)</td>
+      <td style="text-align: center">\(49\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">2071</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2080\leq\text{ChangeSkill}\leq 2089\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 39\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((2080\leq\text{ChangeSkill}\leq 2089)\)</td>
+      <td style="text-align: center">\(40\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">2080</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2090\leq\text{ChangeSkill}\leq 2199\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2200\leq\text{ChangeSkill}\leq 2209\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 2\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((2200\leq\text{ChangeSkill}\leq 2209)\)</td>
+      <td style="text-align: center">\(3\leq\text{Level}\leq 17\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">2200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2200\leq\text{ChangeSkill}\leq 2208\)</td>
+      <td style="text-align: center">\(18\leq\text{Level}\leq 32\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">2201</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(33\leq\text{Level}\leq 47\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">2202</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(48\leq\text{Level}\)</td>
+      <td style="text-align: center">+3</td>
+      <td style="text-align: center">2203</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2210\leq\text{ChangeSkill}\leq 2219\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 4\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((2210\leq\text{ChangeSkill}\leq 2219)\)</td>
+      <td style="text-align: center">\(5\leq\text{Level}\leq 24\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">2210</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2210\leq\text{ChangeSkill}\leq 2218\)</td>
+      <td style="text-align: center">\(25\leq\text{Level}\leq 38\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">2211</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(39\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">2212</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2220\leq\text{ChangeSkill}\leq 2229\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 12\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((2220\leq\text{ChangeSkill}\leq 2229)\)</td>
+      <td style="text-align: center">\(13\leq\text{Level}\leq 25\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">2220</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2220\leq\text{ChangeSkill}\leq 2228\)</td>
+      <td style="text-align: center">\(26\leq\text{Level}\leq 38\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">2221</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(39\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">2222</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2230\leq\text{ChangeSkill}\leq 2239\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 27\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((2230\leq\text{ChangeSkill}\leq 2239)\)</td>
+      <td style="text-align: center">\(28\leq\text{Level}\leq 45\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">2230</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2230\leq\text{ChangeSkill}\leq 2238\)</td>
+      <td style="text-align: center">\(46\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">2231</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2240\leq\text{ChangeSkill}\leq 2249\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 49\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((2240\leq\text{ChangeSkill}\leq 2249)\)</td>
+      <td style="text-align: center">\(50\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">2240</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(2250\leq\text{ChangeSkill}\leq 2999\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="changeskill絞り込み狩人">ChangeSkill絞り込み(狩人)</h2>
+
+<h3 id="コマンド群-3">コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,13,-178)</p>
+
+<p><span class="expandButton" onclick="openCloseBE(`openHere4-begin`)">+</span>コマンド</p>
+
+<div class="openHere-begin openHere4-begin"></div>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=3000,score_ChangeSkill=3008,score_Level_min=23] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=3000,score_ChangeSkill=3008,score_Level_min=43] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=3020,score_ChangeSkill=3028,score_Level_min=33] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=3040,score_ChangeSkill=3048,score_Level_min=37] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=3050,score_ChangeSkill=3058,score_Level_min=38] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=3200,score_ChangeSkill=3208,score_Level_min=20] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=3200,score_ChangeSkill=3208,score_Level_min=40] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=3210,score_ChangeSkill=3218,score_Level_min=28] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=3210,score_ChangeSkill=3218,score_Level_min=48] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=3220,score_ChangeSkill=3228,score_Level_min=30] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=3230,score_ChangeSkill=3238,score_Level_min=45] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=3250,score_ChangeSkill=3258,score_Level_min=49] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3000,score_ChangeSkill=3009,score_Level=2] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3010,score_ChangeSkill=3019,score_Level=4] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3020,score_ChangeSkill=3029,score_Level=12] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3030,score_ChangeSkill=3039,score_Level=14] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3040,score_ChangeSkill=3049,score_Level=16] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3050,score_ChangeSkill=3059,score_Level=17] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3060,score_ChangeSkill=3069,score_Level=34] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3070,score_ChangeSkill=3079,score_Level=45] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3200,score_ChangeSkill=3209,score_Level=0] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3210,score_ChangeSkill=3219,score_Level=7] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3220,score_ChangeSkill=3229,score_Level=9] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3230,score_ChangeSkill=3239,score_Level=24] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3240,score_ChangeSkill=3249,score_Level=25] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3250,score_ChangeSkill=3259,score_Level=38] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">27</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3260,score_ChangeSkill=3269,score_Level=49] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">28</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3080,score_ChangeSkill=3199] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">29</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=3270,score_ChangeSkill=3999] ChangeSkill</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<div class="openHere-end openHere4-end"></div>
+
+<h3 id="詳細-3">詳細</h3>
+
+<ul>
+  <li>すべてのプレイヤーの<code class="language-plaintext highlighter-rouge">ChangeSkill</code>と<code class="language-plaintext highlighter-rouge">Level</code>の値に対して、<code class="language-plaintext highlighter-rouge">ChangeSkill</code>に特定の値を足す、もしくは<code class="language-plaintext highlighter-rouge">ChangeSkill</code>を0に設定する。詳細は<a href="#job3狩人でのchangeskill操作">Job=3(狩人)でのChangeSkill操作</a>を参考。</li>
+</ul>
+
+<h4 id="job3狩人でのchangeskill操作">Job=3(狩人)でのChangeSkill操作</h4>
+
+<p>下記の表の「<code class="language-plaintext highlighter-rouge">ChangeSkill</code>への操作」に整数がある場合はそれを<code class="language-plaintext highlighter-rouge">ChangeSkill</code>へ足しこみ、resetとある場合は<code class="language-plaintext highlighter-rouge">ChangeSkill</code>=0とする。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">ChangeSkillの範囲</th>
+      <th style="text-align: center">Levelの範囲</th>
+      <th style="text-align: center">ChangeSkillへの操作</th>
+      <th style="text-align: center">操作後のChangeSkill</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">\(3000\leq\text{ChangeSkill}\leq 3009\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 2\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((3000\leq\text{ChangeSkill}\leq 3009)\)</td>
+      <td style="text-align: center">\(3\leq\text{Level}\leq 22\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">3000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3000\leq\text{ChangeSkill}\leq 3008\)</td>
+      <td style="text-align: center">\(23\leq\text{Level}\leq 42\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">3001</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3000\leq\text{ChangeSkill}\leq 3008\)</td>
+      <td style="text-align: center">\(43\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">3002</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3010\leq\text{ChangeSkill}\leq 3019\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 4\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((3010\leq\text{ChangeSkill}\leq 3019)\)</td>
+      <td style="text-align: center">\(5\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">3010</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3020\leq\text{ChangeSkill}\leq 3029\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 12\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((3020\leq\text{ChangeSkill}\leq 3029)\)</td>
+      <td style="text-align: center">\(13\leq\text{Level}\leq 32\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">3020</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3020\leq\text{ChangeSkill}\leq 3028\)</td>
+      <td style="text-align: center">\(33\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">3021</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3030\leq\text{ChangeSkill}\leq 3039\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 14\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((3030\leq\text{ChangeSkill}\leq 3039)\)</td>
+      <td style="text-align: center">\(15\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">3030</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3040\leq\text{ChangeSkill}\leq 3049\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 16\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((3040\leq\text{ChangeSkill}\leq 3049)\)</td>
+      <td style="text-align: center">\(17\leq\text{Level}\leq 36\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">3040</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3040\leq\text{ChangeSkill}\leq 3048\)</td>
+      <td style="text-align: center">\(37\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">3041</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3050\leq\text{ChangeSkill}\leq 3059\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 17\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((3050\leq\text{ChangeSkill}\leq 3059)\)</td>
+      <td style="text-align: center">\(18\leq\text{Level}\leq 37\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">3050</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3050\leq\text{ChangeSkill}\leq 3058\)</td>
+      <td style="text-align: center">\(38\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">3051</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3060\leq\text{ChangeSkill}\leq 3069\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 34\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((3060\leq\text{ChangeSkill}\leq 3069)\)</td>
+      <td style="text-align: center">\(35\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">3060</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3070\leq\text{ChangeSkill}\leq 3079\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 45\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((3070\leq\text{ChangeSkill}\leq 3079)\)</td>
+      <td style="text-align: center">\(46\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">3070</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3080\leq\text{ChangeSkill}\leq 3199\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3200\leq\text{ChangeSkill}\leq 3209\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 0\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((3200\leq\text{ChangeSkill}\leq 3209)\)</td>
+      <td style="text-align: center">\(1\leq\text{Level}\leq 19\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">3200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3200\leq\text{ChangeSkill}\leq 3208\)</td>
+      <td style="text-align: center">\(20\leq\text{Level}\leq 39\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">3201</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(40\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">3202</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3210\leq\text{ChangeSkill}\leq 3219\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 7\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((3210\leq\text{ChangeSkill}\leq 3219)\)</td>
+      <td style="text-align: center">\(8\leq\text{Level}\leq 27\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">3210</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3210\leq\text{ChangeSkill}\leq 3218\)</td>
+      <td style="text-align: center">\(28\leq\text{Level}\leq 47\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">3211</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(48\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">3212</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3220\leq\text{ChangeSkill}\leq 3229\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 9\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((3220\leq\text{ChangeSkill}\leq 3229)\)</td>
+      <td style="text-align: center">\(10\leq\text{Level}\leq 29\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">3220</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3220\leq\text{ChangeSkill}\leq 3228\)</td>
+      <td style="text-align: center">\(30\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">3221</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3230\leq\text{ChangeSkill}\leq 3239\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 24\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((3230\leq\text{ChangeSkill}\leq 3239)\)</td>
+      <td style="text-align: center">\(25\leq\text{Level}\leq 44\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">3230</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3230\leq\text{ChangeSkill}\leq 3238\)</td>
+      <td style="text-align: center">\(45\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">3231</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3240\leq\text{ChangeSkill}\leq 3249\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 25\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((3240\leq\text{ChangeSkill}\leq 3249)\)</td>
+      <td style="text-align: center">\(26\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">3240</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3250\leq\text{ChangeSkill}\leq 3259\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 38\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((3250\leq\text{ChangeSkill}\leq 3259)\)</td>
+      <td style="text-align: center">\(39\leq\text{Level}\leq 47\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">3250</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3250\leq\text{ChangeSkill}\leq 3258\)</td>
+      <td style="text-align: center">\(48\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">3251</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3260\leq\text{ChangeSkill}\leq 3269\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 49\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((3260\leq\text{ChangeSkill}\leq 3269)\)</td>
+      <td style="text-align: center">\(50\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">3260</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(3270\leq\text{ChangeSkill}\leq 3999\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="changeskill絞り込み白魔導士">ChangeSkill絞り込み(白魔導士)</h2>
+
+<h3 id="コマンド群-4">コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,14,-178)</p>
+
+<p><span class="expandButton" onclick="openCloseBE(`openHere5-begin`)">+</span>コマンド</p>
+
+<div class="openHere-begin openHere5-begin"></div>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4010,score_ChangeSkill=4018,score_Level_min=18] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4010,score_ChangeSkill=4018,score_Level_min=28] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4010,score_ChangeSkill=4018,score_Level_min=38] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4010,score_ChangeSkill=4018,score_Level_min=48] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4020,score_ChangeSkill=4028,score_Level_min=37] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4020,score_ChangeSkill=4028,score_Level_min=46] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4030,score_ChangeSkill=4038,score_Level_min=35] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4200,score_ChangeSkill=4208,score_Level_min=10] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4200,score_ChangeSkill=4208,score_Level_min=25] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4200,score_ChangeSkill=4208,score_Level_min=40] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4200,score_ChangeSkill=4208,score_Level_min=49] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4210,score_ChangeSkill=4218,score_Level_min=13] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4210,score_ChangeSkill=4218,score_Level_min=23] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4210,score_ChangeSkill=4218,score_Level_min=33] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4210,score_ChangeSkill=4218,score_Level_min=43] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4220,score_ChangeSkill=4228,score_Level_min=30] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=4220,score_ChangeSkill=4228,score_Level_min=45] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=4000,score_ChangeSkill=4009,score_Level=4] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=4010,score_ChangeSkill=4019,score_Level=7] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=4020,score_ChangeSkill=4029,score_Level=16] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=4030,score_ChangeSkill=4039,score_Level=19] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=4040,score_ChangeSkill=4049,score_Level=25] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=4050,score_ChangeSkill=4059,score_Level=38] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=4200,score_ChangeSkill=4209,score_Level=0] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=4210,score_ChangeSkill=4219,score_Level=2] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=4220,score_ChangeSkill=4229,score_Level=14] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">27</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=4230,score_ChangeSkill=4239,score_Level=49] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">28</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=4060,score_ChangeSkill=4199] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">29</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=4240,score_ChangeSkill=4999] ChangeSkill</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<div class="openHere-end openHere5-end"></div>
+
+<h3 id="詳細-4">詳細</h3>
+
+<ul>
+  <li>すべてのプレイヤーの<code class="language-plaintext highlighter-rouge">ChangeSkill</code>と<code class="language-plaintext highlighter-rouge">Level</code>の値に対して、<code class="language-plaintext highlighter-rouge">ChangeSkill</code>に特定の値を足す、もしくは<code class="language-plaintext highlighter-rouge">ChangeSkill</code>を0に設定する。詳細は<a href="#job4白魔導士でのchangeskill操作">Job=4(白魔導士)でのChangeSkill操作</a>を参考。</li>
+</ul>
+
+<h4 id="job4白魔導士でのchangeskill操作">Job=4(白魔導士)でのChangeSkill操作</h4>
+
+<p>下記の表の「<code class="language-plaintext highlighter-rouge">ChangeSkill</code>への操作」に整数がある場合はそれを<code class="language-plaintext highlighter-rouge">ChangeSkill</code>へ足しこみ、resetとある場合は<code class="language-plaintext highlighter-rouge">ChangeSkill</code>=0とする。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">ChangeSkillの範囲</th>
+      <th style="text-align: center">Levelの範囲</th>
+      <th style="text-align: center">ChangeSkillへの操作</th>
+      <th style="text-align: center">操作後のChangeSkill</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">\(4000\leq\text{ChangeSkill}\leq 4009\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 4\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((4000\leq\text{ChangeSkill}\leq 4009)\)</td>
+      <td style="text-align: center">\(5\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">4000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4010\leq\text{ChangeSkill}\leq 4019\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 7\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((4010\leq\text{ChangeSkill}\leq 4019)\)</td>
+      <td style="text-align: center">\(8\leq\text{Level}\leq 17\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">4010</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4010\leq\text{ChangeSkill}\leq 4018\)</td>
+      <td style="text-align: center">\(18\leq\text{Level}\leq 27\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">4011</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(28\leq\text{Level}\leq 37\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">4012</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(38\leq\text{Level}\leq 47\)</td>
+      <td style="text-align: center">+3</td>
+      <td style="text-align: center">4013</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(48\leq\text{Level}\)</td>
+      <td style="text-align: center">+4</td>
+      <td style="text-align: center">4014</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4020\leq\text{ChangeSkill}\leq 4029\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 16\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((4020\leq\text{ChangeSkill}\leq 4029)\)</td>
+      <td style="text-align: center">\(17\leq\text{Level}\leq 36\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">4020</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4020\leq\text{ChangeSkill}\leq 4028\)</td>
+      <td style="text-align: center">\(37\leq\text{Level}\leq 45\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">4021</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(46\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">4022</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4030\leq\text{ChangeSkill}\leq 4039\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 19\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((4030\leq\text{ChangeSkill}\leq 4039)\)</td>
+      <td style="text-align: center">\(20\leq\text{Level}\leq 34\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">4030</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4030\leq\text{ChangeSkill}\leq 4038\)</td>
+      <td style="text-align: center">\(35\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">4021</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4040\leq\text{ChangeSkill}\leq 4049\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 25\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((4040\leq\text{ChangeSkill}\leq 4049)\)</td>
+      <td style="text-align: center">\(26\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">4040</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4050\leq\text{ChangeSkill}\leq 4059\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 38\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((4050\leq\text{ChangeSkill}\leq 4059)\)</td>
+      <td style="text-align: center">\(39\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">4050</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4060\leq\text{ChangeSkill}\leq 4199\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4200\leq\text{ChangeSkill}\leq 4209\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 0\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((4200\leq\text{ChangeSkill}\leq 4209)\)</td>
+      <td style="text-align: center">\(1\leq\text{Level}\leq 9\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">4200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4200\leq\text{ChangeSkill}\leq 4208\)</td>
+      <td style="text-align: center">\(10\leq\text{Level}\leq 24\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">4201</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(25\leq\text{Level}\leq 39\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">4202</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(40\leq\text{Level}\leq 48\)</td>
+      <td style="text-align: center">+3</td>
+      <td style="text-align: center">4203</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(49\leq\text{Level}\)</td>
+      <td style="text-align: center">+4</td>
+      <td style="text-align: center">4204</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4210\leq\text{ChangeSkill}\leq 4219\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 2\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((4210\leq\text{ChangeSkill}\leq 4219)\)</td>
+      <td style="text-align: center">\(3\leq\text{Level}\leq 12\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">4210</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4210\leq\text{ChangeSkill}\leq 4218\)</td>
+      <td style="text-align: center">\(13\leq\text{Level}\leq 22\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">4211</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(23\leq\text{Level}\leq 32\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">4212</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(33\leq\text{Level}\leq 42\)</td>
+      <td style="text-align: center">+3</td>
+      <td style="text-align: center">4213</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(43\leq\text{Level}\)</td>
+      <td style="text-align: center">+4</td>
+      <td style="text-align: center">4214</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4220\leq\text{ChangeSkill}\leq 4229\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 14\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((4220\leq\text{ChangeSkill}\leq 4229)\)</td>
+      <td style="text-align: center">\(15\leq\text{Level}\leq 29\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">4220</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4220\leq\text{ChangeSkill}\leq 4228\)</td>
+      <td style="text-align: center">\(30\leq\text{Level}\leq 44\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">4221</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(45\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">4222</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4230\leq\text{ChangeSkill}\leq 4239\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 49\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((4230\leq\text{ChangeSkill}\leq 4239)\)</td>
+      <td style="text-align: center">\(50\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">4230</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(4240\leq\text{ChangeSkill}\leq 4999\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="changeskill絞り込み黒魔導士">ChangeSkill絞り込み(黒魔導士)</h2>
+
+<h3 id="コマンド群-5">コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,15,-178)</p>
+
+<p><span class="expandButton" onclick="openCloseBE(`openHere6-begin`)">+</span>コマンド</p>
+
+<div class="openHere-begin openHere6-begin"></div>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=5040,score_ChangeSkill=5048,score_Level_min=43] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=5050,score_ChangeSkill=5058,score_Level_min=39] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=5200,score_ChangeSkill=5208,score_Level_min=20] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=5200,score_ChangeSkill=5208,score_Level_min=45] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=5210,score_ChangeSkill=5218,score_Level_min=25] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=5210,score_ChangeSkill=5218,score_Level_min=46] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=5220,score_ChangeSkill=5228,score_Level_min=30] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=5220,score_ChangeSkill=5228,score_Level_min=48] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=5230,score_ChangeSkill=5238,score_Level_min=35] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=5230,score_ChangeSkill=5238,score_Level_min=49] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=5240,score_ChangeSkill=5248,score_Level_min=37] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5000,score_ChangeSkill=5009,score_Level=2] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5010,score_ChangeSkill=5019,score_Level=7] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5020,score_ChangeSkill=5029,score_Level=12] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5030,score_ChangeSkill=5039,score_Level=17] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5040,score_ChangeSkill=5049,score_Level=22] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5050,score_ChangeSkill=5059,score_Level=25] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5060,score_ChangeSkill=5069,score_Level=27] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5070,score_ChangeSkill=5079,score_Level=32] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5080,score_ChangeSkill=5089,score_Level=37] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5090,score_ChangeSkill=5099,score_Level=39] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5200,score_ChangeSkill=5209,score_Level=0] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5210,score_ChangeSkill=5219,score_Level=4] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5220,score_ChangeSkill=5229,score_Level=9] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5230,score_ChangeSkill=5239,score_Level=14] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5240,score_ChangeSkill=5249,score_Level=16] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">27</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5250,score_ChangeSkill=5259,score_Level=49] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">28</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5100,score_ChangeSkill=5199] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">29</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=5260,score_ChangeSkill=5999] ChangeSkill</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<div class="openHere-end openHere6-end"></div>
+
+<h3 id="詳細-5">詳細</h3>
+
+<ul>
+  <li>すべてのプレイヤーの<code class="language-plaintext highlighter-rouge">ChangeSkill</code>と<code class="language-plaintext highlighter-rouge">Level</code>の値に対して、<code class="language-plaintext highlighter-rouge">ChangeSkill</code>に特定の値を足す、もしくは<code class="language-plaintext highlighter-rouge">ChangeSkill</code>を0に設定する。詳細は<a href="#job5黒魔導士でのchangeskill操作">Job=5(黒魔導士)でのChangeSkill操作</a>を参考。</li>
+</ul>
+
+<h4 id="job5黒魔導士でのchangeskill操作">Job=5(黒魔導士)でのChangeSkill操作</h4>
+
+<p>下記の表の「<code class="language-plaintext highlighter-rouge">ChangeSkill</code>への操作」に整数がある場合はそれを<code class="language-plaintext highlighter-rouge">ChangeSkill</code>へ足しこみ、resetとある場合は<code class="language-plaintext highlighter-rouge">ChangeSkill</code>=0とする。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">ChangeSkillの範囲</th>
+      <th style="text-align: center">Levelの範囲</th>
+      <th style="text-align: center">ChangeSkillへの操作</th>
+      <th style="text-align: center">操作後のChangeSkill</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">\(5000\leq\text{ChangeSkill}\leq 5009\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 2\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5000\leq\text{ChangeSkill}\leq 5009)\)</td>
+      <td style="text-align: center">\(3\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5010\leq\text{ChangeSkill}\leq 5019\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 7\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5010\leq\text{ChangeSkill}\leq 5019)\)</td>
+      <td style="text-align: center">\(8\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5010</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5020\leq\text{ChangeSkill}\leq 5029\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 12\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5020\leq\text{ChangeSkill}\leq 5029)\)</td>
+      <td style="text-align: center">\(13\leq\text{Level}\leq 36\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5020</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5030\leq\text{ChangeSkill}\leq 5039\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 17\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5030\leq\text{ChangeSkill}\leq 5039)\)</td>
+      <td style="text-align: center">\(18\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5030</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5040\leq\text{ChangeSkill}\leq 5049\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 22\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5040\leq\text{ChangeSkill}\leq 5049)\)</td>
+      <td style="text-align: center">\(23\leq\text{Level}\leq 42\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5040</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5040\leq\text{ChangeSkill}\leq 5048\)</td>
+      <td style="text-align: center">\(43\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">5041</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5050\leq\text{ChangeSkill}\leq 5059\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 25\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5050\leq\text{ChangeSkill}\leq 5059)\)</td>
+      <td style="text-align: center">\(26\leq\text{Level}\leq 38\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5050</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5050\leq\text{ChangeSkill}\leq 5058\)</td>
+      <td style="text-align: center">\(39\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">5051</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5060\leq\text{ChangeSkill}\leq 5069\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 27\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5060\leq\text{ChangeSkill}\leq 5069)\)</td>
+      <td style="text-align: center">\(28\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5060</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5070\leq\text{ChangeSkill}\leq 5079\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 32\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5070\leq\text{ChangeSkill}\leq 5079)\)</td>
+      <td style="text-align: center">\(33\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5070</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5080\leq\text{ChangeSkill}\leq 5089\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 37\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5080\leq\text{ChangeSkill}\leq 5089)\)</td>
+      <td style="text-align: center">\(38\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5080</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5090\leq\text{ChangeSkill}\leq 5099\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 39\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5090\leq\text{ChangeSkill}\leq 5099)\)</td>
+      <td style="text-align: center">\(40\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5090</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5100\leq\text{ChangeSkill}\leq 5199\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5200\leq\text{ChangeSkill}\leq 5209\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 0\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5200\leq\text{ChangeSkill}\leq 5209)\)</td>
+      <td style="text-align: center">\(1\leq\text{Level}\leq 19\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5200\leq\text{ChangeSkill}\leq 5208\)</td>
+      <td style="text-align: center">\(20\leq\text{Level}\leq 44\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">5201</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(45\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">5202</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5210\leq\text{ChangeSkill}\leq 5219\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 4\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5210\leq\text{ChangeSkill}\leq 5219)\)</td>
+      <td style="text-align: center">\(5\leq\text{Level}\leq 24\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5210</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5210\leq\text{ChangeSkill}\leq 5218\)</td>
+      <td style="text-align: center">\(25\leq\text{Level}\leq 45\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">5211</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(46\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">5212</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5220\leq\text{ChangeSkill}\leq 5229\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 9\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5220\leq\text{ChangeSkill}\leq 5229)\)</td>
+      <td style="text-align: center">\(10\leq\text{Level}\leq 29\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5220</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5220\leq\text{ChangeSkill}\leq 5228\)</td>
+      <td style="text-align: center">\(30\leq\text{Level}\leq 47\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">5221</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(48\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">5222</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5230\leq\text{ChangeSkill}\leq 5239\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 14\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5230\leq\text{ChangeSkill}\leq 5239)\)</td>
+      <td style="text-align: center">\(15\leq\text{Level}\leq 34\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5230</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5230\leq\text{ChangeSkill}\leq 5238\)</td>
+      <td style="text-align: center">\(35\leq\text{Level}\leq 48\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">5231</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(49\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">5232</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5240\leq\text{ChangeSkill}\leq 5249\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 16\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5240\leq\text{ChangeSkill}\leq 5249)\)</td>
+      <td style="text-align: center">\(17\leq\text{Level}\leq 36\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5240</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5240\leq\text{ChangeSkill}\leq 5248\)</td>
+      <td style="text-align: center">\(37\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">5241</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5250\leq\text{ChangeSkill}\leq 5259\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 49\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((5250\leq\text{ChangeSkill}\leq 5259)\)</td>
+      <td style="text-align: center">\(50\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">5250</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(5260\leq\text{ChangeSkill}\leq 5999\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="changeskill絞り込み召喚士">ChangeSkill絞り込み(召喚士)</h2>
+
+<h3 id="コマンド群-6">コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,16,-178)</p>
+
+<p><span class="expandButton" onclick="openCloseBE(`openHere7-begin`)">+</span>コマンド</p>
+
+<div class="openHere-begin openHere7-begin"></div>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=6020,score_ChangeSkill=6028,score_Level_min=33] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=6200,score_ChangeSkill=6208,score_Level_min=20] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=6200,score_ChangeSkill=6208,score_Level_min=40] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=6220,score_ChangeSkill=6228,score_Level_min=28] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=6220,score_ChangeSkill=6228,score_Level_min=48] ChangeSkill 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=6230,score_ChangeSkill=6238,score_Level_min=35] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players add @a[score_ChangeSkill_min=6240,score_ChangeSkill=6248,score_Level_min=38] ChangeSkill 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6000,score_ChangeSkill=6009,score_Level=4] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6010,score_ChangeSkill=6019,score_Level=9] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6020,score_ChangeSkill=6029,score_Level=12] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6030,score_ChangeSkill=6039,score_Level=16] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6040,score_ChangeSkill=6049,score_Level=24] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6050,score_ChangeSkill=6059,score_Level=29] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6060,score_ChangeSkill=6069,score_Level=44] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6070,score_ChangeSkill=6079,score_Level=45] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6080,score_ChangeSkill=6089,score_Level=48] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6200,score_ChangeSkill=6209,score_Level=0] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6210,score_ChangeSkill=6219,score_Level=2] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6220,score_ChangeSkill=6229,score_Level=7] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6230,score_ChangeSkill=6239,score_Level=14] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6240,score_ChangeSkill=6249,score_Level=17] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6250,score_ChangeSkill=6259,score_Level=22] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6260,score_ChangeSkill=6269,score_Level=25] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6270,score_ChangeSkill=6279,score_Level=36] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6280,score_ChangeSkill=6289,score_Level=38] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6290,score_ChangeSkill=6299,score_Level=42] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">27</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6300,score_ChangeSkill=6309,score_Level=49] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">28</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6090,score_ChangeSkill=6199] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">29</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=6310,score_ChangeSkill=6999] ChangeSkill</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<div class="openHere-end openHere7-end"></div>
+
+<h3 id="詳細-6">詳細</h3>
+
+<ul>
+  <li>すべてのプレイヤーの<code class="language-plaintext highlighter-rouge">ChangeSkill</code>と<code class="language-plaintext highlighter-rouge">Level</code>の値に対して、<code class="language-plaintext highlighter-rouge">ChangeSkill</code>に特定の値を足す、もしくは<code class="language-plaintext highlighter-rouge">ChangeSkill</code>を0に設定する。詳細は<a href="#job6召喚士でのchangeskill操作">Job=6(召喚士)でのChangeSkill操作</a>を参考。</li>
+</ul>
+
+<h4 id="job6召喚士でのchangeskill操作">Job=6(召喚士)でのChangeSkill操作</h4>
+
+<p>下記の表の「<code class="language-plaintext highlighter-rouge">ChangeSkill</code>への操作」に整数がある場合はそれを<code class="language-plaintext highlighter-rouge">ChangeSkill</code>へ足しこみ、resetとある場合は<code class="language-plaintext highlighter-rouge">ChangeSkill</code>=0とする。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">ChangeSkillの範囲</th>
+      <th style="text-align: center">Levelの範囲</th>
+      <th style="text-align: center">ChangeSkillへの操作</th>
+      <th style="text-align: center">操作後のChangeSkill</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">\(6000\leq\text{ChangeSkill}\leq 6009\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 4\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6000\leq\text{ChangeSkill}\leq 6009)\)</td>
+      <td style="text-align: center">\(5\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6000</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6010\leq\text{ChangeSkill}\leq 6019\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 9\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6010\leq\text{ChangeSkill}\leq 6019)\)</td>
+      <td style="text-align: center">\(10\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6010</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6020\leq\text{ChangeSkill}\leq 6029\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 12\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6020\leq\text{ChangeSkill}\leq 6029)\)</td>
+      <td style="text-align: center">\(13\leq\text{Level}\leq 32\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6020</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6020\leq\text{ChangeSkill}\leq 6028\)</td>
+      <td style="text-align: center">\(33\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">6021</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6030\leq\text{ChangeSkill}\leq 6039\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 16\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6030\leq\text{ChangeSkill}\leq 6039)\)</td>
+      <td style="text-align: center">\(17\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6030</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6040\leq\text{ChangeSkill}\leq 6049\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 24\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6040\leq\text{ChangeSkill}\leq 6049)\)</td>
+      <td style="text-align: center">\(25\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6040</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6050\leq\text{ChangeSkill}\leq 6059\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 29\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6050\leq\text{ChangeSkill}\leq 6059)\)</td>
+      <td style="text-align: center">\(30\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6050</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6060\leq\text{ChangeSkill}\leq 6069\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 44\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6060\leq\text{ChangeSkill}\leq 6069)\)</td>
+      <td style="text-align: center">\(45\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6060</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6070\leq\text{ChangeSkill}\leq 6079\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 45\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6070\leq\text{ChangeSkill}\leq 6079)\)</td>
+      <td style="text-align: center">\(46\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6070</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6080\leq\text{ChangeSkill}\leq 6089\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 48\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6080\leq\text{ChangeSkill}\leq 6089)\)</td>
+      <td style="text-align: center">\(49\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6080</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6090\leq\text{ChangeSkill}\leq 6199\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6200\leq\text{ChangeSkill}\leq 6209\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 0\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6200\leq\text{ChangeSkill}\leq 6209)\)</td>
+      <td style="text-align: center">\(1\leq\text{Level}\leq 19\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6200</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6200\leq\text{ChangeSkill}\leq 6208\)</td>
+      <td style="text-align: center">\(20\leq\text{Level}\leq 39\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">6201</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(40\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">6202</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6210\leq\text{ChangeSkill}\leq 6219\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 2\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6210\leq\text{ChangeSkill}\leq 6219)\)</td>
+      <td style="text-align: center">\(3\leq\text{Level}\leq 24\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6210</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6220\leq\text{ChangeSkill}\leq 6229\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 7\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6220\leq\text{ChangeSkill}\leq 6229)\)</td>
+      <td style="text-align: center">\(8\leq\text{Level}\leq 27\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6220</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6220\leq\text{ChangeSkill}\leq 6228\)</td>
+      <td style="text-align: center">\(28\leq\text{Level}\leq 47\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">6221</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">同上</td>
+      <td style="text-align: center">\(48\leq\text{Level}\)</td>
+      <td style="text-align: center">+2</td>
+      <td style="text-align: center">6222</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6230\leq\text{ChangeSkill}\leq 6239\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 14\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6230\leq\text{ChangeSkill}\leq 6239)\)</td>
+      <td style="text-align: center">\(15\leq\text{Level}\leq 34\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6230</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6230\leq\text{ChangeSkill}\leq 6238\)</td>
+      <td style="text-align: center">\(35\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">6231</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6240\leq\text{ChangeSkill}\leq 6249\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 17\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6240\leq\text{ChangeSkill}\leq 6249)\)</td>
+      <td style="text-align: center">\(18\leq\text{Level}\leq 37\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6240</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6240\leq\text{ChangeSkill}\leq 6248\)</td>
+      <td style="text-align: center">\(38\leq\text{Level}\)</td>
+      <td style="text-align: center">+1</td>
+      <td style="text-align: center">6241</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6250\leq\text{ChangeSkill}\leq 6259\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 22\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6250\leq\text{ChangeSkill}\leq 6259)\)</td>
+      <td style="text-align: center">\(23\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6250</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6260\leq\text{ChangeSkill}\leq 6269\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 25\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6260\leq\text{ChangeSkill}\leq 6269)\)</td>
+      <td style="text-align: center">\(26\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6260</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6270\leq\text{ChangeSkill}\leq 6279\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 36\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6270\leq\text{ChangeSkill}\leq 6279)\)</td>
+      <td style="text-align: center">\(37\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6270</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6280\leq\text{ChangeSkill}\leq 6289\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 38\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6280\leq\text{ChangeSkill}\leq 6289)\)</td>
+      <td style="text-align: center">\(39\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6280</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6290\leq\text{ChangeSkill}\leq 6299\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 42\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6290\leq\text{ChangeSkill}\leq 6299)\)</td>
+      <td style="text-align: center">\(43\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6290</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6300\leq\text{ChangeSkill}\leq 6309\)</td>
+      <td style="text-align: center">\(\text{Level}\leq 49\)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\((6300\leq\text{ChangeSkill}\leq 6309)\)</td>
+      <td style="text-align: center">\(50\leq\text{Level}\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">6300</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">\(6310\leq\text{ChangeSkill}\leq 6999\)</td>
+      <td style="text-align: center">(none)</td>
+      <td style="text-align: center">reset</td>
+      <td style="text-align: center">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="changeskillcost代入剣士">ChangeSkillCost代入(剣士)</h2>
+
+<h3 id="コマンド群-7">コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,10,-177)</p>
+
+<p><span class="expandButton" onclick="openCloseBE(`openHere8-begin`)">+</span>コマンド</p>
+
+<div class="openHere-begin openHere8-begin"></div>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=1000,score_ChangeSkill=1009] ChangeSkillCost = #100 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=1010,score_ChangeSkill=1019] ChangeSkillCost = #101 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=1020,score_ChangeSkill=1029] ChangeSkillCost = #102 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=1030,score_ChangeSkill=1039] ChangeSkillCost = #103 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=1040,score_ChangeSkill=1049] ChangeSkillCost = #104 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=1200,score_ChangeSkill=1209] ChangeSkillCost = #120 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=1210,score_ChangeSkill=1219] ChangeSkillCost = #121 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=1220,score_ChangeSkill=1229] ChangeSkillCost = #122 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=1230,score_ChangeSkill=1239] ChangeSkillCost = #123 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=1240,score_ChangeSkill=1249] ChangeSkillCost = #124 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=1250,score_ChangeSkill=1259] ChangeSkillCost = #125 MPCost</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<div class="openHere-end openHere8-end"></div>
+
+<h3 id="詳細-7">詳細</h3>
+
+<p>すべてのプレイヤーに対して、<code class="language-plaintext highlighter-rouge">ChangeSkill</code>の上位三桁に対応した<code class="language-plaintext highlighter-rouge">MPCost</code>を<code class="language-plaintext highlighter-rouge">ChangeSkillCost</code>に代入する</p>
+
+<p>例: <code class="language-plaintext highlighter-rouge">ChangeSkill</code> = 1301のとき、<code class="language-plaintext highlighter-rouge">ChangeSkillCost</code> = <code class="language-plaintext highlighter-rouge">#130 MPCost</code></p>
+
+<h2 id="changeskillcost代入忍者">ChangeSkillCost代入(忍者)</h2>
+
+<h3 id="コマンド群-8">コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,11,-177)</p>
+
+<p><span class="expandButton" onclick="openCloseBE(`openHere9-begin`)">+</span>コマンド</p>
+
+<div class="openHere-begin openHere9-begin"></div>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=2000,score_ChangeSkill=2009] ChangeSkillCost = #200 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=2010,score_ChangeSkill=2019] ChangeSkillCost = #201 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=2020,score_ChangeSkill=2029] ChangeSkillCost = #202 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=2030,score_ChangeSkill=2039] ChangeSkillCost = #203 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=2040,score_ChangeSkill=2049] ChangeSkillCost = #204 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=2050,score_ChangeSkill=2059] ChangeSkillCost = #205 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=2060,score_ChangeSkill=2069] ChangeSkillCost = #206 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=2070,score_ChangeSkill=2079] ChangeSkillCost = #207 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=2080,score_ChangeSkill=2089] ChangeSkillCost = #208 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=2200,score_ChangeSkill=2209] ChangeSkillCost = #220 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=2210,score_ChangeSkill=2219] ChangeSkillCost = #221 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=2220,score_ChangeSkill=2229] ChangeSkillCost = #222 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=2230,score_ChangeSkill=2239] ChangeSkillCost = #223 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=2230,score_ChangeSkill=2239] ChangeSkillCost = #223 MPCost</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<div class="openHere-end openHere9-end"></div>
+
+<h3 id="詳細-8">詳細</h3>
+
+<p>すべてのプレイヤーに対して、<code class="language-plaintext highlighter-rouge">ChangeSkill</code>の上位三桁に対応した<code class="language-plaintext highlighter-rouge">MPCost</code>を<code class="language-plaintext highlighter-rouge">ChangeSkillCost</code>に代入する</p>
+
+<h2 id="changeskillcost代入狩人">ChangeSkillCost代入(狩人)</h2>
+
+<h3 id="コマンド群-9">コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,12,-177)</p>
+
+<p><span class="expandButton" onclick="openCloseBE(`openHere10-begin`)">+</span>コマンド</p>
+
+<div class="openHere-begin openHere10-begin"></div>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=3000,score_ChangeSkill=3009] ChangeSkillCost = #300 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=3010,score_ChangeSkill=3019] ChangeSkillCost = #301 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=3020,score_ChangeSkill=3029] ChangeSkillCost = #302 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=3030,score_ChangeSkill=3039] ChangeSkillCost = #303 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=3040,score_ChangeSkill=3049] ChangeSkillCost = #304 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=3050,score_ChangeSkill=3059] ChangeSkillCost = #305 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=3060,score_ChangeSkill=3069] ChangeSkillCost = #306 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=3070,score_ChangeSkill=3079] ChangeSkillCost = #307 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=3200,score_ChangeSkill=3209] ChangeSkillCost = #320 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=3210,score_ChangeSkill=3219] ChangeSkillCost = #321 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=3220,score_ChangeSkill=3229] ChangeSkillCost = #322 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=3230,score_ChangeSkill=3239] ChangeSkillCost = #323 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=3240,score_ChangeSkill=3249] ChangeSkillCost = #324 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=3250,score_ChangeSkill=3259] ChangeSkillCost = #325 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=3260,score_ChangeSkill=3269] ChangeSkillCost = #326 MPCost</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<div class="openHere-end openHere10-end"></div>
+
+<h3 id="詳細-9">詳細</h3>
+
+<p>すべてのプレイヤーに対して、<code class="language-plaintext highlighter-rouge">ChangeSkill</code>の上位三桁に対応した<code class="language-plaintext highlighter-rouge">MPCost</code>を<code class="language-plaintext highlighter-rouge">ChangeSkillCost</code>に代入する</p>
+
+<h2 id="changeskillcost代入白魔導士">ChangeSkillCost代入(白魔導士)</h2>
+
+<h3 id="コマンド群-10">コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,13,-177)</p>
+
+<p><span class="expandButton" onclick="openCloseBE(`openHere11-begin`)">+</span>コマンド</p>
+
+<div class="openHere-begin openHere11-begin"></div>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=4000,score_ChangeSkill=4009] ChangeSkillCost = #400 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=4010,score_ChangeSkill=4019] ChangeSkillCost = #401 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=4020,score_ChangeSkill=4029] ChangeSkillCost = #402 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=4030,score_ChangeSkill=4039] ChangeSkillCost = #403 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=4040,score_ChangeSkill=4049] ChangeSkillCost = #404 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=4050,score_ChangeSkill=4059] ChangeSkillCost = #405 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=4200,score_ChangeSkill=4209] ChangeSkillCost = #420 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=4210,score_ChangeSkill=4219] ChangeSkillCost = #421 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=4220,score_ChangeSkill=4229] ChangeSkillCost = #422 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=4230,score_ChangeSkill=4239] ChangeSkillCost = #423 MPCost</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<div class="openHere-end openHere11-end"></div>
+
+<h3 id="詳細-10">詳細</h3>
+
+<p>すべてのプレイヤーに対して、<code class="language-plaintext highlighter-rouge">ChangeSkill</code>の上位三桁に対応した<code class="language-plaintext highlighter-rouge">MPCost</code>を<code class="language-plaintext highlighter-rouge">ChangeSkillCost</code>に代入する</p>
+
+<h2 id="changeskillcost代入黒魔導士">ChangeSkillCost代入(黒魔導士)</h2>
+
+<h3 id="コマンド群-11">コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,14,-177)</p>
+
+<p><span class="expandButton" onclick="openCloseBE(`openHere12-begin`)">+</span>コマンド</p>
+
+<div class="openHere-begin openHere12-begin"></div>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5000,score_ChangeSkill=5009] ChangeSkillCost = #500 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5010,score_ChangeSkill=5019] ChangeSkillCost = #501 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5020,score_ChangeSkill=5029] ChangeSkillCost = #502 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5030,score_ChangeSkill=5039] ChangeSkillCost = #503 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5040,score_ChangeSkill=5049] ChangeSkillCost = #504 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5050,score_ChangeSkill=5059] ChangeSkillCost = #505 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5060,score_ChangeSkill=5069] ChangeSkillCost = #506 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5070,score_ChangeSkill=5079] ChangeSkillCost = #507 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5080,score_ChangeSkill=5089] ChangeSkillCost = #508 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5090,score_ChangeSkill=5099] ChangeSkillCost = #509 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5200,score_ChangeSkill=5209] ChangeSkillCost = #520 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5210,score_ChangeSkill=5219] ChangeSkillCost = #521 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5220,score_ChangeSkill=5229] ChangeSkillCost = #522 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5230,score_ChangeSkill=5239] ChangeSkillCost = #523 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5240,score_ChangeSkill=5249] ChangeSkillCost = #524 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=5250,score_ChangeSkill=5259] ChangeSkillCost = #525 MPCost</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<div class="openHere-end openHere12-end"></div>
+
+<h3 id="詳細-11">詳細</h3>
+
+<p>すべてのプレイヤーに対して、<code class="language-plaintext highlighter-rouge">ChangeSkill</code>の上位三桁に対応した<code class="language-plaintext highlighter-rouge">MPCost</code>を<code class="language-plaintext highlighter-rouge">ChangeSkillCost</code>に代入する</p>
+
+<h2 id="changeskillcost代入召喚士">ChangeSkillCost代入(召喚士)</h2>
+
+<h3 id="コマンド群-12">コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,15,-177)</p>
+
+<p><span class="expandButton" onclick="openCloseBE(`openHere13-begin`)">+</span>コマンド</p>
+
+<div class="openHere-begin openHere13-begin"></div>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6000,score_ChangeSkill=6009] ChangeSkillCost = #600 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6010,score_ChangeSkill=6019] ChangeSkillCost = #601 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6020,score_ChangeSkill=6029] ChangeSkillCost = #602 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6030,score_ChangeSkill=6039] ChangeSkillCost = #603 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6040,score_ChangeSkill=6049] ChangeSkillCost = #604 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6050,score_ChangeSkill=6059] ChangeSkillCost = #605 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6060,score_ChangeSkill=6069] ChangeSkillCost = #606 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6070,score_ChangeSkill=6079] ChangeSkillCost = #607 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6080,score_ChangeSkill=6089] ChangeSkillCost = #608 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6200,score_ChangeSkill=6209] ChangeSkillCost = #620 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6210,score_ChangeSkill=6219] ChangeSkillCost = #621 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6220,score_ChangeSkill=6229] ChangeSkillCost = #622 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6230,score_ChangeSkill=6239] ChangeSkillCost = #623 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6240,score_ChangeSkill=6249] ChangeSkillCost = #624 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6250,score_ChangeSkill=6259] ChangeSkillCost = #625 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6260,score_ChangeSkill=6269] ChangeSkillCost = #626 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6270,score_ChangeSkill=6279] ChangeSkillCost = #627 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6280,score_ChangeSkill=6289] ChangeSkillCost = #628 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6290,score_ChangeSkill=6299] ChangeSkillCost = #629 MPCost</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/scoreboard players operation @a[score_ChangeSkill_min=6300,score_ChangeSkill=6309] ChangeSkillCost = #630 MPCost</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<div class="openHere-end openHere13-end"></div>
+
+<h3 id="詳細-12">詳細</h3>
+
+<p>すべてのプレイヤーに対して、<code class="language-plaintext highlighter-rouge">ChangeSkill</code>の上位三桁に対応した<code class="language-plaintext highlighter-rouge">MPCost</code>を<code class="language-plaintext highlighter-rouge">ChangeSkillCost</code>に代入する</p>
+
+<h2 id="コマンド群n">コマンド群N</h2>
+
+<h3 id="コマンド群-13">コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,16,-177)</p>
+
+<p><span class="expandButton" onclick="openCloseBE(`openHere14-begin`)">+</span>コマンド</p>
+
+<div class="openHere-begin openHere14-begin"></div>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players add @a[tag=SkillChanging] ChangeSkill 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players add @a[tag=SkillChanging] ChangeSkillCost 0</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute @a[tag=SkillChanging] ~ ~ ~ /playsound item.flintandsteel.use master @a[c=1] ~ ~ ~ 1 0.65 0</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/execute @a[score_ModeChangeB_min=0] ~ ~ ~ /scoreboard players operation @a[c=1] ModeSkillB = @a[c=1] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/execute @a[score_ModeChangeB_min=0] ~ ~ ~ /scoreboard players operation @a[c=1] ModeCostB = @a[c=1] ChangeSkillCost</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/tellraw @a[score_ModeChangeB_min=0] [{“text”:”スキルを”},{“text”:”モードスキル”,”color”:”light_purple”},{“text”:”-サファイア-“,”color”:”dark_aqua”},{“text”:”に設定しました。”}]</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players tag @a[score_ModeChangeB_min=0] remove SkillChanging</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/execute @a[score_ModeChangeB_min=0,score_ModeState=-1] ~ ~ ~ /scoreboard players operation @a[c=1] CurrentMode = @a[c=1] ModeSkillB</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/execute @a[score_ModeChangeB_min=0,score_ModeState=-1] ~ ~ ~ /scoreboard players operation @a[c=1] CurrentModeCost = @a[c=1] ModeCostB</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players reset @a[score_ModeChangeB_min=0] ModeChangeB</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players reset @a[score_ModeChangeA_min=0,tag=!SkillChanging] ModeChangeA</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/execute @a[score_ModeChangeA_min=0] ~ ~ ~ /scoreboard players operation @a[c=1] ModeSkillA = @a[c=1] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/execute @a[score_ModeChangeA_min=0] ~ ~ ~ /scoreboard players operation @a[c=1] ModeCostA = @a[c=1] ChangeSkillCost</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/tellraw @a[score_ModeChangeA_min=0] [{“text”:”スキルを”},{“text”:”モードスキル”,”color”:”light_purple”},{“text”:”-ルビー-“,”color”:”red”},{“text”:”に設定しました。”}]</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/scoreboard players tag @a[score_ModeChangeA_min=0] remove SkillChanging</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/execute @a[score_ModeChangeA_min=0,score_ModeState_min=1] ~ ~ ~ /scoreboard players operation @a[c=1] CurrentMode = @a[c=1] ModeSkillA</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/execute @a[score_ModeChangeA_min=0,score_ModeState_min=1] ~ ~ ~ /scoreboard players operation @a[c=1] CurrentModeCost = @a[c=1] ModeCostA</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/scoreboard players reset @a[score_ModeChangeA_min=0] ModeChangeA</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/scoreboard players reset @a[score_InstantChangeB_min=0,tag=!SkillChanging] InstantChangeB</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/execute @a[score_InstantChangeB_min=0] ~ ~ ~ /scoreboard players operation @a[c=1] InstantSkillB = @a[c=1] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/execute @a[score_InstantChangeB_min=0] ~ ~ ~ /scoreboard players operation @a[c=1] InstantCostB = @a[c=1] ChangeSkillCost</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/tellraw @a[score_InstantChangeB_min=0] [{“text”:”スキルを”},{“text”:”サポートスキル”,”color”:”gold”},{“text”:”-サファイア-“,”color”:”dark_aqua”},{“text”:”に設定しました。”}]</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/scoreboard players tag @a[score_InstantChangeB_min=0] remove SkillChanging</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/scoreboard players reset @a[score_InstantChangeB_min=0] InstantChangeB</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td>/scoreboard players reset @a[score_InstantChangeA_min=0,tag=!SkillChanging] InstantChangeA</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td>/execute @a[score_InstantChangeA_min=0] ~ ~ ~ /scoreboard players operation @a[c=1] InstantSkillA = @a[c=1] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">27</td>
+      <td>/execute @a[score_InstantChangeA_min=0] ~ ~ ~ /scoreboard players operation @a[c=1] InstantCostA = @a[c=1] ChangeSkillCost</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">28</td>
+      <td>/tellraw @a[score_InstantChangeA_min=0] [{“text”:”スキルを”},{“text”:”サポートスキル”,”color”:”gold”},{“text”:”-ルビー-“,”color”:”red”},{“text”:”に設定しました。”}]</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">29</td>
+      <td>/scoreboard players tag @a[score_InstantChangeA_min=0] remove SkillChanging</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">30</td>
+      <td>/scoreboard players reset @a[score_InstantChangeA_min=0] InstantChangeA</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">31</td>
+      <td>/execute @a[score_ChangeSkill_min=0] ~ ~ ~ /scoreboard players operation @a[c=1] ShowSkill = @a[c=1] ChangeSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">32</td>
+      <td>/scoreboard players reset @a[score_ChangeSkill_min=0] ChangeSkill</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">33</td>
+      <td>/scoreboard players reset @a[score_ChangeSkillCost_min=0] ChangeSkillCost</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<div class="openHere-end openHere14-end"></div>
+
+<h3 id="詳細-13">詳細</h3>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">SkillChangeing</code>を持ち、<code class="language-plaintext highlighter-rouge">ChangeSkill</code>と<code class="language-plaintext highlighter-rouge">ChangeSkillCost</code>に値が代入されているすべてのプレイヤーに対し、効果音を鳴らす</li>
+  <li><code class="language-plaintext highlighter-rouge">ModeChangeB</code>が0以上であるすべてのプレイヤーに対し、以下の事柄を実行
+    <ol>
+      <li>対象の<code class="language-plaintext highlighter-rouge">ModeSkillB</code>に<code class="language-plaintext highlighter-rouge">ChangeSkill</code>を、<code class="language-plaintext highlighter-rouge">ModeCostB</code>に<code class="language-plaintext highlighter-rouge">ChangeSkillCost</code>をそれぞれ代入</li>
+      <li>対象に「スキルを<span style="color:#FF55FF;">モードスキル</span><span style="color:#00AAAA;">-サファイア-</span>に設定しました。」とのメッセージを表示</li>
+      <li>対象から<code class="language-plaintext highlighter-rouge">SkillChanging</code>を削除</li>
+      <li>対象の<code class="language-plaintext highlighter-rouge">ModeState</code>が-1以下であるとき<code class="language-plaintext highlighter-rouge">CurrentMode</code>に<code class="language-plaintext highlighter-rouge">ModeSkillB</code>を、<code class="language-plaintext highlighter-rouge">CurrentModeCost</code>に<code class="language-plaintext highlighter-rouge">ModeChangeB</code>をそれぞれ代入</li>
+      <li>対象から<code class="language-plaintext highlighter-rouge">ModeChangeB</code>を削除</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">ModeChangeA</code>が0以上であり、<code class="language-plaintext highlighter-rouge">SkillChanging</code>を持っていないすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">ModeChangeA</code>を0に設定</li>
+  <li><code class="language-plaintext highlighter-rouge">ModeChangeA</code>が0以上であるすべてのプレイヤーに対し、以下の事柄を実行
+    <ol>
+      <li>対象の<code class="language-plaintext highlighter-rouge">ModeSkillA</code>に<code class="language-plaintext highlighter-rouge">ChangeSkill</code>を、<code class="language-plaintext highlighter-rouge">ModeCostA</code>に<code class="language-plaintext highlighter-rouge">ChangeSkillCost</code>をそれぞれ代入</li>
+      <li>対象に「スキルを<span style="color:#FF55FF;">モードスキル</span><span style="color:red;">-ルビー-</span>に設定しました。」とのメッセージを表示</li>
+      <li>対象から<code class="language-plaintext highlighter-rouge">SkillChanging</code>を削除</li>
+      <li>対象の<code class="language-plaintext highlighter-rouge">ModeState</code>が-1以下であるとき<code class="language-plaintext highlighter-rouge">CurrentMode</code>に<code class="language-plaintext highlighter-rouge">ModeSkillA</code>を、<code class="language-plaintext highlighter-rouge">CurrentModeCost</code>に<code class="language-plaintext highlighter-rouge">ModeChangeA</code>をそれぞれ代入</li>
+      <li>対象から<code class="language-plaintext highlighter-rouge">ModeChangeA</code>を削除</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">InstantChangeB</code>が0以上であり、<code class="language-plaintext highlighter-rouge">SkillChanging</code>を持っていないすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">InstantChangeB</code>を0に設定</li>
+  <li><code class="language-plaintext highlighter-rouge">InstantChangeB</code>が0以上であるすべてのプレイヤーに対し、以下の事柄を実行
+    <ol>
+      <li>対象の<code class="language-plaintext highlighter-rouge">InstantSkillB</code>に<code class="language-plaintext highlighter-rouge">ChangeSkill</code>を、<code class="language-plaintext highlighter-rouge">InstantCostB</code>に<code class="language-plaintext highlighter-rouge">ChangeSkillCost</code>をそれぞれ代入</li>
+      <li>対象に「スキルを<span style="color:gold;">サポートスキル</span><span style="color:#00AAAA;">-サファイア-</span>に設定しました。」とのメッセージを表示</li>
+      <li>対象から<code class="language-plaintext highlighter-rouge">SkillChanging</code>を削除</li>
+      <li>対象から<code class="language-plaintext highlighter-rouge">InstantChangeB</code>を削除</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">InstantChangeA</code>が0以上であり、<code class="language-plaintext highlighter-rouge">SkillChanging</code>を持っていないすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">InstantChangeA</code>を0に設定</li>
+  <li><code class="language-plaintext highlighter-rouge">InstantChangeA</code>が0以上であるすべてのプレイヤーに対し、以下の事柄を実行
+    <ol>
+      <li>対象の<code class="language-plaintext highlighter-rouge">InstantSkillA</code>に<code class="language-plaintext highlighter-rouge">ChangeSkill</code>を、<code class="language-plaintext highlighter-rouge">InstantCostA</code>に<code class="language-plaintext highlighter-rouge">ChangeSkillCost</code>をそれぞれ代入</li>
+      <li>対象に「スキルを<span style="color:gold;">サポートスキル</span><span style="color:red;">-ルビー-</span>に設定しました。」とのメッセージを表示</li>
+      <li>対象から<code class="language-plaintext highlighter-rouge">SkillChanging</code>を削除</li>
+      <li>対象から<code class="language-plaintext highlighter-rouge">InstantChangeA</code>を削除</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">ChangeSkill</code>が0以上であるすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">ShowSkill</code>に<code class="language-plaintext highlighter-rouge">ChangeSkill</code>を代入し、実行で来たら以下の事柄を実行
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">ChangeSkill</code>が0以上であるすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">ChangeSkill</code>を0に設定</li>
+      <li><code class="language-plaintext highlighter-rouge">ChangeSkillCost</code>が0以上であるすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">ChangeSkillCost</code>を0に設定</li>
+    </ol>
+  </li>
+</ol>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_command.html" class="btn btn-default navbar-btn cursorNorm" role="button">コマンド</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_display.html" class="btn btn-default navbar-btn cursorNorm" role="button">表示</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+    <div class="row">
+        <div class="col-lg-12 footer">
+            <span>Page last updated:</span> 20 Aug 2020<br/> Site last generated: 20 Aug 2020 <br />
+        </div>
+    </div>
+</footer>
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#main -->
+    </div>
+
+</body>
+ <!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-169658702-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+ 
+
+</html>

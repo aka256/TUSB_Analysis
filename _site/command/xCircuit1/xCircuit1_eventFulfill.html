@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="嫌な予感でのそれぞれのイベントに合わせて、Mobをスポーンさせたり、メッセージを表示したりする。">
+<meta name="keywords" content="コマンド嫌な予感敵Mob,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,嫌な予感">
+<title>嫌な予感実行 | TUSB Analysis</title>
+
+<!-- Google Tag Manager -->
+<script>
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5HTHV6Q');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/TUSB_Analysis/css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="/TUSB_Analysis/css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/TUSB_Analysis/css/customstyles.css">
+<link rel="stylesheet" href="/TUSB_Analysis/css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="/TUSB_Analysis/css/theme-blue2.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/TUSB_Analysis/js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="/TUSB_Analysis/js/toc.js"></script>
+<script src="/TUSB_Analysis/js/customscripts.js"></script>
+
+<!-- original.js -->
+<script src="/TUSB_Analysis/js/original.js"></script>
+
+<link rel="shortcut icon" href="/TUSB_Analysis/images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="TUSB_Analysis" href="https://aka256.github.io/TUSB_Analysis/feed.xml">
+
+<!--MathJax-->
+
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<!--Original style-->
+
+<link rel="stylesheet" href="/TUSB_Analysis/css/original.css">
+
+<meta name="google-site-verification" content="IfKF0TOJNUtCg_H2zFNe6k3qnuQiJWoIfV3nXyV3OPs" />
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+    </script>
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+     
+    <!-- Include the standard DataTables bits -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <!-- First, this walks through the tables that occur between ...-begin
+         and ...-end and add the "datatable" class to them.
+         Then it invokes DataTable's standard initializer
+         Credit here: http://www.beardedhacker.com/blog/2015/08/28/add-class-attribute-to-markdown-table/
+      -->
+    <script>
+        $(document).ready(function() {
+            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
+            $('table.display').DataTable({
+                paging: true,
+                stateSave: true,
+                searching: true,
+                autoWidth: false,
+                lengthChange: true,
+                columns: [{
+                    responsivePriority: 2,
+                    width: "6%"
+                }, {
+                    responsivePriority: 3,
+                    width: "79%"
+                }, {
+                    responsivePriority: 1,
+                    width: "15%"
+                }],
+            });
+        });
+    </script>
+    
+    <style type="text/css">
+        table {
+            table-layout: fixed;
+        }
+        
+        table td {
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HTHV6Q"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="/TUSB_Analysis/">&nbsp;<span class="projectTitle"> TUSB Analysis</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Sidebar</a></li>
+                <!-- entries without drop-downs appear here -->
+
+                    
+                <li><a href="https://twitter.com/Re16d5" target="_blank" rel="noopener">Twitter</a></li>
+                  
+                <li><a href="https://github.com/aka256/TUSB_Analysis/" target="_blank" rel="noopener">GitHub</a></li>
+                  
+                <li><a href="https://skyblock.jp/" target="_blank" rel="noopener">TUSB公式サイト</a></li>
+                  
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                 
+                <!--comment out this block if you want to hide search-->
+                <!--start search-->
+                <li>
+                    <div class="customSearch">
+                        <script async src="https://cse.google.com/cse.js?cx=010172728285433694449:7hktzoqurei"></script>
+                        <div class="gcse-searchbox-only"></div>
+                    </div>
+                </li>
+                <!--end search-->
+            </ul>
+
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+    <!-- Page Content -->
+    <div class="container">
+        <div id="main">
+            <!-- Content Row -->
+            <div class="row">
+                 
+                <!-- Sidebar Column -->
+                <div class="col-md-3" id="tg-sb-sidebar">
+                    
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">TUSB Analysis </li>
+      
+    <li>
+        <a title="X回路区域管理コマンド群" href="#">X回路区域管理コマンド群</a>
+        <ul>
+              
+            <li><a title="マクラエル内部" href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_insideMcLawell.html">マクラエル内部</a></li>
+                 
+            <li><a title="初期化処理" href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_initializeProcessing.html">初期化処理</a></li>
+                 
+            <li><a title="メインクロック起動処理" href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_mainclockProcessing.html">メインクロック起動処理</a></li>
+                 
+            <li><a title="SystemKeeper処理" href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_systemKeeperProcessing.html">SystemKeeper処理</a></li>
+                 
+            <li><a title="チャンクローダー設定" href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_furnaceProcessing.html">チャンクローダー設定</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群1" href="#">毎tick実行するコマンド群1</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群1" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_runFirst.html">毎tick実行するコマンド群1</a></li>
+                 
+            <li><a title="エリア侵入記録" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_areaRecord.html">エリア侵入記録</a></li>
+                 
+            <li><a title="エリア処理" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_areaProcessing.html">エリア処理</a></li>
+                 
+            <li><a title="時間経過" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_timeElapsed.html">時間経過</a></li>
+                 
+            <li><a title="風切更新" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_kazakiriUpdata.html">風切更新</a></li>
+                 
+            <li><a title="約1分処理" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_oneMinProcessing.html">約1分処理</a></li>
+                 
+            <li><a title="Tick停止飛翔物削除" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_tickStopDelete.html">Tick停止飛翔物削除</a></li>
+                 
+            <li><a title="敵スキル実行" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_runMobSkill.html">敵スキル実行</a></li>
+                 
+            <li class="active"><a title="嫌な予感実行" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_eventFulfill.html">嫌な予感実行</a></li>
+                 
+            <li><a title="トカルト処理" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_iceProcessing.html">トカルト処理</a></li>
+                 
+            <li><a title="動物誘導イベント" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_animalGuideEvent.html">動物誘導イベント</a></li>
+                 
+            <li><a title="AEC維持" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_aecMaintenance.html">AEC維持</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群2" href="#">毎tick実行するコマンド群2</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群2" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_reset.html">毎tick実行するコマンド群2</a></li>
+                 
+            <li><a title="初回ログイン時処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_firstLoginProcessing.html">初回ログイン時処理</a></li>
+                 
+            <li><a title="ログイン時処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_loginProcessing.html">ログイン時処理</a></li>
+                 
+            <li><a title="難易度調整" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_difficultyAdjustment.html">難易度調整</a></li>
+                 
+            <li><a title="ジョブチェンジ先判定" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_jobChangeJudgement.html">ジョブチェンジ先判定</a></li>
+                 
+            <li><a title="ジョブセーブ" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_jobSave.html">ジョブセーブ</a></li>
+                 
+            <li><a title="ジョブロード" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_jobLoad.html">ジョブロード</a></li>
+                 
+            <li><a title="ステータス表示" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_statusDisplay.html">ステータス表示</a></li>
+                 
+            <li><a title="攻略率表示" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_conquerDisplay.html">攻略率表示</a></li>
+                 
+            <li><a title="ワープ処理ジョブ島・通常世界" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_warpProcessing.html">ワープ処理ジョブ島・通常世界</a></li>
+                 
+            <li><a title="KeepInventory確認" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_keepInventoryCheck.html">KeepInventory確認</a></li>
+                 
+            <li><a title="満腹度修正" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_satietyFix.html">満腹度修正</a></li>
+                 
+            <li><a title="経験値取得処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_expProcessing.html">経験値取得処理</a></li>
+                 
+            <li><a title="レベルアップ処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_levelupProcessing.html">レベルアップ処理</a></li>
+                 
+            <li><a title="習得スキル取得" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_skillAcquisition.html">習得スキル取得</a></li>
+                 
+            <li><a title="最大HP調整処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_hpFix.html">最大HP調整処理</a></li>
+                 
+            <li><a title="島攻略処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_conquerProcessing.html">島攻略処理</a></li>
+                 
+            <li><a title="時計島" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_clockIslandProcessing.html">時計島</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群3" href="#">毎tick実行するコマンド群3</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群3" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_command.html">毎tick実行するコマンド群3</a></li>
+                 
+            <li><a title="ベッド処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_bedProcessing.html">ベッド処理</a></li>
+                 
+            <li><a title="お祈りkill" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_prayProcessing.html">お祈りkill</a></li>
+                 
+            <li><a title="村人会話処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_villagerTalkProcessing.html">村人会話処理</a></li>
+                 
+            <li><a title="牧師会話選択時処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_pastorTalk.html">牧師会話選択時処理</a></li>
+                 
+            <li><a title="エージェント会話選択時処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_agentTalk.html">エージェント会話選択時処理</a></li>
+                 
+            <li><a title="占い師会話選択時処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_augurTalk.html">占い師会話選択時処理</a></li>
+                 
+            <li><a title="エメラルド支払い処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_paymentProcessing.html">エメラルド支払い処理</a></li>
+                 
+            <li><a title="設定スキル表示" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_skillDisplay.html">設定スキル表示</a></li>
+                 
+            <li><a title="観光モード提案開始" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_suggestSightseeing.html">観光モード提案開始</a></li>
+                 
+            <li><a title="ネザーラック破壊時火山噴火処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_volcanoProcessing.html">ネザーラック破壊時火山噴火処理</a></li>
+                 
+            <li><a title="タイプ設定" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_typeSetting.html">タイプ設定</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群4" href="#">毎tick実行するコマンド群4</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群4" href="/TUSB_Analysis/command/xCircuit4/xCircuit4_command.html">毎tick実行するコマンド群4</a></li>
+                 
+            <li><a title="黙想終了処理" href="/TUSB_Analysis/command/xCircuit4/xCircuit4_mokusoEndProcessing.html">黙想終了処理</a></li>
+                 
+            <li><a title="マジックシールド終了処理" href="/TUSB_Analysis/command/xCircuit4/xCircuit4_magicShieldEndProcessing.html">マジックシールド終了処理</a></li>
+                 
+            <li><a title="アイアンウィル継続判定" href="/TUSB_Analysis/command/xCircuit4/xCircuit4_ironWillContinueJudgment.html">アイアンウィル継続判定</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群5" href="#">毎tick実行するコマンド群5</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群5" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_command.html">毎tick実行するコマンド群5</a></li>
+                 
+            <li><a title="Hitリセット" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_hitReset.html">Hitリセット</a></li>
+                 
+            <li><a title="エンアスピルMP回復" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_enAspirMPRecovering.html">エンアスピルMP回復</a></li>
+                 
+            <li><a title="レガシーアイテム処理" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_legacyProcessing.html">レガシーアイテム処理</a></li>
+                 
+            <li><a title="エンチェイス探索処理" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_enchaseSearchProcessing.html">エンチェイス探索処理</a></li>
+                 
+            <li><a title="タクティカルヒール処理" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_tacticalHealProcessing.html">タクティカルヒール処理</a></li>
+                 
+            <li><a title="真空斬り使用判定" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_aerialSlashUseJudgment.html">真空斬り使用判定</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群6" href="#">毎tick実行するコマンド群6</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群6" href="/TUSB_Analysis/command/xCircuit6/xCircuit6_command.html">毎tick実行するコマンド群6</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群7" href="#">毎tick実行するコマンド群7</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群7" href="/TUSB_Analysis/command/xCircuit7/xCircuit7_command.html">毎tick実行するコマンド群7</a></li>
+                 
+            <li><a title="モード変更" href="/TUSB_Analysis/command/xCircuit7/xCircuit7_modeChange.html">モード変更</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群8" href="#">毎tick実行するコマンド群8</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群8" href="/TUSB_Analysis/command/xCircuit8/xCircuit8_command.html">毎tick実行するコマンド群8</a></li>
+                 
+            <li><a title="MP不足演出" href="/TUSB_Analysis/command/xCircuit8/xCircuit8_mpLack.html">MP不足演出</a></li>
+                 
+            <li><a title="スキル設定変更" href="/TUSB_Analysis/command/xCircuit8/xCircuit8_skillSettingChange.html">スキル設定変更</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="超作業台ルーム" href="#">超作業台ルーム</a>
+        <ul>
+              
+            <li><a title="超作業台" href="/TUSB_Analysis/scraftingtable/scraftingtable_about.html">超作業台</a></li>
+                 
+            <li><a title="超作業台レシピの追加" href="/TUSB_Analysis/scraftingtable/scraftingtable_createRecipe.html">超作業台レシピの追加</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="データ類" href="#">データ類</a>
+        <ul>
+              
+            <li><a title="エンティティ" href="/TUSB_Analysis/entity/entity_entity.html">エンティティ</a></li>
+                 
+            <li><a title="アイテム" href="/TUSB_Analysis/others/others_item.html">アイテム</a></li>
+                 
+            <li><a title="チーム" href="/TUSB_Analysis/others/others_teams.html">チーム</a></li>
+                 
+            <li><a title="タグ" href="/TUSB_Analysis/others/others_tags.html">タグ</a></li>
+              
+            <li class="subfolders">
+                <a title="スコアボード" href="#">スコアボード</a>
+                <ul>
+                      
+                    <li><a title="スコアボード一覧" href="/TUSB_Analysis/scoreboard/scoreboard_list.html">スコアボード一覧</a></li>
+                        
+                    <li><a title="Const" href="/TUSB_Analysis/scoreboard/scoreboard_const.html">Const</a></li>
+                        
+                    <li><a title="Setting" href="/TUSB_Analysis/scoreboard/scoreboard_setting.html">Setting</a></li>
+                        
+                    <li><a title="Global" href="/TUSB_Analysis/scoreboard/scoreboard_global.html">Global</a></li>
+                      
+                </ul>
+            </li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="ページ内タグ" href="#">ページ内タグ</a>
+        <ul>
+              
+            <li><a title="タグ一覧" href="/TUSB_Analysis/includeTags/includeTags_list.html">タグ一覧</a></li>
+               
+        </ul>
+    </li>
+      
+    <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>
+    $("li.active").parents('li').toggleClass("active");
+</script>
+                </div>
+                 
+
+                <!-- Content Column -->
+                <div class="col-md-9" id="tg-sb-content">
+                    <div class="post-header">
+   <h1 class="post-title-main">嫌な予感実行</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+   <h2 id="about">About</h2>
+
+<p><span class="tagYellow">位置</span> (-1920,11,-197)</p>
+
+<p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_timeElapsed.html">時間経過</a></p>
+
+<p>嫌な予感でのそれぞれのイベントに合わせて、Mobをスポーンさせたり、メッセージを表示したりする。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0] ~ ~ ~ /execute 0-0-1-0-1 ~ ~ ~-5 /execute @r[dz=4,type=AreaEffectCloud,tag=SystemEntity,c=1] ~ ~1 ~ /execute @e[r=0,tag=SystemEntity,c=1] ~ ~ ~ /execute @r[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,c=1] ~ ~ ~ /scoreboard players operation @a[c=1] EventRank = @a[c=1] EventRank2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank=-1] ~ ~ ~ /me 「……。何ともなかったー。」</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=0,score_EventRank=9] ~ ~ ~ /me 「…何かに狙われてる！」</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=0,score_EventRank=9] ~ ~ ~ /summon MinecartSpawner ~ ~ ~ {Invulnerable:true,MinSpawnDelay:32000s,MaxSpawnDelay:32000s,SpawnCount:3s,SpawnRange:30s,RequiredPlayerRange:99s,MaxNearbyEntities:999s,SpawnPotentials:[{Weight:1}],Motion:[0d,1d,0d],SpawnData:{Health:0f,DeathTime:19s,id:”Villager”,Passengers:[{id:”Bat”,Health:100f,Attributes:[{Name:”generic.followRange”,Base:32d},{Name:”generic.maxHealth”,Base:100d}],Passengers:[{id:”Guardian”,Elder:1b,DeathLootTable:”usb:events/sniper”,CustomName:”好撃球”,Attributes:[{Name:”generic.followRange”,Base:60d}],ActiveEffects:[{Id:14b,Amplifier:127b,ShowParticles:1b,Duration:2147483647}],Passengers:[{CustomName:”エルダーパール”,id:”ThrownEnderpearl”,Passengers:[{WaitTime:6000,Particle:”take”,CustomName:”DEATHCOUNT”,Duration:150,Radius:0.1f,RadiusOnUse:0f,ReapplicationDelay:0,Effects:[{Id:7b,Amplifier:50b,Duration:20}],id:”AreaEffectCloud”}]}]}]}]},Tags:[CooldownRequired,TypeChecked],PortalCooldown:11,Delay:10s}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=10,score_EventRank=19] ~ ~ ~ /me 「…心地いい風が吹いてる。」</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=10,score_EventRank=19] ~ ~ ~ /summon MinecartSpawner ~ ~1 ~ {Invulnerable:true,MinSpawnDelay:0s,MaxSpawnDelay:0s,SpawnCount:1s,SpawnRange:0s,RequiredPlayerRange:10s,MaxNearbyEntities:999s,Motion:[0d,0.05d,0d],SpawnPotentials:[{Weight:1,Entity:{id:AreaEffectCloud,ReapplicantDelay:0,Radius:2f,RadiusOnUse:0f,DurationOnUse:0f,Duration:400,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:mobSpell,Effects:[{Id:6b,Duration:3,Amplifier:0b,ShowParticles:true}]}},{Weight:1,Entity:{id:AreaEffectCloud,ReapplicantDelay:0,Radius:2f,RadiusOnUse:0f,DurationOnUse:0f,Duration:400,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:mobSpell,Effects:[{Id:14b,Duration:3,Amplifier:1b,ShowParticles:true}]}}],Tags:[CooldownRequired,TypeChecked],PortalCooldown:1,Delay:-1s}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=20,score_EventRank=29] ~ ~ ~ /me 「あの影…。怪しい！」</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=20,score_EventRank=29] ~ ~ ~ /summon MinecartSpawner ~ ~ ~ {Invulnerable:true,MinSpawnDelay:32000s,MaxSpawnDelay:32000s,SpawnCount:3s,SpawnRange:30s,RequiredPlayerRange:99s,MaxNearbyEntities:999s,SpawnPotentials:[{Weight:1}],Motion:[0d,1d,0d],SpawnData:{id:Villager,Health:0f,DeathTime:19s,Passengers:[{id:Creeper,DeathLootTable:”usb:events/shadow”,CustomName:”スプリッツァガイスト”,Silent:true,ExplosionRadius:4b,Fuse:1s,FallDistance:-100f,ActiveEffects:[{Id:14b,Amplifier:127b,ShowParticles:false,Duration:2147483647}],Passengers:[{id:XPOrb}]}]},Tags:[CooldownRequired,TypeChecked],PortalCooldown:11,Delay:10s}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=30,score_EventRank=39] ~ ~ ~ /me 「…こんな動物いた？」</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=30,score_EventRank=39] ~ ~ ~ /summon Villager ~ ~ ~ {Health:0f,DeathTime:19s,Passengers:[{id:Sheep,CustomName:”村人のごはん”,CustomNameVisible:true,DeathLootTable:”usb:events/meal/sheep”,Tags:[VillagerMeal]},{id:Cow,CustomName:”村人のごはんじゃない”,CustomNameVisible:true},{id:Pig,CustomName:”村人のごはんじゃない”,CustomNameVisible:true}]}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=30,score_EventRank=39,c=1] ~ ~ ~ /tellraw @a {“translate”:”* %1$s 「今日のごはんは～♪…に、逃げ出してるぅ～～！！」”,”with”:[{“text”:”農業家”,”color”:”dark_green”}]}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=40,score_EventRank=49] ~ ~ ~ /me 「…深淵様！？」</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=40,score_EventRank=49] ~ ~ ~ /summon MinecartSpawner ~ ~ ~ {Invulnerable:true,MinSpawnDelay:32000s,MaxSpawnDelay:32000s,SpawnCount:1s,SpawnRange:0s,RequiredPlayerRange:99s,MaxNearbyEntities:999s,SpawnPotentials:[{Weight:1}],Motion:[0d,1d,0d],SpawnData:{id:XPOrb,Age:6000s,Passengers:[{id:Zombie,DeathLootTable:”usb:events/shinen”,Tags:[AbyssWarp,SkillMob,Shinen],CustomName:”深淵様”,CustomNameVisible:true, HandItems:[{id:minecraft:diamond_pickaxe,Count:0b,tag:{display:{Name:”全能ノ一”},ench:[{id:16s,lvl:5s},{id:19s,lvl:5s},{id:20s,lvl:5s},{id:32s,lvl:5s},{id:34s,lvl:5s},{id:35s,lvl:5s}]}}], ArmorItems:[{id:”minecraft:leather_boots”,Count:0b,tag:{display:{Name:”終焉ヲ告ゲル者”,color:8339378},ench:[{id:0s,lvl:0s},{id:1s,lvl:1s},{id:2s,lvl:2s},{id:3s,lvl:3s},{id:4s,lvl:4s},{id:5s,lvl:5s},{id:6s,lvl:6s},{id:7s,lvl:7s},{id:8s,lvl:8s}]}},{id:”minecraft:leather_leggings”,Count:0b,tag:{display:{Name:”終焉ヲ告ゲル者”,color:8339378},ench:[{id:0s,lvl:0s},{id:1s,lvl:1s},{id:2s,lvl:2s},{id:3s,lvl:3s},{id:4s,lvl:4s},{id:5s,lvl:5s},{id:6s,lvl:6s},{id:7s,lvl:7s},{id:8s,lvl:8s}]}},{id:”minecraft:leather_chestplate”,Count:0b,tag:{display:{Name:”終焉ヲ告ゲル者”,color:8339378},ench:[{id:0s,lvl:0s},{id:1s,lvl:1s},{id:2s,lvl:2s},{id:3s,lvl:3s},{id:4s,lvl:4s},{id:5s,lvl:5s},{id:6s,lvl:6s},{id:7s,lvl:7s},{id:8s,lvl:8s}]}},{id:”minecraft:chorus_flower”,Count:0b,tag:{display:{Name:”終焉ヲ告ゲル者”,color:8339378},ench:[{id:0s,lvl:15s},{id:1s,lvl:1s},{id:2s,lvl:2s},{id:3s,lvl:3s},{id:4s,lvl:4s},{id:5s,lvl:5s},{id:6s,lvl:6s},{id:7s,lvl:7s},{id:8s,lvl:8s}]}}],ActiveEffects:[{Id:14b,Amplifier:127b,Duration:2147483647,Ambient:false,ShowParticles:false},{Id:11b,Amplifier:1b,Duration:2147483647,Ambient:false,ShowParticles:false},{Id:8b,Amplifier:4b,Duration:2147483647,Ambient:false,ShowParticles:false}],Health:1000f,Attributes:[{Name:”generic.maxHealth”,Base:1000d},{Name:”generic.followRange”,Base:60d},{Name:”generic.knockbackResistance”,Base:1d},{Name:”generic.movementSpeed”,Base:0.33d}]}]},Tags:[CooldownRequired,TypeChecked],PortalCooldown:4,Delay:3s}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=50,score_EventRank=59] ~ ~ ~ /me 「クモだー！」</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=50,score_EventRank=59] ~ ~ ~ /summon MinecartSpawner ~ ~ ~ {Invulnerable:true,MinSpawnDelay:32000s,MaxSpawnDelay:32000s,SpawnCount:2s,SpawnRange:5s,RequiredPlayerRange:99s,MaxNearbyEntities:999s,SpawnPotentials:[{Weight:1}],Motion:[0d,1d,0d],SpawnData:{id:Villager,Health:0f,DeathTime:19s,Passengers:[{id:CaveSpider,DeathLootTable:”usb:events/sat”,Tags:[CanSpin],CustomName:SAT,CustomNameVisible:true,Health:300f,Attributes:[{Name:generic.maxHealth,Base:300d},{Name:generic.followRange,Base:32d},{Name:generic.attackDamage,Base:15d},{Name:generic.movementSpeed,Base:0.4d},{Name:generic.knockbackResistance,Base:0.5d},{Name:generic.armor,Base:12d}],Passengers:[{id:Guardian,Silent:true,CustomName:10式0.3m小銃,Health:100f,Attributes:[{Name:generic.maxHealth,Base:100d},{Name:generic.followRange,Base:32d},{Name:generic.attackDamage,Base:30d}],ActiveEffects:[{Id:12b,Amplifier:0b,Duration:2147483647,ShowParticles:false},{Id:14b,Amplifier:0b,Duration:2147483647,ShowParticles:false}]}]}]},Tags:[CooldownRequired,TypeChecked],PortalCooldown:4,Delay:3s}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=60,score_EventRank=69] ~ ~ ~ /me 「…あれは幻の！？」</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=60,score_EventRank=69] ~ ~ ~ /summon MinecartSpawner ~ ~ ~ {Invulnerable:true,MinSpawnDelay:32000s,MaxSpawnDelay:32000s,SpawnCount:1s,SpawnRange:10s,RequiredPlayerRange:99s,MaxNearbyEntities:999s,SpawnPotentials:[{Weight:1}],Motion:[0d,1d,0d],SpawnData:{id:XPOrb,Age:6000s,Passengers:[{id:Ozelot,Silent:true,Health:300f,Attributes:[{Name:generic.movementSpeed,Base:1.0d},{Name:generic.followRange,Base:80d},{Name:generic.maxHealth,Base:300d}],ActiveEffects:[{Id:14b,Amplifier:127b,Duration:2147483647,ShowParticles:false}],Passengers:[{id:LavaSlime,Size:0,DeathLootTable:”usb:events/magma”,Tags:[SkillMob,Magma],CustomName:はぐれマグマ,CustomNameVisible:true,ActiveEffects:[{Id:11b,Amplifier:3b,Duration:2147483647,ShowParticles:true,Ambient:false}],ArmorItems:[{},{},{id:minecraft:diamond_chestplate,Count:0b,tag:{ench:[{id:10s,lvl:0s},{id:10s,lvl:1s}]}}],AbsorptionAmount:40f,Attributes:[{Name:generic.armor,Base:30d}]}]}]},Tags:[CooldownRequired,TypeChecked],PortalCooldown:4,Delay:3s}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=70,score_EventRank=79] ~ ~ ~ /me 「こちらポイント・ブラボー。支援班、補給物資を要請する。」</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=70,score_EventRank=79] ~ ~ ~ /summon MinecartSpawner ~ ~1 ~40 {MaxNearbyEntities:999s,MaxSpawnDelay:32767s,MinSpawnDelay:32767s,SpawnRange:20s,SpawnCount:3s,RequiredPlayerRange:80s,Motion:[0d,2d,0d],SpawnData:{id:ShulkerBullet,Steps:0,Target:{X:-1920,Y:6,Z:-192,L:1L,M:1L},TZD:-0.1d,Tags:[RequiredCooldown],PortalCooldown:160,Passengers:[{id:XPOrb,Age:5840s,Passengers:[{id:MinecartSpawner,MaxNearbyEntities:999s,MaxSpawnDelay:20s,MinSpawnDelay:20s,Delay:40s,SpawnRange:3s,SpawnCount:1s,RequiredPlayerRange:80s,SpawnData:{id:FallingSand,Time:1,FallDistance:1f,Block:minecraft:chest,FallHurtMax:10,FallHurtAmount:10f,HurtEntities:true,TileEntityData:{LootTable:”usb:events/supply”},Passengers:[{id:FallingSand,DropItem:false,Time:1,FallDistance:1f,Block:minecraft:planks}]},SpawnPotentials:[{Weight:4,Entity:{id:FallingSand,Time:1,FallDistance:1f,Block:minecraft:chest,FallHurtMax:10,FallHurtAmount:10f,HurtEntities:true,TileEntityData:{LootTable:”usb:events/supply”},Passengers:[{id:FallingSand,DropItem:false,Time:1,FallDistance:1f,Block:minecraft:planks}]}},{Weight:1}]}]}]},SpawnPotentials:[{Weight:1}],Tags:[CooldownRequired,TypeChecked],PortalCooldown:21,Delay:20s}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=80,score_EventRank=89] ~ ~ ~ /me 「恐ろしい気配がする…！」</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=80,score_EventRank=89] ~ ~ ~ /summon MinecartSpawner ~ ~1 ~ {Invulnerable:true,MinSpawnDelay:0s,MaxSpawnDelay:0s,SpawnCount:1s,SpawnRange:0s,RequiredPlayerRange:10s,MaxNearbyEntities:999s,Motion:[0d,0.05d,0d],SpawnPotentials:[{Weight:1,Entity:{id:XPOrb,Age:6000s,Passengers:[{id:EntityHorse,Tags:[AbyssWarp],NoAI:false,Type:4,Variant:0,Saddle:1b,ArmorItem:{id:iron_horse_armor,Count:0b,Damage:0s},Tame:1b,Health:400.0f,Attributes:[{Name:generic.maxHealth,Base:400.0d},{Name:generic.movementSpeed,Base:0.45d},{Name:generic.knockbackResistance,Base:0.35d},{Name:horse.jumpStrength,Base:5d}],ActiveEffects:[{Id:11b,Amplifier:0b,Duration:2147483647,ShowParticles:false}],Passengers:[{NoAI:false,CustomName:”ホワイトライダー”,CustomNameVisible:true,Tags:[WhiteRider,SkillMob],DeathLootTable:”usb:events/goddess”,id:Skeleton,Health:450.0f,Attributes:[{Name:generic.maxHealth,Base:450.0d},{Name:generic.movementSpeed,Base:0.45d},{Name:generic.attackDamage,Base:4d},{Name:generic.knockbackResistance,Base:0.35d},{Name:generic.followRange,Base:32d}],ActiveEffects:[{Id:11b,Amplifier:1b,Duration:2147483647,ShowParticles:false},{Id:8b,Amplifier:3b,Duration:2147483647,ShowParticles:false}],ArmorItems:[{id:chainmail_boots},{id:chainmail_leggings},{id:chainmail_chestplate},{id:skull,Damage:3s,tag:{SkullOwner:{Id:”84720d0e-6555-4a13-8482-9adbc4a92630”,Properties:{textures:[{Value:”eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjhmYzEwZjkzNjRhY2U1MzFhMDJjNmNmZTg5MjcxOWFiMzFiZDQzMjkzZmQ0ZWVkOWNlODdjYzFiNWM3MTIifX19”}]}}}}],HandItems:[{id:bow,tag:{ench:[]}},{}]}]}]}},{Weight:1,Entity:{id:XPOrb,Age:6000s,Passengers:[{id:EntityHorse,Tags:[AbyssWarp],NoAI:false,Fire:0s,Type:0,Variant:2,Saddle:1b,ArmorItem:{id:golden_horse_armor,Count:0b,Damage:0s},Tame:1b,Health:400.0f,Attributes:[{Name:generic.maxHealth,Base:400.0d},{Name:generic.movementSpeed,Base:0.45d},{Name:generic.knockbackResistance,Base:0.35d},{Name:horse.jumpStrength,Base:5d}],ActiveEffects:[{Id:11b,Amplifier:0b,Duration:2147483647,ShowParticles:false},{Id:12b,Amplifier:0b,Duration:2147483647,ShowParticles:false}],Passengers:[{NoAI:false,CustomName:”レッドライダー”,CustomNameVisible:true,Tags:[RedRider,SkillMob],DeathLootTable:”usb:events/goddess”,id:PigZombie,ArmorItems:[{id:leather_boots,tag:{display:{color:16711680}}},{id:leather_leggings,tag:{display:{color:16711680}}},{id:leather_chestplate,tag:{display:{color:16711680}}},{id:skull,Damage:3s,tag:{SkullOwner:{Id:”9fc4ed7d-f92d-4cfb-95fe-8609954c2208”,Properties:{textures:[{Value:”eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTE0YWZiMWIzYmZiMGZmYjg0OTgxM2U2YTEyNjhlMmM1ZWVhN2RlNGNhMDQzYmVmYjBjNjZhNGI4MzM4NiJ9fX0=”}]}}}}],HandItems:[{id:iron_sword,tag:{ench:[]}},{}],Health:450.0f,Attributes:[{Name:generic.maxHealth,Base:450.0d},{Name:generic.movementSpeed,Base:0.45d},{Name:generic.attackDamage,Base:10d},{Name:generic.knockbackResistance,Base:0.35d},{Name:generic.followRange,Base:32d}],ActiveEffects:[{Id:11b,Amplifier:1b,Duration:2147483647,ShowParticles:false},{Id:8b,Amplifier:3b,Duration:2147483647,ShowParticles:false}]}]}]}},{Weight:1,Entity:{id:XPOrb,Age:6000s,Passengers:[{id:EntityHorse,Tags:[AbyssWarp],NoAI:false,Type:0,Variant:1028,Saddle:1b,Tame:1b,Health:400.0f,Attributes:[{Name:generic.maxHealth,Base:400.0d},{Name:generic.movementSpeed,Base:0.45d},{Name:generic.knockbackResistance,Base:0.35d},{Name:horse.jumpStrength,Base:5d}],ActiveEffects:[{Id:11b,Amplifier:1b,Duration:2147483647,ShowParticles:false},{Id:12b,Amplifier:0b,Duration:2147483647,ShowParticles:false}],Passengers:[{NoAI:false,CustomName:”ブラックライダー”,CustomNameVisible:true,Tags:[BlackRider,SkillMob],DeathLootTable:”usb:events/goddess”,id:Skeleton,SkeletonType:1b,ArmorItems:[{id:leather_boots,tag:{display:{color:0}}},{id:leather_leggings,tag:{display:{color:0}}},{id:leather_chestplate,tag:{display:{color:0}}},{id:skull,Damage:3s,tag:{SkullOwner:{Id:”16dcd66d-df16-4fc5-a038-db6248c6bb70”,Properties:{textures:[{Value:”eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWQ4NDdjMzdiNTMxZmE5MmJiOTVkNGMwNzBlNWQ4N2IzMjU2YTljNjVhZTUyMWE1OTgxMzMyOTBjN2NiYiJ9fX0=”}]}}}}],HandItems:[{id:brewing_stand,tag:{ench:[]}},{}],Health:300.0f,Attributes:[{Name:generic.maxHealth,Base:300.0d},{Name:generic.movementSpeed,Base:0.45d},{Name:generic.attackDamage,Base:4d},{Name:generic.knockbackResistance,Base:0.35d},{Name:generic.followRange,Base:32d}],ActiveEffects:[{Id:11b,Amplifier:2b,Duration:2147483647,ShowParticles:false},{Id:8b,Amplifier:3b,Duration:2147483647,ShowParticles:false}]}]}]}},{Weight:1,Entity:{id:XPOrb,Age:6000s,Passengers:[{id:EntityHorse,Tags:[AbyssWarp],NoAI:false,Type:3,Variant:0,Saddle:1b,ArmorItem:{id:iron_horse_armor,Count:0b,Damage:0s},Tame:1b,Health:400.0f,Attributes:[{Name:generic.maxHealth,Base:400.0d},{Name:generic.movementSpeed,Base:0.45d},{Name:generic.knockbackResistance,Base:0.35d},{Name:horse.jumpStrength,Base:5d}],ActiveEffects:[{Id:11b,Amplifier:1b,Duration:2147483647,ShowParticles:false}],Passengers:[{NoAI:false,CustomName:”ペイルライダー”,CustomNameVisible:true,Tags:[PaleRider,SkillMob],DeathLootTable:”usb:events/goddess”,id:Zombie,ArmorItems:[{id:leather_boots,tag:{display:{color:4814131}}},{id:leather_leggings,tag:{display:{color:4814131}}},{id:leather_chestplate,tag:{display:{color:4814131}}},{id:skull,Damage:3s,tag:{SkullOwner:{Id:”c84e47fa-4492-4281-ab2f-0b53f15e8f55”,Properties:{textures:[{Value:”eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjJlNzljYmNlMTdiZmY4YTdiMjQ4NjRmYmMzZDNkOTc3ZWVhNTQ0YmRjMmJiODY3ODU4YjM1ZDUwMWI0NTY3In19fQ==”}]}}}}],HandItems:[{id:diamond_hoe,tag:{ench:[]}},{}],Health:300.0f,Attributes:[{Name:generic.maxHealth,Base:300.0d},{Name:generic.movementSpeed,Base:0.45d},{Name:generic.attackDamage,Base:10d},{Name:generic.knockbackResistance,Base:0.35d},{Name:generic.followRange,Base:32d}],ActiveEffects:[{Id:11b,Amplifier:2b,Duration:2147483647,ShowParticles:false},{Id:8b,Amplifier:3b,Duration:2147483647,ShowParticles:false}]}]}]}}],Tags:[CooldownRequired,TypeChecked],PortalCooldown:1,Delay:-1s}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=90] ~ ~ ~ /me 「空に何か浮かんでる！」</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0,score_EventRank_min=90] ~ ~ ~ /summon MinecartSpawner ~ ~ ~ {Invulnerable:true,MinSpawnDelay:32767s,MaxSpawnDelay:32767s,SpawnCount:3s,SpawnRange:80s,RequiredPlayerRange:99s,MaxNearbyEntities:999s,SpawnPotentials:[{Weight:1}],Motion:[0d,1d,0d],SpawnData:{id:Villager,Health:0f,DeathTime:19s,Passengers:[{id:Shulker,DeathLootTable:”usb:events/box”,Glowing:true,NoAI:true,CustomName:玉手箱,CustomNameVisible:true,Health:100f,Attributes:[{Name:generic.maxHealth,Base:100d},{Name:generic.followRange,Base:16d}]}]},Tags:[CooldownRequired,TypeChecked],PortalCooldown:11,Delay:10s}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0] ~ ~ ~ /scoreboard players operation @a[c=1] EventRank = @a[c=1] RndMWC</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td>/scoreboard players tag @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0] add UpdateRandom</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td>/scoreboard players operation @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0] EventRank %= #100 Const</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">27</td>
+      <td>/scoreboard players operation @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0] EventRank += #ConquerPctInt Global</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">28</td>
+      <td>/scoreboard players operation @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0] EventRank -= #100 Const</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">29</td>
+      <td>/execute @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0] ~ ~ ~ /scoreboard players operation @a[c=1] EventRank2 = @a[c=1] RndMWC</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">30</td>
+      <td>/scoreboard players operation @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0] EventRank2 /= #10 Const</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">31</td>
+      <td>/scoreboard players operation @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0] EventRank2 %= #100 Const</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">32</td>
+      <td>/scoreboard players tag @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0] remove CauseEvent</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">CauseEvent</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が0であるすべてのプレイヤーが存在し、(-1920,6,-197)からz軸方向に4mの範囲で<code class="language-plaintext highlighter-rouge">SystemEntity</code>を持つAECを1つ選択し、その1m上に<code class="language-plaintext highlighter-rouge">SystemEntity</code>を持つエンティティが存在し、<code class="language-plaintext highlighter-rouge">USBDimension</code>が0であり<code class="language-plaintext highlighter-rouge">CauseEvent</code>を持つランダムなプレイヤー一人の<code class="language-plaintext highlighter-rouge">EventRank</code>に<code class="language-plaintext highlighter-rouge">EventRank2</code>を代入</li>
+  <li><code class="language-plaintext highlighter-rouge">CauseEvent</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimention</code>が0であるすべてのプレイヤーに<code class="language-plaintext highlighter-rouge">EventRank</code>の値によって<a href="#eventrankとその内容">以下の表</a>のようなイベントを発動する。</li>
+  <li><code class="language-plaintext highlighter-rouge">CauseEvent</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimention</code>が0であるプレイヤーを一人選択し、以下の計算などを実行する。なお、<code class="language-plaintext highlighter-rouge">Global</code>は省略する。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">EventRank</code>=<code class="language-plaintext highlighter-rouge">RndMWC</code>%100+<code class="language-plaintext highlighter-rouge">#ConquerPctInt</code>-100</li>
+      <li><code class="language-plaintext highlighter-rouge">EventRank2</code>=(<code class="language-plaintext highlighter-rouge">RndMWC</code>/10)%100</li>
+      <li><code class="language-plaintext highlighter-rouge">UpdataRandom</code>を付与し、<code class="language-plaintext highlighter-rouge">CauseEvent</code>を消去</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="eventrankとその内容">EventRankとその内容</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">EventRank</th>
+      <th>メッセージ</th>
+      <th>備考</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">~-1</td>
+      <td>……。何ともなかったー。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">0~9</td>
+      <td>…何かに狙われてる！</td>
+      <td>好撃球を召喚(No.4を参照)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10~19</td>
+      <td>…心地いい風が吹いてる。</td>
+      <td>透明化Lv.2 0.15秒、即時回復Lv.1 0.15秒間を半径2mに20秒間付与するAECを召喚(No.6を参照)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20~29</td>
+      <td>あの影…。怪しい！</td>
+      <td>スプリッツァガイストを召喚(No.8を参照)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">30~39</td>
+      <td>…こんな動物いた？</td>
+      <td>村人のごはんなどを召喚し、農業家からのメッセージを表示(No.10,11を参照)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">40~49</td>
+      <td>…深淵様！？</td>
+      <td>深淵様を召喚(No.13を参照)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">50~59</td>
+      <td>クモだー！</td>
+      <td>SATを召喚(No.15を参照)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">60~69</td>
+      <td>…あれは幻の！？</td>
+      <td>はぐれマグマを召喚(No.17を参照)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">70~79</td>
+      <td>こちらポイント・ブラボー。支援班、補給物資を要請する。</td>
+      <td>救援物資を投下(No.19を参照)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">80~89</td>
+      <td>恐ろしい気配がする…！</td>
+      <td>四騎士から一体を召喚(No.21を参照)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">90~</td>
+      <td>空に何か浮かんでる！</td>
+      <td>玉手箱を召喚(No.23)</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_command.html" class="btn btn-default navbar-btn cursorNorm" role="button">コマンド</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_event.html" class="btn btn-default navbar-btn cursorNorm" role="button">嫌な予感</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_enemy.html" class="btn btn-default navbar-btn cursorNorm" role="button">敵Mob</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+    <div class="row">
+        <div class="col-lg-12 footer">
+            <span>Page last updated:</span> 21 Jun 2020<br/> Site last generated: 20 Aug 2020 <br />
+        </div>
+    </div>
+</footer>
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#main -->
+    </div>
+
+</body>
+ <!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-169658702-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+ 
+
+</html>
