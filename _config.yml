@@ -113,6 +113,7 @@ description: "The Unsusal Skyblock 内のコマンドについて解説するサ
 # needed for sitemap.xml file only
 url: "https://aka256.github.io"
 baseurl: "/TUSB_Analysis"
+surl: "https://aka256.github.io"
 
 # Github URL uesd for building sitemap.xml
 githuburl: https://aka256.github.io/TUSB_Analysis
