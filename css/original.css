@@ -30,3 +30,26 @@
     border-radius: 5px;
     /*角の丸み*/
 }
+
+.openHere {
+    display: none;
+}
+
+.expandButton {
+    display: inline-block;
+    width: 20px;
+    border-style: solid;
+    border-color: gray;
+    border-width: 0.5px;
+    padding-right: 3px;
+    padding-left: 3px;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-align: center;
+}
+
+
+/*
+.expandButton:before {
+    content: "+";
+}*/
