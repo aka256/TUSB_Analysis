@@ -7,6 +7,8 @@ sidebar: mydoc_sidebar
 permalink: index.html
 hide_sidebar: false
 toc: false
+summary: The Unusual Skyblock v12.0.9 の主にX回路区域内にあるコマンド群について、個人的なメモとして簡単にまとめたものです。
+summaryDisable: true
 ---
 
 ## はじめに
