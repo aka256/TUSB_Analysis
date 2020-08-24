@@ -1,4 +1,14 @@
-# a
+---
+title: About GMBook
+tags: []
+keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
+update: 2020-07-10 09:00:00 +0000
+sidebar: mydoc_sidebar
+permalink: command/note/note_GMBook.html
+search: exclude
+---
+
+This is GMBook data.
 
 ```minecraftcommand
 {Motion:[0:-5.944105349618759E-150d,1:-0.0d,2:-2.2567945239087242E-150d],UUIDLeast:-6782892726351715483L,Health:5s,Invulnerable:0b,Air:300s,OnGround:1b,Dimension:0,PortalCooldown:0,Rotation:[0:159.55319f,1:0.0f],Thrower:"aka_12",FallDistance:0.0f,Item:{

@@ -12,7 +12,7 @@ search: exclude
   </url>
   {% endunless %}
   {% endfor %}
-  {% for page in site.pages %}
+  {% for page in site.html_pages %}
   {% unless page.search == "exclude" %}
   <url>
     <loc>{{site.githuburl}}{{page.url}}</loc>
