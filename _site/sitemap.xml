@@ -193,6 +193,10 @@
   
   
   
+  
+  
+  
+  
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit1/xCircuit1_aecMaintenance.html</loc>
     <lastmod>2020-06-21T09:21:00+09:00</lastmod>
@@ -673,6 +677,82 @@
   
   
   
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit9/xCircuit9_command.html</loc>
+    <lastmod>2020-08-24T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit9/xCircuit9_decoy.html</loc>
+    <lastmod>2020-08-24T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit9/xCircuit9_ironWill.html</loc>
+    <lastmod>2020-08-24T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit9/xCircuit9_phalanx.html</loc>
+    <lastmod>2020-08-24T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit9/xCircuit9_strike.html</loc>
+    <lastmod>2020-08-24T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit9/xCircuit9_tacticalHeal.html</loc>
+    <lastmod>2020-08-24T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuitCore/xCircuitCore_furnaceProcessing.html</loc>
     <lastmod>2020-06-17T09:00:00+09:00</lastmod>
@@ -715,6 +795,14 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/assets/css/style.css</loc>
+    <lastmod></lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/pages/command/note/note_GMBook.html</loc>
     <lastmod></lastmod>
     <changefreq>weekly</changefreq>
   </url>
