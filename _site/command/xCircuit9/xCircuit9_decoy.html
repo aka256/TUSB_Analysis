@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="剣士のスキルの1つであるデコイを実行する。">
+<meta name="keywords" content="コマンドスキル剣士,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<title>デコイ実行 | TUSB Analysis</title>
+
+<!-- Google Tag Manager -->
+<script>
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5HTHV6Q');
+</script>
+<!-- End Google Tag Manager -->
+
+<link rel="stylesheet" href="/TUSB_Analysis/css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="/TUSB_Analysis/css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/TUSB_Analysis/css/customstyles.css">
+<link rel="stylesheet" href="/TUSB_Analysis/css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="/TUSB_Analysis/css/theme-blue2.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/TUSB_Analysis/js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="/TUSB_Analysis/js/toc.js"></script>
+<script src="/TUSB_Analysis/js/customscripts.js"></script>
+
+<!-- original.js -->
+<script src="/TUSB_Analysis/js/original.js"></script>
+
+<link rel="shortcut icon" href="/TUSB_Analysis/images/favicon.ico">
+
+<meta name="twitter:card" content="summary" /> <!--①-->
+<meta name="twitter:site" content="@Re16d5" /> <!--②-->
+<meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit9/xCircuit9_decoy.html" /> <!--③-->
+<meta property="og:title" content="デコイ実行 | TUSB Analysis" /> <!--④-->
+<meta property="og:description" content="剣士のスキルの1つであるデコイを実行する。" /> <!--⑤-->
+<meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="TUSB_Analysis" href="https://aka256.github.io/TUSB_Analysis/feed.xml">
+
+<!--MathJax-->
+
+<script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<!--Original style-->
+
+<link rel="stylesheet" href="/TUSB_Analysis/css/original.css">
+
+<meta name="google-site-verification" content="IfKF0TOJNUtCg_H2zFNe6k3qnuQiJWoIfV3nXyV3OPs" />
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+    </script>
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+     
+    <!-- Include the standard DataTables bits -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <!-- First, this walks through the tables that occur between ...-begin
+         and ...-end and add the "datatable" class to them.
+         Then it invokes DataTable's standard initializer
+         Credit here: http://www.beardedhacker.com/blog/2015/08/28/add-class-attribute-to-markdown-table/
+      -->
+    <script>
+        $(document).ready(function() {
+            $('div.datatable2c-begin').nextUntil('div.datatable2c-end', 'table').addClass('display');
+            //$('div.datatable3-begin').nextUntil('div.datatable3-end', 'table').Class('display').style = "word-break:break-all";
+            $('table.display').DataTable({
+                paging: true,
+                stateSave: true,
+                searching: true,
+                autoWidth: false,
+                lengthChange: true,
+                columns: [{
+                    responsivePriority: 1,
+                    width: "6%"
+                }, {
+                    responsivePriority: 2,
+                    width: "94%"
+                }],
+            });
+        });
+    </script>
+    
+    <style type="text/css">
+        table {
+            table-layout: fixed;
+        }
+        
+        table td {
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HTHV6Q"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="/TUSB_Analysis/">&nbsp;<span class="projectTitle"> TUSB Analysis</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Sidebar</a></li>
+                <!-- entries without drop-downs appear here -->
+
+                    
+                <li><a href="https://twitter.com/Re16d5" target="_blank" rel="noopener">Twitter</a></li>
+                  
+                <li><a href="https://github.com/aka256/TUSB_Analysis/" target="_blank" rel="noopener">GitHub</a></li>
+                  
+                <li><a href="https://skyblock.jp/" target="_blank" rel="noopener">TUSB公式サイト</a></li>
+                  
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                 
+                <!--comment out this block if you want to hide search-->
+                <!--start search-->
+                <li>
+                    <div class="customSearch">
+                        <script async src="https://cse.google.com/cse.js?cx=010172728285433694449:7hktzoqurei"></script>
+                        <div class="gcse-searchbox-only"></div>
+                    </div>
+                </li>
+                <!--end search-->
+            </ul>
+
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+    <!-- Page Content -->
+    <div class="container">
+        <div id="main">
+            <!-- Content Row -->
+            <div class="row">
+                 
+                <!-- Sidebar Column -->
+                <div class="col-md-3" id="tg-sb-sidebar">
+                    
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">TUSB Analysis </li>
+      
+    <li>
+        <a title="X回路区域管理コマンド群" href="#">X回路区域管理コマンド群</a>
+        <ul>
+              
+            <li><a title="マクラエル内部" href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_insideMcLawell.html">マクラエル内部</a></li>
+                 
+            <li><a title="初期化処理" href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_initializeProcessing.html">初期化処理</a></li>
+                 
+            <li><a title="メインクロック起動処理" href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_mainclockProcessing.html">メインクロック起動処理</a></li>
+                 
+            <li><a title="SystemKeeper処理" href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_systemKeeperProcessing.html">SystemKeeper処理</a></li>
+                 
+            <li><a title="チャンクローダー設定" href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_furnaceProcessing.html">チャンクローダー設定</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群1" href="#">毎tick実行するコマンド群1</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群1" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_runFirst.html">毎tick実行するコマンド群1</a></li>
+                 
+            <li><a title="エリア侵入記録" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_areaRecord.html">エリア侵入記録</a></li>
+                 
+            <li><a title="エリア処理" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_areaProcessing.html">エリア処理</a></li>
+                 
+            <li><a title="時間経過" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_timeElapsed.html">時間経過</a></li>
+                 
+            <li><a title="風切更新" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_kazakiriUpdata.html">風切更新</a></li>
+                 
+            <li><a title="約1分処理" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_oneMinProcessing.html">約1分処理</a></li>
+                 
+            <li><a title="Tick停止飛翔物削除" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_tickStopDelete.html">Tick停止飛翔物削除</a></li>
+                 
+            <li><a title="敵スキル実行" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_runMobSkill.html">敵スキル実行</a></li>
+                 
+            <li><a title="嫌な予感実行" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_eventFulfill.html">嫌な予感実行</a></li>
+                 
+            <li><a title="トカルト処理" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_iceProcessing.html">トカルト処理</a></li>
+                 
+            <li><a title="動物誘導イベント" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_animalGuideEvent.html">動物誘導イベント</a></li>
+                 
+            <li><a title="AEC維持" href="/TUSB_Analysis/command/xCircuit1/xCircuit1_aecMaintenance.html">AEC維持</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群2" href="#">毎tick実行するコマンド群2</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群2" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_reset.html">毎tick実行するコマンド群2</a></li>
+                 
+            <li><a title="初回ログイン時処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_firstLoginProcessing.html">初回ログイン時処理</a></li>
+                 
+            <li><a title="ログイン時処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_loginProcessing.html">ログイン時処理</a></li>
+                 
+            <li><a title="難易度調整" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_difficultyAdjustment.html">難易度調整</a></li>
+                 
+            <li><a title="ジョブチェンジ先判定" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_jobChangeJudgement.html">ジョブチェンジ先判定</a></li>
+                 
+            <li><a title="ジョブセーブ" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_jobSave.html">ジョブセーブ</a></li>
+                 
+            <li><a title="ジョブロード" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_jobLoad.html">ジョブロード</a></li>
+                 
+            <li><a title="ステータス表示" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_statusDisplay.html">ステータス表示</a></li>
+                 
+            <li><a title="攻略率表示" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_conquerDisplay.html">攻略率表示</a></li>
+                 
+            <li><a title="ワープ処理ジョブ島・通常世界" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_warpProcessing.html">ワープ処理ジョブ島・通常世界</a></li>
+                 
+            <li><a title="KeepInventory確認" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_keepInventoryCheck.html">KeepInventory確認</a></li>
+                 
+            <li><a title="満腹度修正" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_satietyFix.html">満腹度修正</a></li>
+                 
+            <li><a title="経験値取得処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_expProcessing.html">経験値取得処理</a></li>
+                 
+            <li><a title="レベルアップ処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_levelupProcessing.html">レベルアップ処理</a></li>
+                 
+            <li><a title="習得スキル取得" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_skillAcquisition.html">習得スキル取得</a></li>
+                 
+            <li><a title="最大HP調整処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_hpFix.html">最大HP調整処理</a></li>
+                 
+            <li><a title="島攻略処理" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_conquerProcessing.html">島攻略処理</a></li>
+                 
+            <li><a title="時計島" href="/TUSB_Analysis/command/xCircuit2/xCircuit2_clockIslandProcessing.html">時計島</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群3" href="#">毎tick実行するコマンド群3</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群3" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_command.html">毎tick実行するコマンド群3</a></li>
+                 
+            <li><a title="ベッド処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_bedProcessing.html">ベッド処理</a></li>
+                 
+            <li><a title="お祈りkill" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_prayProcessing.html">お祈りkill</a></li>
+                 
+            <li><a title="村人会話処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_villagerTalkProcessing.html">村人会話処理</a></li>
+                 
+            <li><a title="牧師会話選択時処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_pastorTalk.html">牧師会話選択時処理</a></li>
+                 
+            <li><a title="エージェント会話選択時処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_agentTalk.html">エージェント会話選択時処理</a></li>
+                 
+            <li><a title="占い師会話選択時処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_augurTalk.html">占い師会話選択時処理</a></li>
+                 
+            <li><a title="エメラルド支払い処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_paymentProcessing.html">エメラルド支払い処理</a></li>
+                 
+            <li><a title="設定スキル表示" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_skillDisplay.html">設定スキル表示</a></li>
+                 
+            <li><a title="観光モード提案開始" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_suggestSightseeing.html">観光モード提案開始</a></li>
+                 
+            <li><a title="ネザーラック破壊時火山噴火処理" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_volcanoProcessing.html">ネザーラック破壊時火山噴火処理</a></li>
+                 
+            <li><a title="タイプ設定" href="/TUSB_Analysis/command/xCircuit3/xCircuit3_typeSetting.html">タイプ設定</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群4" href="#">毎tick実行するコマンド群4</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群4" href="/TUSB_Analysis/command/xCircuit4/xCircuit4_command.html">毎tick実行するコマンド群4</a></li>
+                 
+            <li><a title="黙想終了処理" href="/TUSB_Analysis/command/xCircuit4/xCircuit4_mokusoEndProcessing.html">黙想終了処理</a></li>
+                 
+            <li><a title="マジックシールド終了処理" href="/TUSB_Analysis/command/xCircuit4/xCircuit4_magicShieldEndProcessing.html">マジックシールド終了処理</a></li>
+                 
+            <li><a title="アイアンウィル継続判定" href="/TUSB_Analysis/command/xCircuit4/xCircuit4_ironWillContinueJudgment.html">アイアンウィル継続判定</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群5" href="#">毎tick実行するコマンド群5</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群5" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_command.html">毎tick実行するコマンド群5</a></li>
+                 
+            <li><a title="Hitリセット" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_hitReset.html">Hitリセット</a></li>
+                 
+            <li><a title="エンアスピルMP回復" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_enAspirMPRecovering.html">エンアスピルMP回復</a></li>
+                 
+            <li><a title="レガシーアイテム処理" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_legacyProcessing.html">レガシーアイテム処理</a></li>
+                 
+            <li><a title="エンチェイス探索処理" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_enchaseSearchProcessing.html">エンチェイス探索処理</a></li>
+                 
+            <li><a title="タクティカルヒール処理" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_tacticalHealProcessing.html">タクティカルヒール処理</a></li>
+                 
+            <li><a title="真空斬り使用判定" href="/TUSB_Analysis/command/xCircuit5/xCircuit5_aerialSlashUseJudgment.html">真空斬り使用判定</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群6" href="#">毎tick実行するコマンド群6</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群6" href="/TUSB_Analysis/command/xCircuit6/xCircuit6_command.html">毎tick実行するコマンド群6</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群7" href="#">毎tick実行するコマンド群7</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群7" href="/TUSB_Analysis/command/xCircuit7/xCircuit7_command.html">毎tick実行するコマンド群7</a></li>
+                 
+            <li><a title="モード変更" href="/TUSB_Analysis/command/xCircuit7/xCircuit7_modeChange.html">モード変更</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群8" href="#">毎tick実行するコマンド群8</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群8" href="/TUSB_Analysis/command/xCircuit8/xCircuit8_command.html">毎tick実行するコマンド群8</a></li>
+                 
+            <li><a title="MP不足演出" href="/TUSB_Analysis/command/xCircuit8/xCircuit8_mpLack.html">MP不足演出</a></li>
+                 
+            <li><a title="スキル設定変更" href="/TUSB_Analysis/command/xCircuit8/xCircuit8_skillSettingChange.html">スキル設定変更</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="毎tick実行するコマンド群9" href="#">毎tick実行するコマンド群9</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群9" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_command.html">毎tick実行するコマンド群9</a></li>
+              
+            <li class="subfolders">
+                <a title="剣士スキル" href="#">剣士スキル</a>
+                <ul>
+                      
+                    <li><a title="ファランクス実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_phalanx.html">ファランクス実行</a></li>
+                        
+                    <li><a title="アイアンウィル実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_ironWill.html">アイアンウィル実行</a></li>
+                        
+                    <li><a title="ストライ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_strike.html">ストライ実行</a></li>
+                        
+                    <li class="active"><a title="デコイ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_decoy.html">デコイ実行</a></li>
+                        
+                    <li><a title="タクティカルヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tacticalHeal.html">タクティカルヒール実行</a></li>
+                      
+                </ul>
+            </li>
+              
+            <li class="subfolders">
+                <a title="忍者スキル" href="#">忍者スキル</a>
+                <ul>
+                    
+                </ul>
+            </li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="超作業台ルーム" href="#">超作業台ルーム</a>
+        <ul>
+              
+            <li><a title="超作業台" href="/TUSB_Analysis/scraftingtable/scraftingtable_about.html">超作業台</a></li>
+                 
+            <li><a title="超作業台レシピの追加" href="/TUSB_Analysis/scraftingtable/scraftingtable_createRecipe.html">超作業台レシピの追加</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="データ類" href="#">データ類</a>
+        <ul>
+              
+            <li><a title="エンティティ" href="/TUSB_Analysis/entity/entity_entity.html">エンティティ</a></li>
+                 
+            <li><a title="アイテム" href="/TUSB_Analysis/others/others_item.html">アイテム</a></li>
+                 
+            <li><a title="チーム" href="/TUSB_Analysis/others/others_teams.html">チーム</a></li>
+                 
+            <li><a title="タグ" href="/TUSB_Analysis/others/others_tags.html">タグ</a></li>
+              
+            <li class="subfolders">
+                <a title="スコアボード" href="#">スコアボード</a>
+                <ul>
+                      
+                    <li><a title="スコアボード一覧" href="/TUSB_Analysis/scoreboard/scoreboard_list.html">スコアボード一覧</a></li>
+                        
+                    <li><a title="Const" href="/TUSB_Analysis/scoreboard/scoreboard_const.html">Const</a></li>
+                        
+                    <li><a title="Setting" href="/TUSB_Analysis/scoreboard/scoreboard_setting.html">Setting</a></li>
+                        
+                    <li><a title="Global" href="/TUSB_Analysis/scoreboard/scoreboard_global.html">Global</a></li>
+                      
+                </ul>
+            </li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="ページ内タグ" href="#">ページ内タグ</a>
+        <ul>
+              
+            <li><a title="タグ一覧" href="/TUSB_Analysis/includeTags/includeTags_list.html">タグ一覧</a></li>
+               
+        </ul>
+    </li>
+      
+    <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>
+    $("li.active").parents('li').toggleClass("active");
+</script>
+                </div>
+                 
+
+                <!-- Content Column -->
+                <div class="col-md-9" id="tg-sb-content">
+                    <div class="post-header">
+   <h1 class="post-title-main">デコイ実行</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+
+    
+
+   <h2 id="about">About</h2>
+
+<p><span class="tagYellow">位置</span> (-1920,14,-175)</p>
+
+<p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_command.html">毎tick実行するコマンド群9</a></p>
+
+<p>剣士のスキルの1つであるデコイを実行する。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable2c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @a[score_ActivatedSkill_min=1030,score_ActivatedSkill=1030] ~ ~ ~ /scoreboard players tag @e[r=15,tag=Enemy] add Attracted</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @a[score_ActivatedSkill_min=1031,score_ActivatedSkill=1039] ~ ~ ~ /scoreboard players tag @e[r=25,tag=Enemy] add Attracted</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute @a[score_ActivatedSkill_min=1030,score_ActivatedSkill=1039] ~ ~ ~ /execute @e[rm=1,r=25,tag=Attracted] ~ ~ ~ /playsound entity.endermen.teleport master @a[r=32] ~ ~ ~ 2 2 0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/execute @a[score_ActivatedSkill_min=1030,score_ActivatedSkill=1039] ~ ~ ~ /execute @e[rm=1,r=25,tag=Attracted] ~ ~ ~ /particle portal ~ ~1 ~ 0.1 0.5 0.1 0.001 30 force</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/execute @a[score_ActivatedSkill_min=1030,score_ActivatedSkill=1039] ~ ~ ~ /playsound entity.endermen.teleport master @a[r=32] ~ ~ ~ 2 0.7 0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/execute @a[score_ActivatedSkill_min=1030,score_ActivatedSkill=1039] ~ ~ ~ /particle portal ~ ~1 ~ 0 0.5 0 1 200 force</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/execute @a[score_ActivatedSkill_min=1030,score_ActivatedSkill=1039] ~ ~ ~ /tp @e[r=25,tag=Attracted] @a[c=1]</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/execute @a[score_ActivatedSkill_min=1030,score_ActivatedSkill=1039] ~ ~ ~ /scoreboard players tag @e[r=25,tag=Attracted] remove Attracted</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable2c-end"></div>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が1030であるすべてのプレイヤーから<strong>半径15m以内</strong>にいる<code class="language-plaintext highlighter-rouge">Enemy</code>を持つすべてのエンティティに<code class="language-plaintext highlighter-rouge">Attracted</code>を付与</li>
+  <li><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が1031=1039であるすべてのプレイヤーから<strong>半径25m以内</strong>にいる<code class="language-plaintext highlighter-rouge">Enemy</code>を持つすべてのエンティティに<code class="language-plaintext highlighter-rouge">Attracted</code>を付与</li>
+  <li><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が1030~1039であるプレイヤーを対象として、以下の事柄を実行
+    <ol>
+      <li>対象プレイヤーから半径1m外側から半径25m内側にいる<code class="language-plaintext highlighter-rouge">Attracted</code>を持ったすべてのエンティティから、半径32m以内のすべてのプレイヤーに効果音を鳴らす</li>
+      <li>対象プレイヤーから半径1m外側から半径25m内側にいる<code class="language-plaintext highlighter-rouge">Attracted</code>を持ったすべてのエンティティの座標上でパーティクルを表示</li>
+      <li>対象プレイヤーから半径32m以内のすべてのプレイヤーに効果音を鳴らす</li>
+      <li>対象プレイヤーの座標上でパーティクルを表示</li>
+      <li>対象プレイヤーから半径25m以内にいる<code class="language-plaintext highlighter-rouge">Attracted</code>を持ったすべてのエンティティを対象プレイヤーの座標上に移動させ、<code class="language-plaintext highlighter-rouge">Attracted</code>を削除</li>
+    </ol>
+  </li>
+</ol>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_command.html" class="btn btn-default navbar-btn cursorNorm" role="button">コマンド</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_knight.html" class="btn btn-default navbar-btn cursorNorm" role="button">剣士</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+    <div class="row">
+        <div class="col-lg-12 footer">
+            <span>Page last updated:</span> 24 Aug 2020<br/> Site last generated: 24 Aug 2020 <br />
+        </div>
+    </div>
+</footer>
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#main -->
+    </div>
+
+</body>
+ <!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-169658702-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+ 
+
+</html>

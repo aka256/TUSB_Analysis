@@ -96,8 +96,8 @@ $$
    \end{cases}
 $$
 
-11. `DamageTaken`が0以上であるプレイヤーから下に200 ~ 240 m の範囲にいるすべてのプレイヤーをキルする
-12. `IronWill`(スコア)が1以上であり、`DamageTaken`が0以上であるすべてのプレイヤーに`IronWill`(タグ)を付与し、以下の事柄を実行
+12. `DamageTaken`が0以上であるプレイヤーから下に200 ~ 240 m の範囲にいるすべてのプレイヤーをキルする
+13. `IronWill`(スコア)が1以上であり、`DamageTaken`が0以上であるすべてのプレイヤーに`IronWill`(タグ)を付与し、以下の事柄を実行
     1. (-1920,11,-184)にある[アイアンウィル継続判定]({{site.baseurl}}/command/xCircuit4/xCircuit4_ironWillContinueJudgment.html)を実行
     2. `IronWill`を持つすべてのプレイヤーの同座標上に`IronWillPoint`を持つAEC、[IronWillPoint]({{site.baseurl}}/entity/entity_entity.html#ironwillpoint)を召喚
     3. `IronWill`を持つプレイヤーと同座標上にいて、かつ最も近い`IronWillPoint`を持つエンティティをプレイヤーの座標上に移動
