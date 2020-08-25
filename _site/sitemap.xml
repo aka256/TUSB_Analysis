@@ -27,13 +27,13 @@
   
   
   
-  
-  
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/index.html</loc>
     <lastmod>2020-07-18T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
+  
+  
   
   
   
@@ -62,6 +62,8 @@
     <lastmod>2020-07-14T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
+  
+  
   
   
   
@@ -112,12 +114,6 @@
     <lastmod>2020-06-23T00:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
-  
-  
-  
-  
-  
-  
   
   
   
@@ -788,22 +784,6 @@
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuitCore/xCircuitCore_systemKeeperProcessing.html</loc>
     <lastmod>2020-07-07T09:00:00+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  
-  
-  <url>
-    <loc>https://aka256.github.io/TUSB_Analysis/assets/css/style.css</loc>
-    <lastmod></lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  
-  
-  
-  <url>
-    <loc>https://aka256.github.io/TUSB_Analysis/pages/command/note/note_GMBook.html</loc>
-    <lastmod></lastmod>
     <changefreq>weekly</changefreq>
   </url>
   

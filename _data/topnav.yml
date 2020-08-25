@@ -3,12 +3,21 @@
 topnav:
 - title: Topnav
   items:
+    - title: ページ一覧
+      url: page/pageList.html
     - title: Twitter
       external_url: https://twitter.com/Re16d5
-    - title: GitHub
-      external_url: https://github.com/aka256/TUSB_Analysis/
-    - title: TUSB公式サイト
-      external_url: https://skyblock.jp/
+
+topnav_dropdowns:
+- title: Topnav dropdowns
+  folders:
+    - title: 外部リンク
+      folderitems:
+      - title: TUSB公式サイト
+        external_url: https://skyblock.jp/
+      - title: TUSB wiki
+        external_url: https://seesaawiki.jp/theunusualskyblock/
+
 
 #Topnav dropdowns
 #topnav_dropdowns:
