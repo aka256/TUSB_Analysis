@@ -2,8 +2,8 @@
 
 entries:
 - title: sidebar
-  product: TUSB Analysis
-  version: 
+  product:
+  version:
   folders:
 
   - title: X回路区域管理コマンド群
@@ -256,6 +256,16 @@ entries:
         - title: タクティカルヒール実行
           url: /command/xCircuit9/xCircuit9_tacticalHeal.html
           output: web, pdf
+        - title: 薙ぎ払いイ実行
+          url: /command/xCircuit9/xCircuit9_slaughter.html
+          output: web, pdf
+        - title: リアクティブヒール実行
+          url: /command/xCircuit9/xCircuit9_reactiveHeal.html
+          output: web, pdf
+        - title: 斬鉄剣実行
+          url: /command/xCircuit9/xCircuit9_zantetsu.html
+          output: web, pdf
+        
       - title: 忍者スキル
         output: web, pdf
         subfolderitems:

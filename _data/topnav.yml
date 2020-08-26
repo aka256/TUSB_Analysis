@@ -4,7 +4,7 @@ topnav:
 - title: Topnav
   items:
     - title: ページ一覧
-      url: page/pageList.html
+      url: /page/pageList.html
     - title: Twitter
       external_url: https://twitter.com/Re16d5
 

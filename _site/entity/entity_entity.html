@@ -28,6 +28,7 @@
 <!-- End Google Tag Manager -->
 
 <link rel="stylesheet" href="/TUSB_Analysis/css/syntax.css">
+<<<<<<< HEAD
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -36,6 +37,8 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-5HTHV6Q');</script>
   <!-- End Google Tag Manager -->
+=======
+>>>>>>> test
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
@@ -173,7 +176,7 @@
                 <!-- entries without drop-downs appear here -->
 
                     
-                <li><a href="page/pageList.html">ページ一覧</a></li>
+                <li><a href="/page/pageList.html">ページ一覧</a></li>
                   
                 <li><a href="https://twitter.com/Re16d5" target="_blank" rel="noopener">Twitter</a></li>
                   
@@ -217,7 +220,7 @@
                     
 
 <ul id="mysidebar" class="nav">
-    <li class="sidebarTitle">TUSB Analysis </li>
+    <li class="sidebarTitle"> </li>
       
     <li>
         <a title="X回路区域管理コマンド群" href="#">X回路区域管理コマンド群</a>
@@ -429,6 +432,15 @@
                     <li><a title="デコイ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_decoy.html">デコイ実行</a></li>
                         
                     <li><a title="タクティカルヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tacticalHeal.html">タクティカルヒール実行</a></li>
+<<<<<<< HEAD
+=======
+                        
+                    <li><a title="薙ぎ払いイ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払いイ実行</a></li>
+                        
+                    <li><a title="リアクティブヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_reactiveHeal.html">リアクティブヒール実行</a></li>
+                        
+                    <li><a title="斬鉄剣実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_zantetsu.html">斬鉄剣実行</a></li>
+>>>>>>> test
                       
                 </ul>
             </li>
@@ -1076,6 +1088,28 @@ $('#toc').on('click', 'a', function() {
 <pre><code class="language-minecraftcommand">/summon AreaEffectCloud ~ ~ ~ {Invulnerable:true,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:take,Tags:[TrapPoint,SystemEntity,TypeChecked]}
 </code></pre>
 
+<h3 id="zantetsupoint">ZantetsuPoint</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>(None)</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>AEC</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>ZantetsuPoint,SystemEntity,TypeChecked</td>
+    </tr>
+  </tbody>
+</table>
+
+<pre><code class="language-minecraftcommand">/summon AreaEffectCloud ~ ~ ~ {Invulnerable:true,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:1,RadiusPerTick:0f,WaitTime:0,Age:-9,Particle:take,Tags:[ZantetsuPoint,SystemEntity,TypeChecked]}
+</code></pre>
+
 <h2 id="mob">MOB</h2>
 
 <h3 id="敵mob">敵MOB</h3>
@@ -1265,6 +1299,36 @@ $('#toc').on('click', 'a', function() {
 </table>
 
 <pre><code class="language-minecraft">/summon Fireball ~ ~ ~ {direction:[0d,0d,0d],ExplosionPower:0,Tags:[AerialShockwave,CooldownRequired,TypeChecked],PortalCooldown:5}
+</code></pre>
+
+<h3 id="斬鉄剣">斬鉄剣</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>斬鉄剣</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>Garbage,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>damage</td>
+      <td>650</td>
+    </tr>
+    <tr>
+      <td>life</td>
+      <td>1200(即デスポーンする)</td>
+    </tr>
+  </tbody>
+</table>
+
+<pre><code class="language-minecraftcommand">/summon Arrow ~ ~0.02 ~ {CustomName:"斬鉄剣",damage:650d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
 </code></pre>
 
 
@@ -1502,7 +1566,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 31 Jul 2020<br/> Site last generated: 25 Aug 2020 <br />
+            <span>Page last updated:</span> 26 Aug 2020<br/> Site last generated: 26 Aug 2020 <br />
         </div>
     </div>
 </footer>
