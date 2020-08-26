@@ -2,7 +2,7 @@
 title: エンティティ
 tags: [敵Mob,SystemEntity,村人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,エンティティ
-update: 2020-07-31 09:00:00 +0000
+update: 2020-08-26 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: entity/entity_entity.html
 summary: コマンドに関係するエンティティについてまとめる。
@@ -286,6 +286,16 @@ summaryDisable: true
 /summon AreaEffectCloud ~ ~ ~ {Invulnerable:true,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:take,Tags:[TrapPoint,SystemEntity,TypeChecked]}
 ```
 
+### ZantetsuPoint
+
+|Name|(None)|
+|Type|AEC|
+|Tags|ZantetsuPoint,SystemEntity,TypeChecked|
+
+```minecraftcommand
+/summon AreaEffectCloud ~ ~ ~ {Invulnerable:true,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:1,RadiusPerTick:0f,WaitTime:0,Age:-9,Particle:take,Tags:[ZantetsuPoint,SystemEntity,TypeChecked]}
+```
+
 ## MOB
 
 ### 敵MOB
@@ -432,4 +442,16 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 
 ```minecraft
 /summon Fireball ~ ~ ~ {direction:[0d,0d,0d],ExplosionPower:0,Tags:[AerialShockwave,CooldownRequired,TypeChecked],PortalCooldown:5}
+```
+
+### 斬鉄剣
+
+|Name|斬鉄剣|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|650|
+|life|1200(即デスポーンする)|
+
+```minecraftcommand
+/summon Arrow ~ ~0.02 ~ {CustomName:"斬鉄剣",damage:650d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
 ```

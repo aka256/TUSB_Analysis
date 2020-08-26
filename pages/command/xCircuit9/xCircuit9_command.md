@@ -79,11 +79,11 @@ summaryDisable: true
 |1020~1029|ストライ|[ストライ実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_strike.html)|
 |1030~1039|デコイ|[デコイ実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_decoy.html)|
 |1040~1049|タクティカルヒール|[タクティカルヒール実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_tacticalHeal.html)|
-|1200~1209|流し斬り|[毎tick実行するコマンド群12]({{site.baseurl}}/command/xCircuit12/xCircuit12_command.html)の流し斬り実行部を起動|
+|1200~1209|流し斬り|[毎tick実行するコマンド群12]({{site.baseurl}}/command/xCircuit12/xCircuit12_command.html)の<br>**流し斬り実行部**を起動|
 |1210~1219|薙ぎ払い|[薙ぎ払い実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_slaughter.html)|
-|1220~1229|真空斬り|[毎tick実行するコマンド群12]({{site.baseurl}}/command/xCircuit12/xCircuit12_command.html)の真空斬り実行部を起動|`#ProjectileUpdate`の`Global`を2に設定|
+|1220~1229|真空斬り|[毎tick実行するコマンド群12]({{site.baseurl}}/command/xCircuit12/xCircuit12_command.html)の<br>**真空斬り実行部**を起動|`#ProjectileUpdate`の`Global`を2に設定|
 |1230~1239|リアクティブヒール|[リアクティブヒール実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_reactiveHeal.html)|
-|1240~1249|魔人斬り|[毎tick実行するコマンド群12]({{site.baseurl}}/command/xCircuit12/xCircuit12_command.html)の魔人斬り実行部を起動|対象に`UpdateRandom`を付与|
+|1240~1249|魔人斬り|[毎tick実行するコマンド群12]({{site.baseurl}}/command/xCircuit12/xCircuit12_command.html)の<br>**魔人斬り実行部**を起動|対象に`UpdateRandom`を付与|
 |1250~1259|斬鉄剣|[斬鉄剣実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_zantetsu.html)|
 
 ### ActivatedSkill分岐(忍者)
@@ -99,8 +99,8 @@ summaryDisable: true
 |2060~2069|火遁|[火遁実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_katon.html)|
 |2070~2079|風切|[風切実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_kazakiri.html)|
 |2080~2089|夜駆|[夜駆実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_yogake.html)|
-|2200~2209|手裏剣|[毎tick実行するコマンド群13]({{site.baseurl}}/command/xCircuit13/xCircuit13_command.html)の手裏剣実行部を起動|`#ProjectileUpdate`の`Global`を2に設定|
+|2200~2209|手裏剣|[毎tick実行するコマンド群13]({{site.baseurl}}/command/xCircuit13/xCircuit13_command.html)の<br>**手裏剣実行部**を起動|`#ProjectileUpdate`の`Global`を2に設定|
 |2210~2219|連舞|[連舞実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_tsuremai.html)|
 |2220~2229|跳躍|[跳躍実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_tyoyaku.html)|
-|2230~2239|居縮|[毎tick実行するコマンド群13]({{site.baseurl}}/command/xCircuit13/xCircuit13_command.html)の居縮実行部を起動|`#ProjectileUpdate`の`Global`を2に設定|
-|2240~2249|サヨナラ|[毎tick実行するコマンド群13]({{site.baseurl}}/command/xCircuit13/xCircuit13_command.html)のサヨナラ実行部を起動|
+|2230~2239|居縮|[毎tick実行するコマンド群13]({{site.baseurl}}/command/xCircuit13/xCircuit13_command.html)の<br>**居縮実行部**を起動|`#ProjectileUpdate`の`Global`を2に設定|
+|2240~2249|サヨナラ|[毎tick実行するコマンド群13]({{site.baseurl}}/command/xCircuit13/xCircuit13_command.html)の<br>**サヨナラ実行部**を起動|
