@@ -1,8 +1,8 @@
 ---
 title: アイアンウィル実行
-tags: [コマンド,スキル,剣士]
+tags: [コマンド,スキル,剣士,表示]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-08-24 09:21:00 +0000
+update: 2020-08-28 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit9/xCircuit9_ironWill.html
 datatable4c: true
@@ -35,9 +35,9 @@ summaryDisable: true
 
 ## 詳細
 
-- `ActivatedSkill`が1010~1019であるプレイヤーを対象として、以下の事柄を実行
+- **`ActivatedSkill`が1010~1019**であるプレイヤーを対象として、以下の事柄を実行
 
-1. 対象のプレイヤーから半径16m以内のすべてのプレイヤーに効果音を鳴らし、対象の座標上でパーティクルを発生させる
+1. 対象のプレイヤーから**半径16m以内**のすべてのプレイヤーに**効果音を鳴らし**、対象の座標上で**パーティクルを発生させる**
 2. 対象に「<span style="color:green" data-toggle="tooltip" data-original-title="{{site.data.glossary.ironWillMesage}}">アイアンウィルの効果がかかった。</span>」とのメッセージを表示
 3. 対象に`UpdateRandom`を付与
 4. 対象の`IronWill`に以下の計算結果を代入

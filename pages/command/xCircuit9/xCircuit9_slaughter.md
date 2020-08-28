@@ -2,7 +2,7 @@
 title: 薙ぎ払い実行
 tags: [コマンド,スキル,剣士]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-08-26 09:21:00 +0000
+update: 2020-08-28 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit9/xCircuit9_slaughter.html
 datatable2c: true
@@ -34,10 +34,10 @@ summaryDisable: true
 
 ## 詳細
 
-- `ActivatedSkill`が**1210 ~ 1219**であるプレイヤーを対象として、以下の事柄を実行
+- **`ActivatedSkill`が1210 ~ 1219**であるプレイヤーを対象として、以下の事柄を実行
 
-1. 対象プレイヤーから**半径5m以内**に存在する`Enemy`を持ったエンティティから、さらに**半径32m以内**にいるすべてのプレイヤーに効果音を鳴らす
-2. 対象プレイヤーから**半径5m以内**に存在する`Enemy`を持ったエンティティの座標上で、パーティクルを表示
+1. 対象プレイヤーから**半径5m以内**に存在する`Enemy`を持ったエンティティから、さらに**半径32m以内**にいるすべてのプレイヤーに、**効果音を鳴らす**
+2. 対象プレイヤーから**半径5m以内**に存在する`Enemy`を持ったエンティティの座標上で、**パーティクルを表示**
 3. `ActivatedSkill`の値によって異なる効果時間の**浮遊 Lv.100**と**落下ダメージ**(*FallDistance*)を付与([ActivatedSkillと浮遊、落下ダメージ](#activatedskillと浮遊落下ダメージ)を参照)
 
 ### ActivatedSkillと浮遊、落下ダメージ

@@ -28,7 +28,7 @@ summaryDisable: true
 
 - 位置(-1921,6,-192)
 
-```minecraftcommand
+```mcfunction
 /summon ArmorStand ~1 ~ ~ {CustomName:"CommonGM", CustomNameVisible:true, Invulnerable:true, Small:true, Invisible:true, DisabledSlots:31, Marker:true, NoGravity:true, NoBasePlate:true, UUIDMost:1l, UUIDLeast:1l, Tags:[SystemEntity]}
 ```
 

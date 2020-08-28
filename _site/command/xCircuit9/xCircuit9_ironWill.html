@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="剣士のスキルの1つであるアイアンウィルの実行準備を行う。なお、防具や盾によるボーナス処理や終了処理はアイアンウィル継続処理を、スキル実行部は毎tick実行するコマンド群4をそれぞれ参照。">
-<meta name="keywords" content="コマンドスキル剣士,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<meta name="keywords" content="コマンドスキル剣士表示,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
 <title>アイアンウィル実行 | TUSB Analysis</title>
 
 <!-- Google Tag Manager -->
@@ -59,6 +59,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
 <script src="/TUSB_Analysis/js/toc.js"></script>
 <script src="/TUSB_Analysis/js/customscripts.js"></script>
+
+<!--Chart.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 
 <!-- original.js -->
 <script src="/TUSB_Analysis/js/original.js"></script>
@@ -465,7 +468,7 @@
                         
                     <li><a title="タクティカルヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tacticalHeal.html">タクティカルヒール実行</a></li>
                         
-                    <li><a title="薙ぎ払いイ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払いイ実行</a></li>
+                    <li><a title="薙ぎ払い実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払い実行</a></li>
                         
                     <li><a title="リアクティブヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_reactiveHeal.html">リアクティブヒール実行</a></li>
                         
@@ -477,7 +480,29 @@
             <li class="subfolders">
                 <a title="忍者スキル" href="#">忍者スキル</a>
                 <ul>
-                    
+                      
+                    <li><a title="アイサツ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_aisatsu.html">アイサツ実行</a></li>
+                        
+                    <li><a title="疾風実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_shippu.html">疾風実行</a></li>
+                        
+                    <li><a title="水遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_suiton.html">水遁実行</a></li>
+                        
+                    <li><a title="呼魂実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kodama.html">呼魂実行</a></li>
+                        
+                    <li><a title="黙想実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_mokuso.html">黙想実行</a></li>
+                        
+                    <li><a title="兵糧丸実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_hyoryomaru.html">兵糧丸実行</a></li>
+                        
+                    <li><a title="火遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_katon.html">火遁実行</a></li>
+                        
+                    <li><a title="風切実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kazakiri.html">風切実行</a></li>
+                        
+                    <li><a title="夜駆実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_yogake.html">夜駆実行</a></li>
+                        
+                    <li><a title="連舞実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tsuremai.html">連舞実行</a></li>
+                        
+                    <li><a title="跳躍実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tyoyaku.html">跳躍実行</a></li>
+                      
                 </ul>
             </li>
                
@@ -646,11 +671,11 @@ $('#toc').on('click', 'a', function() {
 <h2 id="詳細">詳細</h2>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が1010~1019であるプレイヤーを対象として、以下の事柄を実行</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が1010~1019</strong>であるプレイヤーを対象として、以下の事柄を実行</li>
 </ul>
 
 <ol>
-  <li>対象のプレイヤーから半径16m以内のすべてのプレイヤーに効果音を鳴らし、対象の座標上でパーティクルを発生させる</li>
+  <li>対象のプレイヤーから<strong>半径16m以内</strong>のすべてのプレイヤーに<strong>効果音を鳴らし</strong>、対象の座標上で<strong>パーティクルを発生させる</strong></li>
   <li>対象に「<span style="color:green" data-toggle="tooltip" data-original-title="次のノックバックを軽減する。一定確率で効果が継続する。 装備：継続確率にボーナス。">アイアンウィルの効果がかかった。</span>」とのメッセージを表示</li>
   <li>対象に<code class="language-plaintext highlighter-rouge">UpdateRandom</code>を付与</li>
   <li>対象の<code class="language-plaintext highlighter-rouge">IronWill</code>に以下の計算結果を代入</li>
@@ -1027,6 +1052,78 @@ n & (n\in\{100,102,\dots ,250\}) & (\text{Lv.}2)
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_display.html" class="btn btn-default navbar-btn cursorNorm" role="button">表示</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 
 
@@ -1039,7 +1136,7 @@ n & (n\in\{100,102,\dots ,250\}) & (\text{Lv.}2)
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 24 Aug 2020<br/> Site last generated: 26 Aug 2020 <br />
+            <span>Page last updated:</span> 28 Aug 2020<br/> Site last generated: 28 Aug 2020 <br />
         </div>
     </div>
 </footer>

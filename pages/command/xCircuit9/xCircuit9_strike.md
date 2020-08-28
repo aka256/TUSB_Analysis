@@ -2,7 +2,7 @@
 title: ストライ実行
 tags: [コマンド,スキル,剣士]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-08-24 09:21:00 +0000
+update: 2020-08-28 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit9/xCircuit9_strike.html
 datatable2c: true
@@ -37,12 +37,12 @@ summaryDisable: true
 
 ## 詳細
 
-1. `ActivatedSkill`が1020~1029であるプレイヤーを対象として以下の事柄を実行
-   1. 対象プレイヤーから半径16m以内にいるすべてのプレイヤーに効果音を鳴らす
+1. **`ActivatedSkill`が1020 ~ 1029**であるプレイヤーを対象として以下の事柄を実行
+   1. 対象プレイヤーから**半径16m以内**にいるすべてのプレイヤーに、**効果音を鳴らす**
    2. 対象プレイヤーの`TargetCheck`に`ActivatedSkill`を代入
-   3. `Sneaking`を持っている対象プレイヤーから半径15m以内にいるすべてのプレイヤーの`TargetCheck`が対象の`TargetCheck`よりも小さいとき、対象の`TargetCheck`を代入
-2. `TargetCheck`の値によって異なるレベルの攻撃力上昇を60秒間付与([TargetCheckと攻撃力上昇のレベルについて](#targetcheckと攻撃力上昇のレベルについて)を参照)
-3. `TargetCheck`が1020~1029であるすべてのプレイヤーの座標上でパーティクルを表示
+   3. **`Sneaking`を持っている**対象プレイヤーから**半径15m以内**にいるすべてのプレイヤーの`TargetCheck`が対象の`TargetCheck`よりも小さいとき、対象の`TargetCheck`を代入
+2. **`TargetCheck`の値によって異なるレベルの攻撃力上昇を60秒間付与**([TargetCheckと攻撃力上昇のレベルについて](#targetcheckと攻撃力上昇のレベルについて)を参照)
+3. **`TargetCheck`が1020 ~ 1029**であるすべてのプレイヤーの座標上で、**パーティクルを表示**
 4. `TargetCheck`が0以上であるすべてのプレイヤーの`TargetCheck`を0に設定
 
 ### TargetCheckと攻撃力上昇のレベルについて

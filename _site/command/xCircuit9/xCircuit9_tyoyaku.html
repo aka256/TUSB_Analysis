@@ -5,8 +5,8 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content="コマンド,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<meta name="description" content="忍者のスキルの1つである連舞を実行する。なお、跳躍による攻撃処理は毎tick実行するコマンド群4で行われる。">
+<meta name="keywords" content="コマンドスキル忍者表示,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
 <title>跳躍実行 | TUSB Analysis</title>
 
 <!-- Google Tag Manager -->
@@ -60,6 +60,9 @@
 <script src="/TUSB_Analysis/js/toc.js"></script>
 <script src="/TUSB_Analysis/js/customscripts.js"></script>
 
+<!--Chart.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
 <!-- original.js -->
 <script src="/TUSB_Analysis/js/original.js"></script>
 
@@ -69,7 +72,7 @@
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
 <meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit9/xCircuit9_tyoyaku.html" /> <!--③-->
 <meta property="og:title" content="跳躍実行 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="" /> <!--⑤-->
+<meta property="og:description" content="忍者のスキルの1つである連舞を実行する。なお、跳躍による攻撃処理は毎tick実行するコマンド群4で行われる。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -148,7 +151,7 @@
       -->
     <script>
         $(document).ready(function() {
-            $('div.datatable4c-begin').nextUntil('div.datatable4c-end', 'table').addClass('display');
+            $('div.datatable2c-begin').nextUntil('div.datatable2c-end', 'table').addClass('display');
             //$('div.datatable3-begin').nextUntil('div.datatable3-end', 'table').Class('display').style = "word-break:break-all";
             $('table.display').DataTable({
                 paging: true,
@@ -157,17 +160,11 @@
                 autoWidth: false,
                 lengthChange: true,
                 columns: [{
-                    responsivePriority: 3,
+                    responsivePriority: 1,
                     width: "6%"
                 }, {
-                    responsivePriority: 4,
-                    width: "64%"
-                }, {
                     responsivePriority: 2,
-                    width: "15%"
-                }, {
-                    responsivePriority: 1,
-                    width: "15%"
+                    width: "94%"
                 }],
             });
         });
@@ -465,7 +462,7 @@
                         
                     <li><a title="タクティカルヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tacticalHeal.html">タクティカルヒール実行</a></li>
                         
-                    <li><a title="薙ぎ払いイ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払いイ実行</a></li>
+                    <li><a title="薙ぎ払い実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払い実行</a></li>
                         
                     <li><a title="リアクティブヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_reactiveHeal.html">リアクティブヒール実行</a></li>
                         
@@ -477,7 +474,29 @@
             <li class="subfolders">
                 <a title="忍者スキル" href="#">忍者スキル</a>
                 <ul>
-                    
+                      
+                    <li><a title="アイサツ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_aisatsu.html">アイサツ実行</a></li>
+                        
+                    <li><a title="疾風実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_shippu.html">疾風実行</a></li>
+                        
+                    <li><a title="水遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_suiton.html">水遁実行</a></li>
+                        
+                    <li><a title="呼魂実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kodama.html">呼魂実行</a></li>
+                        
+                    <li><a title="黙想実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_mokuso.html">黙想実行</a></li>
+                        
+                    <li><a title="兵糧丸実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_hyoryomaru.html">兵糧丸実行</a></li>
+                        
+                    <li><a title="火遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_katon.html">火遁実行</a></li>
+                        
+                    <li><a title="風切実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kazakiri.html">風切実行</a></li>
+                        
+                    <li><a title="夜駆実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_yogake.html">夜駆実行</a></li>
+                        
+                    <li><a title="連舞実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tsuremai.html">連舞実行</a></li>
+                        
+                    <li class="active"><a title="跳躍実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tyoyaku.html">跳躍実行</a></li>
+                      
                 </ul>
             </li>
                
@@ -588,15 +607,242 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>編集中です。</p>
-
-<h2 id="about">About</h2>
+   <h2 id="about">About</h2>
 
 <p><span class="tagYellow">位置</span> (-1920,10,-169)</p>
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_command.html">毎tick実行するコマンド群9</a></p>
 
-<p><span class="tagBlue">分岐先</span></p>
+<p>忍者のスキルの1つである連舞を実行する。なお、跳躍による攻撃処理は<a href="/TUSB_Analysis/command/xCircuit4/xCircuit4_command.html">毎tick実行するコマンド群4</a>で行われる。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable2c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players tag @a[score_ActivatedSkill_min=2220,score_ActivatedSkill=2229] add Choyaku</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players add @a[tag=Choyaku] Choyaku 1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players set @a[tag=Choyaku] NinjaTime 3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players operation @a[score_ActivatedSkill_min=2222,score_ActivatedSkill=2229] Choyaku &lt; #15 Const</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players operation @a[score_ActivatedSkill_min=2221,score_ActivatedSkill=2221] Choyaku &lt; #10 Const</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players operation @a[score_ActivatedSkill_min=2220,score_ActivatedSkill=2220] Choyaku &lt; #5 Const</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/execute @a[tag=Choyaku] ~ ~ ~ /playsound entity.enderdragon.flap master @a[r=16] ~ ~ ~ 1 1.8 0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/execute @a[tag=Choyaku] ~ ~ ~ /particle townaura ~ ~ ~ 0.05 0.2 0.05 0 100</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/title @a[tag=Choyaku] times 0 70 10</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/title @a[tag=Choyaku] subtitle {“translate”:”                          %1$s Pyon!”,”with”:[{“score”:{“name”:”*”,”objective”:”Choyaku”}}],”color”:”aqua”,”italic”:true,”bold”:true}</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/title @a[tag=Choyaku] title {“text”:””}</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/effect @a[tag=Choyaku,score_Choyaku_min=15] minecraft:jump_boost 5 14</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/effect @a[tag=Choyaku,score_Choyaku_min=14,score_Choyaku=14] minecraft:jump_boost 5 13</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/effect @a[tag=Choyaku,score_Choyaku_min=13,score_Choyaku=13] minecraft:jump_boost 5 12</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/effect @a[tag=Choyaku,score_Choyaku_min=12,score_Choyaku=12] minecraft:jump_boost 5 11</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/effect @a[tag=Choyaku,score_Choyaku_min=11,score_Choyaku=11] minecraft:jump_boost 5 10</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/effect @a[tag=Choyaku,score_Choyaku_min=10,score_Choyaku=10] minecraft:jump_boost 4 9</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/effect @a[tag=Choyaku,score_Choyaku_min=9,score_Choyaku=9] minecraft:jump_boost 4 8</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/effect @a[tag=Choyaku,score_Choyaku_min=8,score_Choyaku=8] minecraft:jump_boost 4 7</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/effect @a[tag=Choyaku,score_Choyaku_min=7,score_Choyaku=7] minecraft:jump_boost 4 6</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/effect @a[tag=Choyaku,score_Choyaku_min=6,score_Choyaku=6] minecraft:jump_boost 4 5</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/effect @a[tag=Choyaku,score_Choyaku_min=5,score_Choyaku=5] minecraft:jump_boost 3 4</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/effect @a[tag=Choyaku,score_Choyaku_min=4,score_Choyaku=4] minecraft:jump_boost 3 3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/effect @a[tag=Choyaku,score_Choyaku_min=3,score_Choyaku=3] minecraft:jump_boost 3 2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td>/effect @a[tag=Choyaku,score_Choyaku_min=2,score_Choyaku=2] minecraft:jump_boost 3 1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td>/effect @a[tag=Choyaku,score_Choyaku_min=1,score_Choyaku=1] minecraft:jump_boost 3 0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">27</td>
+      <td>/scoreboard players tag @a[tag=Choyaku] remove Choyaku</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable2c-end"></div>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が2220 ~ 2229</strong>であるすべてのプレイヤーに、<code class="language-plaintext highlighter-rouge">Choyaku</code>(タグ)を付与</li>
+  <li><code class="language-plaintext highlighter-rouge">Choyaku</code>(タグ)を持つすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">Choyaku</code>(スコア)に1を足し、<code class="language-plaintext highlighter-rouge">NInjaTime</code>を3に設定</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が2222 ~ 2229</strong>であるすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">Choyaku</code>(スコア)が15を超えた場合、<strong>15に設定</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が2221</strong>であるすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">Choyaku</code>(スコア)が10を超えた場合、<strong>10に設定</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が2220</strong>であるすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">Choyaku</code>(スコア)が5を超えた場合、<strong>5に設定</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">Choyaku</code>(タグ)を持つすべてのプレイヤーから、<strong>半径16m以内</strong>のすべてのプレイヤーに、<strong>効果音を鳴らす</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">Choyaku</code>(タグ)を持つすべてのプレイヤーの座標上で、<strong>パーティクルを表示</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">Choyaku</code>(タグ)を持つすべてのプレイヤーに「<span style="color:aqua;bold:true;italic:true;">n Pyon!</span>」とのメッセージを表示</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Choyaku</code>(スコア)の値に応じた、異なるレベルや効果時間の跳躍を付与</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">Choyaku</code>(タグ)を持つすべてのプレイヤーから<code class="language-plaintext highlighter-rouge">Choyaku</code>(タグ)を削除</li>
+</ol>
+
+<h3 id="choyakuと跳躍効果">Choyakuと跳躍効果</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Choyaku</th>
+      <th style="text-align: center">跳躍レベル</th>
+      <th style="text-align: center">跳躍効果時間/s</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: center">6</td>
+      <td style="text-align: center">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td style="text-align: center">7</td>
+      <td style="text-align: center">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td style="text-align: center">8</td>
+      <td style="text-align: center">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td style="text-align: center">9</td>
+      <td style="text-align: center">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td style="text-align: center">10</td>
+      <td style="text-align: center">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td style="text-align: center">11</td>
+      <td style="text-align: center">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td style="text-align: center">12</td>
+      <td style="text-align: center">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td style="text-align: center">13</td>
+      <td style="text-align: center">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td style="text-align: center">14</td>
+      <td style="text-align: center">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td style="text-align: center">15</td>
+      <td style="text-align: center">5</td>
+    </tr>
+  </tbody>
+</table>
 
 
     <div class="tags">
@@ -677,6 +923,222 @@ $('#toc').on('click', 'a', function() {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_ninja.html" class="btn btn-default navbar-btn cursorNorm" role="button">忍者</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_display.html" class="btn btn-default navbar-btn cursorNorm" role="button">表示</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 
 
@@ -689,7 +1151,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 21 Aug 2020<br/> Site last generated: 26 Aug 2020 <br />
+            <span>Page last updated:</span> 28 Aug 2020<br/> Site last generated: 28 Aug 2020 <br />
         </div>
     </div>
 </footer>

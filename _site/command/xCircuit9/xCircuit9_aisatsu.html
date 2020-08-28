@@ -5,8 +5,8 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content="コマンド,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<meta name="description" content="忍者のスキルの1つであるアイサツを実行する。">
+<meta name="keywords" content="コマンドスキル忍者表示,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
 <title>アイサツ実行 | TUSB Analysis</title>
 
 <!-- Google Tag Manager -->
@@ -60,6 +60,9 @@
 <script src="/TUSB_Analysis/js/toc.js"></script>
 <script src="/TUSB_Analysis/js/customscripts.js"></script>
 
+<!--Chart.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
 <!-- original.js -->
 <script src="/TUSB_Analysis/js/original.js"></script>
 
@@ -69,7 +72,7 @@
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
 <meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit9/xCircuit9_aisatsu.html" /> <!--③-->
 <meta property="og:title" content="アイサツ実行 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="" /> <!--⑤-->
+<meta property="og:description" content="忍者のスキルの1つであるアイサツを実行する。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -148,8 +151,7 @@
       -->
     <script>
         $(document).ready(function() {
-            $('div.datatable4c-begin').nextUntil('div.datatable4c-end', 'table').addClass('display');
-            //$('div.datatable3-begin').nextUntil('div.datatable3-end', 'table').Class('display').style = "word-break:break-all";
+            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
             $('table.display').DataTable({
                 paging: true,
                 stateSave: true,
@@ -157,14 +159,11 @@
                 autoWidth: false,
                 lengthChange: true,
                 columns: [{
-                    responsivePriority: 3,
+                    responsivePriority: 2,
                     width: "6%"
                 }, {
-                    responsivePriority: 4,
-                    width: "64%"
-                }, {
-                    responsivePriority: 2,
-                    width: "15%"
+                    responsivePriority: 3,
+                    width: "79%"
                 }, {
                     responsivePriority: 1,
                     width: "15%"
@@ -465,7 +464,7 @@
                         
                     <li><a title="タクティカルヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tacticalHeal.html">タクティカルヒール実行</a></li>
                         
-                    <li><a title="薙ぎ払いイ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払いイ実行</a></li>
+                    <li><a title="薙ぎ払い実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払い実行</a></li>
                         
                     <li><a title="リアクティブヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_reactiveHeal.html">リアクティブヒール実行</a></li>
                         
@@ -477,7 +476,29 @@
             <li class="subfolders">
                 <a title="忍者スキル" href="#">忍者スキル</a>
                 <ul>
-                    
+                      
+                    <li class="active"><a title="アイサツ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_aisatsu.html">アイサツ実行</a></li>
+                        
+                    <li><a title="疾風実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_shippu.html">疾風実行</a></li>
+                        
+                    <li><a title="水遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_suiton.html">水遁実行</a></li>
+                        
+                    <li><a title="呼魂実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kodama.html">呼魂実行</a></li>
+                        
+                    <li><a title="黙想実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_mokuso.html">黙想実行</a></li>
+                        
+                    <li><a title="兵糧丸実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_hyoryomaru.html">兵糧丸実行</a></li>
+                        
+                    <li><a title="火遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_katon.html">火遁実行</a></li>
+                        
+                    <li><a title="風切実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kazakiri.html">風切実行</a></li>
+                        
+                    <li><a title="夜駆実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_yogake.html">夜駆実行</a></li>
+                        
+                    <li><a title="連舞実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tsuremai.html">連舞実行</a></li>
+                        
+                    <li><a title="跳躍実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tyoyaku.html">跳躍実行</a></li>
+                      
                 </ul>
             </li>
                
@@ -588,15 +609,76 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>編集中です。</p>
-
-<h2 id="about">About</h2>
+   <h2 id="about">About</h2>
 
 <p><span class="tagYellow">位置</span> (-1920,8,-172)</p>
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_command.html">毎tick実行するコマンド群9</a></p>
 
-<p><span class="tagBlue">分岐先</span></p>
+<p>忍者のスキルの1つであるアイサツを実行する。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @a[score_ActivatedSkill_min=2000,score_ActivatedSkill=2009] ~ ~ ~ /playsound entity.irongolem.attack master @a[r=16] ~ ~ ~ 1 1.4 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/tp @a[score_ActivatedSkill_min=2000,score_ActivatedSkill=2009] ~ ~ ~ ~ 90</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute @a[score_ActivatedSkill_min=2000,score_ActivatedSkill=2009] ~ ~ ~ /tellraw @a {“translate”:”[%1$s] ドーモ、 %2$s %3$s %4$s =サン、 %1$sです”,”with”:[{“selector”:”@a[c=1]”},{“selector”:”@e[type=!Player,tag=!SystemEntity,r=5]”,”color”:”yellow”},{“selector”:”@e[type=!Player,tag=!SystemEntity,rm=5,r=10]”,”color”:”white”},{“selector”:”@e[type=!Player,tag=!SystemEntity,rm=10,r=15]”,”color”:”gray”}]}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/execute @a[score_ActivatedSkill_min=2000,score_ActivatedSkill=2009] ~ ~ ~ /execute @e[r=15,tag=Enemy,c=1] ~ ~ ~ /scoreboard players tag @a[score_ActivatedSkill_min=2000,score_ActivatedSkill=2009] add Aisatsu</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/execute @a[score_ActivatedSkill_min=2000,score_ActivatedSkill=2009,tag=Aisatsu] ~ ~ ~ /me は戦闘に備えた！</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<h2 id="詳細">詳細</h2>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が2000 ~ 2009</strong>であるプレイヤーを対象として、以下の事柄を実行</li>
+</ul>
+
+<ol>
+  <li>対象プレイヤーから<strong>半径16m以内</strong>のすべてのプレイヤーに、<strong>効果音を鳴らす</strong></li>
+  <li>対象プレイヤーを<strong>強制的に下を向かせる</strong></li>
+  <li>対象プレイヤーに「[(PlayerName)] ドーモ、(<span style="color: yellow;background-color: gray">Entity1</span>)(<span style="color: white;background-color: gray">Entity2</span>)(<span style="color: gray">Entity3</span>) =サン、(PlayerName)です」とのメッセージを表示
+    <ul>
+      <li>PlayerName: 対象プレイヤーの名前</li>
+      <li><span style="color: yellow;background-color: gray">Entity1</span>: <strong>半径5m以内</strong>のプレイヤーでなく、かつ<code class="language-plaintext highlighter-rouge">SystemEntity</code>でもないエンティティ</li>
+      <li><span style="color: white;background-color: gray">Entity2</span>: <strong>半径10m以内</strong>のプレイヤーでなく、かつ<code class="language-plaintext highlighter-rouge">SystemEntity</code>でもないエンティティ</li>
+      <li><span style="color: gray">Entity3</span>: <strong>半径15m以内</strong>のプレイヤーでなく、かつ<code class="language-plaintext highlighter-rouge">SystemEntity</code>でもないエンティティ</li>
+    </ul>
+  </li>
+  <li>対象プレイヤーから<strong>半径15m以内に<code class="language-plaintext highlighter-rouge">Enemy</code>を持つエンティティが一体でも存在するとき</strong>、対象プレイヤーに<code class="language-plaintext highlighter-rouge">Aisatsu</code>を付与し、「(Player)は戦闘に備えた！」とのメッセージを表示</li>
+</ol>
 
 
     <div class="tags">
@@ -677,6 +759,222 @@ $('#toc').on('click', 'a', function() {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_ninja.html" class="btn btn-default navbar-btn cursorNorm" role="button">忍者</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_display.html" class="btn btn-default navbar-btn cursorNorm" role="button">表示</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 
 
@@ -689,7 +987,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 21 Aug 2020<br/> Site last generated: 26 Aug 2020 <br />
+            <span>Page last updated:</span> 28 Aug 2020<br/> Site last generated: 28 Aug 2020 <br />
         </div>
     </div>
 </footer>

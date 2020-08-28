@@ -14,11 +14,19 @@ search: exclude
   {% endfor %}
   {% for page in site.html_pages %}
   {% unless page.search == "exclude" %}
+  {% if page.url == "index.html" %}
+    <url>
+    <loc>{{site.githuburl}}</loc>
+    <lastmod>{{page.update|date: "%Y-%m-%dT%H:%M:%S+09:00"}}</lastmod>
+    <changefreq>{{site.changefreq}}</changefreq>
+  </url>
+  {% else %}
   <url>
     <loc>{{site.githuburl}}{{page.url}}</loc>
     <lastmod>{{page.update|date: "%Y-%m-%dT%H:%M:%S+09:00"}}</lastmod>
     <changefreq>{{site.changefreq}}</changefreq>
   </url>
+  {% endif %}
   {% endunless %}
   {% endfor %}
 </urlset>

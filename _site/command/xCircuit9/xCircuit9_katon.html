@@ -5,8 +5,8 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content="コマンド,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<meta name="description" content="忍者のスキルの1つである火遁を実行する。">
+<meta name="keywords" content="コマンドスキル忍者,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
 <title>火遁実行 | TUSB Analysis</title>
 
 <!-- Google Tag Manager -->
@@ -60,6 +60,9 @@
 <script src="/TUSB_Analysis/js/toc.js"></script>
 <script src="/TUSB_Analysis/js/customscripts.js"></script>
 
+<!--Chart.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
 <!-- original.js -->
 <script src="/TUSB_Analysis/js/original.js"></script>
 
@@ -69,7 +72,7 @@
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
 <meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit9/xCircuit9_katon.html" /> <!--③-->
 <meta property="og:title" content="火遁実行 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="" /> <!--⑤-->
+<meta property="og:description" content="忍者のスキルの1つである火遁を実行する。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -465,7 +468,7 @@
                         
                     <li><a title="タクティカルヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tacticalHeal.html">タクティカルヒール実行</a></li>
                         
-                    <li><a title="薙ぎ払いイ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払いイ実行</a></li>
+                    <li><a title="薙ぎ払い実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払い実行</a></li>
                         
                     <li><a title="リアクティブヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_reactiveHeal.html">リアクティブヒール実行</a></li>
                         
@@ -477,7 +480,29 @@
             <li class="subfolders">
                 <a title="忍者スキル" href="#">忍者スキル</a>
                 <ul>
-                    
+                      
+                    <li><a title="アイサツ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_aisatsu.html">アイサツ実行</a></li>
+                        
+                    <li><a title="疾風実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_shippu.html">疾風実行</a></li>
+                        
+                    <li><a title="水遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_suiton.html">水遁実行</a></li>
+                        
+                    <li><a title="呼魂実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kodama.html">呼魂実行</a></li>
+                        
+                    <li><a title="黙想実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_mokuso.html">黙想実行</a></li>
+                        
+                    <li><a title="兵糧丸実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_hyoryomaru.html">兵糧丸実行</a></li>
+                        
+                    <li class="active"><a title="火遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_katon.html">火遁実行</a></li>
+                        
+                    <li><a title="風切実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kazakiri.html">風切実行</a></li>
+                        
+                    <li><a title="夜駆実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_yogake.html">夜駆実行</a></li>
+                        
+                    <li><a title="連舞実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tsuremai.html">連舞実行</a></li>
+                        
+                    <li><a title="跳躍実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tyoyaku.html">跳躍実行</a></li>
+                      
                 </ul>
             </li>
                
@@ -588,15 +613,65 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>編集中です。</p>
-
-<h2 id="about">About</h2>
+   <h2 id="about">About</h2>
 
 <p><span class="tagYellow">位置</span> (-1920,10,-171)</p>
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_command.html">毎tick実行するコマンド群9</a></p>
 
-<p><span class="tagBlue">分岐先</span></p>
+<p>忍者のスキルの1つである火遁を実行する。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @a[score_ActivatedSkill_min=2060,score_ActivatedSkill=2069] ~ ~ ~ /playsound entity.zombie.infect master @a[r=16] ~ ~ ~ 1 0.5 0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @a[score_ActivatedSkill_min=2060,score_ActivatedSkill=2069] ~ ~ ~ /scoreboard players operation @a[c=1] TargetCheck = @a[c=1] ActivatedSkill</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute @a[score_ActivatedSkill_min=2060,score_ActivatedSkill=2069,tag=Sneaking] ~ ~ ~ /scoreboard players operation @a[r=15] TargetCheck &gt; @a[c=1] TargetCheck</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/effect @a[score_TargetCheck_min=2060,score_TargetCheck=2069] minecraft:fire_resistance 60 0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/execute @a[score_TargetCheck_min=2060,score_TargetCheck=2069] ~ ~ ~ /particle flame ~ ~1 ~ 0.5 0.5 0.5 0.1 30 force</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players reset @a[score_TargetCheck_min=0] TargetCheck</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="詳細">詳細</h2>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が2060 ~ 2069</strong>であるプレイヤーを対象として、以下の事柄を実行</li>
+</ul>
+
+<ol>
+  <li>対象プレイヤーから<strong>半径16m以内</strong>のすべてのプレイヤーに、<strong>効果音を鳴らす</strong></li>
+  <li>対象プレイヤーの<code class="language-plaintext highlighter-rouge">TargetCheck</code>に<code class="language-plaintext highlighter-rouge">ActivatedSkill</code>を代入</li>
+  <li>対象プレイヤーが<strong><code class="language-plaintext highlighter-rouge">Sneaking</code>を持っているとき</strong>、<strong>半径15m以内</strong>のすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">TargetCheck</code>が対象プレイヤーの<code class="language-plaintext highlighter-rouge">TargetCheck</code>より小さければ、対象プレイヤーのものを代入</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">TargetCheck</code>が2060 ~ 2069</strong>であるすべてのプレイヤーに、<strong>火炎耐性 Lv.1 を60秒間付与</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">TargetCheck</code>が2060 ~ 2069</strong>であるすべてのプレイヤーの座標上で、<strong>パーティクルを表示</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">TargetCheck</code>が0以上であるすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">TargetCheck</code>を0に設定</li>
+</ol>
 
 
     <div class="tags">
@@ -677,6 +752,150 @@ $('#toc').on('click', 'a', function() {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_ninja.html" class="btn btn-default navbar-btn cursorNorm" role="button">忍者</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 
 
@@ -689,7 +908,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 21 Aug 2020<br/> Site last generated: 26 Aug 2020 <br />
+            <span>Page last updated:</span> 28 Aug 2020<br/> Site last generated: 28 Aug 2020 <br />
         </div>
     </div>
 </footer>

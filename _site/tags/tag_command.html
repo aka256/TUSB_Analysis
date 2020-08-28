@@ -60,6 +60,9 @@
 <script src="/TUSB_Analysis/js/toc.js"></script>
 <script src="/TUSB_Analysis/js/customscripts.js"></script>
 
+<!--Chart.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
 <!-- original.js -->
 <script src="/TUSB_Analysis/js/original.js"></script>
 
@@ -430,7 +433,7 @@
                         
                     <li><a title="タクティカルヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tacticalHeal.html">タクティカルヒール実行</a></li>
                         
-                    <li><a title="薙ぎ払いイ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払いイ実行</a></li>
+                    <li><a title="薙ぎ払い実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払い実行</a></li>
                         
                     <li><a title="リアクティブヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_reactiveHeal.html">リアクティブヒール実行</a></li>
                         
@@ -442,7 +445,29 @@
             <li class="subfolders">
                 <a title="忍者スキル" href="#">忍者スキル</a>
                 <ul>
-                    
+                      
+                    <li><a title="アイサツ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_aisatsu.html">アイサツ実行</a></li>
+                        
+                    <li><a title="疾風実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_shippu.html">疾風実行</a></li>
+                        
+                    <li><a title="水遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_suiton.html">水遁実行</a></li>
+                        
+                    <li><a title="呼魂実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kodama.html">呼魂実行</a></li>
+                        
+                    <li><a title="黙想実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_mokuso.html">黙想実行</a></li>
+                        
+                    <li><a title="兵糧丸実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_hyoryomaru.html">兵糧丸実行</a></li>
+                        
+                    <li><a title="火遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_katon.html">火遁実行</a></li>
+                        
+                    <li><a title="風切実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kazakiri.html">風切実行</a></li>
+                        
+                    <li><a title="夜駆実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_yogake.html">夜駆実行</a></li>
+                        
+                    <li><a title="連舞実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tsuremai.html">連舞実行</a></li>
+                        
+                    <li><a title="跳躍実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tyoyaku.html">跳躍実行</a></li>
+                      
                 </ul>
             </li>
                
@@ -563,7 +588,7 @@ $('#toc').on('click', 'a', function() {
         </tr>
     </thead>
     <tbody>
-                                                                                                                                                                       
+                                                                                                                                                                   
 
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit12/xCircuit12_command.html">毎tick実行するコマンド群12</a></td>
@@ -1020,18 +1045,9 @@ $('#toc').on('click', 'a', function() {
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_aisatsu.html">アイサツ実行</a></td>
             <td><span class="label label-default">Page</span></td>
-            <td> 編集中です。
-
-## About
-
-位置 (-1920,8,-172)
-
-呼び出し元 [毎tick実行するコマンド群9]({{site.baseurl}}/command/xCircuit9/xCircuit9_command.html)
-
-分岐先
- </td>
+            <td> 忍者のスキルの1つであるアイサツを実行する。 </td>
         </tr>
-            
+                  
 
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_command.html">毎tick実行するコマンド群9</a></td>
@@ -1050,89 +1066,44 @@ $('#toc').on('click', 'a', function() {
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_hyoryomaru.html">兵糧丸実行</a></td>
             <td><span class="label label-default">Page</span></td>
-            <td> 編集中です。
-
-## About
-
-位置 (-1920,8,-171)
-
-呼び出し元 [毎tick実行するコマンド群9]({{site.baseurl}}/command/xCircuit9/xCircuit9_command.html)
-
-分岐先
- </td>
+            <td> 忍者のスキルの1つである兵糧丸を実行する。 </td>
         </tr>
-            
+                
 
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_ironWill.html">アイアンウィル実行</a></td>
             <td><span class="label label-default">Page</span></td>
             <td> 剣士のスキルの1つであるアイアンウィルの実行準備を行う。なお、防具や盾によるボーナス処理や終了処理はアイアンウィル継続処理を、スキル実行部は毎tick実行するコマンド群4をそれぞれ参照。 </td>
         </tr>
-                
+                  
 
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_katon.html">火遁実行</a></td>
             <td><span class="label label-default">Page</span></td>
-            <td> 編集中です。
-
-## About
-
-位置 (-1920,10,-171)
-
-呼び出し元 [毎tick実行するコマンド群9]({{site.baseurl}}/command/xCircuit9/xCircuit9_command.html)
-
-分岐先
- </td>
+            <td> 忍者のスキルの1つである火遁を実行する。 </td>
         </tr>
-            
+                
 
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kazakiri.html">風切実行</a></td>
             <td><span class="label label-default">Page</span></td>
-            <td> 編集中です。
-
-## About
-
-位置 (-1920,12,-171)
-
-呼び出し元 [毎tick実行するコマンド群9]({{site.baseurl}}/command/xCircuit9/xCircuit9_command.html)
-
-分岐先
- </td>
+            <td> 忍者のスキルの1つである風切を実行する。なお、スキルの継続処理は時間経過と風切更新で行われる。 </td>
         </tr>
-            
+                
 
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kodama.html">呼魂実行</a></td>
             <td><span class="label label-default">Page</span></td>
-            <td> 編集中です。
-
-## About
-
-位置 (-1920,14,-172)
-
-呼び出し元 [毎tick実行するコマンド群9]({{site.baseurl}}/command/xCircuit9/xCircuit9_command.html)
-
-分岐先
- </td>
+            <td> 忍者のスキルの1つである呼魂を実行する。また、タワーバンクからのアイテムの吸出し対策も行っている。 </td>
         </tr>
-            
+                
 
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_mokuso.html">黙想実行</a></td>
             <td><span class="label label-default">Page</span></td>
-            <td> 編集中です。
-
-## About
-
-位置 (-1920,16,-172)
-
-呼び出し元 [毎tick実行するコマンド群9]({{site.baseurl}}/command/xCircuit9/xCircuit9_command.html)
-
-分岐先
- </td>
+            <td> 忍者のスキルの1つである呼魂を実行する。なお、継続処理は時間経過で行われ、終了処理は毎tick実行するコマンド群4と黙想終了処理で行われる。 </td>
         </tr>
-            
+                
 
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_phalanx.html">ファランクス実行</a></td>
@@ -1151,18 +1122,9 @@ $('#toc').on('click', 'a', function() {
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_shippu.html">疾風実行</a></td>
             <td><span class="label label-default">Page</span></td>
-            <td> 編集中です。
-
-## About
-
-位置 (-1920,10,-172)
-
-呼び出し元 [毎tick実行するコマンド群9]({{site.baseurl}}/command/xCircuit9/xCircuit9_command.html)
-
-分岐先
- </td>
+            <td> 忍者のスキルの1つである疾風を実行する。 </td>
         </tr>
-            
+                
 
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払い実行</a></td>
@@ -1181,73 +1143,37 @@ $('#toc').on('click', 'a', function() {
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_suiton.html">水遁実行</a></td>
             <td><span class="label label-default">Page</span></td>
-            <td> 編集中です。
-
-## About
-
-位置 (-1920,12,-172)
-
-呼び出し元 [毎tick実行するコマンド群9]({{site.baseurl}}/command/xCircuit9/xCircuit9_command.html)
-
-分岐先
- </td>
+            <td> 忍者のスキルの1つである水遁を実行する。 </td>
         </tr>
-            
+                
 
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tacticalHeal.html">タクティカルヒール実行</a></td>
             <td><span class="label label-default">Page</span></td>
             <td> 剣士のスキルの1つであるタクティカルヒールの実行準備を行う。なお、実際にこのスキル実行するコマンド群はタクティカルヒール処理で行われる。 </td>
         </tr>
-            
+                  
 
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tsuremai.html">連舞実行</a></td>
             <td><span class="label label-default">Page</span></td>
-            <td> 編集中です。
-
-## About
-
-位置 (-1920,8,-169)
-
-呼び出し元 [毎tick実行するコマンド群9]({{site.baseurl}}/command/xCircuit9/xCircuit9_command.html)
-
-分岐先
- </td>
+            <td> 忍者のスキルの1つである連舞を実行する。 </td>
         </tr>
-            
+                  
 
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tyoyaku.html">跳躍実行</a></td>
             <td><span class="label label-default">Page</span></td>
-            <td> 編集中です。
-
-## About
-
-位置 (-1920,10,-169)
-
-呼び出し元 [毎tick実行するコマンド群9]({{site.baseurl}}/command/xCircuit9/xCircuit9_command.html)
-
-分岐先
- </td>
+            <td> 忍者のスキルの1つである連舞を実行する。なお、跳躍による攻撃処理は毎tick実行するコマンド群4で行われる。 </td>
         </tr>
-            
+                  
 
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_yogake.html">夜駆実行</a></td>
             <td><span class="label label-default">Page</span></td>
-            <td> 編集中です。
-
-## About
-
-位置 (-1920,14,-171)
-
-呼び出し元 [毎tick実行するコマンド群9]({{site.baseurl}}/command/xCircuit9/xCircuit9_command.html)
-
-分岐先
- </td>
+            <td> 忍者のスキルの1つである夜駆を実行する。 </td>
         </tr>
-            
+                
 
         <tr>
             <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_zantetsu.html">斬鉄剣実行</a></td>
@@ -1311,7 +1237,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-             Site last generated: 26 Aug 2020 <br />
+             Site last generated: 28 Aug 2020 <br />
         </div>
     </div>
 </footer>
