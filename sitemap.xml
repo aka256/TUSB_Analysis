@@ -15,9 +15,15 @@ search: exclude
   {% for page in site.html_pages %}
   {% unless page.search == "exclude" %}
   {% if page.url == "index.html" %}
-    <url>
+  <url>
     <loc>{{site.githuburl}}</loc>
     <lastmod>{{page.update|date: "%Y-%m-%dT%H:%M:%S+09:00"}}</lastmod>
+    <changefreq>{{site.changefreq}}</changefreq>
+  </url>
+  {% elsif page.update==null %}
+  <url>
+    <loc>{{site.githuburl}}{{page.url}}</loc>
+    <lastmod>{{"2020-08-26 09:00:00 +0000"|date: "%Y-%m-%dT%H:%M:%S+09:00"}}</lastmod>
     <changefreq>{{site.changefreq}}</changefreq>
   </url>
   {% else %}
