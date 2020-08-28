@@ -21,7 +21,7 @@
                 {% elsif page.url contains item.url %}
                 <li class="active"><a href="{{site.baseurl}}{{item.url | remove: " / "}}">{{item.title}}</a></li>
                 {% else %}
-                <li><a href="{{item.url | remove: " / "}}">{{item.title}}</a></li>
+                <li><a href="{{site.baseurl}}{{item.url | remove: " / "}}">{{item.title}}</a></li>
                 {% endif %} {% endfor %} {% endfor %}
                 <!-- entries with drop-downs appear here -->
                 <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
