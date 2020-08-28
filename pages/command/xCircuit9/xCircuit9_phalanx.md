@@ -2,7 +2,7 @@
 title: ファランクス実行
 tags: [コマンド,スキル,剣士]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-08-24 09:21:00 +0000
+update: 2020-08-28 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit9/xCircuit9_phalanx.html
 datatable2c: true
@@ -38,17 +38,18 @@ summaryDisable: true
 
 ## 詳細
 
-1. `ActivatedSkill`が1000~1009であるすべてのプレイヤーに対して効果音を鳴らす
-2. `ActivatedSkill`が1000~1009である一人のプレイヤーの`TargetCheck`に`ActivatedSkill`を代入
-3. `ActivatedSkill`が1000~1009であるプレイヤーに対して、以下の事柄を実行
-   1. `Sneaking`を持っている対象から半径15m以内にいるすべてのプレイヤーの`TargetCheck`が対象の`TargetCheck`よりも小さいとき、対象の`TargetCheck`を代入
-   2. `TargetCheck`の値に対応したレベルの耐性を60秒間プレイヤーに付与([TargetCheckと耐性レベル](#targetcheckと耐性レベル)を参照)
-   3. 対象の座標上でパーティクルを表示
-4. `TargetCheck`が0以上であるすべてのプレイヤーの`TargetCheck`を0に設定
+- **`ActivatedSkill`が1000 ~ 1009**であるすべてのプレイヤーを対象として、以下の事柄を実行
+
+1. 対象プレイヤーから**半径16m以内**のすべてのプレイヤーに、**効果音を鳴らす**
+2. 対象プレイヤーの`TargetCheck`に`ActivatedSkill`を代入
+3. **`Sneaking`を持っている**対象プレイヤーから、**半径15m以内**にいるすべてのプレイヤーの`TargetCheck`が対象の`TargetCheck`よりも小さいとき、対象の`TargetCheck`を代入
+4. **`TargetCheck`の値に対応したレベルの耐性を60秒間プレイヤーに付与** ([TargetCheckと耐性レベル](#targetcheckと耐性レベル)を参照)
+5. **`TargetCheck`が1000 ~ 1009**であるすべてのプレイヤーの座標上で、**パーティクルを表示**
+6. `TargetCheck`が0以上であるすべてのプレイヤーの`TargetCheck`を0に設定
 
 ### TargetCheckと耐性レベル
 
-|`TargetCheck`|耐性レベル|
+|TargetCheck|耐性レベル|
 |:-:|:-:|
 |1000|Lv.1|
 |1001|Lv.2|

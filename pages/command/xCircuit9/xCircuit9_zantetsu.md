@@ -2,7 +2,7 @@
 title: 斬鉄剣実行
 tags: [コマンド,スキル,剣士]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-08-26 09:21:00 +0000
+update: 2020-08-28 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit9/xCircuit9_zantetsu.html
 datatable3c: true
@@ -55,19 +55,19 @@ summaryDisable: true
 
 ### 斬鉄剣実行部
 
-- `ActivatedSkill`が**1250 ~ 1259**であるプレイヤーを対象として、以下の事柄を実行
+- **`ActivatedSkill`が1250 ~ 1259**であるプレイヤーを対象として、以下の事柄を実行
 
 1. 対象プレイヤーの座標上に**[ZantetsuPoint]({{site.baseurl}}/entity/entity_entity.html#zantetsupoint)を召喚**
-2. 対象プレイヤーから**半径10m以内の`Enemy`を持つエンティティ**から、更に**半径16m以内のすべてのプレイヤー**に効果音を鳴らす
-3. 対象プレイヤーから**半径10m以内の`Enemy`を持つエンティティ**の座標上でエフェクトを表示
+2. 対象プレイヤーから**半径10m以内の`Enemy`を持つエンティティ**から、更に**半径16m以内のすべてのプレイヤー**に**効果音を鳴らす**
+3. 対象プレイヤーから**半径10m以内の`Enemy`を持つエンティティ**の座標上で**パーティクルを表示**
 4. [斬鉄剣待機部](#斬鉄剣待機部)を**リピート実行**
 
 ### 斬鉄剣待機部
 
 1. [ZantetsuPoint]({{site.baseurl}}/entity/entity_entity.html#zantetsupoint)が召喚されて、**0.45秒**たったらそのエンティティに`Zantetsuken`を付与し、`Zantetsuken`を持ったエンティティを対象として、以下の事柄を実行
    1. 対象エンティティから**半径10m以内の`Enemy`を持ったすべてのエンティティ**に`SkillTarget`を付与し、それらの座標上に[斬鉄剣]({{site.baseurl}}/entity/entity_entity.html#斬鉄剣)を召喚
-   2. 対象エンティティから**半径10m以内の`SkillTarget`**の座標上でパーティクルを表示
-   3. 対象エンティティから**半径10m以内の`SkillTarget`**から、更に半**径16m以内のすべてのプレイヤー**に効果音を鳴らす
+   2. 対象エンティティから**半径10m以内の`SkillTarget`**の座標上で**パーティクルを表示**
+   3. 対象エンティティから**半径10m以内の`SkillTarget`**から、更に半**径16m以内のすべてのプレイヤー**に**効果音を鳴らす**
 2. `#EntityCount`が0以下になった時、**[斬鉄待機部](#斬鉄剣待機部)のリピートを停止**
 
 ### ZantetsuPoint

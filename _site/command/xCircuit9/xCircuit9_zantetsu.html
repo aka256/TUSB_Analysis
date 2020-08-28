@@ -52,6 +52,9 @@
 <script src="/TUSB_Analysis/js/toc.js"></script>
 <script src="/TUSB_Analysis/js/customscripts.js"></script>
 
+<!--Chart.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
 <!-- original.js -->
 <script src="/TUSB_Analysis/js/original.js"></script>
 
@@ -453,7 +456,7 @@
                         
                     <li><a title="タクティカルヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tacticalHeal.html">タクティカルヒール実行</a></li>
                         
-                    <li><a title="薙ぎ払いイ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払いイ実行</a></li>
+                    <li><a title="薙ぎ払い実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払い実行</a></li>
                         
                     <li><a title="リアクティブヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_reactiveHeal.html">リアクティブヒール実行</a></li>
                         
@@ -465,7 +468,29 @@
             <li class="subfolders">
                 <a title="忍者スキル" href="#">忍者スキル</a>
                 <ul>
-                    
+                      
+                    <li><a title="アイサツ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_aisatsu.html">アイサツ実行</a></li>
+                        
+                    <li><a title="疾風実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_shippu.html">疾風実行</a></li>
+                        
+                    <li><a title="水遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_suiton.html">水遁実行</a></li>
+                        
+                    <li><a title="呼魂実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kodama.html">呼魂実行</a></li>
+                        
+                    <li><a title="黙想実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_mokuso.html">黙想実行</a></li>
+                        
+                    <li><a title="兵糧丸実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_hyoryomaru.html">兵糧丸実行</a></li>
+                        
+                    <li><a title="火遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_katon.html">火遁実行</a></li>
+                        
+                    <li><a title="風切実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kazakiri.html">風切実行</a></li>
+                        
+                    <li><a title="夜駆実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_yogake.html">夜駆実行</a></li>
+                        
+                    <li><a title="連舞実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tsuremai.html">連舞実行</a></li>
+                        
+                    <li><a title="跳躍実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tyoyaku.html">跳躍実行</a></li>
+                      
                 </ul>
             </li>
                
@@ -684,13 +709,13 @@ $('#toc').on('click', 'a', function() {
 <h3 id="斬鉄剣実行部">斬鉄剣実行部</h3>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が<strong>1250 ~ 1259</strong>であるプレイヤーを対象として、以下の事柄を実行</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が1250 ~ 1259</strong>であるプレイヤーを対象として、以下の事柄を実行</li>
 </ul>
 
 <ol>
   <li>対象プレイヤーの座標上に<strong><a href="/TUSB_Analysis/entity/entity_entity.html#zantetsupoint">ZantetsuPoint</a>を召喚</strong></li>
-  <li>対象プレイヤーから<strong>半径10m以内の<code class="language-plaintext highlighter-rouge">Enemy</code>を持つエンティティ</strong>から、更に<strong>半径16m以内のすべてのプレイヤー</strong>に効果音を鳴らす</li>
-  <li>対象プレイヤーから<strong>半径10m以内の<code class="language-plaintext highlighter-rouge">Enemy</code>を持つエンティティ</strong>の座標上でエフェクトを表示</li>
+  <li>対象プレイヤーから<strong>半径10m以内の<code class="language-plaintext highlighter-rouge">Enemy</code>を持つエンティティ</strong>から、更に<strong>半径16m以内のすべてのプレイヤー</strong>に<strong>効果音を鳴らす</strong></li>
+  <li>対象プレイヤーから<strong>半径10m以内の<code class="language-plaintext highlighter-rouge">Enemy</code>を持つエンティティ</strong>の座標上で<strong>パーティクルを表示</strong></li>
   <li><a href="#斬鉄剣待機部">斬鉄剣待機部</a>を<strong>リピート実行</strong></li>
 </ol>
 
@@ -700,8 +725,8 @@ $('#toc').on('click', 'a', function() {
   <li><a href="/TUSB_Analysis/entity/entity_entity.html#zantetsupoint">ZantetsuPoint</a>が召喚されて、<strong>0.45秒</strong>たったらそのエンティティに<code class="language-plaintext highlighter-rouge">Zantetsuken</code>を付与し、<code class="language-plaintext highlighter-rouge">Zantetsuken</code>を持ったエンティティを対象として、以下の事柄を実行
     <ol>
       <li>対象エンティティから<strong>半径10m以内の<code class="language-plaintext highlighter-rouge">Enemy</code>を持ったすべてのエンティティ</strong>に<code class="language-plaintext highlighter-rouge">SkillTarget</code>を付与し、それらの座標上に<a href="/TUSB_Analysis/entity/entity_entity.html#斬鉄剣">斬鉄剣</a>を召喚</li>
-      <li>対象エンティティから<strong>半径10m以内の<code class="language-plaintext highlighter-rouge">SkillTarget</code></strong>の座標上でパーティクルを表示</li>
-      <li>対象エンティティから<strong>半径10m以内の<code class="language-plaintext highlighter-rouge">SkillTarget</code></strong>から、更に半<strong>径16m以内のすべてのプレイヤー</strong>に効果音を鳴らす</li>
+      <li>対象エンティティから<strong>半径10m以内の<code class="language-plaintext highlighter-rouge">SkillTarget</code></strong>の座標上で<strong>パーティクルを表示</strong></li>
+      <li>対象エンティティから<strong>半径10m以内の<code class="language-plaintext highlighter-rouge">SkillTarget</code></strong>から、更に半<strong>径16m以内のすべてのプレイヤー</strong>に<strong>効果音を鳴らす</strong></li>
     </ol>
   </li>
   <li><code class="language-plaintext highlighter-rouge">#EntityCount</code>が0以下になった時、<strong><a href="#斬鉄剣待機部">斬鉄待機部</a>のリピートを停止</strong></li>
@@ -1002,7 +1027,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 26 Aug 2020<br/> Site last generated: 26 Aug 2020 <br />
+            <span>Page last updated:</span> 28 Aug 2020<br/> Site last generated: 28 Aug 2020 <br />
         </div>
     </div>
 </footer>

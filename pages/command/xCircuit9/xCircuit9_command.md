@@ -26,14 +26,14 @@ summaryDisable: true
 
 |No.|コマンド|状態|コメント|
 |:-:|-|-|-|
-|1|/execute @a[score_ActivatedSkill_min=1000,score_ActivatedSkill=1199,c=1] ~ ~ ~ /execute 0-0-1-0-1 -1919 3 -175 /fill ~ ~ ~ ~5 ~ ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0||剣士 即時分岐|
+|1|/execute @a[score_ActivatedSkill_min=1000,score_ActivatedSkill=1199,c=1] ~ ~ ~ /execute 0-0-1-0-1 -1919 3 -175 /fill ~ ~ ~ ~5 ~ ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0||剣士<br>即時分岐|
 |2|/execute @a[score_ActivatedSkill_min=1000,score_ActivatedSkill=1009,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 8 -175 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###ファランクス|動力が必要|
 |3|/execute @a[score_ActivatedSkill_min=1010,score_ActivatedSkill=1019,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 10 -175 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###アイアンウィル|動力が必要|
 |4|/execute @a[score_ActivatedSkill_min=1020,score_ActivatedSkill=1029,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 12 -175 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###ストライ|動力が必要|
 |5|/execute @a[score_ActivatedSkill_min=1030,score_ActivatedSkill=1039,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 14 -175 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###デコイ|動力が必要|
 |6|/execute @a[score_ActivatedSkill_min=1040,score_ActivatedSkill=1049,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 16 -175 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###タクティカルヒール|動力が必要|
 |7|/fill ~-5 ~-1 ~ ~ ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0|動力が必要|
-|8|/execute @a[score_ActivatedSkill_min=1200,score_ActivatedSkill=1399,c=1] ~ ~ ~ /execute 0-0-1-0-1 -1912 3 -175 /fill ~ ~ ~ ~8 ~ ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0||剣士 モード分岐|
+|8|/execute @a[score_ActivatedSkill_min=1200,score_ActivatedSkill=1399,c=1] ~ ~ ~ /execute 0-0-1-0-1 -1912 3 -175 /fill ~ ~ ~ ~8 ~ ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0||剣士<br>モード分岐|
 |9|/execute @a[score_ActivatedSkill_min=1200,score_ActivatedSkill=1209,c=1] ~ ~ ~ /execute 0-0-1-0-1 -1916 3 -144 /fill ~ ~ ~ ~5 ~ ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0 ###流し斬り|動力が必要|
 |10|/execute @a[score_ActivatedSkill_min=1210,score_ActivatedSkill=1219,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 8 -174 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###薙ぎ払い|動力が必要|
 |11|/execute @a[score_ActivatedSkill_min=1220,score_ActivatedSkill=1229,c=1] ~ ~ ~ /execute 0-0-1-0-1 -1910 3 -144 /fill ~ ~ ~ ~3 ~ ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0 ###真空斬り|動力が必要|
@@ -43,7 +43,7 @@ summaryDisable: true
 |15|/scoreboard players tag @a[score_ActivatedSkill_min=1240,score_ActivatedSkill=1249] add UpdateRandom|条件付き|
 |16|/execute @a[score_ActivatedSkill_min=1250,score_ActivatedSkill=1259,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 12 -174 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###斬鉄剣|動力が必要|
 |17|/fill ~-8 ~-1 ~ ~ ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0|動力が必要|
-|18|/execute @a[score_ActivatedSkill_min=2000,score_ActivatedSkill=2199,c=1] ~ ~ ~ /execute 0-0-1-0-1 -1902 3 -175 /fill ~ ~ ~ ~9 ~ ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0||忍者 即時分岐|
+|18|/execute @a[score_ActivatedSkill_min=2000,score_ActivatedSkill=2199,c=1] ~ ~ ~ /execute 0-0-1-0-1 -1902 3 -175 /fill ~ ~ ~ ~9 ~ ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0||忍者<br>即時分岐|
 |19|/execute @a[score_ActivatedSkill_min=2000,score_ActivatedSkill=2009,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 8 -172 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###アイサツ|動力が必要|
 |20|/execute @a[score_ActivatedSkill_min=2010,score_ActivatedSkill=2019,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 10 -172 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###疾風|動力が必要|
 |21|/execute @a[score_ActivatedSkill_min=2020,score_ActivatedSkill=2029,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 12 -172 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###水遁|動力が必要|
@@ -54,7 +54,7 @@ summaryDisable: true
 |26|/execute @a[score_ActivatedSkill_min=2070,score_ActivatedSkill=2079,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 12 -171 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###風切|動力が必要|
 |27|/execute @a[score_ActivatedSkill_min=2080,score_ActivatedSkill=2089,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 14 -171 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###夜駆|動力が必要|
 |28|/fill ~-9 ~-1 ~ ~ ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0|動力が必要|
-|29|/execute @a[score_ActivatedSkill_min=2200,score_ActivatedSkill=2399,c=1] ~ ~ ~ /execute 0-0-1-0-1 -1891 3 -175 /fill ~ ~ ~ ~7 ~ ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0||忍者 モード分岐|
+|29|/execute @a[score_ActivatedSkill_min=2200,score_ActivatedSkill=2399,c=1] ~ ~ ~ /execute 0-0-1-0-1 -1891 3 -175 /fill ~ ~ ~ ~7 ~ ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0||忍者<br>モード分岐|
 |30|/execute @a[score_ActivatedSkill_min=2200,score_ActivatedSkill=2209,c=1] ~ ~ ~ /execute 0-0-1-0-1 -1919 3 -143 /fill ~ ~ ~ ~3 ~ ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0 ###手裏剣|動力が必要|
 |31|/scoreboard players set #ProjectileUpdate Global 2|条件付き|
 |32|/execute @a[score_ActivatedSkill_min=2210,score_ActivatedSkill=2219,c=1] ~ ~ ~ /execute 0-0-1-0-1 ~ 8 -169 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###連舞|動力が必要|

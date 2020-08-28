@@ -256,7 +256,7 @@ entries:
         - title: タクティカルヒール実行
           url: /command/xCircuit9/xCircuit9_tacticalHeal.html
           output: web, pdf
-        - title: 薙ぎ払いイ実行
+        - title: 薙ぎ払い実行
           url: /command/xCircuit9/xCircuit9_slaughter.html
           output: web, pdf
         - title: リアクティブヒール実行
@@ -269,6 +269,39 @@ entries:
       - title: 忍者スキル
         output: web, pdf
         subfolderitems:
+        - title: アイサツ実行
+          url: /command/xCircuit9/xCircuit9_aisatsu.html
+          output: web, pdf
+        - title: 疾風実行
+          url: /command/xCircuit9/xCircuit9_shippu.html
+          output: web, pdf
+        - title: 水遁実行
+          url: /command/xCircuit9/xCircuit9_suiton.html
+          output: web, pdf
+        - title: 呼魂実行
+          url: /command/xCircuit9/xCircuit9_kodama.html
+          output: web, pdf
+        - title: 黙想実行
+          url: /command/xCircuit9/xCircuit9_mokuso.html
+          output: web, pdf
+        - title: 兵糧丸実行
+          url: /command/xCircuit9/xCircuit9_hyoryomaru.html
+          output: web, pdf
+        - title: 火遁実行
+          url: /command/xCircuit9/xCircuit9_katon.html
+          output: web, pdf
+        - title: 風切実行
+          url: /command/xCircuit9/xCircuit9_kazakiri.html
+          output: web, pdf
+        - title: 夜駆実行
+          url: /command/xCircuit9/xCircuit9_yogake.html
+          output: web, pdf
+        - title: 連舞実行
+          url: /command/xCircuit9/xCircuit9_tsuremai.html
+          output: web, pdf
+        - title: 跳躍実行
+          url: /command/xCircuit9/xCircuit9_tyoyaku.html
+          output: web, pdf
 
   - title: 超作業台ルーム
     output: web,pdf

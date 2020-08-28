@@ -1,7 +1,6 @@
 ---
 title: "ネザータグ"
 tagName: ネザー
-search: exclude
 permalink: tags/tag_nether.html
 sidebar: mydoc_sidebar
 folder: tags

@@ -5,8 +5,8 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content="コマンド,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<meta name="description" content="忍者のスキルの1つである夜駆を実行する。">
+<meta name="keywords" content="コマンドスキル忍者,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
 <title>夜駆実行 | TUSB Analysis</title>
 
 <!-- Google Tag Manager -->
@@ -52,6 +52,9 @@
 <script src="/TUSB_Analysis/js/toc.js"></script>
 <script src="/TUSB_Analysis/js/customscripts.js"></script>
 
+<!--Chart.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
 <!-- original.js -->
 <script src="/TUSB_Analysis/js/original.js"></script>
 
@@ -61,7 +64,7 @@
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
 <meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit9/xCircuit9_yogake.html" /> <!--③-->
 <meta property="og:title" content="夜駆実行 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="" /> <!--⑤-->
+<meta property="og:description" content="忍者のスキルの1つである夜駆を実行する。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -140,8 +143,7 @@
       -->
     <script>
         $(document).ready(function() {
-            $('div.datatable4c-begin').nextUntil('div.datatable4c-end', 'table').addClass('display');
-            //$('div.datatable3-begin').nextUntil('div.datatable3-end', 'table').Class('display').style = "word-break:break-all";
+            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
             $('table.display').DataTable({
                 paging: true,
                 stateSave: true,
@@ -149,14 +151,11 @@
                 autoWidth: false,
                 lengthChange: true,
                 columns: [{
-                    responsivePriority: 3,
+                    responsivePriority: 2,
                     width: "6%"
                 }, {
-                    responsivePriority: 4,
-                    width: "64%"
-                }, {
-                    responsivePriority: 2,
-                    width: "15%"
+                    responsivePriority: 3,
+                    width: "79%"
                 }, {
                     responsivePriority: 1,
                     width: "15%"
@@ -457,7 +456,7 @@
                         
                     <li><a title="タクティカルヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tacticalHeal.html">タクティカルヒール実行</a></li>
                         
-                    <li><a title="薙ぎ払いイ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払いイ実行</a></li>
+                    <li><a title="薙ぎ払い実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払い実行</a></li>
                         
                     <li><a title="リアクティブヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_reactiveHeal.html">リアクティブヒール実行</a></li>
                         
@@ -469,7 +468,29 @@
             <li class="subfolders">
                 <a title="忍者スキル" href="#">忍者スキル</a>
                 <ul>
-                    
+                      
+                    <li><a title="アイサツ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_aisatsu.html">アイサツ実行</a></li>
+                        
+                    <li><a title="疾風実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_shippu.html">疾風実行</a></li>
+                        
+                    <li><a title="水遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_suiton.html">水遁実行</a></li>
+                        
+                    <li><a title="呼魂実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kodama.html">呼魂実行</a></li>
+                        
+                    <li><a title="黙想実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_mokuso.html">黙想実行</a></li>
+                        
+                    <li><a title="兵糧丸実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_hyoryomaru.html">兵糧丸実行</a></li>
+                        
+                    <li><a title="火遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_katon.html">火遁実行</a></li>
+                        
+                    <li><a title="風切実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kazakiri.html">風切実行</a></li>
+                        
+                    <li class="active"><a title="夜駆実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_yogake.html">夜駆実行</a></li>
+                        
+                    <li><a title="連舞実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tsuremai.html">連舞実行</a></li>
+                        
+                    <li><a title="跳躍実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tyoyaku.html">跳躍実行</a></li>
+                      
                 </ul>
             </li>
                
@@ -580,15 +601,532 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>編集中です。</p>
-
-<h2 id="about">About</h2>
+   <h2 id="about">About</h2>
 
 <p><span class="tagYellow">位置</span> (-1920,14,-171)</p>
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_command.html">毎tick実行するコマンド群9</a></p>
 
-<p><span class="tagBlue">分岐先</span></p>
+<p>忍者のスキルの1つである夜駆を実行する。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players tag @a[score_ActivatedSkill_min=2080,score_ActivatedSkill=2089] add Yogake</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @a[tag=Yogake] ~ ~ ~ /playsound entity.zombie.unfect master @a[r=16] ~ ~ ~ 1 2 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute @a[tag=Yogake] ~ ~ ~ /particle explode ~ ~1.6 ~ 0 0.1 0 0.1 30 force</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/time query daytime</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players operation #Random Global += #18000 Const</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players operation #Random Global %= #24000 Const</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players operation #Random Global -= #12000 Const</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/effect @a[tag=Yogake] minecraft:night_vision 60 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players test #Random Global -9500 9500</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/effect @a[tag=Yogake] minecraft:night_vision 60 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players test #Random Global -8500 8500</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/effect @a[tag=Yogake] minecraft:absorption 60 0</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/scoreboard players test #Random Global -7500 7500</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/effect @a[tag=Yogake] minecraft:absorption 60 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/effect @a[tag=Yogake] minecraft:haste 60 0</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/scoreboard players test #Random Global -6500 6500</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/effect @a[tag=Yogake] minecraft:night_vision 60 2</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/effect @a[tag=Yogake] minecraft:haste 60 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/effect @a[tag=Yogake] minecraft:resistance 60 0</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/scoreboard players test #Random Global -5500 5500</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/effect @a[tag=Yogake] minecraft:absorption 60 2</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/effect @a[tag=Yogake] minecraft:resistance 60 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/scoreboard players test #Random Global -4500 4500</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/effect @a[tag=Yogake] minecraft:haste 60 2</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td>/scoreboard players test #Random Global -3500 3500</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td>/effect @a[tag=Yogake] minecraft:night_vision 60 3</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">27</td>
+      <td>/effect @a[tag=Yogake] minecraft:resistance 60 2</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">28</td>
+      <td>/scoreboard players test #Random Global -2500 2500</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">29</td>
+      <td>/effect @a[tag=Yogake] minecraft:absorption 60 3</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">30</td>
+      <td>/scoreboard players test #Random Global -1500 1500</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">31</td>
+      <td>/effect @a[tag=Yogake] minecraft:haste 60 3</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">32</td>
+      <td>/scoreboard players test #Random Global -500 500</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">33</td>
+      <td>/effect @a[tag=Yogake] minecraft:resistance 60 3</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">34</td>
+      <td>/scoreboard players tag @a[tag=Yogake] remove Yogake</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<h3 id="no4のコマンドブロックについて">No.4のコマンドブロックについて</h3>
+
+<p>No.4 のコマンドブロックには、以下のデータタグが付与されている。</p>
+
+<pre><code class="language-mcfunction">CommandStats:{QueryResultName:"#Random",QueryResultObjective:"Global"}
+</code></pre>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が2080 ~ 2089</strong>であるすべてのプレイヤーに、<code class="language-plaintext highlighter-rouge">Yogake</code>を付与</li>
+  <li><code class="language-plaintext highlighter-rouge">Yogake</code>を持つすべてのプレイヤーから、<strong>半径16m以内</strong>のすべてのプレイヤーに、<strong>効果音を鳴らす</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">Yogake</code>を持つすべてのプレイヤーの座標上で、<strong>パーティクルを表示</strong></li>
+  <li>ゲーム内時間から計算した結果を、<code class="language-plaintext highlighter-rouge">#Random</code>の<code class="language-plaintext highlighter-rouge">Globla</code>に保存(計算結果は<a href="#夜駆レベルとdaytimeの関係">夜駆レベルとdaytimeの関係</a>の<code class="language-plaintext highlighter-rouge">#Random</code>を参照)</li>
+</ol>
+
+<script type="math/tex; mode=display">\text{#Random} = (\text{daytime} + 18000)\bmod 24000 -12000</script>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">#Random</code>の値によって、<strong><code class="language-plaintext highlighter-rouge">Yogake</code>を持つすべてのプレイヤーに効果を60秒間付与</strong>(<a href="#randomと効果の関係">#Randomと効果の関係</a>を参照)</li>
+  <li><code class="language-plaintext highlighter-rouge">Yogake</code>を持つすべてのプレイヤーから<code class="language-plaintext highlighter-rouge">Yogake</code>を削除</li>
+</ol>
+
+<h3 id="randomと効果の関係">#Randomと効果の関係</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">レベル</th>
+      <th style="text-align: center">#Random</th>
+      <th style="text-align: center">暗視</th>
+      <th style="text-align: center">衝撃吸収</th>
+      <th style="text-align: center">移動速度上昇</th>
+      <th style="text-align: center">耐性</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">-12000 ~ -9501, 9501 ~ 12000</td>
+      <td style="text-align: center">Lv.1</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">-9050 ~ -8501, 8501 ~ 9500</td>
+      <td style="text-align: center">Lv.2</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">-8500 ~ -7501, 7501 ~ 8500</td>
+      <td style="text-align: center">Lv.2</td>
+      <td style="text-align: center">Lv.1</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">-7500 ~ -6501, 6501 ~ 7500</td>
+      <td style="text-align: center">Lv.2</td>
+      <td style="text-align: center">Lv.2</td>
+      <td style="text-align: center">Lv.1</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">-6500 ~ -5501, 5501 ~ 6500</td>
+      <td style="text-align: center">Lv.3</td>
+      <td style="text-align: center">Lv.2</td>
+      <td style="text-align: center">Lv.2</td>
+      <td style="text-align: center">Lv.1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: center">-5500 ~ -4501, 4501 ~ 5500</td>
+      <td style="text-align: center">Lv.3</td>
+      <td style="text-align: center">Lv.3</td>
+      <td style="text-align: center">Lv.2</td>
+      <td style="text-align: center">Lv.2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td style="text-align: center">-4500 ~ -3501, 3501 ~ 4500</td>
+      <td style="text-align: center">Lv.3</td>
+      <td style="text-align: center">Lv.3</td>
+      <td style="text-align: center">Lv.3</td>
+      <td style="text-align: center">Lv.2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td style="text-align: center">-3500 ~ -2501, 2501 ~ 3500</td>
+      <td style="text-align: center">Lv.4</td>
+      <td style="text-align: center">Lv.3</td>
+      <td style="text-align: center">Lv.3</td>
+      <td style="text-align: center">Lv.3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td style="text-align: center">-2500 ~ -1501, 1501 ~ 2500</td>
+      <td style="text-align: center">Lv.4</td>
+      <td style="text-align: center">Lv.4</td>
+      <td style="text-align: center">Lv.4</td>
+      <td style="text-align: center">Lv.3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td style="text-align: center">-1500 ~ -501, 501 ~ 1500</td>
+      <td style="text-align: center">Lv.4</td>
+      <td style="text-align: center">Lv.4</td>
+      <td style="text-align: center">Lv.4</td>
+      <td style="text-align: center">Lv.3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td style="text-align: center">-500 ~ 500</td>
+      <td style="text-align: center">Lv.4</td>
+      <td style="text-align: center">Lv.4</td>
+      <td style="text-align: center">Lv.4</td>
+      <td style="text-align: center">Lv.4</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="夜駆レベルとdaytimeの関係">夜駆レベルとdaytimeの関係</h3>
+
+<canvas id="myLineChart"></canvas>
+<script>
+const xs = [];
+for(let i=0;i<=24000;i+=200){
+  xs.push(i);
+}
+function calc_ys(xs){
+  return xs.map(x=>(x+18000)%24000-12000);
+}
+function calc_daytime(){
+  return xs.map(x=>{
+    if(x>=0 && x<=12000){
+      return 12000;
+    }else{
+      return ;
+    }
+  });
+}
+function calc_sunset(){
+  return xs.map(x=>{
+    if(x>=12000 && x<=13000){
+      return 12000;
+    }else{
+      return ;
+    }
+  });
+}
+function calc_nighttime(){
+  return xs.map(x=>{
+    if(x>=13000 && x<=23000){
+      return 12000;
+    }else{
+      return ;
+    }
+  });
+}
+function calc_sunrise(){
+  return xs.map(x=>{
+    if(x>=23000 && x<=24000){
+      return 12000;
+    }else{
+      return ;
+    }
+  });
+}
+function calc_yogakelevel(){
+  return calc_ys(xs).map(x=>{
+    if(Math.abs(x)>=9500 && Math.abs(x)<=12000){
+      return 1;
+    }else if(Math.abs(x)>=8500 && Math.abs(x)<=9500){
+      return 2;
+    }else if(Math.abs(x)>=7500 && Math.abs(x)<=8500){
+      return 3;
+    }else if(Math.abs(x)>=6500 && Math.abs(x)<=7500){
+      return 4;
+    }else if(Math.abs(x)>=5500 && Math.abs(x)<=6500){
+      return 5;
+    }else if(Math.abs(x)>=4500 && Math.abs(x)<=5500){
+      return 6;
+    }else if(Math.abs(x)>=3500 && Math.abs(x)<=4500){
+      return 7;
+    }else if(Math.abs(x)>=2500 && Math.abs(x)<=3500){
+      return 8;
+    }else if(Math.abs(x)>=1500 && Math.abs(x)<=2500){
+      return 9;
+    }else if(Math.abs(x)>=500 && Math.abs(x)<=1500){
+      return 10;
+    }else{
+      return 11;
+    }
+  });
+}
+var ctx = document.getElementById("myLineChart").getContext('2d');
+var myLineChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: xs,
+    datasets: [
+    {
+      label: `夜駆レベル`,
+      data: calc_yogakelevel(),
+      yAxisID: "2",
+      fill: false,
+      borderColor: "rgba(255,0,0,1)",
+      pointRadius: 0,
+      borderWidth: 2
+    },
+    {
+      label: '#Random',
+      data: calc_ys(xs),
+      steppedLine: true,
+      yAxisID: "1",
+      pointRadius: 0,
+      borderWidth: 2
+    },
+    {
+      fill: `start`,
+      label: `Daytime`,
+      data: calc_daytime(),
+      lineTension:0,
+      borderColor: "rgba(0,191,255,1)", //deepskyblue
+      backgroundColor: "rgba(0,191,255,0.2)",
+      pointRadius: 0,
+      borderWidth: 1,
+      yAxisID: "1"
+    },
+    {
+      fill: `start`,
+      label: `Sunset`,
+      data: calc_sunset(),
+      lineTension:0,
+      borderColor: "rgba(100,149,237,1)", //cornflowerblue
+      backgroundColor: "rgba(100,149,237,0.2)",
+      pointRadius: 0,
+      borderWidth: 1,
+      yAxisID: "1"
+    },
+    {
+      fill: `start`,
+      label: `Nighttime`,
+      data: calc_nighttime(),
+      lineTension:0,
+      borderColor: "rgba(112,128,144,1)", //slategray
+      backgroundColor: "rgba(112,128,144,0.2)",
+      pointRadius: 0,
+      borderWidth: 1,
+      yAxisID: "1"
+    },
+    {
+      fill: `start`,
+      label: `Sunrise`,
+      data: calc_sunrise(),
+      lineTension:0,
+      borderColor: "rgba(70,130,180,1)", //steelblue
+      backgroundColor: "rgba(70,130,180,0.2)",
+      pointRadius: 0,
+      borderWidth: 1,
+      yAxisID: "1"
+    }
+    ]
+  },
+  options: {
+    title: {
+      display: false,
+      text: 'daytimeと#Random'
+    },
+    scales: {
+      xAxes: [{
+        ticks: {
+          callback: function(value) {return ((value % 3000) == 0)? value + `tick` : ''},
+          min: 0,
+          max: 24000,
+          maxTicksLimit: 24
+        }
+      }],
+      yAxes: [{
+        id: `1`,
+        type: `linear`,
+        position: `right`,
+        ticks: {
+          stepSize: 3000
+        },
+        gridLines: {
+          drawOnChartArea: false,
+        },
+      },{
+        id: `2`,
+        type: `linear`,
+        position: `left`,
+        ticks: {
+          stepSize: 1,
+          callback: function(value) {return `Lv.`+value;}
+        }
+      }]
+    },
+    elements: {
+      line: {
+          tension: 0, // ベジェ曲線を無効にする
+      }
+    },
+    tooltips: {
+      callbacks: {
+        label: function(tooltipItem,data){
+          if(tooltipItem.datasetIndex==0){
+            return data.datasets[tooltipItem.datasetIndex].label+`: `+`Lv.`+tooltipItem.yLabel;
+          }else if(tooltipItem.datasetIndex==1){
+            return data.datasets[tooltipItem.datasetIndex].label+`: `+tooltipItem.yLabel + `tick`;
+          }else{
+            return data.datasets[tooltipItem.datasetIndex].label;
+          }
+        },
+        title: function(array,data){
+          return array[0].xLabel+`tick`;
+        }
+      }
+    }
+  }
+});
+</script>
+
 
 
     <div class="tags">
@@ -669,6 +1207,150 @@ $('#toc').on('click', 'a', function() {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_ninja.html" class="btn btn-default navbar-btn cursorNorm" role="button">忍者</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 
 
@@ -681,7 +1363,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 21 Aug 2020<br/> Site last generated: 26 Aug 2020 <br />
+            <span>Page last updated:</span> 28 Aug 2020<br/> Site last generated: 28 Aug 2020 <br />
         </div>
     </div>
 </footer>

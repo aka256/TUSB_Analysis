@@ -1,8 +1,8 @@
 ---
 title: タクティカルヒール実行
-tags: [コマンド]
+tags: [コマンド,スキル,剣士,表示]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-08-24 09:21:00 +0000
+update: 2020-08-28 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit9/xCircuit9_tacticalHeal.html
 datatable2c: true
@@ -33,8 +33,9 @@ summaryDisable: true
 
 ## 詳細
 
-- `ActivatedSkill`が1040~1049までのプレイヤーを対象として、以下の事柄を実行
-   1. 対象プレイヤーから半径16m以内のすべてのプレイヤーに効果音を鳴らす
-   2. 対象プレイヤーの座標上でパーティクルを表示
-   3. 対象プレイヤーに「<span style="color:green" data-toggle="tooltip" data-original-title="{{site.data.glossary.tacticalHealMesage}}">タクティカルヒールの効果がかかった。</span>」とのメッセージを表示
-   4. 対象プレイヤーに`TacticalHeal`を付与
+- **`ActivatedSkill`が1040 ~ 1049**までのプレイヤーを対象として、以下の事柄を実行
+
+1. 対象プレイヤーから**半径16m以内**のすべてのプレイヤーに、**効果音を鳴らす**
+2. 対象プレイヤーの座標上で**パーティクルを表示**
+3. 対象プレイヤーに「<span style="color:green" data-toggle="tooltip" data-original-title="{{site.data.glossary.tacticalHealMesage}}">タクティカルヒールの効果がかかった。</span>」とのメッセージを表示
+4. 対象プレイヤーに`TacticalHeal`を付与

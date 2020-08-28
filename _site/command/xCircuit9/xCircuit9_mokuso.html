@@ -5,8 +5,8 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content="コマンド,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<meta name="description" content="忍者のスキルの1つである呼魂を実行する。なお、継続処理は時間経過で行われ、終了処理は毎tick実行するコマンド群4と黙想終了処理で行われる。">
+<meta name="keywords" content="コマンドスキル忍者,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
 <title>黙想実行 | TUSB Analysis</title>
 
 <!-- Google Tag Manager -->
@@ -52,6 +52,9 @@
 <script src="/TUSB_Analysis/js/toc.js"></script>
 <script src="/TUSB_Analysis/js/customscripts.js"></script>
 
+<!--Chart.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
 <!-- original.js -->
 <script src="/TUSB_Analysis/js/original.js"></script>
 
@@ -61,7 +64,7 @@
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
 <meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit9/xCircuit9_mokuso.html" /> <!--③-->
 <meta property="og:title" content="黙想実行 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="" /> <!--⑤-->
+<meta property="og:description" content="忍者のスキルの1つである呼魂を実行する。なお、継続処理は時間経過で行われ、終了処理は毎tick実行するコマンド群4と黙想終了処理で行われる。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -140,7 +143,7 @@
       -->
     <script>
         $(document).ready(function() {
-            $('div.datatable4c-begin').nextUntil('div.datatable4c-end', 'table').addClass('display');
+            $('div.datatable2c-begin').nextUntil('div.datatable2c-end', 'table').addClass('display');
             //$('div.datatable3-begin').nextUntil('div.datatable3-end', 'table').Class('display').style = "word-break:break-all";
             $('table.display').DataTable({
                 paging: true,
@@ -149,17 +152,11 @@
                 autoWidth: false,
                 lengthChange: true,
                 columns: [{
-                    responsivePriority: 3,
+                    responsivePriority: 1,
                     width: "6%"
                 }, {
-                    responsivePriority: 4,
-                    width: "64%"
-                }, {
                     responsivePriority: 2,
-                    width: "15%"
-                }, {
-                    responsivePriority: 1,
-                    width: "15%"
+                    width: "94%"
                 }],
             });
         });
@@ -457,7 +454,7 @@
                         
                     <li><a title="タクティカルヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tacticalHeal.html">タクティカルヒール実行</a></li>
                         
-                    <li><a title="薙ぎ払いイ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払いイ実行</a></li>
+                    <li><a title="薙ぎ払い実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_slaughter.html">薙ぎ払い実行</a></li>
                         
                     <li><a title="リアクティブヒール実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_reactiveHeal.html">リアクティブヒール実行</a></li>
                         
@@ -469,7 +466,29 @@
             <li class="subfolders">
                 <a title="忍者スキル" href="#">忍者スキル</a>
                 <ul>
-                    
+                      
+                    <li><a title="アイサツ実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_aisatsu.html">アイサツ実行</a></li>
+                        
+                    <li><a title="疾風実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_shippu.html">疾風実行</a></li>
+                        
+                    <li><a title="水遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_suiton.html">水遁実行</a></li>
+                        
+                    <li><a title="呼魂実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kodama.html">呼魂実行</a></li>
+                        
+                    <li class="active"><a title="黙想実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_mokuso.html">黙想実行</a></li>
+                        
+                    <li><a title="兵糧丸実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_hyoryomaru.html">兵糧丸実行</a></li>
+                        
+                    <li><a title="火遁実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_katon.html">火遁実行</a></li>
+                        
+                    <li><a title="風切実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_kazakiri.html">風切実行</a></li>
+                        
+                    <li><a title="夜駆実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_yogake.html">夜駆実行</a></li>
+                        
+                    <li><a title="連舞実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tsuremai.html">連舞実行</a></li>
+                        
+                    <li><a title="跳躍実行" href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tyoyaku.html">跳躍実行</a></li>
+                      
                 </ul>
             </li>
                
@@ -580,15 +599,78 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>編集中です。</p>
-
-<h2 id="about">About</h2>
+   <h2 id="about">About</h2>
 
 <p><span class="tagYellow">位置</span> (-1920,16,-172)</p>
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_command.html">毎tick実行するコマンド群9</a></p>
 
-<p><span class="tagBlue">分岐先</span></p>
+<p>忍者のスキルの1つである呼魂を実行する。<br />
+なお、継続処理は<a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_timeElapsed.html">時間経過</a>で行われ、終了処理は<a href="/TUSB_Analysis/command/xCircuit4/xCircuit4_command.html">毎tick実行するコマンド群4</a>と<a href="/TUSB_Analysis/command/xCircuit4/xCircuit4_mokusoEndProcessing.html">黙想終了処理</a>で行われる。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable2c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @a[score_ActivatedSkill_min=2040,score_ActivatedSkill=2049] ~ ~ ~ /playsound entity.guardian.attack master @a[r=16] ~ ~-100 ~ 0 2 0.5</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @a[score_ActivatedSkill_min=2040,score_ActivatedSkill=2049] ~ ~ ~ /particle damageIndicator ~ ~1 ~ 0.5 0.5 0.5 0.1 30 force</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players tag @a[score_ActivatedSkill_min=2040,score_ActivatedSkill=2049] add Mokuso</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players set @a[score_ActivatedSkill_min=2040,score_ActivatedSkill=2049] WalkOneCm 0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players set @a[score_ActivatedSkill_min=2040,score_ActivatedSkill=2049] CrouchOneCm 0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players set @a[score_ActivatedSkill_min=2040,score_ActivatedSkill=2049] SprintOneCm 0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/effect @a[score_ActivatedSkill_min=2040,score_ActivatedSkill=2040] minecraft:regeneration 15 1 true</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/effect @a[score_ActivatedSkill_min=2041,score_ActivatedSkill=2049] minecraft:regeneration 15 2 true</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable2c-end"></div>
+
+<h2 id="詳細">詳細</h2>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が2040 ~ 2049</strong>であるプレイヤーを対象として、以下の事柄を実行</li>
+</ul>
+
+<ol>
+  <li>対象プレイヤーから<strong>半径16m以内</strong>のすべてのプレイヤーに、<strong>効果音を鳴らす</strong></li>
+  <li>対象プレイヤーの座標上で、<strong>パーティクルを表示</strong></li>
+  <li>対象プレイヤーに<code class="language-plaintext highlighter-rouge">Mokuso</code>を付与</li>
+  <li>対象プレイヤーの<code class="language-plaintext highlighter-rouge">WalkOneCm</code>、<code class="language-plaintext highlighter-rouge">CrouchOneCm</code>、<code class="language-plaintext highlighter-rouge">SprintOneCm</code>をそれぞれ0に設定</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が2040</strong>であるすべてのプレイヤーに、<strong>再生能力Lv.2を15秒間</strong>付与</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が2041 ~ 2049</strong>であるすべてのプレイヤーに、<strong>再生能力Lv.3を15秒間</strong>付与</li>
+</ol>
 
 
     <div class="tags">
@@ -669,6 +751,150 @@ $('#toc').on('click', 'a', function() {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_ninja.html" class="btn btn-default navbar-btn cursorNorm" role="button">忍者</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 
 
@@ -681,7 +907,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 21 Aug 2020<br/> Site last generated: 26 Aug 2020 <br />
+            <span>Page last updated:</span> 28 Aug 2020<br/> Site last generated: 28 Aug 2020 <br />
         </div>
     </div>
 </footer>

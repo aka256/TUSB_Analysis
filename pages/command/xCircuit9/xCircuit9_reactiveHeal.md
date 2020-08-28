@@ -2,7 +2,7 @@
 title: リアクティブヒール実行
 tags: [コマンド,スキル,剣士]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-08-26 09:21:00 +0000
+update: 2020-08-28 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit9/xCircuit9_reactiveHeal.html
 datatable2c: true
@@ -34,10 +34,10 @@ summaryDisable: true
 
 ## 詳細
 
-- `AvtivatedSkill`が**1230 ~ 1239**であるプレイヤーを対象として、以下の事柄を実行
+- **`AvtivatedSkill`が1230 ~ 1239**であるプレイヤーを対象として、以下の事柄を実行
 
-1. 対象プレイヤーから**半径16m以内**のすべてのプレイヤーに効果音を鳴らす
-2. 対象プレイヤーの座標上でパーティクルを表示
+1. 対象プレイヤーから**半径16m以内**のすべてのプレイヤーに、**効果音を鳴らす**
+2. 対象プレイヤーの座標上で**パーティクルを表示**
 3. `AvtivatedSkill`の値によって`HealCount`に値を足しこむ([ActivatedSkillとHealCount](#activatedskillとhealcount)を参照)
 
 ### ActivatedSkillとHealCount
