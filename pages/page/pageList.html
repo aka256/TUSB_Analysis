@@ -1,420 +1,79 @@
 ---
 title: ページ一覧
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-08-24 09:21:00 +0000
 permalink: page/pageList.html
 hide_sidebar: true
+comments: false
 ---
 
-
-
-{% if site.output == "pdf" %}
+{%- if site.output == "pdf" -%}
 {{site.data.alerts.note}} The content on this page doesn't display well on PDF, but I included it anyway so you could see the problems this layout poses if you're including it in PDF.  {{site.data.alerts.end}}
-{% endif %}
+{%- endif -%}
 
-{% unless site.output == "pdf" %}
+{%- unless site.output == "pdf" -%}
 <script src="{{site.baseurl}}/js/jquery.shuffle.min.js"></script>
 <script src="{{site.baseurl}}/js/jquery.ba-throttle-debounce.min.js"></script>
-{% endunless %}
+{%- endunless -%}
 
-      <div class="filter-options">
-      <button class="btn btn-primary" data-group="all">すべて</button>
-      <button class="btn btn-primary" data-group="core">X回路区域管理コマンド群</button>
-      <button class="btn btn-primary" data-group="x1">毎tick実行するコマンド群1</button>
-      <button class="btn btn-primary" data-group="x2">毎tick実行するコマンド群2</button>
-      <button class="btn btn-primary" data-group="x3">毎tick実行するコマンド群3</button>
-      <button class="btn btn-primary" data-group="x4">毎tick実行するコマンド群4</button>
-      <button class="btn btn-primary" data-group="x5">毎tick実行するコマンド群5</button>
-      <button class="btn btn-primary" data-group="x6">毎tick実行するコマンド群6</button>
-      <button class="btn btn-primary" data-group="x7">毎tick実行するコマンド群7</button>
-      <button class="btn btn-primary" data-group="x8">毎tick実行するコマンド群8</button>
-      <button class="btn btn-primary" data-group="x9">毎tick実行するコマンド群9</button>
-      <button class="btn btn-primary" data-group="x10">毎tick実行するコマンド群10</button>
-      <button class="btn btn-primary" data-group="x11">毎tick実行するコマンド群11</button>
-      <button class="btn btn-primary" data-group="x12">毎tick実行するコマンド群12</button>
-      <button class="btn btn-primary" data-group="x13">毎tick実行するコマンド群13</button>
-      <button class="btn btn-primary" data-group="x14">毎tick実行するコマンド群14</button>
-      <button class="btn btn-primary" data-group="x15">毎tick実行するコマンド群15</button>
-      <button class="btn btn-primary" data-group="x16">毎tick実行するコマンド群16</button>
-      <button class="btn btn-primary" data-group="x17">毎tick実行するコマンド群17</button>
-      <button class="btn btn-primary" data-group="scraft">超作業台ルーム</button>
-      <button class="btn btn-primary" data-group="data">データ類</button>
-      <button class="btn btn-primary" data-group="tag">ページ内タグ</button>
+{% assign sidebar = site.data.sidebars[page.sidebar].entries %}
 
-    </div>
+<div class="filter-options">
+  <button class="btn btn-primary" data-group="all">すべて</button>
+
+{%- assign i = 1 -%}
+{%- for entry in sidebar -%}
+{%- for folder in entry.folders -%} 
+{% if folder.output contains "web" %}
+  <button class="btn btn-primary" data-group="x{% increment i %}">{{folder.title}}</button>
+{%- endif -%}
+{%- endfor -%}
+{% endfor %}
+</div>
 
 <div id="grid" class="row">
-
-
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["core"]'>
-
-               <div class="panel panel-default">
-               <div class="panel-heading">X回路区域管理コマンド群</div>
-               <div class="panel-body">
-                  <ul>
-                {% for page in site.pages %}
-                {% for dir in page.dir %}
-                {% if dir == "/command/xCircuitCore/" %}
-                  <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                {% endif %}
-                {% endfor %}
-                {% endfor %} 
-                  </ul>
-               </div>
-            </div>
-    </div>
-   
-
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x1"]'>
-
-        <div class="panel panel-default">
-            <div class="panel-heading">毎tick実行するコマンド群1</div>
-            <div class="panel-body">
-                <ul>
-                    {% for page in site.pages %}
-                    {% for dir in page.dir %}
-                    {% if dir == "/command/xCircuit1/" %}
-                      <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                    {% endif %}
-                    {% endfor %}
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x2"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群2</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit2/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
+{%- assign j = 1 -%}
+{%- for entry in sidebar -%}
+{% for folder in entry.folders %} 
+{% if folder.output contains "web" %}
+  <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x{% increment j %}"]'>
+    <div class="panel panel-default">
+      <div class="panel-heading">{{folder.title}}</div>
+      <div class="panel-body">
+        <ul>
+        {% for folderitem in folder.folderitems %}
+          <li><a href="{{site.baseurl}}{{folderitem.url | remove: " / "}}">{{folderitem.title}}</a></li>
+        {%- for subfolders in folderitem.subfolders -%}
+        {% if subfolders.output contains "web" %}
+        </ul>
+          <p class="pageListSubTitle">{{subfolders.title}}</p>
+        <ul>
+        {%- for subfolderitem in subfolders.subfolderitems -%}
+        {% if subfolderitem.output contains "web" %}
+          <li><a href="{{site.baseurl}}{{subfolderitem.url | remove: " / "}}">{{subfolderitem.title}}</a></li>
+        {%- endif -%}
+        {%- endfor -%}
+        {%- endif -%}
+        {%- endfor -%}
+        {%- endfor -%}
+        {%- if folder.title=="ページ内タグ" -%}
+        {%- assign tags = site.data.tags -%}
+        {% for tag in tags.allowed-tags %}
+          <li><a href="{{site.baseurl}}{{tags.baseurl}}{{tag.folder}}">{{tag.tag}}</a></li>
+        {%- endfor -%}
+        {%- endif -%}
+        </ul>
       </div>
     </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x3"]'>
+  </div>
+{%- endif -%}
+{%- endfor -%}
+{% endfor %}
+</div>
+<!-- sizer -->
+<div class="col-xs-6 col-sm-4 col-md-1 shuffle_sizer"></div>          
 
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群3</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit3/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x4"]'>
+</div><!-- /#grid -->
 
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群4</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit4/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x5"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群5</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit5/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x6"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群6</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit6/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x7"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群7</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit7/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x8"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群8</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit8/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x9"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群9</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit9/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x10"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群10</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit10/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x11"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群11</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit11/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x12"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群12</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit12/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x13"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群13</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit13/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x14"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群14</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit14/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x15"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群15</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit15/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x16"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群16</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit16/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["x17"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">毎tick実行するコマンド群17</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/command/xCircuit17/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["scraft"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">超作業台ルーム</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/scraftingtable/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["data"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">データ類</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/entity/" or dir == "/others/" or dir == "/scoreboard/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    <div class="col-xs-6 col-sm-4 col-md-4" data-groups='["tag"]'>
-
-      <div class="panel panel-default">
-          <div class="panel-heading">ページ内タグ</div>
-          <div class="panel-body">
-              <ul>
-                  {% for page in site.pages %}
-                  {% for dir in page.dir %}
-                  {% if dir == "/tags/" %}
-                    <li><a href="{{site.baseurl}}{{page.url}}">{{page.title}}</a></li>
-                  {% endif %}
-                  {% endfor %}
-                  {% endfor %}
-              </ul>
-          </div>
-      </div>
-    </div>
-    
-          <!-- sizer -->
-      <div class="col-xs-6 col-sm-4 col-md-1 shuffle_sizer"></div>          
-
-
-    </div><!-- /#grid -->
-
-{% unless site.output == "pdf" %}
-{% include initialize_shuffle.html %}
-{% endunless %}
+{%- unless site.output == "pdf" -%}
+{%- include initialize_shuffle.html -%}
+{%- endunless -%}

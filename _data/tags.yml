@@ -5,69 +5,103 @@ baseurl: /tags/
 allowed-tags:
   - tag: コマンド
     folder: tag_command.html
+    describe: コマンド関連のページに割り当てられたタグです。
   - tag: アイテム
     folder: tag_item.html
+    describe: アイテム関連のページに割り当てられたタグです。
   - tag: スコアボード
     folder: tag_scoreboard.html
+    describe: スコアボード関連のページに割り当てられたタグです。
   - tag: チーム
     folder: tag_team.html
+    describe: チーム関連のページに割り当てられたタグです。
   - tag: 表示
     folder: tag_display.html
+    describe: tellやtellraw、titleコマンドなど、プレイヤーに何かしらのメッセージを表示するコマンドがあるページに割り当てられたタグです。
   - tag: 職業
     folder: tag_job.html
+    describe: TUSB内での職業全般の処理に関するページに割り当てられたタグです。
   - tag: スキル
     folder: tag_skill.html
+    describe: TUSB内でのスキルの処理に関するページに割り当てられたタグです。
   - tag: ディメンション
     folder: tag_dimension.html
+    describe: TUSB内でのディメンション全般の処理に関するページに割り当てられたタグです。
   - tag: 経験値
     folder: tag_exp.html
+    describe: TUSB内でのネザースターによる経験値の処理に関するページに割り当てられたタグです。
   - tag: 剣士
     folder: tag_knight.html
+    describe: 剣士に関連するページに割り当てられたタグです。
   - tag: 忍者
     folder: tag_ninja.html
+    describe: 忍者に関連するページに割り当てられたタグです。
   - tag: 狩人
     folder: tag_archer.html
+    describe: 狩人に関連するページに割り当てられたタグです。
   - tag: 白魔導士
     folder: tag_whiteMage.html
+    describe: 白魔導士に関連するページに割り当てられたタグです。
   - tag: 黒魔導士
     folder: tag_blackMage.html
+    describe: 黒魔導士に関連するページに割り当てられたタグです。
   - tag: 召喚士
     folder: tag_summoner.html
+    describe: 召喚士に関連するページに割り当てられたタグです。
   - tag: 村人
     folder: tag_villager.html
+    describe: TUSB内での村人(交易島の村人など)に関連するページに割り当てられたタグです。
   - tag: 嫌な予感
     folder: tag_event.html
+    describe: 嫌な予感に関連するページに割り当てられたタグです。
   - tag: 死の宣告
     folder: tag_doom.html
+    describe: 死の宣告に関連するページに割り当てられたタグです。
   - tag: 敵Mob
     folder: tag_enemy.html
+    describe: 敵Mobに関連するページに割り当てられたタグです。
   - tag: SystemEntity
     folder: tag_systemEntity.html
+    describe: TUSB内でシステムを維持するために用いられている、SystemEntityに関連するページに割り当てられたタグです。
   - tag: 観光モード
     folder: tag_sightseeing.html
+    describe: 観光モードに関連するページに割り当てられたタグです。
   - tag: 通常世界
     folder: tag_skylands.html
+    describe: TUSB内のディメンションの1つである、通常世界に関連するページに割り当てられたタグです。
   - tag: クラウディア
     folder: tag_cloudia.html
+    describe: TUSB内のディメンションの1つである、クラウディアに関連するページに割り当てられたタグです。
   - tag: 地下世界
     folder: tag_underWorld.html
+    describe: TUSB内のディメンションの1つである、地下世界に関連するページに割り当てられたタグです。
   - tag: テーブルマウンテン
     folder: tag_mtTable.html
+    describe: TUSB内のディメンションの1つである、テーブルマウンテンに関連するページに割り当てられたタグです。
   - tag: ガリバーランド
     folder: tag_gulliverland.html
+    describe: TUSB内のディメンションの1つである、ガリバーランドに関連するページに割り当てられたタグです。
   - tag: トカルトコルデ
     folder: tag_iceSheetFloat.html
+    describe: TUSB内のディメンションの1つである、トカルトコルデに関連するページに割り当てられたタグです。
   - tag: ネザー
     folder: tag_nether.html
+    describe: TUSB内のディメンションの1つである、ネザーに関連するページに割り当てられたタグです。
   - tag: 煉獄
     folder: tag_netherDungeon.html
+    describe: TUSB内のディメンションの1つである、煉獄に関連するページに割り当てられたタグです。
   - tag: ネザーアスレ
     folder: tag_netherTrial.html
+    describe: ネザーアスレに関連するページに割り当てられたタグです。
   - tag: エンド
     folder: tag_theEnd.html
+    describe: TUSB内のディメンションの1つである、エンドに関連するページに割り当てられたタグです。
   - tag: スポナー
     folder: tag_spawner.html
+    describe: TUSB内の特殊スポナーに関連するページに割り当てられたタグです。
   - tag: 超作業台
     folder: tag_scraftingtable.html
+    describe: 超作業台に関連するページに割り当てられたタグです。
   - tag: レガシー
     folder: tag_legacy.html
+    describe: レガシーアイテムに関連するページに割り当てられたタグです。

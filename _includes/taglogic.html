@@ -1,4 +1,11 @@
 <p>これらは <button type="button" style="cursor: default" class="btn btn-default navbar-btn">{{page.tagName}}</button>にタグ付けされたページです。</p>
+<p style="font-weight: bold;">タグの説明</p>
+{%- assign tags = site.data.tags.allowed-tags -%}
+{%- for tag in tags -%}
+{% if tag.tag == page.tagName %}
+<p>{{tag.describe}}</p>
+{%- endif -%}
+{%- endfor -%}
 <table>
     <thead>
         <tr>
