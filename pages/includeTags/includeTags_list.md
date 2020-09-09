@@ -3,6 +3,7 @@ title: ページ内タグ一覧
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,印玉
 sidebar: mydoc_sidebar
 permalink: includeTags/includeTags_list.html
+comments: false
 ---
 
 以下はそれぞれのページのタグです。クリックすることにより、そのタグのついているページ一覧に飛ぶことができます。

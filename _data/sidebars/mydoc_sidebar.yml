@@ -303,6 +303,32 @@ entries:
           url: /command/xCircuit9/xCircuit9_tyoyaku.html
           output: web, pdf
 
+  - title: 毎tick実行するコマンド群10
+    output: web, pdf
+    folderitems:
+    - title: 毎tick実行するコマンド群10
+      url: /command/xCircuit10/xCircuit10_command.html
+      output: web, pdf
+      subfolders:
+      - title: 狩人スキル
+        output: web, pdf
+        subfolderitems:
+        - title: ルカナントラップ実行
+          url: /command/xCircuit10/xCircuit10_lucananTrap.html
+          output: web, pdf
+        - title: 照明弾実行
+          url: /command/xCircuit10/xCircuit10_flare.html
+          output: web, pdf
+        - title: ボミオストラップ実行
+          url: /command/xCircuit10/xCircuit10_bomiosTrap.html
+          output: web, pdf
+        - title: ワイルドクッキング実行
+          url: /command/xCircuit10/xCircuit10_wildCooking.html
+          output: web, pdf
+      - title: 白魔導士スキル
+        output: web, pdf
+        subfolderitems:
+
   - title: 超作業台ルーム
     output: web,pdf
     folderitems:

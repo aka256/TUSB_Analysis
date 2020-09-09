@@ -2,7 +2,7 @@
 title: 毎tick実行するコマンド群9
 tags: [コマンド,スキル,剣士,忍者]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-08-24 09:21:00 +0000
+update: 2020-09-08 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit9/xCircuit9_command.html
 datatable4c: true
@@ -10,13 +10,16 @@ summary: 剣士と忍者のスキルの分岐処理を行う。また、必要�
 summaryDisable: true
 ---
 
+<!--修正 2020/09/08 -->
+<!--分岐先が空欄であったため、追記-->
+
 ## About
 
 <span class="tagYellow">位置</span> (-1920,4,-175)
 
 <span class="tagBlack">呼び出し元</span> [初期化処理]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_initializeProcessing.html), [村人像]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_mainclockProcessing.html)
 
-<span class="tagBlue">分岐先</span>
+<span class="tagBlue">分岐先</span> [ファランクス実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_phalanx.html), [アイアンウィル実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_ironWill.html), [ストライ実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_strike.html), [デコイ実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_decoy.html), [タクティカルヒール実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_tacticalHeal.html), [薙ぎ払い実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_slaughter.html), [リアクティブヒール実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_reactiveHeal.html), [斬鉄剣実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_zantetsu.html), [アイサツ実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_aisatsu.html), [疾風実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_shippu.html), [水遁実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_suiton.html), [呼魂実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_kodama.html), [黙想実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_mokuso.html), [兵糧丸実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_hyoryomaru.html), [火遁実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_katon.html), [風切実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_kazakiri.html), [夜駆実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_yogake.html), [連舞実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_tsuremai.html), [跳躍実行]({{site.baseurl}}/command/xCircuit9/xCircuit9_tyoyaku.html)
 
 剣士と忍者のスキルの分岐処理を行う。また、必要に応じてサブコマンドも実行する。
 

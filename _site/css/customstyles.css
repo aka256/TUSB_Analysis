@@ -1,6 +1,9 @@
 body {
     font-size: 14px;
     word-break: keep-all;
+    line-break: strict;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .bs-callout {
