@@ -3,7 +3,7 @@ title: アイテム
 tags: [アイテム]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,印玉
 last_updated: 2020/6/22
-update: 2020-06-22 09:00:00 +0000
+update: 2020-09-10 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: others/others_item.html
 folder: others
@@ -48,4 +48,13 @@ summaryDisable: true
 
 ```minecraftcommand
 /summon Item ~ ~ ~ {Item:{id:minecraft:lever,Count:1b,tag:{display:{Name:"§7消えた松明",Lore:["§r火が消えてしまった松明。","§r篝火で火を付け直せる。"]}}},Tags:[OffTorch,TypeChecked]}
+```
+
+### ニフラム用ボタン
+
+- 狩人のニフラムトラップに用いらるボタン
+- 詳細は[ニフラムトラップ実行]({{site.baseurl}}/command/xCircuit10/xCircuit10_niflamTrap.html)
+
+```mcfunction
+{id:minecraft:wooden_button,Count:0b,Damage:0s,tag:{AttributeModifiers:[{Name:"Poof",AttributeName:"generic.maxHealth",Operation:0,Amount:-300d,UUIDMost:9007L,UUIDLeast:9007L}]}
 ```

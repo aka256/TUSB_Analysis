@@ -2,7 +2,7 @@
 title: エンチェイス探索処理
 tags: [コマンド,狩人,スキル]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-07-23 09:21:00 +0000
+update: 2020-08-10 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit5/xCircuit5_enchaseSearchProcessing.html
 datatable3c: true
@@ -16,7 +16,7 @@ summaryDisable: true
 
 <span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群5]({{site.baseurl}}/command/xCircuit5/xCircuit5_command.html)
 
-狩人のスキルの1つである、エンチェイスの繰り返し処理を行う。
+狩人のスキルの1つである、エンチェイスの繰り返し処理を行う。なお、エンチェイスの初期化処理は[エンチェイス実行]({{site.baseurl}}/command/xCircuit10/xCircuit10_enchase.html)で行われる。
 
 ## コマンド群
 
@@ -45,10 +45,10 @@ summaryDisable: true
 ## 詳細
 
 1. `Chaser`を持つ一つのエンティティが存在するとき、(-1920,9,-186)にある[エンチェイス探索処理](#about)を実行 (要は条件を満たしている限り、自身を呼び出し続けている。)
-2. `Chaser1`を持つすべてのエンティティから半径**4m以内**にいる`Enemy`を持つエンティティ一体に`ChaseTarget`を付与し、以下の事柄を実行
-   - `ChaseTarget`を持つエンティティから半径**4m以内**にいる`Chaser1`に`UsedChaser`を付与し、`Chaser1`を削除
-3. `Chaser2`を持つすべてのエンティティから半径**6m以内**にいる`Enemy`を持つエンティティ一体に`ChaseTarget`を付与し、以下の事柄を実行
-   - `ChaseTarget`を持つエンティティから半径**6m以内**にいる`Chaser2`に`UsedChaser`を付与し、`Chaser2`を削除
+2. `Chaser1`を持つすべてのエンティティから**半径4m以内**にいる`Enemy`を持つエンティティ一体に`ChaseTarget`を付与し、以下の事柄を実行
+   - `ChaseTarget`を持つエンティティから**半径4m以内**にいる`Chaser1`に`UsedChaser`を付与し、`Chaser1`を削除
+3. `Chaser2`を持つすべてのエンティティから**半径6m以内**にいる`Enemy`を持つエンティティ一体に`ChaseTarget`を付与し、以下の事柄を実行
+   - `ChaseTarget`を持つエンティティから**半径6m以内**にいる`Chaser2`に`UsedChaser`を付与し、`Chaser2`を削除
 4. `UsedChaser`から同座標上に存在する`UsedChaser`1つを、そこから半径6m以内に存在する最も近い`ChaseTarget`に移動し、以下の事柄を実行
    1. `ChaseTarget`を持つすべてのエンティティに`SkillTarget`を付与し、`ChaseTarget`を削除
    2. `UsedChaser`を持つすべてのエンティティから`Chaser`を削除し、`Garbage`を付与

@@ -91,11 +91,10 @@ summaryDisable: true
 |3200~3209|ステークスファイア|[毎tick実行するコマンド群13]({{site.baseurl}}/command/xCircuit13/xCircuit13_command.html)の<br>**ステークスファイア実行部**を起動|対象に`UpdateRandom`を付与|
 |3210~3219|チェインアロー|[毎tick実行するコマンド群13]({{site.baseurl}}/command/xCircuit13/xCircuit13_command.html)の<br>**チェインアロー実行部**を起動|`#ProjectileUpdate`の`Global`を2に設定|
 |3220~3229|ワイルドヒーリング|[ワイルドヒーリング実行]({{site.baseurl}}/command/xCircuit10/xCircuit10_wildHealing.html)|
-|3230~3239|リアクティブヒール|[リアクティブヒール実行]({{site.baseurl}}/command/xCircuit10/xCircuit10_reactiveHeal.html)|
-|3240~3249|ブラストショット|[毎tick実行するコマンド群13]({{site.baseurl}}/command/xCircuit13/xCircuit13_command.html)の<br>**ブラストショット実行部**を起動|`#ProjectileUpdate`の`Global`を2に設定|
-|3250~3259|バードストライク|[バードストライク実行]({{site.baseurl}}/command/xCircuit10/xCircuit10_birdStrike.html)|`#ProjectileUpdate`の`Global`を2に設定|
-|3260~3269|ガストキャノン|[毎tick実行するコマンド群13]({{site.baseurl}}/command/xCircuit13/xCircuit13_command.html)の<br>**ガストキャノン実行部**を起動|
-|3270~3279|フェイタルショット|[毎tick実行するコマンド群13]({{site.baseurl}}/command/xCircuit13/xCircuit13_command.html)の<br>**フェイタルショット実行部**を起動|`#ProjectileUpdate`の`Global`を2に設定|
+|3230~3239|ブラストショット|[毎tick実行するコマンド群13]({{site.baseurl}}/command/xCircuit13/xCircuit13_command.html)の<br>**ブラストショット実行部**を起動|`#ProjectileUpdate`の`Global`を2に設定|
+|3240~3249|バードストライク|[毎tick実行するコマンド群13]({{site.baseurl}}/command/xCircuit13/xCircuit13_command.html)の<br>**バードストライク実行部**を起動|`#ProjectileUpdate`の`Global`を2に設定|
+|3250~3259|ガストキャノン|[毎tick実行するコマンド群13]({{site.baseurl}}/command/xCircuit13/xCircuit13_command.html)の<br>**ガストキャノン実行部**を起動|
+|3260~3269|フェイタルショット|[毎tick実行するコマンド群13]({{site.baseurl}}/command/xCircuit13/xCircuit13_command.html)の<br>**フェイタルショット実行部**を起動|`#ProjectileUpdate`の`Global`を2に設定|
 
 ### ActivatedSkill分岐(白魔導士)
 

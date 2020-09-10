@@ -2,7 +2,7 @@
 title: エンティティ
 tags: [敵Mob,SystemEntity,村人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,エンティティ
-update: 2020-09-09 09:00:00 +0000
+update: 2020-09-10 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: entity/entity_entity.html
 summary: コマンドに関係するエンティティについてまとめる。
@@ -559,4 +559,36 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 |Type|AEC|
 |Tags|Decelerate, **Decelerate2**, TypeChecked|
 |Radius|5|
+|Duration|400 (20sec)|
+
+### レーダーサイト
+
+```mcfunction
+/summon ArmorStand ~ ~ ~ {Invulnerable:true, Small:true, NoGravity:true, NoBasePlate:true, Invisible:true, DisabledSlots:31, Pose:{Body:[180f,0f,0f],LeftLeg:[180f,0f,-10f],RightLeg:[180f,0f,10f]}, CustomName:"レーダーサイト", CustomNameVisible:true, ArmorItems:[{},{},{},{id:"minecraft:beacon",Count:0b,Damage:0s}], Tags:[PreRadarSite,RadarSite,CooldownRequired,TypeChecked], PortalCooldown:200}
+```
+
+|-|-|
+|Name|レーダーサイト|
+|Type|ArmorStand|
+|Tags|**PreRadarSite**,RadarSite,CooldownRequired,TypeChecked|
+|ArmorItems|{},{},{},{id:"minecraft:**beacon**",Count:0b,Damage:0s}|
+
+### ニフラムトラップポイント
+
+```mcfunction
+/summon Arrow ~ ~ ~ {Silent:true,damage:0d,life:800s,Tags:[FlyingObject,TypeChecked],Passengers:[{id:AreaEffectCloud,Radius:5f,RadiusOnUse:0f,DurationOnUse:0f,Duration:400,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:witchMagic,CustomName:"☠",CustomNameVisible:true,Tags:[Poof,TypeChecked]}]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|Arrow|
+|Tags|FlyingObject, TypeChecked|
+|life|800 (20秒後に消滅)
+
+- Passengers
+
+|-|-|
+|Name|☠|
+|Type|AEC|
+|Tags|Poof,TypeChecked|
 |Duration|400 (20sec)|

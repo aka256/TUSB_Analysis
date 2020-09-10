@@ -5,8 +5,8 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="狩人のスキルの1つであるエナジーセーブを実行する。">
-<meta name="keywords" content="コマンドスキル狩人,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<meta name="description" content="狩人のスキルの1つであるエナジーセーブを実行する。なお、MPの半減処理は毎tick実行するコマンド群8で行われる。">
+<meta name="keywords" content="コマンドスキル狩人表示,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
 <title>エナジーセーブ実行 | TUSB Analysis</title>
 
 <!-- Google Tag Manager -->
@@ -64,7 +64,7 @@
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
 <meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit10/xCircuit10_energySave.html" /> <!--③-->
 <meta property="og:title" content="エナジーセーブ実行 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="狩人のスキルの1つであるエナジーセーブを実行する。" /> <!--⑤-->
+<meta property="og:description" content="狩人のスキルの1つであるエナジーセーブを実行する。なお、MPの半減処理は毎tick実行するコマンド群8で行われる。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -143,22 +143,20 @@
       -->
     <script>
         $(document).ready(function() {
-            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
+            $('div.datatable2cnp-begin').nextUntil('div.datatable2cnp-end', 'table').addClass('display');
+            //$('div.datatable3-begin').nextUntil('div.datatable3-end', 'table').Class('display').style = "word-break:break-all";
             $('table.display').DataTable({
-                paging: true,
+                paging: false,
                 stateSave: true,
                 searching: true,
                 autoWidth: false,
                 lengthChange: true,
                 columns: [{
-                    responsivePriority: 2,
+                    responsivePriority: 1,
                     width: "8%"
                 }, {
-                    responsivePriority: 3,
-                    width: "77%"
-                }, {
-                    responsivePriority: 1,
-                    width: "15%"
+                    responsivePriority: 2,
+                    width: "92%"
                 }],
             });
         });
@@ -514,6 +512,18 @@
                     <li><a title="ボミオストラップ実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_bomiosTrap.html">ボミオストラップ実行</a></li>
                         
                     <li><a title="ワイルドクッキング実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_wildCooking.html">ワイルドクッキング実行</a></li>
+                        
+                    <li><a title="エンチェイス実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_enchase.html">エンチェイス実行</a></li>
+                        
+                    <li><a title="レーダーヴィジョン実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVision.html">レーダーヴィジョン実行</a></li>
+                        
+                    <li><a title="レーダーヴィジョン終了処理" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVisionFinProcessing.html">レーダーヴィジョン終了処理</a></li>
+                        
+                    <li class="active"><a title="エナジーセーブ実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_energySave.html">エナジーセーブ実行</a></li>
+                        
+                    <li><a title="ニフラムトラップ実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_niflamTrap.html">ニフラムトラップ実行</a></li>
+                        
+                    <li><a title="ワイルドヒーリング実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_wildHealing.html">ワイルドヒーリング実行</a></li>
                       
                 </ul>
             </li>
@@ -632,15 +642,78 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p><strong>編集中</strong></p>
+   <h2 id="about">About</h2>
 
-<h2 id="about">About</h2>
-
-<p><span class="tagYellow">位置</span> (-1920,4,-167)</p>
+<p><span class="tagYellow">位置</span> (-1920,13,-166)</p>
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_command.html">毎tick実行するコマンド群10</a></p>
 
-<p><span class="tagBlue">分岐先</span></p>
+<p>狩人のスキルの1つであるエナジーセーブを実行する。なお、MPの半減処理は<a href="/TUSB_Analysis/command/xCircuit8/xCircuit8_command.html">毎tick実行するコマンド群8</a>で行われる。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatabel2cnp-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @a[score_ActivatedSkill_min=3060,score_ActivatedSkill=3069] ~ ~ ~ /playsound entity.endermen.teleport master @a[r=16] ~ ~ ~ 1 1.4 0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @a[score_ActivatedSkill_min=3060,score_ActivatedSkill=3069] ~ ~ ~ /scoreboard players operation @a[c=1] TargetCheck = @a[c=1] ActivatedSkill</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute @a[score_ActivatedSkill_min=3060,score_ActivatedSkill=3069,tag=Sneaking] ~ ~ ~ /scoreboard players operation @a[r=15] TargetCheck &gt; @a[c=1] TargetCheck</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players tag @a[score_TargetCheck_min=3060,score_TargetCheck=3069] add EnergySave</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/execute @a[score_TargetCheck_min=3060,score_TargetCheck=3069] ~ ~ ~ /particle happyVillager ~ ~1 ~ 0.5 0.5 0.5 0.1 30 force</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/tellraw @a[score_TargetCheck_min=3060,score_TargetCheck=3069] {“text”:”エナジーセーブの効果がかかった。”,”color”:”green”,”hoverEvent”:{“action”:”show_text”,”value”:”次に使用するスキルの消費MPを半減する。”}}</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players reset @a[score_TargetCheck_min=0] TargetCheck</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatabel2cnp-end"></div>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3060 ~ 3069</strong>であるすべてのプレイヤーを対象として、以下の事柄を実行
+    <ol>
+      <li>対象プレイヤーから<strong>半径16m以内</strong>のすべてのプレイヤーに、<strong>効果音を鳴らす</strong></li>
+      <li>対象プレイヤーの<code class="language-plaintext highlighter-rouge">TargetCheck</code>に<code class="language-plaintext highlighter-rouge">ActivatedSkill</code>を代入</li>
+      <li><code class="language-plaintext highlighter-rouge">Sneaking</code>を持つ対象プレイヤーから、半径15m以内のすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">TargetCheck</code>が対象プレイヤーの<code class="language-plaintext highlighter-rouge">TargetCheck</code>よりも小さいとき、それを代入</li>
+    </ol>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">TargetCheck</code>が3060 ~ 3069</strong>であるすべてのプレイヤーを対象として、以下の事柄を実行
+    <ol>
+      <li><strong><code class="language-plaintext highlighter-rouge">EnergySave</code>を付与</strong></li>
+      <li>対象プレイヤーの座標上に<strong>パーティクルを表示</strong></li>
+      <li>「<span style="color:green;" data-toggle="tooltip" data-original-title="次に使用するスキルの消費MPを半減する。">エナジーセーブの効果がかかった。</span>」とのメッセージを表示</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">TargetCheck</code>が0以下であるすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">TargetCheck</code>を0に設定</li>
+</ol>
 
 
     <div class="tags">
@@ -865,9 +938,101 @@ $('#toc').on('click', 'a', function() {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_display.html" class="btn btn-default navbar-btn cursorNorm" role="button">表示</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 
-
+<script id="dsq-count-scr" src="//tusb-analysis.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://tusb-analysis.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
 
@@ -876,7 +1041,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 08 Sep 2020<br/> Site last generated: 9 Sep 2020 <br />
+            <span>Page last updated:</span> 10 Sep 2020<br/> Site last generated: 10 Sep 2020 <br />
         </div>
     </div>
 </footer>
