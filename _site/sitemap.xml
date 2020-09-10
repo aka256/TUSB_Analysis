@@ -6,11 +6,9 @@
   
   
   
-  
-  
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/entity/entity_entity.html</loc>
-    <lastmod>2020-09-09T09:00:00+09:00</lastmod>
+    <lastmod>2020-09-10T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -46,7 +44,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/others/others_item.html</loc>
-    <lastmod>2020-06-22T09:00:00+09:00</lastmod>
+    <lastmod>2020-09-10T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -492,8 +490,6 @@
   
   
   
-  
-  
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit10/xCircuit10_bomiosTrap.html</loc>
     <lastmod>2020-09-09T09:21:00+09:00</lastmod>
@@ -515,6 +511,22 @@
   
   
   
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit10/xCircuit10_enchase.html</loc>
+    <lastmod>2020-09-10T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit10/xCircuit10_energySave.html</loc>
+    <lastmod>2020-09-10T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
   
   
   
@@ -544,7 +556,33 @@
   
   
   
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit10/xCircuit10_niflamTrap.html</loc>
+    <lastmod>2020-09-10T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
   
+  
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVision.html</loc>
+    <lastmod>2020-09-10T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVisionFinProcessing.html</loc>
+    <lastmod>2020-09-10T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
   
   
   
@@ -565,6 +603,14 @@
   </url>
   
   
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit10/xCircuit10_wildHealing.html</loc>
+    <lastmod>2020-09-10T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
   
   
   
@@ -686,7 +732,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit1/xCircuit1_timeElapsed.html</loc>
-    <lastmod>2020-06-19T09:00:00+09:00</lastmod>
+    <lastmod>2020-09-10T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -1076,7 +1122,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit5/xCircuit5_enchaseSearchProcessing.html</loc>
-    <lastmod>2020-07-23T09:21:00+09:00</lastmod>
+    <lastmod>2020-08-10T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   

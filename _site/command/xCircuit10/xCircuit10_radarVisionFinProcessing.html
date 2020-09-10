@@ -5,8 +5,8 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content="commandjob,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<meta name="description" content="狩人のスキルの1つであるレーダーヴィジョンの終了処理を実行する。なお、`RadarVision`のカウントダウン処理は時間経過、レーダーヴィジョンの初期化処理はレーダーヴィジョン実行でそれぞれ行われる。">
+<meta name="keywords" content="コマンドスキル狩人表示,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
 <title>レーダーヴィジョン終了処理 | TUSB Analysis</title>
 
 <!-- Google Tag Manager -->
@@ -62,9 +62,9 @@
 
 <meta name="twitter:card" content="summary" /> <!--①-->
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
-<meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/archer/archer_radarVisionFinProcessing.html" /> <!--③-->
+<meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit10/xCircuit10_radarVisionFinProcessing.html" /> <!--③-->
 <meta property="og:title" content="レーダーヴィジョン終了処理 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="" /> <!--⑤-->
+<meta property="og:description" content="狩人のスキルの1つであるレーダーヴィジョンの終了処理を実行する。なお、`RadarVision`のカウントダウン処理は時間経過、レーダーヴィジョンの初期化処理はレーダーヴィジョン実行でそれぞれ行われる。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -133,6 +133,37 @@
         });
     </script>
      
+    <!-- Include the standard DataTables bits -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <!-- First, this walks through the tables that occur between ...-begin
+         and ...-end and add the "datatable" class to them.
+         Then it invokes DataTable's standard initializer
+         Credit here: http://www.beardedhacker.com/blog/2015/08/28/add-class-attribute-to-markdown-table/
+      -->
+    <script>
+        $(document).ready(function() {
+            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
+            $('table.display').DataTable({
+                paging: true,
+                stateSave: true,
+                searching: true,
+                autoWidth: false,
+                lengthChange: true,
+                columns: [{
+                    responsivePriority: 2,
+                    width: "8%"
+                }, {
+                    responsivePriority: 3,
+                    width: "77%"
+                }, {
+                    responsivePriority: 1,
+                    width: "15%"
+                }],
+            });
+        });
+    </script>
+    
     <style type="text/css">
         table {
             table-layout: fixed;
@@ -483,6 +514,18 @@
                     <li><a title="ボミオストラップ実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_bomiosTrap.html">ボミオストラップ実行</a></li>
                         
                     <li><a title="ワイルドクッキング実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_wildCooking.html">ワイルドクッキング実行</a></li>
+                        
+                    <li><a title="エンチェイス実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_enchase.html">エンチェイス実行</a></li>
+                        
+                    <li><a title="レーダーヴィジョン実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVision.html">レーダーヴィジョン実行</a></li>
+                        
+                    <li class="active"><a title="レーダーヴィジョン終了処理" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVisionFinProcessing.html">レーダーヴィジョン終了処理</a></li>
+                        
+                    <li><a title="エナジーセーブ実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_energySave.html">エナジーセーブ実行</a></li>
+                        
+                    <li><a title="ニフラムトラップ実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_niflamTrap.html">ニフラムトラップ実行</a></li>
+                        
+                    <li><a title="ワイルドヒーリング実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_wildHealing.html">ワイルドヒーリング実行</a></li>
                       
                 </ul>
             </li>
@@ -601,7 +644,131 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>準備中です。</p>
+   <h2 id="about">About</h2>
+
+<p><span class="tagYellow">位置</span> (-1920,12,-166)</p>
+
+<p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_timeElapsed.html">時間経過</a></p>
+
+<p>狩人のスキルの1つであるレーダーヴィジョンの終了処理を実行する。なお、<code class="language-plaintext highlighter-rouge">RadarVision</code>のカウントダウン処理は<a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_timeElapsed.html">時間経過</a>、レーダーヴィジョンの初期化処理は<a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVision.html">レーダーヴィジョン実行</a>でそれぞれ行われる。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/gamemode survival @a[tag=RadarEnd,c=1]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/effect @a[tag=RadarEnd,m=survival] minecraft:resistance 1 4 true</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/effect @a[tag=RadarEnd,m=survival] minecraft:water_breathing 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/effect @a[tag=RadarEnd,m=survival] minecraft:night_vision 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/execute @a[tag=RadarEnd,m=survival] ~ ~ ~ /scoreboard players operation @a[c=1] RadarAreaCheck -= @a[c=1] USBDimension</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/execute @a[tag=RadarEnd,m=survival] ~ ~ ~ /scoreboard players operation @e[tag=RadarSite] RadarSyncCount -= @a[c=1] RadarSyncCount</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/execute @a[tag=RadarEnd,m=survival] ~ ~ ~ /entitydata @e[tag=RadarSite,score_RadarSyncCount_min=0,score_RadarSyncCount=0,c=1] {Tags:[PostRadarSite,Garbage,TypeChecked]}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/execute @a[tag=RadarEnd,m=survival] ~ ~ ~ /scoreboard players operation @e[tag=RadarSite] RadarSyncCount += @a[c=1] RadarSyncCount</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/tp @a[tag=RadarEnd,m=survival,score_RadarAreaCheck_min=0,score_RadarAreaCheck=0] @e[tag=PostRadarSite,c=1]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players tag @a[tag=RadarEnd,m=survival] remove RadarEnd</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/tellraw @a[tag=RadarEnd,m=survival] {“text”:”スキル発動地点を見失ってしまった！”,”color”:”yellow”}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/tp @a[tag=RadarEnd,m=survival] ~ -100 ~</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/scoreboard players tag @a[tag=RadarEnd,m=survival] remove RadarEnd</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/testfor @a[tag=RadarEnd,c=1]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/clone -1920 ~ ~ -1920 ~ ~ -1920 ~ ~ filtered force minecraft:command_block 5 ###リピート</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">RadarEnd</code>を持つプレイヤーをサバイバルに変更</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">RadarEnd</code>を持ち、サバイバルであるすべてのプレイヤー</strong>に以下の事柄を実行
+    <ol>
+      <li><strong>耐性Lv.4を1秒間付与</strong></li>
+      <li><strong>水中呼吸と暗視を削除</strong></li>
+      <li><code class="language-plaintext highlighter-rouge">RadarAreaCheck</code>から<code class="language-plaintext highlighter-rouge">USBDimension</code>を引く</li>
+      <li><code class="language-plaintext highlighter-rouge">RadarSite</code>を持つ<a href="/TUSB_Analysis/entity/entity_entity.html#レーダーサイト">レーダーサイト</a>の<code class="language-plaintext highlighter-rouge">RadarSyncCount</code>から<code class="language-plaintext highlighter-rouge">RadarSyncCount</code>を引く</li>
+      <li><code class="language-plaintext highlighter-rouge">RadarSyncCount</code>が0である<a href="/TUSB_Analysis/entity/entity_entity.html#レーダーサイト">レーダーサイト</a>の<strong>タグを[<code class="language-plaintext highlighter-rouge">PostRadarSite</code>,<code class="language-plaintext highlighter-rouge">Garbage</code>,<code class="language-plaintext highlighter-rouge">TypeChecked</code>]に書き換える</strong></li>
+      <li><code class="language-plaintext highlighter-rouge">RadarSite</code>を持つ<a href="/TUSB_Analysis/entity/entity_entity.html#レーダーサイト">レーダーサイト</a>の<code class="language-plaintext highlighter-rouge">RadarSyncCount</code>から<code class="language-plaintext highlighter-rouge">RadarSyncCount</code>を足す</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">RadarEnd</code>を持ち、サバイバルであり、<code class="language-plaintext highlighter-rouge">RadarAreaCheck</code>が0である(<u>レーダーサイト使用前後に同じディメンション内にいる</u>)プレイヤーを、<strong><code class="language-plaintext highlighter-rouge">PostRadarSite</code>を持つ<a href="/TUSB_Analysis/entity/entity_entity.html#レーダーサイト">レーダーサイト</a>の位置に移動し、<code class="language-plaintext highlighter-rouge">RadarEnd</code>を削除</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">RadarEnd</code>を持ち、サバイバルであるすべてのプレイヤー(<strong>前述のtp処理が実行できなかったプレイヤー</strong>)に以下の事柄を実行
+    <ol>
+      <li>「<span style="color:yellow;background-color:gray;">スキル発動地点を見失ってしまった！</span>」とのメッセージを表示</li>
+      <li><strong>100m下に移動</strong></li>
+      <li><strong><code class="language-plaintext highlighter-rouge">RadarEnd</code>を削除</strong></li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">RadarEnd</code>を持っているプレイヤーが存在するとき、<a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVisionFinProcessing.html">レーダーヴィジョン終了処理</a>を再び実行</li>
+</ol>
 
 
     <div class="tags">
@@ -611,6 +778,7 @@ $('#toc').on('click', 'a', function() {
         
         
         
+        <a href="/TUSB_Analysis/tags/tag_command.html" class="btn btn-default navbar-btn cursorNorm" role="button">コマンド</a>
         
         
         
@@ -688,6 +856,153 @@ $('#toc').on('click', 'a', function() {
         
         
         
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_archer.html" class="btn btn-default navbar-btn cursorNorm" role="button">狩人</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_display.html" class="btn btn-default navbar-btn cursorNorm" role="button">表示</a>
         
         
         
@@ -752,7 +1067,27 @@ $('#toc').on('click', 'a', function() {
         
     </div>
 
-
+<script id="dsq-count-scr" src="//tusb-analysis.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://tusb-analysis.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
 
@@ -761,7 +1096,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-             Site last generated: 9 Sep 2020 <br />
+            <span>Page last updated:</span> 10 Sep 2020<br/> Site last generated: 10 Sep 2020 <br />
         </div>
     </div>
 </footer>

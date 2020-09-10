@@ -13,3 +13,7 @@ intrepid: "Brave and courageous especially in a difficult, dangerous situation."
 ironWillMesage: "次のノックバックを軽減する。一定確率で効果が継続する。\n装備：継続確率にボーナス。"
 
 tacticalHealMesage: "次に大ダメージを受けた時、HPを大きく回復する。"
+
+enChaseMesage: "次に撃った矢が生物に当たりやすくなる。"
+
+energySaveMesage: "次に使用するスキルの消費MPを半減する。"

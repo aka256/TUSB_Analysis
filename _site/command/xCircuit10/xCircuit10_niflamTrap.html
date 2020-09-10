@@ -143,9 +143,9 @@
       -->
     <script>
         $(document).ready(function() {
-            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
+            $('div.datatable3cnp-begin').nextUntil('div.datatable3cnp-end', 'table').addClass('display');
             $('table.display').DataTable({
-                paging: true,
+                paging: false,
                 stateSave: true,
                 searching: true,
                 autoWidth: false,
@@ -514,6 +514,18 @@
                     <li><a title="ボミオストラップ実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_bomiosTrap.html">ボミオストラップ実行</a></li>
                         
                     <li><a title="ワイルドクッキング実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_wildCooking.html">ワイルドクッキング実行</a></li>
+                        
+                    <li><a title="エンチェイス実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_enchase.html">エンチェイス実行</a></li>
+                        
+                    <li><a title="レーダーヴィジョン実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVision.html">レーダーヴィジョン実行</a></li>
+                        
+                    <li><a title="レーダーヴィジョン終了処理" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVisionFinProcessing.html">レーダーヴィジョン終了処理</a></li>
+                        
+                    <li><a title="エナジーセーブ実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_energySave.html">エナジーセーブ実行</a></li>
+                        
+                    <li class="active"><a title="ニフラムトラップ実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_niflamTrap.html">ニフラムトラップ実行</a></li>
+                        
+                    <li><a title="ワイルドヒーリング実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_wildHealing.html">ワイルドヒーリング実行</a></li>
                       
                 </ul>
             </li>
@@ -632,15 +644,227 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p><strong>編集中</strong></p>
-
-<h2 id="about">About</h2>
-
-<p><span class="tagYellow">位置</span> (-1920,4,-167)</p>
+   <h2 id="about">About</h2>
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_command.html">毎tick実行するコマンド群10</a></p>
 
-<p><span class="tagBlue">分岐先</span></p>
+<p>狩人のスキルの1つであるニフラムトラップを実行する。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<h3 id="初期実行部コマンド群">初期実行部コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,15,-166)</p>
+
+<div class="datatable3cnp-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @a[score_ActivatedSkill_min=3070,score_ActivatedSkill=3079] ~ ~ ~ /execute @e[r=6,tag=TrapPoint,c=1] ~ ~ ~ /summon Arrow ~ ~ ~ {Silent:true,damage:0d,life:800s,Tags:[FlyingObject,TypeChecked],Passengers:[{id:AreaEffectCloud,Radius:5f,RadiusOnUse:0f,DurationOnUse:0f,Duration:400,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:witchMagic,CustomName:”☠”,CustomNameVisible:true,Tags:[Poof,TypeChecked]}]}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/clone -1920 ~2 ~ -1920 ~2 ~ -1920 ~2 ~ filtered force minecraft:command_block 5 ###ニフラムトラップ処理起動</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3cnp-end"></div>
+
+<h3 id="ニフラムクロック部コマンド群">ニフラムクロック部コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,17,-166)</p>
+
+<div class="datatable3cnp-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @r[type=AreaEffectCloud,tag=Poof,c=3] ~ ~ ~ /playsound block.fire.ambient master @a[r=16] ~ ~ ~ 0.5 2 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @r[type=AreaEffectCloud,tag=Poof,c=3] ~ ~ ~ /particle witchMagic ~ ~ ~ 5 0.1 5 0.1 10 force</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute @r[type=AreaEffectCloud,tag=Poof,c=1] ~ ~ ~ /scoreboard players tag @r[r=5,type=!Player,tag=Poofable,c=3] add PoofCheck</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players tag @e[tag=PoofCheck] remove Poofable</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/clone -1920 ~-1 ~ -1920 ~-1 ~ -1920 ~-1 ~ filtered force minecraft:command_block 5 ###ニフラム判定&amp;適用</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players test #EntityCount Global 1 *</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/clone -1920 ~ ~ -1920 ~ ~ -1920 ~ ~ filtered force minecraft:command_block 5 ###ループ</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3cnp-end"></div>
+
+<h3 id="ニフラム適用部コマンド群">ニフラム適用部コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,16,-166)</p>
+
+<div class="datatable3cnp-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players tag @e[tag=PoofCheck] remove PoofCheck {ArmorItems:[{Count:1b}]}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players tag @e[tag=PoofCheck] remove PoofCheck {ArmorItems:[{Count:0b}]}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/entitydata @e[tag=PoofCheck] {:,ArmorItems:[{},{},{id:minecraft:wooden_button,Count:0b,Damage:0s,tag:{AttributeModifiers:[{Name:”Poof”,AttributeName:”generic.maxHealth”,Operation:0,Amount:-300d,UUIDMost:9007L,UUIDLeast:9007L}]}}]}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/entitydata @e[tag=PoofCheck] {:}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players tag @e[tag=PoofCheck] remove PoofCheck</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3cnp-end"></div>
+
+<h2 id="詳細">詳細</h2>
+
+<h3 id="初期実行部">初期実行部</h3>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3070 ~ 3079</strong>であるすべてのプレイヤーから<strong>半径6m以内</strong>の1つの<a href="/TUSB_Analysis/entity/entity_entity.html">TrapPoint</a>に、<strong><a href="#ニフラムトラップポイント">ニフラムトラップポイント</a>(<code class="language-plaintext highlighter-rouge">Poof</code>を持つ)を召喚</strong></li>
+  <li><a href="#ニフラムクロック部">ニフラムクロック部</a>を実行</li>
+</ol>
+
+<h3 id="ニフラムクロック部">ニフラムクロック部</h3>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">Poof</code>を持つ<a href="#ニフラムトラップポイント">ニフラムトラップポイント</a></strong>が存在するとき、以下の事柄を実行
+    <ol>
+      <li><code class="language-plaintext highlighter-rouge">Poof</code>を持つ<a href="#ニフラムトラップポイント">ニフラムトラップポイント</a>をランダムに3体選び、それらから<strong>半径16m以内</strong>のすべてのプレイヤーに、<strong>効果音を鳴らす</strong></li>
+      <li><code class="language-plaintext highlighter-rouge">Poof</code>を持つ<a href="#ニフラムトラップポイント">ニフラムトラップポイント</a>をランダムに3体選び、その座標上に<strong>パーティクルを表示</strong></li>
+      <li><code class="language-plaintext highlighter-rouge">Poof</code>を持つ<a href="#ニフラムトラップポイント">ニフラムトラップポイント</a>をランダムに1体選び、そこからさらに<strong>半径5m以内</strong>の<strong><code class="language-plaintext highlighter-rouge">Poofable</code>を持つエンティティをランダムに3体選び、<code class="language-plaintext highlighter-rouge">PoofCheck</code>を付与</strong></li>
+      <li><code class="language-plaintext highlighter-rouge">PoofCheck</code>を持つすべてのエンティティから、<code class="language-plaintext highlighter-rouge">Poofable</code>を削除</li>
+      <li><a href="#ニフラム適用部">ニフラム適用部</a>を実行</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">#EntityCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が1以上であるとき、<a href="#ニフラムクロック部">ニフラムクロック部</a>を再び実行</li>
+</ol>
+
+<h3 id="ニフラム適用部">ニフラム適用部</h3>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">PoofCheck</code>を持ち、装備のスタック数が1もしくは0(装備をしていないということではない)であるエンティティから、<code class="language-plaintext highlighter-rouge">PoofCheck</code>を削除</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">PoofCheck</code>を持つすべてのエンティティに、<strong>最大体力を300減らす<a href="/TUSB_Analysis/others/others_item.html#ニフラム用ボタン">ニフラム用ボタン</a>を胴に装備させる</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">PoofCheck</code>を持つすべてのエンティティのタグを読み込み、<a href="/TUSB_Analysis/others/others_item.html#ニフラム用ボタン">ニフラム用ボタン</a>の効果を適用させ、<strong>キルする</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">PoofCheck</code>を持つすべてのエンティティから<code class="language-plaintext highlighter-rouge">PoofCheck</code>を削除</li>
+</ol>
+
+<h3 id="ニフラムトラップポイント">ニフラムトラップポイント</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~ ~ {Silent:true,damage:0d,life:800s,Tags:[FlyingObject,TypeChecked],Passengers:[{id:AreaEffectCloud,Radius:5f,RadiusOnUse:0f,DurationOnUse:0f,Duration:400,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:witchMagic,CustomName:"☠",CustomNameVisible:true,Tags:[Poof,TypeChecked]}]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>(None)</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>FlyingObject, TypeChecked</td>
+    </tr>
+    <tr>
+      <td>life</td>
+      <td>800 (20秒後に消滅)</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Passengers</li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td><strong>☠</strong></td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>AEC</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td><strong>Poof</strong>,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>Duration</td>
+      <td>400 (20sec)</td>
+    </tr>
+  </tbody>
+</table>
 
 
     <div class="tags">
@@ -867,7 +1091,27 @@ $('#toc').on('click', 'a', function() {
         
     </div>
 
-
+<script id="dsq-count-scr" src="//tusb-analysis.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://tusb-analysis.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
 
@@ -876,7 +1120,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 08 Sep 2020<br/> Site last generated: 9 Sep 2020 <br />
+            <span>Page last updated:</span> 10 Sep 2020<br/> Site last generated: 10 Sep 2020 <br />
         </div>
     </div>
 </footer>

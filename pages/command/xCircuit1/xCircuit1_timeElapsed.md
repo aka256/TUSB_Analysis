@@ -3,7 +3,7 @@ title: 時間経過
 tags: [コマンド,スキル]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,トカルトコルデ,スキル,ガーディアン
 last_updated: 2020/6/19
-update: 2020-06-19 09:00:00 +0000
+update: 2020-09-10 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit1/xCircuit1_timeElapsed.html
 folder: xCircuit1
@@ -18,7 +18,7 @@ summaryDisable: true
 
 <span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群1]({{site.baseurl}}/command/xCircuit1/xCircuit1_runFirst.html)
 
-<span class="tagBlue">分岐先</span> [風切更新]({{site.baseurl}}/command/xCircuit1/xCircuit1_kazakiriUpdata.html), [狩人レーダーヴィジョン終了処理]({{site.baseurl}}/command/archer/archer_RadarVisionFinProcessing.html), [約1分処理]({{site.baseurl}}/command/xCircuit1/xCircuit1_oneMinProcessing.html), [Tick停止飛翔物削除]({{site.baseurl}}/command/xCircuit1/xCircuit1_tickStopDelete.html), [敵スキル実行]({{site.baseurl}}/command/xCircuit1/xCircuit1_runMobSkill.html), [嫌な予感実行]({{site.baseurl}}/command/xCircuit1/xCircuit1_eventFulfill.html), [トカルト処理]({{site.baseurl}}/command/xCircuit1/xCircuit1_iceProcessing.html), [動物誘導イベント]({{site.baseurl}}/command/xCircuit1/xCircuit1_animalGuideEvent.html)
+<span class="tagBlue">分岐先</span> [風切更新]({{site.baseurl}}/command/xCircuit1/xCircuit1_kazakiriUpdata.html), [狩人レーダーヴィジョン終了処理]({{site.baseurl}}/command/xCircuit10/xCircuit10_RadarVisionFinProcessing.html), [約1分処理]({{site.baseurl}}/command/xCircuit1/xCircuit1_oneMinProcessing.html), [Tick停止飛翔物削除]({{site.baseurl}}/command/xCircuit1/xCircuit1_tickStopDelete.html), [敵スキル実行]({{site.baseurl}}/command/xCircuit1/xCircuit1_runMobSkill.html), [嫌な予感実行]({{site.baseurl}}/command/xCircuit1/xCircuit1_eventFulfill.html), [トカルト処理]({{site.baseurl}}/command/xCircuit1/xCircuit1_iceProcessing.html), [動物誘導イベント]({{site.baseurl}}/command/xCircuit1/xCircuit1_animalGuideEvent.html)
 
 スキルやイベント、トカルトコルデなどでの時間経過により変化するものの処理、分岐を行っている。
 
@@ -98,7 +98,7 @@ summaryDisable: true
 7. `Kazakiri`を持つプレイヤーが存在したら、`Kazakiri`から1を引き、(-1920,11,-198)にある[風切更新]({{site.baseurl}}/command/xCircuit1/xCircuit1_kazakiriUpdata.html)を実行
 8. `RadarVision`が0以上であるプレイヤーが存在したら、`RadarVision`から1を引き、以下の事柄を実行
    1. `RadarVision`が-1以下であるプレイヤーに`RadarEnd`を付与し、15m下に移動、`RadarVision`を0に設定
-   2. (-1920,12,-166)にある[狩人レーダーヴィジョン終了処理]({{site.baseurl}}/command/archer/archer_RadarVisionFinProcessing.html)を実行
+   2. (-1920,12,-166)にある[狩人レーダーヴィジョン終了処理]({{site.baseurl}}/command/xCircuit10/xCircuit10_radarVisionFinProcessing.html)を実行
 9. `#SecCount`の`Global`に1を足す
 10. `#SecCount`の`Global`が0であるとき、ワールドの境界線から0m近づいたとき警告を出す
 11. `#SecCount`の`Global`が61以上であるとき、(-1920,14,-200)にある[約1分処理]({{site.baseurl}}/command/xCircuit1/xCircuit1_oneMinProcessing.html)を実行

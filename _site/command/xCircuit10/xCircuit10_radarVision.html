@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="狩人のスキルの1つであるレーダーヴィジョンを実行する。">
+<meta name="description" content="狩人のスキルの1つであるレーダーヴィジョンを実行する。なお、`RadarVision`のカウントダウン処理は時間経過、レーダーヴィジョンの終了処理はレーダーヴィジョン終了処理でそれぞれ行われる。">
 <meta name="keywords" content="コマンドスキル狩人,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
 <title>レーダーヴィジョン実行 | TUSB Analysis</title>
 
@@ -64,7 +64,7 @@
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
 <meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit10/xCircuit10_radarVision.html" /> <!--③-->
 <meta property="og:title" content="レーダーヴィジョン実行 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="狩人のスキルの1つであるレーダーヴィジョンを実行する。" /> <!--⑤-->
+<meta property="og:description" content="狩人のスキルの1つであるレーダーヴィジョンを実行する。なお、`RadarVision`のカウントダウン処理は時間経過、レーダーヴィジョンの終了処理はレーダーヴィジョン終了処理でそれぞれ行われる。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -514,6 +514,18 @@
                     <li><a title="ボミオストラップ実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_bomiosTrap.html">ボミオストラップ実行</a></li>
                         
                     <li><a title="ワイルドクッキング実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_wildCooking.html">ワイルドクッキング実行</a></li>
+                        
+                    <li><a title="エンチェイス実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_enchase.html">エンチェイス実行</a></li>
+                        
+                    <li class="active"><a title="レーダーヴィジョン実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVision.html">レーダーヴィジョン実行</a></li>
+                        
+                    <li><a title="レーダーヴィジョン終了処理" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVisionFinProcessing.html">レーダーヴィジョン終了処理</a></li>
+                        
+                    <li><a title="エナジーセーブ実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_energySave.html">エナジーセーブ実行</a></li>
+                        
+                    <li><a title="ニフラムトラップ実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_niflamTrap.html">ニフラムトラップ実行</a></li>
+                        
+                    <li><a title="ワイルドヒーリング実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_wildHealing.html">ワイルドヒーリング実行</a></li>
                       
                 </ul>
             </li>
@@ -632,15 +644,163 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p><strong>編集中</strong></p>
+   <h2 id="about">About</h2>
 
-<h2 id="about">About</h2>
-
-<p><span class="tagYellow">位置</span> (-1920,4,-167)</p>
+<p><span class="tagYellow">位置</span> (-1920,10,-166)</p>
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_command.html">毎tick実行するコマンド群10</a></p>
 
-<p><span class="tagBlue">分岐先</span></p>
+<p>狩人のスキルの1つであるレーダーヴィジョンを実行する。なお、<code class="language-plaintext highlighter-rouge">RadarVision</code>のカウントダウン処理は<a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_timeElapsed.html">時間経過</a>、レーダーヴィジョンの終了処理は<a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVisionFinProcessing.html">レーダーヴィジョン終了処理</a>でそれぞれ行われる。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players tag @a[score_ActivatedSkill_min=3050,score_ActivatedSkill=3059] add RadarStart</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players set @a[score_ActivatedSkill_min=3050,score_ActivatedSkill=3050] RadarVision 2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players set @a[score_ActivatedSkill_min=3051,score_ActivatedSkill=3059] RadarVision 5</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players add #RadarSiteCount RadarSyncCount 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players operation @a[tag=RadarStart,c=1] RadarSyncCount = #RadarSiteCount RadarSyncCount</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/execute @a[tag=RadarStart,score_RadarSyncCount_min=1] ~ ~ ~ /summon ArmorStand ~ ~ ~ {Invulnerable:true, Small:true, NoGravity:true, NoBasePlate:true, Invisible:true, DisabledSlots:31, Pose:{Body:[180f,0f,0f],LeftLeg:[180f,0f,-10f],RightLeg:[180f,0f,10f]}, CustomName:”レーダーサイト”, CustomNameVisible:true, ArmorItems:[{},{},{},{id:”minecraft:beacon”,Count:0b,Damage:0s}], Tags:[PreRadarSite,RadarSite,CooldownRequired,TypeChecked], PortalCooldown:200}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/execute @a[tag=RadarStart,score_RadarSyncCount_min=1] ~ ~ ~ /tp @e[dx=0,tag=PreRadarSite,c=1] @a[c=1]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/execute @a[tag=RadarStart,score_RadarSyncCount_min=1] ~ ~ ~ /scoreboard players operation @e[dx=0,tag=PreRadarSite,c=1] RadarSyncCount = @a[c=1] RadarSyncCount</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/execute @a[tag=RadarStart,score_RadarSyncCount_min=1] ~ ~ ~ /scoreboard players tag @e[dx=0,tag=PreRadarSite,c=1] remove PreRadarSite</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/execute @a[tag=RadarStart,score_RadarSyncCount_min=1] ~ ~ ~ /scoreboard players operation @a[c=1] RadarAreaCheck = @a[c=1] USBDimension</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/effect @a[tag=RadarStart,score_RadarSyncCount_min=1] minecraft:water_breathing 30 100 true</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/effect @a[tag=RadarStart,score_RadarSyncCount_min=1] minecraft:night_vision 30 100 true</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/execute @a[tag=RadarStart,score_RadarSyncCount_min=1] ~ ~ ~ /playsound minecraft:entity.zombie_villager.converted master @a[r=16] ~ ~ ~ 1 0.78 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/gamemode spectator @a[tag=RadarStart,score_RadarSyncCount_min=1]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/scoreboard players tag @a[tag=RadarStart,score_RadarSyncCount_min=1] remove RadarStart</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/testfor @a[tag=RadarStart]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/clone -1920 ~ ~ -1920 ~ ~ -1920 ~ ~ filtered force minecraft:command_block 5 ###リピート</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3050 ~ 3059</strong>であるすべてのプレイヤーに<strong><code class="language-plaintext highlighter-rouge">RadarStart</code>を付与</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3050</strong>であるすべてのプレイヤーの<strong><code class="language-plaintext highlighter-rouge">RaderVision</code>を2に設定</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3051 ~ 3059</strong>であるすべてのプレイヤーの<strong><code class="language-plaintext highlighter-rouge">RaderVision</code>を5に設定</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">RadarSyncCount</code>の<code class="language-plaintext highlighter-rouge">#RadarSiteCount</code>に1を足し、<code class="language-plaintext highlighter-rouge">RadarStart</code>を持つプレイヤーの<code class="language-plaintext highlighter-rouge">RadarSyncCount</code>に代入</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">RadarStart</code>を持ち、<code class="language-plaintext highlighter-rouge">RadarSyncCount</code>が1以上であるプレイヤー</strong>を対象として、以下の事柄を実行
+    <ol>
+      <li>対象プレイヤーの座標上に<strong><a href="#レーダーサイト">レーダーサイト</a>(<code class="language-plaintext highlighter-rouge">PreRadarSite</code>を持つ)を召喚</strong>し、対象プレイヤーと同じ方向を向かせる</li>
+      <li>対象プレイヤーと同座標にある<code class="language-plaintext highlighter-rouge">PreRadarSite</code>を持つ<a href="#レーダーサイト">レーダーサイト</a>の<code class="language-plaintext highlighter-rouge">RadatSyncCount</code>に、対象プレイヤーの<code class="language-plaintext highlighter-rouge">RadatSyncCount</code>を代入</li>
+      <li>対象プレイヤーの<code class="language-plaintext highlighter-rouge">RadarAreaCheck</code>に、対象プレイヤーの<code class="language-plaintext highlighter-rouge">USBDimension</code>を代入</li>
+      <li>対象プレイヤーに、<strong>水中呼吸Lv.99と暗視Lv.99をそれぞれ30秒間付与</strong></li>
+      <li>対象プレイヤーから<strong>半径16m以内</strong>のすべてのプレイヤーに、<strong>効果音を鳴らす</strong></li>
+      <li>対象プレイヤーを<strong>スペクターモードに変更</strong></li>
+      <li>対象プレイヤーから<code class="language-plaintext highlighter-rouge">RadarStart</code>を削除</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">RadarStart</code>を持つプレイヤーが存在したとき、<a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVision.html">レーダーヴィジョン実行</a>を再び1から実行</li>
+</ol>
+
+<h3 id="レーダーサイト">レーダーサイト</h3>
+
+<pre><code class="language-mcfunction">/summon ArmorStand ~ ~ ~ {Invulnerable:true, Small:true, NoGravity:true, NoBasePlate:true, Invisible:true, DisabledSlots:31, Pose:{Body:[180f,0f,0f],LeftLeg:[180f,0f,-10f],RightLeg:[180f,0f,10f]}, CustomName:"レーダーサイト", CustomNameVisible:true, ArmorItems:[{},{},{},{id:"minecraft:beacon",Count:0b,Damage:0s}], Tags:[PreRadarSite,RadarSite,CooldownRequired,TypeChecked], PortalCooldown:200}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>レーダーサイト</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>ArmorStand</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td><strong>PreRadarSite</strong>,RadarSite,CooldownRequired,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>ArmorItems</td>
+      <td>{},{},{},{id:”minecraft:<strong>beacon</strong>“,Count:0b,Damage:0s}</td>
+    </tr>
+  </tbody>
+</table>
 
 
     <div class="tags">
@@ -867,7 +1027,27 @@ $('#toc').on('click', 'a', function() {
         
     </div>
 
-
+<script id="dsq-count-scr" src="//tusb-analysis.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://tusb-analysis.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
 
@@ -876,7 +1056,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 08 Sep 2020<br/> Site last generated: 9 Sep 2020 <br />
+            <span>Page last updated:</span> 10 Sep 2020<br/> Site last generated: 10 Sep 2020 <br />
         </div>
     </div>
 </footer>

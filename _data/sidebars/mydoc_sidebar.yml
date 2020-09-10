@@ -325,6 +325,24 @@ entries:
         - title: ワイルドクッキング実行
           url: /command/xCircuit10/xCircuit10_wildCooking.html
           output: web, pdf
+        - title: エンチェイス実行
+          url: /command/xCircuit10/xCircuit10_enchase.html
+          output: web, pdf
+        - title: レーダーヴィジョン実行
+          url: /command/xCircuit10/xCircuit10_radarVision.html
+          output: web, pdf
+        - title: レーダーヴィジョン終了処理
+          url: /command/xCircuit10/xCircuit10_radarVisionFinProcessing.html
+          output: web, pdf
+        - title: エナジーセーブ実行
+          url: /command/xCircuit10/xCircuit10_energySave.html
+          output: web, pdf
+        - title: ニフラムトラップ実行
+          url: /command/xCircuit10/xCircuit10_niflamTrap.html
+          output: web, pdf
+        - title: ワイルドヒーリング実行
+          url: /command/xCircuit10/xCircuit10_wildHealing.html
+          output: web, pdf
       - title: 白魔導士スキル
         output: web, pdf
         subfolderitems:
