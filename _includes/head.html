@@ -5,6 +5,14 @@
 <meta name="keywords" content="{{page.tags}}{% if page.tags %}, {% endif %} {{page.keywords}}">
 <title>{{ page.title }} | {{ site.site_title }}</title>
 
+{%- if page.permalink -%}
+{% if page.permalink == "index.html" %}
+<link rel="canonical" href="{{site.surl}}{{site.baseurl}}/">
+{% else %}
+<link rel="canonical" href="{{site.surl}}{{site.baseurl}}/{{page.permalink}}">
+{% endif %}
+{%- endif -%}
+
 <!-- Google Tag Manager -->
 <script>
     (function(w, d, s, l, i) {

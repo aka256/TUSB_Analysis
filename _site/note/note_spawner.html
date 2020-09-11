@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=",  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
-<title>About GMBook | TUSB Analysis</title>
-
+<title>About spawner | TUSB Analysis</title>
+<link rel="canonical" href="https://aka256.github.io/TUSB_Analysis/note/note_spawner.html">
 <!-- Google Tag Manager -->
 <script>
     (function(w, d, s, l, i) {
@@ -70,8 +70,8 @@
 
 <meta name="twitter:card" content="summary" /> <!--①-->
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
-<meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/note/note_GMBook.html" /> <!--③-->
-<meta property="og:title" content="About GMBook | TUSB Analysis" /> <!--④-->
+<meta property="og:url" content="https://aka256.github.io/TUSB_Analysisnote/note_spawner.html" /> <!--③-->
+<meta property="og:title" content="About spawner | TUSB Analysis" /> <!--④-->
 <meta property="og:description" content="" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
@@ -93,6 +93,7 @@
 <link rel="stylesheet" href="/TUSB_Analysis/css/original.css">
 
 <meta name="google-site-verification" content="IfKF0TOJNUtCg_H2zFNe6k3qnuQiJWoIfV3nXyV3OPs" />
+
     <script>
         $(document).ready(function() {
             // Initialize navgoco with default options
@@ -510,7 +511,23 @@
             <li class="subfolders">
                 <a title="白魔導士スキル" href="#">白魔導士スキル</a>
                 <ul>
-                    
+                      
+                    <li><a title="キアリク実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_chialik.html">キアリク実行</a></li>
+                        
+                    <li><a title="ハートブースト実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_heartBoost.html">ハートブースト実行</a></li>
+                        
+                    <li><a title="リジェネレーション実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_regeneration.html">リジェネレーション実行</a></li>
+                        
+                    <li><a title="クイック実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_quick.html">クイック実行</a></li>
+                        
+                    <li><a title="バオル実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_baol.html">バオル実行</a></li>
+                        
+                    <li><a title="レイズ実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raise.html">レイズ実行</a></li>
+                        
+                    <li><a title="レイズリスポーン処理" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raiseWarp.html">レイズリスポーン処理</a></li>
+                        
+                    <li><a title="ケアル実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_keal.html">ケアル実行</a></li>
+                      
                 </ul>
             </li>
                
@@ -559,6 +576,15 @@
     </li>
       
     <li>
+        <a title="個別解説" href="#">個別解説</a>
+        <ul>
+              
+            <li><a title="レイズ解説" href="/TUSB_Analysis/note/note_aboutRaise.html">レイズ解説</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
         <a title="ページ内タグ" href="#">ページ内タグ</a>
         <ul>
               
@@ -584,7 +610,7 @@
                 <!-- Content Column -->
                 <div class="col-md-9" id="tg-sb-content">
                     <div class="post-header">
-   <h1 class="post-title-main">About GMBook</h1>
+   <h1 class="post-title-main">About spawner</h1>
 </div>
 
 
@@ -621,219 +647,113 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>This is GMBook data.</p>
+   <pre><code class="language-minecraft">{NoGravity:1b,
+HurtByTimestamp:0,
+Attributes:[0:{Base:20.0d,Name:"generic.maxHealth"},1:{Base:0.0d,Name:"generic.knockbackResistance"},2:{Base:0.699999988079071d,Name:"generic.movementSpeed"},3:{Base:0.0d,Name:"generic.armor"},4:{Base:0.0d,Name:"generic.armorToughness"}],
+Invulnerable:1b,
+FallFlying:0b,
+ShowArms:0b,
+PortalCooldown:0,
+AbsorptionAmount:0.0f,
+FallDistance:0.0f,
+DisabledSlots:0,
+DeathTime:0s,
+Pose:{},
+Invisible:1b,
+Tags:[0:"TypeChecked",1:"SystemEntity",2:"Spawner"],
+Motion:[0:0.0d,1:0.0d,2:0.0d],
+Small:1b,
+UUIDLeast:-6767062386268429416L,
+Health:20.0f,
+Air:300s,
+OnGround:0b,
+Dimension:0,
+Marker:1b,
+Rotation:[0:0.0f,1:0.0f],
+HandItems:[0:{},1:{}],
+UUIDMost:-1060489431397350663L,
+Passengers:[0:{
+  CustomDisplayTile:1b,
+  SpawnCount:1s,
+  Invulnerable:1b,
+  SpawnData:{
+    FallDistance:1.0f,
+    Motion:[0:0.0f,1:1.0f,2:0.0f],
+    Block:"minecraft:gravel",
+    Data:0b,
+    Time:1,
+    id:"FallingSand",
+    DropItem:0b},
+  MaxSpawnDelay:300s,
+  PortalCooldown:0,
+  Delay:197s,
+  FallDistance:789099.9f,
+  id:"MinecartSpawner",
+  SpawnRange:3s,
+  Tags:[0:"TypeChecked",1:"SystemEntity",2:"SpawnerCore",3:"Spawner"],
+  MinSpawnDelay:100s,
+  Motion:[0:0.0d,1:-0.037999998673796664d,2:0.0d],
+  MaxNearbyEntities:6s,
+  RequiredPlayerRange:32s,
+  UUIDLeast:-1369723820L,
+  DisplayTile:"minecraft:air",
+  Air:0s,
+  OnGround:0b,
+  Dimension:0,
+  Rotation:[0:0.0f,1:0.0f],
+  DisplayOffset:0,
+  UUIDMost:-1369723819L,
+  Pos:[0:-12.5d,1:11.0001d,2:2.5d],
+  Fire:-1s,
+  DisplayData:0,
+  SpawnPotentials:[0:{
+    Entity:{
+      FallDistance:1.0f,
+      Motion:[0:0.0f,1:1.0f,2:0.0f],
+      Block:"minecraft:gravel",
+      Data:0b,
+      Time:1,
+      id:"FallingSand",
+      DropItem:0b},
+    Weight:1}]}],
+Pos:[0:-12.5d,1:11.0001d,2:2.5d],
+Fire:0s,
+ArmorItems:[0:{},1:{},2:{},3:{}],
+NoBasePlate:1b,
+HurtTime:0s}
+</code></pre>
 
-<pre><code class="language-minecraftcommand">{Motion:[0:-5.944105349618759E-150d,1:-0.0d,2:-2.2567945239087242E-150d],UUIDLeast:-6782892726351715483L,Health:5s,Invulnerable:0b,Air:300s,OnGround:1b,Dimension:0,PortalCooldown:0,Rotation:[0:159.55319f,1:0.0f],Thrower:"aka_12",FallDistance:0.0f,Item:{
-  id:"minecraft:written_book",
-  Count:1b,
-  tag:{pages:[0:"
-  {
-    \"color\":\"black\",
-    \"extra\":[
-    {
-      \"bold\":true,
-      \"color\":\"dark_aqua\",
-      \"clickEvent\":
-      {
-        \"action\":\"run_command\",
-        \"value\":\"/scoreboard players set @p SkillLockFlag 100\"
-      },
-      \"hoverEvent\":
-      {
-        \"action\":\"show_text\",
-        \"value\":
-        {
-          \"text\":\"３秒間スペクテイターモードになる\"
-        }
-      },
-      \"text\":\"SP \"
-    },
-    {
-      \"bold\":true,
-      \"color\":\"dark_gray\",
-      \"clickEvent\":
-      {
-        \"action\":\"run_command\",
-        \"value\":\"/tp @p ~ ~10 ~\"
-      },
-      \"hoverEvent\":
-      {
-        \"action\":\"show_text\",
-        \"value\":
-        {
-          \"text\":\"10ブロック上へ行く\"
-        }
-      },
-      \"text\":\"↑ \"
-    },
-    {
-      \"bold\":true,
-      \"color\":\"dark_gray\",
-      \"clickEvent\":
-      {
-        \"action\":\"run_command\",
-        \"value\":\"/tp @p ~ ~-10 ~\"
-      },
-      \"hoverEvent\":
-      {
-        \"action\":\"show_text\",
-        \"value\":
-        {
-          \"text\":\"10ブロック下へ行く\"
-        }
-      },
-      \"text\":\"↓\n\"
-    },
-    {
-      \"color\":\"green\",
-      \"clickEvent\":
-      {
-        \"action\":\"run_command\",
-        \"value\":\"/spawnpoint\"
-      },
-      \"hoverEvent\":
-      {
-        \"action\":\"show_text\",
-        \"value\":
-        {
-          \"text\":\"今いる座標をﾘｽﾎﾟｰﾝ地点に設定する\"
-        }
-      },
-      \"text\":\"[ﾘｽﾎﾟｰﾝ地点設定]\"
-    },
-    {
-      \"bold\":true,
-      \"color\":\"black\",
-      \"hoverEvent\":
-      {
-        \"action\":\"show_text\",\"value\":
-        {
-          \"text\":\"ゲームモードを変える\"
-        }
-      },
-      \"text\":\" GM \"
-    },
-    {
-      \"bold\":true,
-      \"color\":\"black\",
-      \"clickEvent\":
-      {
-        \"action\":\"run_command\",
-        \"value\":\"/tellraw @p 
-        {
-          \\"text\\":\\"-S\\",
-          \\"color\\":\\"gold\\",
-          \\"clickEvent\\":
-          {
-            \\"action\\":\\"run_command\\",
-            \\"value\\":\\"/gamemode 0\\"
-          }
-        }
-        \"
-      },
-      \"hoverEvent\":
-      {
-        \"action\":\"show_text\",
-        \"value\":
-        {
-          \"text\":\"サバイバル\"
-        }
-      },
-      \"text\":\"0\"
-    },
-    {
-      \"color\":\"black\",
-      \"text\":\"/\"
-    },
-    {
-      \"bold\":true,
-      \"color\":\"black\",
-      \"clickEvent\":
-      {
-        \"action\":\"run_command\",
-        \"value\":\"/tellraw @p 
-        {
-          \\"text\\":\\"-C\\",
-          \\"color\\":\\"aqua\\",
-          \\"clickEvent\\":
-          {
-            \\"action\\":\\"run_command\\",
-            \\"value\\":\\"/gamemode 1\\"
-          }
-        }\"
-      },
-      \"hoverEvent\":
-      {
-        \"action\":\"show_text\",
-        \"value\":
-        {
-          \"text\":\"クリエイティブ\"
-        }
-      },
-      \"text\":\"1\"
-    },
-    {
-      \"color\":\"black\",
-      \"text\":\"/\"
-    },
-    {
-      \"bold\":true,
-      \"color\":\"black\",
-      \"clickEvent\":
-      {
-        \"action\":\"run_command\",
-        \"value\":\"/tellraw @p 
-        {
-          \\"text\\":\\"-A\\",
-          \\"color\\":\\"blue\\",
-          \\"clickEvent\\":
-          {
-            \\"action\\":\\"run_command\\",
-            \\"value\\":\\"/gamemode 2\\"
-          }
-        }\"
-      },
-      \"hoverEvent\":
-      {
-        \"action\":\"show_text\",
-        \"value\":
-        {
-          \"text\":\"アドベンチャー\"
-        }
-      },
-      \"text\":\"2\"
-    },
-    {
-      \"color\":\"black\",
-      \"text\":\"/\"
-    },
-    {
-      \"bold\":true,
-      \"color\":\"black\",
-      \"clickEvent\":
-      {
-        \"action\":\"run_command\",
-        \"value\":\"/tellraw @p 
-        {
-          \\"text\\":\\"-SP\\",
-          \\"color\\":\\"red\\",
-          \\"clickEvent\\":
-          {
-            \\"action\\":\\"run_command\\",
-            \\"value\\":\\"/gamemode 3\\"
-          }
-        }
-        \"
-      },
-      \"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"スペクテイター\"}},\"text\":\"3\n\"},{\"color\":\"dark_red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] -1910 14 -80 180 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"全システムの中枢\n絶対破壊禁止区域\"}},\"text\":\"X回路区域\n\"},{\"color\":\"blue\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"方角等を解析する際に\"}},\"text\":\"[方角変更] \"},{\"bold\":true,\"color\":\"dark_gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p ~ ~ ~ 0 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"South方角:0\"}},\"text\":\"+Z\"},{\"color\":\"black\",\"text\":\"/\"},{\"bold\":true,\"color\":\"dark_gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p ~ ~ ~ 90 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"West方角:90\"}},\"text\":\"-X\"},{\"color\":\"black\",\"text\":\"/\"},{\"bold\":true,\"color\":\"dark_gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p ~ ~ ~ 180 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"North方角:180\"}},\"text\":\"-Z\"},{\"color\":\"black\",\"text\":\"/\"},{\"bold\":true,\"color\":\"dark_gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p ~ ~ ~ 270 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"East方角:270\"}},\"text\":\"+X\n\"},{\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] -1906 113 -137 90 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"最初に訪れる島\"}},\"text\":\"△チュートリアル島\n\"},{\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] -1780 113 -137 -90 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"職業を決める旅立ちの島\"}},\"text\":\"△職業島\n\"},{\"color\":\"dark_gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] 0 5 2 -90 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"スカイブロックのメインワールド\"}},\"text\":\"○通常世界\n\"},{\"color\":\"dark_gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] -59 15 19 270 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"多くの村人が住む島\"}},\"text\":\"○交易島\n\"},{\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] -2725 89 -382 90 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"スキルを設定する為の部屋\"}},\"text\":\"△スキル設定所\n\"},{\"color\":\"dark_blue\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] 882 21 -226 -45 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"きのこ島から行ける\n非常に暗い地下世界\"}},\"text\":\"○地下世界\n\"},{\"color\":\"gold\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] -40 70 755 -90 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"自分の体が縮み\n周りの物が大きく見える世界\"}},\"text\":\"△ガリバーランド\n\"},{\"color\":\"green\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] 24 19 -1829 180 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"とても大きな岩の中に出来た\nアドベンチャーダンジョンマップ\"}},\"text\":\"△テーブルマウンテン\n\"},{\"color\":\"aqua\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] 1317 213 1561 0 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"旧文明の遺産が残る\n極寒の土地\"}},\"text\":\"△トカルトコルデ\n\"},{\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] -2480 7 -140 -90 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"雲の上に浮かぶ\n天空の世界\"}},\"text\":\"△クラウディア\n\"}],\"text\":\"\u003d通常ﾃﾞｨﾒﾝｼﾞｮﾝ間\u003d  \"}",
-  1:"{\"color\":\"black\",\"extra\":[{\"bold\":true,\"color\":\"dark_blue\",\"text\":\"地下世界\n\"},{\"color\":\"dark_blue\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] 1050 4 34 -90 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"地下世界最大のダンジョン\"}},\"text\":\" ダンジョン\n\"},{\"color\":\"dark_blue\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] 1252 4 213 -90 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"中に小さな集落のある\nとても大きなキノコ\"}},\"text\":\" 巨大キノコ\n\"},{\"bold\":true,\"color\":\"green\",\"text\":\"テーブルマウンテン\n\"},{\"color\":\"green\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] 24 5 -2154 180 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"テーブルマウンテンへの入り口\"}},\"text\":\" 麓\n\"},{\"color\":\"green\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] 5 248 -2145 180 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"テーブルマウンテンの頂上\"}},\"text\":\" 頂上\n\"},{\"bold\":true,\"color\":\"aqua\",\"text\":\"トカルト\n\"},{\"color\":\"aqua\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] 1970 96 1560 180 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"虫の巣食う採掘跡地\"}},\"text\":\" 氷鉄蟻塚\n\"},{\"color\":\"aqua\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] 1932 97 2400 0 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"洞窟に出来た大きな街\"}},\"text\":\" ねじ巻きの村\n\"},{\"color\":\"aqua\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] 2400 240 1500 90 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"貴重な資源が眠っている地\"}},\"text\":\" 採掘所\n\"},{\"color\":\"aqua\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] 1350 70 2295 0 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"湖にそびえ立つ機械の城\"}},\"text\":\" トカルト城\n\"}],\"text\":\"\u003d別ﾃﾞｨﾒﾝｼﾞｮﾝ間\u003d\n\n\"}",
-  2:"{\"color\":\"black\",\"extra\":[{\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] 36 47 7 0 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"地獄へと続くネザーポータル\"}},\"text\":\"○通常\u003eネザーポータル\n\"},{\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension\u003d-1] -302 23 879 -90 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"地獄のアスレチック\"}},\"text\":\"▲ネザーアスレ\n\"},{\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension\u003d-1] -513 139 803 90 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"アスレクリア後に訪れる場所\"}},\"text\":\"▲ネザーアスレ報酬地点\n\"},{\"color\":\"dark_red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension\u003d-1] -1935 117.5 -66.5 -90 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"地獄の迷宮\"}},\"text\":\"●ネザーダンジョン\n\"},{\"color\":\"dark_red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension\u003d-1] -1859.5 79 -53 0 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"ボス部屋\"}},\"text\":\"●ネザーダンジョン 最深部\n\"},{\"color\":\"red\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension\u003d-1] 0 30 -5 0 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"通常世界帰還用\"}},\"text\":\"●ネザー\u003e通常 ポータル\n\n\"},{\"color\":\"gray\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d0,score_USBDimension\u003d99] 21.5 215 -40.5 0 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"終焉へと続くエンドポータル\"}},\"text\":\"○通常\u003eエンド ポータル\n\"},{\"color\":\"black\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d100] 100 50 0 90 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"最終ディメンジョン\"}},\"text\":\"▲ジ・エンド\n\"},{\"color\":\"black\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d100] -1183 70 9 90 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"最終ダンジョン\"}},\"text\":\"▲ジ・エンド 城\n\"},{\"color\":\"black\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @p[r\u003d2,score_USBDimension_min\u003d100] -1378 198 9 -90 45\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"通常世界帰還用\"}},\"text\":\"▲エンド\u003e通常 ポータル\n\"}],\"text\":\"\u003dﾈｻﾞｰ・ｴﾝﾄﾞ間\u003d\n\n\"}"],
-  HideFlags:63,
-  author:"製作者用",
-  title:"GM本 =移動の書=",
-  resolved:1b},
-Damage:0s},
-UUIDMost:-895564721097718785L,Pos:[0:-1871.881952625867d,1:4.0625d,2:-81.45397864954136d],PickupDelay:0s,Fire:-1s,Tags:[0:"TypeChecked"],Age:650s}
+<table>
+  <tbody>
+    <tr>
+      <td>Type</td>
+      <td>ArmorStand</td>
+    </tr>
+    <tr>
+      <td>Tag</td>
+      <td>TypeChecked,systemEntity,Spawner</td>
+    </tr>
+    <tr>
+      <td>Passengers</td>
+      <td>MinecartSpawner</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Type</td>
+      <td>MinecartSpawner</td>
+    </tr>
+    <tr>
+      <td>Tag</td>
+      <td>TypeChecked,SystemEntity,SpawnerCore,Spawner</td>
+    </tr>
+  </tbody>
+</table>
+
+<pre><code class="language-minecraft">{CustomDisplayTile:1b,SpawnCount:1s,Invulnerable:1b,SpawnData:{FallDistance:1.0f,Motion:[0:0.0f,1:1.0f,2:0.0f],Block:"minecraft:gravel",Data:0b,Time:1,id:"FallingSand",DropItem:0b},MaxSpawnDelay:300s,PortalCooldown:0,Delay:197s,FallDistance:789099.9f,SpawnRange:3s,Tags:[0:"TypeChecked",1:"SystemEntity",2:"SpawnerCore",3:"Spawner"],MinSpawnDelay:100s,Motion:[0:0.0d,1:-0.037999998673796664d,2:0.0d],MaxNearbyEntities:6s,RequiredPlayerRange:32s,UUIDLeast:-1369723820L,DisplayTile:"minecraft:air",Air:0s,OnGround:0b,Dimension:0,Rotation:[0:0.0f,1:0.0f],DisplayOffset:0,UUIDMost:-1369723819L,Pos:[0:-12.5d,1:11.0001d,2:2.5d],Fire:-1s,DisplayData:0,SpawnPotentials:[0:{Entity:{FallDistance:1.0f,Motion:[0:0.0f,1:1.0f,2:0.0f],Block:"minecraft:gravel",Data:0b,Time:1,id:"FallingSand",DropItem:0b},Weight:1}]}
 </code></pre>
 
 
@@ -854,7 +774,7 @@ UUIDMost:-895564721097718785L,Pos:[0:-1871.881952625867d,1:4.0625d,2:-81.4539786
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 10 Jul 2020<br/> Site last generated: 10 Sep 2020 <br />
+            <span>Page last updated:</span> 10 Jul 2020<br/> Site last generated: 11 Sep 2020 <br />
         </div>
     </div>
 </footer>

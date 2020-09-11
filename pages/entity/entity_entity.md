@@ -2,7 +2,7 @@
 title: エンティティ
 tags: [敵Mob,SystemEntity,村人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,エンティティ
-update: 2020-09-10 09:00:00 +0000
+update: 2020-09-11 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: entity/entity_entity.html
 summary: コマンドに関係するエンティティについてまとめる。
@@ -295,6 +295,17 @@ summaryDisable: true
 ```minecraftcommand
 /summon AreaEffectCloud ~ ~ ~ {Invulnerable:true,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:1,RadiusPerTick:0f,WaitTime:0,Age:-9,Particle:take,Tags:[ZantetsuPoint,SystemEntity,TypeChecked]}
 ```
+
+### RaiseTPMarker
+
+```mcfunction
+/summon ArmorStand ~ ~0.5 ~ {Invisible:true,Invulnerable:true,Marker:true,NoBasePlate:true,NoGravity:true,Small:true,DisabledSlots:31,Tags:[RaiseTPMarker,Garbage,SystemEntity,TypeChecked]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|ArmorStand|
+|Tags|**RaiseTPMarker**,Garbage,SystemEntity,TypeChecked|
 
 ## MOB
 
@@ -592,3 +603,22 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 |Type|AEC|
 |Tags|Poof,TypeChecked|
 |Duration|400 (20sec)|
+
+### RaisePoint
+
+```mcfunction
+/summon Arrow ~ ~ ~ {Silent:true,damage:0d,life:580s,Tags:[TypeChecked],Passengers:[{id:AreaEffectCloud,Radius:0.5f,RadiusOnUse:0f,DurationOnUse:0f,Duration:620,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:endRod,CustomName:”✟”,CustomNameVisible:true,Tags:[RaisePoint,TypeChecked]}]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|Arrow|
+|Tags|TypeChecked|
+|life|580 (**31秒後に消滅**)|
+
+- Passengers
+
+|-|-|
+|Name|**✟**|
+|Type|AEC|
+|Tags|**RaisePoint**,TypeChecked|

@@ -5,10 +5,10 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="白魔導士のスキルの1つであるレイズワープを実行する。">
-<meta name="keywords" content="コマンドスキル白魔導士,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
-<title>レイズワープ | TUSB Analysis</title>
-
+<meta name="description" content="白魔導士のスキルの1つであるレイズのリスポーン処理を行う。また、ネザーアスレでのリスポーン処理もこれを用いている。なお、レイズの初期処理はレイズ実行にて、レイズ全体の処理についての詳しい説明はレイズ解説で行う。">
+<meta name="keywords" content="コマンドスキル白魔導士表示,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<title>レイズリスポーン処理 | TUSB Analysis</title>
+<link rel="canonical" href="https://aka256.github.io/TUSB_Analysis/command/xCircuit10/xCircuit10_raiseWarp.html">
 <!-- Google Tag Manager -->
 <script>
     (function(w, d, s, l, i) {
@@ -63,8 +63,8 @@
 <meta name="twitter:card" content="summary" /> <!--①-->
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
 <meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit10/xCircuit10_raiseWarp.html" /> <!--③-->
-<meta property="og:title" content="レイズワープ | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="白魔導士のスキルの1つであるレイズワープを実行する。" /> <!--⑤-->
+<meta property="og:title" content="レイズリスポーン処理 | TUSB Analysis" /> <!--④-->
+<meta property="og:description" content="白魔導士のスキルの1つであるレイズのリスポーン処理を行う。また、ネザーアスレでのリスポーン処理もこれを用いている。なお、レイズの初期処理はレイズ実行にて、レイズ全体の処理についての詳しい説明はレイズ解説で行う。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -85,6 +85,7 @@
 <link rel="stylesheet" href="/TUSB_Analysis/css/original.css">
 
 <meta name="google-site-verification" content="IfKF0TOJNUtCg_H2zFNe6k3qnuQiJWoIfV3nXyV3OPs" />
+
     <script>
         $(document).ready(function() {
             // Initialize navgoco with default options
@@ -533,7 +534,23 @@
             <li class="subfolders">
                 <a title="白魔導士スキル" href="#">白魔導士スキル</a>
                 <ul>
-                    
+                      
+                    <li><a title="キアリク実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_chialik.html">キアリク実行</a></li>
+                        
+                    <li><a title="ハートブースト実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_heartBoost.html">ハートブースト実行</a></li>
+                        
+                    <li><a title="リジェネレーション実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_regeneration.html">リジェネレーション実行</a></li>
+                        
+                    <li><a title="クイック実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_quick.html">クイック実行</a></li>
+                        
+                    <li><a title="バオル実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_baol.html">バオル実行</a></li>
+                        
+                    <li><a title="レイズ実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raise.html">レイズ実行</a></li>
+                        
+                    <li class="active"><a title="レイズリスポーン処理" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raiseWarp.html">レイズリスポーン処理</a></li>
+                        
+                    <li><a title="ケアル実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_keal.html">ケアル実行</a></li>
+                      
                 </ul>
             </li>
                
@@ -582,6 +599,15 @@
     </li>
       
     <li>
+        <a title="個別解説" href="#">個別解説</a>
+        <ul>
+              
+            <li><a title="レイズ解説" href="/TUSB_Analysis/note/note_aboutRaise.html">レイズ解説</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
         <a title="ページ内タグ" href="#">ページ内タグ</a>
         <ul>
               
@@ -607,7 +633,7 @@
                 <!-- Content Column -->
                 <div class="col-md-9" id="tg-sb-content">
                     <div class="post-header">
-   <h1 class="post-title-main">レイズワープ</h1>
+   <h1 class="post-title-main">レイズリスポーン処理</h1>
 </div>
 
 
@@ -644,15 +670,228 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p><strong>編集中</strong></p>
+   <h2 id="about">About</h2>
 
-<h2 id="about">About</h2>
-
-<p><span class="tagYellow">位置</span> (-1920,4,-167)</p>
+<p><span class="tagYellow">位置</span> (-1920,10,-161)</p>
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_command.html">毎tick実行するコマンド群10</a></p>
 
-<p><span class="tagBlue">分岐先</span></p>
+<p>白魔導士のスキルの1つであるレイズのディメンション別のリスポーン処理を行う。また、ネザーアスレでのリスポーン処理もこれを用いている。なお、レイズの初期処理は<a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raise.html">レイズ実行</a>にて、レイズ全体の処理についての詳しい説明は<a href="/TUSB_Analysis/note/note_aboutRaise.html">レイズ解説</a>で行う。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @a[rm=-1,tag=RaiseEnd3] ~ ~ ~ detect ~ ~1 ~ minecraft:portal -1 /scoreboard players tag @a[c=1] remove RaiseEnd3</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players tag @a[tag=RaiseEnd3] remove RaiseEnd2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/gamemode spectator @a[tag=RaiseEnd3,m=!spectator]</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/tp @a[tag=RaiseEnd3,score_USBDimension_min=100] 101 52 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/tp @a[tag=RaiseEnd3,score_USBDimension=-1] 0 32 -6</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/scoreboard players tag @a[tag=RaiseEnd3,c=1] add RaiseEnd4</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/scoreboard players tag @a[tag=RaiseEnd4] remove RaiseEnd3</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/tp @a[tag=RaiseEnd4,score_USBDimension=-1,score_RaisedArea_min=-90,score_RaisedArea=-90] -281 23.5 879 -90 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/gamemode adventure @a[tag=RaiseEnd4,score_USBDimension=-1,score_RaisedArea_min=-90,score_RaisedArea=-90]</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players operation @e[tag=RaisePoint] RaiseSyncCount -= @a[tag=RaiseEnd4,m=spectator,c=1] RaiseSyncCount</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/execute @e[tag=RaisePoint,score_RaiseSyncCount_min=0,score_RaiseSyncCount=0] ~ ~ ~ /summon ArmorStand ~ ~0.5 ~ {Invisible:true,Invulnerable:true,Marker:true,NoBasePlate:true,NoGravity:true,Small:true,DisabledSlots:31,Tags:[RaiseTPMarker,Garbage,SystemEntity,TypeChecked]}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/scoreboard players operation @e[tag=RaisePoint] RaiseSyncCount += @a[tag=RaiseEnd4,m=spectator,c=1] RaiseSyncCount</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/tp @a[tag=RaiseEnd4,m=spectator] @e[tag=RaiseTPMarker,c=1]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/gamemode adventure @a[tag=RaiseEnd4,m=spectator]</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/tellraw @a[tag=RaiseEnd4,m=spectator] {“text”:”復帰地点が見つからなかった！”,”color”:”yellow”}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/gamemode adventure @a[tag=RaiseEnd4,m=spectator]</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/execute @a[tag=RaiseEnd4] ~ ~ ~ /playsound entity.player.levelup master @a[c=1] ~ ~ ~ 1 0.6 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/scoreboard players tag @a[tag=RaiseEnd4] remove RaiseEnd4</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/scoreboard players tag @a[tag=RaiseEnd2] add RaiseEnd3</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/scoreboard players tag @a[tag=RaiseEnd2] remove RaiseEnd</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/gamemode creative @a[tag=RaiseEnd2,score_RaisedArea=-1]</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/scoreboard players tag @a[tag=RaiseEnd] add RaiseEnd2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/tp @a[tag=RaiseEnd,score_RaisedArea_min=100] 22 212 -40</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/tp @a[tag=RaiseEnd,score_RaisedArea=-1] 36 46 8</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td>/testfor @a[tag=RaiseEnd3]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td>/clone -1920 ~ ~ -1920 ~ ~ -1920 ~ ~ filtered force minecraft:command_block 5 ###リピート</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">RaiseEnd3</code>を持つすべてのプレイヤー</strong>に対して、以下の事柄を実行
+    <ol>
+      <li>対象プレイヤーの<strong>頭部がポータルブロック</strong>であるとき、<strong><code class="language-plaintext highlighter-rouge">RaiseEnd3</code>を削除</strong></li>
+      <li>対象プレイヤーから<strong><code class="language-plaintext highlighter-rouge">RaiseEnd2</code>を削除</strong></li>
+      <li><strong>スペクテイターモードに変更</strong></li>
+      <li>対象プレイヤーの<strong><code class="language-plaintext highlighter-rouge">USBDimension</code>が100以上</strong>(ジ・エンド)であるすべてのプレイヤーを、(101,52,0)に移動(<strong>ジ・エンドのスタート地点</strong>)</li>
+      <li>対象プレイヤーの<strong><code class="language-plaintext highlighter-rouge">USBDimension</code>が-1以下</strong>(ネザー)であるすべてのプレイヤーを、(0,32,-6)に移動(<strong>ネザーの通常世界へのゲート前</strong>)</li>
+      <li><strong><code class="language-plaintext highlighter-rouge">RaiseEnd4</code>を付与</strong></li>
+    </ol>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">RaiseEnd4</code>を持つすべてのプレイヤー</strong>に対して、以下の事柄を実行
+    <ol>
+      <li><strong><code class="language-plaintext highlighter-rouge">RaiseEnd3</code>を削除</strong></li>
+      <li><code class="language-plaintext highlighter-rouge">USBDimension</code>が-1以下であり、<code class="language-plaintext highlighter-rouge">RaisedArea</code>が-90(<strong>ネザーアスレ</strong>)であるであるすべてのプレイヤーに対し、以下の事柄を実行
+        <ol>
+          <li>(-281,23.5,879)に移動(<strong>ネザーアスレリスポーン地点</strong>)</li>
+          <li><strong>アドベンチャーモードに変更</strong></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="/TUSB_Analysis/entity/entity_entity.html#raisepoint">RaisePoint</a>の<code class="language-plaintext highlighter-rouge">RaiseSyncCount</code>と、<code class="language-plaintext highlighter-rouge">RaiseEnd4</code>を持ち、スペクテイターモードであるプレイヤーの<code class="language-plaintext highlighter-rouge">RaiseSyncCount</code>が等しいとき、<strong><a href="#raisetpmarker">RaiseTPMarker</a>をその<a href="/TUSB_Analysis/entity/entity_entity.html#raisepoint">RaisePoint</a>と同座標上に召喚</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">RaiseEnd4</code>を持ち、スペクテイターモードであるすべてのプレイヤーを、<a href="#raisetpmarker">RaiseTPMarker</a>に移動し、アドベンチャーモードに変更</li>
+  <li><code class="language-plaintext highlighter-rouge">RaiseEnd4</code>を持ち、スペクテイターモードであるすべてのプレイヤーに「<span style="color:yellow;background-color:gray;">復帰地点が見つからなかった！</span>」とのメッセージを表示し、アドベンチャーモードに変更</li>
+  <li><code class="language-plaintext highlighter-rouge">RaiseEnd4</code>を持つすべてのプレイヤーに効果音を鳴らし、<code class="language-plaintext highlighter-rouge">RaiseEnd4</code>を削除</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">RaiseEnd2</code>であるすべてのプレイヤー</strong>に対して、以下の事柄を実行
+    <ol>
+      <li><strong><code class="language-plaintext highlighter-rouge">RaiseEnd3</code>を付与</strong></li>
+      <li><strong><code class="language-plaintext highlighter-rouge">RaiseEnd</code>を削除</strong></li>
+      <li><strong><code class="language-plaintext highlighter-rouge">RaisedArea</code>が-1以下</strong>(ネザー)である対象プレイヤーを、<strong>クリエイティブモードに変更</strong></li>
+    </ol>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">RaiseEnd</code>を持つすべてのプレイヤー</strong>に対し、以下の事柄を実行
+    <ol>
+      <li><strong><code class="language-plaintext highlighter-rouge">RaiseEnd2</code>を付与</strong></li>
+      <li><strong><code class="language-plaintext highlighter-rouge">RaisedArea</code>が100以上</strong>(ジ・エンド)である対象プレイヤーを、(22,212,-40)に移動(<strong>通常世界のエンドポータル内であり、即エンドにワープする</strong>)</li>
+      <li><strong><code class="language-plaintext highlighter-rouge">RaisedArea</code>が-1以下</strong>(ネザー)である対象プレイヤーを、(36,46,8)に移動(<strong>通常世界のネザーポータル内であり、即ネザーにワープする</strong>)</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">RaiseEnd3</code>を持つプレイヤーが存在するとき、<a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raiseWarp.html">レイズリスポーン処理</a>を再び実行</li>
+</ol>
+
+<h3 id="raisetpmarker">RaiseTPMarker</h3>
+
+<pre><code class="language-mcfunction">/summon ArmorStand ~ ~0.5 ~ {Invisible:true,Invulnerable:true,Marker:true,NoBasePlate:true,NoGravity:true,Small:true,DisabledSlots:31,Tags:[RaiseTPMarker,Garbage,SystemEntity,TypeChecked]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>(None)</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>ArmorStand</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td><strong>RaiseTPMarker</strong>,Garbage,SystemEntity,TypeChecked</td>
+    </tr>
+  </tbody>
+</table>
 
 
     <div class="tags">
@@ -877,9 +1116,101 @@ $('#toc').on('click', 'a', function() {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_display.html" class="btn btn-default navbar-btn cursorNorm" role="button">表示</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 
-
+<script id="dsq-count-scr" src="//tusb-analysis.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://tusb-analysis.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
 
@@ -888,7 +1219,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 08 Sep 2020<br/> Site last generated: 10 Sep 2020 <br />
+            <span>Page last updated:</span> 11 Sep 2020<br/> Site last generated: 11 Sep 2020 <br />
         </div>
     </div>
 </footer>

@@ -5,10 +5,10 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="白魔導士のスキルの1つであるレイズを実行する。">
-<meta name="keywords" content="コマンドスキル白魔導士,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<meta name="description" content="白魔導士のスキルの1つであるレイズのリスポーン準備やレイズ持ちのプレイヤーの死亡直後の処理などの初期処理を実行する。なお、レイズのリスポーン処理はレイズリスポーン処理で、レイズ全体の詳細についてはレイズ解説で行う。">
+<meta name="keywords" content="コマンドスキル白魔導士表示,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
 <title>レイズ実行 | TUSB Analysis</title>
-
+<link rel="canonical" href="https://aka256.github.io/TUSB_Analysis/command/xCircuit10/xCircuit10_raise.html">
 <!-- Google Tag Manager -->
 <script>
     (function(w, d, s, l, i) {
@@ -64,7 +64,7 @@
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
 <meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit10/xCircuit10_raise.html" /> <!--③-->
 <meta property="og:title" content="レイズ実行 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="白魔導士のスキルの1つであるレイズを実行する。" /> <!--⑤-->
+<meta property="og:description" content="白魔導士のスキルの1つであるレイズのリスポーン準備やレイズ持ちのプレイヤーの死亡直後の処理などの初期処理を実行する。なお、レイズのリスポーン処理はレイズリスポーン処理で、レイズ全体の詳細についてはレイズ解説で行う。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -85,6 +85,7 @@
 <link rel="stylesheet" href="/TUSB_Analysis/css/original.css">
 
 <meta name="google-site-verification" content="IfKF0TOJNUtCg_H2zFNe6k3qnuQiJWoIfV3nXyV3OPs" />
+
     <script>
         $(document).ready(function() {
             // Initialize navgoco with default options
@@ -533,7 +534,23 @@
             <li class="subfolders">
                 <a title="白魔導士スキル" href="#">白魔導士スキル</a>
                 <ul>
-                    
+                      
+                    <li><a title="キアリク実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_chialik.html">キアリク実行</a></li>
+                        
+                    <li><a title="ハートブースト実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_heartBoost.html">ハートブースト実行</a></li>
+                        
+                    <li><a title="リジェネレーション実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_regeneration.html">リジェネレーション実行</a></li>
+                        
+                    <li><a title="クイック実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_quick.html">クイック実行</a></li>
+                        
+                    <li><a title="バオル実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_baol.html">バオル実行</a></li>
+                        
+                    <li class="active"><a title="レイズ実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raise.html">レイズ実行</a></li>
+                        
+                    <li><a title="レイズリスポーン処理" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raiseWarp.html">レイズリスポーン処理</a></li>
+                        
+                    <li><a title="ケアル実行" href="/TUSB_Analysis/command/xCircuit10/xCircuit10_keal.html">ケアル実行</a></li>
+                      
                 </ul>
             </li>
                
@@ -577,6 +594,15 @@
                       
                 </ul>
             </li>
+               
+        </ul>
+    </li>
+      
+    <li>
+        <a title="個別解説" href="#">個別解説</a>
+        <ul>
+              
+            <li><a title="レイズ解説" href="/TUSB_Analysis/note/note_aboutRaise.html">レイズ解説</a></li>
                
         </ul>
     </li>
@@ -644,15 +670,301 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p><strong>編集中</strong></p>
+   <!--2020/09/11-->
+<!--rm=-1については保留-->
 
 <h2 id="about">About</h2>
 
-<p><span class="tagYellow">位置</span> (-1920,4,-167)</p>
-
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_command.html">毎tick実行するコマンド群10</a></p>
 
-<p><span class="tagBlue">分岐先</span></p>
+<p>白魔導士のスキルの1つであるレイズのリスポーン準備やレイズ持ちのプレイヤーの死亡直後の処理などの初期処理を実行する。なお、レイズのリスポーン処理は<a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raiseWarp.html">レイズリスポーン処理</a>で、レイズ全体の詳細については<a href="/TUSB_Analysis/note/note_aboutRaise.html">レイズ解説</a>で行う。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<h3 id="レイズ実行部コマンド群">レイズ実行部コマンド群</h3>
+
+<div class="datatable3c-begin"></div>
+
+<p><span class="tagYellow">位置</span> (-1920,8,-161)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players tag @a[tag=CastRaise,c=1] add CastingRaise</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/scoreboard players tag @a[tag=CastingRaise] remove CastRaise</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute @a[tag=CastingRaise,score_HP_min=1] ~ ~ ~ /me はレイズを唱えた。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players tag @a[tag=CastingRaise,score_HP_min=1] add ReRaise</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/tellraw @a[tag=CastingRaise,score_HP_min=1] {“text”:”リレイズの効果がかかった。”,”color”:”green”,”hoverEvent”:{“action”:”show_text”,”value”:”死亡時にレイズの効果を得る。”}}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/execute @a[-2827,57,-410,dx=9,dy=123,dz=9,tag=CastingRaise] ~ ~ ~ detect ~ 60 ~ minecraft:iron_trapdoor -1 /me は個人ロッカー利用中だったので、レイズの詠唱を中断した。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/execute @a[-2827,57,-410,dx=9,dy=123,dz=9,tag=CastingRaise] ~ ~ ~ detect ~ 60 ~ minecraft:iron_trapdoor -1 /scoreboard players tag @a[c=1] remove CastingRaise</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/execute @a[tag=CastingRaise,score_HP=0] ~ ~ ~ /me のリレイズが発動！</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/execute @a[tag=CastingRaise] ~ ~ ~ /playsound entity.firework.launch master @a ~ ~ ~ 1 1.2 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/execute @a[tag=CastingRaise] ~ ~ ~ /particle fireworksSpark ~ ~ ~ 0.5 0.5 0.5 0.1 30 force</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/execute @a[tag=CastingRaise] ~ ~ ~ /summon Arrow ~ ~ ~ {Silent:true,damage:0d,life:580s,Tags:[TypeChecked],Passengers:[{id:AreaEffectCloud,Radius:0.5f,RadiusOnUse:0f,DurationOnUse:0f,Duration:620,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:endRod,CustomName:”✟”,CustomNameVisible:true,Tags:[RaisePoint,TypeChecked]}]}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/clone -1920 9 ~ -1920 9 ~ -1920 9 ~ filtered force minecraft:command_block 5 ###レイズクロック開始</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/scoreboard players add #RaisePointCount RaiseSyncCount 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/execute @a[tag=CastingRaise] ~ ~ ~ /scoreboard players operation @e[dx=0,tag=RaisePoint,c=1] RaiseSyncCount = #RaisePointCount RaiseSyncCount</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/scoreboard players tag @a[tag=CastingRaise,score_HP=0] add NeedRaise</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/scoreboard players tag @a[tag=CastingRaise,score_HP=0] remove CastingRaise</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/execute @a[tag=CastingRaise] ~ ~ ~ /scoreboard players tag @a[rm=-1,score_HP=0] add NeedRaise</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/execute @a[tag=CastingRaise] ~ ~ ~ /scoreboard players tag @a[rm=11,tag=NeedRaise] remove NeedRaise</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/scoreboard players tag @a[tag=CastingRaise] remove CastingRaise</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/scoreboard players operation @a[tag=NeedRaise] RaiseSyncCount = #RaisePointCount RaiseSyncCount</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/execute @a[tag=NeedRaise] ~ ~ ~ /scoreboard players operation @a[c=1] RaisedArea = @a[c=1] USBDimension</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/scoreboard players tag @a[tag=NeedRaise] add Raise</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/gamemode spectator @a[tag=NeedRaise]</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/tellraw @a {“translate”:”%1$sにレイズの効果がかかった。”,”color”:”green”,”with”:[{“selector”:”@a[tag=NeedRaise]”}]}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td>/scoreboard players tag @a[tag=NeedRaise] remove NeedRaise</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td>/testfor @a[tag=CastRaise,c=1]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">27</td>
+      <td>/clone -1920 ~ ~ -1920 ~ ~ -1920 ~ ~ filtered force minecraft:command_block 5 ###リピート</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<h3 id="レイズクロック部コマンド群">レイズクロック部コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,9,-161)</p>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @e[tag=RaisePoint] ~ ~ ~ detect ~ ~ ~ minecraft:air 0 /</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @e[tag=RaisePoint] ~ ~ ~ /particle endRod ~ ~1 ~ 0.15 4 0.15 0.001 10 force</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/clone -1920 ~ ~ -1920 ~ ~ -1920 ~ ~ filtered force minecraft:command_block 5 #リピート</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<h2 id="詳細">詳細</h2>
+
+<h3 id="レイズ実行部">レイズ実行部</h3>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">CastRaise</code>を持つプレイヤーに<code class="language-plaintext highlighter-rouge">CastingRaise</code>を付与し、<code class="language-plaintext highlighter-rouge">CastRaise</code>を削除</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">CastingRaise</code>を持ち、<code class="language-plaintext highlighter-rouge">HP</code>が1以上であるプレイヤーが存在するとき</strong>、そのプレイヤーを対象として以下の事柄を実行
+    <ol>
+      <li>「(PlayerName)はレイズを唱えた。」とのメッセージを表示</li>
+      <li><code class="language-plaintext highlighter-rouge">ReRaise</code>を付与</li>
+      <li>「<span style="color:green;" data-toggle="tooltip" data-original-title="死亡時にレイズの効果を得る。">リレイズの効果がかかった。</span>」とのメッセージを表示</li>
+    </ol>
+  </li>
+  <li><strong>個人ロッカー内に<code class="language-plaintext highlighter-rouge">CastingRaise</code>を持っているプレイヤーが存在するとき</strong>、以下の事柄を実行
+    <ol>
+      <li>「(PlayerName)は個人ロッカー利用中だったので、レイズの詠唱を中断した。」とのメッセージを表示</li>
+      <li>対象プレイヤーから<code class="language-plaintext highlighter-rouge">CastingRaise</code>を削除</li>
+    </ol>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">CastingRaise</code>を持ち、<code class="language-plaintext highlighter-rouge">HP</code>が0以下であるプレイヤー</strong>を対象として、「(PlayerName)のリレイズが発動！」とのメッセージを表示</li>
+  <li><code class="language-plaintext highlighter-rouge">CastingRaise</code>を持つプレイヤーに<strong>効果音を鳴らし、パーティクルを表示</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">CastingRaise</code>を持つすべてのプレイヤーと同座標上に<strong><a href="#raisepoint">RaisePoint</a>(<code class="language-plaintext highlighter-rouge">RaisePoint</code>を持っている)を召喚</strong></li>
+  <li><a href="#レイズクロック部">レイズクロック部</a>を実行</li>
+  <li><code class="language-plaintext highlighter-rouge">#RaisePointCount</code>の<code class="language-plaintext highlighter-rouge">RaiseSyncCount</code>に1を加える</li>
+  <li><code class="language-plaintext highlighter-rouge">CastingRaise</code>を持つプレイヤーと同座標上にある<a href="#raisepoint">RaisePoint</a>の<code class="language-plaintext highlighter-rouge">RaiseSyncCount</code>に<code class="language-plaintext highlighter-rouge">#RaisePointCount</code>の<code class="language-plaintext highlighter-rouge">RaiseSyncCount</code>を代入</li>
+  <li><code class="language-plaintext highlighter-rouge">CastingRaise</code>を持ち、<code class="language-plaintext highlighter-rouge">HP</code>が0以下であるすべてのプレイヤーに<code class="language-plaintext highlighter-rouge">NeedRaise</code>を付与し、<code class="language-plaintext highlighter-rouge">CastingRaise</code>を削除</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">CastingRaise</code>を持つプレイヤーから半径11m未満にいるすべてのプレイヤーに、<code class="language-plaintext highlighter-rouge">NeedRaise</code>を付与</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">CastingRaise</code>を持つすべてのプレイヤーから、<code class="language-plaintext highlighter-rouge">CastingRaise</code>を削除</li>
+  <li><code class="language-plaintext highlighter-rouge">NeedRaise</code>を持つすべてのプレイヤーに対し、以下の事柄を実行
+    <ol>
+      <li>対象プレイヤーの<code class="language-plaintext highlighter-rouge">RaiseSyncCount</code>に<code class="language-plaintext highlighter-rouge">#RaisePointCount</code>の<code class="language-plaintext highlighter-rouge">RaiseSyncCount</code>を代入</li>
+      <li>対象プレイヤーの<code class="language-plaintext highlighter-rouge">RaisedArea</code>に対象プレイヤーの<code class="language-plaintext highlighter-rouge">USBDimension</code>を代入</li>
+      <li><code class="language-plaintext highlighter-rouge">Raise</code>を付与</li>
+      <li><strong>スペクテイターモードに変更</strong></li>
+      <li>「<span style="color:green;">(PlayerName)にレイズの効果がかかった。</span>」とのメッセージをすべてのプレイヤーに表示</li>
+      <li><code class="language-plaintext highlighter-rouge">NeedRaise</code>を削除</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">CastRaise</code>を持つプレイヤーが存在するとき、<a href="#レイズ実行部">レイズ実行部</a>を再び実行</li>
+</ol>
+
+<h3 id="レイズクロック部">レイズクロック部</h3>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">RaisePoint</code>の座標上に、パーティクルを表示</li>
+  <li><code class="language-plaintext highlighter-rouge">RaisePoint</code>が存在するとき、<a href="#レイズクロック部">レイズクロック部</a>を再び実行</li>
+</ol>
+
+<h3 id="raisepoint">RaisePoint</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~ ~ {Silent:true,damage:0d,life:580s,Tags:[TypeChecked],Passengers:[{id:AreaEffectCloud,Radius:0.5f,RadiusOnUse:0f,DurationOnUse:0f,Duration:620,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:endRod,CustomName:”✟”,CustomNameVisible:true,Tags:[RaisePoint,TypeChecked]}]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>(None)</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>TypeChecked</td>
+    </tr>
+    <tr>
+      <td>life</td>
+      <td>580 (<strong>31秒後に消滅</strong>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Passengers</li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td><strong>✟</strong></td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>AEC</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td><strong>RaisePoint</strong>,TypeChecked</td>
+    </tr>
+  </tbody>
+</table>
 
 
     <div class="tags">
@@ -877,9 +1189,101 @@ $('#toc').on('click', 'a', function() {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_display.html" class="btn btn-default navbar-btn cursorNorm" role="button">表示</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 
-
+<script id="dsq-count-scr" src="//tusb-analysis.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://tusb-analysis.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
 
@@ -888,7 +1292,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 08 Sep 2020<br/> Site last generated: 10 Sep 2020 <br />
+            <span>Page last updated:</span> 11 Sep 2020<br/> Site last generated: 11 Sep 2020 <br />
         </div>
     </div>
 </footer>

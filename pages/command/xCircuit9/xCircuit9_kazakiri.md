@@ -17,7 +17,7 @@ summaryDisable: true
 <span class="tagBlack">呼び出し元</span> [毎tick実行するコマンド群9]({{site.baseurl}}/command/xCircuit9/xCircuit9_command.html)
 
 忍者のスキルの1つである風切を実行する。
-なお、スキルの継続処理は[時間経過]({{site.baseurl}}//command/xCircuit1/xCircuit1_timeElapsed.html)と[風切更新]({{site.baseurl}}/command/xCircuit1/xCircuit1_kazakiriUpdata.html)で行われる。
+なお、スキルの継続処理は[時間経過]({{site.baseurl}}/command/xCircuit1/xCircuit1_timeElapsed.html)と[風切更新]({{site.baseurl}}/command/xCircuit1/xCircuit1_kazakiriUpdata.html)で行われる。
 
 ## コマンド群
 

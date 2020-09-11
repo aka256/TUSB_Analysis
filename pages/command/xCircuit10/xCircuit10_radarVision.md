@@ -56,7 +56,7 @@ summaryDisable: true
    3. 対象プレイヤーの`RadarAreaCheck`に、対象プレイヤーの`USBDimension`を代入
    4. 対象プレイヤーに、**水中呼吸Lv.99と暗視Lv.99をそれぞれ30秒間付与**
    5. 対象プレイヤーから**半径16m以内**のすべてのプレイヤーに、**効果音を鳴らす**
-   6. 対象プレイヤーを**スペクターモードに変更**
+   6. 対象プレイヤーを**スペクテイターモードに変更**
    7. 対象プレイヤーから`RadarStart`を削除
 6. `RadarStart`を持つプレイヤーが存在したとき、[レーダーヴィジョン実行]({{site.baseurl}}/command/xCircuit10/xCircuit10_radarVision.html)を再び1から実行
 

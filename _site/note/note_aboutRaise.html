@@ -5,10 +5,10 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=" ">
-<title>表示タグ | TUSB Analysis</title>
-<link rel="canonical" href="https://aka256.github.io/TUSB_Analysis/tags/tag_display.html">
+<meta name="description" content="レイズは白魔導士のスキルの1つであり、さらにネザーアスレでのリスポーン処理にも用いられているスキルであるが、処理が非常に煩雑であるのでここにまとめる。">
+<meta name="keywords" content="スキル白魔導士,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<title>レイズ解説 | TUSB Analysis</title>
+<link rel="canonical" href="https://aka256.github.io/TUSB_Analysis/note/note_aboutRaise.html">
 <!-- Google Tag Manager -->
 <script>
     (function(w, d, s, l, i) {
@@ -28,14 +28,6 @@
 <!-- End Google Tag Manager -->
 
 <link rel="stylesheet" href="/TUSB_Analysis/css/syntax.css">
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5HTHV6Q');</script>
-  <!-- End Google Tag Manager -->
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
@@ -70,9 +62,9 @@
 
 <meta name="twitter:card" content="summary" /> <!--①-->
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
-<meta property="og:url" content="https://aka256.github.io/TUSB_Analysistags/tag_display.html" /> <!--③-->
-<meta property="og:title" content="表示タグ | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="" /> <!--⑤-->
+<meta property="og:url" content="https://aka256.github.io/TUSB_Analysisnote/note_aboutRaise.html" /> <!--③-->
+<meta property="og:title" content="レイズ解説 | TUSB Analysis" /> <!--④-->
+<meta property="og:description" content="レイズは白魔導士のスキルの1つであり、さらにネザーアスレでのリスポーン処理にも用いられているスキルであるが、処理が非常に煩雑であるのでここにまとめる。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -142,6 +134,37 @@
         });
     </script>
      
+    <!-- Include the standard DataTables bits -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <!-- First, this walks through the tables that occur between ...-begin
+         and ...-end and add the "datatable" class to them.
+         Then it invokes DataTable's standard initializer
+         Credit here: http://www.beardedhacker.com/blog/2015/08/28/add-class-attribute-to-markdown-table/
+      -->
+    <script>
+        $(document).ready(function() {
+            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
+            $('table.display').DataTable({
+                paging: true,
+                stateSave: true,
+                searching: true,
+                autoWidth: false,
+                lengthChange: true,
+                columns: [{
+                    responsivePriority: 2,
+                    width: "8%"
+                }, {
+                    responsivePriority: 3,
+                    width: "77%"
+                }, {
+                    responsivePriority: 1,
+                    width: "15%"
+                }],
+            });
+        });
+    </script>
+    
     <style type="text/css">
         table {
             table-layout: fixed;
@@ -579,7 +602,7 @@
         <a title="個別解説" href="#">個別解説</a>
         <ul>
               
-            <li><a title="レイズ解説" href="/TUSB_Analysis/note/note_aboutRaise.html">レイズ解説</a></li>
+            <li class="active"><a title="レイズ解説" href="/TUSB_Analysis/note/note_aboutRaise.html">レイズ解説</a></li>
                
         </ul>
     </li>
@@ -610,7 +633,7 @@
                 <!-- Content Column -->
                 <div class="col-md-9" id="tg-sb-content">
                     <div class="post-header">
-   <h1 class="post-title-main">表示タグ</h1>
+   <h1 class="post-title-main">レイズ解説</h1>
 </div>
 
 
@@ -647,276 +670,269 @@ $('#toc').on('click', 'a', function() {
 
     
 
-   <p>これらは <button type="button" style="cursor: default" class="btn btn-default navbar-btn">表示</button>にタグ付けされたページです。</p>
-<p style="font-weight: bold;">タグの説明</p>
-<p>tellやtellraw、titleコマンドなど、プレイヤーに何かしらのメッセージを表示するコマンドがあるページに割り当てられたタグです。</p>
-<table>
-    <thead>
-        <tr>
-            <th width="20%">Title</th>
-            <th>Type</th>
-            <th>Excerpt</th>
-        </tr>
-    </thead>
-    <tbody>
-                                                                                                                                                                                                           
+   <h2 id="レイズについて">レイズについて</h2>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_enchase.html">エンチェイス実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 狩人のスキルの1つであるエンチェイスを実行する。なお、スキルの実行処理は毎tick実行するコマンド群5とエンチェイス探索処理で行われる。 </td>
-        </tr>
-                  
+<p>レイズは白魔導士のスキルの1つであり、さらにネザーアスレでのリスポーン処理にも用いられているスキルであるが、処理が非常に煩雑であるのでここにまとめる。</p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_energySave.html">エナジーセーブ実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 狩人のスキルの1つであるエナジーセーブを実行する。なお、MPの半減処理は毎tick実行するコマンド群8で行われる。 </td>
-        </tr>
-                                                                          
+<p>(<del>ネザーアスレでのリスポーン処理にも用いられているということは、最も使用されたスキルである可能性があるかも?</del>)</p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVisionFinProcessing.html">レーダーヴィジョン終了処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 狩人のスキルの1つであるレーダーヴィジョンの終了処理を実行する。なお、`RadarVision`のカウントダウン処理は時間経過、レーダーヴィジョンの初期化処理はレーダーヴィジョン実行でそれぞれ行われる。 </td>
-        </tr>
-                  
+<h2 id="raise系タグスコアのについて">Raise系タグ、スコアのについて</h2>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raise.html">レイズ実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 白魔導士のスキルの1つであるレイズのリスポーン準備やレイズ持ちのプレイヤーの死亡直後の処理などの初期処理を実行する。なお、レイズのリスポーン処理はレイズリスポーン処理で、レイズ全体の詳細についてはレイズ解説で行う。 </td>
-        </tr>
-                  
+<p>Raise系のタグやスコアは多くあり、混乱しやすいので軽くまとめる。なお、<code class="language-plaintext highlighter-rouge">RaiseEndN</code>系のタグについては後にまとめる。</p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raiseWarp.html">レイズリスポーン処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 白魔導士のスキルの1つであるレイズのリスポーン処理を行う。また、ネザーアスレでのリスポーン処理もこれを用いている。なお、レイズの初期処理はレイズ実行にて、レイズ全体の処理についての詳しい説明はレイズ解説で行う。 </td>
-        </tr>
-                                  
+<h3 id="raise系タグプレイヤー用">Raise系タグ(プレイヤー用)</h3>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_wildCooking.html">ワイルドクッキング実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 狩人のスキルの1つであるワイルドクッキングを実行する。 </td>
-        </tr>
-                                              
+<h4 id="castraise">CastRaise</h4>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_animalGuideEvent.html">動物誘導イベント</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 嫌な予感のイベントの1つである動物誘導イベントを管理するコマンド群である。 </td>
-        </tr>
-                  
+<p><strong>レイズを唱えたとき、もしくは死亡したプレイヤーが<code class="language-plaintext highlighter-rouge">ReRaise</code>を持っていた時、付与されるタグ。</strong><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raise.html">レイズ実行</a>を実行するために必要であり、そこで<code class="language-plaintext highlighter-rouge">CastingRaise</code>に置き換えられる。また、<a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_keepInventoryCheck.html">KeepInventory確認</a>と<a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_command.html">毎tick実行するコマンド群10</a>で付与される。</p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_areaProcessing.html">エリア処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> エリア侵入時の演出やテーブルマウンテン、ネザーアスレ侵入時のエンダーチェスト処理を行う。 </td>
-        </tr>
-                                    
+<h4 id="castingraise">CastingRaise</h4>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_areaRecord.html">エリア侵入記録</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> Overworld内のディメンション移動の際の侵入記録を行う。また、その際にスキルの設定を変える、お試しセットの印玉を渡すなどの処理も行っている。 </td>
-        </tr>
-                                                                                            
+<p><strong>レイズを実行したプレイヤーに与えられるタグ。</strong><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raise.html">レイズ実行</a>で付与される。</p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_conquerDisplay.html">攻略率表示</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 交易島の教会での攻略率表示の処理を行う。 </td>
-        </tr>
-                
+<h4 id="reraise">ReRaise</h4>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_conquerProcessing.html">島攻略処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 島攻略時の演出や、攻略率による時計島の形態変化への分岐、月島の処理、製作者村人の出現などの処理を行う。 </td>
-        </tr>
-                      
+<p><strong>リレイズの効果を受けるプレイヤーに付与されるタグ。</strong><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raise.html">レイズ実行</a>で付与され、<a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_keepInventoryCheck.html">KeepInventory確認</a>や<a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_satietyFix.html">満腹度修正</a>で削除されることがある。</p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_expProcessing.html">経験値取得処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> ネザースターの取得時の処理や、マルチプレイ時の距離による経験値取得制限を行う。 </td>
-        </tr>
-                                                          
+<h4 id="needraise">NeedRaise</h4>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_levelupProcessing.html">レベルアップ処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> レベルアップ時のスコアボードの書き換えや、新しいスキルの取得への分岐などを行う。 </td>
-        </tr>
-                  
+<p><strong>レイズの対象となる予定のプレイヤーに付与するタグ。</strong><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raise.html">レイズ実行</a>で用いられ、諸々の設定の終了後、<code class="language-plaintext highlighter-rouge">Raise</code>に置き換えられる。</p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_loginProcessing.html">ログイン時処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 通常ログイン時のMPや職業などの処理を行う。 </td>
-        </tr>
-                      
+<h4 id="raise">Raise</h4>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_satietyFix.html">満腹度修正</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> リスポーン時に死亡前の満腹度の再現を行う。また、満腹度が小さい場合は救済処理を行う。 </td>
-        </tr>
-                  
+<p><strong>レイズの対象となるプレイヤーに付与されるタグ。</strong><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raise.html">レイズ実行</a>や<a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_keepInventoryCheck.html">KeepInventory確認</a>で付与され、プレイヤーの死亡後<a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_satietyFix.html">満腹度修正</a>で<code class="language-plaintext highlighter-rouge">RaiseEnd</code>に置き換えられる。</p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_skillAcquisition.html">習得スキル取得</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> レベルアップ時に新しいスキル取得したか判断する。 </td>
-        </tr>
-              
+<h3 id="raise系タグエンティティ用">Raise系タグ(エンティティ用)</h3>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_statusDisplay.html">ステータス表示</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 交易島の教会でのステータス表示の処理を行う。 </td>
-        </tr>
-                
+<h4 id="raisepoint">RaisePoint</h4>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_warpProcessing.html">ワープ処理ジョブ島・通常世界</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 初回ログイン時のチュートリアルの処理、初回に配られるジョブ変更申請用紙、ブラジル行きの穴の処理などを行う。 </td>
-        </tr>
-                        
+<p>レイズによって復活するときにリスポーン地点となるアンカーとして設置されている<strong><a href="/TUSB_Analysis/entity/entity_entity.html#raisepoint">RaisePoint</a>に付与されているタグ。</strong><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raise.html">レイズ実行</a>で召喚され、31秒後に消滅する。</p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit3/xCircuit3_augurTalk.html">占い師会話選択時処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 交易島にいる占い師との会話処理を行い、次に起こる嫌な予感に対するメッセージを表示する。 </td>
-        </tr>
-                
+<h4 id="raisetpmarker">RaiseTPMarker</h4>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit3/xCircuit3_bedProcessing.html">ベッド処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> ベッドで寝た際の回復処理や、アドベンチャーモードでの就寝処理を行う。 </td>
-        </tr>
-                          
+<p><code class="language-plaintext highlighter-rouge">RaiseSyncCount</code>により、<strong><a href="/TUSB_Analysis/entity/entity_entity.html#raisepoint">RaisePoint</a>とプレイヤーとの同期ができた時に召喚される<a href="/TUSB_Analysis/entity/entity_entity.html#raisetpmarker">RaiseTPMarker</a>に付与されているタグ。</strong><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raiseWarp.html">レイズリスポーン処理</a>で召喚される。</p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit3/xCircuit3_pastorTalk.html">牧師会話選択時処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 交易島の教会にいる牧師との会話処理を行う。 </td>
-        </tr>
-                      
+<h3 id="raise系スコア">Raise系スコア</h3>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit3/xCircuit3_skillDisplay.html">設定スキル表示</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 現在設定されているスキルについて表示を行う。 </td>
-        </tr>
-                
+<h4 id="raisesynccount">RaiseSyncCount</h4>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit3/xCircuit3_suggestSightseeing.html">観光モード提案開始</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 観光モードの提案から、変更までの処理を行う。 </td>
-        </tr>
-                      
+<p><strong>レイズによるリスポーン地点の同期を行うためのスコア。</strong><a href="/TUSB_Analysis/entity/entity_entity.html#raisepoint">RaisePoint</a>と<code class="language-plaintext highlighter-rouge">NeedRaise</code>を持つプレイヤーに与えられ、プレイヤーは<code class="language-plaintext highlighter-rouge">RaiseSyncCount</code>の同じ<a href="/TUSB_Analysis/entity/entity_entity.html#raisepoint">RaisePoint</a>にリスポーンする。また、最新の<code class="language-plaintext highlighter-rouge">RaiseSyncCount</code>は<code class="language-plaintext highlighter-rouge">#RaisePointCount</code>の<code class="language-plaintext highlighter-rouge">RaiseSyncCount</code>で管理され、レイズを実行するごとに、0から1ずつ増えていく。<a href="/TUSB_Analysis/entity/entity_entity.html#raisepoint">RaisePoint</a>とプレイヤーには<a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raise.html">レイズ実行</a>で付与され、<code class="language-plaintext highlighter-rouge">#RaisePointCount</code>の<code class="language-plaintext highlighter-rouge">RaiseSyncCount</code>の宣言は<a href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_initializeProcessing.html">初期化処理</a>で、カウントアップは<a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raise.html">レイズ実行</a>でそれぞれ行われる。</p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit3/xCircuit3_villagerTalkProcessing.html">村人会話処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 交易島内の村人(牧師、エージェント、占い師)との会話や職業島へのワープ時の処理などを行う。 </td>
-        </tr>
-                                                                                  
+<h4 id="raisedarea">RaisedArea</h4>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit5/xCircuit5_enAspirMPRecovering.html">エンアスピルMP回復</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 黒魔導士のスキルの1つであるエンアスピル発動時の処理を行う。 </td>
-        </tr>
-                                      
+<p><strong>レイズが付与されたときに、プレイヤーがいるディメンションを記録するスコア。</strong><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raise.html">レイズ実行</a>で設定される。</p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit5/xCircuit5_tacticalHealProcessing.html">タクティカルヒール処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 剣士のスキルの1つであるタクティカルヒールの回復処理と、演出等を実行する。 </td>
-        </tr>
-                        
+<h2 id="ネザーアスレでのリスポーンについて">ネザーアスレでのリスポーンについて</h2>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit7/xCircuit7_command.html">毎tick実行するコマンド群7</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 圧縮印玉等の報酬系スポーンエッグ使用時の演出、モードチェンジエッグやサポートスキルエッグ使用時の処理等を行う。 </td>
-        </tr>
-                
+<p><a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_keepInventoryCheck.html">KeepInventory確認</a>にてネザーアスレ内で死亡した場合、<code class="language-plaintext highlighter-rouge">Raise</code>を付与し、<code class="language-plaintext highlighter-rouge">RaisedArea</code>をネザーアスレに設定する事によって、<strong>レイズリスポーン処理の処理を用いてネザーアスレのリスポーン地点に移動させている。</strong></p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit7/xCircuit7_modeChange.html">モード変更</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> モードチェンジエッグによるモードスキルの変更時の演出と処理を行う。 </td>
-        </tr>
-                            
+<h2 id="レイズリスポーン処理について">レイズリスポーン処理について</h2>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit8/xCircuit8_skillSettingChange.html">スキル設定変更</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> スキルの変更時、現在のスキルIDの変更、スキルコストの変更などを行う。 </td>
-        </tr>
-                    
+<p><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raiseWarp.html">レイズリスポーン処理</a>では、<code class="language-plaintext highlighter-rouge">RaiseEndN</code>系のタグに沿って処理が行われるので、ここでもそれに従う。</p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_aisatsu.html">アイサツ実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 忍者のスキルの1つであるアイサツを実行する。 </td>
-        </tr>
-                                            
+<p><code class="language-plaintext highlighter-rouge">RaiseEndN</code>系のタグは<code class="language-plaintext highlighter-rouge">RaiseEnd</code>、<code class="language-plaintext highlighter-rouge">RaiseEnd2</code>、<code class="language-plaintext highlighter-rouge">RaiseEnd3</code>、<code class="language-plaintext highlighter-rouge">RaiseEnd4</code>とあり、レイズによるリスポーン時の処理に用いられる。また、<strong><code class="language-plaintext highlighter-rouge">RaiseEnd</code> → <code class="language-plaintext highlighter-rouge">RaiseEnd2</code> → <code class="language-plaintext highlighter-rouge">RaiseEnd3</code> → <code class="language-plaintext highlighter-rouge">RaiseEnd4</code>へと遷移しながら処理を行う。</strong>詳しくは<a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raiseWarp.html">レイズリスポーン処理</a>にて。</p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_ironWill.html">アイアンウィル実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 剣士のスキルの1つであるアイアンウィルの実行準備を行う。なお、防具や盾によるボーナス処理や終了処理はアイアンウィル継続処理を、スキル実行部は毎tick実行するコマンド群4をそれぞれ参照。 </td>
-        </tr>
-                                                                                                  
+<p>まずプレイヤーが死亡した際、<a href="/TUSB_Analysis/command/xCircuit2/xCircuit2_satietyFix.html">満腹度修正</a>にて<strong><code class="language-plaintext highlighter-rouge">RaiseEnd</code>が<code class="language-plaintext highlighter-rouge">Raise</code>と置き換えられる。</strong>これによって、<a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_raiseWarp.html">レイズリスポーン処理</a>が実行される。</p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tacticalHeal.html">タクティカルヒール実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 剣士のスキルの1つであるタクティカルヒールの実行準備を行う。なお、実際にこのスキル実行するコマンド群はタクティカルヒール処理で行われる。 </td>
-        </tr>
-                  
+<h3 id="raiseend">RaiseEnd</h3>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tsuremai.html">連舞実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 忍者のスキルの1つである連舞を実行する。 </td>
-        </tr>
-                  
+<p><code class="language-plaintext highlighter-rouge">RaiseEnd</code>を付与された段階では、プレイヤーは通常世界のリスポーン地点にいるので<strong>ネザーやエンドに<code class="language-plaintext highlighter-rouge">RaisedArea</code>がある場合は、プレイヤーをそれぞれのディメンションへと送る必要がある。</strong></p>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_tyoyaku.html">跳躍実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 忍者のスキルの1つである連舞を実行する。なお、跳躍による攻撃処理は毎tick実行するコマンド群4で行われる。 </td>
-        </tr>
-                                                    
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">RaisedArea</code>がジ・エンドを示しているプレイヤーは通常世界のエンドポータル内に移動</li>
+  <li><code class="language-plaintext highlighter-rouge">RaisedArea</code>がネザーを示しているプレイヤーは通常世界のネザーポータル内に移動</li>
+</ul>
 
-        <tr>
-            <td><a href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_systemKeeperProcessing.html">SystemKeeper処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> SystemKeeperという名前のアーマースタンドと、その下にあるコマンド群によって構成され、X回路区域のセーフティーネットの役割を担っている。なので、通常では実行されることがないコマンド群である。 </td>
-        </tr>
-                
+<h3 id="raiseend2">RaiseEnd2</h3>
 
-    </tbody>
-</table>
+<p>エンドポータルは触れただけで即ワープされるが、<strong>ネザーポータルはサバイバルやアドベンチャーモードではワープまでに時間がある。</strong>これを解決するために、<code class="language-plaintext highlighter-rouge">RaisedArea</code>がネザーを指しているプレイヤーは<strong>クリエイティブに変更させ、即ネザーにワープできるようにする。</strong></p>
 
-<p>その他のタグのリストは<a href="/TUSB_Analysis/includeTags/includeTags_list.html">ページ内タグ一覧</a></p>
+<p>(時々、ネザーアスレへのリスポーン時にクリエイティブのまま担ってしまうプレイヤーがいるが、ここが原因。かといって、ネザーポータル内でワープされるまでプレイヤーを待機させるわけにもいかないので、致し方ない。1.13以降はexecuteの登場によりこれは解決できるので、次期バージョンでは無くなるだろう)</p>
+
+<h3 id="raiseend3">RaiseEnd3</h3>
+
+<p>前述した通り、ネザーポータルでのワープには時間がかかるので、<strong>プレイヤーがポータル内にいるときは<code class="language-plaintext highlighter-rouge">RaiseEnd2</code>に戻る。</strong><br />
+他のプレイヤーは、スペクテイターモードに変更し、ネザーもしくはエンド内にいる場合は指定の位置に移動する。</p>
+
+<h3 id="raiseend4">RaiseEnd4</h3>
+
+<p><code class="language-plaintext highlighter-rouge">RaiseArea</code>がネザーアスレを示しているとき、<strong>ネザーアスレリスポーン地点に移動させる。</strong>それ以外のときは、<strong><a href="/TUSB_Analysis/entity/entity_entity.html#raisepoint">RaisePoint</a>の<code class="language-plaintext highlighter-rouge">RaiseSyncCount</code>とプレイヤーの<code class="language-plaintext highlighter-rouge">RaiseSyncCount</code>が等しい場所</strong>にプレイヤーを移動させ、<code class="language-plaintext highlighter-rouge">RaiseSyncCount</code>が一致しないプレイヤーは「<span style="color:yellow;background-color:gray;">復帰地点が見つからなかった！</span>」とのメッセージを表示。<br />
+最後にプレイヤーをアドベンチャーモードに変更して終了する。</p>
 
 
     <div class="tags">
         
+        <b>Tags: </b>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_whiteMage.html" class="btn btn-default navbar-btn cursorNorm" role="button">白魔導士</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 
-
+<script id="dsq-count-scr" src="//tusb-analysis.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://tusb-analysis.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
 
@@ -925,7 +941,7 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-             Site last generated: 11 Sep 2020 <br />
+            <span>Page last updated:</span> 11 Sep 2020<br/> Site last generated: 11 Sep 2020 <br />
         </div>
     </div>
 </footer>
