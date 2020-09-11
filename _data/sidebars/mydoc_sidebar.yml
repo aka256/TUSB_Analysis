@@ -346,6 +346,30 @@ entries:
       - title: 白魔導士スキル
         output: web, pdf
         subfolderitems:
+        - title: キアリク実行
+          url: /command/xCircuit10/xCircuit10_chialik.html
+          output: web, pdf
+        - title: ハートブースト実行
+          url: /command/xCircuit10/xCircuit10_heartBoost.html
+          output: web, pdf
+        - title: リジェネレーション実行
+          url: /command/xCircuit10/xCircuit10_regeneration.html
+          output: web, pdf
+        - title: クイック実行
+          url: /command/xCircuit10/xCircuit10_quick.html
+          output: web, pdf
+        - title: バオル実行
+          url: /command/xCircuit10/xCircuit10_baol.html
+          output: web, pdf
+        - title: レイズ実行
+          url: /command/xCircuit10/xCircuit10_raise.html
+          output: web, pdf
+        - title: レイズリスポーン処理
+          url: /command/xCircuit10/xCircuit10_raiseWarp.html
+          output: web, pdf
+        - title: ケアル実行
+          url: /command/xCircuit10/xCircuit10_keal.html
+          output: web, pdf
 
   - title: 超作業台ルーム
     output: web,pdf
@@ -388,6 +412,13 @@ entries:
           - title: Global
             url: /scoreboard/scoreboard_global.html
             output: web, pdf
+
+  - title: 個別解説
+    output: web,pdf
+    folderitems:
+    - title: レイズ解説
+      url: /note/note_aboutRaise.html
+      output: web, pdf
   
   - title: ページ内タグ
     output: web,pdf

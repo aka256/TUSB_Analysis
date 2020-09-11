@@ -114,7 +114,7 @@ summaryDisable: true
 16. `CauseEvent`を持ち、`USBDimension`が0であるプレイヤーが存在する時、以下の事柄を実行
     - `#SecCount`の`Global`が0以上であるとき、(-1920,11,-197)にある[嫌な予感実行]({{site.baseurl}}/command/xCircuit1/xCircuit1_eventFulfill.html)を実行
 17. [SystemKeeper]({{site.baseurl}}/entity/entity_entity.html#systemkeeper)を今の座標からy=10へ移動
-18. `USBDimension`が13であり、`SaveTorch`を持ってなく、スペクターモードでないプレイヤーが存在したら、`RemoveTorch`を付与し(-1920,12,-197)にある[トカルト処理]({{site.baseurl}}/command/xCircuit1/xCircuit1_iceProcessing.html)を実行
+18. `USBDimension`が13であり、`SaveTorch`を持ってなく、スペクテイターモードでないプレイヤーが存在したら、`RemoveTorch`を付与し(-1920,12,-197)にある[トカルト処理]({{site.baseurl}}/command/xCircuit1/xCircuit1_iceProcessing.html)を実行
 19. `SaveTouch`を持つプレイヤーから`SaveTouch`を消去
 20. UUIDが0-0-1-0-3であるエンティティから5m以内で`VillagerMeal`を持つエンティティが存在したら、それの`Freshness`の符号を反転し、(-1920,13,-197)にある[動物誘導イベント]({{site.baseurl}}/command/xCircuit1/xCircuit1_animalGuideEvent.html)を実行
 21. 採掘速度低下Lv.3を持つプレイヤーが存在したら、`ReduceCurse`を付与し、以下の事柄を実行

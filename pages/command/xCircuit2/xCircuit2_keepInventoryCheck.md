@@ -46,7 +46,7 @@ summaryDisable: true
 ## 詳細
 
 1. `Sightseeing`の`Settings`が0以下の時、`keepInventory`を`false`にし、`HP`が0以下のプレイヤーのインベントリ内アイテムを消去する
-2. `HP`が0以下、`USBDimension`が-90であるプレイヤーに`Raise`を付与、`Raisearea`を-90に設定、`Hunger`を21に設定、スペクターモードに切り替える。
+2. `HP`が0以下、`USBDimension`が-90であるプレイヤーに`Raise`を付与、`RaisedArea`を-90に設定、`Hunger`を21に設定、スペクテイターモードに切り替える。
 3. `HP`が0以下、`USBDimension`が-90であり、尚且つインベントリ内に`TrialItem:true`を持つプレイヤーに`TrialItemClear`を付与し、インベントリ内アイテムを消去、`TrialItemClear`を消去
 4. `HP`が0以下、`Doom`を持つプレイヤーから`Doom`を消去
 5. `HP`が0以下、`ReRaise`を持つプレイヤーに`CastRaise`を付与し、`ReRaise`を消去

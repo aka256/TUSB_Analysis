@@ -17,3 +17,5 @@ tacticalHealMesage: "次に大ダメージを受けた時、HPを大きく回復
 enChaseMesage: "次に撃った矢が生物に当たりやすくなる。"
 
 energySaveMesage: "次に使用するスキルの消費MPを半減する。"
+
+raiseMesage: "死亡時にレイズの効果を得る。"
