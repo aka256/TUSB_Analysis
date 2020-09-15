@@ -2,7 +2,7 @@
 title: エンティティ
 tags: [敵Mob,SystemEntity,村人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,エンティティ
-update: 2020-09-11 09:00:00 +0000
+update: 2020-09-14 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: entity/entity_entity.html
 summary: コマンドに関係するエンティティについてまとめる。
@@ -306,6 +306,26 @@ summaryDisable: true
 |Name|(None)|
 |Type|ArmorStand|
 |Tags|**RaiseTPMarker**,Garbage,SystemEntity,TypeChecked|
+
+### Candle
+
+```mcfunction
+/summon ArmorStand ~ ~ ~ {Marker:true,Small:true,Invisible:true,Invulnerable:true,NoGravity:true,NoBasePlate:true,DisabledSlots:31,PortalCooldown:390,Tags:[SystemEntity,CooldownRequired,TypeChecked],Passengers:[{id:Endermite,CustomName:”キャンドル”,Attributes:[{Name:”generic.attackDamage”,Base:0d}],ActiveEffects:[{Id:14b,Amplifier:0b,Duration:1200,ShowParticles:true}],Fire:1200s,Invulnerable:true,Silent:true,NoAI:true,Lifetime:2000,PortalCooldown:390,Tags:[Candle,TypeChecked]}]}
+```
+
+|Name|(None)|
+|Type|ArmorStand|
+|Tags|SystemEntity,CooldownRequired,TypeChecked|
+|Passengers|キャンドル|
+
+- キャンドル
+
+|Name|キャンドル|
+|Type|Endermite|
+|Tags|Candle,TypeChecked|
+|Lifetime|2000 (20秒後に消滅)|
+|ActiveEffects|透明化Lv.0 60秒間|
+
 
 ## MOB
 
@@ -622,3 +642,33 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 |Name|**✟**|
 |Type|AEC|
 |Tags|**RaisePoint**,TypeChecked|
+
+### スノウ用雪壁
+
+```mcfunction
+/summon ArmorStand ~ ~ ~ {Invulnerable:true,Small:true,Invisible:true,DisabledSlots:31,Marker:true,NoGravity:true, Health:0f, Passengers:[{id:FallingSand,Block:minecraft:snow,Time:1b,DropItem:false,Tags:[Snow], Passengers:[{id:FallingSand,Block:minecraft:snow_layer,Data:7b,Time:1,DropItem:false}]}]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|ArmorStand|
+|Passengers|Snow|
+
+- Snow
+
+|-|-|
+|Name|(None)|
+|Type|FallingSand|
+|Tags|Snow|
+|Block|minecraft:snow|
+|Time|1|
+|Passengers|Snow Layer|
+
+- Snow Layer
+
+|-|-|
+|Name|(None)|
+|Type|FallingSand|
+|Type|FallingSand|
+|Block|minecraft:snow_layer|
+|Time|1|

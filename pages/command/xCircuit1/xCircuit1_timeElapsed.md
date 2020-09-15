@@ -3,7 +3,7 @@ title: 時間経過
 tags: [コマンド,スキル]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,トカルトコルデ,スキル,ガーディアン
 last_updated: 2020/6/19
-update: 2020-09-10 09:00:00 +0000
+update: 2020-09-14 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit1/xCircuit1_timeElapsed.html
 folder: xCircuit1
@@ -84,7 +84,7 @@ summaryDisable: true
 
 ## 詳細
 
-1. `ManaRefresh`が0以上であるプレイヤーが存在したら、`ManaRefresh`を1に設定し、以下の事柄を実行
+1. `ManaRefresh`が0以上であるプレイヤーが存在したら、`ManaRefresh`から1を引き、以下の事柄を実行
    1. `ManaRefresh`が-1以下であるプレイヤーにマナリフレッシュが切れたメッセージを送る
    2. `ManaRefresh`が-1以下であるプレイヤーの`ManaRefresh`を0に設定
 2. `WindWall`が0以上であるプレイヤーが存在したら、`WindWall`から1を引き、以下の事柄を実行
