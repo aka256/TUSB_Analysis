@@ -9,6 +9,7 @@ folder: command
 datatable3cnp: true
 summary: (-1870,4-194)から(-1870,4,-158)の壁沿いに並んでいるコマンド群であり、X回路区域やスコアボードなど、様々な初期化処理を行う。
 summaryDisable: true
+tocLimit: h3
 ---
 
 ## About

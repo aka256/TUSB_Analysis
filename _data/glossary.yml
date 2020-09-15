@@ -19,3 +19,11 @@ enChaseMesage: "次に撃った矢が生物に当たりやすくなる。"
 energySaveMesage: "次に使用するスキルの消費MPを半減する。"
 
 raiseMesage: "死亡時にレイズの効果を得る。"
+
+manaRefreshMesage: "一定時間MPの自然回復量が増加する。"
+
+enaspirMesage: "次にアンデッドでない敵を近接攻撃した時、MPを回復する。"
+
+magicShieldMesage: "次に受けるダメージを無効化する。"
+
+windWallMesage: "一定時間、周囲の飛翔物を妨げる。"

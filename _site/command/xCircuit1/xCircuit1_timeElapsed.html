@@ -94,12 +94,15 @@
 
 <meta name="google-site-verification" content="IfKF0TOJNUtCg_H2zFNe6k3qnuQiJWoIfV3nXyV3OPs" />
 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+
+
     <script>
         $(document).ready(function() {
             // Initialize navgoco with default options
             $("#mysidebar").navgoco({
                 caretHtml: '',
-                accordion: true,
+                accordion: false,
                 openClass: 'active', // open
                 save: false, // leave false or nav highlighting doesn't work right
                 cookie: {
@@ -250,7 +253,8 @@
         <div id="main">
             <!-- Content Row -->
             <div class="row">
-                 
+                
+                
                 <!-- Sidebar Column -->
                 <div class="col-md-3" id="tg-sb-sidebar">
                     
@@ -570,6 +574,51 @@
     </li>
       
     <li>
+        <a title="毎tick実行するコマンド群11" href="#">毎tick実行するコマンド群11</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群11" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_command.html">毎tick実行するコマンド群11</a></li>
+              
+            <li class="subfolders">
+                <a title="黒魔導士スキル" href="#">黒魔導士スキル</a>
+                <ul>
+                      
+                    <li><a title="スノウ実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_snow.html">スノウ実行</a></li>
+                        
+                    <li><a title="キャンドル実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_candle.html">キャンドル実行</a></li>
+                        
+                    <li><a title="ウェザー実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_weather.html">ウェザー実行</a></li>
+                        
+                    <li><a title="グロウ実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_glow.html">グロウ実行</a></li>
+                        
+                    <li><a title="マナリフレッシュ実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_manaRefresh.html">マナリフレッシュ実行</a></li>
+                        
+                    <li><a title="エンアスピル実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_enAspir.html">エンアスピル実行</a></li>
+                        
+                    <li><a title="マジックシールド実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_magicShield.html">マジックシールド実行</a></li>
+                        
+                    <li><a title="ルーラ実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_lura.html">ルーラ実行</a></li>
+                        
+                    <li><a title="ルーラワープ処理" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_luraWarp.html">ルーラワープ処理</a></li>
+                        
+                    <li><a title="ウィンドウォール実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_windWall.html">ウィンドウォール実行</a></li>
+                        
+                    <li><a title="ラナルータ実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_lanaRouter.html">ラナルータ実行</a></li>
+                      
+                </ul>
+            </li>
+              
+            <li class="subfolders">
+                <a title="召喚士スキル" href="#">召喚士スキル</a>
+                <ul>
+                    
+                </ul>
+            </li>
+               
+        </ul>
+    </li>
+      
+    <li>
         <a title="超作業台ルーム" href="#">超作業台ルーム</a>
         <ul>
               
@@ -628,11 +677,11 @@
         </ul>
     </li>
       
-    <!-- if you aren't using the accordion, uncomment this block:
-         <p class="external">
-             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
-         </p>
-         -->
+    <!-- if you aren't using the accordion, uncomment this block:-->
+    <p class="external">
+        <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+    </p>
+    <!---->
 </ul>
 
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
@@ -640,7 +689,8 @@
     $("li.active").parents('li').toggleClass("active");
 </script>
                 </div>
-                 
+                
+                
 
                 <!-- Content Column -->
                 <div class="col-md-9" id="tg-sb-content">
@@ -655,28 +705,32 @@
    
 
     
-    
-<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+    <!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+
 <script>
-$( document ).ready(function() {
-  // Handler for .ready() called.
+    $(document).ready(function() {
+        // Handler for .ready() called.
 
-$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+        $('#toc').toc({
+            minimumHeaders: 0,
+            listType: 'ul',
+            showSpeed: 0,
+            headers: 'h2,h3,h4'
+        });
 
-/* this offset helps account for the space taken up by the floating toolbar. */
-$('#toc').on('click', 'a', function() {
-  var target = $(this.getAttribute('href'))
-    , scroll_target = target.offset().top
+        /* this offset helps account for the space taken up by the floating toolbar. */
+        $('#toc').on('click', 'a', function() {
+            var target = $(this.getAttribute('href')),
+                scroll_target = target.offset().top
 
-  $(window).scrollTop(scroll_target - 10);
-  return false
-})
-  
-});
+            $(window).scrollTop(scroll_target - 10);
+            return false
+        })
+
+    });
 </script>
 
 <div id="toc"></div>
-
     
 
 
@@ -1020,7 +1074,7 @@ $('#toc').on('click', 'a', function() {
 <h2 id="詳細">詳細</h2>
 
 <ol>
-  <li><code class="language-plaintext highlighter-rouge">ManaRefresh</code>が0以上であるプレイヤーが存在したら、<code class="language-plaintext highlighter-rouge">ManaRefresh</code>を1に設定し、以下の事柄を実行
+  <li><code class="language-plaintext highlighter-rouge">ManaRefresh</code>が0以上であるプレイヤーが存在したら、<code class="language-plaintext highlighter-rouge">ManaRefresh</code>から1を引き、以下の事柄を実行
     <ol>
       <li><code class="language-plaintext highlighter-rouge">ManaRefresh</code>が-1以下であるプレイヤーにマナリフレッシュが切れたメッセージを送る</li>
       <li><code class="language-plaintext highlighter-rouge">ManaRefresh</code>が-1以下であるプレイヤーの<code class="language-plaintext highlighter-rouge">ManaRefresh</code>を0に設定</li>
@@ -1267,12 +1321,20 @@ $('#toc').on('click', 'a', function() {
 <footer>
     <div class="row">
         <div class="col-lg-12 footer">
-            <span>Page last updated:</span> 10 Sep 2020<br/> Site last generated: 11 Sep 2020 <br />
+            Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.<br>
+            <a href="https://github.com/aka256/TUSB_Analysis">Page source</a><br>
+            
+              <span>Page last updated:</span> 14 Sep 2020<br/>
+            
+            Site last generated: 15 Sep 2020 <br />
         </div>
     </div>
 </footer>
 
                 </div>
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+
+<div id="page_top"><a href="#"></a></div>
                 <!-- /.row -->
             </div>
             <!-- /.container -->

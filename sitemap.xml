@@ -16,7 +16,7 @@ search: exclude
   {% unless page.search == "exclude" %}
   {% if page.url == "index.html" %}
   <url>
-    <loc>{{site.githuburl}}</loc>
+    <loc>{{site.githuburl}}/</loc>
     <lastmod>{{page.update|date: "%Y-%m-%dT%H:%M:%S+09:00"}}</lastmod>
     <changefreq>{{site.changefreq}}</changefreq>
   </url>
