@@ -7,6 +7,7 @@ sidebar: mydoc_sidebar
 permalink: entity/entity_entity.html
 summary: コマンドに関係するエンティティについてまとめる。
 summaryDisable: true
+tocLimit: h3
 ---
 
 ## SystemEntity
