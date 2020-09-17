@@ -5,8 +5,8 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="黒魔導士のスキルの1つであるパルプンテを実行する。">
-<meta name="keywords" content="コマンドスキル黒魔導士,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<meta name="description" content="黒魔導士のスキルの1つであるパルプンテを実行する。Randomの値によって異なるメッセージと効果を与える。効果の一覧はRandomとその効果についてを参照。">
+<meta name="keywords" content="コマンドスキル黒魔導士表示,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
 <title>パルプンテ実行 | TUSB Analysis</title>
 <link rel="canonical" href="https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_pulpunte.html">
 <!-- Google Tag Manager -->
@@ -64,7 +64,7 @@
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
 <meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit11/xCircuit11_pulpunte.html" /> <!--③-->
 <meta property="og:title" content="パルプンテ実行 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="黒魔導士のスキルの1つであるパルプンテを実行する。" /> <!--⑤-->
+<meta property="og:description" content="黒魔導士のスキルの1つであるパルプンテを実行する。Randomの値によって異なるメッセージと効果を与える。効果の一覧はRandomとその効果についてを参照。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -147,8 +147,7 @@
       -->
     <script>
         $(document).ready(function() {
-            $('div.datatable2c-begin').nextUntil('div.datatable2c-end', 'table').addClass('display');
-            //$('div.datatable3-begin').nextUntil('div.datatable3-end', 'table').Class('display').style = "word-break:break-all";
+            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
             $('table.display').DataTable({
                 paging: true,
                 stateSave: true,
@@ -156,11 +155,14 @@
                 autoWidth: false,
                 lengthChange: true,
                 columns: [{
-                    responsivePriority: 1,
+                    responsivePriority: 2,
                     width: "8%"
                 }, {
-                    responsivePriority: 2,
-                    width: "92%"
+                    responsivePriority: 3,
+                    width: "77%"
+                }, {
+                    responsivePriority: 1,
+                    width: "15%"
                 }],
             });
         });
@@ -722,38 +724,365 @@
 
     
 
-   <p><strong>編集中</strong></p>
+   <h2 id="about">About</h2>
 
-<h2 id="about">About</h2>
-
-<p><span class="tagYellow">位置</span> (-1920,4,-157)</p>
+<p><span class="tagYellow">位置</span> (-1920,15,-154)</p>
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit11/xCircuit11_command.html">毎tick実行するコマンド群11</a></p>
 
-<p><span class="tagBlue">分岐先</span></p>
+<p>黒魔導士のスキルの1つであるパルプンテを実行する。<code class="language-plaintext highlighter-rouge">Random</code>の値によって異なるメッセージと効果を与える。効果の一覧は<a href="#randomとその効果について">Randomとその効果について</a>を参照。</p>
 
 <h2 id="コマンド群">コマンド群</h2>
 
-<div class="datatable2c-begin"></div>
+<div class="datatable3c-begin"></div>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: center">No.</th>
       <th>コマンド</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: center">1</td>
+      <td>/scoreboard players tag @a[score_ActivatedSkill_min=5250,score_ActivatedSkill=5259] add ChanceCenter</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @a[tag=ChanceCenter] ~ ~ ~ /me はパルプンテを唱えた！</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players operation @a[tag=ChanceCenter] Random %= #15 Const</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/execute @a[tag=ChanceCenter] ~ ~ ~ /scoreboard players tag @e[r=15,tag=Enemy] add ChanceTarget</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/execute @a[tag=ChanceCenter] ~ ~ ~ /scoreboard players tag @e[r=15,team=FriendlyTeam] add ChanceTarget</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=0,score_Random=0] ~ ~ ~ /me 達に何かがぶつかってきた。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=0,score_Random=0] ~ ~ ~ /execute @e[r=15,tag=ChanceTarget] ~ ~ ~ /summon FallingSand ~ ~0.5 ~ {Block:”minecraft:piston_extension”,Time:1,DropItem:false,HurtEntities:true,FallHurtMax:20,FallHurtAmount:20f,FallDistance:1f,Tags:[CooldownRequired],PortalCooldown:10}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=1,score_Random=1] ~ ~ ~ /me 達は翼を失った。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=1,score_Random=1] ~ ~ ~ /execute @e[r=15,tag=ChanceTarget] ~ ~ ~ /summon ThrownPotion ~ ~0.5 ~ {Potion:{id:minecraft:splash_potion,Count:1b,tag:{display:{Name:”跳躍力低下Ｘ”},CustomPotionEffects:[{Amplifier:-11b,Duration:400,Id:8b}]}},Tags:[SystemEntity,TypeChecked]}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=2,score_Random=2] ~ ~ ~ /me 達はおなかが空いてきた。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=2,score_Random=2] ~ ~ ~ /effect @a[r=15,tag=ChanceTarget] minecraft:hunger 3 100 false</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=3,score_Random=3] ~ ~ ~ /me 達は光を失った。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=3,score_Random=3] ~ ~ ~ /effect @a[r=15,tag=ChanceTarget] minecraft:blindness 30 0 false</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=4,score_Random=4] ~ ~ ~ /me 達は体が軽くなった。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=4,score_Random=4] ~ ~ ~ /effect @e[r=15,tag=ChanceTarget] minecraft:levitation 30 0 false</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=5,score_Random=5] ~ ~ ~ /me 達は黒い霧に包まれた。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=5,score_Random=5] ~ ~ ~ /effect @e[r=15,tag=ChanceTarget] clear</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=5,score_Random=5] ~ ~ ~ /scoreboard players add @a[r=15,tag=ChanceTarget] RefreshHPMax 0</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=6,score_Random=6] ~ ~ ~ /me 達は翼を授かった。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=6,score_Random=6] ~ ~ ~ /effect @e[r=15,tag=ChanceTarget] minecraft:jump_boost 30 14 false</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=7,score_Random=7] ~ ~ ~ /me 達の周りのブロックが軟らかくなった。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=7,score_Random=7] ~ ~ ~ /effect @a[r=15,tag=ChanceTarget] minecraft:haste 30 9 false</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=8,score_Random=8] ~ ~ ~ /me 達の感覚が研ぎ澄まされた。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=8,score_Random=8] ~ ~ ~ /effect @a[r=15,tag=ChanceTarget] minecraft:night_vision 30 4 false</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=9,score_Random=9] ~ ~ ~ /me 達は風を纏った。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=9,score_Random=9] ~ ~ ~ /scoreboard players set @a[r=15,tag=ChanceTarget] WindWall 20</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">27</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=10,score_Random=10] ~ ~ ~ /me 達のおなかが鳴り止んだ。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">28</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=10,score_Random=10] ~ ~ ~ /effect @a[r=15,tag=ChanceTarget] minecraft:saturation 200 0 false</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">29</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=11,score_Random=11] ~ ~ ~ /me 達を癒しの風が包み込む。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">30</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=11,score_Random=11] ~ ~ ~ /effect @e[r=15,tag=ChanceTarget] minecraft:instant_health 1 6 false</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">31</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=12,score_Random=12] ~ ~ ~ /me 達の魔力が満ち溢れてきた。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">32</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=12,score_Random=12] ~ ~ ~ /execute @a[r=15,tag=ChanceTarget] ~ ~ ~ /scoreboard players operation @a[c=1] MP = @a[c=1] MPMax</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">33</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=12,score_Random=12] ~ ~ ~ /scoreboard players set @a[r=15,tag=ChanceTarget] MPMaxFlag 1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">34</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=13,score_Random=13] ~ ~ ~ /me 達は見慣れないスターを拾った。</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">35</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=13,score_Random=13] ~ ~ ~ /effect @e[r=15,tag=ChanceTarget] minecraft:resistance 30 4 false</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">36</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=14,score_Random=14] ~ ~ ~ /me の魔法はイオナズンになった！</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">37</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=14,score_Random=14] ~ ~ ~ /kill @e[r=15,tag=Enemy]</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">38</td>
+      <td>/execute @a[tag=ChanceCenter] ~ ~ ~ /playsound ambient.cave master @a[r=32] ~ ~ ~ 0.8 2 0.2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">39</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=0,score_Random=5] ~ ~ ~ /particle witchMagic ~ ~ ~ 5 2 5 0.1 300 force</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">40</td>
+      <td>/execute @a[tag=ChanceCenter,score_Random_min=6,score_Random=14] ~ ~ ~ /particle instantSpell ~ ~ ~ 5 2 5 0.1 300 force</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">41</td>
+      <td>/execute @a[tag=ChanceCenter] ~ ~ ~ /scoreboard players tag @e[r=15,tag=ChanceTarget] remove ChanceTarget</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">42</td>
+      <td>/scoreboard players tag @a[tag=ChanceCenter] remove ChanceCenter</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
 
-<div class="datatable2c-end"></div>
+<div class="datatable3c-end"></div>
 
 <h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が5250 ~ 5259</strong>であるすべてのプレイヤーに、<strong><code class="language-plaintext highlighter-rouge">ChanceCenter</code>を付与</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ChanceCenter</code>を持つ</strong>すべてのプレイヤーに対して、以下の事柄を実行
+    <ol>
+      <li>「(PlayerName) はパルプンテを唱えた！」とのメッセージを表示</li>
+      <li>対象プレイヤーの<code class="language-plaintext highlighter-rouge">Random</code>を\(Random = Random\bmod 15\)とする</li>
+      <li>対象プレイヤーから<strong>半径15m以内の<code class="language-plaintext highlighter-rouge">Enemy</code>を持ったすべてのエンティティに、<code class="language-plaintext highlighter-rouge">ChanceTarget</code>を付与</strong></li>
+      <li>対象プレイヤーから<strong>半径15m以内の<code class="language-plaintext highlighter-rouge">FriendlyTeam</code>に<code class="language-plaintext highlighter-rouge">ChanceTarget</code>を付与</strong></li>
+      <li><strong><code class="language-plaintext highlighter-rouge">Random</code>の値に応じて、<code class="language-plaintext highlighter-rouge">ChanceCenter</code>を対象としたメッセージの表示と、<code class="language-plaintext highlighter-rouge">ChanceCenter</code>を中心とした半径15m以内の<code class="language-plaintext highlighter-rouge">ChanceTarget</code>に特定の効果を与える</strong> (効果内容は<a href="#randomとその効果について">Randomとその効果について</a>を参照)</li>
+      <li>対象プレイヤーから半径32m以内のすべてのプレイヤーに、効果音を鳴らす</li>
+      <li>対象プレイヤーの座標上にパーティクルを表示</li>
+      <li>対象プレイヤーから半径15m以内の<code class="language-plaintext highlighter-rouge">ChanceTarget</code>を持つすべてのエンティティから、<code class="language-plaintext highlighter-rouge">ChanceTarget</code>を削除</li>
+      <li><code class="language-plaintext highlighter-rouge">ChanceCenter</code>を削除</li>
+    </ol>
+  </li>
+</ol>
+
+<h3 id="randomとその効果について">Randomとその効果について</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Random</th>
+      <th>メッセージ</th>
+      <th>効果</th>
+      <th style="text-align: center">効果の対象</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td>(PlayerName)達に何かがぶつかってきた。</td>
+      <td>piston_extnesionの落下</td>
+      <td style="text-align: center">エンティティ</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>(PlayerName)達は翼を失った。</td>
+      <td>跳躍力低下Xの投下</td>
+      <td style="text-align: center">エンティティ</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>(PlayerName)達はおなかが空いてきた。</td>
+      <td>空腹Lv.101を3秒間付与</td>
+      <td style="text-align: center">プレイヤー</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>(PlayerName)達は光を失った。</td>
+      <td>盲目Lv.1を30秒間付与</td>
+      <td style="text-align: center">プレイヤー</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>(PlayerName)達は体が軽くなった。</td>
+      <td>浮遊Lv.1を30秒間付与</td>
+      <td style="text-align: center">エンティティ</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>(PlayerName)達は黒い霧に包まれた。</td>
+      <td>すべてのエフェクトを解除し、<code class="language-plaintext highlighter-rouge">RefreshHPMax</code>を0に設定</td>
+      <td style="text-align: center">プレイヤー</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>(PlayerName)達は翼を授かった。</td>
+      <td>跳躍力上昇Lv.15を30秒間付与</td>
+      <td style="text-align: center">エンティティ</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>(PlayerName)達の周りのブロックが軟らかくなった。</td>
+      <td>採掘速度上昇Lv.10を30秒間付与</td>
+      <td style="text-align: center">プレイヤー</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>(PlayerName)達の感覚が研ぎ澄まされた。</td>
+      <td>暗視Lv.5を30秒間付与</td>
+      <td style="text-align: center">プレイヤー</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>(PlayerName)達は風を纏った。</td>
+      <td><code class="language-plaintext highlighter-rouge">WindWall</code>を20に設定</td>
+      <td style="text-align: center">プレイヤー</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>(PlayerName)達のおなかが鳴り止んだ。</td>
+      <td>満腹Lv.1を200秒間付与</td>
+      <td style="text-align: center">プレイヤー</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>(PlayerName)達を癒しの風が包み込む。</td>
+      <td>即時回復Lv.7を1秒間付与</td>
+      <td style="text-align: center">エンティティ</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>(PlayerName)達の魔力が満ち溢れてきた。</td>
+      <td><code class="language-plaintext highlighter-rouge">MP</code>に<code class="language-plaintext highlighter-rouge">MPMax</code>を代入し、<code class="language-plaintext highlighter-rouge">MPMaxFlag</code>を1に設定</td>
+      <td style="text-align: center">プレイヤー</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>(PlayerName)達は見慣れないスターを拾った。</td>
+      <td>耐性Lv.5を30秒間付与</td>
+      <td style="text-align: center">エンティティ</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>(PlayerName)の魔法はイオナズンになった！</td>
+      <td>半径15m以内の<code class="language-plaintext highlighter-rouge">Enemy</code>を持ったエンティティをキル</td>
+      <td style="text-align: center">エンティティ</td>
+    </tr>
+  </tbody>
+</table>
 
 
     <div class="tags">
@@ -978,9 +1307,101 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_display.html" class="btn btn-default navbar-btn cursorNorm" role="button">表示</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 
-
+<script id="dsq-count-scr" src="//tusb-analysis.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://tusb-analysis.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
 
@@ -992,9 +1413,9 @@
             Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.<br>
             <a href="https://github.com/aka256/TUSB_Analysis">Page source</a><br>
             
-              <span>Page last updated:</span> 13 Sep 2020<br/>
+              <span>Page last updated:</span> 17 Sep 2020<br/>
             
-            Site last generated: 15 Sep 2020 <br />
+            Site last generated: 17 Sep 2020 <br />
         </div>
     </div>
 </footer>
