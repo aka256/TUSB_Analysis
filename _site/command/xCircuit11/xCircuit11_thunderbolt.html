@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="黒魔導士のスキルの1つであるサンダーボルトを実行する。">
+<meta name="description" content="黒魔導士のスキルの1つであるサンダーボルトを実行する。スキル範囲内の敵Mobへの矢を用いたダメージの付与、火のついた矢TestWeatherによる雨、もしくは水の判定処理などを行う。">
 <meta name="keywords" content="コマンドスキル黒魔導士,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
 <title>サンダーボルト実行 | TUSB Analysis</title>
 <link rel="canonical" href="https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_thunderbolt.html">
@@ -64,7 +64,7 @@
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
 <meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit11/xCircuit11_thunderbolt.html" /> <!--③-->
 <meta property="og:title" content="サンダーボルト実行 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="黒魔導士のスキルの1つであるサンダーボルトを実行する。" /> <!--⑤-->
+<meta property="og:description" content="黒魔導士のスキルの1つであるサンダーボルトを実行する。スキル範囲内の敵Mobへの矢を用いたダメージの付与、火のついた矢TestWeatherによる雨、もしくは水の判定処理などを行う。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -147,8 +147,7 @@
       -->
     <script>
         $(document).ready(function() {
-            $('div.datatable2c-begin').nextUntil('div.datatable2c-end', 'table').addClass('display');
-            //$('div.datatable3-begin').nextUntil('div.datatable3-end', 'table').Class('display').style = "word-break:break-all";
+            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
             $('table.display').DataTable({
                 paging: true,
                 stateSave: true,
@@ -156,11 +155,14 @@
                 autoWidth: false,
                 lengthChange: true,
                 columns: [{
-                    responsivePriority: 1,
+                    responsivePriority: 2,
                     width: "8%"
                 }, {
-                    responsivePriority: 2,
-                    width: "92%"
+                    responsivePriority: 3,
+                    width: "77%"
+                }, {
+                    responsivePriority: 1,
+                    width: "15%"
                 }],
             });
         });
@@ -722,31 +724,128 @@
 
     
 
-   <p><strong>編集中</strong></p>
-
-<h2 id="about">About</h2>
-
-<p><span class="tagYellow">位置</span> (-1920,4,-157)</p>
+   <h2 id="about">About</h2>
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit11/xCircuit11_command.html">毎tick実行するコマンド群11</a></p>
 
-<p><span class="tagBlue">分岐先</span></p>
+<p>黒魔導士のスキルの1つであるサンダーボルトを実行する。スキル範囲内の敵Mobへの矢を用いたダメージの付与、火のついた矢<a href="#testweather">TestWeather</a>による雨、もしくは水の判定処理などを行う。</p>
 
 <h2 id="コマンド群">コマンド群</h2>
 
-<div class="datatable2c-begin"></div>
+<h3 id="サンダーボルト初期処理部コマンド群">サンダーボルト初期処理部コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,8,-154)</p>
+
+<div class="datatable3c-begin"></div>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: center">No.</th>
       <th>コマンド</th>
+      <th>状態</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: center">1</td>
+      <td>/execute @a[score_ActivatedSkill_min=5220,score_ActivatedSkill=5229] ~ ~ ~ /summon Arrow ~ ~ ~ {Fire:10s,life:1190s,damage:0d,Tags:[TestWeather,SystemEntity,CooldownRequired,TypeChecked],PortalCooldown:2}</td>
       <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @a[score_ActivatedSkill_min=5220,score_ActivatedSkill=5229] ~ ~ ~ /scoreboard players operation @a[c=1] ThunderBolt = @a[c=1] ActivatedSkill</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/clone -1920 ~1 ~ -1920 ~1 ~ -1920 ~1 ~ filtered force minecraft:command_block 5 ###サンダーボルト発生</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<h3 id="サンダーボルト発生処理部コマンド群">サンダーボルト発生処理部コマンド群</h3>
+
+<p><span class="tagYellow">位置</span> (-1920,9,-154)</p>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @a[score_ThunderBolt_min=0] ~-5 ~-5 ~-5 /scoreboard players set @e[dx=10,dy=20,dz=10,tag=Enemy] TargetCheck 1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @a[score_ThunderBolt_min=0] ~ ~20 ~ /scoreboard players operation @e[r=28,score_TargetCheck_min=1,c=1] TargetCheck &gt; @a[c=1] ThunderBolt</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute @a[score_ThunderBolt_min=0] ~ ~ ~ /scoreboard players tag @e[r=1,tag=TestWeather] add Rain {Fire:0s}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/execute @a[score_ThunderBolt_min=0] ~ ~ ~ /execute @e[r=1,tag=Rain,c=1] ~ ~ ~ /execute @a[r=1,score_ThunderBolt_min=0] ~-5 ~-5 ~-5 /scoreboard players operation @e[dx=10,dy=20,dz=10,tag=Enemy] TargetCheck &gt; @a[c=1] ThunderBolt</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/execute @a[score_ThunderBolt_min=0] ~-5 ~-5 ~-5 /scoreboard players tag @e[dx=10,dy=20,dz=10,score_TargetCheck_min=5220] add SkillTarget</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/execute @a[score_ThunderBolt_min=5220,score_ThunderBolt=5220] ~-5 ~-5 ~-5 /execute @e[dx=10,dy=20,dz=10,score_TargetCheck_min=5220,score_TargetCheck=5220] ~ ~ ~ /summon Arrow ~ ~0.02 ~ {CustomName:”サンダーボルト”,damage:150d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,ThunderBolt,TypeChecked]}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/execute @a[score_ThunderBolt_min=5221,score_ThunderBolt=5221] ~-5 ~-5 ~-5 /execute @e[dx=10,dy=20,dz=10,score_TargetCheck_min=5221,score_TargetCheck=5221] ~ ~ ~ /summon Arrow ~ ~0.02 ~ {CustomName:”サンダーボルト”,damage:250d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,ThunderBolt,TypeChecked]}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/execute @a[score_ThunderBolt_min=5222,score_ThunderBolt=5229] ~-5 ~-5 ~-5 /execute @e[dx=10,dy=20,dz=10,score_TargetCheck_min=5222,score_TargetCheck=5229] ~ ~ ~ /summon Arrow ~ ~0.02 ~ {CustomName:”サンダーボルト”,damage:400d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,ThunderBolt,TypeChecked]}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/execute @a[score_ThunderBolt_min=0] ~-5 ~-5 ~-5 /scoreboard players reset @e[dx=10,dy=20,dz=10,score_TargetCheck_min=0] TargetCheck</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/scoreboard players reset @a[score_ThunderBolt_min=0] ThunderBolt</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/execute @r[type=!Player,tag=ThunderBolt,c=10] ~ ~ ~ /playsound entity.lightning.thunder master @a[r=32] ~ ~ ~ 2 1.8 0.1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/execute @e[tag=ThunderBolt] ~ ~ ~ /particle iconcrack ~ ~2 ~ 0 0.1 0 2 30 force @a[r=64] 175</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/execute @e[tag=ThunderBolt] ~ ~ ~ /particle crit ~ ~4 ~ 0.1 2 0.1 0.0 90 force</td>
+      <td>条件付き</td>
     </tr>
   </tbody>
 </table>
@@ -754,6 +853,151 @@
 <div class="datatable2c-end"></div>
 
 <h2 id="詳細">詳細</h2>
+
+<h3 id="サンダーボルト初期処理部">サンダーボルト初期処理部</h3>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が5220 ~ 5229</strong>であるすべてのプレイヤーに対し、以下の事柄を実行
+    <ol>
+      <li>対象プレイヤーの座標上に<strong><a href="#testweather">TestWeather</a>を召喚</strong></li>
+      <li><code class="language-plaintext highlighter-rouge">TunderBolt</code>に<code class="language-plaintext highlighter-rouge">ActivatedSkill</code>を代入</li>
+    </ol>
+  </li>
+  <li><a href="#サンダーボルト発生処理部">サンダーボルト発生処理部</a>を実行</li>
+</ol>
+
+<h3 id="サンダーボルト発生処理部">サンダーボルト発生処理部</h3>
+
+<ul>
+  <li><strong>サンダーボルトの効果範囲</strong>を、スキル実行プレイヤーの足元のブロックから<strong>左右に5m、下に4m、上に16mの範囲とする。</strong></li>
+</ul>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">TunderBolt</code>が0以上</strong>であるすべてのプレイヤーに対し、以下の事柄を実行
+    <ol>
+      <li>サンダーボルトの効果範囲内にいる<code class="language-plaintext highlighter-rouge">Enemy</code>を持ったエンティティの<code class="language-plaintext highlighter-rouge">TargetCheck</code>を1に設定</li>
+      <li>対象プレイヤーから<strong>20m上の座標を中心とし、そこから半径28m以内の最も近い<code class="language-plaintext highlighter-rouge">TargetCheck</code>が1以上である1体のエンティティ</strong>の<code class="language-plaintext highlighter-rouge">TargetCheck</code>に、対象プレイヤーの<code class="language-plaintext highlighter-rouge">ThunderBolt</code>を代入</li>
+      <li><strong>火が消えている<a href="#testweather">TestWeather</a>に<code class="language-plaintext highlighter-rouge">Rain</code>を付与</strong> (雨である、もしくは足元に水があるかの判定を行っている)</li>
+      <li>対象プレイヤーから半径1m以内に<strong><code class="language-plaintext highlighter-rouge">Rain</code>を持つ<a href="#testweather">TestWeather</a>が存在するとき</strong>、サンダーボルトの効果範囲内の<code class="language-plaintext highlighter-rouge">TargetCheck</code>が1以上である<strong>すべてのエンティティの<code class="language-plaintext highlighter-rouge">TargetCheck</code>に、対象プレイヤーの<code class="language-plaintext highlighter-rouge">ThunderBolt</code>を代入</strong></li>
+      <li>サンダーボルトの効果範囲内にいる<code class="language-plaintext highlighter-rouge">TargetCheck</code>が5220以上であるすべてのエンティティに、<code class="language-plaintext highlighter-rouge">SkillTarget</code>を付与</li>
+    </ol>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ThunderBolt</code>が5220</strong>であるすべてのプレイヤーから見た、サンダーボルトの効果範囲内にいる<strong><code class="language-plaintext highlighter-rouge">TargetCheck</code>が5220</strong>であるエンティティの座標上に、<strong><a href="#サンダーボルト1">サンダーボルト1</a>を召喚</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ThunderBolt</code>が5221</strong>であるすべてのプレイヤーから見た、サンダーボルトの効果範囲内にいる<strong><code class="language-plaintext highlighter-rouge">TargetCheck</code>が5221</strong>であるエンティティの座標上に、<strong><a href="#サンダーボルト2">サンダーボルト2</a>を召喚</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ThunderBolt</code>が5222 ~ 5229</strong>であるすべてのプレイヤーから見た、サンダーボルトの効果範囲内にいる<strong><code class="language-plaintext highlighter-rouge">TargetCheck</code>が5222 ~ 5229</strong>であるエンティティの座標上に、<strong><a href="#サンダーボルト3">サンダーボルト3</a>を召喚</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">ThunderBolt</code>が0以上であるすべてのプレイヤーから見た、サンダーボルトの効果範囲内の<code class="language-plaintext highlighter-rouge">TargetCheck</code>が0以上であるすべてのエンティティの<code class="language-plaintext highlighter-rouge">TargetCheck</code>を0に設定</li>
+  <li><code class="language-plaintext highlighter-rouge">ThunderBolt</code>が0以上であるすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">ThunderBolt</code>を0に設定</li>
+  <li><code class="language-plaintext highlighter-rouge">ThunderBolt</code>を持つプレイヤーでないエンティティをランダムに選び(上限10体)、そこから半径32m以内のすべてのプレイヤーに効果音を鳴らす</li>
+  <li><code class="language-plaintext highlighter-rouge">ThunderBolt</code>を持つすべてのエンティティに、パーティクルを表示</li>
+</ol>
+
+<h3 id="testweather">TestWeather</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~ ~ {Fire:10s,life:1190s,damage:0d,Tags:[TestWeather,SystemEntity,CooldownRequired,TypeChecked],PortalCooldown:2}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>(None)</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>TestWeather,SystemEntity,CooldownRequired,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>life</td>
+      <td>1190 (0.5秒後に消滅)</td>
+    </tr>
+    <tr>
+      <td>Fire</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="サンダーボルト1">サンダーボルト1</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~0.02 ~ {CustomName:"サンダーボルト",damage:150d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,ThunderBolt,TypeChecked]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>サンダーボルト</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>Garbage,ThunderBolt,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>damage</td>
+      <td>150</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="サンダーボルト2">サンダーボルト2</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~0.02 ~ {CustomName:"サンダーボルト",damage:250d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,ThunderBolt,TypeChecked]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>サンダーボルト</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>Garbage,ThunderBolt,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>damage</td>
+      <td>250</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="サンダーボルト3">サンダーボルト3</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~0.02 ~ {CustomName:"サンダーボルト",damage:400d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,ThunderBolt,TypeChecked]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>サンダーボルト</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>Garbage,ThunderBolt,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>damage</td>
+      <td>400</td>
+    </tr>
+  </tbody>
+</table>
 
 
     <div class="tags">
@@ -980,7 +1224,27 @@
         
     </div>
 
-
+<script id="dsq-count-scr" src="//tusb-analysis.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://tusb-analysis.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
 
@@ -992,9 +1256,9 @@
             Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.<br>
             <a href="https://github.com/aka256/TUSB_Analysis">Page source</a><br>
             
-              <span>Page last updated:</span> 13 Sep 2020<br/>
+              <span>Page last updated:</span> 17 Sep 2020<br/>
             
-            Site last generated: 15 Sep 2020 <br />
+            Site last generated: 17 Sep 2020 <br />
         </div>
     </div>
 </footer>

@@ -2,7 +2,7 @@
 title: エンティティ
 tags: [敵Mob,SystemEntity,村人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,エンティティ
-update: 2020-09-14 09:00:00 +0000
+update: 2020-09-17 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: entity/entity_entity.html
 summary: コマンドに関係するエンティティについてまとめる。
@@ -327,6 +327,18 @@ tocLimit: h3
 |Lifetime|2000 (20秒後に消滅)|
 |ActiveEffects|透明化Lv.0 60秒間|
 
+### TestWeather
+
+```mcfunction
+/summon Arrow ~ ~ ~ {Fire:10s,life:1190s,damage:0d,Tags:[TestWeather,SystemEntity,CooldownRequired,TypeChecked],PortalCooldown:2}
+```
+
+|-|-|
+|Name|(None)|
+|Type|Arrow|
+|Tags|TestWeather,SystemEntity,CooldownRequired,TypeChecked|
+|life|1190 (0.5秒後に消滅)|
+|Fire|10|
 
 ## MOB
 
@@ -673,3 +685,75 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 |Type|FallingSand|
 |Block|minecraft:snow_layer|
 |Time|1|
+
+### サンダーボルト1
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:"サンダーボルト",damage:150d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,ThunderBolt,TypeChecked]}
+```
+
+|-|-|
+|Name|サンダーボルト|
+|Type|Arrow|
+|Tags|Garbage,ThunderBolt,TypeChecked|
+|damage|150|
+
+### サンダーボルト2
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:"サンダーボルト",damage:250d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,ThunderBolt,TypeChecked]}
+```
+
+|-|-|
+|Name|サンダーボルト|
+|Type|Arrow|
+|Tags|Garbage,ThunderBolt,TypeChecked|
+|damage|250|
+
+### サンダーボルト3
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:"サンダーボルト",damage:400d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,ThunderBolt,TypeChecked]}
+```
+
+|-|-|
+|Name|サンダーボルト|
+|Type|Arrow|
+|Tags|Garbage,ThunderBolt,TypeChecked|
+|damage|400|
+
+### ジオクラッシュ1
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:"ジオクラッシュ",damage:30d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+```
+
+|-|-|
+|Name|ジオクラッシュ|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|30|
+
+### ジオクラッシュ2
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:"ジオクラッシュ",damage:50d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+```
+
+|-|-|
+|Name|ジオクラッシュ|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|50|
+
+### ジオクラッシュ3
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:"ジオクラッシュ",damage:75d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+```
+
+|-|-|
+|Name|ジオクラッシュ|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|75|
