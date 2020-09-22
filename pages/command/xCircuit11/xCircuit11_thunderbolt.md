@@ -2,7 +2,7 @@
 title: サンダーボルト実行
 tags: [コマンド,スキル,黒魔導士]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-09-17 09:21:00 +0000
+update: 2020-09-22 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit11/xCircuit11_thunderbolt.html
 datatable3c: true
@@ -92,9 +92,9 @@ summaryDisable: true
 |-|-|
 |Name|(None)|
 |Type|Arrow|
-|Tags|TestWeather,SystemEntity,CooldownRequired,TypeChecked|
-|life|1190 (0.5秒後に消滅)|
-|Fire|10|
+|Tags|**TestWeather**,SystemEntity,CooldownRequired,TypeChecked|
+|life|**1190 (0.5秒後に消滅)**|
+|Fire|**10**|
 
 ### サンダーボルト1
 
@@ -105,8 +105,8 @@ summaryDisable: true
 |-|-|
 |Name|サンダーボルト|
 |Type|Arrow|
-|Tags|Garbage,ThunderBolt,TypeChecked|
-|damage|150|
+|Tags|Garbage,**ThunderBolt**,TypeChecked|
+|damage|**150**|
 
 ### サンダーボルト2
 
@@ -117,8 +117,8 @@ summaryDisable: true
 |-|-|
 |Name|サンダーボルト|
 |Type|Arrow|
-|Tags|Garbage,ThunderBolt,TypeChecked|
-|damage|250|
+|Tags|Garbage,**ThunderBolt**,TypeChecked|
+|damage|**250**|
 
 ### サンダーボルト3
 
@@ -129,5 +129,5 @@ summaryDisable: true
 |-|-|
 |Name|サンダーボルト|
 |Type|Arrow|
-|Tags|Garbage,ThunderBolt,TypeChecked|
-|damage|400|
+|Tags|Garbage,**ThunderBolt**,TypeChecked|
+|damage|**400**|

@@ -2,7 +2,7 @@
 title: ジオクラッシュ実行
 tags: [コマンド,スキル,黒魔導士]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-09-17 09:21:00 +0000
+update: 2020-09-22 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit11/xCircuit11_geoCrash.html
 datatable2c: true
@@ -59,7 +59,7 @@ summaryDisable: true
 |Name|ジオクラッシュ|
 |Type|Arrow|
 |Tags|Garbage,TypeChecked|
-|damage|30|
+|damage|**30**|
 
 ### ジオクラッシュ2
 
@@ -71,7 +71,7 @@ summaryDisable: true
 |Name|ジオクラッシュ|
 |Type|Arrow|
 |Tags|Garbage,TypeChecked|
-|damage|50|
+|damage|**50**|
 
 ### ジオクラッシュ3
 
@@ -83,4 +83,4 @@ summaryDisable: true
 |Name|ジオクラッシュ|
 |Type|Arrow|
 |Tags|Garbage,TypeChecked|
-|damage|75|
+|damage|**75**|

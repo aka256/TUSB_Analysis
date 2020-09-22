@@ -2,13 +2,16 @@
 title: ボミオストラップ実行
 tags: [コマンド,スキル,狩人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-09-09 09:21:00 +0000
+update: 2020-09-22 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit10/xCircuit10_bomiosTrap.html
 datatable3cnp: true
 summary: 狩人のスキルの1つであるボミオストラップを実行する。
 summaryDisable: true
 ---
+
+<!--2020/09/18-->
+<!--#EntityCountのCommandStateによる代入について追加-->
 
 ## About
 
@@ -49,6 +52,14 @@ summaryDisable: true
 
 <div class="datatable3cnp-end"></div>
 
+#### No.1のコマンドブロックについて
+
+No.1のコマンドブロックには以下のタグが付与されている。
+
+```mcfunction
+CommandStats:{AffectedEntitiesObjective:"Global",AffectedEntitiesName:"#EntityCount"}
+```
+
 ## 詳細
 
 ### 初回実行部
@@ -60,10 +71,11 @@ summaryDisable: true
 ### リピート部
 
 1. `Decelerate`を持つAECをランダムに3体選び、そこから**半径16m以内**すべてのプレイヤーに**効果音を鳴らす**
-2. `Decelerate`を持つAECをランダムに3体選び、その座標上で**パーティクルを表示**
-3. **`Decelerate1`を持つAEC**を1体選び、そこから**半径5m以内**の`Enemy`を持つ3体のエンティティに**移動速度低下Lv.3を1秒間付与**
-4. **`Decelerate2`を持つAEC**を1体選び、そこから**半径5m以内**の`Enemy`を持つ3体のエンティティに**耐性Lv.6を1秒間付与**
-5. `#EntityCount`の`Global`が0以下であるとき、[リピート部](#リピート部)を停止
+2. 1.で実行できた`Decelerate`を持つエンティティの数を`#EntityCount`の`Global`に代入
+3. `Decelerate`を持つAECをランダムに3体選び、その座標上で**パーティクルを表示**
+4. **`Decelerate1`を持つAEC**を1体選び、そこから**半径5m以内**の`Enemy`を持つ3体のエンティティに**移動速度低下Lv.3を1秒間付与**
+5. **`Decelerate2`を持つAEC**を1体選び、そこから**半径5m以内**の`Enemy`を持つ3体のエンティティに**耐性Lv.6を1秒間付与**
+6. `#EntityCount`の`Global`が0以下であるとき、[リピート部](#リピート部)を停止
 
 ### Decelerate
 

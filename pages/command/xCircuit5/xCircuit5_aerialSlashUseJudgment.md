@@ -2,13 +2,16 @@
 title: 真空斬り使用判定
 tags: [コマンド,剣士,スキル]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-07-31 09:21:00 +0000
+update: 2020-09-22 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit5/xCircuit5_aerialSlashUseJudgment.html
 datatable3cnp: true
 summary: 剣士のスキルの1つである真空斬りの使用時の判定処理を行う。
 summaryDisable: true
 ---
+
+<!--2020/09/18-->
+<!--#EntityCountのCommandStateによる代入について追加-->
 
 ## About
 
@@ -36,9 +39,18 @@ summaryDisable: true
 
 <div class="datatable3cnp-end"></div>
 
+### No.1のコマンドブロックについて
+
+No.1のコマンドブロックには以下のタグが付与されている。
+
+```mcfunction
+CommandStats:{AffectedEntitiesObjective:"Global",AffectedEntitiesName:"#EntityCount"}
+```
+
 ## 詳細
 
 1. `AerialSlash`を持つすべてのプレイヤーの2.3m上を中心とした、半径2m以内に存在する`AerialShockwave`を持ち、移動ベクトルが0でないすべてのエンティティに`AerialTransition`を付与
-2. `AerialSlash`を持つすべてのプレイヤーの2.3m上を中心とした、半径2m以内に存在する`AerialTransition`を持つすべてのファイアーボールから2.3m下から2m以内にいる`AerialSlash`を持つすべてのプレイヤーに`UseMode`を付与し、`AerialSlash`を削除
-3. `AerialSlash`を持ち、`WalkOneCm`が1以上であるすべてのプレイヤーから`AerialSlash`を削除
-4. `#EntityCount`の`Global`が0以下であるとき、[真空斬り使用判定](#about)を停止
+2. 1.で実行できた`AerialSlash`を持つエンティティの数を`#EntityCount`の`Global`に代入
+3. `AerialSlash`を持つすべてのプレイヤーの2.3m上を中心とした、半径2m以内に存在する`AerialTransition`を持つすべてのファイアーボールから2.3m下から2m以内にいる`AerialSlash`を持つすべてのプレイヤーに`UseMode`を付与し、`AerialSlash`を削除
+4. `AerialSlash`を持ち、`WalkOneCm`が1以上であるすべてのプレイヤーから`AerialSlash`を削除
+5. `#EntityCount`の`Global`が0以下であるとき、[真空斬り使用判定](#about)を停止

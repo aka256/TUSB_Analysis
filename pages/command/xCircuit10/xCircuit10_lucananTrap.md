@@ -2,13 +2,16 @@
 title: ルカナントラップ実行
 tags: [コマンド,スキル,狩人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-09-08 09:21:00 +0000
+update: 2020-09-22 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit10/xCircuit10_lucananTrap.html
 datatable3c: true
 summary: 狩人のスキルの1つであるルカナントラップを実行する。
 summaryDisable: true
 ---
+
+<!--2020/09/18-->
+<!--#EntityCountのCommandStateによる代入について追加-->
 
 ## About
 
@@ -51,6 +54,14 @@ summaryDisable: true
 
 <div class="datatable3c-end"></div>
 
+#### No.1のコマンドブロックについて
+
+No.1のコマンドブロックには以下のタグが付与されている。
+
+```mcfunction
+CommandStats:{AffectedEntitiesObjective:"Global",AffectedEntitiesName:"#EntityCount"}
+```
+
 ## 詳細
 
 ### 初回実行部
@@ -63,11 +74,12 @@ summaryDisable: true
 ### リピート部
 
 1. `Kasap`を持つAECをランダムに3体選び、そこから**半径16m以内**すべてのプレイヤーに**効果音を鳴らす**
-2. `Kasap`を持つAECをランダムに3体選び、その座標上で**パーティクルを表示**
-3. **`Kasap1`を持つAEC**を1体選び、そこから**半径5m以内**の`Enemy`を持つ3体のエンティティに**耐性Lv.-6を1秒間付与**
-4. **`Kasap2`を持つAEC**を1体選び、そこから**半径5m以内**の`Enemy`を持つ3体のエンティティに**耐性Lv.-11を1秒間付与**
-5. **`Kasap3`を持つAEC**を1体選び、そこから**半径5m以内**の`Enemy`を持つ3体のエンティティに**耐性Lv.-16を1秒間付与**
-6. `#EntityCount`の`Global`が0以下であるとき、[リピート部](#リピート部)を停止
+2. 1.で実行できた`Kasap`を持つエンティティの数を`#EntityCount`の`Global`に代入
+3. `Kasap`を持つAECをランダムに3体選び、その座標上で**パーティクルを表示**
+4. **`Kasap1`を持つAEC**を1体選び、そこから**半径5m以内**の`Enemy`を持つ3体のエンティティに**耐性Lv.-6を1秒間付与**
+5. **`Kasap2`を持つAEC**を1体選び、そこから**半径5m以内**の`Enemy`を持つ3体のエンティティに**耐性Lv.-11を1秒間付与**
+6. **`Kasap3`を持つAEC**を1体選び、そこから**半径5m以内**の`Enemy`を持つ3体のエンティティに**耐性Lv.-16を1秒間付与**
+7. `#EntityCount`の`Global`が0以下であるとき、[リピート部](#リピート部)を停止
 
 ### Kasap
 

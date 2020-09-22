@@ -2,13 +2,16 @@
 title: ニフラムトラップ実行
 tags: [コマンド,スキル,狩人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-09-10 09:21:00 +0000
+update: 2020-09-22 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit10/xCircuit10_niflamTrap.html
 datatable3cnp: true
 summary: 狩人のスキルの1つであるニフラムトラップを実行する。
 summaryDisable: true
 ---
+
+<!--2020/09/18-->
+<!--#EntityCountのCommandStateによる代入について追加-->
 
 ## About
 
@@ -49,6 +52,14 @@ summaryDisable: true
 
 <div class="datatable3cnp-end"></div>
 
+#### No.1のコマンドブロックについて
+
+No.1のコマンドブロックには以下のタグが付与されている。
+
+```mcfunction
+CommandStats:{AffectedEntitiesObjective:"Global",AffectedEntitiesName:"#EntityCount"}
+```
+
 ### ニフラム適用部コマンド群
 
 <span class="tagYellow">位置</span> (-1920,16,-166)
@@ -76,10 +87,11 @@ summaryDisable: true
 
 1. **`Poof`を持つ[ニフラムトラップポイント](#ニフラムトラップポイント)**が存在するとき、以下の事柄を実行
    1. `Poof`を持つ[ニフラムトラップポイント](#ニフラムトラップポイント)をランダムに3体選び、それらから**半径16m以内**のすべてのプレイヤーに、**効果音を鳴らす**
-   2. `Poof`を持つ[ニフラムトラップポイント](#ニフラムトラップポイント)をランダムに3体選び、その座標上に**パーティクルを表示**
-   3. `Poof`を持つ[ニフラムトラップポイント](#ニフラムトラップポイント)をランダムに1体選び、そこからさらに**半径5m以内**の**`Poofable`を持つエンティティをランダムに3体選び、`PoofCheck`を付与**
-   4. `PoofCheck`を持つすべてのエンティティから、`Poofable`を削除
-   5. [ニフラム適用部](#ニフラム適用部)を実行
+   2. a.で実行できた`Poof`を持ったエンティティ数を`#EntityCount`の`Global`に代入
+   3. `Poof`を持つ[ニフラムトラップポイント](#ニフラムトラップポイント)をランダムに3体選び、その座標上に**パーティクルを表示**
+   4. `Poof`を持つ[ニフラムトラップポイント](#ニフラムトラップポイント)をランダムに1体選び、そこからさらに**半径5m以内**の**`Poofable`を持つエンティティをランダムに3体選び、`PoofCheck`を付与**
+   5. `PoofCheck`を持つすべてのエンティティから、`Poofable`を削除
+   6. [ニフラム適用部](#ニフラム適用部)を実行
 2. `#EntityCount`の`Global`が1以上であるとき、[ニフラムクロック部](#ニフラムクロック部)を再び実行
 
 ### ニフラム適用部

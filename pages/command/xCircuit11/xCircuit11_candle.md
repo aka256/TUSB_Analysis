@@ -2,13 +2,16 @@
 title: キャンドル実行
 tags: [コマンド,スキル,黒魔導士]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-09-14 09:21:00 +0000
+update: 2020-09-22 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit11/xCircuit11_candle.html
 datatable3c: true
 summary: 黒魔導士のスキルの1つであるキャンドルを実行する。Candleの設置やその座標上への溶岩の設置、そして周囲のプレイヤーへの移動速度低下解除などを行う。
 summaryDisable: true
 ---
+
+<!--2020/09/18-->
+<!--#EntityCountのCommandStateによる代入について追加-->
 
 ## About
 
@@ -56,6 +59,14 @@ summaryDisable: true
 
 <div class="datatable3c-end"></div>
 
+#### No.1のコマンドブロックについて
+
+No.1のコマンドブロックには以下のタグが付与されている。
+
+```mcfunction
+CommandStats:{AffectedEntitiesObjective:"Global",AffectedEntitiesName:"#EntityCount"}
+```
+
 ## 詳細
 
 ### キャンドル初期処理部
@@ -69,11 +80,12 @@ summaryDisable: true
 
 1. **[Candle](#candle)に対して**、以下の事柄を実行
    1. 対象エンティティ上に、**液量が最も少ない溶岩を設置**
-   2. 対象エンティティ上で、**パーティクルを表示**
-   3. 対象エンティティ上の溶岩を、**flowing_lavaからlavaに置き換える**
-   4. 対象エンティティから**1m下**の溶岩を、**空気ブロックに置き換える**
-   5. 対象エンティティから**半径7m以内のすべてのプレイヤーの移動速度低下を解除**
-   6. 対象エンティティの`PortalCooldown`が0であるとき、以下の事柄を実行
+   2. a.で実行できた`Candle`を持つエンティティの数を`#EntityCount`の`Global`に代入
+   3. 対象エンティティ上で、**パーティクルを表示**
+   4. 対象エンティティ上の溶岩を、**flowing_lavaからlavaに置き換える**
+   5. 対象エンティティから**1m下**の溶岩を、**空気ブロックに置き換える**
+   6. 対象エンティティから**半径7m以内のすべてのプレイヤーの移動速度低下を解除**
+   7. 対象エンティティの`PortalCooldown`が0であるとき、以下の事柄を実行
       1. `CandleEnd`を付与
       2. 対象エンティティ上の**溶岩を空気ブロックに置き換える**
       3. 対象エンティティに**`CustomName:"芯"`と`Tags:[Wick,TypeChecked]`を付与**
@@ -94,6 +106,6 @@ summaryDisable: true
 
 |Name|キャンドル|
 |Type|Endermite|
-|Tags|Candle,TypeChecked|
-|Lifetime|2000 (20秒後に消滅)|
+|Tags|**Candle**,TypeChecked|
+|Lifetime|**2000 (20秒後に消滅)**|
 |ActiveEffects|透明化Lv.0 60秒間|

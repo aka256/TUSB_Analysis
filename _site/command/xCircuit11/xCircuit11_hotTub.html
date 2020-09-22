@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="召喚士のスキルの1つであるあつあつタライを実行する。">
+<meta name="description" content="召喚士のスキルの1つであるあつあつタライを実行する。敵Mobの座標上にAtsuTaraiを召喚し、50ダメージを与える。">
 <meta name="keywords" content="コマンドスキル召喚士,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
 <title>あつあつタライ実行 | TUSB Analysis</title>
 <link rel="canonical" href="https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_hotTub.html">
@@ -64,7 +64,7 @@
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
 <meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit11/xCircuit11_hotTub.html" /> <!--③-->
 <meta property="og:title" content="あつあつタライ実行 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="召喚士のスキルの1つであるあつあつタライを実行する。" /> <!--⑤-->
+<meta property="og:description" content="召喚士のスキルの1つであるあつあつタライを実行する。敵Mobの座標上にAtsuTaraiを召喚し、50ダメージを与える。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -147,10 +147,10 @@
       -->
     <script>
         $(document).ready(function() {
-            $('div.datatable2c-begin').nextUntil('div.datatable2c-end', 'table').addClass('display');
+            $('div.datatable2cnp-begin').nextUntil('div.datatable2cnp-end', 'table').addClass('display');
             //$('div.datatable3-begin').nextUntil('div.datatable3-end', 'table').Class('display').style = "word-break:break-all";
             $('table.display').DataTable({
-                paging: true,
+                paging: false,
                 stateSave: true,
                 searching: true,
                 autoWidth: false,
@@ -590,6 +590,14 @@
                     <li><a title="ウィンドウォール実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_windWall.html">ウィンドウォール実行</a></li>
                         
                     <li><a title="ラナルータ実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_lanaRouter.html">ラナルータ実行</a></li>
+                        
+                    <li><a title="サンダーボルト実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_thunderbolt.html">サンダーボルト実行</a></li>
+                        
+                    <li><a title="ジオクラッシュ実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_geoCrash.html">ジオクラッシュ実行</a></li>
+                        
+                    <li><a title="ドレイン実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_drain.html">ドレイン実行</a></li>
+                        
+                    <li><a title="パルプンテ実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_pulpunte.html">パルプンテ実行</a></li>
                       
                 </ul>
             </li>
@@ -597,7 +605,51 @@
             <li class="subfolders">
                 <a title="召喚士スキル" href="#">召喚士スキル</a>
                 <ul>
-                    
+                      
+                    <li><a title="サモンP：スノー実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_summonSnow.html">サモンP：スノー実行</a></li>
+                        
+                    <li><a title="サモンE：マーチャント実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_summonMerchant.html">サモンE：マーチャント実行</a></li>
+                        
+                    <li><a title="ヘイカモン実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_heyComeOn.html">ヘイカモン実行</a></li>
+                        
+                    <li><a title="サモンE：スーパードラゴン実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_summonDragon.html">サモンE：スーパードラゴン実行</a></li>
+                        
+                    <li><a title="サモンP：ウルフ実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_summonWolf.html">サモンP：ウルフ実行</a></li>
+                        
+                    <li><a title="サモンE：ヒーリングキャット実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_summonHealingCat.html">サモンE：ヒーリングキャット実行</a></li>
+                        
+                    <li><a title="サモンP：ゴーレム実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_summonGolem.html">サモンP：ゴーレム実行</a></li>
+                        
+                    <li><a title="サモンE：バルーン実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_summonBalloon.html">サモンE：バルーン実行</a></li>
+                        
+                    <li><a title="サモンE：グライダー実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_summonGlider.html">サモンE：グライダー実行</a></li>
+                        
+                    <li><a title="フィール実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_fill.html">フィール実行</a></li>
+                        
+                    <li><a title="金タライ実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_goldTub.html">金タライ実行</a></li>
+                        
+                    <li><a title="ディール実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_deal.html">ディール実行</a></li>
+                        
+                    <li><a title="ぽんぽん実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_ponpon.html">ぽんぽん実行</a></li>
+                        
+                    <li><a title="つんつん実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_tsuntsun.html">つんつん実行</a></li>
+                        
+                    <li class="active"><a title="あつあつタライ実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_hotTub.html">あつあつタライ実行</a></li>
+                        
+                    <li><a title="サモンB：オブシディアン実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_summonObsidian.html">サモンB：オブシディアン実行</a></li>
+                        
+                    <li><a title="ぽむぽむハナビ実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_pompomFirework.html">ぽむぽむハナビ実行</a></li>
+                        
+                    <li><a title="サモンB：エンダーチェスト実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_summonEnderChest.html">サモンB：エンダーチェスト実行</a></li>
+                        
+                    <li><a title="きらきらタライ実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_kirakiraTub.html">きらきらタライ実行</a></li>
+                        
+                    <li><a title="ぷちブラック実行" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_puchiBlack.html">ぷちブラック実行</a></li>
+                        
+                    <li><a title="マジックブロック削除" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_magicBlockDelete.html">マジックブロック削除</a></li>
+                        
+                    <li><a title="タライ共通処理" href="/TUSB_Analysis/command/xCircuit11/xCircuit11_tubProcessing.html">タライ共通処理</a></li>
+                      
                 </ul>
             </li>
                
@@ -722,19 +774,19 @@
 
     
 
-   <p><strong>編集中</strong></p>
+   <h2 id="about">About</h2>
 
-<h2 id="about">About</h2>
-
-<p><span class="tagYellow">位置</span> (-1920,4,-157)</p>
+<p><span class="tagYellow">位置</span> (-1920,10,-148)</p>
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit11/xCircuit11_command.html">毎tick実行するコマンド群11</a></p>
 
-<p><span class="tagBlue">分岐先</span></p>
+<p><span class="tagBlue">分岐先</span> <a href="/TUSB_Analysis/command/xCircuit11/xCircuit11_tubProcessing.html">タライ共通処理</a></p>
+
+<p>召喚士のスキルの1つであるあつあつタライを実行する。敵Mobの座標上に<a href="#atsutarai">AtsuTarai</a>を召喚し、50ダメージを与える。</p>
 
 <h2 id="コマンド群">コマンド群</h2>
 
-<div class="datatable2c-begin"></div>
+<div class="datatable2cnp-begin"></div>
 
 <table>
   <thead>
@@ -746,14 +798,62 @@
   <tbody>
     <tr>
       <td style="text-align: center">1</td>
-      <td> </td>
+      <td>/execute @a[score_ActivatedSkill_min=6250,score_ActivatedSkill=6259] ~ ~ ~ /execute @e[r=15,tag=Enemy] ~ ~ ~ /summon FallingSand ~ ~2.5 ~ {Block:”minecraft:flowing_lava”,Data:7b,Time:1,DropItem:false,HurtEntities:true,FallHurtMax:50,FallHurtAmount:50f,FallDistance:1f,Tags:[AtsuTarai,Tarai]}</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @a[score_ActivatedSkill_min=6250,score_ActivatedSkill=6259] ~ ~ ~ /execute @e[r=15,tag=Enemy,c=10] ~ ~2.5 ~ /particle lava ~ ~ ~ 0.3 0.1 0.3 0.1 5 force</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute 0-0-1-0-1 ~ 14 -148 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###タライ共通</td>
     </tr>
   </tbody>
 </table>
 
-<div class="datatable2c-end"></div>
+<div class="datatable2cnp-end"></div>
 
 <h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が6250 ~ 6259</strong>であるすべてのプレイヤーに対し、以下の事柄を実行
+    <ol>
+      <li>対象プレイヤーから<strong>半径15m以内の<code class="language-plaintext highlighter-rouge">Enemy</code>を持ったすべてのエンティティ</strong>の座標上に、<strong><a href="#atsutarai">AtsuTarai</a>を召喚</strong></li>
+      <li>対象プレイヤーから半径15m以内の<code class="language-plaintext highlighter-rouge">Enemy</code>を持った10体のエンティティの座標上に、パーティクルを表示</li>
+    </ol>
+  </li>
+  <li><a href="/TUSB_Analysis/command/xCircuit11/xCircuit11_tubProcessing.html">タライ共通処理</a>を実行</li>
+</ol>
+
+<h3 id="atsutarai">AtsuTarai</h3>
+
+<pre><code class="language-mcfunction">/summon FallingSand ~ ~2.5 ~ {Block:"minecraft:flowing_lava",Data:7b,Time:1,DropItem:false,HurtEntities:true,FallHurtMax:50,FallHurtAmount:50f,FallDistance:1f,Tags:[AtsuTarai,Tarai]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>(None)</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>FallingSand (flowing_lava)</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td><strong>AtsuTarai</strong>,<strong>Tarai</strong></td>
+    </tr>
+    <tr>
+      <td>HurtEntities</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>FallHurtMax</td>
+      <td><strong>50</strong></td>
+    </tr>
+  </tbody>
+</table>
 
 
     <div class="tags">
@@ -980,7 +1080,27 @@
         
     </div>
 
-
+<script id="dsq-count-scr" src="//tusb-analysis.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://tusb-analysis.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
 
@@ -992,9 +1112,9 @@
             Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.<br>
             <a href="https://github.com/aka256/TUSB_Analysis">Page source</a><br>
             
-              <span>Page last updated:</span> 13 Sep 2020<br/>
+              <span>Page last updated:</span> 22 Sep 2020<br/>
             
-            Site last generated: 17 Sep 2020 <br />
+            Site last generated: 22 Sep 2020 <br />
         </div>
     </div>
 </footer>
