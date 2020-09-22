@@ -2,7 +2,7 @@
 title: エンティティ
 tags: [敵Mob,SystemEntity,村人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,エンティティ
-update: 2020-09-17 09:00:00 +0000
+update: 2020-09-22 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: entity/entity_entity.html
 summary: コマンドに関係するエンティティについてまとめる。
@@ -323,8 +323,8 @@ tocLimit: h3
 
 |Name|キャンドル|
 |Type|Endermite|
-|Tags|Candle,TypeChecked|
-|Lifetime|2000 (20秒後に消滅)|
+|Tags|**Candle**,TypeChecked|
+|Lifetime|**2000 (20秒後に消滅)**|
 |ActiveEffects|透明化Lv.0 60秒間|
 
 ### TestWeather
@@ -336,9 +336,125 @@ tocLimit: h3
 |-|-|
 |Name|(None)|
 |Type|Arrow|
-|Tags|TestWeather,SystemEntity,CooldownRequired,TypeChecked|
-|life|1190 (0.5秒後に消滅)|
-|Fire|10|
+|Tags|**TestWeather**,SystemEntity,CooldownRequired,TypeChecked|
+|life|**1190 (0.5秒後に消滅)**|
+|Fire|**10**|
+
+### 重力
+
+```mcfunction
+/summon FallingSand ~ ~0.03 ~ {CustomName:”重力”,Block:”minecraft:piston_extension”,Time:1,DropItem:false,HurtEntities:true,FallHurtMax:18,FallHurtAmount:18f,FallDistance:10f,Tags:[SystemEntity]}
+```
+
+|-|-|
+|Name|重力|
+|Type|FallingSand (piston_extension)|
+|Tags|SystemEntity|
+|HurtEntities|true|
+|FallHurtMax|**18**|
+
+### PomPom
+
+```mcfunction
+/summon AreaEffectCloud ~ ~ ~ {ReapplicantDelay:20,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:0,RadiusPerTick:0f,WaitTime:10,Age:0,Particle:take,Tags:[SystemEntity,TypeChecked],Passengers:[{id:FireworksRocketEntity,Life:-10,LifeTime:25,Tags:[PomPom,SystemEntity,TypeChecked],FireworksItem:{id:minecraft:fireworks,Count:1,tag:{Fireworks:{Explosions:[{Type:1b,Flicker:trueTrail:false,Colors:[16777215],FadeColors:[16752934]},{Type:3b,Flicker:trueTrail:false,Colors:[3361970],FadeColors:[8375321]}]}}}}]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|AEC|
+|Tags|SystemEntity,TypeChecked|
+|Passengers|PomPom|
+
+- PomPom
+
+|-|-|
+|Name|(None)|
+|Type|FireworksRocketEntity|
+|Tags|**PomPom**,SystemEntity,TypeChecked|
+|Life|**-10**|
+
+### ぽむぽむハナビ
+
+```mcfunction
+/summon Creeper ~ ~ ~ {CustomName:”ぽむぽむハナビ”,ExplosionRadius:6b,Fuse:0s,ignited:true,Invulnerable:true,NoAI:true,ActiveEffects:[{Id:14b,Amplifier:0b,Duration:20,ShowParticles:false}],Tags:[TypeChecked]}
+```
+
+|-|-|
+|Name|ぽむぽむハナビ|
+|Type|Creeper|
+|Tags|TypeChecked|
+
+### KiraTarai
+
+```mcfunction
+/summon ArmorStand ~ ~3.5 ~ {Marker:true,Invulnerable:true,Invisible:true,Small:true,NoBasePlate:true,DisabledSlots:31,FallDistance:1f,Tags:[KiraTnt,Tarai,SystemEntity,TypeChecked],Passengers:[{id:FallingSand,Block:"minecraft:chorus_flower",Time:1,DropItem:false,HurtEntities:true,FallHurtMax:25,FallHurtAmount:25f,FallDistance:1f,Tags:[KiraTarai,Tarai]}]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|ArmorStand|
+|Tags|**KiraTnt**,**Tarai**,SystemEntity,TypeChecked|
+|Passengers|KiraTarai|
+
+- KiraTarai
+
+|-|-|
+|Name|(None)|
+|Type|FallingSand (chorus_flower)|
+|Tags|**KiraTarai**,**Tarai**|
+|HurtEntities|true|
+|FallHurtMax|**25**|
+
+### MagicObsidian
+
+```mcfunctino
+/summon AreaEffectCloud ~ ~ ~ {ReapplicantDelay:20,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:0,RadiusPerTick:0f,WaitTime:1,Age:-100,Particle:take,Tags:[MagicBlock,MagicObsidian,SystemEntity,TypeChecked]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|AEC|
+|Tags|**MagicBlock**,**MagicObsidian**,SystemEntity,TypeChecked|
+|Age|**-100**|
+
+### MagicEnderChest
+
+```mcfunction
+/summon AreaEffectCloud ~ ~ ~ {ReapplicantDelay:20,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:0,RadiusPerTick:0f,WaitTime:1,Age:-100,Particle:take,Tags:[MagicBlock,MagicEnderChest,SystemEntity,TypeChecked]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|AEC|
+|Tags|**MagicBlock**,**MagicEnderChest**,SystemEntity,TypeChecked|
+|Age|**-100**|
+
+### MagicBlack
+
+```mcfunction
+/summon AreaEffectCloud ~ ~ ~ {ReapplicantDelay:20,Radius:0f,RadiusOnUse:0f,DurationOnUse:0,Duration:0,RadiusPerTick:0f,WaitTime:1,Age:-300,Particle:take,Tags:[MagicBlock,MagicBlack,SystemEntity,TypeChecked],Passengers:[{id:AreaEffectCloud,Rotation:[0f,90f],ReapplicantDelay:20,Radius:0f,RadiusOnUse:0f,DurationOnUse:0,Duration:180,RadiusPerTick:0f,WaitTime:1,Age:-100,Particle:take,Tags:[PrePetitBlack,SystemEntity,TypeChecked]},{id:AreaEffectCloud,ReapplicantDelay:0,Radius:10f,RadiusOnUse:0f,DurationOnUse:0,Duration:10,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:dragonbreath,Tags:[SystemEntity,TypeChecked]}]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|AEC|
+|Tags|**MagicBlock**,**MagicBlack**,SystemEntity,TypeChecked|
+|Age|**-300**|
+|Passengers|PrePetitBlack,dragonbreathAEC|
+
+- PrePetitBlack
+
+|-|-|
+|Name|(None)|
+|Type|AEC|
+|Tags|**PrePetitBlack**,SystemEntity,TypeChecked|
+
+- dragonbreathAEC
+
+|-|-|
+|Name|(None)|
+|Type|AEC|
+|Tags|SystemEntity,TypeChecked|
 
 ## MOB
 
@@ -695,8 +811,8 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 |-|-|
 |Name|サンダーボルト|
 |Type|Arrow|
-|Tags|Garbage,ThunderBolt,TypeChecked|
-|damage|150|
+|Tags|Garbage,**ThunderBolt**,TypeChecked|
+|damage|**150**|
 
 ### サンダーボルト2
 
@@ -707,8 +823,8 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 |-|-|
 |Name|サンダーボルト|
 |Type|Arrow|
-|Tags|Garbage,ThunderBolt,TypeChecked|
-|damage|250|
+|Tags|Garbage,**ThunderBolt**,TypeChecked|
+|damage|**250**|
 
 ### サンダーボルト3
 
@@ -719,8 +835,8 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 |-|-|
 |Name|サンダーボルト|
 |Type|Arrow|
-|Tags|Garbage,ThunderBolt,TypeChecked|
-|damage|400|
+|Tags|Garbage,**ThunderBolt**,TypeChecked|
+|damage|**400**|
 
 ### ジオクラッシュ1
 
@@ -732,7 +848,7 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 |Name|ジオクラッシュ|
 |Type|Arrow|
 |Tags|Garbage,TypeChecked|
-|damage|30|
+|damage|**30**|
 
 ### ジオクラッシュ2
 
@@ -744,7 +860,7 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 |Name|ジオクラッシュ|
 |Type|Arrow|
 |Tags|Garbage,TypeChecked|
-|damage|50|
+|damage|**50**|
 
 ### ジオクラッシュ3
 
@@ -756,4 +872,306 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 |Name|ジオクラッシュ|
 |Type|Arrow|
 |Tags|Garbage,TypeChecked|
-|damage|75|
+|damage|**75**|
+
+### (ペット)スノー
+
+```mcfunction
+/summon SnowMan ~ ~ ~ {CustomName:"(ペット)スノー",CustomNameVisible:true,ArmorItems:[{id:"minecraft:snowball",Count:0b,Damage:0s,tag:{ench:[{id:2s,lvl:32767s},{id:3s,lvl:10s}]}},{},{},{id:minecraft:snowball,Count:0b}], Attributes:[{Name:"generic.followRange",Base:32d},{Name:"generic.movementSpeed",Base:0.32d},{Name:"generic.armor",Base:10d},{Name:"generic.maxHealth",Base:30d}],Health:30f,Team:FriendlyTeam,DeathLootTable:"minecraft:empty"}
+```
+
+|-|-|
+|Name|(ペット)スノー|
+|Type|SnowMan|
+|Team|**FriendlyTeam**|
+|Health|30|
+|ArmorItems|落下耐性Lv.32767、爆破耐性Lv.10の雪玉|
+
+### ネコキャッチ
+
+<span class="expandButton" onClick="openCloseBE(`openHere1-begin`)">+</span>summonコマンド
+
+<div class="openHere-begin openHere1-begin"></div>
+
+```mcfunction
+/summon Villager ~ ~ ~ {ArmorItems:[{},{},{},{id:minecraft:skull,Damage:3s,Count:0b}],CustomName:"ネコキャッチ",CustomNameVisible:true,Health:0.1f,Attributes:[{Name:"generic.maxHealth",Base:0.1d},{Name:"generic.movementSpeed",Base:0.2d}],CanPickUpLoot:false,Profession:2,Career:1,CareerLevel:100, Offers:{Recipes:[{maxUses:2147483647,rewardExp:false,buy:{id:wool,Count:4b,Damage:0s},sell:{id:torch,Count:1b,tag:{ench:[],HideFlags:16,display:{Lore:["§rアドベンチャーエリアでも設置できる。"],Name:"§4§lAdv.§f§l松明"},CanPlaceOn:["minecraft:stone","minecraft:grass","minecraft:dirt","minecraft:cobblestone","minecraft:planks","minecraft:sapling","minecraft:bedrock","minecraft:flowing_water","minecraft:water","minecraft:flowing_lava","minecraft:lava","minecraft:sand","minecraft:gravel","minecraft:gold_ore","minecraft:iron_ore","minecraft:coal_ore","minecraft:log","minecraft:leaves","minecraft:sponge","minecraft:glass","minecraft:lapis_ore","minecraft:lapis_block","minecraft:dispenser","minecraft:sandstone","minecraft:noteblock","minecraft:bed","minecraft:golden_rail","minecraft:detector_rail","minecraft:sticky_piston","minecraft:web","minecraft:tallgrass","minecraft:deadbush","minecraft:piston","minecraft:piston_head","minecraft:wool","minecraft:piston_extension","minecraft:yellow_flower","minecraft:red_flower","minecraft:brown_mushroom","minecraft:red_mushroom","minecraft:gold_block","minecraft:iron_block","minecraft:double_stone_slab","minecraft:stone_slab","minecraft:brick_block","minecraft:tnt","minecraft:bookshelf","minecraft:mossy_cobblestone","minecraft:obsidian","minecraft:torch","minecraft:fire","minecraft:mob_spawner","minecraft:oak_stairs","minecraft:chest","minecraft:redstone_wire","minecraft:diamond_ore","minecraft:diamond_block","minecraft:crafting_table","minecraft:wheat","minecraft:farmland","minecraft:furnace","minecraft:lit_furnace","minecraft:standing_sign","minecraft:wooden_door","minecraft:ladder","minecraft:rail","minecraft:stone_stairs","minecraft:wall_sign","minecraft:lever","minecraft:stone_pressure_plate","minecraft:iron_door","minecraft:wooden_pressure_plate","minecraft:redstone_ore","minecraft:lit_redstone_ore","minecraft:unlit_redstone_torch","minecraft:redstone_torch","minecraft:stone_button","minecraft:snow_layer","minecraft:ice","minecraft:snow","minecraft:cactus","minecraft:clay","minecraft:reeds","minecraft:jukebox","minecraft:fence","minecraft:pumpkin","minecraft:netherrack","minecraft:soul_sand","minecraft:glowstone","minecraft:portal","minecraft:lit_pumpkin","minecraft:cake","minecraft:unpowered_repeater","minecraft:powered_repeater","minecraft:stained_glass","minecraft:trapdoor","minecraft:monster_egg","minecraft:stonebrick","minecraft:brown_mushroom_block","minecraft:red_mushroom_block","minecraft:iron_bars","minecraft:glass_pane","minecraft:melon_block","minecraft:pumpkin_stem","minecraft:melon_stem","minecraft:vine","minecraft:fence_gate","minecraft:brick_stairs","minecraft:stone_brick_stairs","minecraft:mycelium","minecraft:waterlily","minecraft:nether_brick","minecraft:nether_brick_fence","minecraft:nether_brick_stairs","minecraft:nether_wart","minecraft:enchanting_table","minecraft:brewing_stand","minecraft:cauldron","minecraft:end_portal","minecraft:end_portal_frame","minecraft:end_stone","minecraft:dragon_egg","minecraft:redstone_lamp","minecraft:lit_redstone_lamp","minecraft:double_wooden_slab","minecraft:wooden_slab","minecraft:cocoa","minecraft:sandstone_stairs","minecraft:emerald_ore","minecraft:ender_chest","minecraft:tripwire_hook","minecraft:tripwire","minecraft:emerald_block","minecraft:spruce_stairs","minecraft:birch_stairs","minecraft:jungle_stairs","minecraft:command_block","minecraft:beacon","minecraft:cobblestone_wall","minecraft:flower_pot","minecraft:carrots","minecraft:potatoes","minecraft:wooden_button","minecraft:skull","minecraft:anvil","minecraft:trapped_chest","minecraft:light_weighted_pressure_plate","minecraft:heavy_weighted_pressure_plate","minecraft:unpowered_comparator","minecraft:powered_comparator","minecraft:daylight_detector","minecraft:redstone_block","minecraft:quartz_ore","minecraft:hopper","minecraft:quartz_block","minecraft:quartz_stairs","minecraft:activator_rail","minecraft:dropper","minecraft:stained_hardened_clay","minecraft:stained_glass_pane","minecraft:leaves2","minecraft:log2","minecraft:acacia_stairs","minecraft:dark_oak_stairs","minecraft:slime","minecraft:barrier","minecraft:iron_trapdoor","minecraft:prismarine","minecraft:sea_lantern","minecraft:hay_block","minecraft:carpet","minecraft:hardened_clay","minecraft:coal_block","minecraft:packed_ice","minecraft:double_plant","minecraft:standing_banner","minecraft:wall_banner","minecraft:daylight_detector_inverted","minecraft:red_sandstone","minecraft:red_sandstone_stairs","minecraft:double_stone_slab2","minecraft:stone_slab2","minecraft:spruce_fence_gate","minecraft:birch_fence_gate","minecraft:jungle_fence_gate","minecraft:dark_oak_fence_gate","minecraft:acacia_fence_gate","minecraft:spruce_fence","minecraft:birch_fence","minecraft:jungle_fence","minecraft:dark_oak_fence","minecraft:acacia_fence","minecraft:spruce_door","minecraft:birch_door","minecraft:jungle_door","minecraft:acacia_door","minecraft:dark_oak_door","minecraft:end_rod","minecraft:chorus_plant","minecraft:chorus_flower","minecraft:purpur_block","minecraft:purpur_pillar","minecraft:purpur_stairs","minecraft:purpur_double_slab","minecraft:purpur_slab","minecraft:end_bricks","minecraft:grass_path","minecraft:end_gateway","minecraft:structure_block"]},Damage:0s}},{maxUses:2147483647,rewardExp:false,buy:{id:torch,Count:1b,Damage:0s},sell:{id:vine,Count:1b,tag:{ench:[],HideFlags:16,display:{Lore:["§rアドベンチャーエリアでも設置できる。"],Name:"§4§lAdv.§f§lつる"},CanPlaceOn:["minecraft:stone","minecraft:grass","minecraft:dirt","minecraft:cobblestone","minecraft:planks","minecraft:sapling","minecraft:bedrock","minecraft:flowing_water","minecraft:water","minecraft:flowing_lava","minecraft:lava","minecraft:sand","minecraft:gravel","minecraft:gold_ore","minecraft:iron_ore","minecraft:coal_ore","minecraft:log","minecraft:leaves","minecraft:sponge","minecraft:glass","minecraft:lapis_ore","minecraft:lapis_block","minecraft:dispenser","minecraft:sandstone","minecraft:noteblock","minecraft:bed","minecraft:golden_rail","minecraft:detector_rail","minecraft:sticky_piston","minecraft:web","minecraft:tallgrass","minecraft:deadbush","minecraft:piston","minecraft:piston_head","minecraft:wool","minecraft:piston_extension","minecraft:yellow_flower","minecraft:red_flower","minecraft:brown_mushroom","minecraft:red_mushroom","minecraft:gold_block","minecraft:iron_block","minecraft:double_stone_slab","minecraft:stone_slab","minecraft:brick_block","minecraft:tnt","minecraft:bookshelf","minecraft:mossy_cobblestone","minecraft:obsidian","minecraft:torch","minecraft:fire","minecraft:mob_spawner","minecraft:oak_stairs","minecraft:chest","minecraft:redstone_wire","minecraft:diamond_ore","minecraft:diamond_block","minecraft:crafting_table","minecraft:wheat","minecraft:farmland","minecraft:furnace","minecraft:lit_furnace","minecraft:standing_sign","minecraft:wooden_door","minecraft:ladder","minecraft:rail","minecraft:stone_stairs","minecraft:wall_sign","minecraft:lever","minecraft:stone_pressure_plate","minecraft:iron_door","minecraft:wooden_pressure_plate","minecraft:redstone_ore","minecraft:lit_redstone_ore","minecraft:unlit_redstone_torch","minecraft:redstone_torch","minecraft:stone_button","minecraft:snow_layer","minecraft:ice","minecraft:snow","minecraft:cactus","minecraft:clay","minecraft:reeds","minecraft:jukebox","minecraft:fence","minecraft:pumpkin","minecraft:netherrack","minecraft:soul_sand","minecraft:glowstone","minecraft:portal","minecraft:lit_pumpkin","minecraft:cake","minecraft:unpowered_repeater","minecraft:powered_repeater","minecraft:stained_glass","minecraft:trapdoor","minecraft:monster_egg","minecraft:stonebrick","minecraft:brown_mushroom_block","minecraft:red_mushroom_block","minecraft:iron_bars","minecraft:glass_pane","minecraft:melon_block","minecraft:pumpkin_stem","minecraft:melon_stem","minecraft:vine","minecraft:fence_gate","minecraft:brick_stairs","minecraft:stone_brick_stairs","minecraft:mycelium","minecraft:waterlily","minecraft:nether_brick","minecraft:nether_brick_fence","minecraft:nether_brick_stairs","minecraft:nether_wart","minecraft:enchanting_table","minecraft:brewing_stand","minecraft:cauldron","minecraft:end_portal","minecraft:end_portal_frame","minecraft:end_stone","minecraft:dragon_egg","minecraft:redstone_lamp","minecraft:lit_redstone_lamp","minecraft:double_wooden_slab","minecraft:wooden_slab","minecraft:cocoa","minecraft:sandstone_stairs","minecraft:emerald_ore","minecraft:ender_chest","minecraft:tripwire_hook","minecraft:tripwire","minecraft:emerald_block","minecraft:spruce_stairs","minecraft:birch_stairs","minecraft:jungle_stairs","minecraft:command_block","minecraft:beacon","minecraft:cobblestone_wall","minecraft:flower_pot","minecraft:carrots","minecraft:potatoes","minecraft:wooden_button","minecraft:skull","minecraft:anvil","minecraft:trapped_chest","minecraft:light_weighted_pressure_plate","minecraft:heavy_weighted_pressure_plate","minecraft:unpowered_comparator","minecraft:powered_comparator","minecraft:daylight_detector","minecraft:redstone_block","minecraft:quartz_ore","minecraft:hopper","minecraft:quartz_block","minecraft:quartz_stairs","minecraft:activator_rail","minecraft:dropper","minecraft:stained_hardened_clay","minecraft:stained_glass_pane","minecraft:leaves2","minecraft:log2","minecraft:acacia_stairs","minecraft:dark_oak_stairs","minecraft:slime","minecraft:barrier","minecraft:iron_trapdoor","minecraft:prismarine","minecraft:sea_lantern","minecraft:hay_block","minecraft:carpet","minecraft:hardened_clay","minecraft:coal_block","minecraft:packed_ice","minecraft:double_plant","minecraft:standing_banner","minecraft:wall_banner","minecraft:daylight_detector_inverted","minecraft:red_sandstone","minecraft:red_sandstone_stairs","minecraft:double_stone_slab2","minecraft:stone_slab2","minecraft:spruce_fence_gate","minecraft:birch_fence_gate","minecraft:jungle_fence_gate","minecraft:dark_oak_fence_gate","minecraft:acacia_fence_gate","minecraft:spruce_fence","minecraft:birch_fence","minecraft:jungle_fence","minecraft:dark_oak_fence","minecraft:acacia_fence","minecraft:spruce_door","minecraft:birch_door","minecraft:jungle_door","minecraft:acacia_door","minecraft:dark_oak_door","minecraft:end_rod","minecraft:chorus_plant","minecraft:chorus_flower","minecraft:purpur_block","minecraft:purpur_pillar","minecraft:purpur_stairs","minecraft:purpur_double_slab","minecraft:purpur_slab","minecraft:end_bricks","minecraft:grass_path","minecraft:end_gateway","minecraft:structure_block"]},Damage:0s}},{maxUses:2147483647,rewardExp:false,buy:{id:torch,Count:16b,Damage:0s},sell:{id:ender_eye,Count:1b,tag:{ench:[],display:{Lore:["§rアドベンチャーエリアでも設置できる。"],Name:"§4§lAdv.§f§lエンダーアイ"},CanPlaceOn:["minecraft:end_portal_frame"]},Damage:0s}},{maxUses:2147483647,rewardExp:false,buy:{id:torch,Count:4b,Damage:0s},sell:{id:wooden_sword,Count:1b,Damage:0s}},{maxUses:2147483647,rewardExp:false,buy:{id:torch,Count:2b,Damage:0s},sell:{id:snowball,Count:16b,Damage:0s}},{maxUses:2147483647,rewardExp:false,buy:{id:torch,Count:4b,Damage:0s},sell:{id:carrot_on_a_stick,Count:1b,Damage:0s}},{maxUses:2147483647,rewardExp:false,buy:{id:torch,Count:4b,Damage:0s},sell:{id:arrow,Count:32b,Damage:0s}},{maxUses:2147483647,rewardExp:false,buy:{id:torch,Count:8b,Damage:0s},sell:{id:bow,Count:1b,Damage:0s}},{maxUses:2147483647,rewardExp:false,buy:{id:bone,Count:2b,Damage:0s},sell:{id:bread,Count:1b,tag:{display:{Name:"§r§l大きなパン"}},Damage:0s}},{maxUses:2147483647,rewardExp:false,buy:{id:gunpowder,Count:1b,Damage:0s},buyB:{id:rotten_flesh,Count:1b,Damage:0s},sell:{id:potion,Count:1b,tag:{Potion:healing,HideFlags:32,display:{Name:"§a§l薬草エキス"}},Damage:0s}},{maxUses:2147483647,rewardExp:false,buy:{id:spider_eye,Count:2b,Damage:0s},sell:{id:potion,Count:1b,tag:{CustomPotionEffects:[{Duration:0,Id:19b,Amplifier:127b}],HideFlags:32,display:{Name:"§d§l毒消草エキス"}},Damage:0s}},{maxUses:2147483647,rewardExp:false,buy:{id:ghast_tear,Count:1b,Damage:0s},buyB:{id:rabbit_foot,Count:1b,Damage:0s},sell:{id:dye,Count:1b,tag:{display:{Name:"§b§lすばやさの種"},AttributeModifiers:[{UUIDMost:2L,UUIDLeast:1L,Amount:0.8d,Slot:offhand,AttributeName:generic.movementSpeed,Operation:1,Name:SpeedSeed}]},Damage:3s}},{maxUses:2147483647,rewardExp:false,buy:{id:bone,Count:2b,Damage:0s},buyB:{id:slime_ball,Count:2b,Damage:0s},sell:{id:leather_helmet,Count:1b,Damage:0s}},{maxUses:2147483647,rewardExp:false,buy:{id:gunpowder,Count:6b,Damage:0s},buyB:{id:slime_ball,Count:6b,Damage:0s},sell:{id:leather_chestplate,Count:1b,Damage:0s}},{maxUses:2147483647,rewardExp:false,buy:{id:rotten_flesh,Count:4b,Damage:0s},buyB:{id:slime_ball,Count:4b,Damage:0s},sell:{id:leather_leggings,Count:1b,Damage:0s}},{maxUses:2147483647,rewardExp:false,buy:{id:spider_eye,Count:2b,Damage:0s},buyB:{id:slime_ball,Count:2b,Damage:0s},sell:{id:leather_boots,Count:1b,Damage:0s}}]}}
+```
+
+<div class="openHere-end openHere1-end"></div>
+
+|-|-|
+|Name|ネコキャッチ|
+|Type|Villager|
+|Health|0.1|
+
+### Super Dragon
+
+```mcfunction
+/summon EntityHorse ~ ~ ~ {CustomName:”Super Dragon”,CustomNameVisible:true,Tags:[TypeChecked],Attributes:[{Name:”generic.maxHealth”,Base:0.1d},{Name:”generic.movementSpeed”,Base:0.45d},{Name:”horse.jumpStrength”,Base:2.0d}],Health:0.1f,ActiveEffects:[{Id:8b,Amplifier:10b,Duration:2147483647,ShowParticles:false}],Tame:true,SaddleItem:{id:minecraft:saddle,Count:0b,tag:{display:{Name:”夢のサドル”}}},DeathLootTable:”minecraft:empty”}
+```
+
+|-|-|
+|Name|Super Dragon|
+|Type|EntityHorse|
+|Tags|TypeChecked|
+|Health|**0.1**|
+|ActiveEffects|**跳躍力上昇Lv.11 107,374,182.35秒間**|
+|SaddleItem|夢のサドル|
+
+### ほねちょーだい
+
+```mcfunction
+/summon Wolf ~ ~ ~ {CustomName:"ほねちょーだい！",CustomNameVisible:true,ArmorItems:[{id:"minecraft:bone",Count:0b,Damage:0s,tag:{ench:[{id:2s,lvl:32767s},{id:1s,lvl:10s}],AttributeModifiers:[{Name:"WolfAttack+",AttributeName:"generic.attackDamage",Operation:0,Amount:21d,UUIDMost:101l,UUIDLeast:1l,Slot:"feet"}]}},{},{},{id:minecraft:snowball,Count:0b}], Attributes:[{Name:"generic.followRange",Base:0d},{Name:"generic.movementSpeed",Base:0.1d},{Name:"generic.armor",Base:15d},{Name:"generic.attackDamage",Base:22d},{Name:"generic.maxHealth",Base:30d}],Health:30f,Team:FriendlyTeam,PortalCooldown:600,Tags:[GimmeBone],CollarColor:0b,Passengers:[{id:Item,Item:{id:minecraft:bone,Count:3b}}],DeathLootTable:"minecraft:empty"}
+```
+
+|-|-|
+|Name|ほねちょーだい！|
+|Type|Wolf|
+|Tags|**GimmeBone**|
+|Team|**FriendlyTeam**|
+|Health|30|
+|ArmorItem|落下耐性Lv.32767の骨|
+|PortalCooldown|**600**|
+
+### ぬこ
+
+```mcfunction
+/summon Ozelot ~ ~1 ~ {Attributes:[{Name:"generic.movementSpeed",Base:0.4d}],CustomName:"ぬこ",CustomNameVisible:true,Invulnerable:true,Silent:true,DeathTime:19s,PortalCooldown:260,Tags:[CooldownRequiredLong,TypeChecked],Passengers:[{id:AreaEffectCloud,Effects:[{Id:10b,Duration:1,Amplifier:5b,ShowParticles:true}],ReapplicantDelay:0,Radius:1.5f,RadiusOnUse:0f,DurationOnUse:0f,Duration:200,RadiusPerTick:0f,WaitTime:60,Age:0,Particle:heart,Tags:[SystemEntity,TypeChecked]}],DeathLootTable:"minecraft:empty"}
+```
+
+|-|-|
+|Name|ぬこ|
+|Type|Ozelot|
+|Tags|CooldownRequiredLong,TypeChecked|
+|PortalCooldown|**260**|
+|Passengers|ぬこのAEC|
+
+- ぬこのAEC
+
+|-|-|
+|Name|(None)|
+|Type|AEC|
+|Tags|SystemEntity,TypeChecked|
+|Effects|**再生能力Lv.6**|
+|Radius|**1.5**|
+|Duration|**200**|
+
+### (ペット)ゴーレム
+
+```mcfunction
+/summon VillagerGolem ~ ~ ~ {CustomName:"(ペット)ゴーレム",CustomNameVisible:true,ArmorItems:[{id:"minecraft:iron_ingot",Count:0b,Damage:0s,tag:{ench:[{id:2s,lvl:32767s},{id:4s,lvl:10s}]}},{},{},{id:minecraft:snowball,Count:0b}], Attributes:[{Name:"generic.followRange",Base:32d},{Name:"generic.movementSpeed",Base:0.32d},{Name:"generic.armor",Base:20d},{Name:"generic.knockbackResistance",Base:1d},{Name:"generic.maxHealth",Base:50d}],Health:50f,Team:FriendlyTeam,PlayerCreated:true,DeathLootTable:"minecraft:empty"}
+```
+
+|-|-|
+|Name|(ペット)ゴーレム|
+|Type|VillagerGolem|
+|Team|**FriendlyTeam**|
+
+### 熱気球
+
+```mcfunction
+/summon Arrow ~ ~0.1 ~ {Silent:true,life:1140s,Tags:[YouCanFly,TypeChecked],Passengers:[{id:Chicken,Invulnerable:true,Silent:true,ActiveEffects:[{Id:25b,Duration:360,Amplifier:7b,ShowParticles:false},{Id:14b,Duration:2147483647,Amplifier:127b,ShowParticles:false}],Tags:[FloatingRequired,SystemEntity,TypeChecked],Passengers:[{id:Boat,CustomName:”熱気球”,CustomNameVisible:true,FallDistance:-10000000f,Tags:[FloatingRequired,TypeChecked],Passengers:[{id:Pig,Saddle:true,Silent:true,Invulnerable:true,ActiveEffects:[{Id:14b,Duration:2147483647,Amplifier:127b,ShowParticles:false}],Tags:[FloatingRequired,SystemEntity,TypeChecked]},{id:ArmorStand,Marker:true,Invulnerable:true,Invisible:true,DisabledSlots:31,Small:true,NoBasePlate:true,Tags:[FloatingRequired,SystemEntity,TypeChecked]}]}]}]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|Arrow|
+|Tags|**YouCanFly**,TypeChecked|
+|life|**1140 (1.5秒後に消滅)**|
+|Passengers|FloatingChicken|
+
+- FloatingChicken
+
+|-|-|
+|Name|(None)|
+|Type|Chicken|
+|Tags|**FloatingRequired**,SystemEntity,TypeChecked|
+|ActiveEffects|**浮遊Lv.8を18秒間**、透明化Lv.128を107,374,182.35秒間|
+|Passengers|熱気球|
+
+- 熱気球
+
+|-|-|
+|Name|熱気球|
+|Type|Boat|
+|Tags|**FloatingRequired**,TypeChecked|
+|Passengers|FloatingPig,FloatingArmorStand|
+
+- FloatingPig
+
+|-|-|
+|Name|(None)|
+|Type|Pig|
+|Tags|**FloatingRequired**,SystemEntity,TypeChecked|
+|ActiveEffects|透明化Lv.128を107,374,182.35秒間|
+
+- FloatingArmorStand
+
+|-|-|
+|Name|(None)|
+|Type|Armor|
+|Tags|**FloatingRequired**,SystemEntity,TypeChecked|
+|ActiveEffects|透明化Lv.128を107,374,182.35秒間|
+
+### グライダー
+
+```mcfunction
+/summon Arrow ~ ~0.1 ~ {Silent:true,life:1140s,Tags:[YouCanFly,TypeChecked],Passengers:[{id:Snowball,Tags:[TypeChecked],Passengers:[{id:Snowball,Tags:[TypeChecked],Passengers:[{id:ArmorStand,Invulnerable:true,Invisible:true,Marker:true,Small:true,NoBasePlate:true,DisabledSlots:31,ActiveEffects:[{Id:25b,Duration:100,Amplifier:7b,ShowParticles:false}],Tags:[FloatingRequired,SystemEntity,FoldGlider,TypeChecked],PortalCooldown:100,ArmorItems:[{},{},{id:minecraft:elytra,Count:0b}],Passengers:[{id:Boat,CustomName:”グライダー”,CustomNameVisible:true,FallDistance:-10000000f,Tags:[FloatingRequired,TypeChecked],Passengers:[{id:Pig,Saddle:true,Silent:true,Invulnerable:true,ActiveEffects:[{Id:14b,Duration:2147483647,Amplifier:127b,ShowParticles:false}],Tags:[FloatingRequired,SystemEntity,TypeChecked]},{id:ArmorStand,Marker:true,Invulnerable:true,Invisible:true,DisabledSlots:31,Small:true,NoBasePlate:true,Tags:[FloatingRequired,SystemEntity,TypeChecked]}]}]}]}]}]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|Arrow|
+|Tags|**YouCanFly**,TypeChecked|
+|life|**1140 (1.5秒後に消滅)**|
+|Passengers|Snowball1|
+
+- Snowball1
+
+|-|-|
+|Name|(None)|
+|Type|Snowball|
+|Tags|TypeChecked|
+|Passengers|Snowball2|
+
+- Snowball2
+
+|-|-|
+|Name|(None)|
+|Type|Snowball|
+|Tags|TypeChecked|
+|Passengers|FoldGlider|
+
+- FoldGlider
+
+|-|-|
+|Name|(None)|
+|Type|ArmorStand|
+|Tags|**FloatingRequired**,SystemEntity,FoldGlider,TypeChecked|
+|ActiveEffects|**浮遊Lv.8を5秒間**|
+|PortalCooldown|**100 (5秒)**|
+|Passengers|グライダー|
+
+- グライダー
+
+|-|-|
+|Name|グライダー|
+|Type|Boat|
+|Tags|**FloatingRequired**,TypeChecked|
+|Passengers|FloatingPig,FloatingArmorStand|
+
+- FloatingPig
+
+|-|-|
+|Name|(None)|
+|Type|Pig|
+|Tags|**FloatingRequired**,SystemEntity,TypeChecked|
+|ActiveEffects|透明化Lv.128を107,374,182.35秒間|
+
+- FlaotingArmorStand
+
+|-|-|
+|Name|(None)|
+|Type|ArmorStand|
+|Tags|**FloatingRequired**,SystemEntity,TypeChecked|
+
+### FillOffset
+
+```mcfunction
+/summon ItemFrame ~ ~ ~ {Invulnerable:true,Facing:0b,Tags:[FillOffset]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|ItemFrame|
+|Tags|**FillOffset**|
+
+### FillSnowball
+
+```mcfunction
+/summon Snowball ~ ~ ~ {Motion:[0d,0.1d,0d],Tags:[Fill,TypeChecked]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|Snowball|
+|Tags|**Fill**,TypeChecked|
+|Motion|0,0.1,0|
+
+### きらきらタライ
+
+```mcfunction
+/summon Creeper ~ ~0.5 ~ {CustomName:"きらきらタライ",ExplosionRadius:4b,Fuse:0s,ignited:true,Invulnerable:true,NoAI:true,ActiveEffects:[{Id:14b,Amplifier:0b,Duration:20,ShowParticles:false}],Tags:[TypeChecked]}
+```
+
+|-|-|
+|Name|きらきらタライ|
+|Type|Creeper|
+|Tags|TypeChecked|
+|ExplosionRadius|4|
+|Fuse|0|
+
+### PreKanaTarai
+
+```mcfunction
+/summon FallingSand ~ ~2.5 ~ {Block:"minecraft:light_weighted_pressure_plate",Time:1,DropItem:false,HurtEntities:true,FallHurtMax:25,FallHurtAmount:25f,FallDistance:1f,Tags:[PreKanaTarai,Tarai]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|FallingSand (light_weighted_pressure_plate)|
+|Tags|**PreKanaTarai**,**Tarai**|
+|HurtEntities|true|
+|FallHurtMax|**25**|
+
+### PreDeal1
+
+```mcfunction
+/summon FallingSand ~ ~0.2 ~ {Block:”minecraft:wool”,Time:1b,DropItem:false,HurtEntities:true,FallHurtMax:100,FallHurtAmount:100f,FallDistance:1f,Tags:[PreDeal]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|FallingSand| (wool)|
+|Tags|**PreDeal**|
+|HurtEntities|true|
+|FallHurtMax|**100**|
+
+### PreDeal2
+
+```mcfunction
+/summon FallingSand ~ ~0.2 ~ {Block:”minecraft:wool”,Time:1b,DropItem:false,HurtEntities:true,FallHurtMax:180,FallHurtAmount:180f,FallDistance:1f,Tags:[PreDeal]
+```
+
+|-|-|
+|Name|(None)|
+|Type|FallingSand| (wool)|
+|Tags|**PreDeal**|
+|HurtEntities|true|
+|FallHurtMax|**180**|
+
+### PreDeal3
+
+```mcfunction
+/summon FallingSand ~ ~0.2 ~ {Block:”minecraft:wool”,Time:1b,DropItem:false,HurtEntities:true,FallHurtMax:270,FallHurtAmount:270f,FallDistance:1f,Tags:[PreDeal]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|FallingSand| (wool)|
+|Tags|**PreDeal**|
+|HurtEntities|true|
+|FallHurtMax|**270**|
+
+### AtsuTarai
+
+```mcfunction
+/summon FallingSand ~ ~2.5 ~ {Block:"minecraft:flowing_lava",Data:7b,Time:1,DropItem:false,HurtEntities:true,FallHurtMax:50,FallHurtAmount:50f,FallDistance:1f,Tags:[AtsuTarai,Tarai]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|FallingSand (flowing_lava)|
+|Tags|**AtsuTarai**,**Tarai**|
+|HurtEntities|true|
+|FallHurtMax|**50**|

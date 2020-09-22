@@ -2,7 +2,7 @@
 title: 毎tick実行するコマンド群11
 tags: [コマンド,スキル,黒魔導士,召喚士]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-09-14 09:21:00 +0000
+update: 2020-09-22 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit11/xCircuit11_command.html
 datatable4c: true
@@ -114,9 +114,14 @@ summaryDisable: true
 |6060~6069|サモンP：ゴーレム|[サモンP：ゴーレム実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_summonGolem.html)|
 |6070~6079|サモンE：バルーン|[サモンE：バルーン実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_summmonBalloon.html)|
 |6080~6089|サモンE：グライダー|[サモンE：グライダー実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_summmonGlider.html)|
-|6200~6209|あつあつタライ|[あつあつタライ実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_hotTub.html)|
-|6210~6219|サモンB：オブシディアン|[サモンB：オブシディアン実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_summonObsidian.html)|
-|6220~6229|ぽむぽむハナビ|[ぽむぽむハナビ実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_pompomFirework.html)|
-|6230~6239|サモンB：エンダーチェスト|[サモンB：エンダーチェスト実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_summonEnderChest.html)|
-|6230~6239|きらきらタライ|[きらきらタライ実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_kirakiraTub.html)|
-|6230~6239|ぷちブラック|[ぷちブラック実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_puchiBlack.html)|
+|6200~6209|フィール|[フィール実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_fill.html)|
+|6210~6219|金タライ|[金タライ実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_goldTub.html)|
+|6220~6229|ディール|[ディール実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_deal.html)|
+|6230~6239|ぽんぽん|[ぽんぽん実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_ponpon.html)|
+|6240~6249|つんつん|[つんつん実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_tsuntsun.html)|
+|6250~6259|あつあつタライ|[あつあつタライ実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_hotTub.html)|
+|6260~6269|サモンB：オブシディアン|[サモンB：オブシディアン実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_summonObsidian.html)|
+|6270~6279|ぽむぽむハナビ|[ぽむぽむハナビ実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_pompomFirework.html)|
+|6280~6289|サモンB：エンダーチェスト|[サモンB：エンダーチェスト実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_summonEnderChest.html)|
+|6290~6299|きらきらタライ|[きらきらタライ実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_kirakiraTub.html)|
+|6300~6309|ぷちブラック|[ぷちブラック実行]({{site.baseurl}}/command/xCircuit11/xCircuit11_puchiBlack.html)|

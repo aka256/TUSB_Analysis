@@ -8,7 +8,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/entity/entity_entity.html</loc>
-    <lastmod>2020-09-17T09:00:00+09:00</lastmod>
+    <lastmod>2020-09-22T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -106,7 +106,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/scoreboard/scoreboard_global.html</loc>
-    <lastmod>2020-07-14T09:00:00+09:00</lastmod>
+    <lastmod>2020-09-22T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -510,7 +510,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit10/xCircuit10_bomiosTrap.html</loc>
-    <lastmod>2020-09-09T09:21:00+09:00</lastmod>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -590,7 +590,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit10/xCircuit10_lucananTrap.html</loc>
-    <lastmod>2020-09-08T09:21:00+09:00</lastmod>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -600,7 +600,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit10/xCircuit10_niflamTrap.html</loc>
-    <lastmod>2020-09-10T09:21:00+09:00</lastmod>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -692,7 +692,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_candle.html</loc>
-    <lastmod>2020-09-14T09:21:00+09:00</lastmod>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -702,7 +702,17 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_command.html</loc>
-    <lastmod>2020-09-14T09:21:00+09:00</lastmod>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_deal.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -731,8 +741,18 @@
   
   
   <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_fill.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_geoCrash.html</loc>
-    <lastmod>2020-09-17T09:21:00+09:00</lastmod>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -750,7 +770,41 @@
   
   
   
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_goldTub.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
   
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_heyComeOn.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_hotTub.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_kirakiraTub.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
   
   
   
@@ -758,7 +812,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_lanaRouter.html</loc>
-    <lastmod>2020-09-14T09:21:00+09:00</lastmod>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -787,6 +841,16 @@
   
   
   <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_magicBlockDelete.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_magicShield.html</loc>
     <lastmod>2020-09-14T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -805,6 +869,32 @@
   
   
   
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_pompomFirework.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_ponpon.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_puchiBlack.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
   
   
   
@@ -830,21 +920,101 @@
   
   
   
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_summonBalloon.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
   
   
   
   
   
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_summonDragon.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
   
   
   
   
   
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_summonEnderChest.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
   
   
   
   
   
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_summonGlider.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_summonGolem.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_summonHealingCat.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_summonMerchant.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_summonObsidian.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_summonSnow.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_summonWolf.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
   
   
   
@@ -852,7 +1022,27 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_thunderbolt.html</loc>
-    <lastmod>2020-09-17T09:21:00+09:00</lastmod>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_tsuntsun.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_tubProcessing.html</loc>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -872,7 +1062,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit11/xCircuit11_windWall.html</loc>
-    <lastmod>2020-09-14T09:21:00+09:00</lastmod>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -1356,7 +1546,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit5/xCircuit5_aerialSlashUseJudgment.html</loc>
-    <lastmod>2020-07-31T09:21:00+09:00</lastmod>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -1676,7 +1866,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit9/xCircuit9_zantetsu.html</loc>
-    <lastmod>2020-08-28T09:21:00+09:00</lastmod>
+    <lastmod>2020-09-22T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   

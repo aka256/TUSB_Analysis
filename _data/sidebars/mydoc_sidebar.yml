@@ -414,9 +414,87 @@ entries:
         - title: ラナルータ実行
           url: /command/xCircuit11/xCircuit11_lanaRouter.html
           output: web, pdf
+        - title: サンダーボルト実行
+          url: /command/xCircuit11/xCircuit11_thunderbolt.html
+          output: web, pdf
+        - title: ジオクラッシュ実行
+          url: /command/xCircuit11/xCircuit11_geoCrash.html
+          output: web, pdf
+        - title: ドレイン実行
+          url: /command/xCircuit11/xCircuit11_drain.html
+          output: web, pdf
+        - title: パルプンテ実行
+          url: /command/xCircuit11/xCircuit11_pulpunte.html
+          output: web, pdf
       - title: 召喚士スキル
         output: web, pdf
         subfolderitems:
+        - title: サモンP：スノー実行
+          url: /command/xCircuit11/xCircuit11_summonSnow.html
+          output: web, pdf
+        - title: サモンE：マーチャント実行
+          url: /command/xCircuit11/xCircuit11_summonMerchant.html
+          output: web, pdf
+        - title: ヘイカモン実行
+          url: /command/xCircuit11/xCircuit11_heyComeOn.html
+          output: web, pdf
+        - title: サモンE：スーパードラゴン実行
+          url: /command/xCircuit11/xCircuit11_summonDragon.html
+          output: web, pdf
+        - title: サモンP：ウルフ実行
+          url: /command/xCircuit11/xCircuit11_summonWolf.html
+          output: web, pdf
+        - title: サモンE：ヒーリングキャット実行
+          url: /command/xCircuit11/xCircuit11_summonHealingCat.html
+          output: web, pdf
+        - title: サモンP：ゴーレム実行
+          url: /command/xCircuit11/xCircuit11_summonGolem.html
+          output: web, pdf
+        - title: サモンE：バルーン実行
+          url: /command/xCircuit11/xCircuit11_summonBalloon.html
+          output: web, pdf
+        - title: サモンE：グライダー実行
+          url: /command/xCircuit11/xCircuit11_summonGlider.html
+          output: web, pdf
+        - title: フィール実行
+          url: /command/xCircuit11/xCircuit11_fill.html
+          output: web, pdf
+        - title: 金タライ実行
+          url: /command/xCircuit11/xCircuit11_goldTub.html
+          output: web, pdf
+        - title: ディール実行
+          url: /command/xCircuit11/xCircuit11_deal.html
+          output: web, pdf
+        - title: ぽんぽん実行
+          url: /command/xCircuit11/xCircuit11_ponpon.html
+          output: web, pdf
+        - title: つんつん実行
+          url: /command/xCircuit11/xCircuit11_tsuntsun.html
+          output: web, pdf
+        - title: あつあつタライ実行
+          url: /command/xCircuit11/xCircuit11_hotTub.html
+          output: web, pdf
+        - title: サモンB：オブシディアン実行
+          url: /command/xCircuit11/xCircuit11_summonObsidian.html
+          output: web, pdf
+        - title: ぽむぽむハナビ実行
+          url: /command/xCircuit11/xCircuit11_pompomFirework.html
+          output: web, pdf
+        - title: サモンB：エンダーチェスト実行
+          url: /command/xCircuit11/xCircuit11_summonEnderChest.html
+          output: web, pdf
+        - title: きらきらタライ実行
+          url: /command/xCircuit11/xCircuit11_kirakiraTub.html
+          output: web, pdf
+        - title: ぷちブラック実行
+          url: /command/xCircuit11/xCircuit11_puchiBlack.html
+          output: web, pdf
+        - title: マジックブロック削除
+          url: /command/xCircuit11/xCircuit11_magicBlockDelete.html
+          output: web, pdf
+        - title: タライ共通処理
+          url: /command/xCircuit11/xCircuit11_tubProcessing.html
+          output: web, pdf
 
   - title: 超作業台ルーム
     output: web,pdf

@@ -3,7 +3,7 @@ title: Global
 tags: [スコアボード]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 last_updated: 2020/6/17
-update: 2020-07-14 09:00:00 +0000
+update: 2020-09-22 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: scoreboard/scoreboard_global.html
 folder: scoreboard
@@ -81,7 +81,7 @@ TUSB開始時のワールドが作られてからの時間を保存するスコ�
 
 ### EntityCount
 
-**編集中**
+エンティティの数を保存しておくための一時変数と用いられるスコア。基本的にはコマンドブロックの`CommandState`で値を保存し、コマンド群を停止させる分岐に用いられる。様々な所で用いられるので、使用する際は1つのコマンド群内で完結させる。
 
 ### BlockCount
 
