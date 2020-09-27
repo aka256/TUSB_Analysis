@@ -496,6 +496,25 @@ entries:
           url: /command/xCircuit11/xCircuit11_tubProcessing.html
           output: web, pdf
 
+  - title: 毎tick実行するコマンド群12
+    output: web, pdf
+    folderitems:
+    - title: 毎tick実行するコマンド群12
+      url: /command/xCircuit12/xCircuit12_command.html
+      output: web, pdf
+    - title: 乱数更新
+      url: /command/xCircuit12/xCircuit12_randomUpdate.html
+      output: web, pdf
+    - title: NearProjectile処理
+      url: /command/xCircuit12/xCircuit12_nearProjectileProcessing.html
+      output: web, pdf
+    - title: Projectile処理
+      url: /command/xCircuit12/xCircuit12_projectileProcessing.html
+      output: web, pdf
+    - title: 真空斬りクロック処理
+      url: /command/xCircuit12/xCircuit12_aerialSlashClock.html
+      output: web, pdf
+
   - title: 超作業台ルーム
     output: web,pdf
     folderitems:
@@ -543,6 +562,12 @@ entries:
     folderitems:
     - title: レイズ解説
       url: /note/note_aboutRaise.html
+      output: web, pdf
+    - title: 乱数解説
+      url: /note/note_random.html
+      output: web, pdf
+    - title: キャリー付き乗算シミュレーション
+      url: /note/note_mwc.html
       output: web, pdf
   
   - title: ページ内タグ

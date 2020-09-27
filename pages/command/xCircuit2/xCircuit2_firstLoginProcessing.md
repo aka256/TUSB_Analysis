@@ -45,7 +45,7 @@ summaryDisable: true
 |18|/scoreboard players set @a[team=,tag=!Resolved] BlackMageToLevel 0|
 |19|/scoreboard players set @a[team=,tag=!Resolved] SummonerToLevel 0|
 |20|/scoreboard players set @a[team=] LeaveGame 1|
-|21|/time query gametime|[補足](#no21のコマンドブロックについて)あり|
+|21|/time query gametime|
 |22|/scoreboard players operation @a[team=,tag=!Resolved] RndMWC = #GameTime Global|
 |23|/scoreboard players operation @a[team=,tag=!Resolved] RndMWCCarry = #GameTime Global|
 |24|/scoreboard players operation @a[team=,tag=!Resolved] RndMWC %= #MWCBase Const|

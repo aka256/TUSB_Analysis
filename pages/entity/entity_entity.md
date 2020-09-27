@@ -2,7 +2,7 @@
 title: エンティティ
 tags: [敵Mob,SystemEntity,村人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,エンティティ
-update: 2020-09-22 09:00:00 +0000
+update: 2020-09-27 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: entity/entity_entity.html
 summary: コマンドに関係するエンティティについてまとめる。
@@ -1175,3 +1175,68 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 |Tags|**AtsuTarai**,**Tarai**|
 |HurtEntities|true|
 |FallHurtMax|**50**|
+
+### 魔人斬り1
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”魔神斬り”,damage:200d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage]}
+```
+
+|-|-|
+|Name|魔人斬り|
+|Type|Arrow|
+|Tags|Garbage|
+|damage|**200**|
+|life|1200 (即消滅)|
+
+### 魔人斬り2
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”魔神斬り”,damage:400d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage]}
+```
+
+|-|-|
+|Name|魔人斬り|
+|Type|Arrow|
+|Tags|Garbage|
+|damage|**400**|
+|life|1200 (即消滅)|
+
+### 真空斬り1
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”真空斬り”,damage:50d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+```
+
+|-|-|
+|Name|真空斬り|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|life|1200 (即消滅)|
+|damage|**50**|
+
+### 真空斬り2
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”真空斬り”,damage:100d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+```
+
+|-|-|
+|Name|真空斬り|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|life|1200 (即消滅)|
+|damage|**100**|
+
+### 真空斬り3
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”真空斬り”,damage:150d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+```
+
+|-|-|
+|Name|真空斬り|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|life|1200 (即消滅)|
+|damage|**150**|

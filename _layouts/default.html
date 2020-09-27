@@ -91,7 +91,7 @@
                 lengthChange: true,
                 columns: [{
                     responsivePriority: 1,
-                    width: "8%"
+                    width: "2em"
                 }, {
                     responsivePriority: 2,
                     width: "92%"
@@ -119,7 +119,7 @@
                 lengthChange: true,
                 columns: [{
                     responsivePriority: 2,
-                    width: "8%"
+                    width: "2em"
                 }, {
                     responsivePriority: 3,
                     width: "77%"
@@ -151,7 +151,7 @@
                 lengthChange: true,
                 columns: [{
                     responsivePriority: 3,
-                    width: "8%"
+                    width: "2em"
                 }, {
                     responsivePriority: 4,
                     width: "62%"
@@ -186,7 +186,7 @@
                 lengthChange: true,
                 columns: [{
                     responsivePriority: 1,
-                    width: "8%"
+                    width: "2em"
                 }, {
                     responsivePriority: 2,
                     width: "92%"
@@ -214,7 +214,7 @@
                 lengthChange: true,
                 columns: [{
                     responsivePriority: 2,
-                    width: "8%"
+                    width: "2em"
                 }, {
                     responsivePriority: 3,
                     width: "77%"
@@ -246,7 +246,7 @@
                 lengthChange: true,
                 columns: [{
                     responsivePriority: 3,
-                    width: "8%"
+                    width: "2em"
                 }, {
                     responsivePriority: 4,
                     width: "62%"
@@ -283,14 +283,12 @@
         <div id="main">
             <!-- Content Row -->
             <div class="row">
-                {% assign content_col_size = "col-md-12" %}
-                {% unless page.hide_sidebar %}
+                {% assign content_col_size = "col-md-12" %} {% unless page.hide_sidebar %}
                 <!-- Sidebar Column -->
                 <div class="col-md-3" id="tg-sb-sidebar">
                     {% include sidebar.html %}
                 </div>
-                {% assign content_col_size = "col-md-9" %}
-                {% endunless %}
+                {% assign content_col_size = "col-md-9" %} {% endunless %}
 
                 <!-- Content Column -->
                 <div class="{{content_col_size}}" id="tg-sb-content">
@@ -298,7 +296,9 @@
                 </div>
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
 
-<div id="page_top"><a href="#"></a></div>
+                <div id="page_top">
+                    <a href="#"></a>
+                </div>
                 <!-- /.row -->
             </div>
             <!-- /.container -->

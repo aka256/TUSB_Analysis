@@ -8,7 +8,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/entity/entity_entity.html</loc>
-    <lastmod>2020-09-22T09:00:00+09:00</lastmod>
+    <lastmod>2020-09-27T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -43,6 +43,26 @@
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/note/note_aboutRaise.html</loc>
     <lastmod>2020-09-11T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/note/note_mwc.html</loc>
+    <lastmod>2020-09-27T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/note/note_random.html</loc>
+    <lastmod>2020-09-27T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -248,6 +268,16 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/tags/tag_exp.html</loc>
+    <lastmod>2020-08-26T09:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/tags/tag_explanation.html</loc>
     <lastmod>2020-08-26T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
@@ -1067,6 +1097,54 @@
   </url>
   
   
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit12/xCircuit12_aerialSlashClock.html</loc>
+    <lastmod>2020-09-27T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit12/xCircuit12_command.html</loc>
+    <lastmod>2020-09-27T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit12/xCircuit12_nearProjectileProcessing.html</loc>
+    <lastmod>2020-09-27T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit12/xCircuit12_projectileProcessing.html</loc>
+    <lastmod>2020-09-27T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit12/xCircuit12_randomUpdate.html</loc>
+    <lastmod>2020-09-27T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
   
   
   
