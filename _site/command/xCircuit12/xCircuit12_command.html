@@ -5,8 +5,8 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content="コマンド,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<meta name="description" content="UpdateRandomが付与されたプレイヤーの乱数の更新やNearProjectile処理とProjectile処理の実行を行う。流し斬り実行部では、演出処理や近くのエンティティに対する弱体化の付与などを行う。真空斬り実行部では、ファイアボールへのタグの付け替えや真空斬りクロック処理の実行などを行う。魔人斬り実...">
+<meta name="keywords" content="コマンド剣士スキル,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
 <title>毎tick実行するコマンド群12 | TUSB Analysis</title>
 <link rel="canonical" href="https://aka256.github.io/TUSB_Analysis/command/xCircuit12/xCircuit12_command.html">
 <!-- Google Tag Manager -->
@@ -72,7 +72,7 @@
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
 <meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit12/xCircuit12_command.html" /> <!--③-->
 <meta property="og:title" content="毎tick実行するコマンド群12 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="" /> <!--⑤-->
+<meta property="og:description" content="UpdateRandomが付与されたプレイヤーの乱数の更新やNearProjectile処理とProjectile処理の実行を行う。流し斬り実行部では、演出処理や近くのエンティティに対する弱体化の付与などを行う。真空斬り実行部では、ファイアボールへのタグの付け替えや真空斬りクロック処理の実行などを行う。魔人斬り実..." /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -165,7 +165,7 @@
                 lengthChange: true,
                 columns: [{
                     responsivePriority: 3,
-                    width: "8%"
+                    width: "2em"
                 }, {
                     responsivePriority: 4,
                     width: "62%"
@@ -253,8 +253,7 @@
         <div id="main">
             <!-- Content Row -->
             <div class="row">
-                
-                
+                 
                 <!-- Sidebar Column -->
                 <div class="col-md-3" id="tg-sb-sidebar">
                     
@@ -671,6 +670,23 @@
     </li>
       
     <li>
+        <a title="毎tick実行するコマンド群12" href="#">毎tick実行するコマンド群12</a>
+        <ul>
+              
+            <li class="active"><a title="毎tick実行するコマンド群12" href="/TUSB_Analysis/command/xCircuit12/xCircuit12_command.html">毎tick実行するコマンド群12</a></li>
+                 
+            <li><a title="乱数更新" href="/TUSB_Analysis/command/xCircuit12/xCircuit12_randomUpdate.html">乱数更新</a></li>
+                 
+            <li><a title="NearProjectile処理" href="/TUSB_Analysis/command/xCircuit12/xCircuit12_nearProjectileProcessing.html">NearProjectile処理</a></li>
+                 
+            <li><a title="Projectile処理" href="/TUSB_Analysis/command/xCircuit12/xCircuit12_projectileProcessing.html">Projectile処理</a></li>
+                 
+            <li><a title="真空斬りクロック処理" href="/TUSB_Analysis/command/xCircuit12/xCircuit12_aerialSlashClock.html">真空斬りクロック処理</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
         <a title="超作業台ルーム" href="#">超作業台ルーム</a>
         <ul>
               
@@ -716,6 +732,10 @@
         <ul>
               
             <li><a title="レイズ解説" href="/TUSB_Analysis/note/note_aboutRaise.html">レイズ解説</a></li>
+                 
+            <li><a title="乱数解説" href="/TUSB_Analysis/note/note_random.html">乱数解説</a></li>
+                 
+            <li><a title="キャリー付き乗算シミュレーション" href="/TUSB_Analysis/note/note_mwc.html">キャリー付き乗算シミュレーション</a></li>
                
         </ul>
     </li>
@@ -741,8 +761,7 @@
     $("li.active").parents('li').toggleClass("active");
 </script>
                 </div>
-                
-                
+                 
 
                 <!-- Content Column -->
                 <div class="col-md-9" id="tg-sb-content">
@@ -788,15 +807,324 @@
 
     
 
-   <p><strong>編集中です。</strong></p>
-
-<h2 id="about">About</h2>
+   <h2 id="about">About</h2>
 
 <p><span class="tagYellow">位置</span> (-1920,4,-144)</p>
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_initializeProcessing.html">初期化処理</a>, <a href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_mainclockProcessing.html">村人像</a></p>
 
-<p><span class="tagBlue">分岐先</span></p>
+<p><span class="tagBlue">分岐先</span> <a href="/TUSB_Analysis/command/xCircuit12/xCircuit12_randomUpdate.html">乱数更新</a>, <a href="/TUSB_Analysis/command/xCircuit12/xCircuit12_nearProjectileProcessing.html">NearProjectile処理</a>, <a href="/TUSB_Analysis/command/xCircuit12/xCircuit12_projectileProcessing.html">Projectile処理</a>, <a href="/TUSB_Analysis/command/xCircuit12/xCircuit12_aerialSlashClock.html">真空斬りクロック処理</a></p>
+
+<p><code class="language-plaintext highlighter-rouge">UpdateRandom</code>が付与されたプレイヤーの乱数の更新や<a href="/TUSB_Analysis/command/xCircuit12/xCircuit12_nearProjectileProcessing.html">NearProjectile処理</a>と<a href="/TUSB_Analysis/command/xCircuit12/xCircuit12_projectileProcessing.html">Projectile処理</a>の実行を行う。<br />
+<a href="#流し斬り実行部">流し斬り実行部</a>では、演出処理や近くのエンティティに対する弱体化の付与などを行う。<br />
+<a href="#真空斬り実行部">真空斬り実行部</a>では、ファイアボールへのタグの付け替えや<a href="/TUSB_Analysis/command/xCircuit12/xCircuit12_aerialSlashClock.html">真空斬りクロック処理</a>の実行などを行う。<br />
+<a href="#魔人斬り実行部">魔人斬り実行部</a>では、演出処理やエンティティへのダメージの付与、エンティティの武器の空気ブロックへの変更などを行う。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable4c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+      <th>コメント</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @a[tag=UpdateRandom] ~ ~ ~ /scoreboard players operation @a[c=1] Random = @a[c=1] RndMWC</td>
+      <td> </td>
+      <td>乱数取得</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/clone -1920 8 ~ -1920 8 ~ -1920 8 ~ filtered force minecraft:command_block 5 ###MWC更新</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players test #ProjectileUpdate Global 2 *</td>
+      <td> </td>
+      <td>投擲物ヒット判定<br />クロック開始処理</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/execute 0-0-1-0-1 ~ 10 -186 /clone ~ ~ ~ ~ ~2 ~ ~ ~ ~ filtered force minecraft:command_block 5 ###投擲ヒット判定クロック</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/execute @a[score_ActivatedSkill_min=1200,score_ActivatedSkill=1209] ~ ~ ~ /execute @e[r=5,tag=Hit,c=1] ~ ~ ~ /playsound entity.irongolem.death master @a[r=16] ~ ~ ~ 1 2 0</td>
+      <td>動力が必要</td>
+      <td>剣士<br />流し斬り</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/execute @a[score_ActivatedSkill_min=1200,score_ActivatedSkill=1209] ~ ~ ~ /execute @e[r=5,tag=Hit,c=1] ~ ~ ~ /particle witchMagic ~ ~1 ~ 0.5 0.5 0.5 0.1 30 force</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/execute @a[score_ActivatedSkill_min=1200,score_ActivatedSkill=1200] ~ ~ ~ /effect @e[r=5,tag=Hit] minecraft:weakness 20 1 false</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/execute @a[score_ActivatedSkill_min=1201,score_ActivatedSkill=1201] ~ ~ ~ /effect @e[r=5,tag=Hit] minecraft:weakness 20 3 false</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/execute @a[score_ActivatedSkill_min=1202,score_ActivatedSkill=1209] ~ ~ ~ /effect @e[r=5,tag=Hit] minecraft:weakness 20 6 false</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/fill ~-5 ~-1 ~ ~ ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/execute @a[score_ActivatedSkill_min=1220,score_ActivatedSkill=1229] ~ ~2 ~ /entitydata @e[r=2,tag=AerialTransition,type=Fireball] {Tags:[AerialBlast,Projectile,FlyingObject,Driftable,TypeChecked]}</td>
+      <td>動力が必要</td>
+      <td>剣士<br />真空斬り</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/execute @a[score_ActivatedSkill_min=1220,score_ActivatedSkill=1229] ~ ~2 ~ /scoreboard players operation @e[r=2,tag=AerialBlast,type=Fireball] ProjectileSkill = @a[c=1] ActivatedSkill</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/fill -1921 8 ~1 -1921 8 ~1 minecraft:redstone_block 0 replace minecraft:lapis_block 0 ###真空斬りクロック</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/fill ~-3 ~-1 ~ ~ ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/scoreboard players operation @a[score_ActivatedSkill_min=1240,score_ActivatedSkill=1249] Random %= #3 Const</td>
+      <td>動力が必要</td>
+      <td>剣士<br />魔人斬り</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/execute @a[score_ActivatedSkill_min=1240,score_ActivatedSkill=1249] ~ ~1.52 ~ /execute @e[r=5,tag=Hit,c=1] ~ ~ ~ /playsound entity.zombie.break_door_wood master @a[r=16] ~ ~ ~ 0.4 0.8 0</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/execute @a[score_ActivatedSkill_min=1240,score_ActivatedSkill=1249] ~ ~1.52 ~ /execute @e[r=5,tag=Hit,c=1] ~ ~ ~ /particle iconcrack ~ ~1.5 ~ 0 0 0 0.2 30 force @a[r=64] 433</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/execute @a[score_ActivatedSkill_min=1240,score_ActivatedSkill=1249] ~ ~1.52 ~ /scoreboard players tag @e[r=5,tag=Hit,c=1] add SkillTarget</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/effect @a[score_ActivatedSkill_min=1240,score_ActivatedSkill=1249] minecraft:mining_fatigue 2 127 true</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/execute @a[score_ActivatedSkill_min=1240,score_ActivatedSkill=1240] ~ ~1.52 ~ /execute @e[r=5,tag=Hit,c=1] ~ ~ ~ /summon Arrow ~ ~0.02 ~ {CustomName:”魔神斬り”,damage:200d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage]}</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/execute @a[score_ActivatedSkill_min=1240,score_ActivatedSkill=1240,score_Random=0] ~ ~1.52 ~ /replaceitem entity @e[r=5,tag=Hit,c=1] slot.weapon minecraft:air</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/execute @a[score_ActivatedSkill_min=1241,score_ActivatedSkill=1249] ~ ~1.52 ~ /execute @e[r=5,tag=Hit,c=1] ~ ~ ~ /summon Arrow ~ ~0.02 ~ {CustomName:”魔神斬り”,damage:400d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage]}</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/execute @a[score_ActivatedSkill_min=1241,score_ActivatedSkill=1249,score_Random=1] ~ ~1.52 ~ /replaceitem entity @e[r=5,tag=Hit,c=1] slot.weapon minecraft:air</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/fill ~-9 ~-1 ~ ~ ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable4c-end"></div>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">UpdateRandom</code>を持つプレイヤーが存在するとき</strong>、このプレイヤーに対し以下の事柄を実行
+    <ol>
+      <li>対象プレイヤーの<code class="language-plaintext highlighter-rouge">Random</code>に<code class="language-plaintext highlighter-rouge">RndMWC</code>を代入</li>
+      <li><a href="/TUSB_Analysis/command/xCircuit12/xCircuit12_randomUpdate.html">乱数更新</a>を実行</li>
+    </ol>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">#ProjectileUpdate</code>の<code class="language-plaintext highlighter-rouge">Global</code>が2以上であるとき</strong>、<a href="/TUSB_Analysis/command/xCircuit12/xCircuit12_nearProjectileProcessing.html">NearProjectile処理</a>と<a href="/TUSB_Analysis/command/xCircuit12/xCircuit12_projectileProcessing.html">Projectile処理</a>をそれぞれ実行</li>
+</ol>
+
+<h3 id="流し斬り実行部">流し斬り実行部</h3>
+
+<ul>
+  <li><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_command.html">毎tick実行するコマンド群9</a>によって起動される</li>
+</ul>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が1200 ~ 1209</strong>であるすべてのプレイヤーから<strong>半径5m以内の最も近い<code class="language-plaintext highlighter-rouge">Hit</code>を持ったエンティティ1体に対し</strong>、以下の事柄を実行
+    <ol>
+      <li>対象エンティティから半径16m以内のすべてのプレイヤーに、効果音を鳴らす</li>
+      <li>対象エンティティの座標上にパーティクルを表示</li>
+    </ol>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が1200</strong>でであるすべてのプレイヤーから<strong>半径5m以内の最も近い<code class="language-plaintext highlighter-rouge">Hit</code>を持ったエンティティ1体に、弱体化Lv.2を20秒間付与</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が1201</strong>でであるすべてのプレイヤーから<strong>半径5m以内の最も近い<code class="language-plaintext highlighter-rouge">Hit</code>を持ったエンティティ1体に、弱体化Lv.4を20秒間付与</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が1202 ~ 1209</strong>でであるすべてのプレイヤーから<strong>半径5m以内の最も近い<code class="language-plaintext highlighter-rouge">Hit</code>を持ったエンティティ1体に、弱体化Lv.7を20秒間付与</strong></li>
+  <li><a href="#流し斬り実行部">流し斬り実行部</a>を停止</li>
+</ol>
+
+<h3 id="真空斬り実行部">真空斬り実行部</h3>
+
+<ul>
+  <li><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_command.html">毎tick実行するコマンド群9</a>によって起動される</li>
+</ul>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が1220 ~ 1229</strong>であるすべてのプレイヤーの2m上を中心とした<strong>半径2m以内の<code class="language-plaintext highlighter-rouge">AerialTransition</code>を持ったファイアーボールが存在するとき</strong>、そのエンティティに対し以下の事柄を実行
+    <ol>
+      <li>対象エンティティのTagsを<strong><code class="language-plaintext highlighter-rouge">AerialBlast</code>,<code class="language-plaintext highlighter-rouge">Projectile</code>,<code class="language-plaintext highlighter-rouge">FlyingObject</code>,<code class="language-plaintext highlighter-rouge">Driftable</code></strong>,<code class="language-plaintext highlighter-rouge">TypeChecked</code>に書き換える</li>
+      <li>対象エンティティの<code class="language-plaintext highlighter-rouge">ProjectileSkill</code>に、最も近いプレイヤーの<code class="language-plaintext highlighter-rouge">AcitvatedSkill</code>を代入</li>
+      <li><a href="/TUSB_Analysis/command/xCircuit12/xCircuit12_aerialSlashClock.html">真空斬りクロック処理</a>を実行</li>
+    </ol>
+  </li>
+  <li><a href="#真空斬り実行部">真空斬り実行部</a>を停止</li>
+</ol>
+
+<h3 id="魔人斬り実行部">魔人斬り実行部</h3>
+
+<ul>
+  <li><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_command.html">毎tick実行するコマンド群9</a>によって起動される</li>
+</ul>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が1240 ~ 1249</strong>であるすべてのプレイヤーに対し、以下の事柄を実行
+    <ol>
+      <li>対象プレイヤーの<code class="language-plaintext highlighter-rouge">Random</code>を \(Random = Random\mod 3\) と計算する</li>
+      <li>対象プレイヤーから<strong>半径5m以内の最も近い<code class="language-plaintext highlighter-rouge">Hit</code>を持ったエンティティ1体に対し</strong>、以下の事柄を実行
+        <ol>
+          <li>対象エンティティから半径16m以内のすべてのプレイヤーに、効果音を鳴らす</li>
+          <li>対象エンティティから半径64m以内のすべてのプレイヤーの座標上に、パーティクルを表示</li>
+          <li><strong>対象エンティティに<code class="language-plaintext highlighter-rouge">SkillTarget</code>を付与</strong></li>
+        </ol>
+      </li>
+      <li><strong>対象プレイヤーに採掘速度低下Lv.128を2秒間付与</strong></li>
+    </ol>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が1240</strong>であるすべてのプレイヤー(対象プレイヤー)から<strong>1.52m上を中心とした、半径5m以内の最も近い<code class="language-plaintext highlighter-rouge">Hit</code>を持ったエンティティ1体に対し</strong>、以下の事柄を実行
+    <ol>
+      <li>対象エンティティから0.02m上に<strong><a href="#魔人斬り1">魔人斬り1</a>を召喚</strong></li>
+      <li><strong>対象プレイヤーの<code class="language-plaintext highlighter-rouge">Random</code>が0以下であるとき、対象エンティティの武器を空気ブロックに変更</strong> (約33.3%の確率)</li>
+    </ol>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が1241 ~ 1249</strong>であるすべてのプレイヤー(対象プレイヤー)から<strong>1.52m上を中心とした、半径5m以内の最も近い<code class="language-plaintext highlighter-rouge">Hit</code>を持ったエンティティ1体に対し</strong>、以下の事柄を実行
+    <ol>
+      <li>対象エンティティから0.02m上に<strong><a href="#魔人斬り2">魔人斬り2</a>を召喚</strong></li>
+      <li><strong>対象プレイヤーの<code class="language-plaintext highlighter-rouge">Random</code>が1以下であるとき、対象エンティティの武器を空気ブロックに変更</strong> (約66.7%の確率)</li>
+    </ol>
+  </li>
+  <li><a href="#魔人斬り実行部">魔人斬り実行部</a>を停止</li>
+</ol>
+
+<h3 id="魔人斬り1">魔人斬り1</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~0.02 ~ {CustomName:”魔神斬り”,damage:200d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>魔人斬り</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>Garbage</td>
+    </tr>
+    <tr>
+      <td>damage</td>
+      <td><strong>200</strong></td>
+    </tr>
+    <tr>
+      <td>life</td>
+      <td>1200 (即消滅)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="魔人斬り2">魔人斬り2</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~0.02 ~ {CustomName:”魔神斬り”,damage:400d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>魔人斬り</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>Garbage</td>
+    </tr>
+    <tr>
+      <td>damage</td>
+      <td><strong>400</strong></td>
+    </tr>
+    <tr>
+      <td>life</td>
+      <td>1200 (即消滅)</td>
+    </tr>
+  </tbody>
+</table>
 
 
     <div class="tags">
@@ -877,9 +1205,179 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_knight.html" class="btn btn-default navbar-btn cursorNorm" role="button">剣士</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 
-
+<script id="dsq-count-scr" src="//tusb-analysis.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://tusb-analysis.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
 
@@ -891,9 +1389,9 @@
             Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.<br>
             <a href="https://github.com/aka256/TUSB_Analysis">Page source</a><br>
             
-              <span>Page last updated:</span> 22 Aug 2020<br/>
+              <span>Page last updated:</span> 27 Sep 2020<br/>
             
-            Site last generated: 22 Sep 2020 <br />
+            Site last generated: 27 Sep 2020 <br />
         </div>
     </div>
 </footer>
@@ -901,7 +1399,9 @@
                 </div>
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
 
-<div id="page_top"><a href="#"></a></div>
+                <div id="page_top">
+                    <a href="#"></a>
+                </div>
                 <!-- /.row -->
             </div>
             <!-- /.container -->

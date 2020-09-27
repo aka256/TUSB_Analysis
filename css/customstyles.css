@@ -1357,3 +1357,8 @@ h4.panel-title {
         display: block !important;
     }
 }
+
+blockquote {
+    font-size: 14px;
+    color: dimgrey;
+}

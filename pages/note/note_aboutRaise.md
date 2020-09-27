@@ -1,6 +1,6 @@
 ---
 title: レイズ解説
-tags: [スキル,白魔導士]
+tags: [解説,スキル,白魔導士]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 update: 2020-09-11 09:21:00 +0000
 sidebar: mydoc_sidebar

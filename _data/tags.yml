@@ -105,3 +105,6 @@ allowed-tags:
   - tag: レガシー
     folder: tag_legacy.html
     describe: レガシーアイテムに関連するページに割り当てられたタグです。
+  - tag: 解説
+    folder: tag_explanation.html
+    describe: TUSB内のコマンドなどについて、特に詳しく説明しているページに割り当てられたタグです。
