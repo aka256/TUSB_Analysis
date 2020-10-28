@@ -17,7 +17,7 @@ tocLimit: h3
 
 <span class="tagBlack">呼び出し元</span> [初期化処理]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_initializeProcessing.html), [村人像]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_mainclockProcessing.html)
 
-<span class="tagBlue">分岐先</span> [手裏剣クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_syurikenClock.html), [居縮クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_isyukuClock.html), [サヨナラ処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_sayonara.html), [ステークス負け演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_staksLosePerform.html), [ステークス勝ち反映]({{site.baseurl}}/command/xCircuit13/xCircuit13_staksWinProcessing.html), [ステークス勝ち演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_staksWinPerform.html), [チェインアロークロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_chainArrowClock.html), [ブラストショットクロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_blastShotClock.html), [バードストライクロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_birdStrikeClock.html), [フェイタルショットロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_fatalShotClock.html)
+<span class="tagBlue">分岐先</span> [手裏剣クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_syurikenClock.html), [居縮クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_isukumiClock.html), [サヨナラ処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_sayonara.html), [ステークス負け演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_staksLosePerform.html), [ステークス勝ち反映]({{site.baseurl}}/command/xCircuit13/xCircuit13_staksWinProcessing.html), [ステークス勝ち演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_staksWinPerform.html), [チェインアロークロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_chainArrowClock.html), [ブラストショットクロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_blastShotClock.html), [バードストライクロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_birdStrikeClock.html), [フェイタルショットロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_fatalShotClock.html)
 
 雪玉や矢などの投擲物を用いたスキルやアイテムエンティティを用いたスキルなどの攻撃処理や演出、他のコマンド群への分岐などを行う。
 
@@ -99,13 +99,13 @@ tocLimit: h3
 
 ### 居縮実行部
 
-- [居縮実行部](#居縮実行部)では、雪玉へのタグの付与や[居縮クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_isyukuClock.html)への分岐などを行う。
+- [居縮実行部](#居縮実行部)では、雪玉へのタグの付与や[居縮クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_isukumiClock.html)への分岐などを行う。
 - [毎tick実行するコマンド群9]({{site.baseurl}}/command/xCircuit9/xCircuit9_command.html)によって起動される
 
 - **`ActivatedSkill`が2230 ~ 2239**であるすべてのプレイヤーから1.52m上を中心とした、**半径2m以内の1体の雪玉に対し**、以下の事柄を実行
   1. 対象エンティティに[居縮付与タグ](#居縮付与タグ)を付与
   2. 対象エンティティの`ProjectileSkill`に、最も近くのプレイヤーの`ActivatedSkill`を代入
-  3. [居縮クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_isyukuClock.html)を実行
+  3. [居縮クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_isukumiClock.html)を実行
 
 #### 居縮付与タグ
 

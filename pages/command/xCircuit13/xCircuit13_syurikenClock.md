@@ -1,12 +1,12 @@
 ---
 title: 手裏剣クロック処理
-tags: [コマンド,スキル,忍者,スキル]
+tags: [コマンド,スキル,忍者]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 update: 2020-10-28 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit13/xCircuit13_syurikenClock.html
 datatable3c: true
-summary: 
+summary: 忍者のスキルの1つである手裏剣の攻撃処理や演出などを行う。スキルの攻撃力をスキルのレベルと、スキル実行者が投げてから0.5秒経った雪玉の個数によって変動させる。
 summaryDisable: true
 tocLimit: h3
 ---

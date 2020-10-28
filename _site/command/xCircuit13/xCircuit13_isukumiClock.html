@@ -5,9 +5,11 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=" ">
-<title> | TUSB Analysis</title><!-- Google Tag Manager -->
+<meta name="description" content="忍者のスキルの一つである居縮の演出と敵Mobを停止するためのタグFreezeの付与、PotentialSkillの値によるタグの付与などを行う。">
+<meta name="keywords" content="コマンドスキル忍者,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<title>居縮クロック処理 | TUSB Analysis</title>
+<link rel="canonical" href="https://aka256.github.io/TUSB_Analysis/command/xCircuit13/xCircuit13_isukumiClock.html">
+<!-- Google Tag Manager -->
 <script>
     (function(w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -60,9 +62,9 @@
 
 <meta name="twitter:card" content="summary" /> <!--①-->
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
-<meta property="og:url" content="https://aka256.github.io/TUSB_Analysis" /> <!--③-->
-<meta property="og:title" content=" | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="" /> <!--⑤-->
+<meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit13/xCircuit13_isukumiClock.html" /> <!--③-->
+<meta property="og:title" content="居縮クロック処理 | TUSB Analysis" /> <!--④-->
+<meta property="og:description" content="忍者のスキルの一つである居縮の演出と敵Mobを停止するためのタグFreezeの付与、PotentialSkillの値によるタグの付与などを行う。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -135,6 +137,37 @@
         });
     </script>
      
+    <!-- Include the standard DataTables bits -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <!-- First, this walks through the tables that occur between ...-begin
+         and ...-end and add the "datatable" class to them.
+         Then it invokes DataTable's standard initializer
+         Credit here: http://www.beardedhacker.com/blog/2015/08/28/add-class-attribute-to-markdown-table/
+      -->
+    <script>
+        $(document).ready(function() {
+            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
+            $('table.display').DataTable({
+                paging: true,
+                stateSave: true,
+                searching: true,
+                autoWidth: false,
+                lengthChange: true,
+                columns: [{
+                    responsivePriority: 2,
+                    width: "2em"
+                }, {
+                    responsivePriority: 3,
+                    width: "77%"
+                }, {
+                    responsivePriority: 1,
+                    width: "15%"
+                }],
+            });
+        });
+    </script>
+    
     <style type="text/css">
         table {
             table-layout: fixed;
@@ -732,7 +765,7 @@
                 <!-- Content Column -->
                 <div class="col-md-9" id="tg-sb-content">
                     <div class="post-header">
-   <h1 class="post-title-main"></h1>
+   <h1 class="post-title-main">居縮クロック処理</h1>
 </div>
 
 
@@ -752,7 +785,7 @@
             minimumHeaders: 0,
             listType: 'ul',
             showSpeed: 0,
-            headers: 'h2,h3,h4'
+            headers: 'h2,h3'
         });
 
         /* this offset helps account for the space taken up by the floating toolbar. */
@@ -773,10 +806,361 @@
 
     
 
-   
+   <h2 id="about">About</h2>
+
+<p><span class="tagYellow">位置</span> (-1920,14,-143)</p>
+
+<p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_command.html">毎tick実行するコマンド群13</a></p>
+
+<p>忍者のスキルの一つである居縮の演出と敵Mobを停止するためのタグ<code class="language-plaintext highlighter-rouge">Freeze</code>の付与、<code class="language-plaintext highlighter-rouge">PotentialSkill</code>の値によるタグの付与などを行う。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @e[tag=Isukumi] ~ ~ ~ /playsound entity.mooshroom.shear master @a[r=16] ~ ~ ~ 0.2 1.2 0</td>
+      <td>リピート<br />動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @e[tag=Isukumi] ~ ~ ~ /particle dragonbreath ~ ~-0.3 ~ 0 0 0 0 1 force</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute @e[tag=ProjectileHit] ~ ~ ~ /scoreboard players tag @e[dx=0,tag=ProjectileHit,score_PotentialSkill_min=2230,score_PotentialSkill=2239,c=1] add Freeze</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/execute @e[tag=ProjectileHit] ~ ~ ~ /execute @e[dx=0,tag=ProjectileHit,score_PotentialSkill_min=2230,score_PotentialSkill=2239,c=1] ~ ~ ~ /playsound entity.ghast.hurt master @a[r=32] ~ ~ ~ 0.4 2 0.2</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/execute @e[tag=ProjectileHit] ~ ~ ~ /execute @e[dx=0,tag=ProjectileHit,score_PotentialSkill_min=2230,score_PotentialSkill=2239,c=1] ~ ~ ~ /particle townaura ~ ~1 ~ 0.5 0.5 0.5 0 60 force</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/execute @e[tag=ProjectileHit] ~ ~ ~ /entitydata @e[dx=0,tag=ProjectileHit,score_PotentialSkill_min=2230,score_PotentialSkill=2230,c=1] {NoAI:true,PortalCooldown:100}</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/execute @e[tag=ProjectileHit] ~ ~ ~ /entitydata @e[dx=0,tag=ProjectileHit,score_PotentialSkill_min=2231,score_PotentialSkill=2239,c=1] {NoAI:true,PortalCooldown:200}</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/fill ~-5 ~1 ~ ~ ~1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players test #EntityCount Global * 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/fill -1921 ~ ~ -1921 ~ ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0 ###ストップ</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<h3 id="no1のコマンドブロックについて">No.1のコマンドブロックについて</h3>
+
+<p>No.1のコマンドブロックには以下のタグが付与されている。</p>
+
+<pre><code class="language-mcfunction">CommandStats:{AffectedEntitiesObjective:"Global",AffectedEntitiesName:"#EntityCount"}
+</code></pre>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">Isukumi</code>を持つ</strong>エンティティが存在するとき、以下の事柄を実行
+    <ol>
+      <li>対象エンティティから半径16m以内のすべてのプレイヤーに効果音を鳴らし、<strong>その数を<code class="language-plaintext highlighter-rouge">#EntityCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>に代入</strong></li>
+      <li>対象エンティティの座標上にパーティクルを表示</li>
+    </ol>
+  </li>
+  <li><a href="#居縮hit処理部">居縮HIT処理部</a>が起動しているとき、それを実行</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">#EntityCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が0以下であるとき</strong>、<a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_isukumiClock.html">居縮クロック処理</a>を停止</li>
+</ol>
+
+<h3 id="居縮hit処理部">居縮HIT処理部</h3>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持つエンティティと同じ座標上かつ、<code class="language-plaintext highlighter-rouge">PotentialSkill</code>が2230 ~ 2239、そして<code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持つ</strong>すべてのエンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティに<strong><code class="language-plaintext highlighter-rouge">Freeze</code>を付与</strong></li>
+      <li>対象エンティティから半径32m以内のすべてのプレイヤーに効果音を鳴らす</li>
+      <li>対象エンティティの座標上にパーティクルを表示</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持つエンティティと同じ座標上かつ、<strong><code class="language-plaintext highlighter-rouge">PotentialSkill</code>が2230</strong>、そして<code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持つすべてのエンティティに<strong><a href="#居縮付与タグ1">居縮付与タグ1</a>を付与</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持つエンティティと同じ座標上かつ、<strong><code class="language-plaintext highlighter-rouge">PotentialSkill</code>が2231 ~ 2239</strong>、そして<code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持つすべてのエンティティに<strong><a href="#居縮付与タグ2">居縮付与タグ2</a>を付与</strong></li>
+  <li><a href="#居縮hit処理部">居縮HIT処理部</a>を停止</li>
+</ol>
+
+<h3 id="居縮付与タグ1">居縮付与タグ1</h3>
+
+<pre><code class="language-mcfunction">{
+  NoAI:true,
+  PortalCooldown:100
+}
+</code></pre>
+
+<h3 id="居縮付与タグ2">居縮付与タグ2</h3>
+
+<pre><code class="language-mcfunction">{
+  NoAI:true,
+  PortalCooldown:200
+}
+</code></pre>
 
 
     <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_command.html" class="btn btn-default navbar-btn cursorNorm" role="button">コマンド</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_ninja.html" class="btn btn-default navbar-btn cursorNorm" role="button">忍者</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     </div>
 
@@ -811,6 +1195,8 @@
         <div class="col-lg-12 footer">
             Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.<br>
             <a href="https://github.com/aka256/TUSB_Analysis">Page source</a><br>
+            
+              <span>Page last updated:</span> 28 Oct 2020<br/>
             
             Site last generated: 28 Oct 2020 <br />
         </div>

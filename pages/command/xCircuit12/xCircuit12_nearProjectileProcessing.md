@@ -65,7 +65,7 @@ summaryDisable: true
 |:-:|-|
 |1220 ~ 1229|[真空斬りクロック処理]({{site.baseurl}}/command/xCircuit12/xCircuit12_aerialSlashClock.html)の[真空斬りHIT処理部]({{site.baseurl}}/command/xCircuit12/xCircuit12_aerialSlashClock.html#真空斬りhit処理部)|
 |2200 ~ 2209|[手裏剣クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_syurikenClock.html)の[手裏剣HIT処理部]({{site.baseurl}}/command/xCircuit13/xCircuit13_syurikenClock.html#手裏剣hit処理部)|
-|2230 ~ 2239|[居縮クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_isyukuClock.html)の[居縮HIT処理部]({{site.baseurl}}/command/xCircuit13/xCircuit13_isyukuClock.html#居縮hit処理部)|
+|2230 ~ 2239|[居縮クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_isukumiClock.html)の[居縮HIT処理部]({{site.baseurl}}/command/xCircuit13/xCircuit13_isukumiClock.html#居縮hit処理部)|
 |3210 ~ 3219|[チェインアロークロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_chainArrowClock.html)の[チェインアローHIT処理部]({{site.baseurl}}/command/xCircuit13/xCircuit13_chainArrowClock.html#チェインアローhit処理部)|
 |3230 ~ 3239|[ブラストショットクロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_blastShotClock.html)の[ブラストショットHIT処理部]({{site.baseurl}}/command/xCircuit13/xCircuit13_blastShotClock.html#ブラストショットhit処理部)|
 |3240 ~ 3249|[バードストライククロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_birdStrikeClock.html)の[バードストライクHIT処理部]({{site.baseurl}}/command/xCircuit13/xCircuit13_birdStrikeClock.html#バードストライクhit処理部)|
