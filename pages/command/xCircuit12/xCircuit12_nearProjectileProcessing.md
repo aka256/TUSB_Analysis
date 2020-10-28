@@ -2,7 +2,7 @@
 title: NearProjectile処理
 tags: [コマンド]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-09-27 09:21:00 +0000
+update: 2020-10-28 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit12/xCircuit12_nearProjectileProcessing.html
 datatable3c: true
@@ -63,14 +63,14 @@ summaryDisable: true
 
 |PotentialSkill|起動部|
 |:-:|-|
-|1220 ~ 1229|[真空斬りクロック処理]({{site.baseurl}}/command/xCircuit12/xCircuit12_aerialSlashClock.html)の真空斬りHIT処理部を実行|
-|2200 ~ 2209|[手裏剣クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_syurikenClock.html)の手裏剣HIT処理部を実行|
-|2230 ~ 2239|[居縮クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_isyukuClock.html)の居縮HIT処理部を実行|
-|3210 ~ 3219|[チェインアロークロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_chainArrowClock.html)のチェインアローHIT処理部を実行|
-|3230 ~ 3239|[ブラストショットクロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_blastShotClock.html)のブラストショットHIT処理部を実行|
-|3240 ~ 3249|[バードストライククロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_birdStrikeClock.html)のバードストライクHIT処理部を実行|
-|3260 ~ 3269|[フェイタルショットクロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_fatalShotClock.html)のフェイタルショットHIT処理部を実行|
-|4210 ~ 4219|[ディアクロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_deiaClock.html)のディアHIT処理部を実行|
+|1220 ~ 1229|[真空斬りクロック処理]({{site.baseurl}}/command/xCircuit12/xCircuit12_aerialSlashClock.html)の[真空斬りHIT処理部]({{site.baseurl}}/command/xCircuit12/xCircuit12_aerialSlashClock.html#真空斬りhit処理部)|
+|2200 ~ 2209|[手裏剣クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_syurikenClock.html)の[手裏剣HIT処理部]({{site.baseurl}}/command/xCircuit13/xCircuit13_syurikenClock.html#手裏剣hit処理部)|
+|2230 ~ 2239|[居縮クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_isyukuClock.html)の[居縮HIT処理部]({{site.baseurl}}/command/xCircuit13/xCircuit13_isyukuClock.html#居縮hit処理部)|
+|3210 ~ 3219|[チェインアロークロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_chainArrowClock.html)の[チェインアローHIT処理部]({{site.baseurl}}/command/xCircuit13/xCircuit13_chainArrowClock.html#チェインアローhit処理部)|
+|3230 ~ 3239|[ブラストショットクロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_blastShotClock.html)の[ブラストショットHIT処理部]({{site.baseurl}}/command/xCircuit13/xCircuit13_blastShotClock.html#ブラストショットhit処理部)|
+|3240 ~ 3249|[バードストライククロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_birdStrikeClock.html)の[バードストライクHIT処理部]({{site.baseurl}}/command/xCircuit13/xCircuit13_birdStrikeClock.html#バードストライクhit処理部)|
+|3260 ~ 3269|[フェイタルショットクロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_fatalShotClock.html)の[フェイタルショットHIT処理部]({{site.baseurl}}/command/xCircuit13/xCircuit13_fatalShotClock.html#フェイタルショットhit処理部)|
+|4210 ~ 4219|[ディアクロック処理]({{site.baseurl}}/command/xCircuit14/xCircuit14_deiaClock.html)の[ディアHIT処理部]({{site.baseurl}}/command/xCircuit14/xCircuit14_deiaClock.html#ディアhit処理部)|
 
 ### ProjectileHitリセット
 

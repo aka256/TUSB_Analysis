@@ -8,7 +8,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/entity/entity_entity.html</loc>
-    <lastmod>2020-09-27T09:00:00+09:00</lastmod>
+    <lastmod>2020-10-28T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -28,7 +28,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/index.html</loc>
-    <lastmod>2020-07-18T09:21:00+09:00</lastmod>
+    <lastmod>2020-10-28T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -84,7 +84,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/others/others_tags.html</loc>
-    <lastmod>2020-07-10T09:00:00+09:00</lastmod>
+    <lastmod>2020-10-28T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -107,8 +107,6 @@
     <lastmod>2020-08-26T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
-  
-  
   
   
   
@@ -169,8 +167,6 @@
     <lastmod>2020-06-23T00:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
-  
-  
   
   
   
@@ -1122,7 +1118,7 @@
   
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit12/xCircuit12_nearProjectileProcessing.html</loc>
-    <lastmod>2020-09-27T09:21:00+09:00</lastmod>
+    <lastmod>2020-10-28T09:21:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   
@@ -1147,6 +1143,24 @@
   </url>
   
   
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit13/xCircuit13_command.html</loc>
+    <lastmod>2020-10-28T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuit13/xCircuit13_syurikenClock.html</loc>
+    <lastmod>2020-10-28T09:21:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
   
   
   
@@ -1995,6 +2009,66 @@
   <url>
     <loc>https://aka256.github.io/TUSB_Analysis/command/xCircuitCore/xCircuitCore_systemKeeperProcessing.html</loc>
     <lastmod>2020-07-07T09:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/pages/command/xCircuit13/xCircuit13_birdStrikeClock.html</loc>
+    <lastmod>2020-08-26T09:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/pages/command/xCircuit13/xCircuit13_blastShotClock.html</loc>
+    <lastmod>2020-08-26T09:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/pages/command/xCircuit13/xCircuit13_chainArrowClock.html</loc>
+    <lastmod>2020-08-26T09:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/pages/command/xCircuit13/xCircuit13_fatalShotClock.html</loc>
+    <lastmod>2020-08-26T09:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/pages/command/xCircuit13/xCircuit13_isyukuClock.html</loc>
+    <lastmod>2020-08-26T09:00:00+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>https://aka256.github.io/TUSB_Analysis/pages/command/xCircuit13/xCircuit13_sayonara.html</loc>
+    <lastmod>2020-08-26T09:00:00+09:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   

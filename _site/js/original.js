@@ -28,8 +28,8 @@ function openCloseBE(className) {
         var next = obj[i].nextElementSibling;
         while (!next.classList.contains(endName)) {
             if (next.style.display == "none" || tar.innerHTML == "+") {
-                next.style.display = "inline-block";
-            } else if (next.style.display == "inline-block" || tar.innerHTML == "-") {
+                next.style.display = "";
+            } else if (next.style.display != "none" || tar.innerHTML == "-") {
                 next.style.display = "none";
             }
             next = next.nextElementSibling;
@@ -71,8 +71,8 @@ function openCloseBE1(className) {
         }
         while (!target.classList.contains(endName)) {
             if (target.style.display == "none" || tar.innerHTML == "+") {
-                target.style.display = "inline-block";
-            } else if (target.style.display == "inline-block" || tar.innerHTML == "-") {
+                target.style.display = "block";
+            } else if (target.style.display == "block" || tar.innerHTML == "-") {
                 target.style.display = "none";
             }
             child = target.children;

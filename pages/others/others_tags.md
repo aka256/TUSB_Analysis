@@ -2,7 +2,7 @@
 title: タグ
 tags: [タグ]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-07-10 09:00:00 +0000
+update: 2020-10-28 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: others/others_tags.html
 folder: others
@@ -10,6 +10,9 @@ folder: others
 summary: コマンドに関係するタグについてまとめる。
 summaryDisable: true
 ---
+
+**編集中**
+情報の抜け漏れについてはご容赦を...
 
 ## TagList
 
@@ -114,3 +117,19 @@ summaryDisable: true
 |WarpByJob|Player|職業島から通常世界へのワープ時のフラグ|
 |WarpOnly|Entity|敵Mobのワープ処理|
 |WhiteRider|ホワイトライダー|
+
+## 個別詳細
+
+### 飛び道具系タグ
+
+#### Projectile
+
+スキルで用いられる雪玉や矢に付与されるタグである。[Projectile処理]({{site.baseurl}}/command/xCircuit12/xCircuit12_projectileProcessing.html)にて半径5m以内の敵MOBに、`NearProjectile`を付与する。このタグが削除される時は無い<span style="color:gray;">はず</span>。
+
+#### NearProjectile
+
+`Projectile`を持つ飛び道具から半径5m以内の敵MOBに付与されるタグである。要は飛び道具系スキルが当たる可能性のあるターゲットへ付与されるタグである。[NearProjectile処理]({{site.baseurl}}/command/xCircuit12/xCircuit12_nearProjectileProcessing.html)にて、このタグを持つ敵MOBがダメージを受けた時そのMOBに`ProjectileHit`を付与し、すべてのエンティティからこのタグを削除する。
+
+#### ProjectileHit
+
+`NearProjectile`を持った敵MOBがダメージを受けた時に付与されるタグである。[NearProjectile処理]({{site.baseurl}}/command/xCircuit12/xCircuit12_nearProjectileProcessing.html)にて、`PotentialSkill`の値に応じHIT処理部を起動し、同じコマンド群にて削除される。

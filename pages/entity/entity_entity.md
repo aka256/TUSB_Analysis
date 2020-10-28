@@ -2,7 +2,7 @@
 title: エンティティ
 tags: [敵Mob,SystemEntity,村人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,エンティティ
-update: 2020-09-27 09:00:00 +0000
+update: 2020-10-28 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: entity/entity_entity.html
 summary: コマンドに関係するエンティティについてまとめる。
@@ -455,6 +455,18 @@ tocLimit: h3
 |Name|(None)|
 |Type|AEC|
 |Tags|SystemEntity,TypeChecked|
+
+### SayonaraPoint
+
+```mcfunction
+/summon AreaEffectCloud ~ ~ ~ {Invulnerable:true,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:take,Tags:[SayonaraPoint,SystemEntity,TypeChecked]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|AEC|
+|Tags|SayonaraPoint,SystemEntity,TypeChecked|
+|Duration|2|
 
 ## MOB
 
@@ -1240,3 +1252,105 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 |Tags|Garbage,TypeChecked|
 |life|1200 (即消滅)|
 |damage|**150**|
+
+### ガストキャノン1
+
+```mcfunction
+/summon Fireball ~ ~ ~ {CustomName:”ガストキャノン”,ExplosionPower:1b,direction:[0d,0d,0d],Tags:[FlyingObject,Driftable,TypeChecked]}
+```
+
+|-|-|
+|Name|ガストキャノン|
+|Type|Fireball|
+|Tags|FlyingObject,Driftable,TypeChecked|
+|ExplosionPower|1|
+
+### ガストキャノン2
+
+```mcfunction
+/summon Fireball ~ ~ ~ {CustomName:”ガストキャノン”,ExplosionPower:2b,direction:[0d,0d,0d],Tags:[FlyingObject,Driftable,TypeChecked]}
+```
+
+|-|-|
+|Name|ガストキャノン|
+|Type|Fireball|
+|Tags|FlyingObject,Driftable,TypeChecked|
+|ExplosionPower|2|
+
+#### スリケン1
+
+|-|-|
+|Name|スリケン|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|**30**|
+|life|1200(即消滅)|
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”スリケン”,damage:30d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+```
+
+#### スリケン2
+
+|-|-|
+|Name|スリケン|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|**45**|
+|life|1200(即消滅)|
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”スリケン”,damage:45d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+```
+
+#### スリケン3
+
+|-|-|
+|Name|スリケン|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|**60**|
+|life|1200(即消滅)|
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”スリケン”,damage:60d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+```
+
+#### スリケン4
+
+|-|-|
+|Name|スリケン|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|**75**|
+|life|1200(即消滅)|
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”スリケン”,damage:75d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+```
+
+#### スリケン5
+
+|-|-|
+|Name|スリケン|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|**105**|
+|life|1200(即消滅)|
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”スリケン”,damage:105d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+```
+
+#### スリケン6
+
+|-|-|
+|Name|スリケン|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|**150**|
+|life|1200(即消滅)|
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”スリケン”,damage:150d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+```

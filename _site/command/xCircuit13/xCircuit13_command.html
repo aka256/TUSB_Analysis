@@ -5,8 +5,8 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content="コマンド,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<meta name="description" content="雪玉や矢などの投擲物を用いたスキルやアイテムエンティティを用いたスキルなどの攻撃処理や演出、他のコマンド群への分岐などを行う。">
+<meta name="keywords" content="コマンドスキル忍者狩人,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
 <title>毎tick実行するコマンド群13 | TUSB Analysis</title>
 <link rel="canonical" href="https://aka256.github.io/TUSB_Analysis/command/xCircuit13/xCircuit13_command.html">
 <!-- Google Tag Manager -->
@@ -64,7 +64,7 @@
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
 <meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit13/xCircuit13_command.html" /> <!--③-->
 <meta property="og:title" content="毎tick実行するコマンド群13 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="" /> <!--⑤-->
+<meta property="og:description" content="雪玉や矢などの投擲物を用いたスキルやアイテムエンティティを用いたスキルなどの攻撃処理や演出、他のコマンド群への分岐などを行う。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -679,6 +679,17 @@
     </li>
       
     <li>
+        <a title="毎tick実行するコマンド群13" href="#">毎tick実行するコマンド群13</a>
+        <ul>
+              
+            <li class="active"><a title="毎tick実行するコマンド群13" href="/TUSB_Analysis/command/xCircuit13/xCircuit13_command.html">毎tick実行するコマンド群13</a></li>
+                 
+            <li><a title="手裏剣クロック処理" href="/TUSB_Analysis/command/xCircuit13/xCircuit13_syurikenClock.html">手裏剣クロック処理</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
         <a title="超作業台ルーム" href="#">超作業台ルーム</a>
         <ul>
               
@@ -778,7 +789,7 @@
             minimumHeaders: 0,
             listType: 'ul',
             showSpeed: 0,
-            headers: 'h2,h3,h4'
+            headers: 'h2,h3'
         });
 
         /* this offset helps account for the space taken up by the floating toolbar. */
@@ -799,15 +810,625 @@
 
     
 
-   <p><strong>編集中です。</strong></p>
-
-<h2 id="about">About</h2>
+   <h2 id="about">About</h2>
 
 <p><span class="tagYellow">位置</span> (-1920,4,-143)</p>
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_initializeProcessing.html">初期化処理</a>, <a href="/TUSB_Analysis/command/xCircuitCore/xCircuitCore_mainclockProcessing.html">村人像</a></p>
 
-<p><span class="tagBlue">分岐先</span></p>
+<p><span class="tagBlue">分岐先</span> <a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_syurikenClock.html">手裏剣クロック処理</a>, <a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_isyukuClock.html">居縮クロック処理</a>, <a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_sayonara.html">サヨナラ処理</a>, <a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_staksLosePerform.html">ステークス負け演出</a>, <a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_staksWinProcessing.html">ステークス勝ち反映</a>, <a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_staksWinPerform.html">ステークス勝ち演出</a>, <a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_chainArrowClock.html">チェインアロークロック処理</a>, <a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_blastShotClock.html">ブラストショットクロック処理</a>, <a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_birdStrikeClock.html">バードストライクロック処理</a>, <a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_fatalShotClock.html">フェイタルショットロック処理</a></p>
+
+<p>雪玉や矢などの投擲物を用いたスキルやアイテムエンティティを用いたスキルなどの攻撃処理や演出、他のコマンド群への分岐などを行う。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable4c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+      <th>コメント</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td> </td>
+      <td> </td>
+      <td>(空白)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @a[score_ActivatedSkill_min=2200,score_ActivatedSkill=2209] ~ ~1.52 ~ /entitydata @e[r=2,type=Snowball,c=1] {Tags:[Suriken,Projectile,SurikenIn10,FlyingObject,Driftable,TypeChecked],PortalCooldown:10}</td>
+      <td>動力が必要</td>
+      <td>忍者<br />手裏剣</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute @a[score_ActivatedSkill_min=2200,score_ActivatedSkill=2209] ~ ~1.52 ~ /scoreboard players operation @e[r=2,type=Snowball,c=1] ProjectileSkill = @a[c=1] ActivatedSkill</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/fill -1921 11 ~ -1921 11 ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0 ###手裏剣クロック</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/fill ~-3 ~-1 ~ ~ ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/execute @a[score_ActivatedSkill_min=2230,score_ActivatedSkill=2239] ~ ~1.52 ~ /entitydata @e[r=2,type=Snowball,c=1] {Tags:[Isukumi,Projectile,FlyingObject,Driftable,TypeChecked]}</td>
+      <td>動力が必要</td>
+      <td>忍者<br />居縮</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/execute @a[score_ActivatedSkill_min=2230,score_ActivatedSkill=2239] ~ ~1.52 ~ /scoreboard players operation @e[r=2,type=Snowball,c=1] ProjectileSkill = @a[c=1] ActivatedSkill</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/fill -1921 14 ~ -1921 14 ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0 ###居縮クロック</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/fill ~-3 ~-1 ~ ~ ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/clone -1920 17 ~ -1920 17 ~ -1920 17 ~ filtered force minecraft:command_block 5 ###サヨナラ予約</td>
+      <td>動力が必要</td>
+      <td>忍者<br />サヨナラ</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/execute @a[score_ActivatedSkill_min=2240,score_ActivatedSkill=2249] ~ ~1.32 ~ /summon AreaEffectCloud ~ ~ ~ {Invulnerable:true,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:take,Tags:[SayonaraPoint,SystemEntity,TypeChecked]}</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/execute @a[score_ActivatedSkill_min=2240,score_ActivatedSkill=2249] ~ ~1.32 ~ /entitydata @e[r=35,type=Item,tag=!SystemEntity] {Invulnerable:true,Motion:[0d,0d,0d],Tags:[TypeChecked]}</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/execute @a[score_ActivatedSkill_min=2240,score_ActivatedSkill=2249] ~ ~1.32 ~ /tp @e[r=5,type=Item,tag=!SystemEntity] @a[c=1]</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/fill ~-4 ~-1 ~ ~ ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/scoreboard players operation @a[score_ActivatedSkill_min=3200,score_ActivatedSkill=3209] Random %= #20 Const</td>
+      <td>動力が必要</td>
+      <td>狩人<br />ステークスファイア</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/scoreboard players add @a[score_ActivatedSkill_min=3200,score_ActivatedSkill=3209] Random 8</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/scoreboard players add @a[score_ActivatedSkill_min=3201,score_ActivatedSkill=3209] Random 4</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/scoreboard players add @a[score_ActivatedSkill_min=3202,score_ActivatedSkill=3209] Random 4</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/execute @a[score_ActivatedSkill_min=3200,score_ActivatedSkill=3209,score_Random=19] ~ ~1.52 ~ /entitydata @e[r=2,tag=Arrow,c=1] {Tags:[Arrow,StakesLose,FlyingObject,Driftable,TypeChecked],damage:0d}</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/fill -1921 9 ~2 -1921 9 ~2 minecraft:redstone_block 0 replace minecraft:lapis_block 0 ###ステークス負け演出</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/execute @a[score_ActivatedSkill_min=3200,score_ActivatedSkill=3209,score_Random_min=20] ~ ~1.52 ~ /entitydata @e[r=2,tag=Arrow,c=1] {Tags:[Arrow,StakesWin,StakesChange,FlyingObject,Driftable,TypeChecked]}</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/execute 0-0-1-0-1 ~ 8 -141 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###ステークス勝ち反映</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/fill -1921 11 ~2 -1921 11 ~2 minecraft:redstone_block 0 replace minecraft:lapis_block 0 ###ステークス勝ち演出</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/fill ~-9 ~-1 ~ ~ ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td>/execute @a[score_ActivatedSkill_min=3210,score_ActivatedSkill=3219] ~ ~1.52 ~ /entitydata @e[r=2,tag=Arrow,c=1] {Tags:[Arrow,ChainArrow,Projectile,FlyingObject,Driftable,TypeChecked]}</td>
+      <td>動力が必要</td>
+      <td>狩人<br />チェインアロー</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td>/execute @a[score_ActivatedSkill_min=3210,score_ActivatedSkill=3219] ~ ~1.52 ~ /scoreboard players operation @e[r=2,type=Arrow,c=1] ProjectileSkill = @a[c=1] ActivatedSkill</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">27</td>
+      <td>/fill -1921 13 ~2 -1921 13 ~2 minecraft:redstone_block 0 replace minecraft:lapis_block 0 ###チェインアロークロック</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">28</td>
+      <td>/fill ~-3 ~-1 ~ ~ ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">29</td>
+      <td>/execute @a[score_ActivatedSkill_min=3230,score_ActivatedSkill=3239] ~ ~ ~ /playsound item.flintandsteel.use master @a[r=16] ~ ~ ~ 1 1.2 0</td>
+      <td>動力が必要</td>
+      <td>狩人<br />ブラストショット</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">30</td>
+      <td>/execute @a[score_ActivatedSkill_min=3230,score_ActivatedSkill=3239] ~ ~1.52 ~ /entitydata @e[r=2,tag=Arrow,c=1] {Tags:[BlastShot,Arrow,Projectile,FlyingObject,Driftable,TypeChecked]}</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">31</td>
+      <td>/execute @a[score_ActivatedSkill_min=3230,score_ActivatedSkill=3239] ~ ~1.52 ~ /scoreboard players operation @e[r=2,type=Arrow,c=1] ProjectileSkill = @a[c=1] ActivatedSkill</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">32</td>
+      <td>/fill -1921 16 ~2 -1921 16 ~2 minecraft:redstone_block 0 replace minecraft:lapis_block 0 ###ブラストショットクロック</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">33</td>
+      <td>/fill ~-4 ~-1 ~ ~ ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">34</td>
+      <td>/execute @a[score_ActivatedSkill_min=3240,score_ActivatedSkill=3249] ~ ~1.52 ~ /entitydata @e[r=2,tag=Arrow,c=1] {Tags:[BirdStrike,Arrow,Projectile,FlyingObject,Driftable,TypeChecked]}</td>
+      <td>動力が必要</td>
+      <td>狩人<br />バードストライク</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">35</td>
+      <td>/execute @a[score_ActivatedSkill_min=3240,score_ActivatedSkill=3249] ~ ~1.52 ~ /scoreboard players operation @e[r=2,type=Arrow,c=1] ProjectileSkill = @a[c=1] ActivatedSkill</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">36</td>
+      <td>/fill -1921 13 ~3 -1921 13 ~3 minecraft:redstone_block 0 replace minecraft:lapis_block 0 ###バードストライククロック</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">37</td>
+      <td>/fill ~-3 ~-1 ~ ~ ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">38</td>
+      <td>/execute @a[score_ActivatedSkill_min=3250,score_ActivatedSkill=3259] ~ ~ ~ /playsound entity.blaze.shoot master @a[r=16] ~ ~ ~ 1 0.85 0</td>
+      <td>動力が必要</td>
+      <td>狩人<br />ガストキャノン</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">39</td>
+      <td>/execute @a[score_ActivatedSkill_min=3250,score_ActivatedSkill=3259] ~ ~ ~ /particle lava ~ ~ ~ 0.5 0.5 0.5 0.1 30 force</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">40</td>
+      <td>/execute @a[score_ActivatedSkill_min=3250,score_ActivatedSkill=3250] ~ ~1.52 ~ /execute @e[r=2,tag=Arrow,c=1] ~ ~ ~ /summon Fireball ~ ~ ~ {CustomName:”ガストキャノン”,ExplosionPower:1b,direction:[0d,0d,0d],Tags:[FlyingObject,Driftable,TypeChecked]}</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">41</td>
+      <td>/execute @a[score_ActivatedSkill_min=3251,score_ActivatedSkill=3259] ~ ~1.52 ~ /execute @e[r=2,tag=Arrow,c=1] ~ ~ ~ /summon Fireball ~ ~ ~ {CustomName:”ガストキャノン”,ExplosionPower:2b,direction:[0d,0d,0d],Tags:[FlyingObject,Driftable,TypeChecked]}</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">42</td>
+      <td>/fill ~-4 ~-1 ~ ~ ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">43</td>
+      <td>/execute @a[score_ActivatedSkill_min=3260,score_ActivatedSkill=3269] ~ ~1.52 ~ /entitydata @e[r=2,tag=Arrow,c=1] {Tags:[FatalShot,Arrow,Projectile,FlyingObject,Driftable,TypeChecked]}</td>
+      <td>動力が必要</td>
+      <td>狩人<br />フェイタルショット</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">44</td>
+      <td>/execute @a[score_ActivatedSkill_min=3260,score_ActivatedSkill=3269] ~ ~1.52 ~ /scoreboard players operation @e[r=2,type=Arrow,c=1] ProjectileSkill = @a[c=1] ActivatedSkill</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">45</td>
+      <td>/fill -1921 16 ~3 -1921 16 ~3 minecraft:redstone_block 0 replace minecraft:lapis_block 0 ###フェイタルショットクロック</td>
+      <td>条件付き</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">46</td>
+      <td>/fill ~-3 ~-1 ~ ~ ~-1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable4c-end"></div>
+
+<h2 id="詳細">詳細</h2>
+
+<h3 id="手裏剣実行部">手裏剣実行部</h3>
+
+<ul>
+  <li><a href="#手裏剣実行部">手裏剣実行部</a>では、雪玉へのタグの付与や<a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_syurikenClock.html">手裏剣クロック処理</a>への分岐などを行う。</li>
+  <li>
+    <p><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_command.html">毎tick実行するコマンド群9</a>によって起動される</p>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が2200 ~ 2209</strong>であるすべてのプレイヤーから1.52m上を中心とした、<strong>半径2m以内の1体の雪玉に対し</strong>、以下の事柄を実行
+    <ol>
+      <li>対象エンティティに<a href="#手裏剣付与タグ">手裏剣付与タグ</a>を付与</li>
+      <li>対象エンティティの<code class="language-plaintext highlighter-rouge">ProjectileSkill</code>に、最も近くのプレイヤーの<code class="language-plaintext highlighter-rouge">ActivatedSkill</code>を代入</li>
+      <li><a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_syurikenClock.html">手裏剣クロック処理</a>を実行</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="手裏剣付与タグ">手裏剣付与タグ</h4>
+
+<pre><code class="language-mcfunction">{
+  Tags:[Suriken,Projectile,SurikenIn10,FlyingObject,Driftable,TypeChecked],
+  PortalCooldown:10
+}
+</code></pre>
+
+<h3 id="居縮実行部">居縮実行部</h3>
+
+<ul>
+  <li><a href="#居縮実行部">居縮実行部</a>では、雪玉へのタグの付与や<a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_isyukuClock.html">居縮クロック処理</a>への分岐などを行う。</li>
+  <li>
+    <p><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_command.html">毎tick実行するコマンド群9</a>によって起動される</p>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が2230 ~ 2239</strong>であるすべてのプレイヤーから1.52m上を中心とした、<strong>半径2m以内の1体の雪玉に対し</strong>、以下の事柄を実行
+    <ol>
+      <li>対象エンティティに<a href="#居縮付与タグ">居縮付与タグ</a>を付与</li>
+      <li>対象エンティティの<code class="language-plaintext highlighter-rouge">ProjectileSkill</code>に、最も近くのプレイヤーの<code class="language-plaintext highlighter-rouge">ActivatedSkill</code>を代入</li>
+      <li><a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_isyukuClock.html">居縮クロック処理</a>を実行</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="居縮付与タグ">居縮付与タグ</h4>
+
+<pre><code class="language-mcfunction">{
+  Tags:[Isukumi,Projectile,FlyingObject,Driftable,TypeChecked]
+}
+</code></pre>
+
+<h3 id="サヨナラ実行部">サヨナラ実行部</h3>
+
+<ul>
+  <li><a href="#サヨナラ実行部">サヨナラ実行部</a>では、<a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_sayonara.html">サヨナラ処理</a>への分岐や<a href="#sayonarapoint">SayonaraPoint</a>の召喚などを行う。</li>
+  <li><a href="/TUSB_Analysis/command/xCircuit9/xCircuit9_command.html">毎tick実行するコマンド群9</a>によって起動される</li>
+</ul>
+
+<ol>
+  <li><a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_sayonara.html">サヨナラ処理</a>を実行</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が2240 ~ 2249</strong>であるすべてのプレイヤーから1.32m上を中心として、以下の事柄を実行
+    <ol>
+      <li><strong><a href="#sayonarapoint">SayonaraPoint</a>を召喚</strong></li>
+      <li>対象座標から<strong>半径35m以内の<code class="language-plaintext highlighter-rouge">SystemEntity</code>を持っていないすべてのアイテムエンティティに、<a href="#サヨナラ付与タグ">サヨナラ付与タグ</a>を付与</strong></li>
+      <li>対象座標から<strong>半径5m以内の<code class="language-plaintext highlighter-rouge">SystemEntity</code>を持たない最も近いアイテムエンティティを、スキル実行者の座標上に移動</strong></li>
+    </ol>
+  </li>
+</ol>
+
+<h4 id="サヨナラ付与タグ">サヨナラ付与タグ</h4>
+
+<pre><code class="language-mcfunction">{
+  Invulnerable:true,
+  Motion:[0d,0d,0d],
+  Tags:[TypeChecked]
+}
+</code></pre>
+
+<h4 id="sayonarapoint">SayonaraPoint</h4>
+
+<pre><code class="language-mcfunction">/summon AreaEffectCloud ~ ~ ~ {Invulnerable:true,Radius:0f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2,RadiusPerTick:0f,WaitTime:0,Age:0,Particle:take,Tags:[SayonaraPoint,SystemEntity,TypeChecked]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>(None)</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>AEC</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>SayonaraPoint,SystemEntity,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>Duration</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="ステークスファイア実行部">ステークスファイア実行部</h3>
+
+<ul>
+  <li><a href="#ステークスファイア実行部">ステークスファイア実行部</a>では、スキルの発動確率の計算や<a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_staksLosePerform.html">ステークス負け演出</a>, <a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_staksWinProcessing.html">ステークス勝ち反映</a>, <a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_staksWinPerform.html">ステークス勝ち演出</a>への分岐などを行う。</li>
+  <li><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_command.html">毎tick実行するコマンド群10</a>によって起動される</li>
+</ul>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3200 ~ 3209であるすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">Random</code>を\(Random=Random\mod 20\)とする</li>
+  <li><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3200であるすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">Random</code>に8を足す (\(8\leq Random\leq 28\))</li>
+  <li><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3201であるすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">Random</code>に12を足す (\(12\leq Random\leq 32\))</li>
+  <li><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3202 ~ 3209であるすべてのプレイヤーの<code class="language-plaintext highlighter-rouge">Random</code>に16を足す (\(16\leq Random\leq 36\))</li>
+  <li><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3200 ~ 3209であるすべてのプレイヤーに対し、以下の事柄を実行
+    <ol>
+      <li><strong>対象プレイヤーの<code class="language-plaintext highlighter-rouge">Random</code>が19以下であるとき</strong>、以下の事柄を実行
+        <ol>
+          <li>対象プレイヤーから1.52m上を中心とした半径2m以内の最も近い矢に、<strong><a href="#ステークス負け付与タグ">ステークス負け付与タグ</a>を付与</strong></li>
+          <li><a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_staksLosePerform.html">ステークス負け演出</a>を実行</li>
+        </ol>
+      </li>
+      <li><strong>対象プレイヤーの<code class="language-plaintext highlighter-rouge">Random</code>が20以上であるとき</strong>、以下の事柄を実行
+        <ol>
+          <li>対象プレイヤーから1.52m上を中心とした半径2m以内の最も近い矢に、<strong><a href="#ステークス勝ち付与タグ">ステークス勝ち付与タグ</a>を付与</strong></li>
+          <li><a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_staksWinProcessing.html">ステークス勝ち反映</a>を実行</li>
+          <li><a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_staksWinPerform.html">ステークス勝ち演出</a>を実行</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h4 id="ステークス負け付与タグ">ステークス負け付与タグ</h4>
+
+<pre><code class="language-mcfunction">{
+  Tags:[Arrow,StakesLose,FlyingObject,Driftable,TypeChecked],
+  damage:0d
+}
+</code></pre>
+
+<h4 id="ステークス勝ち付与タグ">ステークス勝ち付与タグ</h4>
+
+<pre><code class="language-mcfunction">{
+  Tags:[Arrow,StakesWin,StakesChange,FlyingObject,Driftable,TypeChecked]
+}
+</code></pre>
+
+<h3 id="チェインアロー実行部">チェインアロー実行部</h3>
+
+<ul>
+  <li><a href="#チェインアロー実行部">チェインアロー実行部</a>では、矢へのタグの付与や<a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_chainArrowClock.html">チェインアロークロック処理</a>への分岐などを行う。</li>
+  <li>
+    <p><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_command.html">毎tick実行するコマンド群10</a>によって起動される</p>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3210 ~ 3219</strong>であるすべてのプレイヤーから1.52m上を中心とした<strong>半径2m以内の最も近い矢に対し</strong>、以下の事柄を実行
+    <ol>
+      <li>対象エンティティに<a href="#チェインアロー付与タグ">チェインアロー付与タグ</a>を付与</li>
+      <li>対象エンティティの<code class="language-plaintext highlighter-rouge">ProjectileSkill</code>に、スキル実行者の<code class="language-plaintext highlighter-rouge">ActivatedSkill</code>を代入</li>
+      <li><a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_chainArrowClock.html">チェインアロークロック処理</a>を実行</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="チェインアロー付与タグ">チェインアロー付与タグ</h4>
+
+<pre><code class="language-mcfunction">{
+  Tags:[Arrow,ChainArrow,Projectile,FlyingObject,Driftable,TypeChecked]
+}
+</code></pre>
+
+<h3 id="ブラストショット実行部">ブラストショット実行部</h3>
+
+<ul>
+  <li><a href="#ブラストショット実行部">ブラストショット実行部</a>では、矢へのタグの付与や<a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_blastShotClock.html">ブラストショットクロック処理</a>への分岐などを行う。</li>
+  <li>
+    <p><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_command.html">毎tick実行するコマンド群10</a>によって起動される</p>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3230 ~ 3239</strong>であるすべてのプレイヤーに対し、以下の事柄を実行
+    <ol>
+      <li>対象プレイヤーから半径16m以内のすべてのプレイヤーに、効果音を鳴らす</li>
+      <li>対象プレイヤーから1.52m上を中心とした<strong>半径2m以内の最も近い矢に対し</strong>、以下の事柄を実行
+        <ol>
+          <li>対象エンティティに<a href="#ブラストショット付与タグ">ブラストショット付与タグ</a>を付与</li>
+          <li>対象エンティティの<code class="language-plaintext highlighter-rouge">ProjectileSkill</code>に、スキル実行者の<code class="language-plaintext highlighter-rouge">ActivatedSkill</code>を代入</li>
+          <li><a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_blastShotClock.html">ブラストショットクロック処理</a>を実行</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="ブラストショット付与タグ">ブラストショット付与タグ</h4>
+
+<pre><code class="language-mcfunction">{
+  Tags:[BlastShot,Arrow,Projectile,FlyingObject,Driftable,TypeChecked]
+}
+</code></pre>
+
+<h3 id="バードストライク実行部">バードストライク実行部</h3>
+
+<ul>
+  <li><a href="#バードストライク実行部">バードストライク実行部</a>では、矢へのタグの付与や<a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_birdStrikeClock.html">バードストライククロック処理</a>への分岐などを行う。</li>
+  <li>
+    <p><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_command.html">毎tick実行するコマンド群10</a>によって起動される</p>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3240 ~ 3249</strong>であるすべてのプレイヤーから1.52m上を中心とした<strong>半径2m以内の最も近い矢に対し</strong>、以下の事柄を実行
+    <ol>
+      <li>対象エンティティに<a href="#バードストライク付与タグ">バードストライク付与タグ</a>を付与</li>
+      <li>対象エンティティの<code class="language-plaintext highlighter-rouge">ProjectileSkill</code>に、スキル実行者の<code class="language-plaintext highlighter-rouge">ActivatedSkill</code>を代入</li>
+      <li><a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_birdStrikeClock.html">バードストライクロック処理</a>を実行</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="バードストライク付与タグ">バードストライク付与タグ</h4>
+
+<pre><code class="language-mcfunction">{
+  Tags:[BirdStrike,Arrow,Projectile,FlyingObject,Driftable,TypeChecked]
+}
+</code></pre>
+
+<h3 id="ガストキャノン実行部">ガストキャノン実行部</h3>
+
+<ul>
+  <li><a href="#ガストキャノン実行部">ガストキャノン実行部</a>では、演出や<a href="#ガストキャノン1">ガストキャノン1</a>、<a href="#ガストキャノン2">ガストキャノン2</a>の召喚を行う。</li>
+  <li><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_command.html">毎tick実行するコマンド群10</a>によって起動される</li>
+</ul>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3250 ~ 3259</strong>であるすべてのプレイヤーに対し、以下の事柄を実行
+    <ol>
+      <li>対象プレイヤーから半径16m以内のすべてのプレイヤーに、効果音を鳴らす</li>
+      <li>対象プレイヤーの座標上にパーティクルを表示</li>
+    </ol>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3250</strong>であるすべてのプレイヤーから1.52m上を中心とした、<strong>半径2m以内の最も近い矢の座標上に、<a href="#ガストキャノン1">ガストキャノン1</a>を召喚</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3251 ~ 3259</strong>であるすべてのプレイヤーから1.52m上を中心とした、<strong>半径2m以内の最も近い矢の座標上に、<a href="#ガストキャノン2">ガストキャノン2</a>を召喚</strong></li>
+</ol>
+
+<h4 id="ガストキャノン1">ガストキャノン1</h4>
+
+<pre><code class="language-mcfunction">/summon Fireball ~ ~ ~ {CustomName:”ガストキャノン”,ExplosionPower:1b,direction:[0d,0d,0d],Tags:[FlyingObject,Driftable,TypeChecked]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>ガストキャノン</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Fireball</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>FlyingObject,Driftable,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>ExplosionPower</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="ガストキャノン2">ガストキャノン2</h4>
+
+<pre><code class="language-mcfunction">/summon Fireball ~ ~ ~ {CustomName:”ガストキャノン”,ExplosionPower:2b,direction:[0d,0d,0d],Tags:[FlyingObject,Driftable,TypeChecked]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>ガストキャノン</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Fireball</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>FlyingObject,Driftable,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>ExplosionPower</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="フェイタルショット実行部">フェイタルショット実行部</h3>
+
+<ul>
+  <li><a href="#フェイタルショット実行部">フェイタルショット実行部</a>では、矢へのタグの付与や<a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_fatalShotClock.html">フェイタルショットクロック処理</a>への分岐などを行う。</li>
+  <li>
+    <p><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_command.html">毎tick実行するコマンド群10</a>によって起動される</p>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が3640 ~ 3269</strong>であるすべてのプレイヤーから1.52m上を中心とした<strong>半径2m以内の最も近い矢に対し</strong>、以下の事柄を実行
+    <ol>
+      <li>対象エンティティに<a href="#フェイタルショット付与タグ">フェイタルショット付与タグ</a>を付与</li>
+      <li>対象エンティティの<code class="language-plaintext highlighter-rouge">ProjectileSkill</code>に、スキル実行者の<code class="language-plaintext highlighter-rouge">ActivatedSkill</code>を代入</li>
+      <li><a href="/TUSB_Analysis/command/xCircuit13/xCircuit13_fatalShotClock.html">フェイタルショットロック処理</a>を実行</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="フェイタルショット付与タグ">フェイタルショット付与タグ</h4>
+
+<pre><code class="language-mcfunction">{
+  Tags:[FatalShot,Arrow,Projectile,FlyingObject,Driftable,TypeChecked]
+}
+</code></pre>
 
 
     <div class="tags">
@@ -890,9 +1511,251 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_ninja.html" class="btn btn-default navbar-btn cursorNorm" role="button">忍者</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_archer.html" class="btn btn-default navbar-btn cursorNorm" role="button">狩人</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 
-
+<script id="dsq-count-scr" src="//tusb-analysis.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://tusb-analysis.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
 
@@ -904,9 +1767,9 @@
             Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.<br>
             <a href="https://github.com/aka256/TUSB_Analysis">Page source</a><br>
             
-              <span>Page last updated:</span> 22 Aug 2020<br/>
+              <span>Page last updated:</span> 28 Oct 2020<br/>
             
-            Site last generated: 27 Sep 2020 <br />
+            Site last generated: 28 Oct 2020 <br />
         </div>
     </div>
 </footer>

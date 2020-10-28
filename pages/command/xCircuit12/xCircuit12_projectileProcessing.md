@@ -44,7 +44,7 @@ CommandStats:{AffectedEntitiesObjective:"Global",AffectedEntitiesName:"#EntityCo
 
 ## 詳細
 
-1. **`Prohectile`を持つすべてのエンティティから、半径5m以内の`Enemy`を持ったエンティティが存在するとき**、以下の事柄を実行
+1. **`Projectile`を持つすべてのエンティティから、半径5m以内の`Enemy`を持ったエンティティが存在するとき**、以下の事柄を実行
    1. 対象エンティティに**`NearProjectile`を付与**
    2. 付与できたエンティティの数を`#EntityCount`の`Global`に代入
    3. [NearProjectile処理]({{site.baseurl}}/command/xCircuit12/xCircuit12_nearProjectileProcessing.html)を実行
