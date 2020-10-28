@@ -515,6 +515,16 @@ entries:
       url: /command/xCircuit12/xCircuit12_aerialSlashClock.html
       output: web, pdf
 
+  - title: 毎tick実行するコマンド群13
+    output: web, pdf
+    folderitems:
+    - title: 毎tick実行するコマンド群13
+      url: /command/xCircuit13/xCircuit13_command.html
+      output: web, pdf
+    - title: 手裏剣クロック処理
+      url: /command/xCircuit13/xCircuit13_syurikenClock.html
+      output: web, pdf
+
   - title: 超作業台ルーム
     output: web,pdf
     folderitems:

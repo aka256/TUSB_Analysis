@@ -2,7 +2,7 @@
 title: トップページ
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,minecraft,マインクラフト,配布ワールド
 last_updated: 2020/6/27
-update: 2020-07-18 09:21:00 +0000
+update: 2020-10-28 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: index.html
 hide_sidebar: false
@@ -20,8 +20,8 @@ comments: true
 
 実際に読む際これだけでは分かりにくいと思うので、X回路区域を飛び回りながら読むことをおススメします。
 
-また、何か間違い等がありましたらtwitterにて連絡をいただけると嬉しいです。(<https://twitter.com/Re16d5>)
+また、何か間違い等がありましたらコメント欄もしくはtwitterにて連絡をいただけると嬉しいです。(<https://twitter.com/Re16d5>)
 
----
+(更新:2020/10/28)
 
 {% include changelog.html %}

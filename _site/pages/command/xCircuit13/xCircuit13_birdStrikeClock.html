@@ -6,10 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
-<meta name="keywords" content="command,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
-<title>フィール | TUSB Analysis</title>
-<link rel="canonical" href="https://aka256.github.io/TUSB_Analysis/command/summoner/summoner_fill.html">
-<!-- Google Tag Manager -->
+<meta name="keywords" content=" ">
+<title> | TUSB Analysis</title><!-- Google Tag Manager -->
 <script>
     (function(w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -70,8 +68,8 @@
 
 <meta name="twitter:card" content="summary" /> <!--①-->
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
-<meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/summoner/summoner_fill.html" /> <!--③-->
-<meta property="og:title" content="フィール | TUSB Analysis" /> <!--④-->
+<meta property="og:url" content="https://aka256.github.io/TUSB_Analysis" /> <!--③-->
+<meta property="og:title" content=" | TUSB Analysis" /> <!--④-->
 <meta property="og:description" content="" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
@@ -652,6 +650,17 @@
     </li>
       
     <li>
+        <a title="毎tick実行するコマンド群13" href="#">毎tick実行するコマンド群13</a>
+        <ul>
+              
+            <li><a title="毎tick実行するコマンド群13" href="/TUSB_Analysis/command/xCircuit13/xCircuit13_command.html">毎tick実行するコマンド群13</a></li>
+                 
+            <li><a title="手裏剣クロック処理" href="/TUSB_Analysis/command/xCircuit13/xCircuit13_syurikenClock.html">手裏剣クロック処理</a></li>
+               
+        </ul>
+    </li>
+      
+    <li>
         <a title="超作業台ルーム" href="#">超作業台ルーム</a>
         <ul>
               
@@ -731,7 +740,7 @@
                 <!-- Content Column -->
                 <div class="col-md-9" id="tg-sb-content">
                     <div class="post-header">
-   <h1 class="post-title-main">フィール</h1>
+   <h1 class="post-title-main"></h1>
 </div>
 
 
@@ -772,244 +781,34 @@
 
     
 
-   <h2 id="about">About</h2>
-
-<h2 id="コマンド群">コマンド群</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">No.</th>
-      <th>コマンド</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">1</td>
-      <td>/execute @a[score_ActivatedSkill_min=6200,score_ActivatedSkill=6209] ~ ~ ~ /summon ItemFrame ~ ~ ~ {Invulnerable:true,Facing:0b,Tags:[FillOffset]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2</td>
-      <td>/execute @a[score_ActivatedSkill_min=6200,score_ActivatedSkill=6209,tag=Sneaking] ~ ~ ~ /execute @a[rm=1,r=15] ~ ~ ~ /summon ItemFrame ~ ~ ~ {Invulnerable:true,Facing:0b,Tags:[FillOffset]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">3</td>
-      <td>/execute @a[score_ActivatedSkill_min=6200,score_ActivatedSkill=6209] ~ ~ ~ /entitydata @e[r=15,tag=FillOffset] {:}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">4</td>
-      <td>/execute @a[score_ActivatedSkill_min=6200,score_ActivatedSkill=6209] ~ ~ ~ /playsound entity.bat.takeoff master @a[r=32] ~ ~ ~ 2 0.6 0</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">5</td>
-      <td>/execute @a[score_ActivatedSkill_min=6200,score_ActivatedSkill=6209] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /particle footstep ~ ~-0.5 ~ 2 0 2 0.1 60 force</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">6</td>
-      <td>/execute @a[score_ActivatedSkill_min=6200,score_ActivatedSkill=6209] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~-1 ~-1 ~-0.53125 /fill ~ ~ ~ ~2 ~ ~2 minecraft:wool 0 keep</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">7</td>
-      <td>/execute @a[score_ActivatedSkill_min=6200,score_ActivatedSkill=6200] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~1.2 ~-0.5 ~1.2 {Motion:[0d,0.1d,0d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">8</td>
-      <td>/execute @a[score_ActivatedSkill_min=6200,score_ActivatedSkill=6200] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~-1.2 ~-0.5 ~1.2 {Motion:[0d,0.1d,0d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">9</td>
-      <td>/execute @a[score_ActivatedSkill_min=6200,score_ActivatedSkill=6200] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~-1.2 ~-0.5 ~-1.2 {Motion:[0d,0.1d,0d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">10</td>
-      <td>/execute @a[score_ActivatedSkill_min=6200,score_ActivatedSkill=6200] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~1.2 ~-0.5 ~-1.2 {Motion:[0d,0.1d,0d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">11</td>
-      <td>/execute @a[score_ActivatedSkill_min=6201,score_ActivatedSkill=6201] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~1.2 ~-0.5 ~ {Motion:[1d,0.1d,0d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">12</td>
-      <td>/execute @a[score_ActivatedSkill_min=6201,score_ActivatedSkill=6201] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~ ~-0.5 ~1.2 {Motion:[0d,0.1d,1d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">13</td>
-      <td>/execute @a[score_ActivatedSkill_min=6201,score_ActivatedSkill=6201] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~-1.2 ~-0.5 ~ {Motion:[-1d,0.1d,0d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">14</td>
-      <td>/execute @a[score_ActivatedSkill_min=6201,score_ActivatedSkill=6201] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~ ~-0.5 ~-1.2 {Motion:[0d,0.1d,-1d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">15</td>
-      <td>/execute @a[score_ActivatedSkill_min=6201,score_ActivatedSkill=6201] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~1.2 ~-0.5 ~1.2 {Motion:[1d,0.1d,1d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">16</td>
-      <td>/execute @a[score_ActivatedSkill_min=6201,score_ActivatedSkill=6201] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~-1.2 ~-0.5 ~1.2 {Motion:[-1d,0.1d,1d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">17</td>
-      <td>/execute @a[score_ActivatedSkill_min=6201,score_ActivatedSkill=6201] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~-1.2 ~-0.5 ~-1.2 {Motion:[-1d,0.1d,-1d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">18</td>
-      <td>/execute @a[score_ActivatedSkill_min=6201,score_ActivatedSkill=6201] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~1.2 ~-0.5 ~-1.2 {Motion:[1d,0.1d,-1d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">19</td>
-      <td>/execute @a[score_ActivatedSkill_min=6202,score_ActivatedSkill=6209] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~1.2 ~-0.5 ~ {Motion:[2d,0.1d,0d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">20</td>
-      <td>/execute @a[score_ActivatedSkill_min=6202,score_ActivatedSkill=6209] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~ ~-0.5 ~1.2 {Motion:[0d,0.1d,2d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">21</td>
-      <td>/execute @a[score_ActivatedSkill_min=6202,score_ActivatedSkill=6209] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~-1.2 ~-0.5 ~ {Motion:[-2d,0.1d,0d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">22</td>
-      <td>/execute @a[score_ActivatedSkill_min=6202,score_ActivatedSkill=6209] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~ ~-0.5 ~-1.2 {Motion:[0d,0.1d,-2d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">23</td>
-      <td>/execute @a[score_ActivatedSkill_min=6202,score_ActivatedSkill=6209] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~1.2 ~-0.5 ~1.2 {Motion:[2d,0.1d,2d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">24</td>
-      <td>/execute @a[score_ActivatedSkill_min=6202,score_ActivatedSkill=6209] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~-1.2 ~-0.5 ~1.2 {Motion:[-2d,0.1d,2d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">25</td>
-      <td>/execute @a[score_ActivatedSkill_min=6202,score_ActivatedSkill=6209] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~-1.2 ~-0.5 ~-1.2 {Motion:[-2d,0.1d,-2d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">26</td>
-      <td>/execute @a[score_ActivatedSkill_min=6202,score_ActivatedSkill=6209] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~1.2 ~-0.5 ~-1.2 {Motion:[2d,0.1d,-2d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">27</td>
-      <td>/execute @a[score_ActivatedSkill_min=6202,score_ActivatedSkill=6209] ~ ~ ~ /execute @e[r=15,tag=FillOffset] ~ ~ ~0.46875 /summon Snowball ~1.2 ~-0.5 ~-1.2 {Motion:[2d,0.1d,-2d],Tags:[Fill,TypeChecked]}</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">28</td>
-      <td>/clone -1920 ~2 ~ -1920 ~2 ~ -1920 ~2 ~ filtered force minecraft:command_block 5 ###周囲フィール予約</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">No.</th>
-      <th>コマンド</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">1</td>
-      <td>/execute @e[tag=Fill] ~ ~ ~ /playsound block.cloth.break master @a[r=32] ~ ~ ~ 2 0.6 0</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">2</td>
-      <td>/execute @e[tag=Fill] ~ ~ ~ /particle instantSpell ~ ~-1 ~ 1 0.1 1 0.1 10 force</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">3</td>
-      <td>/execute @e[tag=Fill] ~-1 ~-1 ~-1 /fill ~ ~ ~ ~2 ~ ~2 minecraft:wool 0 keep</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">4</td>
-      <td>/kill @e[tag=Fill]</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="詳細">詳細</h2>
+   
 
 
     <div class="tags">
         
-        <b>Tags: </b>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     </div>
 
-
+<script id="dsq-count-scr" src="//tusb-analysis.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://tusb-analysis.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
 
@@ -1021,9 +820,7 @@
             Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.<br>
             <a href="https://github.com/aka256/TUSB_Analysis">Page source</a><br>
             
-              <span>Page last updated:</span> 23 Jun 2020<br/>
-            
-            Site last generated: 27 Sep 2020 <br />
+            Site last generated: 28 Oct 2020 <br />
         </div>
     </div>
 </footer>
