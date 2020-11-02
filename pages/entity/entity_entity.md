@@ -1354,3 +1354,27 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 ```mcfunction
 /summon Arrow ~ ~0.02 ~ {CustomName:”スリケン”,damage:150d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
 ```
+
+### KazakiriDown
+
+```mcfunction
+/summon AreaEffectCloud ~ ~0.5 ~ {Effects:[{Id:25b,Duration:20,Amplifier:-3b,ShowParticles:false}],ReapplicantDelay:0,Radius:2f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2,RadiusPerTick:0f,WaitTime:5,Age:4,Particle:cloud,Tags:[TypeChecked]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|AEC|
+|Tags|TypeChecked|
+|Effects|透明化Lv.253,1秒間|
+
+### KazakiriUp
+
+```mcfunction
+/summon AreaEffectCloud ~ ~0.5 ~ {Effects:[{Id:25b,Duration:20,Amplifier:1b,ShowParticles:false}],ReapplicantDelay:0,Radius:2f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2,RadiusPerTick:0f,WaitTime:5,Age:4,Particle:cloud,Tags:[TypeChecked]}
+```
+
+|-|-|
+|Name|(None)|
+|Type|AEC|
+|Tags|TypeChecked|
+|Effects|透明化Lv.1,1秒間|
