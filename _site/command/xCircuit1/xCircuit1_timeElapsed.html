@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="スキルやイベント、トカルトコルデなどでの時間経過により変化するものの処理、分岐を行っている。">
-<meta name="keywords" content="コマンドスキル,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,トカルトコルデ,スキル,ガーディアン">
+<meta name="keywords" content="コマンドスキル表示忍者狩人黒魔導士嫌な予感トカルトコルデ,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,トカルトコルデ,スキル,ガーディアン">
 <title>時間経過 | TUSB Analysis</title>
 <link rel="canonical" href="https://aka256.github.io/TUSB_Analysis/command/xCircuit1/xCircuit1_timeElapsed.html">
 <!-- Google Tag Manager -->
@@ -837,7 +837,7 @@
     <tr>
       <td style="text-align: center">1</td>
       <td style="text-align: left">/scoreboard players remove @a[score_ManaRefresh_min=0] ManaRefresh 1</td>
-      <td style="text-align: left">時間経過マナリフレッシュ</td>
+      <td style="text-align: left">時間経過<br />マナリフレッシュ</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
@@ -855,7 +855,7 @@
     <tr>
       <td style="text-align: center">4</td>
       <td style="text-align: left">/scoreboard players remove @a[score_WindWall_min=0] WindWall 1</td>
-      <td style="text-align: left">時間経過ウィンドウォール</td>
+      <td style="text-align: left">時間経過<br />ウィンドウォール</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
@@ -879,7 +879,7 @@
     <tr>
       <td style="text-align: center">8</td>
       <td style="text-align: left">/scoreboard players remove @a[score_NinjaTime_min=0] NinjaTime 1</td>
-      <td style="text-align: left">時間経過連舞跳躍</td>
+      <td style="text-align: left">時間経過<br />連舞<br />跳躍</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
@@ -933,7 +933,7 @@
     <tr>
       <td style="text-align: center">17</td>
       <td style="text-align: left">/scoreboard players remove @a[score_RadarVision_min=0] RadarVision 1</td>
-      <td style="text-align: left">時間経過レーダーヴィジョン</td>
+      <td style="text-align: left">時間経過<br />レーダーヴィジョン</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
@@ -963,7 +963,7 @@
     <tr>
       <td style="text-align: center">22</td>
       <td style="text-align: left">/scoreboard players add #SecCount Global 1</td>
-      <td style="text-align: left">約1分処理イベント時伸びる</td>
+      <td style="text-align: left">約1分処理<br />イベント時伸びる</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
@@ -1011,13 +1011,13 @@
     <tr>
       <td style="text-align: center">30</td>
       <td style="text-align: left">/execute @e[tag=CanSpin] ~-0.5 ~ ~-0.5 /fill ~ ~ ~ ~1 ~1 ~1 minecraft:web 0 keep</td>
-      <td style="text-align: left">毒蜘蛛蜘蛛の巣設置 タグCanSpin</td>
+      <td style="text-align: left">毒蜘蛛蜘蛛の巣設置<br />タグ<br />CanSpin</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
       <td style="text-align: center">31</td>
       <td style="text-align: left">/scoreboard players tag @e[tag=Freeze] add Melt {PortalCooldown:0}</td>
-      <td style="text-align: left">NoAI解除 Freeze Melt</td>
+      <td style="text-align: left">NoAI解除<br />Freeze<br />Melt</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
@@ -1041,7 +1041,7 @@
     <tr>
       <td style="text-align: center">35</td>
       <td style="text-align: left">/scoreboard players add @e[tag=SkillMob] MobCastTime 20</td>
-      <td style="text-align: left">敵スキル SkillMob CastingMob MobCastTime</td>
+      <td style="text-align: left">敵スキル<br />SkillMob<br />CastingMob<br />MobCastTime</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
@@ -1059,7 +1059,7 @@
     <tr>
       <td style="text-align: center">38</td>
       <td style="text-align: left">/testfor @a[tag=CauseEvent,score_USBDimension_min=0,score_USBDimension=0]</td>
-      <td style="text-align: left">嫌な予感実行</td>
+      <td style="text-align: left">イベント履行</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
@@ -1113,7 +1113,7 @@
     <tr>
       <td style="text-align: center">47</td>
       <td style="text-align: left">/scoreboard players tag @a add ReduceCurse {ActiveEffects:[{Id:4b,Amplifier:2b}]}</td>
-      <td style="text-align: left">ガーディアン 呪い短縮</td>
+      <td style="text-align: left">ガーディアン<br />呪い短縮</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
@@ -1147,71 +1147,236 @@
 
 <h2 id="詳細">詳細</h2>
 
+<h3 id="スキル系処理">スキル系処理</h3>
+
+<ul>
+  <li>各スキルのカウンター用スコアのデクリメントなどを行う。</li>
+</ul>
+
+<div style="height:4px;"></div>
+
 <ol>
-  <li><code class="language-plaintext highlighter-rouge">ManaRefresh</code>が0以上であるプレイヤーが存在したら、<code class="language-plaintext highlighter-rouge">ManaRefresh</code>から1を引き、以下の事柄を実行
+  <li><strong><code class="language-plaintext highlighter-rouge">ManaRefresh</code>が0以上</strong>であるプレイヤーに対し、以下の事柄を実行
     <ol>
-      <li><code class="language-plaintext highlighter-rouge">ManaRefresh</code>が-1以下であるプレイヤーにマナリフレッシュが切れたメッセージを送る</li>
-      <li><code class="language-plaintext highlighter-rouge">ManaRefresh</code>が-1以下であるプレイヤーの<code class="language-plaintext highlighter-rouge">ManaRefresh</code>を0に設定</li>
+      <li>対象プレイヤーの<strong><code class="language-plaintext highlighter-rouge">ManaRefresh</code>から1を引く</strong></li>
+      <li><strong><code class="language-plaintext highlighter-rouge">ManaRefresh</code>が-1以下</strong>である対象プレイヤーに対し、以下の事柄を実行
+        <ol>
+          <li>対象プレイヤーに「<span style="color:gold;background-color:gray">マナリフレッシュの効果が切れた。</span>」とのメッセージを表示</li>
+          <li>対象プレイヤーの<code class="language-plaintext highlighter-rouge">ManaRefresh</code>を0に設定</li>
+        </ol>
+      </li>
     </ol>
   </li>
-  <li><code class="language-plaintext highlighter-rouge">WindWall</code>が0以上であるプレイヤーが存在したら、<code class="language-plaintext highlighter-rouge">WindWall</code>から1を引き、以下の事柄を実行
+  <li><strong><code class="language-plaintext highlighter-rouge">WindWall</code>が0以上</strong>であるプレイヤーに対し、以下の事柄を実行
     <ol>
-      <li><code class="language-plaintext highlighter-rouge">WindWall</code>が-1以上であるプレイヤーにウィンドウォールが切れたというメッセージを送る</li>
-      <li><code class="language-plaintext highlighter-rouge">WindWall</code>が-1以上であるプレイヤーの<code class="language-plaintext highlighter-rouge">WindWall</code>を0に設定</li>
+      <li>対象プレイヤーの<strong><code class="language-plaintext highlighter-rouge">WindWall</code>から1を引く</strong></li>
+      <li><strong><code class="language-plaintext highlighter-rouge">WindWall</code>が-1以上</strong>である対象プレイヤーに対し、以下の事柄を実行
+        <ol>
+          <li>「<span style="color:gold;background-color:gray">ウィンドウォールの効果が切れた。</span>」とのメッセージを表示</li>
+          <li>対象プレイヤーの<code class="language-plaintext highlighter-rouge">WindWall</code>を0に設定</li>
+        </ol>
+      </li>
     </ol>
   </li>
-  <li><code class="language-plaintext highlighter-rouge">WindWall</code>が0以上であるプレイヤーのいる座標で効果音を鳴らす。</li>
-  <li><code class="language-plaintext highlighter-rouge">NinjaTime</code>が0以上であるプレイヤーが存在したら、<code class="language-plaintext highlighter-rouge">NinjaTime</code>から1を引いて以下の事柄を実行
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">NinjaTime</code>が-1以下であるとき<code class="language-plaintext highlighter-rouge">Tsuremai</code>と<code class="language-plaintext highlighter-rouge">Choyaku</code>、<code class="language-plaintext highlighter-rouge">NinjaTime</code>をそれぞれ0に設定</li>
-    </ul>
-  </li>
-  <li><code class="language-plaintext highlighter-rouge">MagicShield</code>を持つプレイヤーに耐性Lv.4を15秒間付与</li>
-  <li><code class="language-plaintext highlighter-rouge">Mokuso</code>を持つプレイヤーが存在したら、再生能力Lv.1を15秒間付与し、<code class="language-plaintext highlighter-rouge">Level</code>が43以上だったら再生能力Lv.2を15秒間付与</li>
-  <li><code class="language-plaintext highlighter-rouge">Kazakiri</code>を持つプレイヤーが存在したら、<code class="language-plaintext highlighter-rouge">Kazakiri</code>から1を引き、(-1920,11,-198)にある<a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_kazakiriUpdata.html">風切更新</a>を実行</li>
-  <li><code class="language-plaintext highlighter-rouge">RadarVision</code>が0以上であるプレイヤーが存在したら、<code class="language-plaintext highlighter-rouge">RadarVision</code>から1を引き、以下の事柄を実行
+  <li><code class="language-plaintext highlighter-rouge">WindWall</code>が0以上であるすべてのプレイヤーから、半径16m以内のすべてのプレイヤーに効果音を鳴らす。</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">NinjaTime</code>が0以上</strong>であるプレイヤーに対し、以下の事柄を実行
     <ol>
-      <li><code class="language-plaintext highlighter-rouge">RadarVision</code>が-1以下であるプレイヤーに<code class="language-plaintext highlighter-rouge">RadarEnd</code>を付与し、15m下に移動、<code class="language-plaintext highlighter-rouge">RadarVision</code>を0に設定</li>
-      <li>(-1920,12,-166)にある<a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVisionFinProcessing.html">狩人レーダーヴィジョン終了処理</a>を実行</li>
+      <li>対象プレイヤーの<strong><code class="language-plaintext highlighter-rouge">NinjaTime</code>から1を引く</strong></li>
+      <li><strong><code class="language-plaintext highlighter-rouge">NinjaTime</code>が-1以下</strong>である対象プレイヤーに対し、以下の事柄を実行
+        <ol>
+          <li>対象プレイヤーの<code class="language-plaintext highlighter-rouge">Tsuremai</code>と<code class="language-plaintext highlighter-rouge">Choyaku</code>をそれぞれ0に設定</li>
+          <li>対象プレイヤーの<code class="language-plaintext highlighter-rouge">NinjaTime</code>を0に設定</li>
+        </ol>
+      </li>
     </ol>
   </li>
-  <li><code class="language-plaintext highlighter-rouge">#SecCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>に1を足す</li>
-  <li><code class="language-plaintext highlighter-rouge">#SecCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が0であるとき、ワールドの境界線から0m近づいたとき警告を出す</li>
-  <li><code class="language-plaintext highlighter-rouge">#SecCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が61以上であるとき、(-1920,14,-200)にある<a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_oneMinProcessing.html">約1分処理</a>を実行</li>
-  <li><code class="language-plaintext highlighter-rouge">FlyingObject</code>を持ち、空気中で停止している飛翔物が存在したら、それに<code class="language-plaintext highlighter-rouge">TestingTick</code>を付与し以下の事柄を実行
+  <li><strong><code class="language-plaintext highlighter-rouge">MagicShield</code>を持つ</strong>すべてのプレイヤーに<strong>耐性Lv.4を15秒間付与</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Mokuso</code>を持つ</strong>プレイヤーに対し、以下の事柄を実行
     <ol>
-      <li><code class="language-plaintext highlighter-rouge">TestingTick</code>を持つエンティティの<code class="language-plaintext highlighter-rouge">PortalCooldown</code>を1に設定</li>
-      <li>(-1920,15,-200)にある<a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_tickStopDelete.html">Tick停止飛翔物削除</a>を実行</li>
+      <li>対象プレイヤーに<strong>再生能力Lv.1を15秒間付与</strong></li>
+      <li><strong><code class="language-plaintext highlighter-rouge">Level</code>が43以上</strong>である対象プレイヤーに<strong>再生能力Lv.2を15秒間付与</strong></li>
     </ol>
   </li>
-  <li><code class="language-plaintext highlighter-rouge">CanSpin</code>を持つエンティティを中心として一辺2mの範囲に蜘蛛の巣を設置</li>
-  <li><code class="language-plaintext highlighter-rouge">Freeze</code>を持ち、<code class="language-plaintext highlighter-rouge">PortalCooldown</code>が0であるエンティティが存在したら、<code class="language-plaintext highlighter-rouge">Melt</code>を付与し以下の事柄を実行
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">Melt</code>を持つエンティティの<code class="language-plaintext highlighter-rouge">NoAI</code>をfalseにし、<code class="language-plaintext highlighter-rouge">Freeze</code>と<code class="language-plaintext highlighter-rouge">Melt</code>を削除</li>
-    </ul>
-  </li>
-  <li><code class="language-plaintext highlighter-rouge">SkillMob</code>を持つエンティティが存在したら、<code class="language-plaintext highlighter-rouge">MobCastTime</code>に20を足し、以下の事柄を実行
+  <li><strong><code class="language-plaintext highlighter-rouge">Kazakiri</code>が0以上</strong>であるプレイヤーに対し、以下の事柄を実行
     <ol>
-      <li><code class="language-plaintext highlighter-rouge">SkillMob</code>を持ち、プレイヤーでないエンティティを一人ランダムに選び、<code class="language-plaintext highlighter-rouge">MobCastTime</code>が400以上であるとき<code class="language-plaintext highlighter-rouge">MobCastTime</code>に20との剰余を代入</li>
-      <li>(-1920,14,-197)にある<a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_runMobSkill.html">敵スキル実行</a>を実行</li>
+      <li>対象プレイヤーの<strong><code class="language-plaintext highlighter-rouge">Kazakiri</code>から1を引く</strong></li>
+      <li><a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_kazakiriUpdata.html">風切更新</a>を実行</li>
     </ol>
   </li>
-  <li><code class="language-plaintext highlighter-rouge">CauseEvent</code>を持ち、<code class="language-plaintext highlighter-rouge">USBDimension</code>が0であるプレイヤーが存在する時、以下の事柄を実行
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">#SecCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が0以上であるとき、(-1920,11,-197)にある<a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_eventFulfill.html">嫌な予感実行</a>を実行</li>
-    </ul>
-  </li>
-  <li><a href="/TUSB_Analysis/entity/entity_entity.html#systemkeeper">SystemKeeper</a>を今の座標からy=10へ移動</li>
-  <li><code class="language-plaintext highlighter-rouge">USBDimension</code>が13であり、<code class="language-plaintext highlighter-rouge">SaveTorch</code>を持ってなく、スペクテイターモードでないプレイヤーが存在したら、<code class="language-plaintext highlighter-rouge">RemoveTorch</code>を付与し(-1920,12,-197)にある<a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_iceProcessing.html">トカルト処理</a>を実行</li>
-  <li><code class="language-plaintext highlighter-rouge">SaveTouch</code>を持つプレイヤーから<code class="language-plaintext highlighter-rouge">SaveTouch</code>を消去</li>
-  <li>UUIDが0-0-1-0-3であるエンティティから5m以内で<code class="language-plaintext highlighter-rouge">VillagerMeal</code>を持つエンティティが存在したら、それの<code class="language-plaintext highlighter-rouge">Freshness</code>の符号を反転し、(-1920,13,-197)にある<a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_animalGuideEvent.html">動物誘導イベント</a>を実行</li>
-  <li>採掘速度低下Lv.3を持つプレイヤーが存在したら、<code class="language-plaintext highlighter-rouge">ReduceCurse</code>を付与し、以下の事柄を実行
+  <li><strong><code class="language-plaintext highlighter-rouge">RadarVision</code>が0以上</strong>であるプレイヤーに対し、以下の事柄を実行
     <ol>
-      <li><code class="language-plaintext highlighter-rouge">ReduceCurse</code>を持つプレイヤーに採掘速度低下Lv.3を15秒間、弱体化Lv.3を15秒間、空腹Lv.3を15秒間付与</li>
-      <li><code class="language-plaintext highlighter-rouge">ReduceCurse</code>を持つプレイヤーから<code class="language-plaintext highlighter-rouge">ResuceCurce</code>を削除</li>
+      <li>対象プレイヤーの<strong><code class="language-plaintext highlighter-rouge">RadarVision</code>から1を引く</strong></li>
+      <li><strong><code class="language-plaintext highlighter-rouge">RadarVision</code>が-1以下</strong>である対象プレイヤーに対し、以下の事柄を実行
+        <ol>
+          <li>対象プレイヤーに<strong><code class="language-plaintext highlighter-rouge">RadarEnd</code>を付与</strong></li>
+          <li>対象プレイヤーを15m下に移動</li>
+          <li>対象プレイヤーの<code class="language-plaintext highlighter-rouge">RadarVision</code>を0に設定</li>
+          <li><a href="/TUSB_Analysis/command/xCircuit10/xCircuit10_radarVisionFinProcessing.html">狩人レーダーヴィジョン終了処理</a>を実行</li>
+        </ol>
+      </li>
     </ol>
   </li>
 </ol>
+
+<h3 id="1分カウント">1分カウント</h3>
+
+<ul>
+  <li>1分置きに実行される<a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_oneMinProcessing.html">約1分処理</a>用カウンタスコアのデクリメントなどを行う。</li>
+</ul>
+
+<div style="height:4px;"></div>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">#SecCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>に1を足す</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">#SecCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が0であるとき、ワールドの境界線から0m近づいたとき警告を出す (<code class="language-plaintext highlighter-rouge">\worldborder waring distance</code>のリセット)</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">#SecCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が61以上であるとき</strong>、<a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_oneMinProcessing.html">約1分処理</a>を実行</li>
+</ol>
+
+<h3 id="tick停止飛翔物削除処理">Tick停止飛翔物削除処理</h3>
+
+<ul>
+  <li>空中で停止している投擲物の判定のための<code class="language-plaintext highlighter-rouge">PortalCooldown</code>の設定などを行う。</li>
+</ul>
+
+<div style="height:4px;"></div>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">FlyingObject</code>を持ち、<code class="language-plaintext highlighter-rouge">inTile</code>が<code class="language-plaintext highlighter-rouge">minecraft:air</code>である</strong>(空気中で停止している)エンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティに<code class="language-plaintext highlighter-rouge">TestingTick</code>を付与</li>
+      <li><strong><code class="language-plaintext highlighter-rouge">TestingTick</code>を持つすべてのエンティティの<code class="language-plaintext highlighter-rouge">PortalCooldown</code>を1に設定</strong></li>
+      <li><a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_tickStopDelete.html">Tick停止飛翔物削除</a>を実行</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="敵mobによる蜘蛛の巣設置">敵Mobによる蜘蛛の巣設置</h3>
+
+<ul>
+  <li>SATなどの移動するたびに蜘蛛の巣を設置するMobの処理を行う。</li>
+</ul>
+
+<div style="height:4px;"></div>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">CanSpin</code>を持つ</strong>エンティティを中心として一辺2mの範囲に蜘蛛の巣を設置</li>
+</ul>
+
+<h3 id="noai停止処理">NoAI停止処理</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Freeze</code>を持ち、<code class="language-plaintext highlighter-rouge">PortalCooldown</code>が0になったMobの<code class="language-plaintext highlighter-rouge">NoAI</code>を解除する。(もやんのせい)</li>
+</ul>
+
+<div style="height:4px;"></div>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">Freeze</code>を持ち、<code class="language-plaintext highlighter-rouge">PortalCooldown</code>が0である</strong>エンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティに<code class="language-plaintext highlighter-rouge">Melt</code>を付与</li>
+      <li><code class="language-plaintext highlighter-rouge">Melt</code>を持つ対象エンティティに対し、以下の事柄を実行
+        <ol>
+          <li>対象エンティティの<strong><code class="language-plaintext highlighter-rouge">NoAI</code>をfalseに設定</strong></li>
+          <li>対象エンティティから<code class="language-plaintext highlighter-rouge">Freeze</code>と<code class="language-plaintext highlighter-rouge">Melt</code>を削除</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="敵mobスキル実行">敵Mobスキル実行</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">SkillMob</code>を持つ敵Mobの<code class="language-plaintext highlighter-rouge">MobCastTime</code>に値を代入し、<a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_runMobSkill.html">敵スキル実行</a>を実行実行する</li>
+</ul>
+
+<div style="height:4px;"></div>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">SkillMob</code>を持つ</strong>エンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティの<strong><code class="language-plaintext highlighter-rouge">MobCastTime</code>に20を足す</strong></li>
+      <li><strong>プレイヤーでない対象エンティティを一人ランダムに選び、その同座標上に<code class="language-plaintext highlighter-rouge">MobCastTime</code>が400以上であり<code class="language-plaintext highlighter-rouge">SkillMob</code>を持つ一体のエンティティの<code class="language-plaintext highlighter-rouge">MobCastTime</code>に20との剰余を代入</strong></li>
+      <li><a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_runMobSkill.html">敵スキル実行</a>を実行</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="嫌な予感実行">嫌な予感実行</h3>
+
+<ul>
+  <li>条件を満たす場合、嫌な予感を実行する。</li>
+</ul>
+
+<div style="height:4px;"></div>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">CauseEvent</code>を持ち</strong>、<strong><code class="language-plaintext highlighter-rouge">USBDimension</code>が0</strong>であるプレイヤーが存在し、<strong><code class="language-plaintext highlighter-rouge">#SecCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が0以上</strong>であるとき、<a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_eventFulfill.html">嫌な予感実行</a>を実行</li>
+</ul>
+
+<h3 id="systemkeeperテレポート">SystemKeeperテレポート</h3>
+
+<ul>
+  <li>
+    <p><a href="/TUSB_Analysis/command/xCircuitCore/xCircutitCore_systemKeeperProcessing.html">SystemKeeper処理</a>の<a href="/TUSB_Analysis/entity/entity_entity.html#systemkeeper">SystemKeeper</a>の復帰処理?を行う。</p>
+  </li>
+  <li>
+    <p><a href="/TUSB_Analysis/entity/entity_entity.html#systemkeeper">SystemKeeper</a>を今の座標からy=10へ移動</p>
+  </li>
+</ul>
+
+<h3 id="トカルトコルデ処理">トカルトコルデ処理</h3>
+
+<ul>
+  <li>トカルトでの松明減少やトカルトエンカウントのための分岐を行う。</li>
+</ul>
+
+<div style="height:4px;"></div>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">USBDimension</code>が13</strong>であり、<strong><code class="language-plaintext highlighter-rouge">SaveTorch</code>を持ってなく</strong>、スペクテイターモードでないプレイヤーに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティに<strong><code class="language-plaintext highlighter-rouge">RemoveTorch</code>を付与</strong></li>
+      <li><a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_iceProcessing.html">トカルト処理</a>を実行</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">SaveTouch</code>を持つすべてのプレイヤーから<code class="language-plaintext highlighter-rouge">SaveTouch</code>を消去</li>
+</ol>
+
+<h3 id="動物誘導イベント完了検知">動物誘導イベント完了検知</h3>
+
+<ul>
+  <li>嫌な予感のうちの1つである、動物誘導イベントでの動物を<a href="/TUSB_Analysis/entity/entity_entity.html#農業家">農業家</a>の近くに連れてきたときの処理を行う。</li>
+</ul>
+
+<div style="height:4px;"></div>
+
+<ul>
+  <li><strong><a href="/TUSB_Analysis/entity/entity_entity.html#農業家">農業家</a>から半径5m以内で<code class="language-plaintext highlighter-rouge">VillagerMeal</code>を持つ</strong>エンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティの<code class="language-plaintext highlighter-rouge">Freshness</code>の符号を反転する</li>
+      <li><a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_animalGuideEvent.html">動物誘導イベント</a>を実行</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="エルダーガーディアンの呪い変更">エルダーガーディアンの呪い変更</h3>
+
+<ul>
+  <li>エルダーガーディアンの呪い(採掘速度低下Lv.2)を受けたプレイヤーに対し、別の効果を上書きする。</li>
+</ul>
+
+<div style="height:4px;"></div>
+
+<ul>
+  <li><strong>採掘速度低下Lv.2</strong>を持つプレイヤーに対し、以下の事柄を実行
+    <ol>
+      <li>対象プレイヤーに<code class="language-plaintext highlighter-rouge">ReduceCurse</code>を付与</li>
+      <li><code class="language-plaintext highlighter-rouge">ReduceCurse</code>を持つプレイヤーに<strong>採掘速度低下Lv.3、弱体化Lv.3、空腹Lv.3をそれぞれ15秒間付与</strong></li>
+      <li><code class="language-plaintext highlighter-rouge">ReduceCurse</code>を持つプレイヤーから<code class="language-plaintext highlighter-rouge">ResuceCurce</code>を削除</li>
+    </ol>
+  </li>
+</ul>
 
 
     <div class="tags">
@@ -1368,6 +1533,450 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_display.html" class="btn btn-default navbar-btn cursorNorm" role="button">表示</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_ninja.html" class="btn btn-default navbar-btn cursorNorm" role="button">忍者</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_archer.html" class="btn btn-default navbar-btn cursorNorm" role="button">狩人</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_blackMage.html" class="btn btn-default navbar-btn cursorNorm" role="button">黒魔導士</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_event.html" class="btn btn-default navbar-btn cursorNorm" role="button">嫌な予感</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_iceSheetFloat.html" class="btn btn-default navbar-btn cursorNorm" role="button">トカルトコルデ</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 
 <script id="dsq-count-scr" src="//tusb-analysis.disqus.com/count.js" async></script>
@@ -1402,9 +2011,9 @@
             Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.<br>
             <a href="https://github.com/aka256/TUSB_Analysis">Page source</a><br>
             
-              <span>Page last updated:</span> 14 Sep 2020<br/>
+              <span>Page last updated:</span> 29 Oct 2020<br/>
             
-            Site last generated: 28 Oct 2020 <br />
+            Site last generated: 2 Nov 2020 <br />
         </div>
     </div>
 </footer>

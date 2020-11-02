@@ -99,3 +99,26 @@ h4 {
     margin: auto;
     text-align: center;
 }
+
+
+/*
+.gsc-search-box {
+    margin: 0px;
+}*/
+
+.gsc-input {
+    font-size: 14px !important;
+}
+
+.gstl_50 {
+    max-width: 90% !important;
+}
+
+.gscb_a {
+    line-height: 20px !important;
+}
+
+.gsst_a {
+    padding: 0px !important;
+    /*display: block !important;*/
+}

@@ -5,8 +5,8 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="忍者のスキルの1つである風切の更新処理を行う。">
-<meta name="keywords" content="コマンドスキル職業忍者,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,忍者,風切">
+<meta name="description" content="忍者のスキルの1つである風切の演出やスキル実行者の上昇、下降処理、スキル効果切れメッセージの表示などを行う。">
+<meta name="keywords" content="コマンドスキル忍者表示,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,忍者,風切">
 <title>風切更新 | TUSB Analysis</title>
 <link rel="canonical" href="https://aka256.github.io/TUSB_Analysis/command/xCircuit1/xCircuit1_kazakiriUpdata.html">
 <!-- Google Tag Manager -->
@@ -64,7 +64,7 @@
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
 <meta property="og:url" content="https://aka256.github.io/TUSB_Analysiscommand/xCircuit1/xCircuit1_kazakiriUpdata.html" /> <!--③-->
 <meta property="og:title" content="風切更新 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="忍者のスキルの1つである風切の更新処理を行う。" /> <!--⑤-->
+<meta property="og:description" content="忍者のスキルの1つである風切の演出やスキル実行者の上昇、下降処理、スキル効果切れメッセージの表示などを行う。" /> <!--⑤-->
 <meta property="og:image" content="https://aka256.github.io/TUSB_Analysis/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -812,7 +812,7 @@
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/TUSB_Analysis/command/xCircuit1/xCircuit1_timeElapsed.html">時間経過</a></p>
 
-<p>忍者のスキルの1つである風切の更新処理を行う。</p>
+<p>忍者のスキルの1つである風切の演出やスキル実行者の上昇、下降処理、スキル効果切れメッセージの表示などを行う。</p>
 
 <h2 id="コマンド群">コマンド群</h2>
 
@@ -860,10 +860,68 @@
 <h2 id="詳細">詳細</h2>
 
 <ol>
-  <li><code class="language-plaintext highlighter-rouge">Kazzakiri</code>が0以上であるすべてのプレイヤーの座標上で効果音を鳴らす</li>
-  <li><code class="language-plaintext highlighter-rouge">Kazakiri</code>が0以上、<code class="language-plaintext highlighter-rouge">Sneaking</code>が1以上であるすべてのプレイヤーの座標上で、浮遊Lv.-3で効果時間1秒であり、<code class="language-plaintext highlighter-rouge">TypeChecked</code>を持つAECを召喚</li>
-  <li><code class="language-plaintext highlighter-rouge">Kazakiri</code>が-1以下であるプレイヤーが存在したら、すべての対象に「風切の効果が切れた。」というメッセージを送り、<code class="language-plaintext highlighter-rouge">Kazakiri</code>を0に設定</li>
+  <li><code class="language-plaintext highlighter-rouge">Kazakiri</code>が0以上であるすべてのプレイヤーから半径16m以内のすべてのプレイヤーに効果音を鳴らす</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Kazakiri</code>が0以上かつ<code class="language-plaintext highlighter-rouge">Sneaking</code>が1以上</strong>であるすべてのプレイヤーから0.5m上に、<strong><a href="#kazakiridown">KazakiriDown</a>を召喚</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Kazakiri</code>が0以上かつ<code class="language-plaintext highlighter-rouge">Sneaking</code>が0以下</strong>であるすべてのプレイヤーから0.5m上に、<strong><a href="#kazakiriup">KazakiriUp</a>を召喚</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">Kazakiri</code>が-1以下であるすべてのプレイヤーに対し、以下の事柄を実行
+    <ol>
+      <li>対象プレイヤーに「<span style="color:gold;background-color:gray">風切の効果が切れた。</span>」というメッセージを表示</li>
+      <li>対象プレイヤーの<code class="language-plaintext highlighter-rouge">Kazakiri</code>を0に設定</li>
+    </ol>
+  </li>
 </ol>
+
+<h3 id="kazakiridown">KazakiriDown</h3>
+
+<pre><code class="language-mcfunction">/summon AreaEffectCloud ~ ~0.5 ~ {Effects:[{Id:25b,Duration:20,Amplifier:-3b,ShowParticles:false}],ReapplicantDelay:0,Radius:2f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2,RadiusPerTick:0f,WaitTime:5,Age:4,Particle:cloud,Tags:[TypeChecked]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>(None)</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>AEC</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>TypeChecked</td>
+    </tr>
+    <tr>
+      <td>Effects</td>
+      <td>透明化Lv.253,1秒間</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="kazakiriup">KazakiriUp</h3>
+
+<pre><code class="language-mcfunction">/summon AreaEffectCloud ~ ~0.5 ~ {Effects:[{Id:25b,Duration:20,Amplifier:1b,ShowParticles:false}],ReapplicantDelay:0,Radius:2f,RadiusOnUse:0f,DurationOnUse:0f,Duration:2,RadiusPerTick:0f,WaitTime:5,Age:4,Particle:cloud,Tags:[TypeChecked]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>(None)</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>AEC</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>TypeChecked</td>
+    </tr>
+    <tr>
+      <td>Effects</td>
+      <td>透明化Lv.1,1秒間</td>
+    </tr>
+  </tbody>
+</table>
 
 
     <div class="tags">
@@ -1031,80 +1089,6 @@
         
         
         
-        <a href="/TUSB_Analysis/tags/tag_job.html" class="btn btn-default navbar-btn cursorNorm" role="button">職業</a>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         
@@ -1116,6 +1100,80 @@
         
         
         <a href="/TUSB_Analysis/tags/tag_ninja.html" class="btn btn-default navbar-btn cursorNorm" role="button">忍者</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/TUSB_Analysis/tags/tag_display.html" class="btn btn-default navbar-btn cursorNorm" role="button">表示</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1202,9 +1260,9 @@
             Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.<br>
             <a href="https://github.com/aka256/TUSB_Analysis">Page source</a><br>
             
-              <span>Page last updated:</span> 20 Jun 2020<br/>
+              <span>Page last updated:</span> 29 Oct 2020<br/>
             
-            Site last generated: 28 Oct 2020 <br />
+            Site last generated: 2 Nov 2020 <br />
         </div>
     </div>
 </footer>
