@@ -524,6 +524,21 @@ entries:
     - title: 手裏剣クロック処理
       url: /command/xCircuit13/xCircuit13_syurikenClock.html
       output: web, pdf
+    - title: 居縮クロック処理
+      url: /command/xCircuit13/xCircuit13_isukumiClock.html
+      output: web, pdf
+    - title: サヨナラ処理
+      url: /command/xCircuit13/xCircuit13_sayonara.html
+      output: web, pdf
+    - title: ステークスファイア負け演出
+      url: /command/xCircuit13/xCircuit13_stakesLosePerform.html
+      output: web, pdf
+    - title: ステークスファイア勝ち反映
+      url: /command/xCircuit13/xCircuit13_stakesWinProcessing.html
+      output: web, pdf
+    - title: ステークスファイア勝ち演出
+      url: /command/xCircuit13/xCircuit13_stakesWinPerform.html
+      output: web, pdf
 
   - title: 超作業台ルーム
     output: web,pdf
