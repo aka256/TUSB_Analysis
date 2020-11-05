@@ -2,7 +2,7 @@
 title: エンティティ
 tags: [敵Mob,SystemEntity,村人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,エンティティ
-update: 2020-10-28 09:00:00 +0000
+update: 2020-11-05 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: entity/entity_entity.html
 summary: コマンドに関係するエンティティについてまとめる。
@@ -1378,3 +1378,73 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 |Type|AEC|
 |Tags|TypeChecked|
 |Effects|透明化Lv.1,1秒間|
+
+### ニンジャソウル1
+
+```mcfunction
+/summon Creeper ~ ~ ~ {CustomName:"ニンジャソウル",ExplosionRadius:1b,Fuse:0s,ignited:true,powered:true,Invulnerable:true,NoAI:true,ActiveEffects:[{Id:14b,Amplifier:0b,Duration:20,ShowParticles:false}],Tags:[TypeChecked]}
+```
+
+|-|-|
+|Name|ニンジャソウル|
+|Type|Creeper|
+|Tags|TypeChecked|
+|Fuse|0|
+|ExplosionRadius|1|
+|ActiveEffects|透明化Lv.0 1秒間|
+
+### ニンジャソウル2
+
+```mcfunction
+/summon Creeper ~ ~ ~ {CustomName:"ニンジャソウル",ExplosionRadius:2b,Fuse:0s,ignited:true,powered:true,Invulnerable:true,NoAI:true,ActiveEffects:[{Id:14b,Amplifier:0b,Duration:20,ShowParticles:false}],Tags:[TypeChecked]}
+```
+
+|-|-|
+|Name|ニンジャソウル|
+|Type|Creeper|
+|Tags|TypeChecked|
+|Fuse|0|
+|ExplosionRadius|2|
+|ActiveEffects|透明化Lv.0 1秒間|
+
+### ニンジャソウル3
+
+```mcfunction
+/summon Creeper ~ ~ ~ {CustomName:"ニンジャソウル",ExplosionRadius:4b,Fuse:0s,ignited:true,powered:true,Invulnerable:true,NoAI:true,ActiveEffects:[{Id:14b,Amplifier:0b,Duration:20,ShowParticles:false}],Tags:[TypeChecked]}
+```
+
+|-|-|
+|Name|ニンジャソウル|
+|Type|Creeper|
+|Tags|TypeChecked|
+|Fuse|0|
+|ExplosionRadius|4|
+|ActiveEffects|透明化Lv.0 1秒間|
+
+### ニンジャソウル4
+
+```mcfunction
+/summon Creeper ~ ~ ~ {CustomName:"ニンジャソウル",ExplosionRadius:7b,Fuse:0s,ignited:true,powered:true,Invulnerable:true,NoAI:true,ActiveEffects:[{Id:14b,Amplifier:0b,Duration:20,ShowParticles:false}],Tags:[TypeChecked]}
+```
+
+|-|-|
+|Name|ニンジャソウル|
+|Type|Creeper|
+|Tags|TypeChecked|
+|Fuse|0|
+|ExplosionRadius|7|
+|ActiveEffects|透明化Lv.0 1秒間|
+
+### ニンジャソウル5
+
+```mcfunction
+/summon Creeper ~ ~ ~ {CustomName:"ニンジャソウル",ExplosionRadius:10b,Fuse:0s,ignited:true,powered:true,Invulnerable:true,NoAI:true,ActiveEffects:[{Id:14b,Amplifier:0b,Duration:20,ShowParticles:false}],Tags:[TypeChecked]}
+```
+
+|-|-|
+|Name|ニンジャソウル|
+|Type|Creeper|
+|Tags|TypeChecked|
+|Fuse|0|
+|ExplosionRadius|10|
+|ActiveEffects|透明化Lv.0 1秒間|

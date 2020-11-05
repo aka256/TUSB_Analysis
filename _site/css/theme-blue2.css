@@ -26,10 +26,20 @@ h3 {
 
 h4 {
     color: black;
+    font-weight: bolder;
+    font-style: normal;
+    padding-left: 0.7em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #ccc;
 }
 
 h5 {
     color: black;
+    font-weight: bolder;
+    font-style: normal;
+    padding-left: 0.7em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #ccc;
 }
 
 .nav-tabs>li.active>a,

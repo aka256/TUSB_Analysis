@@ -2,7 +2,7 @@
 title: 毎tick実行するコマンド群13
 tags: [コマンド,スキル,忍者,狩人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-10-28 09:21:00 +0000
+update: 2020-11-05 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit13/xCircuit13_command.html
 datatable4c: true
@@ -117,10 +117,10 @@ tocLimit: h3
 
 ### サヨナラ実行部
 
-- [サヨナラ実行部](#サヨナラ実行部)では、[サヨナラ処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_sayonara.html)への分岐や[SayonaraPoint](#sayonarapoint)の召喚などを行う。
+- [サヨナラ実行部](#サヨナラ実行部)では、[サヨナラ処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_sayonara.html)への分岐や[SayonaraPoint](#sayonarapoint)の召喚、周辺のアイテムエンティティの無敵化と移動(スキル実行者の死亡時に散らばったアイテムを消失を防ぐため?)を行う。
 - [毎tick実行するコマンド群9]({{site.baseurl}}/command/xCircuit9/xCircuit9_command.html)によって起動される
 
-1. [サヨナラ処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_sayonara.html)を実行
+1. [サヨナラ処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_sayonara.html)の実行を予約
 2. **`ActivatedSkill`が2240 ~ 2249**であるすべてのプレイヤーから1.32m上を中心として、以下の事柄を実行
    1. **[SayonaraPoint](#sayonarapoint)を召喚**
    2. 対象座標から**半径35m以内の`SystemEntity`を持っていないすべてのアイテムエンティティに、[サヨナラ付与タグ](#サヨナラ付与タグ)を付与**
