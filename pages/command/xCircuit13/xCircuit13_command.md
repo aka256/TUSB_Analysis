@@ -17,7 +17,7 @@ tocLimit: h3
 
 <span class="tagBlack">呼び出し元</span> [初期化処理]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_initializeProcessing.html), [村人像]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_mainclockProcessing.html)
 
-<span class="tagBlue">分岐先</span> [手裏剣クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_syurikenClock.html), [居縮クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_isukumiClock.html), [サヨナラ処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_sayonara.html), [ステークス負け演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_staksLosePerform.html), [ステークス勝ち反映]({{site.baseurl}}/command/xCircuit13/xCircuit13_staksWinProcessing.html), [ステークス勝ち演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_staksWinPerform.html), [チェインアロークロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_chainArrowClock.html), [ブラストショットクロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_blastShotClock.html), [バードストライクロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_birdStrikeClock.html), [フェイタルショットロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_fatalShotClock.html)
+<span class="tagBlue">分岐先</span> [手裏剣クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_syurikenClock.html), [居縮クロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_isukumiClock.html), [サヨナラ処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_sayonara.html), [ステークスファイア負け演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_stakesLosePerform.html), [ステークスファイア勝ち反映]({{site.baseurl}}/command/xCircuit13/xCircuit13_stakesWinProcessing.html), [ステークスファイア勝ち演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_stakesWinPerform.html), [チェインアロークロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_chainArrowClock.html), [ブラストショットクロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_blastShotClock.html), [バードストライクロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_birdStrikeClock.html), [フェイタルショットロック処理]({{site.baseurl}}/command/xCircuit13/xCircuit13_fatalShotClock.html)
 
 雪玉や矢などの投擲物を用いたスキルやアイテムエンティティを用いたスキルなどの攻撃処理や演出、他のコマンド群への分岐などを行う。
 
@@ -150,7 +150,7 @@ tocLimit: h3
 
 ### ステークスファイア実行部
 
-- [ステークスファイア実行部](#ステークスファイア実行部)では、スキルの発動確率の計算や[ステークス負け演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_staksLosePerform.html), [ステークス勝ち反映]({{site.baseurl}}/command/xCircuit13/xCircuit13_staksWinProcessing.html), [ステークス勝ち演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_staksWinPerform.html)への分岐などを行う。
+- [ステークスファイア実行部](#ステークスファイア実行部)では、スキルの発動確率の計算や[ステークスファイア負け演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_stakesLosePerform.html), [ステークスファイア勝ち反映]({{site.baseurl}}/command/xCircuit13/xCircuit13_stakesWinProcessing.html), [ステークスファイア勝ち演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_stakesWinPerform.html)への分岐などを行う。
 - [毎tick実行するコマンド群10]({{site.baseurl}}/command/xCircuit10/xCircuit10_command.html)によって起動される
 
 1. `ActivatedSkill`が3200 ~ 3209であるすべてのプレイヤーの`Random`を\\(Random=Random\mod 20\\)とする
@@ -159,14 +159,14 @@ tocLimit: h3
 4. `ActivatedSkill`が3202 ~ 3209であるすべてのプレイヤーの`Random`に16を足す (\\(16\leq Random\leq 36\\))
 5. `ActivatedSkill`が3200 ~ 3209であるすべてのプレイヤーに対し、以下の事柄を実行
    1. **対象プレイヤーの`Random`が19以下であるとき**、以下の事柄を実行
-      1. 対象プレイヤーから1.52m上を中心とした半径2m以内の最も近い矢に、**[ステークス負け付与タグ](#ステークス負け付与タグ)を付与**
-      2. [ステークス負け演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_staksLosePerform.html)を実行
+      1. 対象プレイヤーから1.52m上を中心とした半径2m以内の最も近い矢に、**[ステークスファイア負け付与タグ](#ステークスファイア負け付与タグ)を付与**
+      2. [ステークスファイア負け演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_stakesLosePerform.html)を実行
    2. **対象プレイヤーの`Random`が20以上であるとき**、以下の事柄を実行
-      1. 対象プレイヤーから1.52m上を中心とした半径2m以内の最も近い矢に、**[ステークス勝ち付与タグ](#ステークス勝ち付与タグ)を付与**
-      2. [ステークス勝ち反映]({{site.baseurl}}/command/xCircuit13/xCircuit13_staksWinProcessing.html)を実行
-      3. [ステークス勝ち演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_staksWinPerform.html)を実行
+      1. 対象プレイヤーから1.52m上を中心とした半径2m以内の最も近い矢に、**[ステークスファイア勝ち付与タグ](#ステークスファイア勝ち付与タグ)を付与**
+      2. [ステークスファイア勝ち反映]({{site.baseurl}}/command/xCircuit13/xCircuit13_stakesWinProcessing.html)を実行
+      3. [ステークスファイア勝ち演出]({{site.baseurl}}/command/xCircuit13/xCircuit13_stakesWinPerform.html)を実行
 
-#### ステークス負け付与タグ
+#### ステークスファイア負け付与タグ
 
 ```mcfunction
 {
@@ -175,7 +175,7 @@ tocLimit: h3
 }
 ```
 
-#### ステークス勝ち付与タグ
+#### ステークスファイア勝ち付与タグ
 
 ```mcfunction
 {

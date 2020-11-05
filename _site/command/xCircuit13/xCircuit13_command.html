@@ -685,6 +685,16 @@
             <li class="active"><a title="毎tick実行するコマンド群13" href="/command/xCircuit13/xCircuit13_command.html">毎tick実行するコマンド群13</a></li>
                  
             <li><a title="手裏剣クロック処理" href="/command/xCircuit13/xCircuit13_syurikenClock.html">手裏剣クロック処理</a></li>
+                 
+            <li><a title="居縮クロック処理" href="/command/xCircuit13/xCircuit13_isukumiClock.html">居縮クロック処理</a></li>
+                 
+            <li><a title="サヨナラ処理" href="/command/xCircuit13/xCircuit13_sayonara.html">サヨナラ処理</a></li>
+                 
+            <li><a title="ステークスファイア負け演出" href="/command/xCircuit13/xCircuit13_stakesLosePerform.html">ステークスファイア負け演出</a></li>
+                 
+            <li><a title="ステークスファイア勝ち反映" href="/command/xCircuit13/xCircuit13_stakesWinProcessing.html">ステークスファイア勝ち反映</a></li>
+                 
+            <li><a title="ステークスファイア勝ち演出" href="/command/xCircuit13/xCircuit13_stakesWinPerform.html">ステークスファイア勝ち演出</a></li>
                
         </ul>
     </li>
@@ -816,7 +826,7 @@
 
 <p><span class="tagBlack">呼び出し元</span> <a href="/command/xCircuitCore/xCircuitCore_initializeProcessing.html">初期化処理</a>, <a href="/command/xCircuitCore/xCircuitCore_mainclockProcessing.html">村人像</a></p>
 
-<p><span class="tagBlue">分岐先</span> <a href="/command/xCircuit13/xCircuit13_syurikenClock.html">手裏剣クロック処理</a>, <a href="/command/xCircuit13/xCircuit13_isukumiClock.html">居縮クロック処理</a>, <a href="/command/xCircuit13/xCircuit13_sayonara.html">サヨナラ処理</a>, <a href="/command/xCircuit13/xCircuit13_staksLosePerform.html">ステークス負け演出</a>, <a href="/command/xCircuit13/xCircuit13_staksWinProcessing.html">ステークス勝ち反映</a>, <a href="/command/xCircuit13/xCircuit13_staksWinPerform.html">ステークス勝ち演出</a>, <a href="/command/xCircuit13/xCircuit13_chainArrowClock.html">チェインアロークロック処理</a>, <a href="/command/xCircuit13/xCircuit13_blastShotClock.html">ブラストショットクロック処理</a>, <a href="/command/xCircuit13/xCircuit13_birdStrikeClock.html">バードストライクロック処理</a>, <a href="/command/xCircuit13/xCircuit13_fatalShotClock.html">フェイタルショットロック処理</a></p>
+<p><span class="tagBlue">分岐先</span> <a href="/command/xCircuit13/xCircuit13_syurikenClock.html">手裏剣クロック処理</a>, <a href="/command/xCircuit13/xCircuit13_isukumiClock.html">居縮クロック処理</a>, <a href="/command/xCircuit13/xCircuit13_sayonara.html">サヨナラ処理</a>, <a href="/command/xCircuit13/xCircuit13_stakesLosePerform.html">ステークスファイア負け演出</a>, <a href="/command/xCircuit13/xCircuit13_stakesWinProcessing.html">ステークスファイア勝ち反映</a>, <a href="/command/xCircuit13/xCircuit13_stakesWinPerform.html">ステークスファイア勝ち演出</a>, <a href="/command/xCircuit13/xCircuit13_chainArrowClock.html">チェインアロークロック処理</a>, <a href="/command/xCircuit13/xCircuit13_blastShotClock.html">ブラストショットクロック処理</a>, <a href="/command/xCircuit13/xCircuit13_birdStrikeClock.html">バードストライクロック処理</a>, <a href="/command/xCircuit13/xCircuit13_fatalShotClock.html">フェイタルショットロック処理</a></p>
 
 <p>雪玉や矢などの投擲物を用いたスキルやアイテムエンティティを用いたスキルなどの攻撃処理や演出、他のコマンド群への分岐などを行う。</p>
 
@@ -1220,7 +1230,7 @@
 <h3 id="ステークスファイア実行部">ステークスファイア実行部</h3>
 
 <ul>
-  <li><a href="#ステークスファイア実行部">ステークスファイア実行部</a>では、スキルの発動確率の計算や<a href="/command/xCircuit13/xCircuit13_staksLosePerform.html">ステークス負け演出</a>, <a href="/command/xCircuit13/xCircuit13_staksWinProcessing.html">ステークス勝ち反映</a>, <a href="/command/xCircuit13/xCircuit13_staksWinPerform.html">ステークス勝ち演出</a>への分岐などを行う。</li>
+  <li><a href="#ステークスファイア実行部">ステークスファイア実行部</a>では、スキルの発動確率の計算や<a href="/command/xCircuit13/xCircuit13_stakesLosePerform.html">ステークスファイア負け演出</a>, <a href="/command/xCircuit13/xCircuit13_stakesWinProcessing.html">ステークスファイア勝ち反映</a>, <a href="/command/xCircuit13/xCircuit13_stakesWinPerform.html">ステークスファイア勝ち演出</a>への分岐などを行う。</li>
   <li><a href="/command/xCircuit10/xCircuit10_command.html">毎tick実行するコマンド群10</a>によって起動される</li>
 </ul>
 
@@ -1233,22 +1243,22 @@
     <ol>
       <li><strong>対象プレイヤーの<code class="language-plaintext highlighter-rouge">Random</code>が19以下であるとき</strong>、以下の事柄を実行
         <ol>
-          <li>対象プレイヤーから1.52m上を中心とした半径2m以内の最も近い矢に、<strong><a href="#ステークス負け付与タグ">ステークス負け付与タグ</a>を付与</strong></li>
-          <li><a href="/command/xCircuit13/xCircuit13_staksLosePerform.html">ステークス負け演出</a>を実行</li>
+          <li>対象プレイヤーから1.52m上を中心とした半径2m以内の最も近い矢に、<strong><a href="#ステークスファイア負け付与タグ">ステークスファイア負け付与タグ</a>を付与</strong></li>
+          <li><a href="/command/xCircuit13/xCircuit13_stakesLosePerform.html">ステークスファイア負け演出</a>を実行</li>
         </ol>
       </li>
       <li><strong>対象プレイヤーの<code class="language-plaintext highlighter-rouge">Random</code>が20以上であるとき</strong>、以下の事柄を実行
         <ol>
-          <li>対象プレイヤーから1.52m上を中心とした半径2m以内の最も近い矢に、<strong><a href="#ステークス勝ち付与タグ">ステークス勝ち付与タグ</a>を付与</strong></li>
-          <li><a href="/command/xCircuit13/xCircuit13_staksWinProcessing.html">ステークス勝ち反映</a>を実行</li>
-          <li><a href="/command/xCircuit13/xCircuit13_staksWinPerform.html">ステークス勝ち演出</a>を実行</li>
+          <li>対象プレイヤーから1.52m上を中心とした半径2m以内の最も近い矢に、<strong><a href="#ステークスファイア勝ち付与タグ">ステークスファイア勝ち付与タグ</a>を付与</strong></li>
+          <li><a href="/command/xCircuit13/xCircuit13_stakesWinProcessing.html">ステークスファイア勝ち反映</a>を実行</li>
+          <li><a href="/command/xCircuit13/xCircuit13_stakesWinPerform.html">ステークスファイア勝ち演出</a>を実行</li>
         </ol>
       </li>
     </ol>
   </li>
 </ol>
 
-<h4 id="ステークス負け付与タグ">ステークス負け付与タグ</h4>
+<h4 id="ステークスファイア負け付与タグ">ステークスファイア負け付与タグ</h4>
 
 <pre><code class="language-mcfunction">{
   Tags:[Arrow,StakesLose,FlyingObject,Driftable,TypeChecked],
@@ -1256,7 +1266,7 @@
 }
 </code></pre>
 
-<h4 id="ステークス勝ち付与タグ">ステークス勝ち付与タグ</h4>
+<h4 id="ステークスファイア勝ち付与タグ">ステークスファイア勝ち付与タグ</h4>
 
 <pre><code class="language-mcfunction">{
   Tags:[Arrow,StakesWin,StakesChange,FlyingObject,Driftable,TypeChecked]
