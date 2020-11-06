@@ -5,9 +5,11 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=" ">
-<title> | TUSB Analysis</title><!-- Google Tag Manager -->
+<meta name="description" content="狩人のスキルの一つであるブラストショットの演出や攻撃処理、攻撃時の爆風で地形破壊が起こらないようmobGriefingの変更などを行う。">
+<meta name="keywords" content="コマンドスキル狩人,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<title>ブラストショットクロック処理 | TUSB Analysis</title>
+<link rel="canonical" href="http://127.0.0.1:4000/command/xCircuit13/xCircuit13_blastShotClock.html">
+<!-- Google Tag Manager -->
 <script>
     (function(w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -68,9 +70,9 @@
 
 <meta name="twitter:card" content="summary" /> <!--①-->
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
-<meta property="og:url" content="http://127.0.0.1:4000" /> <!--③-->
-<meta property="og:title" content=" | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="" /> <!--⑤-->
+<meta property="og:url" content="http://127.0.0.1:4000command/xCircuit13/xCircuit13_blastShotClock.html" /> <!--③-->
+<meta property="og:title" content="ブラストショットクロック処理 | TUSB Analysis" /> <!--④-->
+<meta property="og:description" content="狩人のスキルの一つであるブラストショットの演出や攻撃処理、攻撃時の爆風で地形破壊が起こらないようmobGriefingの変更などを行う。" /> <!--⑤-->
 <meta property="og:image" content="http://127.0.0.1:4000/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -143,6 +145,37 @@
         });
     </script>
      
+    <!-- Include the standard DataTables bits -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <!-- First, this walks through the tables that occur between ...-begin
+         and ...-end and add the "datatable" class to them.
+         Then it invokes DataTable's standard initializer
+         Credit here: http://www.beardedhacker.com/blog/2015/08/28/add-class-attribute-to-markdown-table/
+      -->
+    <script>
+        $(document).ready(function() {
+            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
+            $('table.display').DataTable({
+                paging: true,
+                stateSave: true,
+                searching: true,
+                autoWidth: false,
+                lengthChange: true,
+                columns: [{
+                    responsivePriority: 2,
+                    width: "2em"
+                }, {
+                    responsivePriority: 3,
+                    width: "77%"
+                }, {
+                    responsivePriority: 1,
+                    width: "15%"
+                }],
+            });
+        });
+    </script>
+    
     <style type="text/css">
         table {
             table-layout: fixed;
@@ -666,6 +699,10 @@
             <li><a title="ステークスファイア勝ち反映" href="/command/xCircuit13/xCircuit13_stakesWinProcessing.html">ステークスファイア勝ち反映</a></li>
                  
             <li><a title="ステークスファイア勝ち演出" href="/command/xCircuit13/xCircuit13_stakesWinPerform.html">ステークスファイア勝ち演出</a></li>
+                 
+            <li><a title="チェインアロークロック処理" href="/command/xCircuit13/xCircuit13_chainArrowClock.html">チェインアロークロック処理</a></li>
+                 
+            <li class="active"><a title="ブラストショットクロック処理" href="/command/xCircuit13/xCircuit13_blastShotClock.html">ブラストショットクロック処理</a></li>
                
         </ul>
     </li>
@@ -750,7 +787,7 @@
                 <!-- Content Column -->
                 <div class="col-md-9" id="tg-sb-content">
                     <div class="post-header">
-   <h1 class="post-title-main"></h1>
+   <h1 class="post-title-main">ブラストショットクロック処理</h1>
 </div>
 
 
@@ -770,7 +807,7 @@
             minimumHeaders: 0,
             listType: 'ul',
             showSpeed: 0,
-            headers: 'h2,h3,h4'
+            headers: 'h2,h3'
         });
 
         /* this offset helps account for the space taken up by the floating toolbar. */
@@ -791,10 +828,414 @@
 
     
 
-   
+   <h2 id="about">About</h2>
+
+<p><span class="tagYellow">位置</span> (-1920,16,-141)</p>
+
+<p><span class="tagBlack">呼び出し元</span> <a href="/command/xCircuit13/xCircuit13_command.html">毎tick実行するコマンド群13</a></p>
+
+<p>狩人のスキルの一つであるブラストショットの演出や攻撃処理、攻撃時の爆風で地形破壊が起こらないよう<code class="language-plaintext highlighter-rouge">mobGriefing</code>の変更などを行う。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @e[tag=BlastShot] ~ ~ ~ /particle largesmoke ~ ~0.2 ~ 0 0 0 0 0 force</td>
+      <td>リピート<br />動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/gamerule mobGriefing false</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/difficulty easy</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/execute @e[tag=ProjectileHit] ~ ~ ~ /execute @e[dx=0,tag=ProjectileHit,score_PotentialSkill_min=3230,score_PotentialSkill=3239,c=1] ~ ~ ~ /playsound entity.firework.twinkle_far master @a[r=32] ~ ~ ~ 2 0.7 0.2</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/execute @e[tag=ProjectileHit] ~ ~ ~ /execute @e[dx=0,tag=ProjectileHit,score_PotentialSkill_min=3230,score_PotentialSkill=3239,c=1] ~ ~ ~ /particle cloud ~ ~1 ~ 1 1 1 0.1 90 force</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/execute @e[tag=ProjectileHit] ~ ~ ~ /execute @e[dx=0,tag=ProjectileHit,score_PotentialSkill_min=3230,score_PotentialSkill=3230,c=1] ~ ~ ~ /summon Creeper ~ ~0.5 ~ {CustomName:”ブラストショット”,ExplosionRadius:3b,Fuse:0s,ignited:true,Invulnerable:true,NoAI:true,ActiveEffects:[{Id:14b,Amplifier:0b,Duration:20,ShowParticles:false}],Tags:[TypeChecked]}</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/execute @e[tag=ProjectileHit] ~ ~ ~ /execute @e[dx=0,tag=ProjectileHit,score_PotentialSkill_min=3231,score_PotentialSkill=3239,c=1] ~ ~ ~ /summon Creeper ~ ~0.5 ~ {CustomName:”ブラストショット”,ExplosionRadius:7b,Fuse:0s,ignited:true,Invulnerable:true,NoAI:true,ActiveEffects:[{Id:14b,Amplifier:0b,Duration:20,ShowParticles:false}],Tags:[TypeChecked]}</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/fill ~-6 ~1 ~ ~ ~1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players test #EntityCount Global * 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/fill -1921 ~ ~ -1921 ~ ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0 ###ストップ</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<h3 id="no1のコマンドブロックについて">No.1のコマンドブロックについて</h3>
+
+<p>No.1のコマンドブロックには以下のタグが付与されている。</p>
+
+<pre><code class="language-mcfunction">CommandStats:{AffectedEntitiesObjective:"Global",AffectedEntitiesName:"#EntityCount"}
+</code></pre>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">BlastShot</code>を持つすべてのエンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティの座標上にパーティクルを表示</li>
+      <li>対象エンティティの数を<code class="language-plaintext highlighter-rouge">#EntityCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>に代入</li>
+    </ol>
+  </li>
+  <li><a href="#ブラストショットhit処理部">ブラストショットHIT処理部</a>が起動されているとき、これを実行</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">#EntityCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が0以下であるとき</strong>、<a href="/command/xCircuit13/xCircuit13_blastShotClock.html">ブラストショットクロック処理</a>を停止</li>
+</ol>
+
+<h3 id="ブラストショットhit処理部">ブラストショットHIT処理部</h3>
+
+<ul>
+  <li><a href="/command/xCircuit12/xCircuit12_nearProjectileProcessing.html">NearProjectile処理</a>で起動される</li>
+</ul>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">mobGriefing</code>を<code class="language-plaintext highlighter-rouge">false</code>に変更</li>
+  <li>ゲームモードを<code class="language-plaintext highlighter-rouge">easy</code>に変更</li>
+  <li><code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持つすべてのエンティティと同座標上にある、<code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持ち<code class="language-plaintext highlighter-rouge">PotentialSkill</code>が3230 ~ 3239であるエンティティを一体選び、そのエンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティから半径32m以内のすべてのプレイヤーに効果音を鳴らす</li>
+      <li>対象エンティティの座標上にパーティクルを表示</li>
+    </ol>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持つすべてのエンティティと同座標上にある、<strong><code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持ち<code class="language-plaintext highlighter-rouge">PotentialSkill</code>が3230であるエンティティを一体選び</strong>、そこから0.5m上に<strong><a href="#ブラストショット1">ブラストショット1</a>を召喚</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持つすべてのエンティティと同座標上にある、<strong><code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持ち<code class="language-plaintext highlighter-rouge">PotentialSkill</code>が3231 ~ 3239であるエンティティを一体選び</strong>、そこから0.5m上に<strong><a href="#ブラストショット2">ブラストショット2</a>を召喚</strong></li>
+  <li><a href="#ブラストショットhit処理部">ブラストショットHIT処理部</a>を停止</li>
+</ol>
+
+<h3 id="ブラストショット">ブラストショット</h3>
+
+<p><code class="language-plaintext highlighter-rouge">ExplosionRadius</code>のみが異なる。</p>
+
+<h4 id="ブラストショット1">ブラストショット1</h4>
+
+<pre><code class="language-mcfunction">/summon Creeper ~ ~0.5 ~ {CustomName:"ブラストショット",ExplosionRadius:3b,Fuse:0s,ignited:true,Invulnerable:true,NoAI:true,ActiveEffects:[{Id:14b,Amplifier:0b,Duration:20,ShowParticles:false}],Tags:[TypeChecked]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>ブラストショット</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Creeper</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>TypeChecked</td>
+    </tr>
+    <tr>
+      <td>ExplosionRadius</td>
+      <td><strong>3</strong></td>
+    </tr>
+    <tr>
+      <td>ActiveEffects</td>
+      <td>透明化Lv.0 1秒間</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="ブラストショット2">ブラストショット2</h4>
+
+<pre><code class="language-mcfunction">/summon Creeper ~ ~0.5 ~ {CustomName:"ブラストショット",ExplosionRadius:7b,Fuse:0s,ignited:true,Invulnerable:true,NoAI:true,ActiveEffects:[{Id:14b,Amplifier:0b,Duration:20,ShowParticles:false}],Tags:[TypeChecked]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>ブラストショット</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Creeper</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>TypeChecked</td>
+    </tr>
+    <tr>
+      <td>ExplosionRadius</td>
+      <td><strong>7</strong></td>
+    </tr>
+    <tr>
+      <td>ActiveEffects</td>
+      <td>透明化Lv.0 1秒間</td>
+    </tr>
+  </tbody>
+</table>
 
 
     <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
+        <a href="/tags/tag_command.html" class="btn btn-default navbar-btn cursorNorm" role="button">コマンド</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/tags/tag_archer.html" class="btn btn-default navbar-btn cursorNorm" role="button">狩人</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     </div>
 
@@ -830,7 +1271,9 @@
             Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.<br>
             <a href="https://github.com/aka256/TUSB_Analysis">Page source</a><br>
             
-            Site last generated: 5 Nov 2020 <br />
+              <span>Page last updated:</span> 06 Nov 2020<br/>
+            
+            Site last generated: 6 Nov 2020 <br />
         </div>
     </div>
 </footer>
