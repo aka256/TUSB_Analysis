@@ -5,10 +5,10 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=" ">
-<title>表示タグ | TUSB Analysis</title>
-<link rel="canonical" href="http://127.0.0.1:4000/tags/tag_display.html">
+<meta name="description" content="狩人のスキルの一つであるフェイタルショットの演出やスキルターゲットへのFatalTargetの付与、FatalTargetを持つ敵Mobへの効果の付与や削除などを行う。">
+<meta name="keywords" content="コマンドスキル狩人,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<title>フェイタルショットクロック処理 | TUSB Analysis</title>
+<link rel="canonical" href="http://127.0.0.1:4000/command/xCircuit13/xCircuit13_fatalShotClock.html">
 <!-- Google Tag Manager -->
 <script>
     (function(w, d, s, l, i) {
@@ -28,14 +28,6 @@
 <!-- End Google Tag Manager -->
 
 <link rel="stylesheet" href="/css/syntax.css">
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5HTHV6Q');</script>
-  <!-- End Google Tag Manager -->
 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
@@ -70,9 +62,9 @@
 
 <meta name="twitter:card" content="summary" /> <!--①-->
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
-<meta property="og:url" content="http://127.0.0.1:4000tags/tag_display.html" /> <!--③-->
-<meta property="og:title" content="表示タグ | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="" /> <!--⑤-->
+<meta property="og:url" content="http://127.0.0.1:4000command/xCircuit13/xCircuit13_fatalShotClock.html" /> <!--③-->
+<meta property="og:title" content="フェイタルショットクロック処理 | TUSB Analysis" /> <!--④-->
+<meta property="og:description" content="狩人のスキルの一つであるフェイタルショットの演出やスキルターゲットへのFatalTargetの付与、FatalTargetを持つ敵Mobへの効果の付与や削除などを行う。" /> <!--⑤-->
 <meta property="og:image" content="http://127.0.0.1:4000/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -145,6 +137,37 @@
         });
     </script>
      
+    <!-- Include the standard DataTables bits -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <!-- First, this walks through the tables that occur between ...-begin
+         and ...-end and add the "datatable" class to them.
+         Then it invokes DataTable's standard initializer
+         Credit here: http://www.beardedhacker.com/blog/2015/08/28/add-class-attribute-to-markdown-table/
+      -->
+    <script>
+        $(document).ready(function() {
+            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
+            $('table.display').DataTable({
+                paging: true,
+                stateSave: true,
+                searching: true,
+                autoWidth: false,
+                lengthChange: true,
+                columns: [{
+                    responsivePriority: 2,
+                    width: "2em"
+                }, {
+                    responsivePriority: 3,
+                    width: "77%"
+                }, {
+                    responsivePriority: 1,
+                    width: "15%"
+                }],
+            });
+        });
+    </script>
+    
     <style type="text/css">
         table {
             table-layout: fixed;
@@ -677,7 +700,7 @@
                  
             <li><a title="バードストライク効果クロック処理" href="/command/xCircuit13/xCircuit13_birdStrikeEffectClock.html">バードストライク効果クロック処理</a></li>
                  
-            <li><a title="フェイタルショットクロック処理" href="/command/xCircuit13/xCircuit13_fatalShotClock.html">フェイタルショットクロック処理</a></li>
+            <li class="active"><a title="フェイタルショットクロック処理" href="/command/xCircuit13/xCircuit13_fatalShotClock.html">フェイタルショットクロック処理</a></li>
                
         </ul>
     </li>
@@ -762,7 +785,7 @@
                 <!-- Content Column -->
                 <div class="col-md-9" id="tg-sb-content">
                     <div class="post-header">
-   <h1 class="post-title-main">表示タグ</h1>
+   <h1 class="post-title-main">フェイタルショットクロック処理</h1>
 </div>
 
 
@@ -782,7 +805,7 @@
             minimumHeaders: 0,
             listType: 'ul',
             showSpeed: 0,
-            headers: 'h2,h3,h4'
+            headers: 'h2,h3'
         });
 
         /* this offset helps account for the space taken up by the floating toolbar. */
@@ -803,360 +826,422 @@
 
     
 
-   <p>これらは <button type="button" style="cursor: default" class="btn btn-default navbar-btn">表示</button>にタグ付けされたページです。</p>
-<p style="font-weight: bold;">タグの説明</p>
-<p>tellやtellraw、titleコマンドなど、プレイヤーに何かしらのメッセージを表示するコマンドがあるページに割り当てられたタグです。</p>
+   <h2 id="about">About</h2>
+
+<p><span class="tagYellow">位置</span> (-1920,16,-140)</p>
+
+<p><span class="tagBlack">呼び出し元</span> <a href="/command/xCircuit13/xCircuit13_command.html">毎tick実行するコマンド群13</a></p>
+
+<p>狩人のスキルの一つであるフェイタルショットの演出やスキルターゲットへの<code class="language-plaintext highlighter-rouge">FatalTarget</code>の付与、<code class="language-plaintext highlighter-rouge">FatalTarget</code>を持つ敵Mobへの効果の付与や削除などを行う。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable3c-begin"></div>
+
 <table>
-    <thead>
-        <tr>
-            <th width="20%">Title</th>
-            <th>Type</th>
-            <th>Excerpt</th>
-        </tr>
-    </thead>
-    <tbody>
-                                                                                                                                                                                                               
-
-        <tr>
-            <td><a href="/command/xCircuit10/xCircuit10_enchase.html">エンチェイス実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 狩人のスキルの1つであるエンチェイスを実行する。なお、スキルの実行処理は毎tick実行するコマンド群5とエンチェイス探索処理で行われる。 </td>
-        </tr>
-                  
-
-        <tr>
-            <td><a href="/command/xCircuit10/xCircuit10_energySave.html">エナジーセーブ実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 狩人のスキルの1つであるエナジーセーブを実行する。なお、MPの半減処理は毎tick実行するコマンド群8で行われる。 </td>
-        </tr>
-                                                                          
-
-        <tr>
-            <td><a href="/command/xCircuit10/xCircuit10_radarVisionFinProcessing.html">レーダーヴィジョン終了処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 狩人のスキルの1つであるレーダーヴィジョンの終了処理を実行する。なお、`RadarVision`のカウントダウン処理は時間経過、レーダーヴィジョンの初期化処理はレーダーヴィジョン実行でそれぞれ行われる。 </td>
-        </tr>
-                  
-
-        <tr>
-            <td><a href="/command/xCircuit10/xCircuit10_raise.html">レイズ実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 白魔導士のスキルの1つであるレイズのリスポーン準備やレイズ持ちのプレイヤーの死亡直後の処理などの初期処理を実行する。なお、レイズのリスポーン処理はレイズリスポーン処理で、レイズ全体の詳細についてはレイズ解説で行う。 </td>
-        </tr>
-                  
-
-        <tr>
-            <td><a href="/command/xCircuit10/xCircuit10_raiseWarp.html">レイズリスポーン処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 白魔導士のスキルの1つであるレイズのリスポーン処理を行う。また、ネザーアスレでのリスポーン処理もこれを用いている。なお、レイズの初期処理はレイズ実行にて、レイズ全体の処理についての詳しい説明はレイズ解説で行う。 </td>
-        </tr>
-                                  
-
-        <tr>
-            <td><a href="/command/xCircuit10/xCircuit10_wildCooking.html">ワイルドクッキング実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 狩人のスキルの1つであるワイルドクッキングを実行する。 </td>
-        </tr>
-                                                                                                    
-
-        <tr>
-            <td><a href="/command/xCircuit11/xCircuit11_heyComeOn.html">ヘイカモン実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 召喚士のスキルの1つであるヘイカモンを実行する。FriendlyTeamであるエンティティ(召喚士のペット)とプレイヤーテレポート処理、タワーバンク内からのプレイヤーの引き寄せ処理の除外、スキル実行時のメッセージの表示などを行う。 </td>
-        </tr>
-                                  
-
-        <tr>
-            <td><a href="/command/xCircuit11/xCircuit11_lanaRouter.html">ラナルータ実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 黒魔導士のスキルの1つであるラナルータを実行する。Minecraft内の時間の変更やスキル実行時のメッセージの表示、ForceNightが1以上の時、つまり夜を司る島の攻略前でのスキル実行失敗メッセージの表示などの処理を行う。 </td>
-        </tr>
-                  
-
-        <tr>
-            <td><a href="/command/xCircuit11/xCircuit11_lura.html">ルーラ実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 黒魔導士のスキルの1つであるルーラのワープ前までの処理を実行する。ジ・エンドでのワープ阻止や天井のブロック判定、ルーラ実行時のメッセージの表示などの処理を行う。なお、ルーラのワープ処理はルーラワープ処理で行う。 </td>
-        </tr>
-                  
-
-        <tr>
-            <td><a href="/command/xCircuit11/xCircuit11_luraWarp.html">ルーラワープ処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 黒魔導士のスキルの1つであるルーラを実行する。 </td>
-        </tr>
-                          
-
-        <tr>
-            <td><a href="/command/xCircuit11/xCircuit11_magicShield.html">マジックシールド実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 黒魔導士のスキルの1つであるマジックシールドを実行する。スキル実行時のメッセージの表示や耐性エフェクトの付与を行う。なお、マジックシールドの継続処理は時間経過、被ダメージ判定は毎tick実行するコマンド群4、スキル終了処理はマジックシールド終了処理でそれぞれ行われる。 </td>
-        </tr>
-                  
-
-        <tr>
-            <td><a href="/command/xCircuit11/xCircuit11_manaRefresh.html">マナリフレッシュ実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 黒魔導士のスキルの1つであるマナリフレッシュを実行する。マルチプレイにおけるスニーク処理、ManaRefreshへの値の代入、メッセージの表示などを行う。なお、ManaRefreshのカウントダウン処理とスキルの終了処理は時間経過で、MP回復処理は毎tick実行するコマンド群2でそれぞれ行われる。 </td>
-        </tr>
-                                          
-
-        <tr>
-            <td><a href="/command/xCircuit11/xCircuit11_pulpunte.html">パルプンテ実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 黒魔導士のスキルの1つであるパルプンテを実行する。Randomの値によって異なるメッセージと効果を与える。効果の一覧はRandomとその効果についてを参照。 </td>
-        </tr>
-                                                                                                  
-
-        <tr>
-            <td><a href="/command/xCircuit11/xCircuit11_summonWolf.html">サモンP：ウルフ実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 召喚士のスキルの1つであるサモンP：ウルフを実行する。TarpPointの座標上にほねちょーだいの召喚、骨を与えられたときに(ペット)ウルフへと変更するタグ(ペット)ウルフへの追加タグの付与、そして30秒間の内に懐かせられなかったほねちょーだいのキルなどを行う。 </td>
-        </tr>
-                                            
-
-        <tr>
-            <td><a href="/command/xCircuit11/xCircuit11_weather.html">ウェザー実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 黒魔導士のスキルの1つであるウェザーを実行する。天候の切り替えとスキル実行時のメッセージの表示処理を行う。 </td>
-        </tr>
-                  
-
-        <tr>
-            <td><a href="/command/xCircuit11/xCircuit11_windWall.html">ウィンドウォール実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 黒魔導士のスキルの1つであるウィンドウォールを実行する。マルチプレイ時のスニーク処理やWindWallへの値の代入、スキル実行時のメッセージの表示などを行う。なお、WindWallのカウントダウン処理は時間経過で、飛翔物の撃墜処理は毎tick実行するコマンド群4でそれぞれ行われる。 </td>
-        </tr>
-                                                                                                                                                            
-
-        <tr>
-            <td><a href="/command/xCircuit1/xCircuit1_animalGuideEvent.html">動物誘導イベント</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 嫌な予感のイベントの1つである動物誘導イベントを管理するコマンド群である。 </td>
-        </tr>
-                  
-
-        <tr>
-            <td><a href="/command/xCircuit1/xCircuit1_areaProcessing.html">エリア処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> エリア侵入時の演出やテーブルマウンテン、ネザーアスレ侵入時のエンダーチェスト処理を行う。 </td>
-        </tr>
-                                    
-
-        <tr>
-            <td><a href="/command/xCircuit1/xCircuit1_areaRecord.html">エリア侵入記録</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> Overworld内のディメンション移動の際の侵入記録を行う。また、その際にスキルの設定を変える、お試しセットの印玉を渡すなどの処理も行っている。 </td>
-        </tr>
-                                                
-
-        <tr>
-            <td><a href="/command/xCircuit1/xCircuit1_kazakiriUpdata.html">風切更新</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 忍者のスキルの1つである風切の演出やスキル実行者の上昇、下降処理、スキル効果切れメッセージの表示などを行う。 </td>
-        </tr>
-                                        
-
-        <tr>
-            <td><a href="/command/xCircuit1/xCircuit1_timeElapsed.html">時間経過</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> スキルやイベント、トカルトコルデなどでの時間経過により変化するものの処理、分岐を行っている。 </td>
-        </tr>
-                                
-
-        <tr>
-            <td><a href="/command/xCircuit2/xCircuit2_conquerDisplay.html">攻略率表示</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 交易島の教会での攻略率表示の処理を行う。 </td>
-        </tr>
-                
-
-        <tr>
-            <td><a href="/command/xCircuit2/xCircuit2_conquerProcessing.html">島攻略処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 島攻略時の演出や、攻略率による時計島の形態変化への分岐、月島の処理、製作者村人の出現などの処理を行う。 </td>
-        </tr>
-                      
-
-        <tr>
-            <td><a href="/command/xCircuit2/xCircuit2_expProcessing.html">経験値取得処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> ネザースターの取得時の処理や、マルチプレイ時の距離による経験値取得制限を行う。 </td>
-        </tr>
-                                                          
-
-        <tr>
-            <td><a href="/command/xCircuit2/xCircuit2_levelupProcessing.html">レベルアップ処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> レベルアップ時のスコアボードの書き換えや、新しいスキルの取得への分岐などを行う。 </td>
-        </tr>
-                  
-
-        <tr>
-            <td><a href="/command/xCircuit2/xCircuit2_loginProcessing.html">ログイン時処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 通常ログイン時のMPや職業などの処理を行う。 </td>
-        </tr>
-                      
-
-        <tr>
-            <td><a href="/command/xCircuit2/xCircuit2_satietyFix.html">満腹度修正</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> リスポーン時に死亡前の満腹度の再現を行う。また、満腹度が小さい場合は救済処理を行う。 </td>
-        </tr>
-                  
-
-        <tr>
-            <td><a href="/command/xCircuit2/xCircuit2_skillAcquisition.html">習得スキル取得</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> レベルアップ時に新しいスキル取得したか判断する。 </td>
-        </tr>
-              
-
-        <tr>
-            <td><a href="/command/xCircuit2/xCircuit2_statusDisplay.html">ステータス表示</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 交易島の教会でのステータス表示の処理を行う。 </td>
-        </tr>
-                
-
-        <tr>
-            <td><a href="/command/xCircuit2/xCircuit2_warpProcessing.html">ワープ処理ジョブ島・通常世界</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 初回ログイン時のチュートリアルの処理、初回に配られるジョブ変更申請用紙、ブラジル行きの穴の処理などを行う。 </td>
-        </tr>
-                        
-
-        <tr>
-            <td><a href="/command/xCircuit3/xCircuit3_augurTalk.html">占い師会話選択時処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 交易島にいる占い師との会話処理を行い、次に起こる嫌な予感に対するメッセージを表示する。 </td>
-        </tr>
-                
-
-        <tr>
-            <td><a href="/command/xCircuit3/xCircuit3_bedProcessing.html">ベッド処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> ベッドで寝た際の回復処理や、アドベンチャーモードでの就寝処理を行う。 </td>
-        </tr>
-                          
-
-        <tr>
-            <td><a href="/command/xCircuit3/xCircuit3_pastorTalk.html">牧師会話選択時処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 交易島の教会にいる牧師との会話処理を行う。 </td>
-        </tr>
-                      
-
-        <tr>
-            <td><a href="/command/xCircuit3/xCircuit3_skillDisplay.html">設定スキル表示</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 現在設定されているスキルについて表示を行う。 </td>
-        </tr>
-                
-
-        <tr>
-            <td><a href="/command/xCircuit3/xCircuit3_suggestSightseeing.html">観光モード提案開始</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 観光モードの提案から、変更までの処理を行う。 </td>
-        </tr>
-                      
-
-        <tr>
-            <td><a href="/command/xCircuit3/xCircuit3_villagerTalkProcessing.html">村人会話処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 交易島内の村人(牧師、エージェント、占い師)との会話や職業島へのワープ時の処理などを行う。 </td>
-        </tr>
-                                                                                  
-
-        <tr>
-            <td><a href="/command/xCircuit5/xCircuit5_enAspirMPRecovering.html">エンアスピルMP回復</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 黒魔導士のスキルの1つであるエンアスピル発動時の処理を行う。 </td>
-        </tr>
-                                      
-
-        <tr>
-            <td><a href="/command/xCircuit5/xCircuit5_tacticalHealProcessing.html">タクティカルヒール処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 剣士のスキルの1つであるタクティカルヒールの回復処理と、演出等を実行する。 </td>
-        </tr>
-                        
-
-        <tr>
-            <td><a href="/command/xCircuit7/xCircuit7_command.html">毎tick実行するコマンド群7</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 圧縮印玉等の報酬系スポーンエッグ使用時の演出、モードチェンジエッグやサポートスキルエッグ使用時の処理等を行う。 </td>
-        </tr>
-                
-
-        <tr>
-            <td><a href="/command/xCircuit7/xCircuit7_modeChange.html">モード変更</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> モードチェンジエッグによるモードスキルの変更時の演出と処理を行う。 </td>
-        </tr>
-                            
-
-        <tr>
-            <td><a href="/command/xCircuit8/xCircuit8_skillSettingChange.html">スキル設定変更</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> スキルの変更時、現在のスキルIDの変更、スキルコストの変更などを行う。 </td>
-        </tr>
-                    
-
-        <tr>
-            <td><a href="/command/xCircuit9/xCircuit9_aisatsu.html">アイサツ実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 忍者のスキルの1つであるアイサツを実行する。 </td>
-        </tr>
-                                            
-
-        <tr>
-            <td><a href="/command/xCircuit9/xCircuit9_ironWill.html">アイアンウィル実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 剣士のスキルの1つであるアイアンウィルの実行準備を行う。なお、防具や盾によるボーナス処理や終了処理はアイアンウィル継続処理を、スキル実行部は毎tick実行するコマンド群4をそれぞれ参照。 </td>
-        </tr>
-                                                                                                  
-
-        <tr>
-            <td><a href="/command/xCircuit9/xCircuit9_tacticalHeal.html">タクティカルヒール実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 剣士のスキルの1つであるタクティカルヒールの実行準備を行う。なお、実際にこのスキル実行するコマンド群はタクティカルヒール処理で行われる。 </td>
-        </tr>
-                  
-
-        <tr>
-            <td><a href="/command/xCircuit9/xCircuit9_tsuremai.html">連舞実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 忍者のスキルの1つである連舞を実行する。 </td>
-        </tr>
-                  
-
-        <tr>
-            <td><a href="/command/xCircuit9/xCircuit9_tyoyaku.html">跳躍実行</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> 忍者のスキルの1つである連舞を実行する。なお、跳躍による攻撃処理は毎tick実行するコマンド群4で行われる。 </td>
-        </tr>
-                                                    
-
-        <tr>
-            <td><a href="/command/xCircuitCore/xCircuitCore_systemKeeperProcessing.html">SystemKeeper処理</a></td>
-            <td><span class="label label-default">Page</span></td>
-            <td> SystemKeeperという名前のアーマースタンドと、その下にあるコマンド群によって構成され、X回路区域のセーフティーネットの役割を担っている。なので、通常では実行されることがないコマンド群である。 </td>
-        </tr>
-                
-
-    </tbody>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @e[tag=FatalShot] ~ ~ ~ /playsound block.glass.break master @a[r=32] ~ ~ ~ 0.6 1.8 0.1</td>
+      <td>リピート<br />動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @e[tag=FatalShot] ~ ~ ~ /particle witchMagic ~ ~0.2 ~ 0 0 0 0.1 2 force</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute @e[tag=ProjectileHit] ~ ~ ~ /execute @e[dx=0,tag=ProjectileHit,score_PotentialSkill_min=3260,score_PotentialSkill=3269,c=1] ~ ~ ~ /scoreboard players tag @e[r=10,tag=Enemy] add FatalTarget</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/execute @r[type=!Player,tag=FatalTarget,c=10] ~ ~ ~ /playsound block.fire.extinguish master @a[r=32] ~ ~ ~ 2 0.6 0.1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/execute @r[type=!Player,tag=FatalTarget,c=10] ~ ~ ~ /particle witchMagic ~ ~1 ~ 5 1 5 0.1 90 force</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/entitydata @e[tag=FatalTarget] {ActiveEffects:[{Id:8b,Amplifier:-21b,Duration:400,ShowParticles:true},{Id:11b,Amplifier:-21b,Duration:400,ShowParticles:true},{Id:5b,Duration:0},{Id:12b,Duration:0},{Id:13b,Duration:0}]}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/effect @e[tag=FatalTarget] minecraft:slowness 20 19</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/effect @e[tag=FatalTarget] minecraft:weakness 20 19</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players tag @e[tag=FatalTarget] remove FatalTarget</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/fill ~-10 ~1 ~ ~ ~1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players test #EntityCount Global * 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/fill -1921 ~ ~ -1921 ~ ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0 ###ストップ</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
 </table>
 
-<p>その他のタグのリストは<a href="/includeTags/includeTags_list.html">ページ内タグ一覧</a></p>
+<div class="datatable3c-end"></div>
+
+<h3 id="no1のコマンドブロックについて">No.1のコマンドブロックについて</h3>
+
+<p>No.1のコマンドブロックには以下のタグが付与されている。</p>
+
+<pre><code class="language-mcfunction">CommandStats:{AffectedEntitiesObjective:"Global",AffectedEntitiesName:"#EntityCount"}
+</code></pre>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">FatalShot</code>を持つすべてのエンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティから半径32m以内のすべてのプレイヤーに効果音を鳴らす</li>
+      <li>対象エンティティの数を<code class="language-plaintext highlighter-rouge">#EntityCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>に代入</li>
+      <li>対象エンティティの座標上にパーティクルを表示</li>
+    </ol>
+  </li>
+  <li><a href="#フェイタルショットhit処理部">フェイタルショットHIT処理部</a>が起動されているとき、これを実行</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">#EntityCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が0以下であるとき</strong>、<a href="/command/xCircuit13/xCircuit13_fatalShotClock.html">フェイタルショットクロック処理</a>を停止</li>
+</ol>
+
+<h3 id="フェイタルショットhit処理部">フェイタルショットHIT処理部</h3>
+
+<ul>
+  <li><a href="/command/xCircuit12/xCircuit12_nearProjectileProcessing.html">NearProjectile処理</a>で起動される</li>
+</ul>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持つすべてのエンティティと同座標上にある、<code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持ち<code class="language-plaintext highlighter-rouge">PotentialSkill</code>が3260 ~ 3269であるエンティティを一体選び、そのエンティティから半径10m以内の<code class="language-plaintext highlighter-rouge">Enemy</code>を持った</strong>すべてのエンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティに<strong><code class="language-plaintext highlighter-rouge">FatalTarget</code>を付与</strong></li>
+      <li><code class="language-plaintext highlighter-rouge">FatalTarget</code>を持つプレイヤー以外のエンティティをランダムに10体選び、以下の事柄を実行
+        <ol>
+          <li>対象エンティティから半径32m以内のすべてのプレイヤーに効果音を鳴らす</li>
+          <li>対象エンティティの座標上にパーティクルを表示</li>
+        </ol>
+      </li>
+      <li><strong><code class="language-plaintext highlighter-rouge">FatalTarget</code>を持つ</strong>すべてのエンティティに対し、以下の事柄を実行
+        <ol>
+          <li>対象エンティティに<strong><a href="#フェイタルショット付与タグ">フェイタルショット付与タグ</a>を付与</strong></li>
+          <li>対象エンティティに<strong>移動速度低下Lv.19と弱体化Lv.19を20秒間付与</strong></li>
+          <li>対象エンティティから<code class="language-plaintext highlighter-rouge">FatalTarget</code>を削除</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#フェイタルショットhit処理部">フェイタルショットHIT処理部</a>を停止</li>
+</ol>
+
+<h3 id="フェイタルショット付与タグ">フェイタルショット付与タグ</h3>
+
+<p>効果としては、跳躍力上昇Lv.235 20秒間、耐性Lv.235 20秒間と、攻撃力上昇、火炎体制、水中呼吸の3つの効果の打ち消しである。</p>
+
+<pre><code class="language-mcfunction">{
+  ActiveEffects:[
+  {
+    Id:8b,
+    Amplifier:-21b,
+    Duration:400,
+    ShowParticles:true
+  },{
+    Id:11b,
+    Amplifier:-21b,
+    Duration:400,
+    ShowParticles:true
+  },{
+    Id:5b,
+    Duration:0
+  },{
+    Id:12b,
+    Duration:0
+  },{
+    Id:13b,
+    Duration:0
+  }]
+}
+</code></pre>
 
 
     <div class="tags">
         
+        <b>Tags: </b>
+        
+        
+        
+        
+        <a href="/tags/tag_command.html" class="btn btn-default navbar-btn cursorNorm" role="button">コマンド</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/tags/tag_archer.html" class="btn btn-default navbar-btn cursorNorm" role="button">狩人</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </div>
 
-
+<script id="dsq-count-scr" src="//tusb-analysis.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://tusb-analysis.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </div>
 
@@ -1167,6 +1252,8 @@
         <div class="col-lg-12 footer">
             Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.<br>
             <a href="https://github.com/aka256/TUSB_Analysis">Page source</a><br>
+            
+              <span>Page last updated:</span> 06 Nov 2020<br/>
             
             Site last generated: 6 Nov 2020 <br />
         </div>
