@@ -5,10 +5,10 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="召喚士のスキルの1つであるあつあつタライを実行する。敵Mobの座標上にAtsuTaraiを召喚し、50ダメージを与える。">
-<meta name="keywords" content="コマンドスキル召喚士,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
-<title>あつあつタライ実行 | TUSB Analysis</title>
-<link rel="canonical" href="http://127.0.0.1:4000/command/xCircuit11/xCircuit11_hotTub.html">
+<meta name="description" content="狩人のスキルの一つであるフェイタルショットの演出やスキルターゲットへのFatalTargetの付与、FatalTargetを持つ敵Mobへの効果の付与や削除などを行う。">
+<meta name="keywords" content="コマンドスキル狩人,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<title>フェイタルショットクロック処理 | TUSB Analysis</title>
+<link rel="canonical" href="http://127.0.0.1:4000/command/xCircuit13/xCircuit13_fatalShotClock.html">
 <!-- Google Tag Manager -->
 <script>
     (function(w, d, s, l, i) {
@@ -62,9 +62,9 @@
 
 <meta name="twitter:card" content="summary" /> <!--①-->
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
-<meta property="og:url" content="http://127.0.0.1:4000command/xCircuit11/xCircuit11_hotTub.html" /> <!--③-->
-<meta property="og:title" content="あつあつタライ実行 | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="召喚士のスキルの1つであるあつあつタライを実行する。敵Mobの座標上にAtsuTaraiを召喚し、50ダメージを与える。" /> <!--⑤-->
+<meta property="og:url" content="http://127.0.0.1:4000command/xCircuit13/xCircuit13_fatalShotClock.html" /> <!--③-->
+<meta property="og:title" content="フェイタルショットクロック処理 | TUSB Analysis" /> <!--④-->
+<meta property="og:description" content="狩人のスキルの一つであるフェイタルショットの演出やスキルターゲットへのFatalTargetの付与、FatalTargetを持つ敵Mobへの効果の付与や削除などを行う。" /> <!--⑤-->
 <meta property="og:image" content="http://127.0.0.1:4000/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -147,20 +147,22 @@
       -->
     <script>
         $(document).ready(function() {
-            $('div.datatable2cnp-begin').nextUntil('div.datatable2cnp-end', 'table').addClass('display');
-            //$('div.datatable3-begin').nextUntil('div.datatable3-end', 'table').Class('display').style = "word-break:break-all";
+            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
             $('table.display').DataTable({
-                paging: false,
+                paging: true,
                 stateSave: true,
                 searching: true,
                 autoWidth: false,
                 lengthChange: true,
                 columns: [{
-                    responsivePriority: 1,
+                    responsivePriority: 2,
                     width: "2em"
                 }, {
-                    responsivePriority: 2,
-                    width: "92%"
+                    responsivePriority: 3,
+                    width: "77%"
+                }, {
+                    responsivePriority: 1,
+                    width: "15%"
                 }],
             });
         });
@@ -633,7 +635,7 @@
                         
                     <li><a title="つんつん実行" href="/command/xCircuit11/xCircuit11_tsuntsun.html">つんつん実行</a></li>
                         
-                    <li class="active"><a title="あつあつタライ実行" href="/command/xCircuit11/xCircuit11_hotTub.html">あつあつタライ実行</a></li>
+                    <li><a title="あつあつタライ実行" href="/command/xCircuit11/xCircuit11_hotTub.html">あつあつタライ実行</a></li>
                         
                     <li><a title="サモンB：オブシディアン実行" href="/command/xCircuit11/xCircuit11_summonObsidian.html">サモンB：オブシディアン実行</a></li>
                         
@@ -698,7 +700,7 @@
                  
             <li><a title="バードストライク効果クロック処理" href="/command/xCircuit13/xCircuit13_birdStrikeEffectClock.html">バードストライク効果クロック処理</a></li>
                  
-            <li><a title="フェイタルショットクロック処理" href="/command/xCircuit13/xCircuit13_fatalShotClock.html">フェイタルショットクロック処理</a></li>
+            <li class="active"><a title="フェイタルショットクロック処理" href="/command/xCircuit13/xCircuit13_fatalShotClock.html">フェイタルショットクロック処理</a></li>
                
         </ul>
     </li>
@@ -783,7 +785,7 @@
                 <!-- Content Column -->
                 <div class="col-md-9" id="tg-sb-content">
                     <div class="post-header">
-   <h1 class="post-title-main">あつあつタライ実行</h1>
+   <h1 class="post-title-main">フェイタルショットクロック処理</h1>
 </div>
 
 
@@ -803,7 +805,7 @@
             minimumHeaders: 0,
             listType: 'ul',
             showSpeed: 0,
-            headers: 'h2,h3,h4'
+            headers: 'h2,h3'
         });
 
         /* this offset helps account for the space taken up by the floating toolbar. */
@@ -826,84 +828,167 @@
 
    <h2 id="about">About</h2>
 
-<p><span class="tagYellow">位置</span> (-1920,10,-148)</p>
+<p><span class="tagYellow">位置</span> (-1920,16,-140)</p>
 
-<p><span class="tagBlack">呼び出し元</span> <a href="/command/xCircuit11/xCircuit11_command.html">毎tick実行するコマンド群11</a></p>
+<p><span class="tagBlack">呼び出し元</span> <a href="/command/xCircuit13/xCircuit13_command.html">毎tick実行するコマンド群13</a></p>
 
-<p><span class="tagBlue">分岐先</span> <a href="/command/xCircuit11/xCircuit11_tubProcessing.html">タライ共通処理</a></p>
-
-<p>召喚士のスキルの1つであるあつあつタライを実行する。敵Mobの座標上に<a href="#atsutarai">AtsuTarai</a>を召喚し、50ダメージを与える。</p>
+<p>狩人のスキルの一つであるフェイタルショットの演出やスキルターゲットへの<code class="language-plaintext highlighter-rouge">FatalTarget</code>の付与、<code class="language-plaintext highlighter-rouge">FatalTarget</code>を持つ敵Mobへの効果の付与や削除などを行う。</p>
 
 <h2 id="コマンド群">コマンド群</h2>
 
-<div class="datatable2cnp-begin"></div>
+<div class="datatable3c-begin"></div>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: center">No.</th>
       <th>コマンド</th>
+      <th>状態</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: center">1</td>
-      <td>/execute @a[score_ActivatedSkill_min=6250,score_ActivatedSkill=6259] ~ ~ ~ /execute @e[r=15,tag=Enemy] ~ ~ ~ /summon FallingSand ~ ~2.5 ~ {Block:”minecraft:flowing_lava”,Data:7b,Time:1,DropItem:false,HurtEntities:true,FallHurtMax:50,FallHurtAmount:50f,FallDistance:1f,Tags:[AtsuTarai,Tarai]}</td>
+      <td>/execute @e[tag=FatalShot] ~ ~ ~ /playsound block.glass.break master @a[r=32] ~ ~ ~ 0.6 1.8 0.1</td>
+      <td>リピート<br />動力が必要</td>
     </tr>
     <tr>
       <td style="text-align: center">2</td>
-      <td>/execute @a[score_ActivatedSkill_min=6250,score_ActivatedSkill=6259] ~ ~ ~ /execute @e[r=15,tag=Enemy,c=10] ~ ~2.5 ~ /particle lava ~ ~ ~ 0.3 0.1 0.3 0.1 5 force</td>
+      <td>/execute @e[tag=FatalShot] ~ ~ ~ /particle witchMagic ~ ~0.2 ~ 0 0 0 0.1 2 force</td>
+      <td>条件付き</td>
     </tr>
     <tr>
       <td style="text-align: center">3</td>
-      <td>/execute 0-0-1-0-1 ~ 14 -148 /clone ~ ~ ~ ~ ~ ~ ~ ~ ~ filtered force minecraft:command_block 5 ###タライ共通</td>
+      <td>/execute @e[tag=ProjectileHit] ~ ~ ~ /execute @e[dx=0,tag=ProjectileHit,score_PotentialSkill_min=3260,score_PotentialSkill=3269,c=1] ~ ~ ~ /scoreboard players tag @e[r=10,tag=Enemy] add FatalTarget</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/execute @r[type=!Player,tag=FatalTarget,c=10] ~ ~ ~ /playsound block.fire.extinguish master @a[r=32] ~ ~ ~ 2 0.6 0.1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/execute @r[type=!Player,tag=FatalTarget,c=10] ~ ~ ~ /particle witchMagic ~ ~1 ~ 5 1 5 0.1 90 force</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/entitydata @e[tag=FatalTarget] {ActiveEffects:[{Id:8b,Amplifier:-21b,Duration:400,ShowParticles:true},{Id:11b,Amplifier:-21b,Duration:400,ShowParticles:true},{Id:5b,Duration:0},{Id:12b,Duration:0},{Id:13b,Duration:0}]}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/effect @e[tag=FatalTarget] minecraft:slowness 20 19</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/effect @e[tag=FatalTarget] minecraft:weakness 20 19</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/scoreboard players tag @e[tag=FatalTarget] remove FatalTarget</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/fill ~-10 ~1 ~ ~ ~1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players test #EntityCount Global * 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/fill -1921 ~ ~ -1921 ~ ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0 ###ストップ</td>
+      <td>条件付き</td>
     </tr>
   </tbody>
 </table>
 
-<div class="datatable2cnp-end"></div>
+<div class="datatable3c-end"></div>
+
+<h3 id="no1のコマンドブロックについて">No.1のコマンドブロックについて</h3>
+
+<p>No.1のコマンドブロックには以下のタグが付与されている。</p>
+
+<pre><code class="language-mcfunction">CommandStats:{AffectedEntitiesObjective:"Global",AffectedEntitiesName:"#EntityCount"}
+</code></pre>
 
 <h2 id="詳細">詳細</h2>
 
 <ol>
-  <li><strong><code class="language-plaintext highlighter-rouge">ActivatedSkill</code>が6250 ~ 6259</strong>であるすべてのプレイヤーに対し、以下の事柄を実行
+  <li><code class="language-plaintext highlighter-rouge">FatalShot</code>を持つすべてのエンティティに対し、以下の事柄を実行
     <ol>
-      <li>対象プレイヤーから<strong>半径15m以内の<code class="language-plaintext highlighter-rouge">Enemy</code>を持ったすべてのエンティティ</strong>の座標上に、<strong><a href="#atsutarai">AtsuTarai</a>を召喚</strong></li>
-      <li>対象プレイヤーから半径15m以内の<code class="language-plaintext highlighter-rouge">Enemy</code>を持った10体のエンティティの座標上に、パーティクルを表示</li>
+      <li>対象エンティティから半径32m以内のすべてのプレイヤーに効果音を鳴らす</li>
+      <li>対象エンティティの数を<code class="language-plaintext highlighter-rouge">#EntityCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>に代入</li>
+      <li>対象エンティティの座標上にパーティクルを表示</li>
     </ol>
   </li>
-  <li><a href="/command/xCircuit11/xCircuit11_tubProcessing.html">タライ共通処理</a>を実行</li>
+  <li><a href="#フェイタルショットhit処理部">フェイタルショットHIT処理部</a>が起動されているとき、これを実行</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">#EntityCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が0以下であるとき</strong>、<a href="/command/xCircuit13/xCircuit13_fatalShotClock.html">フェイタルショットクロック処理</a>を停止</li>
 </ol>
 
-<h3 id="atsutarai">AtsuTarai</h3>
+<h3 id="フェイタルショットhit処理部">フェイタルショットHIT処理部</h3>
 
-<pre><code class="language-mcfunction">/summon FallingSand ~ ~2.5 ~ {Block:"minecraft:flowing_lava",Data:7b,Time:1,DropItem:false,HurtEntities:true,FallHurtMax:50,FallHurtAmount:50f,FallDistance:1f,Tags:[AtsuTarai,Tarai]}
+<ul>
+  <li><a href="/command/xCircuit12/xCircuit12_nearProjectileProcessing.html">NearProjectile処理</a>で起動される</li>
+</ul>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持つすべてのエンティティと同座標上にある、<code class="language-plaintext highlighter-rouge">ProjectileHit</code>を持ち<code class="language-plaintext highlighter-rouge">PotentialSkill</code>が3260 ~ 3269であるエンティティを一体選び、そのエンティティから半径10m以内の<code class="language-plaintext highlighter-rouge">Enemy</code>を持った</strong>すべてのエンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティに<strong><code class="language-plaintext highlighter-rouge">FatalTarget</code>を付与</strong></li>
+      <li><code class="language-plaintext highlighter-rouge">FatalTarget</code>を持つプレイヤー以外のエンティティをランダムに10体選び、以下の事柄を実行
+        <ol>
+          <li>対象エンティティから半径32m以内のすべてのプレイヤーに効果音を鳴らす</li>
+          <li>対象エンティティの座標上にパーティクルを表示</li>
+        </ol>
+      </li>
+      <li><strong><code class="language-plaintext highlighter-rouge">FatalTarget</code>を持つ</strong>すべてのエンティティに対し、以下の事柄を実行
+        <ol>
+          <li>対象エンティティに<strong><a href="#フェイタルショット付与タグ">フェイタルショット付与タグ</a>を付与</strong></li>
+          <li>対象エンティティに<strong>移動速度低下Lv.19と弱体化Lv.19を20秒間付与</strong></li>
+          <li>対象エンティティから<code class="language-plaintext highlighter-rouge">FatalTarget</code>を削除</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#フェイタルショットhit処理部">フェイタルショットHIT処理部</a>を停止</li>
+</ol>
+
+<h3 id="フェイタルショット付与タグ">フェイタルショット付与タグ</h3>
+
+<p>効果としては、跳躍力上昇Lv.235 20秒間、耐性Lv.235 20秒間と、攻撃力上昇、火炎体制、水中呼吸の3つの効果の打ち消しである。</p>
+
+<pre><code class="language-mcfunction">{
+  ActiveEffects:[
+  {
+    Id:8b,
+    Amplifier:-21b,
+    Duration:400,
+    ShowParticles:true
+  },{
+    Id:11b,
+    Amplifier:-21b,
+    Duration:400,
+    ShowParticles:true
+  },{
+    Id:5b,
+    Duration:0
+  },{
+    Id:12b,
+    Duration:0
+  },{
+    Id:13b,
+    Duration:0
+  }]
+}
 </code></pre>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Name</td>
-      <td>(None)</td>
-    </tr>
-    <tr>
-      <td>Type</td>
-      <td>FallingSand (flowing_lava)</td>
-    </tr>
-    <tr>
-      <td>Tags</td>
-      <td><strong>AtsuTarai</strong>,<strong>Tarai</strong></td>
-    </tr>
-    <tr>
-      <td>HurtEntities</td>
-      <td>true</td>
-    </tr>
-    <tr>
-      <td>FallHurtMax</td>
-      <td><strong>50</strong></td>
-    </tr>
-  </tbody>
-</table>
 
 
     <div class="tags">
@@ -1083,13 +1168,13 @@
         
         
         
+        <a href="/tags/tag_archer.html" class="btn btn-default navbar-btn cursorNorm" role="button">狩人</a>
         
         
         
         
         
         
-        <a href="/tags/tag_summoner.html" class="btn btn-default navbar-btn cursorNorm" role="button">召喚士</a>
         
         
         
@@ -1168,7 +1253,7 @@
             Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.<br>
             <a href="https://github.com/aka256/TUSB_Analysis">Page source</a><br>
             
-              <span>Page last updated:</span> 22 Sep 2020<br/>
+              <span>Page last updated:</span> 06 Nov 2020<br/>
             
             Site last generated: 6 Nov 2020 <br />
         </div>

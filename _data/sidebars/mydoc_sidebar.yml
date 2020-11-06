@@ -545,6 +545,15 @@ entries:
     - title: ブラストショットクロック処理
       url: /command/xCircuit13/xCircuit13_blastShotClock.html
       output: web, pdf
+    - title: バードストライククロック処理
+      url: /command/xCircuit13/xCircuit13_birdStrikeClock.html
+      output: web, pdf
+    - title: バードストライク効果クロック処理
+      url: /command/xCircuit13/xCircuit13_birdStrikeEffectClock.html
+      output: web, pdf
+    - title: フェイタルショットクロック処理
+      url: /command/xCircuit13/xCircuit13_fatalShotClock.html
+      output: web, pdf
 
   - title: 超作業台ルーム
     output: web,pdf

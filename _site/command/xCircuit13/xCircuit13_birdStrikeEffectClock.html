@@ -5,9 +5,11 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=" ">
-<title> | TUSB Analysis</title><!-- Google Tag Manager -->
+<meta name="description" content="狩人のスキルの一つであるバードストライクの敵の落下処理をMotionの変更によって行う。">
+<meta name="keywords" content="コマンドスキル狩人,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<title>バードストライク効果クロック処理 | TUSB Analysis</title>
+<link rel="canonical" href="http://127.0.0.1:4000/command/xCircuit13/xCircuit13_birdStrikeEffectClock.html">
+<!-- Google Tag Manager -->
 <script>
     (function(w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -60,9 +62,9 @@
 
 <meta name="twitter:card" content="summary" /> <!--①-->
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
-<meta property="og:url" content="http://127.0.0.1:4000" /> <!--③-->
-<meta property="og:title" content=" | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="" /> <!--⑤-->
+<meta property="og:url" content="http://127.0.0.1:4000command/xCircuit13/xCircuit13_birdStrikeEffectClock.html" /> <!--③-->
+<meta property="og:title" content="バードストライク効果クロック処理 | TUSB Analysis" /> <!--④-->
+<meta property="og:description" content="狩人のスキルの一つであるバードストライクの敵の落下処理をMotionの変更によって行う。" /> <!--⑤-->
 <meta property="og:image" content="http://127.0.0.1:4000/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -135,6 +137,37 @@
         });
     </script>
      
+    <!-- Include the standard DataTables bits -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <!-- First, this walks through the tables that occur between ...-begin
+         and ...-end and add the "datatable" class to them.
+         Then it invokes DataTable's standard initializer
+         Credit here: http://www.beardedhacker.com/blog/2015/08/28/add-class-attribute-to-markdown-table/
+      -->
+    <script>
+        $(document).ready(function() {
+            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
+            $('table.display').DataTable({
+                paging: true,
+                stateSave: true,
+                searching: true,
+                autoWidth: false,
+                lengthChange: true,
+                columns: [{
+                    responsivePriority: 2,
+                    width: "2em"
+                }, {
+                    responsivePriority: 3,
+                    width: "77%"
+                }, {
+                    responsivePriority: 1,
+                    width: "15%"
+                }],
+            });
+        });
+    </script>
+    
     <style type="text/css">
         table {
             table-layout: fixed;
@@ -662,6 +695,12 @@
             <li><a title="チェインアロークロック処理" href="/command/xCircuit13/xCircuit13_chainArrowClock.html">チェインアロークロック処理</a></li>
                  
             <li><a title="ブラストショットクロック処理" href="/command/xCircuit13/xCircuit13_blastShotClock.html">ブラストショットクロック処理</a></li>
+                 
+            <li><a title="バードストライククロック処理" href="/command/xCircuit13/xCircuit13_birdStrikeClock.html">バードストライククロック処理</a></li>
+                 
+            <li class="active"><a title="バードストライク効果クロック処理" href="/command/xCircuit13/xCircuit13_birdStrikeEffectClock.html">バードストライク効果クロック処理</a></li>
+                 
+            <li><a title="フェイタルショットクロック処理" href="/command/xCircuit13/xCircuit13_fatalShotClock.html">フェイタルショットクロック処理</a></li>
                
         </ul>
     </li>
@@ -746,7 +785,7 @@
                 <!-- Content Column -->
                 <div class="col-md-9" id="tg-sb-content">
                     <div class="post-header">
-   <h1 class="post-title-main"></h1>
+   <h1 class="post-title-main">バードストライク効果クロック処理</h1>
 </div>
 
 
@@ -766,7 +805,7 @@
             minimumHeaders: 0,
             listType: 'ul',
             showSpeed: 0,
-            headers: 'h2,h3,h4'
+            headers: 'h2,h3'
         });
 
         /* this offset helps account for the space taken up by the floating toolbar. */
@@ -787,10 +826,307 @@
 
     
 
-   
+   <h2 id="about">About</h2>
+
+<p><span class="tagYellow">位置</span> (-1920,11,-140)</p>
+
+<p><span class="tagBlack">呼び出し元</span> <a href="/command/xCircuit13/xCircuit13_birdStrikeClock.html">バードストライククロック処理</a></p>
+
+<p>狩人のスキルの一つであるバードストライクの敵の落下処理を<code class="language-plaintext highlighter-rouge">Motion</code>の変更によって行う。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/scoreboard players tag @e[tag=FallDown] remove FallDown {OnGround:true}</td>
+      <td>リピート<br />動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/entitydata @e[tag=FallDown] {Motion:[0d,-1d,0d]}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/scoreboard players test #EntityCount Global * 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/fill -1921 ~ ~ -1921 ~ ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0 ###ストップ</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<h3 id="no1のコマンドブロックについて">No.1のコマンドブロックについて</h3>
+
+<p>No.1のコマンドブロックには以下のタグが付与されている。</p>
+
+<pre><code class="language-mcfunction">CommandStats:{AffectedEntitiesObjective:"Global",AffectedEntitiesName:"#EntityCount"}
+</code></pre>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">FallDown</code>を持ち、<code class="language-plaintext highlighter-rouge">OnGround</code>が<code class="language-plaintext highlighter-rouge">true</code>である</strong>すべてのエンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティから<code class="language-plaintext highlighter-rouge">FallDown</code>を削除</li>
+      <li><code class="language-plaintext highlighter-rouge">FallDown</code>を削除した数を<code class="language-plaintext highlighter-rouge">#EntityCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>に代入</li>
+    </ol>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">FallDown</code>を持つすべてのエンティティに<a href="#バードストライク付与タグ">バードストライク付与タグ</a>を付与</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">#EntityCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が0以下であるとき、<a href="/command/xCircuit13/xCircuit13_birdStrikeEffectClock.html">バードストライク効果クロック処理</a></li>
+</ol>
+
+<h3 id="バードストライク付与タグ">バードストライク付与タグ</h3>
+
+<pre><code class="language-mcfunction">{
+  Motion:[0d,-1d,0d]
+}
+</code></pre>
 
 
     <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
+        <a href="/tags/tag_command.html" class="btn btn-default navbar-btn cursorNorm" role="button">コマンド</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/tags/tag_archer.html" class="btn btn-default navbar-btn cursorNorm" role="button">狩人</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     </div>
 
@@ -825,6 +1161,8 @@
         <div class="col-lg-12 footer">
             Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.<br>
             <a href="https://github.com/aka256/TUSB_Analysis">Page source</a><br>
+            
+              <span>Page last updated:</span> 06 Nov 2020<br/>
             
             Site last generated: 6 Nov 2020 <br />
         </div>
