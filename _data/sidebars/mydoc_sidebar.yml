@@ -539,6 +539,12 @@ entries:
     - title: ステークスファイア勝ち演出
       url: /command/xCircuit13/xCircuit13_stakesWinPerform.html
       output: web, pdf
+    - title: チェインアロークロック処理
+      url: /command/xCircuit13/xCircuit13_chainArrowClock.html
+      output: web, pdf
+    - title: ブラストショットクロック処理
+      url: /command/xCircuit13/xCircuit13_blastShotClock.html
+      output: web, pdf
 
   - title: 超作業台ルーム
     output: web,pdf

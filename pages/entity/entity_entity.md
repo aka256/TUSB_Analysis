@@ -2,7 +2,7 @@
 title: エンティティ
 tags: [敵Mob,SystemEntity,村人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,エンティティ
-update: 2020-11-05 09:00:00 +0000
+update: 2020-11-06 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: entity/entity_entity.html
 summary: コマンドに関係するエンティティについてまとめる。
@@ -1447,4 +1447,43 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 |Tags|TypeChecked|
 |Fuse|0|
 |ExplosionRadius|10|
+|ActiveEffects|透明化Lv.0 1秒間|
+
+### 魔法の矢
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:"魔法の矢",damage:40d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,ChainedArrow,TypeChecked]}
+```
+
+|-|-|
+|Name|魔法の矢|
+|Type|Arrow|
+|Tags|Garbage,ChainedArrow,TypeChecked|
+|damage|**40**|
+|life|1200 (即消滅)|
+
+### ブラストショット1
+
+```mcfunction
+/summon Creeper ~ ~0.5 ~ {CustomName:"ブラストショット",ExplosionRadius:3b,Fuse:0s,ignited:true,Invulnerable:true,NoAI:true,ActiveEffects:[{Id:14b,Amplifier:0b,Duration:20,ShowParticles:false}],Tags:[TypeChecked]}
+```
+
+|-|-|
+|Name|ブラストショット|
+|Type|Creeper|
+|Tags|TypeChecked|
+|ExplosionRadius|**3**|
+|ActiveEffects|透明化Lv.0 1秒間|
+
+### ブラストショット2
+
+```mcfunction
+/summon Creeper ~ ~0.5 ~ {CustomName:"ブラストショット",ExplosionRadius:7b,Fuse:0s,ignited:true,Invulnerable:true,NoAI:true,ActiveEffects:[{Id:14b,Amplifier:0b,Duration:20,ShowParticles:false}],Tags:[TypeChecked]}
+```
+
+|-|-|
+|Name|ブラストショット|
+|Type|Creeper|
+|Tags|TypeChecked|
+|ExplosionRadius|**7**|
 |ActiveEffects|透明化Lv.0 1秒間|

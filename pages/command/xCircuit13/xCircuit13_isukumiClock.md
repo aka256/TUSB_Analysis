@@ -56,6 +56,8 @@ CommandStats:{AffectedEntitiesObjective:"Global",AffectedEntitiesName:"#EntityCo
 
 ### 居縮HIT処理部
 
+- [NearProjectile処理]({{site.baseurl}}/command/xCircuit12/xCircuit12_nearProjectileProcessing.html)で起動される
+
 1. **`ProjectileHit`を持つエンティティと同じ座標上かつ、`PotentialSkill`が2230 ~ 2239、そして`ProjectileHit`を持つ**すべてのエンティティに対し、以下の事柄を実行
    1. 対象エンティティに**`Freeze`を付与**
    2. 対象エンティティから半径32m以内のすべてのプレイヤーに効果音を鳴らす
