@@ -2,7 +2,7 @@
 title: プライバシーポリシー
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
 permalink: page/privacy-policy.html
-update: 2020-11-09 09:21:00 +0000
+update: 2020-11-10 09:21:00 +0000
 hide_sidebar: false
 comments: false
 toc: false
@@ -22,7 +22,7 @@ toc: false
 
 ## 著作権について
 
-当サイトで掲載している文章並びに画像について、無断転載することを禁止します。もし使用したい場合は、当サイトへのリンクを行ってください。
+当サイトに掲載されているThe Unusual SkyBlockについての文章並びに画像等の著作権はTUSBの皆様に帰属します。
 
 ## リンクについて
 
