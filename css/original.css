@@ -122,3 +122,38 @@ h4 {
     padding: 0px !important;
     /*display: block !important;*/
 }
+
+
+/*topnavのトップページへのリンクの位置*/
+
+.navbar-brand {
+    position: absolute;
+    top: 4px;
+}
+
+
+/*
+@media screen and (max-width: 991px) {
+    #tg-sb-sidebar {
+        display: none;
+    }
+}*/
+
+
+/*google custom search*/
+
+.form-inline {
+    margin-top: 7px;
+    margin-left: 5px;
+    margin-bottom: 6px;
+}
+
+.search-button {
+    background-color: #4d90fe;
+    padding: 5px 30px;
+    border-color: #3079ed;
+    color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+}

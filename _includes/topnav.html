@@ -13,20 +13,20 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <!-- toggle sidebar button -->
-                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Sidebar</a></li>
+                <li class="nav-item"><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Sidebar</a></li>
                 <!-- entries without drop-downs appear here -->
 
                 {% assign topnav = site.data[page.topnav] %} {% assign topnav_dropdowns = site.data[page.topnav].topnav_dropdowns %} {% for entry in topnav.topnav %} {% for item in entry.items %} {% if item.external_url %}
-                <li><a href="{{item.external_url}}" target="_blank" rel="noopener">{{item.title}}</a></li>
+                <li class="nav-item"><a href="{{item.external_url}}" target="_blank" rel="noopener">{{item.title}}</a></li>
                 {% elsif page.url contains item.url %}
-                <li class="active"><a href="{{site.baseurl}}{{item.url | remove: " / "}}">{{item.title}}</a></li>
+                <li class="active nav-item"><a href="{{site.baseurl}}{{item.url | remove: " / "}}">{{item.title}}</a></li>
                 {% else %}
-                <li><a href="{{site.baseurl}}{{item.url | remove: " / "}}">{{item.title}}</a></li>
+                <li class="nav-item"><a href="{{site.baseurl}}{{item.url | remove: " / "}}">{{item.title}}</a></li>
                 {% endif %} {% endfor %} {% endfor %}
                 <!-- entries with drop-downs appear here -->
                 <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
                 {% for entry in topnav_dropdowns %} {% for folder in entry.folders %}
-                <li class="dropdown">
+                <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ folder.title }}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         {% for folderitem in folder.folderitems %} {% if folderitem.external_url %}
@@ -41,12 +41,35 @@
                 {% endfor %} {% endfor %} {% if site.feedback_disable == null or site.feedback_disable == false %} {% include feedback.html %} {% endif %}
                 <!--comment out this block if you want to hide search-->
                 <!--start search-->
-                <li>
+                <li class="nav-item">
+                    <!--
                     <div class="customSearch" style="margin: 5px">
                         <script async src="https://cse.google.com/cse.js?cx=010172728285433694449:7hktzoqurei"></script>
                         <div class="gcse-searchbox-only"></div>
-                    </div>
+                    </div>-->
+                    <form class="form-inline" action="http://google.com/cse">
+                        <input type="hidden" name="cx" value="010172728285433694449:7hktzoqurei" />
+                        <input type="hidden" name="ie" value="UTF-8" />
+                        <input class="form-control mr-sm-2" type="search" placeholder="Enhanced by Google" name="q" size="31" />
+                        <input type="submit" name="sa" value="&#xf002;" class="fas search-button" size="10" />
+                    </form>
                 </li>
+                <!--
+                <form class="form-inline" action="http://google.com/cse">
+                    <input type="hidden" name="cx" value="010172728285433694449:7hktzoqurei" />
+                    <input type="hidden" name="ie" value="UTF-8" />
+                    <input class="form-control mr-sm-2" type="text" placeholder="Google カスタム検索" name="q" size="31" />
+                    <input type="submit" name="sa" value="Search" />
+                    <input class="form-control mr-sm-2" type="search" placeholder="Google カスタム検索" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <form id="cse-search-box" action="http://google.com/cse">
+                    <input type="hidden" name="cx" value="010172728285433694449:7hktzoqurei" />
+                    <input type="hidden" name="ie" value="UTF-8" />
+                    <input type="text" name="q" size="31" />
+                    <input type="submit" name="sa" value="Search" />
+                </form>
+                <img src="http://www.google.com/cse/images/google_custom_search_smwide.gif">-->
                 <!--end search-->
             </ul>
 
