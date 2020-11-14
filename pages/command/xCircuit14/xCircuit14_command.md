@@ -2,14 +2,13 @@
 title: 毎tick実行するコマンド群14
 tags: [コマンド,スキル,狩人,白魔導士,黒魔導士,表示]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域
-update: 2020-11-07 09:21:00 +0000
+update: 2020-11-14 09:21:00 +0000
 sidebar: mydoc_sidebar
 permalink: command/xCircuit14/xCircuit14_command.html
 datatable4c: true
-summary: 
+summary: 雪玉や矢などの投擲物を用いたスキルやアイテムエンティティを用いたスキルなどの攻撃処理や演出、他のコマンド群への分岐などを行う。また、The Unusual SkyBlockでの狩人のスキルの一つであるエンチェイス実行時のタグを付与したり、やスキル効果切れのメッセージを表示したりする。
 summaryDisable: true
 tocLimit: h3
-search: exclude
 ---
 
 ## About
@@ -18,9 +17,9 @@ search: exclude
 
 <span class="tagBlack">呼び出し元</span> [初期化処理]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_initializeProcessing.html), [村人像]({{site.baseurl}}/command/xCircuitCore/xCircuitCore_mainclockProcessing.html)
 
-<span class="tagBlue">分岐先</span>
+<span class="tagBlue">分岐先</span> [ディアクロック処理]({{site.baseurl}}/command/xCircuit14/xCircuit14_diaClock.html), [フラワーギフトクロック処理]({{site.baseurl}}/command/xCircuit14/xCircuit14_flowerGiftClock.html), [ホーリークロック処理]({{site.baseurl}}/command/xCircuit14/xCircuit14_holyClock.html), [アイスストームクロック処理]({{site.baseurl}}/command/xCircuit14/xCircuit14_iceStormClock.html), [クロスファイアークロック処理]({{site.baseurl}}/command/xCircuit14/xCircuit14_crossFireClock.html)
 
-雪玉や矢などの投擲物を用いたスキルやアイテムエンティティを用いたスキルなどの攻撃処理や演出、他のコマンド群への分岐などを行う。
+雪玉や矢などの投擲物を用いたスキルやアイテムエンティティを用いたスキルなどの攻撃処理や演出、他のコマンド群への分岐などを行う。また、The Unusual SkyBlockでの狩人のスキルの一つであるエンチェイス実行時のタグを付与したり、やスキル効果切れのメッセージを表示したりする。
 
 ## コマンド群
 
@@ -63,6 +62,14 @@ search: exclude
 <div class="datatable4c-end"></div>
 
 ## 詳細
+
+1. 以下のコマンド群が起動されているとき、それぞれを実行する
+   1. [ディア実行部](#ディア実行部)
+   2. [フラワーギフト](#フラワーギフト実行部)
+   3. [ホーリー実行部](#ホーリー実行部)
+   4. [アイスストーム実行部](#アイスストーム実行部)
+   5. [クロスファイアー実行部](#クロスファイアー実行部)
+2. [エンチェイス付与処理部](#エンチェイス付与処理部)を実行
 
 ### ディア実行部
 
