@@ -567,6 +567,15 @@ entries:
     - title: フラワーギフトクロック処理
       url: /command/xCircuit14/xCircuit14_flowerGiftClock.html
       output: web, pdf
+    - title: ホーリークロック処理
+      url: /command/xCircuit14/xCircuit14_holyClock.html
+      output: web, pdf
+    - title: アイスストームクロック処理
+      url: /command/xCircuit14/xCircuit14_iceStormClock.html
+      output: web, pdf
+    - title: クロスファイアークロック処理
+      url: /command/xCircuit14/xCircuit14_crossFireClock.html
+      output: web, pdf
 
   - title: 超作業台ルーム
     output: web,pdf

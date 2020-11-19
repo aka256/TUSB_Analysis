@@ -5,9 +5,11 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=" ">
-<title> | TUSB Analysis</title><!-- Google Tag Manager -->
+<meta name="description" content="The Unusual SkyBlockでの黒魔導士のスキルの一つであるアイスストームの実行時の演出や、敵MOBへ満腹や移動速度低下の付与、ターゲットへの攻撃処理などを行う。なお、満腹ステータスの付与は敵MOBに対するスキルのクールダウン処理のためのものであると考えられる。">
+<meta name="keywords" content="コマンドスキル黒魔導士,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<title>アイスストームクロック処理 | TUSB Analysis</title>
+<link rel="canonical" href="http://127.0.0.1:4000/command/xCircuit14/xCircuit14_iceStormClock.html">
+<!-- Google Tag Manager -->
 <script>
     (function(w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -60,9 +62,9 @@
 
 <meta name="twitter:card" content="summary" /> <!--①-->
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
-<meta property="og:url" content="http://127.0.0.1:4000" /> <!--③-->
-<meta property="og:title" content=" | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="" /> <!--⑤-->
+<meta property="og:url" content="http://127.0.0.1:4000command/xCircuit14/xCircuit14_iceStormClock.html" /> <!--③-->
+<meta property="og:title" content="アイスストームクロック処理 | TUSB Analysis" /> <!--④-->
+<meta property="og:description" content="The Unusual SkyBlockでの黒魔導士のスキルの一つであるアイスストームの実行時の演出や、敵MOBへ満腹や移動速度低下の付与、ターゲットへの攻撃処理などを行う。なお、満腹ステータスの付与は敵MOBに対するスキルのクールダウン処理のためのものであると考えられる。" /> <!--⑤-->
 <meta property="og:image" content="http://127.0.0.1:4000/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -135,6 +137,37 @@
         });
     </script>
      
+    <!-- Include the standard DataTables bits -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <!-- First, this walks through the tables that occur between ...-begin
+         and ...-end and add the "datatable" class to them.
+         Then it invokes DataTable's standard initializer
+         Credit here: http://www.beardedhacker.com/blog/2015/08/28/add-class-attribute-to-markdown-table/
+      -->
+    <script>
+        $(document).ready(function() {
+            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
+            $('table.display').DataTable({
+                paging: true,
+                stateSave: true,
+                searching: true,
+                autoWidth: false,
+                lengthChange: true,
+                columns: [{
+                    responsivePriority: 2,
+                    width: "2em"
+                }, {
+                    responsivePriority: 3,
+                    width: "77%"
+                }, {
+                    responsivePriority: 1,
+                    width: "15%"
+                }],
+            });
+        });
+    </script>
+    
     <style type="text/css">
         table {
             table-layout: fixed;
@@ -709,6 +742,12 @@
             <li><a title="ディアクロック処理" href="/command/xCircuit14/xCircuit14_diaClock.html">ディアクロック処理</a></li>
                  
             <li><a title="フラワーギフトクロック処理" href="/command/xCircuit14/xCircuit14_flowerGiftClock.html">フラワーギフトクロック処理</a></li>
+                 
+            <li><a title="ホーリークロック処理" href="/command/xCircuit14/xCircuit14_holyClock.html">ホーリークロック処理</a></li>
+                 
+            <li class="active"><a title="アイスストームクロック処理" href="/command/xCircuit14/xCircuit14_iceStormClock.html">アイスストームクロック処理</a></li>
+                 
+            <li><a title="クロスファイアークロック処理" href="/command/xCircuit14/xCircuit14_crossFireClock.html">クロスファイアークロック処理</a></li>
                
         </ul>
     </li>
@@ -793,7 +832,7 @@
                 <!-- Content Column -->
                 <div class="col-md-9" id="tg-sb-content">
                     <div class="post-header">
-   <h1 class="post-title-main"></h1>
+   <h1 class="post-title-main">アイスストームクロック処理</h1>
 </div>
 
 
@@ -813,7 +852,7 @@
             minimumHeaders: 0,
             listType: 'ul',
             showSpeed: 0,
-            headers: 'h2,h3,h4'
+            headers: 'h2,h3'
         });
 
         /* this offset helps account for the space taken up by the floating toolbar. */
@@ -834,10 +873,503 @@
 
     
 
-   
+   <h2 id="about">About</h2>
+
+<p><span class="tagYellow">位置</span> (-1920,18,-137)</p>
+
+<p><span class="tagBlack">呼び出し元</span> <a href="/command/xCircuit14/xCircuit14_command.html">毎tick実行するコマンド群14</a></p>
+
+<p>The Unusual SkyBlockでの黒魔導士のスキルの一つであるアイスストームの実行時の演出や、敵MOBへ満腹や移動速度低下の付与、ターゲットへの攻撃処理などを行う。なお、満腹ステータスの付与は敵MOBに対するスキルのクールダウン処理のためのものであると考えられる。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @e[tag=IceStorm] ~ ~ ~ /playsound block.anvil.land master @a[r=32] ~ ~100 ~ 0.05 2 0.05</td>
+      <td>リピート<br />動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @e[tag=IceStorm] ~ ~ ~ /particle blockcrack ~ ~ ~ 0.5 0.5 0.5 0.1 10 force @a[r=64] 174</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute @e[tag=IceStorm] ~ ~ ~ /scoreboard players tag @e[r=5,type=!SnowMan,tag=Enemy] add Icing</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/scoreboard players tag @e[tag=Icing] remove Icing {ActiveEffects:[{Id:23b,Amplifier:-1b,ShowParticles:false}]}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/scoreboard players tag @e[tag=Icing] add SkillTarget</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/fill ~5 ~1 ~ ~8 ~1 ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/effect @e[tag=Icing] minecraft:saturation 6 255 true</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/effect @e[tag=Icing] minecraft:slowness 10 1 false</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/execute @e[tag=Icing] ~ ~ ~ /playsound entity.item.break master @a[r=32] ~ ~ ~ 2 1.6 0.1</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/execute @e[tag=Icing] ~ ~ ~ /particle blockcrack_174 ~ ~1 ~ 0.1 0.5 0.1 0.1 30 force</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/execute @e[tag=IceStorm1] ~ ~ ~ /execute @e[r=5,tag=Icing] ~ ~ ~ /summon Arrow ~ ~0.02 ~ {CustomName:”アイスストーム”,damage:10d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/execute @e[tag=IceStorm2] ~ ~ ~ /execute @e[r=5,tag=Icing] ~ ~ ~ /summon Arrow ~ ~0.02 ~ {CustomName:”アイスストーム”,damage:20d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/execute @e[tag=IceStorm3] ~ ~ ~ /execute @e[r=5,tag=Icing] ~ ~ ~ /summon Arrow ~ ~0.02 ~ {CustomName:”アイスストーム”,damage:35d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/fill ~-3 ~1 ~ ~ ~1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/scoreboard players tag @e[tag=Icing] remove Icing</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/execute @e[tag=IceStorm] ~ ~ ~ /fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:frosted_ice 0 replace minecraft:water 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/scoreboard players test #EntityCount Global * 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/fill -1921 ~ ~ -1921 ~ ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0 ###ストップ</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<h3 id="no1のコマンドブロックについて">No.1のコマンドブロックについて</h3>
+
+<p>No.1のコマンドブロックには以下のタグが付与されている。</p>
+
+<pre><code class="language-mcfunction">CommandStats:{AffectedEntitiesObjective:"Global",AffectedEntitiesName:"#EntityCount"}
+</code></pre>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">IceStorm</code>を持つ</strong>すべてのエンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティから半径32m以内のすべてのプレイヤーに効果音を鳴らす</li>
+      <li>対象エンティティの数を<code class="language-plaintext highlighter-rouge">#EntityCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>に代入</li>
+      <li>対象エンティティから半径64m以内のすべてのプレイヤーの座標上にパーティクルを表示</li>
+    </ol>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">IceStorm</code>を持つすべてのエンティティから半径5m以内の<code class="language-plaintext highlighter-rouge">Enemy</code>を持った<code class="language-plaintext highlighter-rouge">SnowMan</code>以外のすべてのエンティティ</strong>に対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティに<strong><code class="language-plaintext highlighter-rouge">Icing</code>を付与</strong></li>
+      <li><code class="language-plaintext highlighter-rouge">Icing</code>を持ち、<a href="#icing削除対象タグ">Icing削除対象タグ</a>(満腹Lv.255を持つエンティティ)を持つすべてのエンティティから<code class="language-plaintext highlighter-rouge">Icing</code>を削除</li>
+    </ol>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Icing</code>を持つ</strong>すべてのエンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティに<strong><code class="language-plaintext highlighter-rouge">SkillTarget</code>を付与</strong></li>
+      <li><a href="#アイスストーム攻撃実行部">アイスストーム攻撃実行部</a>を起動</li>
+      <li>対象エンティティに<strong>満腹Lv.255を6秒間付与</strong></li>
+      <li>対象エンティティに<strong>移動速度低下Lv.1を10秒間付与</strong></li>
+      <li>対象エンティティから半径32m以内のすべてのプレイヤーに効果音を鳴らす</li>
+      <li>対象エンティティの座標上にパーティクルを表示</li>
+    </ol>
+  </li>
+  <li><strong><a href="#アイスストーム攻撃実行部">アイスストーム攻撃実行部</a>が起動されているとき、それを実行</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">IceStorm</code>を持つすべてのエンティティからxyz軸方向にそれぞれ2mの範囲内の水を薄氷に置き換える</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">#EntityCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が0以下であるとき、<a href="/command/xCircuit14/xCircuit14_iceStormClock.html">アイスストームクロック処理</a>を停止</li>
+</ol>
+
+<h3 id="アイスストーム攻撃実行部">アイスストーム攻撃実行部</h3>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">IceStorm1</code>を持つ</strong>すべてのエンティティから、半径5m以内の<code class="language-plaintext highlighter-rouge">Icing</code>を持ったすべてのエンティティから0.02m上に<strong><a href="#アイスストーム1">アイスストーム1</a>を召喚</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">IceStorm2</code>を持つ</strong>すべてのエンティティから、半径5m以内の<code class="language-plaintext highlighter-rouge">Icing</code>を持ったすべてのエンティティから0.02m上に<strong><a href="#アイスストーム2">アイスストーム2</a>を召喚</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">IceStorm3</code>を持つ</strong>すべてのエンティティから、半径5m以内の<code class="language-plaintext highlighter-rouge">Icing</code>を持ったすべてのエンティティから0.02m上に<strong><a href="#アイスストーム3">アイスストーム3</a>を召喚</strong></li>
+  <li><a href="#アイスストーム攻撃実行部">アイスストーム攻撃実行部</a>を停止し、以下の事柄を実行
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Icing</code>を持つすべてのエンティティから<code class="language-plaintext highlighter-rouge">Icing</code>を削除</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="icing削除対象タグ">Icing削除対象タグ</h3>
+
+<pre><code class="language-mcfunction">{
+  ActiveEffects:
+  [{
+    Id:23b,
+    Amplifier:-1b,
+    ShowParticles:false
+  }]
+}
+</code></pre>
+
+<h3 id="アイスストーム1">アイスストーム1</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~0.02 ~ {CustomName:”アイスストーム”,damage:10d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>アイスストーム</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>Garbage,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>damage</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>life</td>
+      <td>1200(即消滅)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="アイスストーム2">アイスストーム2</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~0.02 ~ {CustomName:”アイスストーム”,damage:20d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>アイスストーム</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>Garbage,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>damage</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>life</td>
+      <td>1200(即消滅)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="アイスストーム3">アイスストーム3</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~0.02 ~ {CustomName:”アイスストーム”,damage:35d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>アイスストーム</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>Garbage,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>damage</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>life</td>
+      <td>1200(即消滅)</td>
+    </tr>
+  </tbody>
+</table>
 
 
     <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
+        <a href="/tags/tag_command.html" class="btn btn-default navbar-btn cursorNorm" role="button">コマンド</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/tags/tag_blackMage.html" class="btn btn-default navbar-btn cursorNorm" role="button">黒魔導士</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     </div>
 
@@ -871,7 +1403,9 @@
     <div class="row">
         <div class="col-lg-12 footer">
             
-            Site last generated: 2020-11-14 <br />
+              <span>Page last updated:</span> 2020-11-20<br/>
+            
+            Site last generated: 2020-11-19 <br />
             <div style="text-align: center;margin-top: 10px;">
               Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.|<a href="https://github.com/aka256/TUSB_Analysis">Page source</a>|<a href="/page/privacy-policy.html">Privacy Policy</a><br>
             </div>
