@@ -2,7 +2,7 @@
 title: エンティティ
 tags: [敵Mob,SystemEntity,村人]
 keywords: TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域,エンティティ
-update: 2020-11-06 09:00:00 +0000
+update: 2020-11-20 09:00:00 +0000
 sidebar: mydoc_sidebar
 permalink: entity/entity_entity.html
 summary: コマンドに関係するエンティティについてまとめる。
@@ -1487,3 +1487,126 @@ SATの蜘蛛の巣設置については[時間経過]({{site.baseurl}}/command/x
 |Tags|TypeChecked|
 |ExplosionRadius|**7**|
 |ActiveEffects|透明化Lv.0 1秒間|
+
+### アイスストーム1
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”アイスストーム”,damage:10d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+```
+
+|-|-|
+|Name|アイスストーム|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|10|
+|life|1200(即消滅)|
+
+### アイスストーム2
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”アイスストーム”,damage:20d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+```
+
+|-|-|
+|Name|アイスストーム|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|20|
+|life|1200(即消滅)|
+
+### アイスストーム3
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”アイスストーム”,damage:35d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked]}
+```
+
+|-|-|
+|Name|アイスストーム|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|35|
+|life|1200(即消滅)|
+
+### クロスファイアー1
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:10d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}
+```
+
+|-|-|
+|Name|クロスファイアー|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|**10**|
+|life|1200 (即消滅)|
+|Fire|40|
+
+### クロスファイアー2
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:20d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}
+```
+
+|-|-|
+|Name|クロスファイアー|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|**20**|
+|life|1200 (即消滅)|
+|Fire|40|
+
+### クロスファイアー3
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:30d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}
+```
+
+|-|-|
+|Name|クロスファイアー|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|**30**|
+|life|1200 (即消滅)|
+|Fire|40|
+
+### クロスファイアー4
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:30d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}
+```
+
+|-|-|
+|Name|クロスファイアー|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|**30**|
+|life|1200 (即消滅)|
+|Fire|40|
+
+### クロスファイアー5
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:60d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}
+```
+
+|-|-|
+|Name|クロスファイアー|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|**60**|
+|life|1200 (即消滅)|
+|Fire|40|
+
+### クロスファイアー6
+
+```mcfunction
+/summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:90d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}
+```
+
+|-|-|
+|Name|クロスファイアー|
+|Type|Arrow|
+|Tags|Garbage,TypeChecked|
+|damage|**90**|
+|life|1200 (即消滅)|
+|Fire|40|

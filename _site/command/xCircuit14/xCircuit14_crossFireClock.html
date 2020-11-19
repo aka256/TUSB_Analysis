@@ -5,9 +5,11 @@
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=" ">
-<title> | TUSB Analysis</title><!-- Google Tag Manager -->
+<meta name="description" content="The Unusual SkyBlockでの黒魔導士のスキルの一つであるクロスファイアーの実行時の演出や、敵MOBへ満腹の付与、ターゲットへの攻撃処理などを行う。なお、満腹ステータスの付与は敵MOBに対するスキルのクールダウン処理のためのものであると考えられる。また、敵MOBが火炎耐性を持っているもしくはBurn...">
+<meta name="keywords" content="コマンドスキル黒魔導士,  TUSB,The Unusual Skyblock,スカイブロック,コマンド,解析,X回路区域">
+<title>クロスファイアークロック処理 | TUSB Analysis</title>
+<link rel="canonical" href="http://127.0.0.1:4000/command/xCircuit14/xCircuit14_crossFireClock.html">
+<!-- Google Tag Manager -->
 <script>
     (function(w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -60,9 +62,9 @@
 
 <meta name="twitter:card" content="summary" /> <!--①-->
 <meta name="twitter:site" content="@Re16d5" /> <!--②-->
-<meta property="og:url" content="http://127.0.0.1:4000" /> <!--③-->
-<meta property="og:title" content=" | TUSB Analysis" /> <!--④-->
-<meta property="og:description" content="" /> <!--⑤-->
+<meta property="og:url" content="http://127.0.0.1:4000command/xCircuit14/xCircuit14_crossFireClock.html" /> <!--③-->
+<meta property="og:title" content="クロスファイアークロック処理 | TUSB Analysis" /> <!--④-->
+<meta property="og:description" content="The Unusual SkyBlockでの黒魔導士のスキルの一つであるクロスファイアーの実行時の演出や、敵MOBへ満腹の付与、ターゲットへの攻撃処理などを行う。なお、満腹ステータスの付与は敵MOBに対するスキルのクールダウン処理のためのものであると考えられる。また、敵MOBが火炎耐性を持っているもしくはBurn..." /> <!--⑤-->
 <meta property="og:image" content="http://127.0.0.1:4000/images/twitterCard.png" /> <!--⑥-->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -135,6 +137,37 @@
         });
     </script>
      
+    <!-- Include the standard DataTables bits -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <!-- First, this walks through the tables that occur between ...-begin
+         and ...-end and add the "datatable" class to them.
+         Then it invokes DataTable's standard initializer
+         Credit here: http://www.beardedhacker.com/blog/2015/08/28/add-class-attribute-to-markdown-table/
+      -->
+    <script>
+        $(document).ready(function() {
+            $('div.datatable3c-begin').nextUntil('div.datatable3c-end', 'table').addClass('display');
+            $('table.display').DataTable({
+                paging: true,
+                stateSave: true,
+                searching: true,
+                autoWidth: false,
+                lengthChange: true,
+                columns: [{
+                    responsivePriority: 2,
+                    width: "2em"
+                }, {
+                    responsivePriority: 3,
+                    width: "77%"
+                }, {
+                    responsivePriority: 1,
+                    width: "15%"
+                }],
+            });
+        });
+    </script>
+    
     <style type="text/css">
         table {
             table-layout: fixed;
@@ -709,6 +742,12 @@
             <li><a title="ディアクロック処理" href="/command/xCircuit14/xCircuit14_diaClock.html">ディアクロック処理</a></li>
                  
             <li><a title="フラワーギフトクロック処理" href="/command/xCircuit14/xCircuit14_flowerGiftClock.html">フラワーギフトクロック処理</a></li>
+                 
+            <li><a title="ホーリークロック処理" href="/command/xCircuit14/xCircuit14_holyClock.html">ホーリークロック処理</a></li>
+                 
+            <li><a title="アイスストームクロック処理" href="/command/xCircuit14/xCircuit14_iceStormClock.html">アイスストームクロック処理</a></li>
+                 
+            <li class="active"><a title="クロスファイアークロック処理" href="/command/xCircuit14/xCircuit14_crossFireClock.html">クロスファイアークロック処理</a></li>
                
         </ul>
     </li>
@@ -793,7 +832,7 @@
                 <!-- Content Column -->
                 <div class="col-md-9" id="tg-sb-content">
                     <div class="post-header">
-   <h1 class="post-title-main"></h1>
+   <h1 class="post-title-main">クロスファイアークロック処理</h1>
 </div>
 
 
@@ -813,7 +852,7 @@
             minimumHeaders: 0,
             listType: 'ul',
             showSpeed: 0,
-            headers: 'h2,h3,h4'
+            headers: 'h2,h3'
         });
 
         /* this offset helps account for the space taken up by the floating toolbar. */
@@ -834,10 +873,672 @@
 
     
 
-   
+   <h2 id="about">About</h2>
+
+<p><span class="tagYellow">位置</span> (-1920,18,-137)</p>
+
+<p><span class="tagBlack">呼び出し元</span> <a href="/command/xCircuit14/xCircuit14_command.html">毎tick実行するコマンド群14</a></p>
+
+<p>The Unusual SkyBlockでの黒魔導士のスキルの一つであるクロスファイアーの実行時の演出や、敵MOBへ満腹の付与、ターゲットへの攻撃処理などを行う。なお、満腹ステータスの付与は敵MOBに対するスキルのクールダウン処理のためのものであると考えられる。また、敵MOBが火炎耐性を持っているもしくは<code class="language-plaintext highlighter-rouge">BurnableEnemy</code>持っていないとき、ダメージを1/3にする。</p>
+
+<h2 id="コマンド群">コマンド群</h2>
+
+<div class="datatable3c-begin"></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No.</th>
+      <th>コマンド</th>
+      <th>状態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>/execute @e[tag=CrossFire] ~ ~ ~ /playsound entity.blaze.shoot master @a[r=32] ~ ~100 ~ 0.1 1.2 0.1</td>
+      <td>リピート<br />動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>/execute @e[tag=CrossFire] ~ ~ ~ /particle flame ~ ~ ~ 2.0 0.0 0.0 0.0 10 force</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>/execute @e[tag=CrossFire] ~ ~ ~ /particle flame ~ ~ ~ 0.0 2.0 0.0 0.0 10 force</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>/execute @e[tag=CrossFire] ~ ~ ~ /particle flame ~ ~ ~ 0.0 0.0 2.0 0.0 10 force</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>/execute @e[tag=CrossFire] ~-7 ~ ~ /scoreboard players tag @e[dx=14,tag=Enemy] add Firing</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>/execute @e[tag=CrossFire] ~ ~-7 ~ /scoreboard players tag @e[dy=14,tag=Enemy] add Firing</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>/execute @e[tag=CrossFire] ~ ~ ~-7 /scoreboard players tag @e[dz=14,tag=Enemy] add Firing</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td>/scoreboard players tag @e[tag=Firing] remove Firing {ActiveEffects:[{Id:23b,Amplifier:-1b,ShowParticles:false}]}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td>/effect @e[tag=Firing] minecraft:saturation 6 255 true</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td>/fill ~3 ~1 ~ ~14 ~1 ~ minecraft:redstone_block 0 replace minecraft:lapis_block 0</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">11</td>
+      <td>/scoreboard players tag @e[tag=Firing] add Firing2 {Tags:[BurnableEnemy]}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td>/scoreboard players tag @e[tag=Firing2] remove Firing2 {ActiveEffects:[{Id:12b}]}</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13</td>
+      <td>/scoreboard players tag @e[tag=Firing] add SkillTarget</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">14</td>
+      <td>/execute @e[tag=Firing] ~ ~ ~ /playsound entity.zombie.infect master @a[r=32] ~ ~ ~ 2 1.4 0</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td>/execute @e[tag=Firing] ~ ~ ~ /particle largesmoke ~ ~1 ~ 0.3 0.5 0.3 0.1 20 force</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">16</td>
+      <td>/execute @e[tag=CrossFire1] ~ ~ ~ /execute @e[r=8,tag=Firing2] ~ ~ ~ /summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:30d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">17</td>
+      <td>/execute @e[tag=CrossFire2] ~ ~ ~ /execute @e[r=8,tag=Firing2] ~ ~ ~ /summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:60d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">18</td>
+      <td>/execute @e[tag=CrossFire3] ~ ~ ~ /execute @e[r=8,tag=Firing2] ~ ~ ~ /summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:90d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">19</td>
+      <td>/scoreboard players tag @e[tag=Firing2] remove Firing</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">20</td>
+      <td>/scoreboard players tag @e[tag=Firing2] remove Firing2</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">21</td>
+      <td>/execute @e[tag=CrossFire1] ~ ~ ~ /execute @e[r=8,tag=Firing] ~ ~ ~ /summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:10d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">22</td>
+      <td>/execute @e[tag=CrossFire2] ~ ~ ~ /execute @e[r=8,tag=Firing] ~ ~ ~ /summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:20d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">23</td>
+      <td>/execute @e[tag=CrossFire3] ~ ~ ~ /execute @e[r=8,tag=Firing] ~ ~ ~ /summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:30d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">24</td>
+      <td>/fill ~-11 ~1 ~ ~ ~1 ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0</td>
+      <td>動力が必要</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">25</td>
+      <td>/scoreboard players tag @e[tag=Firing] remove Firing</td>
+      <td>条件付き</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">26</td>
+      <td>/execute @e[tag=CrossFire] ~ ~ ~ /fill ~-2 ~-2 ~-2 ~2 ~2 ~2 minecraft:water 0 replace minecraft:frosted_ice</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">27</td>
+      <td>/scoreboard players test #EntityCount Global * 0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">28</td>
+      <td>/fill -1921 ~ ~ -1921 ~ ~ minecraft:lapis_block 0 replace minecraft:redstone_block 0 ###ストップ</td>
+      <td>条件付き</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="datatable3c-end"></div>
+
+<h3 id="no1のコマンドブロックについて">No.1のコマンドブロックについて</h3>
+
+<p>No.1のコマンドブロックには以下のタグが付与されている。</p>
+
+<pre><code class="language-mcfunction">CommandStats:{AffectedEntitiesObjective:"Global",AffectedEntitiesName:"#EntityCount"}
+</code></pre>
+
+<h2 id="詳細">詳細</h2>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">CrossFire</code>を持つ</strong>すべてのエンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティから半径32m以内のすべてのプレイヤーに効果音を鳴らす</li>
+      <li>対象エンティティの数を<code class="language-plaintext highlighter-rouge">#EntityCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>に代入</li>
+      <li>対象エンティティの座標上にパーティクルを表示</li>
+    </ol>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">CrossFire</code>を持つすべてのエンティティから、xyz軸の正負方向にそれぞれ7mの位置にいる<code class="language-plaintext highlighter-rouge">Enemy</code>を持ったすべてのエンティティに、<code class="language-plaintext highlighter-rouge">Firing</code>を付与</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Firing</code>を持ち、<a href="#firing削除対象タグ">Firing削除対象タグ</a>(満腹Lv.255を持つエンティティ)が付与されているすべてのエンティティから、<code class="language-plaintext highlighter-rouge">Firing</code>を削除</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Firing</code>を持つ</strong>すべてのエンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティに<strong>満腹Lv.255を6秒間付与</strong></li>
+      <li><a href="#クロスファイアー攻撃実行部">クロスファイアー攻撃実行部</a>を起動</li>
+      <li><strong><code class="language-plaintext highlighter-rouge">Firing</code>と<code class="language-plaintext highlighter-rouge">BurnableEnemy</code>を持つすべてのエンティティに<code class="language-plaintext highlighter-rouge">Firing2</code>を付与</strong></li>
+      <li><strong><code class="language-plaintext highlighter-rouge">Firing</code>を持ち、火炎耐性が付与されているすべてのエンティティから<code class="language-plaintext highlighter-rouge">Firing2</code>を削除</strong></li>
+    </ol>
+  </li>
+  <li><strong><a href="#クロスファイアー攻撃実行部">クロスファイアー攻撃実行部</a>が起動されているとき、それを実行</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">CrossFire</code>を持つすべてのエンティティからxyz軸方向にそれぞれ2mの範囲内の薄氷を水に置き換える</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">#EntityCount</code>の<code class="language-plaintext highlighter-rouge">Global</code>が0以下であるとき、<a href="/command/xCircuit14/xCircuit14_crossFireClock.html">クロスファイアークロック処理</a>を停止</li>
+</ol>
+
+<h3 id="クロスファイアー攻撃実行部">クロスファイアー攻撃実行部</h3>
+
+<ol>
+  <li><strong><code class="language-plaintext highlighter-rouge">Firing</code>を持つ</strong>すべてのエンティティに対し、以下の事柄を実行
+    <ol>
+      <li>対象エンティティに<code class="language-plaintext highlighter-rouge">SkillTarget</code>を付与</li>
+      <li>対象エンティティから半径32m以内のすべてのプレイヤーに効果音を鳴らす</li>
+      <li>対象エンティティの座標上にパーティクルを表示</li>
+    </ol>
+  </li>
+  <li><strong><code class="language-plaintext highlighter-rouge">CrossFire1</code>を持つ</strong>すべてのエンティティから半径8m以内の<strong><code class="language-plaintext highlighter-rouge">Firing2</code>を持つ</strong>すべてのエンティティから0.02m上に<strong><a href="#クロスファイアー4">クロスファイアー4</a>を召喚</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">CrossFire2</code>を持つ</strong>すべてのエンティティから半径8m以内の<strong><code class="language-plaintext highlighter-rouge">Firing2</code>を持つ</strong>すべてのエンティティから0.02m上に<strong><a href="#クロスファイアー5">クロスファイアー5</a>を召喚</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">CrossFire3</code>を持つ</strong>すべてのエンティティから半径8m以内の<strong><code class="language-plaintext highlighter-rouge">Firing2</code>を持つ</strong>すべてのエンティティから0.02m上に<strong><a href="#クロスファイアー6">クロスファイアー6</a>を召喚</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">Firing2</code>を持つすべてのエンティティから<code class="language-plaintext highlighter-rouge">Firing</code>と<code class="language-plaintext highlighter-rouge">Firing2</code>を削除</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">CrossFire1</code>を持つ</strong>すべてのエンティティから半径8m以内の<strong><code class="language-plaintext highlighter-rouge">Firing</code>を持つ</strong>すべてのエンティティから0.02m上に<strong><a href="#クロスファイアー1">クロスファイアー1</a>を召喚</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">CrossFire2</code>を持つ</strong>すべてのエンティティから半径8m以内の<strong><code class="language-plaintext highlighter-rouge">Firing</code>を持つ</strong>すべてのエンティティから0.02m上に<strong><a href="#クロスファイアー2">クロスファイアー2</a>を召喚</strong></li>
+  <li><strong><code class="language-plaintext highlighter-rouge">CrossFire3</code>を持つ</strong>すべてのエンティティから半径8m以内の<strong><code class="language-plaintext highlighter-rouge">Firing</code>を持つ</strong>すべてのエンティティから0.02m上に<strong><a href="#クロスファイアー3">クロスファイアー3</a>を召喚</strong></li>
+  <li><a href="#クロスファイアー攻撃実行部">クロスファイアー攻撃実行部</a>を停止し、以下の事柄を実行
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Firing</code>を持つすべてのエンティティから<code class="language-plaintext highlighter-rouge">Firing</code>を削除</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="firing削除対象タグ">Firing削除対象タグ</h3>
+
+<pre><code class="language-mcfunction">{
+  ActiveEffects:
+  [{
+    Id:23b,
+    Amplifier:-1b,
+    ShowParticles:false
+  }]
+}
+</code></pre>
+
+<h3 id="クロスファイアー1">クロスファイアー1</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:10d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>クロスファイアー</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>Garbage,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>damage</td>
+      <td><strong>10</strong></td>
+    </tr>
+    <tr>
+      <td>life</td>
+      <td>1200 (即消滅)</td>
+    </tr>
+    <tr>
+      <td>Fire</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="クロスファイアー2">クロスファイアー2</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:20d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>クロスファイアー</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>Garbage,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>damage</td>
+      <td><strong>20</strong></td>
+    </tr>
+    <tr>
+      <td>life</td>
+      <td>1200 (即消滅)</td>
+    </tr>
+    <tr>
+      <td>Fire</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="クロスファイアー3">クロスファイアー3</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:30d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>クロスファイアー</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>Garbage,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>damage</td>
+      <td><strong>30</strong></td>
+    </tr>
+    <tr>
+      <td>life</td>
+      <td>1200 (即消滅)</td>
+    </tr>
+    <tr>
+      <td>Fire</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="クロスファイアー4">クロスファイアー4</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:30d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>クロスファイアー</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>Garbage,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>damage</td>
+      <td><strong>30</strong></td>
+    </tr>
+    <tr>
+      <td>life</td>
+      <td>1200 (即消滅)</td>
+    </tr>
+    <tr>
+      <td>Fire</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="クロスファイアー5">クロスファイアー5</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:60d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>クロスファイアー</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>Garbage,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>damage</td>
+      <td><strong>60</strong></td>
+    </tr>
+    <tr>
+      <td>life</td>
+      <td>1200 (即消滅)</td>
+    </tr>
+    <tr>
+      <td>Fire</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="クロスファイアー6">クロスファイアー6</h3>
+
+<pre><code class="language-mcfunction">/summon Arrow ~ ~0.02 ~ {CustomName:”クロスファイアー”,damage:90d,Motion:[0d,1d,0d],Silent:true,life:1200s,Tags:[Garbage,TypeChecked],Fire:40s}
+</code></pre>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>クロスファイアー</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Arrow</td>
+    </tr>
+    <tr>
+      <td>Tags</td>
+      <td>Garbage,TypeChecked</td>
+    </tr>
+    <tr>
+      <td>damage</td>
+      <td><strong>90</strong></td>
+    </tr>
+    <tr>
+      <td>life</td>
+      <td>1200 (即消滅)</td>
+    </tr>
+    <tr>
+      <td>Fire</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
 
 
     <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        
+        <a href="/tags/tag_command.html" class="btn btn-default navbar-btn cursorNorm" role="button">コマンド</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/tags/tag_skill.html" class="btn btn-default navbar-btn cursorNorm" role="button">スキル</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="/tags/tag_blackMage.html" class="btn btn-default navbar-btn cursorNorm" role="button">黒魔導士</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     </div>
 
@@ -871,7 +1572,9 @@
     <div class="row">
         <div class="col-lg-12 footer">
             
-            Site last generated: 2020-11-14 <br />
+              <span>Page last updated:</span> 2020-11-20<br/>
+            
+            Site last generated: 2020-11-19 <br />
             <div style="text-align: center;margin-top: 10px;">
               Generated by <a href="http://jekyllrb-ja.github.io/">Jekyll</a>.|<a href="https://github.com/aka256/TUSB_Analysis">Page source</a>|<a href="/page/privacy-policy.html">Privacy Policy</a><br>
             </div>
