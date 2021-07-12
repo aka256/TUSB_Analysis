@@ -37,7 +37,7 @@ summaryDisable: true
 |CauseEvent|Player|嫌な予感フラグ|
 |Conquer|Player|島攻略時フラグ|
 |CooldownRequired|Entity|
-|CooldownReauiredLong|
+|CooldownRequiredLong|
 |CoolTickCounter|
 |Doom|Player|死の宣告|
 |DoomStart|Player|死の宣告開始フラグ|
